@@ -24222,7 +24222,7 @@ https://video-weaver.sao03.hls.ttvnw.net/v1/playlist/C.m3u8 09:36:20.90
 
     var PlayClip_BaseUrl = 'https://gql.twitch.tv/gql';
     var PlayClip_postMessage =
-        '{"operationName":"VideoAccessToken_Clip","variables":{"slug":"%x"},"extensions":{"persistedQuery":{"version":1,"sha256Hash":"36b89d2507fce29e5ca551df756d27c1cfe079e2609642b4390aa4c35796eb11"}}}';
+        '{"operationName":"VideoAccessToken_Clip","variables":{"platform": "web","slug":"%x"},"extensions":{"persistedQuery":{"version":1,"sha256Hash":"4f35f1ac933d76b1da008c806cd5546a7534dfaff83e033a422a81f24e5991b3"}}}';
     var PlayClip_ExtraClipInfo =
         '{"query":"{clip(slug:\\"%x\\"){game{displayName},videoOffsetSeconds,broadcaster{roles{isPartner},displayName,profileImageURL(width: 300)}}}"}';
 
