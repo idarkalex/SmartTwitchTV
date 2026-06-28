@@ -42,7 +42,7 @@ var ttv_lol_headers = JSON.stringify([['X-Donate-To', 'https://ttv.lol/donate']]
 
 var ktwitch_proxy = 'https://api.twitch.hkg.kwabang.net/hls-raw/';
 
-var T1080_proxy = 'https://api1080.ontdb.com/';
+var T1080_proxy = 'http://192.168.1.56:8119';
 
 var proxy_timeout = 5000;
 var proxy_url = '';
