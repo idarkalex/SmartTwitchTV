@@ -47,18 +47,13 @@ jobs:
       - name: Deploy web content to release branch
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         run: |
+          cp -r app /tmp/webcontent
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git checkout --orphan release
           git rm -rf .
-          cp -r app/etc .
-          cp -r app/Extrapage .
-          cp -r app/general .
-          cp -r app/languages .
-          cp -r app/specific .
-          cp -r app/testing .
-          cp -r app/thirdparty .
-          cp app/index.html .
+          cp -r /tmp/webcontent/* .
+          rm -rf /tmp/webcontent
           git add .
           git commit -m "Deploy web content to release branch"
           git push origin release --force
