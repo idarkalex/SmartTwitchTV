@@ -2672,14 +2672,47 @@ function Settings_DialogShowProxy(click) {
     Settings_DialogShow(obj, PROXY_SETTINGS + STR_BR + PROXY_SETTINGS_SUMMARY + STR_BR + STR_BR + STR_CUSTOM_PROXY_URL + ': ' + custom_url_display, click);
 }
 
+var Settings_ProxyUrlDialogInputId;
+
 function Settings_CustomProxyShowURLDialog() {
     var currentUrl = Main_getItemJson('custom_proxy_url', '');
-    var newUrl = prompt(STR_CUSTOM_PROXY_URL_PROMPT, currentUrl);
 
-    if (newUrl !== null) {
-        Main_setItem('custom_proxy_url', JSON.stringify(newUrl));
-        Settings_DialogShowProxy(true);
+    Main_innerHTML('proxy_url_title', STR_CUSTOM_PROXY_URL);
+    Main_getElementById('proxy_url_input').value = currentUrl;
+    Main_innerHTML('proxy_url_help', STR_CUSTOM_PROXY_URL_PROMPT + '<br><br>' + STR_ENTER + ' = OK  |  ' + STR_CANCEL);
+
+    Main_removeEventListener('keydown', Settings_DialoghandleKeyDown);
+    Main_removeEventListener('keydown', Settings_handleKeyDown);
+    Main_addEventListener('keydown', Settings_ProxyUrlDialogHandleKey);
+
+    Main_ShowElement('dialog_proxy_url');
+
+    Settings_ProxyUrlDialogInputId = Main_setTimeout(function () {
+        Main_getElementById('proxy_url_input').focus();
+    }, 300, Settings_ProxyUrlDialogInputId);
+}
+
+function Settings_ProxyUrlDialogHandleKey(event) {
+    switch (event.keyCode) {
+        case KEY_ENTER:
+            var newUrl = Main_getElementById('proxy_url_input').value;
+            Main_setItem('custom_proxy_url', JSON.stringify(newUrl));
+            Settings_CustomProxyUrlDialogClose();
+            Settings_DialogShowProxy(true);
+            break;
+        case KEY_RETURN:
+        case KEY_KEYBOARD_BACKSPACE:
+            Settings_CustomProxyUrlDialogClose();
+            Settings_DialogShowProxy(true);
+            break;
     }
+}
+
+function Settings_CustomProxyUrlDialogClose() {
+    Main_clearTimeout(Settings_ProxyUrlDialogInputId);
+    Main_removeEventListener('keydown', Settings_ProxyUrlDialogHandleKey);
+    Main_getElementById('proxy_url_input').blur();
+    Main_HideElement('dialog_proxy_url');
 }
 
 function Settings_DialogShowExtraCodecs(click) {
