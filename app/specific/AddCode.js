@@ -33,16 +33,18 @@ var checkiko;
 function AddCode_AppTokenCheck() {
     var header = [[Main_Authorization, Bearer + AddCode_main_token]];
     if (Main_IsOn_OSInterface) {
-        var obj = OSInterface_mMethodUrlHeaders(AddCode_ValidateUrl, DefaultHttpGetTimeout, null, null, 0, JSON.stringify(header));
+        var result = OSInterface_mMethodUrlHeaders(AddCode_ValidateUrl, DefaultHttpGetTimeout, null, null, 0, JSON.stringify(header));
 
-        if (obj) {
-            obj = JSON.parse(obj);
+        if (result) {
+            var obj = JSON.parse(result);
 
             if (obj) {
                 AddCode_AppTokenCheckReady(obj);
                 return;
             }
         }
+
+        AddCode_AppToken(0, Main_initWindowsEnd, Main_initWindowsEnd, 0, true);
     } else {
         FullxmlHttpGet(AddCode_ValidateUrl, header, AddCode_AppTokenCheckReady, noop_fun, 0, 0, null, null);
     }
@@ -72,13 +74,10 @@ function AddCode_AppToken(position, callbackFunc, callbackFuncNOK, key, sync) {
 
     //Run in synchronous mode to prevent anything happening until user token is restored
     if (Main_IsOn_OSInterface && sync) {
-        AddCode_AppTokenReady(
-            position,
-            callbackFunc,
-            callbackFuncNOK,
-            key,
-            JSON.parse(OSInterface_mMethodUrlHeaders(url, DefaultHttpGetTimeout, 'POST', null, 0, null))
-        );
+        var result = OSInterface_mMethodUrlHeaders(url, DefaultHttpGetTimeout, 'POST', null, 0, null);
+        var obj = result ? JSON.parse(result) : null;
+
+        AddCode_AppTokenReady(position, callbackFunc, callbackFuncNOK, key, obj || { status: 0 });
     } else {
         if (!Main_IsOn_OSInterface) {
             var xmlHttp = new XMLHttpRequest();

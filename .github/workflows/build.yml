@@ -44,12 +44,25 @@ jobs:
           path: apk/app/build/outputs/apk/debug/app-debug.apk
           if-no-files-found: error
 
+      - name: Set up Node.js
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Build web assets
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        run: |
+          npm install -g uglify-js html-minifier crass
+          node release/scripts/build.js
+
       - name: Deploy web content to release branch
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         run: |
           mkdir -p /tmp/webcontent
-          cp -r app/* /tmp/webcontent/
-          cp -r release/githubio /tmp/webcontent/
+          cp release/index.html /tmp/webcontent/index.html
+          cp release/extrapageindex.html /tmp/webcontent/extrapageindex.html
+          cp -r release/githubio /tmp/webcontent/githubio
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git checkout --orphan release
@@ -57,5 +70,5 @@ jobs:
           cp -r /tmp/webcontent/* .
           rm -rf /tmp/webcontent
           git add .
-          git commit -m "Deploy web content to release branch"
+          git commit -m "Deploy compiled web content to release branch"
           git push origin release --force

@@ -166,6 +166,7 @@ var Main_started = false;
 var Main_about_dialog_div;
 var Main_vodOffset = 0;
 var Main_body = document.body;
+var Main_loadingSafetyTimeoutId;
 //Variable initialization end
 
 // this function call will be used only when running the app/ folder, release maker will remove this
@@ -254,6 +255,13 @@ function Main_StartApp() {
         }
 
         Main_showLoadDialog();
+
+        Main_loadingSafetyTimeoutId = Main_setTimeout(function () {
+            if (!Main_started) {
+                Main_HideLoadDialog();
+                Main_initWindows();
+            }
+        }, 15000, Main_loadingSafetyTimeoutId);
 
         Main_initClick();
         calculateFontSize();
