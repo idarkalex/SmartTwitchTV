@@ -603,6 +603,8 @@ function fr_FRLang() {
     STR_SIDE_PANEL_PLAYER = "Paramètres du lecteur d'aperçu de vignettes";
     STR_START_AT_USER = "Toujours démarrer l'app sur l'écran utilisateur";
     STR_START_AT_USER_SUMMARY = "Cette option désactive « Restaurer la lecture », mais permet de choisir l'utilisateur à l'ouverture de l'app.";
+    STR_START_AT_FEED = "Toujours démarrer l'app avec le flux des chaînes suivies";
+    STR_START_AT_FEED_SUMMARY = "Cette option ouvre le panneau latéral au démarrage affichant vos chaînes suivies en direct avec un aperçu du stream. Désactive « Restaurer la lecture ».";
     STR_LAST_REFRESH = 'Dernière actualisation :';
     STR_PP_VOD_ERROR = 'Quittez le picture-in-picture ou le multistream pour ouvrir cette VOD';
     STR_SETTINGS_ACCESSIBILITY = "Afficher l'avertissement « Un service d'accessibilité est en cours d'exécution »";
@@ -826,6 +828,17 @@ function fr_FRLang() {
     STR_PROXY_DONATE_SUMMARY = 'Si vous voulez en savoir plus ou remercier le mainteneur du proxy, utilisez le lien :';
 
     STR_PROXY_TIMEOUT = 'Délai du proxy (en secondes)';
+
+    STR_CUSTOM_PROXY = 'Proxy Personnalisé';
+    STR_CUSTOM_PROXY_SUMMARY = 'Utiliser une URL de serveur proxy personnalisé, appuyez sur entrée pour modifier l\'URL';
+    STR_CUSTOM_PROXY_URL = 'URL du Proxy Personnalisé';
+    STR_CUSTOM_PROXY_URL_PROMPT = 'Entrez l\'URL du proxy personnalisé (l\'URL doit se terminer par /) :';
+    STR_CUSTOM_PROXY_HAS_TOKEN = 'Le proxy personnalisé a un token';
+    STR_CUSTOM_PROXY_HAS_TOKEN_SUMMARY =
+        'Si l\'URL du proxy inclut déjà le token, désactivez cette option pour ne pas ajouter le token à nouveau';
+    STR_CUSTOM_PROXY_HAS_PARAMETER = 'Le proxy personnalisé a des paramètres';
+    STR_CUSTOM_PROXY_HAS_PARAMETER_SUMMARY =
+        'Si l\'URL du proxy inclut déjà les paramètres, activez cette option pour que les paramètres soient ajoutés en tant que chaîne de requête';
     STR_PROXY_TIMEOUT_SUMMARY =
         "Si le serveur proxy est hors ligne, c'est le temps avant d'« abandonner » la connexion et de revenir à l'implémentation Twitch par défaut";
 

@@ -609,6 +609,8 @@ function tr_TRLang() {
     STR_START_AT_USER = 'Uygulamayı her zaman kullanıcı ekranında başlat';
     STR_START_AT_USER_SUMMARY =
         "Bu seçenek 'Oynatmayı geri yükle' seçeneğini devre dışı bırakır, ancak uygulamayı açtığınızda kullanıcıyı seçmenize olanak tanır.";
+    STR_START_AT_FEED = 'Uygulamayı her zaman takip edilen kanallar feedi ile başlat';
+    STR_START_AT_FEED_SUMMARY = 'Bu seçenek başlatma takip edilen canlı kanalları ve yayın önizlemesini gösteren yan paneli açar. Oynatmayı geri yüklemeyi devre dışı bırakır.';
     STR_LAST_REFRESH = 'Son yenileme:';
     STR_PP_VOD_ERROR = "Bu VOD'u açmak için resim içinde resim veya çoklu yayından çıkın";
     STR_SETTINGS_ACCESSIBILITY = "'Bir erişilebilirlik hizmeti çalışıyor' uyarısını göster";
@@ -835,6 +837,17 @@ function tr_TRLang() {
     STR_PROXY_TIMEOUT = 'Proxy zaman aşımı (saniye cinsinden)';
     STR_PROXY_TIMEOUT_SUMMARY =
         'Proxy sunucusu kapalıysa, bağlantıdan "vazgeçmek" ve varsayılan Twitch uygulamasına geri dönmek için geçen süre bu olacaktır';
+
+    STR_CUSTOM_PROXY = 'Özel Proxy';
+    STR_CUSTOM_PROXY_SUMMARY = 'Özel bir proxy sunucu URL\'si kullanın, URL\'yi düzenlemek için enter\'a basın';
+    STR_CUSTOM_PROXY_URL = 'Özel Proxy URL\'si';
+    STR_CUSTOM_PROXY_URL_PROMPT = 'Özel proxy URL\'sini girin (URL / ile bitmelidir):';
+    STR_CUSTOM_PROXY_HAS_TOKEN = 'Özel proxy token içeriyor';
+    STR_CUSTOM_PROXY_HAS_TOKEN_SUMMARY =
+        'Proxy URL\'si zaten token içeriyorsa, token\'ın tekrar eklenmemesi için bu seçeneği devre dışı bırakın';
+    STR_CUSTOM_PROXY_HAS_PARAMETER = 'Özel proxy parametre içeriyor';
+    STR_CUSTOM_PROXY_HAS_PARAMETER_SUMMARY =
+        'Proxy URL\'si zaten parametreler içeriyorsa, parametrelerin sorgu dizgesi olarak eklenmesi için bu seçeneği etkinleştirin';
 
     PROXY_SERVICE = 'Proxy: ';
     PROXY_SERVICE_STATUS = 'Etkin ve çalışıyor';

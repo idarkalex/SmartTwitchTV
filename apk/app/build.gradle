@@ -2,8 +2,8 @@ apply from: '../versions.gradle'
 apply plugin: 'com.android.application'
 
 //Crashlytics
-apply plugin: 'com.google.gms.google-services'
-apply plugin: 'com.google.firebase.crashlytics'
+//apply plugin: 'com.google.gms.google-services'
+//apply plugin: 'com.google.firebase.crashlytics'
 //Crashlytics end
 
 android {
@@ -82,9 +82,9 @@ dependencies {
     //implementation project(':media-lib-decoder-av1')
 
     //Crashlytics
-    implementation platform('com.google.firebase:firebase-bom:33.14.0')
-    implementation 'com.google.firebase:firebase-analytics'
-    implementation 'com.google.firebase:firebase-crashlytics'
+    //implementation platform('com.google.firebase:firebase-bom:33.14.0')
+    //implementation 'com.google.firebase:firebase-analytics'
+    //implementation 'com.google.firebase:firebase-crashlytics'
     //Crashlytics end
 
     implementation 'androidx.leanback:leanback:1.2.0'

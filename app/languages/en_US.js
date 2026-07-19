@@ -604,6 +604,8 @@ function en_USLang() {
     STR_SIDE_PANEL_PLAYER = 'Preview thumbnail player settings';
     STR_START_AT_USER = 'Always start the app in the user screen';
     STR_START_AT_USER_SUMMARY = "This option disables the 'Restore playback' option, but allows you to choose the user upon opening the app.";
+    STR_START_AT_FEED = 'Always start the app showing the followed channels feed';
+    STR_START_AT_FEED_SUMMARY = "This option opens the side panel feed on startup showing your followed live channels with a stream preview. Disables 'Restore playback'.";
     STR_LAST_REFRESH = 'Last refreshed:';
     STR_PP_VOD_ERROR = 'Exit picture in picture or multistream to open this VOD';
     STR_SETTINGS_ACCESSIBILITY = "Show 'an accessibility service is running' warning";
@@ -821,6 +823,17 @@ function en_USLang() {
     STR_TTV_LOL = 'TTV LOL';
     STR_K_TWITCH = 'K-Twitch-Bypass';
     STR_T1080 = 'T1080';
+
+    STR_CUSTOM_PROXY = 'Custom Proxy';
+    STR_CUSTOM_PROXY_SUMMARY = 'Use a custom proxy server URL, press enter to edit the URL';
+    STR_CUSTOM_PROXY_URL = 'Custom Proxy URL';
+    STR_CUSTOM_PROXY_URL_PROMPT = 'Enter the custom proxy URL (the URL must end with /):';
+    STR_CUSTOM_PROXY_HAS_TOKEN = 'Custom proxy has token';
+    STR_CUSTOM_PROXY_HAS_TOKEN_SUMMARY =
+        'If the proxy URL already includes the token, disable this option so the token is not added again';
+    STR_CUSTOM_PROXY_HAS_PARAMETER = 'Custom proxy has parameters';
+    STR_CUSTOM_PROXY_HAS_PARAMETER_SUMMARY =
+        'If the proxy URL already includes the parameters, enable this option so the parameters are appended as a query string';
 
     STR_PROXY_TIMEOUT = 'Proxy timeout (time in seconds)';
     STR_PROXY_TIMEOUT_SUMMARY =

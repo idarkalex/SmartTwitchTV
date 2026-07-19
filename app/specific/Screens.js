@@ -182,6 +182,7 @@ function Screens_first_init() {
     }
 
     var StartUser = Settings_value.start_user_screen.defaultValue;
+    var StartAtFeed = Settings_value.start_at_feed.defaultValue === 2;
     var restore_playback = Settings_value.restor_playback.defaultValue;
 
     if (live_channel_call) {
@@ -191,6 +192,7 @@ function Screens_first_init() {
         Play_data.data = ScreensObj_LiveCellArray(obj.obj);
 
         StartUser = false;
+        StartAtFeed = false;
         restore_playback = true;
     } else if (game_channel_call) {
         Main_values.Play_WasPlaying = 0;
@@ -199,12 +201,14 @@ function Screens_first_init() {
         Play_data.data[3] = obj.obj.name;
         Play_data.data[18] = obj.obj.id;
         StartUser = false;
+        StartAtFeed = false;
         Main_values.Main_gameSelected = Play_data.data[3];
         Main_values.Main_gameSelected_id = Play_data.data[18];
     } else if (screen_channel_call) {
         Main_GoBefore = Main_onNewIntentGetScreen(obj);
         Main_values.Play_WasPlaying = 0;
         StartUser = false;
+        StartAtFeed = false;
     }
 
     if (Main_values.Play_WasPlaying !== 1 || StartUser) {
@@ -281,6 +285,12 @@ function Screens_first_init() {
     Main_ShowElement('clock_holder');
     Main_ShowElement('side_panel_new_holder');
     Main_values.IsUpDating = false;
+
+    if (Settings_value.start_at_feed.defaultValue === 2 && AddUser_UserHasToken()) {
+        Main_setTimeout(function () {
+            Sidepannel_Start(null, true);
+        }, 300);
+    }
 }
 
 function Screens_init(key, preventRefresh) {

@@ -170,6 +170,22 @@ var Settings_value = {
         values: ['no', 'yes'],
         defaultValue: 1
     },
+    custom_proxy: {
+        values: ['no', 'yes'],
+        defaultValue: 0
+    },
+    custom_proxy_url: {
+        values: [''],
+        defaultValue: ''
+    },
+    custom_proxy_has_token: {
+        values: ['no', 'yes'],
+        defaultValue: 1
+    },
+    custom_proxy_has_parameter: {
+        values: ['no', 'yes'],
+        defaultValue: 1
+    },
     restor_playback: {
         values: ['no', 'yes'],
         defaultValue: 2
@@ -272,6 +288,10 @@ var Settings_value = {
         defaultValue: 2
     },
     start_user_screen: {
+        values: ['no', 'yes'],
+        defaultValue: 1
+    },
+    start_at_feed: {
         values: ['no', 'yes'],
         defaultValue: 1
     },
@@ -959,6 +979,7 @@ function Settings_SetSettings() {
 
     //Individual settings
     div += Settings_Content('start_user_screen', array_no_yes, STR_START_AT_USER, STR_START_AT_USER_SUMMARY);
+    div += Settings_Content('start_at_feed', array_no_yes, STR_START_AT_FEED, STR_START_AT_FEED_SUMMARY);
 
     // Player settings title
     div += Settings_DivTitle('play', STR_SETTINGS_PLAYER);
@@ -1151,7 +1172,7 @@ function Settings_SetDefaults() {
     OSInterface_SetCheckSource(Settings_Obj_default('check_source') === 1);
     Settings_SetPingWarning();
     SettingsColor_SetAnimationStyleRestore();
-    //Settings_proxy_set_start();
+    Settings_proxy_set_start();
     Settings_set_proxy_timeout();
     Settings_set_all_notification();
     Settings_SetLang();
@@ -1508,8 +1529,8 @@ function Settings_checkMatureKeyEnter() {
     }
 }
 
-var proxyArray = ['k_twitch', 'ttv_lolProxy', 'T1080'];
-var proxyArrayFull = ['k_twitch', 'ttv_lolProxy', 'T1080', 'disabled'];
+var proxyArray = ['k_twitch', 'ttv_lolProxy', 'T1080', 'custom_proxy'];
+var proxyArrayFull = ['k_twitch', 'ttv_lolProxy', 'T1080', 'custom_proxy', 'disabled'];
 var proxyType = 'disabled';
 
 function Settings_set_all_proxy(current) {
@@ -1531,18 +1552,18 @@ function Settings_set_all_proxy(current) {
     Settings_proxy_set_Type();
 }
 
-// function Settings_proxy_set_start() {
-//     var i = 0,
-//         len = proxyArray.length;
-//     for (i; i < len; i++) {
-//         if (Settings_Obj_default(proxyArray[i]) === 1) {
-//             use_proxy = true;
-//             Settings_proxy_set_current(proxyArray[i]);
-//             break;
-//         }
-//     }
-//     Settings_proxy_set_Type();
-// }
+function Settings_proxy_set_start() {
+    var i = 0,
+        len = proxyArray.length;
+    for (i; i < len; i++) {
+        if (Settings_Obj_default(proxyArray[i]) === 1) {
+            use_proxy = true;
+            Settings_proxy_set_current(proxyArray[i]);
+            break;
+        }
+    }
+    Settings_proxy_set_Type();
+}
 
 function Settings_proxy_set_Type() {
     proxyType = proxyArrayFull[Settings_get_enabled_Proxy()];
@@ -1559,6 +1580,11 @@ function Settings_proxy_set_current(current) {
         proxy_headers = null;
         proxy_has_parameter = true;
         proxy_has_token = true;
+    } else if (current === 'custom_proxy') {
+        proxy_url = Main_getItemJson('custom_proxy_url', '');
+        proxy_headers = null;
+        proxy_has_parameter = Settings_Obj_default('custom_proxy_has_parameter') === 1;
+        proxy_has_token = Settings_Obj_default('custom_proxy_has_token') === 1;
     } else {
         proxy_url = Play_live_ttv_lol_links;
         proxy_headers = ttv_lol_headers;
@@ -1581,8 +1607,11 @@ function Settings_get_enabled_Proxy() {
     if (Settings_Obj_default('T1080') === 1) {
         return 2;
     }
+    if (Settings_Obj_default('custom_proxy') === 1) {
+        return 3;
+    }
 
-    return 3;
+    return 4;
 }
 
 function Settings_check_min_seek() {
@@ -2589,35 +2618,68 @@ function Settings_DialogShowProxy(click) {
     Settings_value.ttv_lolProxy.values = array_no_yes;
     Settings_value.k_twitch.values = array_no_yes;
     Settings_value.T1080.values = array_no_yes;
+    Settings_value.custom_proxy.values = array_no_yes;
+    Settings_value.custom_proxy_has_token.values = array_no_yes;
+    Settings_value.custom_proxy_has_parameter.values = array_no_yes;
+
+    var custom_url_display = Main_getItemJson('custom_proxy_url', '') || '(not set)';
 
     var obj = {
-        proxy_timeout: {
-            defaultValue: Settings_value.k_twitch.defaultValue,
-            values: Settings_value.k_twitch.values,
-            title: STR_PROXY_TIMEOUT,
-            summary: STR_PROXY_TIMEOUT_SUMMARY
-        },
         T1080: {
-            defaultValue: Settings_value.ttv_lolProxy.defaultValue,
-            values: Settings_value.ttv_lolProxy.values,
+            defaultValue: Settings_value.T1080.defaultValue,
+            values: Settings_value.T1080.values,
             title: STR_T1080,
             summary: STR_T1080_SUMMARY
         },
         ttv_lolProxy: {
-            defaultValue: Settings_value.k_twitch.defaultValue,
-            values: Settings_value.k_twitch.values,
+            defaultValue: Settings_value.ttv_lolProxy.defaultValue,
+            values: Settings_value.ttv_lolProxy.values,
             title: STR_TTV_LOL,
             summary: STR_TTV_LOL_SUMMARY
         },
         k_twitch: {
-            defaultValue: Settings_value.ttv_lolProxy.defaultValue,
-            values: Settings_value.ttv_lolProxy.values,
+            defaultValue: Settings_value.k_twitch.defaultValue,
+            values: Settings_value.k_twitch.values,
             title: STR_K_TWITCH,
             summary: STR_K_TWITCH_SUMMARY
+        },
+        custom_proxy: {
+            defaultValue: Settings_value.custom_proxy.defaultValue,
+            values: Settings_value.custom_proxy.values,
+            title: STR_CUSTOM_PROXY + ' (' + custom_url_display + ')',
+            summary: STR_CUSTOM_PROXY_SUMMARY
+        },
+        custom_proxy_has_token: {
+            defaultValue: Settings_value.custom_proxy_has_token.defaultValue,
+            values: Settings_value.custom_proxy_has_token.values,
+            title: STR_CUSTOM_PROXY_HAS_TOKEN,
+            summary: STR_CUSTOM_PROXY_HAS_TOKEN_SUMMARY
+        },
+        custom_proxy_has_parameter: {
+            defaultValue: Settings_value.custom_proxy_has_parameter.defaultValue,
+            values: Settings_value.custom_proxy_has_parameter.values,
+            title: STR_CUSTOM_PROXY_HAS_PARAMETER,
+            summary: STR_CUSTOM_PROXY_HAS_PARAMETER_SUMMARY
+        },
+        proxy_timeout: {
+            defaultValue: Settings_value.proxy_timeout.defaultValue,
+            values: Settings_value.proxy_timeout.values,
+            title: STR_PROXY_TIMEOUT,
+            summary: STR_PROXY_TIMEOUT_SUMMARY
         }
     };
 
-    Settings_DialogShow(obj, PROXY_SETTINGS + STR_BR + STR_BR + PROXY_SETTINGS_SUMMARY, click);
+    Settings_DialogShow(obj, PROXY_SETTINGS + STR_BR + PROXY_SETTINGS_SUMMARY + STR_BR + STR_BR + STR_CUSTOM_PROXY_URL + ': ' + custom_url_display, click);
+}
+
+function Settings_CustomProxyShowURLDialog() {
+    var currentUrl = Main_getItemJson('custom_proxy_url', '');
+    var newUrl = prompt(STR_CUSTOM_PROXY_URL_PROMPT, currentUrl);
+
+    if (newUrl !== null) {
+        Main_setItem('custom_proxy_url', JSON.stringify(newUrl));
+        Settings_DialogShowProxy(true);
+    }
 }
 
 function Settings_DialogShowExtraCodecs(click) {
@@ -3652,6 +3714,16 @@ function Settings_DialoghandleKeyReturnAfter() {
     Settings_RemoveInputFocusKey(Settings_DialogValue[Settings_DialogPos]);
     Main_HideElement('dialog_settings');
     Main_removeEventListener('keydown', Settings_DialoghandleKeyDown);
+
+    var i = 0,
+        len = proxyArrayFull.length;
+    for (i; i < len; i++) {
+        if (Settings_DialogValue.indexOf(proxyArrayFull[i]) !== -1) {
+            Settings_proxy_set_start();
+            Settings_set_proxy_timeout();
+            break;
+        }
+    }
 }
 
 function Settings_DialoghandleKeyLeft() {
@@ -3696,6 +3768,11 @@ function Settings_DialoghandleKeyDown(event) {
                     Settings_DialogAddBackupAccount();
                 }
 
+                break;
+            }
+
+            if (Main_A_includes_B(Settings_DialogValue[Settings_DialogPos], 'custom_proxy')) {
+                Settings_CustomProxyShowURLDialog();
                 break;
             }
 

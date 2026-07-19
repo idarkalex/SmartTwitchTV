@@ -436,6 +436,20 @@ function es_ESLang() {
     STR_SIDE_PANEL_PLAYER = 'Vista previa de la configuración de los reproductores de miniaturas';
     STR_START_AT_USER = 'Inicie siempre la aplicación en la pantalla del usuario';
     STR_START_AT_USER_SUMMARY = 'Esto evitará que funcione la reproducción de Restaurar, pero permite elegir el usuario al inicio de la aplicación';
+    STR_START_AT_FEED = 'Inicie siempre mostrando el feed de canales seguidos';
+    STR_START_AT_FEED_SUMMARY = 'Esta opción abre el panel lateral con los canales seguidos en vivo y una vista previa del stream al iniciar la app. Desactiva "Restaurar reproducción".';
+
+    STR_CUSTOM_PROXY = 'Proxy Personalizado';
+    STR_CUSTOM_PROXY_SUMMARY = 'Usar una URL de servidor proxy personalizada, presione enter para editar la URL';
+    STR_CUSTOM_PROXY_URL = 'URL del Proxy Personalizado';
+    STR_CUSTOM_PROXY_URL_PROMPT = 'Ingrese la URL del proxy personalizado (la URL debe terminar con /):';
+    STR_CUSTOM_PROXY_HAS_TOKEN = 'El proxy personalizado tiene token';
+    STR_CUSTOM_PROXY_HAS_TOKEN_SUMMARY =
+        'Si la URL del proxy ya incluye el token, desactive esta opción para que el token no se agregue de nuevo';
+    STR_CUSTOM_PROXY_HAS_PARAMETER = 'El proxy personalizado tiene parámetros';
+    STR_CUSTOM_PROXY_HAS_PARAMETER_SUMMARY =
+        'Si la URL del proxy ya incluye los parámetros, active esta opción para que los parámetros se agreguen como una cadena de consulta';
+
     STR_LAST_REFRESH = 'última actualización:';
 
     STR_SETTINGS_ACCESSIBILITY = 'Mostrar "un servicio de accesibilidad se está ejecutando"';

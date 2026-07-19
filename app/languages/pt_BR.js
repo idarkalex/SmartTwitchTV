@@ -597,6 +597,8 @@ function pt_BRLang() {
     STR_START_AT_USER = 'Sempre inicie o aplicativo na tela do usuário';
     STR_START_AT_USER_SUMMARY =
         'Isso impedirá restaurar o ponto onde o app esava antes de ser fechado, mas permite escolher o usuário ao iniciar o aplicativo';
+    STR_START_AT_FEED = 'Sempre inicie o aplicativo mostrando o feed dos canais seguidos';
+    STR_START_AT_FEED_SUMMARY = 'Esta opção abre o painel lateral com os canais seguidos ao vivo e uma pré-visualização do stream ao iniciar o app. Desativa "Restaurar reprodução".';
     STR_LAST_REFRESH = 'última atualização:';
     STR_PP_VOD_ERROR = 'Saia do PP ou Multistream para abrir este Vídeo';
     STR_SETTINGS_ACCESSIBILITY = 'Mostrar "um serviço de acessibilidade está em execução aviso"';
@@ -832,6 +834,17 @@ function pt_BRLang() {
     STR_PROXY_TIMEOUT = 'Tempo limite do proxy (tempo em segundos)';
     STR_PROXY_TIMEOUT_SUMMARY =
         'Se o servidor proxy estiver fora, este será o tempo que levará para "desistir" da conexão e retornar à implementação padrão do Twitch';
+
+    STR_CUSTOM_PROXY = 'Proxy Personalizado';
+    STR_CUSTOM_PROXY_SUMMARY = 'Usar uma URL de servidor proxy personalizada, pressione enter para editar a URL';
+    STR_CUSTOM_PROXY_URL = 'URL do Proxy Personalizado';
+    STR_CUSTOM_PROXY_URL_PROMPT = 'Digite a URL do proxy personalizado (a URL deve terminar com /):';
+    STR_CUSTOM_PROXY_HAS_TOKEN = 'Proxy personalizado tem token';
+    STR_CUSTOM_PROXY_HAS_TOKEN_SUMMARY =
+        'Se a URL do proxy já inclui o token, desative esta opção para que o token não seja adicionado novamente';
+    STR_CUSTOM_PROXY_HAS_PARAMETER = 'Proxy personalizado tem parâmetros';
+    STR_CUSTOM_PROXY_HAS_PARAMETER_SUMMARY =
+        'Se a URL do proxy já inclui os parâmetros, ative esta opção para que os parâmetros sejam anexados como uma query string';
 
     SEEK_PREVIEW = 'Pré-Visualização avançar/retrocer';
     SEEK_PREVIEW_SUMMARY =

@@ -1,0 +1,21 @@
+{
+  "name": "scripts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "maker.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "clean-css": "^5.3.3",
+    "crass": "^0.12.3",
+    "html-minifier": "^4.0.0",
+    "jshint": "^2.13.6",
+    "prettier": "^3.9.1",
+    "uglify-js": "^3.19.3"
+  }
+}
