@@ -412,9 +412,8 @@ var STR_NUMBER_SEPARATOR,
     STR_DISABLED_FEED_PLAYER_MULTI,
     STR_SIDE_PANEL_PLAYER_DELAY,
     STR_SIDE_PANEL_PLAYER_DELAY_SUMMARY,
-    STR_START_AT_USER,
-    STR_START_AT_FEED,
-    STR_START_AT_FEED_SUMMARY,
+    STR_START_SCREEN,
+    STR_START_SCREEN_SUMMARY,
     STR_LAST_REFRESH,
     STR_PP_VOD_ERROR,
     STR_SETTINGS_ACCESSIBILITY,
@@ -483,8 +482,6 @@ var STR_NUMBER_SEPARATOR,
     STR_APP_ANIMATIONS_SUMMARY,
     STR_VIDEOS_ANIMATION_SUMMARY,
     STR_SETTINGS_ACCESSIBILITY_SUMMARY,
-    STR_START_AT_USER_SUMMARY,
-    STR_START_AT_FEED_SUMMARY,
     STR_AUTO_REFRESH_SUMMARY,
     STR_OPTIONS,
     STR_CHAT_HIGHLIGHT_STREAMER,
@@ -1984,10 +1981,8 @@ function en_USLang() {
     STR_PREVIEW_OTHERS_VOLUME_SUMMARY =
         'The main player (all picture in picture players, multistream players) volume can be lowered when the preview player is showing.';
     STR_SIDE_PANEL_PLAYER = 'Preview thumbnail player settings';
-    STR_START_AT_USER = 'Always start the app in the user screen';
-    STR_START_AT_USER_SUMMARY = "This option disables the 'Restore playback' option, but allows you to choose the user upon opening the app.";
-    STR_START_AT_FEED = 'Always start the app showing the followed channels feed';
-    STR_START_AT_FEED_SUMMARY = "This option opens the side panel feed on startup showing your followed live channels with a stream preview. Disables 'Restore playback'.";
+    STR_START_SCREEN = 'App start screen';
+    STR_START_SCREEN_SUMMARY = 'Choose which screen to show when the app opens: Live channels, followed channels Feed, User screen, or Restore previous playback.';
     STR_LAST_REFRESH = 'Last refreshed:';
     STR_PP_VOD_ERROR = 'Exit picture in picture or multistream to open this VOD';
     STR_SETTINGS_ACCESSIBILITY = "Show 'an accessibility service is running' warning";
@@ -16989,7 +16984,7 @@ var Main_loadingSafetyTimeoutId;
 //Variable initialization end
 
 // this function call will be used only when running the app/ folder, release maker will remove this
-//Main_Start();
+////Main_Start();
 
 function Main_Start() {
     if (document.readyState === 'loading') {
@@ -33805,9 +33800,7 @@ function Screens_first_init() {
         if (obj.type && obj.screen) Main_EventChannel(obj);
     }
 
-    var StartUser = Settings_value.start_user_screen.defaultValue;
-    var StartAtFeed = Settings_value.start_at_feed.defaultValue === 2;
-    var restore_playback = Settings_value.restor_playback.defaultValue;
+    var startScreen = Settings_value.start_screen.defaultValue;
 
     if (live_channel_call) {
         Main_values.Play_WasPlaying = 1;
@@ -33815,27 +33808,23 @@ function Screens_first_init() {
         Play_data = JSON.parse(JSON.stringify(Play_data_base));
         Play_data.data = ScreensObj_LiveCellArray(obj.obj);
 
-        StartUser = false;
-        StartAtFeed = false;
-        restore_playback = true;
+        startScreen = 1;
     } else if (game_channel_call) {
         Main_values.Play_WasPlaying = 0;
         Main_GoBefore = Main_aGame;
         Play_data = JSON.parse(JSON.stringify(Play_data_base));
         Play_data.data[3] = obj.obj.name;
         Play_data.data[18] = obj.obj.id;
-        StartUser = false;
-        StartAtFeed = false;
+        startScreen = 1;
         Main_values.Main_gameSelected = Play_data.data[3];
         Main_values.Main_gameSelected_id = Play_data.data[18];
     } else if (screen_channel_call) {
         Main_GoBefore = Main_onNewIntentGetScreen(obj);
         Main_values.Play_WasPlaying = 0;
-        StartUser = false;
-        StartAtFeed = false;
+        startScreen = 1;
     }
 
-    if (Main_values.Play_WasPlaying !== 1 || StartUser) {
+    if (Main_values.Play_WasPlaying !== 1 || startScreen === 3) {
         tempGame = Play_data.data[3];
         Play_data = JSON.parse(JSON.stringify(Play_data_base));
     }
@@ -33858,12 +33847,12 @@ function Screens_first_init() {
 
     Main_values.API_Change = false;
 
-    if (StartUser) {
+    if (startScreen === 3) {
         Users_beforeUser = Main_GoBefore;
         Main_values.Main_Before = Users_beforeUser;
         Main_values.Play_WasPlaying = 0;
         ScreenObj[Main_Users].init_fun();
-    } else if (restore_playback && Main_values.Play_WasPlaying) {
+    } else if (startScreen === 4 && Main_values.Play_WasPlaying) {
         Main_values.Main_Go = Main_GoBefore;
         if (Main_values.IsUpDating) {
             Play_showWarningDialog(STR_UPDATE_WARNING_OK, 5000);
@@ -33910,7 +33899,7 @@ function Screens_first_init() {
     Main_ShowElement('side_panel_new_holder');
     Main_values.IsUpDating = false;
 
-    if (Settings_value.start_at_feed.defaultValue === 2 && AddUser_UserHasToken()) {
+    if (startScreen === 2 && AddUser_UserHasToken()) {
         Main_setTimeout(function () {
             Sidepannel_Start(null, true);
         }, 300);
@@ -41832,10 +41821,6 @@ var Settings_value = {
         values: ['no', 'yes'],
         defaultValue: 1
     },
-    restor_playback: {
-        values: ['no', 'yes'],
-        defaultValue: 2
-    },
     clip_autoPlayNext: {
         //Migrated to dialog
         values: ['no', 'yes'],
@@ -41933,12 +41918,8 @@ var Settings_value = {
         values: ['no', 'yes'],
         defaultValue: 2
     },
-    start_user_screen: {
-        values: ['no', 'yes'],
-        defaultValue: 1
-    },
-    start_at_feed: {
-        values: ['no', 'yes'],
+    start_screen: {
+        values: ['Live', 'Feed', 'User', 'Restore'],
         defaultValue: 1
     },
     vod_dialog: {
@@ -42624,13 +42605,10 @@ function Settings_SetSettings() {
     }
 
     //Individual settings
-    div += Settings_Content('start_user_screen', array_no_yes, STR_START_AT_USER, STR_START_AT_USER_SUMMARY);
-    div += Settings_Content('start_at_feed', array_no_yes, STR_START_AT_FEED, STR_START_AT_FEED_SUMMARY);
+    div += Settings_Content('start_screen', ['Live', 'Feed', 'User', 'Restore'], STR_START_SCREEN, STR_START_SCREEN_SUMMARY);
 
     // Player settings title
     div += Settings_DivTitle('play', STR_SETTINGS_PLAYER);
-
-    div += Settings_Content('restor_playback', array_no_yes, STR_RESTORE_PLAYBACK, STR_RESTORE_PLAYBACK_SUMMARY);
 
     div += Settings_Content('single_clickExit', array_no_yes, STR_SINGLE_EXIT, STR_SINGLE_EXIT_SUMMARY);
 
@@ -42779,6 +42757,18 @@ function Settings_DivOptionWithSummary(key, string_title, string_summary, fontSi
     );
 }
 
+function Settings_MigrateStartScreen() {
+    if (Settings_value.start_screen.defaultValue !== 0) return;
+
+    var oldUser = Main_getItemInt('start_user_screen', 1) - 1;
+    var oldFeed = Main_getItemInt('start_at_feed', 1) - 1;
+    var oldRestore = Main_getItemInt('restor_playback', 2) - 1;
+
+    if (oldUser === 1) Settings_value.start_screen.defaultValue = 2;
+    else if (oldFeed === 1) Settings_value.start_screen.defaultValue = 1;
+    else if (oldRestore === 1) Settings_value.start_screen.defaultValue = 3;
+}
+
 function Settings_SetDefaults() {
     //Settings animation will call user live that will call play warning middle and the div need to be initiated first
     Play_BottomIconsSet();
@@ -42788,6 +42778,9 @@ function Settings_SetDefaults() {
         Settings_value[key].defaultValue -= 1;
         if (Settings_value[key].defaultValue > Settings_Obj_length(key)) Settings_value[key].defaultValue = 0;
     }
+
+    // Migrate old start_user_screen + start_at_feed + restor_playback to unified start_screen
+    Settings_MigrateStartScreen();
 
     Settings_ExtraCodecs(false);
     Settings_SetClock();

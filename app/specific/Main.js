@@ -170,7 +170,7 @@ var Main_loadingSafetyTimeoutId;
 //Variable initialization end
 
 // this function call will be used only when running the app/ folder, release maker will remove this
-Main_Start();
+//Main_Start();
 
 function Main_Start() {
     if (document.readyState === 'loading') {

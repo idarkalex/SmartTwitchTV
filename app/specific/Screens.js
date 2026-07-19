@@ -181,9 +181,7 @@ function Screens_first_init() {
         if (obj.type && obj.screen) Main_EventChannel(obj);
     }
 
-    var StartUser = Settings_value.start_user_screen.defaultValue;
-    var StartAtFeed = Settings_value.start_at_feed.defaultValue === 2;
-    var restore_playback = Settings_value.restor_playback.defaultValue;
+    var startScreen = Settings_value.start_screen.defaultValue;
 
     if (live_channel_call) {
         Main_values.Play_WasPlaying = 1;
@@ -191,27 +189,23 @@ function Screens_first_init() {
         Play_data = JSON.parse(JSON.stringify(Play_data_base));
         Play_data.data = ScreensObj_LiveCellArray(obj.obj);
 
-        StartUser = false;
-        StartAtFeed = false;
-        restore_playback = true;
+        startScreen = 1;
     } else if (game_channel_call) {
         Main_values.Play_WasPlaying = 0;
         Main_GoBefore = Main_aGame;
         Play_data = JSON.parse(JSON.stringify(Play_data_base));
         Play_data.data[3] = obj.obj.name;
         Play_data.data[18] = obj.obj.id;
-        StartUser = false;
-        StartAtFeed = false;
+        startScreen = 1;
         Main_values.Main_gameSelected = Play_data.data[3];
         Main_values.Main_gameSelected_id = Play_data.data[18];
     } else if (screen_channel_call) {
         Main_GoBefore = Main_onNewIntentGetScreen(obj);
         Main_values.Play_WasPlaying = 0;
-        StartUser = false;
-        StartAtFeed = false;
+        startScreen = 1;
     }
 
-    if (Main_values.Play_WasPlaying !== 1 || StartUser) {
+    if (Main_values.Play_WasPlaying !== 1 || startScreen === 3) {
         tempGame = Play_data.data[3];
         Play_data = JSON.parse(JSON.stringify(Play_data_base));
     }
@@ -234,12 +228,12 @@ function Screens_first_init() {
 
     Main_values.API_Change = false;
 
-    if (StartUser) {
+    if (startScreen === 3) {
         Users_beforeUser = Main_GoBefore;
         Main_values.Main_Before = Users_beforeUser;
         Main_values.Play_WasPlaying = 0;
         ScreenObj[Main_Users].init_fun();
-    } else if (restore_playback && Main_values.Play_WasPlaying) {
+    } else if (startScreen === 4 && Main_values.Play_WasPlaying) {
         Main_values.Main_Go = Main_GoBefore;
         if (Main_values.IsUpDating) {
             Play_showWarningDialog(STR_UPDATE_WARNING_OK, 5000);
@@ -286,7 +280,7 @@ function Screens_first_init() {
     Main_ShowElement('side_panel_new_holder');
     Main_values.IsUpDating = false;
 
-    if (Settings_value.start_at_feed.defaultValue === 2 && AddUser_UserHasToken()) {
+    if (startScreen === 2 && AddUser_UserHasToken()) {
         Main_setTimeout(function () {
             Sidepannel_Start(null, true);
         }, 300);

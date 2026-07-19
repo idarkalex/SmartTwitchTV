@@ -10,6 +10,15 @@ android {
     namespace "com.fgl27.twitch"
     compileSdk 35
 
+    signingConfigs {
+        release {
+            storeFile file('release-key.jks')
+            storePassword System.getenv("KEYSTORE_PASSWORD") ?: 'smarttwitch123'
+            keyAlias 'smarttwitch'
+            keyPassword System.getenv("KEY_PASSWORD") ?: 'smarttwitch123'
+        }
+    }
+
     buildFeatures {
         buildConfig = true
     }
@@ -28,6 +37,7 @@ android {
 
     buildTypes {
         release {
+            signingConfig signingConfigs.release
             minifyEnabled true
             shrinkResources true
             proguardFiles = [
@@ -36,6 +46,7 @@ android {
             ]
         }
         debug {
+            signingConfig signingConfigs.release
             applicationIdSuffix ".debug"
         }
     }

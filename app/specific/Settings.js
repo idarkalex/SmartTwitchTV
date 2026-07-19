@@ -186,10 +186,6 @@ var Settings_value = {
         values: ['no', 'yes'],
         defaultValue: 1
     },
-    restor_playback: {
-        values: ['no', 'yes'],
-        defaultValue: 2
-    },
     clip_autoPlayNext: {
         //Migrated to dialog
         values: ['no', 'yes'],
@@ -287,12 +283,8 @@ var Settings_value = {
         values: ['no', 'yes'],
         defaultValue: 2
     },
-    start_user_screen: {
-        values: ['no', 'yes'],
-        defaultValue: 1
-    },
-    start_at_feed: {
-        values: ['no', 'yes'],
+    start_screen: {
+        values: ['Live', 'Feed', 'User', 'Restore'],
         defaultValue: 1
     },
     vod_dialog: {
@@ -978,13 +970,10 @@ function Settings_SetSettings() {
     }
 
     //Individual settings
-    div += Settings_Content('start_user_screen', array_no_yes, STR_START_AT_USER, STR_START_AT_USER_SUMMARY);
-    div += Settings_Content('start_at_feed', array_no_yes, STR_START_AT_FEED, STR_START_AT_FEED_SUMMARY);
+    div += Settings_Content('start_screen', ['Live', 'Feed', 'User', 'Restore'], STR_START_SCREEN, STR_START_SCREEN_SUMMARY);
 
     // Player settings title
     div += Settings_DivTitle('play', STR_SETTINGS_PLAYER);
-
-    div += Settings_Content('restor_playback', array_no_yes, STR_RESTORE_PLAYBACK, STR_RESTORE_PLAYBACK_SUMMARY);
 
     div += Settings_Content('single_clickExit', array_no_yes, STR_SINGLE_EXIT, STR_SINGLE_EXIT_SUMMARY);
 
@@ -1133,6 +1122,18 @@ function Settings_DivOptionWithSummary(key, string_title, string_summary, fontSi
     );
 }
 
+function Settings_MigrateStartScreen() {
+    if (Settings_value.start_screen.defaultValue !== 0) return;
+
+    var oldUser = Main_getItemInt('start_user_screen', 1) - 1;
+    var oldFeed = Main_getItemInt('start_at_feed', 1) - 1;
+    var oldRestore = Main_getItemInt('restor_playback', 2) - 1;
+
+    if (oldUser === 1) Settings_value.start_screen.defaultValue = 2;
+    else if (oldFeed === 1) Settings_value.start_screen.defaultValue = 1;
+    else if (oldRestore === 1) Settings_value.start_screen.defaultValue = 3;
+}
+
 function Settings_SetDefaults() {
     //Settings animation will call user live that will call play warning middle and the div need to be initiated first
     Play_BottomIconsSet();
@@ -1142,6 +1143,9 @@ function Settings_SetDefaults() {
         Settings_value[key].defaultValue -= 1;
         if (Settings_value[key].defaultValue > Settings_Obj_length(key)) Settings_value[key].defaultValue = 0;
     }
+
+    // Migrate old start_user_screen + start_at_feed + restor_playback to unified start_screen
+    Settings_MigrateStartScreen();
 
     Settings_ExtraCodecs(false);
     Settings_SetClock();

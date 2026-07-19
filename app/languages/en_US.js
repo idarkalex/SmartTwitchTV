@@ -602,10 +602,8 @@ function en_USLang() {
     STR_PREVIEW_OTHERS_VOLUME_SUMMARY =
         'The main player (all picture in picture players, multistream players) volume can be lowered when the preview player is showing.';
     STR_SIDE_PANEL_PLAYER = 'Preview thumbnail player settings';
-    STR_START_AT_USER = 'Always start the app in the user screen';
-    STR_START_AT_USER_SUMMARY = "This option disables the 'Restore playback' option, but allows you to choose the user upon opening the app.";
-    STR_START_AT_FEED = 'Always start the app showing the followed channels feed';
-    STR_START_AT_FEED_SUMMARY = "This option opens the side panel feed on startup showing your followed live channels with a stream preview. Disables 'Restore playback'.";
+    STR_START_SCREEN = 'App start screen';
+    STR_START_SCREEN_SUMMARY = 'Choose which screen to show when the app opens: Live channels, followed channels Feed, User screen, or Restore previous playback.';
     STR_LAST_REFRESH = 'Last refreshed:';
     STR_PP_VOD_ERROR = 'Exit picture in picture or multistream to open this VOD';
     STR_SETTINGS_ACCESSIBILITY = "Show 'an accessibility service is running' warning";
