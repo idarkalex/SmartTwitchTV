@@ -222,7 +222,7 @@ public final class ChannelsUtils {
         return new ChannelContentObj(
             context.getString(R.string.channel_empty),
             context.getString(R.string.channel_disable),
-            "https://idarkalex.github.io/SmartTwitchTV/release/githubio/images/refresh.png",
+            "https://idarkalex.github.io/SmartTwitchTV/githubio/images/refresh.png",
             TvContractCompat.PreviewPrograms.ASPECT_RATIO_1_1,
             1,
             null,
@@ -418,7 +418,7 @@ public final class ChannelsUtils {
                 rightNow.get(Calendar.MINUTE)
             ),
             context.getString(R.string.channel_refresh),
-            "https://idarkalex.github.io/SmartTwitchTV/release/githubio/images/refresh.png",
+            "https://idarkalex.github.io/SmartTwitchTV/githubio/images/refresh.png",
             TvContractCompat.PreviewPrograms.ASPECT_RATIO_1_1,
             1,
             null,
@@ -532,7 +532,7 @@ public final class ChannelsUtils {
         return new ChannelContentObj(
             "Add User",
             context.getString(R.string.channel_no_user),
-            "https://idarkalex.github.io/SmartTwitchTV/release/githubio/images/add_user.png",
+            "https://idarkalex.github.io/SmartTwitchTV/githubio/images/add_user.png",
             TvContractCompat.PreviewPrograms.ASPECT_RATIO_1_1,
             1,
             new Gson().toJson(new PreviewObj(null, "USER", Constants.CHANNEL_TYPE_USER_LIVE)),

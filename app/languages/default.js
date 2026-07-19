@@ -187,7 +187,7 @@ function DefaultLang() {
     STR_CONTROLS_MAIN_3 = STR_CONTROLS_MAIN_3 + STR_GUIDE + STR_GUIDE_EXTRA + STR_GUIDE_EXTRA2;
     STR_GOBACK = STR_GOBACK_START;
     STR_PAYPAL =
-        '<div style="vertical-align: middle;"><div class="class_bold" style="vertical-align: middle; display: inline-block; font-size: 120%;"><img style="vertical-align: middle; display: inline-block; width: 4%;" alt="" src="https://idarkalex.github.io/SmartTwitchTV/release/githubio/images/paypal.png">' +
+        '<div style="vertical-align: middle;"><div class="class_bold" style="vertical-align: middle; display: inline-block; font-size: 120%;"><img style="vertical-align: middle; display: inline-block; width: 4%;" alt="" src="https://idarkalex.github.io/SmartTwitchTV/githubio/images/paypal.png">' +
         STR_SPACE_HTML +
         STR_PAYPAL_SUMMARY +
         STR_BR +
@@ -203,7 +203,7 @@ function DefaultLang() {
         '</div></div></div>';
 
     STR_BITCOIN =
-        '<div style="vertical-align: middle;"><div class="class_bold" style="vertical-align: middle; display: inline-block; font-size: 120%;"><img style="vertical-align: middle; display: inline-block; width: 4%;" alt="" src="https://idarkalex.github.io/SmartTwitchTV/release/githubio/images/bitcoin.png">' +
+        '<div style="vertical-align: middle;"><div class="class_bold" style="vertical-align: middle; display: inline-block; font-size: 120%;"><img style="vertical-align: middle; display: inline-block; width: 4%;" alt="" src="https://idarkalex.github.io/SmartTwitchTV/githubio/images/bitcoin.png">' +
         STR_SPACE_HTML +
         STR_BITCOIN_SUMMARY +
         STR_BR +
