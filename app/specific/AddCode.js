@@ -404,7 +404,7 @@ function AddCode_CheckSubSucessFail() {
     PlayVod_NotSub();
 }
 
-var AddCode_redirect_uri = 'https://fgl27.github.io/SmartTwitchTV/release/index.html';
+var AddCode_redirect_uri = 'https://idarkalex.github.io/SmartTwitchTV/release/index.html';
 //Get yours app register to get tokens at https://dev.twitch.tv/console
 var AddCode_clientId = 'Y2N6anV6ZXNwMGR4eDMxbGRxd3ViMjdqcTRjMjM3'; //public but get yours link above is free
 //none public get yours link above is free

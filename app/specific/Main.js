@@ -1133,9 +1133,9 @@ function Main_CheckUpdate(forceUpdate) {
     if (checkUpdates) {
         if (Main_HasUpdate && Main_isUpdateDialogVisible() && Settings_value.update_background.defaultValue && !forceUpdate) return;
 
-        if (Main_A_includes_B(window.location.href, 'https://fgl27.github.io')) {
+        if (Main_A_includes_B(window.location.href, 'https://idarkalex.github.io')) {
             BaseXmlHttpGet(
-                'https://fgl27.github.io/SmartTwitchTV/release/githubio/version/version.json',
+                'https://idarkalex.github.io/SmartTwitchTV/release/githubio/version/version.json',
                 Main_CheckUpdateResult,
                 Main_CheckUpdateFail
             );
@@ -1838,7 +1838,7 @@ function Main_CheckdStyleSheet() {
     Main_ready(function () {
         if (window.getComputedStyle(span, null).getPropertyValue('font-family') !== 'icons') {
             Main_Log('Main_CheckdStyleSheet reloading');
-            Main_LoadStylesheet('https://fgl27.github.io/SmartTwitchTV/release/githubio/css/icons.min.css');
+            Main_LoadStylesheet('https://idarkalex.github.io/SmartTwitchTV/release/githubio/css/icons.min.css');
         } else Main_Log('Main_CheckdStyleSheet loaded OK');
 
         Main_body.removeChild(span);

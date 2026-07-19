@@ -55,7 +55,7 @@
         Main_body.insertBefore(span, Main_body.firstChild);
 
         if (window.getComputedStyle(span, null).getPropertyValue('font-family') !== 'icons') {
-            Main_LoadStylesheet('https://fgl27.github.io/SmartTwitchTV/release/githubio/css/icons.min.css');
+            Main_LoadStylesheet('https://idarkalex.github.io/SmartTwitchTV/release/githubio/css/icons.min.css');
         }
 
         Main_body.removeChild(span);

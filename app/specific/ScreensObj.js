@@ -426,7 +426,7 @@ function ScreensObj_StartAllVars() {
             var bannerString = this.enable_mature ? refreshProblemString : STR_MATURE_DISABLED;
             ScreensObj_addBanner(
                 {
-                    image: 'https://fgl27.github.io/SmartTwitchTV/apk/app/src/main/res/mipmap-nodpi/ic_splash.png',
+                    image: 'https://idarkalex.github.io/SmartTwitchTV/apk/app/src/main/res/mipmap-nodpi/ic_splash.png',
                     text: this.emptyContent_STR ? this.emptyContent_STR() : bannerString,
                     empty: true
                 },

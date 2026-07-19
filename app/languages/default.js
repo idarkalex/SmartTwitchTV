@@ -47,8 +47,8 @@ var STR_PIX;
 var STR_BITCOIN;
 var STR_BITCOIN_WALLET = '1DuhCT6L3VfBtFcS8FNfVXgBzE2rwCPx3x';
 var STR_APP_LAG = 'https://tinyurl.com/applag';
-var STR_ABOUT_INFO_5 = 'https://github.com/fgl27/SmartTwitchTV';
-var STR_ABOUT_INFO_20 = 'https://github.com/fgl27/SmartTwitchTV/releases';
+var STR_ABOUT_INFO_5 = 'https://github.com/idarkalex/SmartTwitchTV';
+var STR_ABOUT_INFO_20 = 'https://github.com/idarkalex/SmartTwitchTV/releases';
 
 // This function is called after the main language is loaded, the above are initialized empty so it doesn't cause loading exceptions
 function DefaultLang() {
@@ -173,7 +173,7 @@ function DefaultLang() {
     }
 
     //Strings that have a link
-    STR_OAUTH_IN = DefaultReplaceLink('https://github.com/fgl27/SmartTwitchTV#authorization', STR_OAUTH_IN, true);
+    STR_OAUTH_IN = DefaultReplaceLink('https://github.com/idarkalex/SmartTwitchTV#authorization', STR_OAUTH_IN, true);
 
     //Making the finals strings of strings
     STR_GUIDE_EXTRA = STR_SPACE_HTML + STR_GUIDE_EXTRA;
@@ -187,12 +187,12 @@ function DefaultLang() {
     STR_CONTROLS_MAIN_3 = STR_CONTROLS_MAIN_3 + STR_GUIDE + STR_GUIDE_EXTRA + STR_GUIDE_EXTRA2;
     STR_GOBACK = STR_GOBACK_START;
     STR_PAYPAL =
-        '<div style="vertical-align: middle;"><div class="class_bold" style="vertical-align: middle; display: inline-block; font-size: 120%;"><img style="vertical-align: middle; display: inline-block; width: 4%;" alt="" src="https://fgl27.github.io/SmartTwitchTV/release/githubio/images/paypal.png">' +
+        '<div style="vertical-align: middle;"><div class="class_bold" style="vertical-align: middle; display: inline-block; font-size: 120%;"><img style="vertical-align: middle; display: inline-block; width: 4%;" alt="" src="https://idarkalex.github.io/SmartTwitchTV/release/githubio/images/paypal.png">' +
         STR_SPACE_HTML +
         STR_PAYPAL_SUMMARY +
         STR_BR +
         STR_SPACE_HTML +
-        '<img style="vertical-align: middle; display: inline-block; width: 10.5%;" alt="" src="https://fgl27.github.io/SmartTwitchTV/screenshot/donoqr.png">' +
+        '<img style="vertical-align: middle; display: inline-block; width: 10.5%;" alt="" src="https://idarkalex.github.io/SmartTwitchTV/screenshot/donoqr.png">' +
         '<div style="display: inline-block; color: ' +
         LINK_COLOR +
         ';font-size: 2.7vh;text-align: center; font-family: Roboto;">' +
@@ -203,7 +203,7 @@ function DefaultLang() {
         '</div></div></div>';
 
     STR_BITCOIN =
-        '<div style="vertical-align: middle;"><div class="class_bold" style="vertical-align: middle; display: inline-block; font-size: 120%;"><img style="vertical-align: middle; display: inline-block; width: 4%;" alt="" src="https://fgl27.github.io/SmartTwitchTV/release/githubio/images/bitcoin.png">' +
+        '<div style="vertical-align: middle;"><div class="class_bold" style="vertical-align: middle; display: inline-block; font-size: 120%;"><img style="vertical-align: middle; display: inline-block; width: 4%;" alt="" src="https://idarkalex.github.io/SmartTwitchTV/release/githubio/images/bitcoin.png">' +
         STR_SPACE_HTML +
         STR_BITCOIN_SUMMARY +
         STR_BR +
@@ -213,7 +213,7 @@ function DefaultLang() {
         ';font-size: 2.7vh;text-align: center; font-family: Roboto;">' +
         STR_BITCOIN_WALLET +
         STR_SPACE_HTML +
-        '</div><img style="vertical-align: middle; display: inline-block; width: 10.5%;" alt="" src="https://fgl27.github.io/SmartTwitchTV/screenshot/chart.png"></div></div>';
+        '</div><img style="vertical-align: middle; display: inline-block; width: 10.5%;" alt="" src="https://idarkalex.github.io/SmartTwitchTV/screenshot/chart.png"></div></div>';
 
     STR_PIX =
         '<div style="vertical-align: middle;"><div class="class_bold" style="vertical-align: middle; display: inline-block; font-size: 120%;">' +
