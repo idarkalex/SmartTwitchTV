@@ -1541,9 +1541,11 @@ function Settings_set_all_proxy(current) {
     var currentEnable = Settings_Obj_default(current) === 1;
 
     use_proxy = currentEnable;
+    Main_Log('Proxy: set_all_proxy current=' + current + ' enabled=' + currentEnable);
 
     if (currentEnable) {
         Settings_proxy_set_current(current);
+        Main_Log('Proxy: set_all_proxy url=' + proxy_url + ' has_token=' + proxy_has_token + ' has_parameter=' + proxy_has_parameter);
 
         var i = 0,
             len = proxyArray.length;
@@ -1563,10 +1565,12 @@ function Settings_proxy_set_start() {
         if (Settings_Obj_default(proxyArray[i]) === 1) {
             use_proxy = true;
             Settings_proxy_set_current(proxyArray[i]);
+            Main_Log('Proxy: init proxy=' + proxyArray[i] + ' url=' + proxy_url + ' has_token=' + proxy_has_token + ' has_parameter=' + proxy_has_parameter + ' timeout=' + proxy_timeout);
             break;
         }
     }
     Settings_proxy_set_Type();
+    Main_Log('Proxy: use_proxy=' + use_proxy + ' proxyType=' + proxyType);
 }
 
 function Settings_proxy_set_Type() {

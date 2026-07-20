@@ -228,12 +228,12 @@ function Screens_first_init() {
 
     Main_values.API_Change = false;
 
-    if (startScreen === 3) {
+    if (startScreen === 2) {
         Users_beforeUser = Main_GoBefore;
         Main_values.Main_Before = Users_beforeUser;
         Main_values.Play_WasPlaying = 0;
         ScreenObj[Main_Users].init_fun();
-    } else if (startScreen === 4 && Main_values.Play_WasPlaying) {
+    } else if (startScreen === 3 && Main_values.Play_WasPlaying) {
         Main_values.Main_Go = Main_GoBefore;
         if (Main_values.IsUpDating) {
             Play_showWarningDialog(STR_UPDATE_WARNING_OK, 5000);
@@ -280,7 +280,7 @@ function Screens_first_init() {
     Main_ShowElement('side_panel_new_holder');
     Main_values.IsUpDating = false;
 
-    if (startScreen === 2 && AddUser_UserHasToken()) {
+    if (startScreen === 1 && AddUser_UserHasToken()) {
         Main_setTimeout(function () {
             Sidepannel_Start(null, true);
         }, 300);
