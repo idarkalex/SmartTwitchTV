@@ -24,7 +24,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.fgl27.twitch"
+        applicationId "com.smarttwitch.tv"
 
         minSdkVersion 21
         targetSdkVersion 35

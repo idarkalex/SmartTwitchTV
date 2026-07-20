@@ -21,7 +21,7 @@
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.fgl27.twitch">
+    package="com.smarttwitch.tv">
 
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
@@ -81,8 +81,8 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
-                <!--adb shell am start -W -a android.intent.action.VIEW -d smarttvtwitch://data/Type/Value-->
-                <data android:scheme="smarttvtwitch" />
+                <!--adb shell am start -W -a android.intent.action.VIEW -d smarttvtwitchmod://data/Type/Value-->
+                <data android:scheme="smarttvtwitchmod" />
                 <data android:host="data" />
             </intent-filter>
         </activity>
