@@ -2887,23 +2887,32 @@ public class PlayerActivity extends Activity {
                             "')"
                         );
                     } else {
-                        if (Tools.LastHttpError.length() > 0 || Tools.LastHttpUrlLen > 0) {
-                            LoadUrlWebView(
-                                "javascript:Main_Log('Proxy: Java HTTP err=" + Tools.LastHttpError
-                                + " urlLen=" + Tools.LastHttpUrlLen + "')"
-                            );
-                        }
-                        XmlHttpGetFullError(
-                            DataResultPos,
-                            callback,
-                            checkResult,
-                            check_1,
-                            check_2,
-                            check_3,
-                            check_4,
-                            check_5,
-                            callBackSuccess,
-                            callBackError
+                        String errorInfo = "JavaHTTP err=" + Tools.LastHttpError + " urlLen=" + Tools.LastHttpUrlLen;
+                        BaseXmlHttpGetResultArray[DataResultPos] = new Gson().toJson(
+                            new Tools.ResponseObj(0, errorInfo, checkResult)
+                        );
+                        LoadUrlWebView(
+                            "javascript:smartTwitchTV." +
+                            callback +
+                            "(Android.BasexmlHttpGetResult(" +
+                            DataResultPos +
+                            "), " +
+                            checkResult +
+                            ",'" +
+                            check_1 +
+                            "','" +
+                            check_2 +
+                            "','" +
+                            check_3 +
+                            "','" +
+                            check_4 +
+                            "','" +
+                            check_5 +
+                            "','" +
+                            callBackSuccess +
+                            "','" +
+                            callBackError +
+                            "')"
                         );
                     }
                 });
