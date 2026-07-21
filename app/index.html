@@ -1,2676 +1,1030 @@
 <!doctype html>
-<!--
- /*
- * Copyright (c) 2017–present Felipe de Leon <fglfgl27@gmail.com>
- *
- * This file is part of SmartTwitchTV <https://github.com/fgl27/SmartTwitchTV>
- *
- * SmartTwitchTV is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * SmartTwitchTV is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with SmartTwitchTV.  If not, see <https://github.com/fgl27/SmartTwitchTV/blob/master/LICENSE>.
- *
- */
--->
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta name="viewport" content="user-scalable=no, width=1920, height=1080" />
-        <link rel="dns-prefetch" href="https://idarkalex.github.io/" />
-        <link rel="preconnect" href="https://idarkalex.github.io/" />
-        <link rel="dns-prefetch" href="https://api.twitch.tv/" />
-        <link rel="preconnect" href="https://api.twitch.tv/" />
-        <link rel="dns-prefetch" href="https://static-cdn.jtvnw.net/" />
-        <link rel="preconnect" href="https://static-cdn.jtvnw.net/" />
-        <link rel="dns-prefetch" href="https://twemoji.maxcdn.com" />
-        <link rel="preconnect" href="https://twemoji.maxcdn.com" />
-        <link rel="dns-prefetch" href="https://api.frankerfacez.com" />
-        <link rel="preconnect" href="https://api.frankerfacez.com" />
-        <link rel="dns-prefetch" href="https://api.betterttv.net" />
-        <link rel="preconnect" href="https://api.betterttv.net" />
-        <link rel="dns-prefetch" href="https://api.betterttv.net" />
-        <link rel="preconnect" href="https://badges.twitch.tv" />
-        <link rel="stylesheet" href="githubio/css/icons.css" />
-        <title>SmartTV Twitch</title>
-        <link rel="shortcut icon" type="image/png" href="githubio/images/favicon.png" />
-        <style id="focus_class_holder"></style>
-        <style id="focus_class_test"></style>
-        <style id="round_images_css"></style>
-        <style id="pointer_css"></style>
-        <style id="vh_class"></style>
-        <style id="chat_highlights"></style>
-        <style>
-            body,
-            html {
-                background-color: rgba(0, 0, 0, 0);
-                font-family: 'Roboto', 'Roboto-Bold';
-                margin: auto;
-                overflow: hidden;
-                -webkit-text-stroke: 0.005em;
+        <!-- ============================================================
+             SMARTTWITCHTV MODERN TWITCH SKIN v3 - Basado en capturas reales
+             ============================================================ -->
+        <style id="modern_twitch_skin_v3">
+            /* ==========================================================
+               RESET GLOBAL Y FONDO
+               ========================================================== */
+            body, html, #scene1, #app, .screen_size, #body_container {
+                background-color: #0e0b14 !important;
             }
 
-            .class_bold {
-                font-family: 'Roboto-Bold';
+            /* ==========================================================
+               BARRA SUPERIOR (TOPBAR) - Limpia como en el mockup
+               ========================================================== */
+            .topbar {
+                background: #0e0b14 !important;
+                border-bottom: none !important;
+                height: 5.5% !important;
+                margin-left: 0 !important;
+                width: 100% !important;
+                transform: translateY(0) !important;
             }
 
-            .feed_end_up_down {
-                display: inline-block;
-                font-size: 65%;
-                transform: translate(0, 33%);
-                padding-right: 0.3em;
-            }
-
-            .feed_end_name {
-                transform: translate(0, 29%);
-                display: inline-block;
-                max-width: 27%;
-                width: auto;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                margin-left: 1vh;
-                margin-right: 1vh;
-                padding-left: 0.3em;
-                padding-right: 0.3em;
-                will-change: border-color, background-color;
-                border-radius: 0.2em;
-                border: 0.09em solid rgba(0, 0, 0, 0);
-                background-color: rgba(0, 0, 0, 0);
-            }
-
-            .feed_end_name_focus {
-                transform: translate(0, 29%) scale(1.25);
-                background-color: rgba(0, 0, 0, 0.85);
-                border-color: #ffffff;
-                z-index: 999;
-                position: relative;
-            }
-
-            .screen_size,
-            .scene_keys,
-            .burn_in_protection,
-            .screens {
-                position: absolute;
-                background-color: rgba(0, 0, 0, 0);
-                width: 100%;
-                height: 100%;
-                overflow: hidden;
-                letter-spacing: 0.075ch;
-                font-kerning: none;
-            }
-
-            .feed_screen_new {
-                background-color: rgba(0, 0, 0, 0);
-                overflow: hidden;
-                width: 100%;
-                height: 100%;
-                transform: translateY(-100%);
-                position: absolute;
-                z-index: 3;
-                will-change: opacity;
-                transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1) 0s;
-            }
-
-            .scene_keys {
-                z-index: 200;
-            }
-
-            .burn_in_protection {
-                z-index: 400;
-                background-color: rgba(0, 0, 0, 1);
-            }
-
-            .avoidclicks {
-                pointer-events: none !important;
-            }
-
-            .feed_screen_input {
-                pointer-events: none;
-            }
-
-            .screens {
-                position: absolute;
-            }
-
-            .animate_height_transition_blocked_channel,
-            .animate_height_transition_channel,
-            .animate_height_transition_games,
-            .animate_height_transition_blocked_games,
-            .animate_height_transition {
-                height: 49%;
-                width: 95%;
-                transform: translateY(0);
-                transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
-                will-change: transform;
-                position: absolute;
-            }
-
-            .animate_height_transition_games {
-                height: 50.1%;
-            }
-
-            .animate_height_transition_blocked_games {
-                height: 48.7%;
-            }
-
-            .animate_height_transition_channel {
-                height: 32.075%;
-            }
-
-            .animate_height_transition_blocked_channel {
-                height: 31.575%;
-            }
-
-            .side_panel_holder_ani {
-                transform: translateY(0);
-                transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
-                will-change: transform;
-            }
-
-            .screen_holder,
-            .screen_holder_channel,
-            .screen_holder_switch,
-            .screen_holder_user,
-            .screen_holder_games {
-                width: 100%;
-                position: absolute;
-                top: 6.9%;
-                height: 93.1%;
-                transform: translateY(0);
-                transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
-                will-change: transform;
-            }
-
-            .screen_holder_switch {
-                top: 2.6%;
-                height: 97.4%;
-            }
-
-            .screen_holder_games {
-                top: 4.5%;
-                height: 95.5%;
-            }
-
-            .screen_holder_channel {
-                top: 4.25%;
-                height: 95.75%;
-            }
-
-            .screen_holder_user {
-                top: 7%;
-                height: 93%;
-            }
-
-            .settings_holder {
-                position: absolute;
-                top: 4.5%;
-                width: 100%;
-                height: 95.5%;
-                overflow: hidden;
-            }
-
-            .screen_holder_settings {
-                position: absolute;
-                overflow: hidden;
-                margin-left: 3%;
-                width: 97.5%;
-                height: 100%;
-                font-size: 2.67vh;
-            }
-
-            .live_icon {
-                vertical-align: middle;
-                font-size: 65%;
+            .top_lable {
+                color: #ffffff !important;
+                font-size: 160% !important;
+                font-family: 'Roboto-Bold' !important;
+                text-align: left !important;
+                padding-left: 19% !important;
+                padding-top: 0.5% !important;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
             }
 
             .icon_top_label {
-                width: auto;
-                height: 1.75%;
-                text-align: left;
-                color: #ffffff;
-                font-size: 55%;
-                font-family: 'Roboto-Bold';
-                vertical-align: middle;
+                color: #8f8c9f !important;
+                font-size: 55% !important;
+                font-family: 'Roboto' !important;
             }
 
-            .stream_cell_period {
-                padding-left: 3ch;
-                position: relative;
-                width: 30%;
-                display: inline-block;
-                transform: translateY(25%);
+            .top_clock {
+                position: absolute !important;
+                right: 2% !important;
+                top: 0.5% !important;
+                color: #8f8c9f !important;
+                font-size: 90% !important;
             }
 
-            .icon_feed_refresh {
-                width: 100%;
-                font-family: 'Roboto-Bold';
-                color: #ffffff;
-                text-align: left;
-                margin-left: 0.5%;
-                filter: drop-shadow(0 0.05em 0.15em #000000) drop-shadow(0 0.05em 0.15em #000000);
+            .controls_div {
+                display: none !important; /* Ocultar labels de refresh en topbar */
             }
 
-            .stream_thumbnail_game_feed,
-            .stream_thumbnail_game,
-            .stream_thumbnail_side,
-            .stream_thumbnail_live,
-            .stream_thumbnail_player_feed,
-            .stream_thumbnail_user,
-            .stream_thumbnail_channel {
-                width: 100%;
-                height: 0;
-                position: relative;
+            #button_full_screen {
+                display: none !important;
             }
 
-            .banner_holder {
-                width: 98.75%;
-                display: inline-block;
-                padding: 0.5%;
+            /* ==========================================================
+               PANEL LATERAL IZQUIERDO (SIDEBAR) - Estilo lista limpia
+               ========================================================== */
+            .side_panel_new_holder {
+                width: 16% !important;
+                height: 100% !important;
+                position: absolute !important;
+                left: 0 !important;
+                top: 0 !important;
+                z-index: 10 !important;
             }
 
-            .inner_banner_holder {
-                width: 100%;
-                display: inline-block;
-                padding-bottom: 2.75%;
-                background-color: #000000;
-                color: #ffffff;
-                position: relative;
+            .side_panel_movel {
+                width: 100% !important;
+                margin-left: 0 !important;
+                background: #16131f !important;
             }
 
-            .banner_text_holder {
-                height: 2.5vh;
-                font-family: 'Roboto-Bold';
+            .side_panel_fix {
+                display: none !important; /* Ocultar panel de iconos fijos */
             }
 
-            .banner_img_holder {
-                padding-bottom: 24%;
-                background-color: #000000 !important;
+            /* Ocultar elementos del sidebar que no queremos */
+            .side_panel_fix_top, .side_panel_fix_top_2, 
+            .side_panel_fix_center, .side_panel_fix_bottom {
+                background: #16131f !important;
             }
 
-            img.banner_img {
-                height: 89.5%;
-                max-width: 96%;
-                position: absolute;
-                left: 50%;
-                transform: translateX(-50%);
+            .side_panel_new_icons_text_holder,
+            .side_panel_new_icons {
+                border: none !important;
+                border-image: none !important;
+                background: transparent !important;
+                color: #8f8c9f !important;
+                width: 90% !important;
+                margin-left: 5% !important;
+                text-align: left !important;
+                padding-left: 1em !important;
+                height: 7% !important;
+                margin-top: 0.5vh !important;
+                border-radius: 0.4em !important;
+                font-size: 95% !important;
             }
 
-            img.banner_16by9_img {
-                height: 118.3%;
-                position: absolute;
-                max-width: 100%;
-                max-height: 118.3%;
-                overflow: hidden;
-                left: 50%;
-                transform: translateX(-50%);
+            .side_panel_new_icons_text {
+                background: transparent !important;
+                border-image: none !important;
             }
 
-            .stream_thumbnail_side {
-                width: 99.75%;
-                /*16 by 9 in relation to the width % size*/
-                padding-bottom: 56.109375%;
-                background-repeat: no-repeat;
-                background: #000000;
+            /* Item activo/enfocado - púrpura sólido */
+            .side_panel_div_focused,
+            .side_panel_new_icons_text.side_panel_new_icons_start,
+            .side_panel_new_icons_text_holder.side_panel_new_icons_text {
+                background: linear-gradient(90deg, #9146ff 0%, #772ce8 100%) !important;
+                color: #ffffff !important;
+                box-shadow: 0 0.1em 0.5em rgba(145, 70, 255, 0.4) !important;
+                border-radius: 0.4em !important;
             }
 
-            .stream_thumbnail_player_feed {
-                padding-bottom: 93%;
-                width: 97%;
-                background-repeat: no-repeat;
-                background: #000000;
-                color: #ffffff;
+            .side_panel_new_icons_text_botton {
+                background: transparent !important;
+                border-image: none !important;
             }
 
-            .stream_switch_focused {
-                background-color: rgba(255, 255, 255, 0.15);
-                border-color: #ebebeb !important;
+            /* Texto del sidebar */
+            .side_panel_movel_top_text,
+            .side_panel_movel_user_text {
+                color: #8f8c9f !important;
+                font-size: 80% !important;
+                left: 5% !important;
+                width: 90% !important;
             }
 
-            .stream_thumbnail_channel_vod {
-                margin-left: 5%;
-                width: 90%;
-                height: 0;
-                padding-bottom: 6%;
+            /* Ocultar secciones vacías del sidebar */
+            #side_panel_movel_new_0,
+            #side_panel_movel_new_1 {
+                height: 1em !important;
             }
 
-            .stream_thumbnail_live {
-                padding-bottom: 79.5%;
-                background-color: #000000;
-                color: #ffffff;
+            /* ==========================================================
+               GRID PRINCIPAL DE STREAMS - 4 COLUMNAS EXACTAS
+               ========================================================== */
+            .screen_holder {
+                top: 5.5% !important;
+                height: 94.5% !important;
+                left: 16% !important;
+                width: 84% !important;
             }
 
-            .stream_thumbnail_feed_game,
-            .stream_thumbnail_live_game {
-                width: 100%;
-                background-color: #000000;
-                padding-bottom: 139.7%;
-                position: relative;
+            .screen_holder_switch {
+                top: 5.5% !important;
+                height: 94.5% !important;
+                left: 16% !important;
+                width: 84% !important;
             }
 
-            .stream_thumbnail_live_img {
-                width: 100%;
-                background-color: #000000;
-                padding-bottom: 56.25%;
-                position: relative;
+            .screen_holder_games {
+                top: 5.5% !important;
+                height: 94.5% !important;
+                left: 16% !important;
+                width: 84% !important;
             }
 
-            .stream_thumbnail_channel_img {
-                width: 100%;
-                background-color: #000000;
-                padding-bottom: 100%;
-                position: relative;
+            .screen_holder_channel {
+                top: 5.5% !important;
+                height: 94.5% !important;
+                left: 16% !important;
+                width: 84% !important;
             }
 
-            .stream_thumbnail_blocked_game_holder,
-            .stream_thumbnail_game_holder {
-                width: 17%;
-                display: inline-block;
-                padding: 1%;
-                padding-top: 0;
-                padding-bottom: 0.2%;
+            .screen_holder_user {
+                top: 5.5% !important;
+                height: 94.5% !important;
+                left: 16% !important;
+                width: 84% !important;
             }
 
-            .stream_thumbnail_blocked_game_holder {
-                width: 16.5%;
+            .streams_div {
+                margin-left: 1.5% !important;
+                width: 97% !important;
+                height: 100% !important;
             }
 
-            .stream_thumbnail_game_feed,
-            .stream_thumbnail_game {
-                padding-bottom: 164%;
-                font-size: 80%;
-                background-color: #000000;
-                color: #ffffff;
+            .streams_game_div {
+                margin-left: 1.5% !important;
+                width: 97% !important;
             }
 
-            .stream_thumbnail_game_feed {
-                padding-bottom: 158%;
-                font-size: 80%;
-                width: 93%;
-            }
-
+            /* 4 COLUMNAS PARA STREAMS EN VIVO */
             .stream_thumbnail_live_holder {
-                width: 32%;
-                display: inline-block;
-                padding: 0.5%;
-                padding-bottom: 1.5%;
+                width: 24% !important;
+                padding: 0.4% !important;
+                padding-bottom: 0.8% !important;
+                display: inline-block !important;
+                vertical-align: top !important;
+                box-sizing: border-box !important;
             }
 
-            .stream_thumbnail_user_icon_holder,
-            .stream_thumbnail_blocked_channel_holder,
-            .stream_thumbnail_channel_holder {
-                width: 15%;
-                display: inline-block;
-                padding: 0.5%;
-                padding-bottom: 1.25%;
+            /* TARJETA DE STREAM - Fondo oscuro con bordes redondeados */
+            .stream_thumbnail_live {
+                background-color: #1a1725 !important;
+                border-radius: 0.8em !important;
+                border: 0.08em solid rgba(255, 255, 255, 0.04) !important;
+                overflow: hidden !important;
+                padding-bottom: 82% !important;
+                position: relative !important;
+                transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1) !important;
             }
 
-            .stream_thumbnail_blocked_channel_holder {
-                width: 14.5%;
+            /* Contenedor de imagen - 16:9 con margen */
+            .stream_thumbnail_live_img {
+                width: 94% !important;
+                margin: 3% auto 0 auto !important;
+                padding-bottom: 52.8% !important;
+                background-color: #0f0d18 !important;
+                border-radius: 0.5em !important;
+                overflow: hidden !important;
+                position: relative !important;
             }
 
-            .stream_thumbnail_user_icon_holder {
-                width: 14.5%;
-                transform: translateY(-11%);
-                padding: 1%;
-                padding-top: 0.8%;
-                padding-bottom: 0;
+            .stream_thumbnail_live_img img,
+            img.stream_img {
+                width: 100% !important;
+                height: 100% !important;
+                object-fit: cover !important;
+                border-radius: 0.5em !important;
             }
 
-            .channel_about {
-                text-overflow: ellipsis;
-                overflow: hidden;
-                height: 98% !important;
-                font-size: 80%;
-                width: 96%;
-                margin-left: 2%;
-            }
-
-            .stream_thumbnail_user_text_holder,
-            .stream_thumbnail_channel_text_holder,
-            .stream_thumbnail_game_text_holder,
-            .stream_thumbnail_game_feed_text_holder,
-            .stream_thumbnail_feed_text_holder,
-            .banner_text_holder,
+            /* TEXTO DEBAJO DE LA IMAGEN */
             .stream_thumbnail_live_text_holder {
-                position: absolute;
-                right: 0;
-                left: 0;
-                padding: 0.5%;
-                font-size: 94%;
-                margin-top: 0.1em;
-            }
-
-            .stream_thumbnail_feed_text_holder {
-                height: 35%;
-            }
-
-            .stream_thumbnail_live_text_holder {
-                height: 28%;
+                position: absolute !important;
+                bottom: 0 !important;
+                left: 0 !important;
+                right: 0 !important;
+                padding: 0.4em 0.6em !important;
+                height: auto !important;
+                min-height: 22% !important;
+                background: transparent !important;
             }
 
             .stream_text_holder {
-                display: inline-block;
-                width: 100%;
-                top: 50%;
-                position: relative;
-                transform: translateY(-50%);
+                position: static !important;
+                transform: none !important;
+                top: auto !important;
+            }
+
+            /* Nombre del streamer - BLANCO, BOLD */
+            .stream_info_live_name {
+                color: #ffffff !important;
+                font-size: 78% !important;
+                font-family: 'Roboto-Bold' !important;
+                line-height: 1.3em !important;
+                white-space: nowrap !important;
+                overflow: hidden !important;
+                text-overflow: ellipsis !important;
+                width: 100% !important;
+                display: block !important;
+            }
+
+            /* Título del stream - GRIS */
+            .stream_info_live_title,
+            .stream_info_live_title_single_line {
+                color: #8f8c9f !important;
+                font-size: 68% !important;
+                font-family: 'Roboto' !important;
+                line-height: 1.3em !important;
+                max-height: 2.6em !important;
+                overflow: hidden !important;
+                display: block !important;
+                width: 100% !important;
+            }
+
+            /* Nombre del canal/juego - GRIS MÁS OSCURO */
+            .stream_info_live {
+                color: #6b6880 !important;
+                font-size: 65% !important;
+                font-family: 'Roboto' !important;
+                white-space: nowrap !important;
+                overflow: hidden !important;
+                text-overflow: ellipsis !important;
+                display: block !important;
+                width: 100% !important;
+                margin-top: 0.1em !important;
+            }
+
+            /* Icono LIVE rojo */
+            .live_icon {
+                color: #ff4444 !important;
+                font-size: 55% !important;
+                margin-right: 0.3em !important;
+            }
+
+            /* ==========================================================
+               GRID DE JUEGOS - 6 COLUMNAS
+               ========================================================== */
+            .stream_thumbnail_game_holder,
+            .stream_thumbnail_blocked_game_holder {
+                width: 15.8% !important;
+                padding: 0.35% !important;
+                padding-bottom: 0.5% !important;
+                display: inline-block !important;
+                vertical-align: top !important;
+            }
+
+            .stream_thumbnail_game {
+                background-color: #1a1725 !important;
+                border-radius: 0.8em !important;
+                border: 0.08em solid rgba(255, 255, 255, 0.04) !important;
+                overflow: hidden !important;
+                padding-bottom: 155% !important;
+            }
+
+            .stream_thumbnail_game_feed {
+                background-color: #1a1725 !important;
+                border-radius: 0.8em !important;
             }
 
             .stream_thumbnail_game_text_holder {
-                height: 14%;
-            }
-
-            .stream_thumbnail_game_feed_text_holder {
-                height: 17%;
-            }
-
-            .stream_thumbnail_channel_text_holder {
-                bottom: 0;
-                height: 1em;
-            }
-
-            .stream_thumbnail_user_text_holder {
-                bottom: 0;
-                height: 2em;
-            }
-
-            .stream_info_live,
-            .stream_info_live_title,
-            .stream_info_live_title_single_line,
-            .stream_info_channel_name,
-            .stream_info_user_name,
-            .stream_info_user_title,
-            .stream_info_live_name {
-                width: 100%;
-                text-align: left;
-                word-wrap: break-word;
-                font-size: 85%;
-                font-family: 'Roboto-Bold';
+                height: 15% !important;
+                padding: 0.3em !important;
             }
 
             .stream_info_game_name {
-                width: 100%;
-                white-space: nowrap;
-                text-overflow: ellipsis;
-                overflow: hidden;
-                font-size: 75%;
-                font-family: 'Roboto-Bold';
+                color: #ffffff !important;
+                font-size: 75% !important;
             }
 
-            .channel_live_icon {
-                vertical-align: middle;
-                margin-right: 0.2ch;
+            /* ==========================================================
+               EFECTO DE FOCO (FOCUSED) - Glow púrpura
+               ========================================================== */
+            .stream_thumbnail_focused,
+            .stream_thumbnail_focused_no_ani,
+            .stream_switch_focused,
+            .feed_thumbnail_focused {
+                border-color: #9146ff !important;
+                box-shadow: 
+                    0 0 0 0.15em #9146ff,
+                    0 0 1.5em rgba(145, 70, 255, 0.5),
+                    0 0 3em rgba(145, 70, 255, 0.2) !important;
+                transform: scale(1.03) !important;
+                z-index: 100 !important;
+                background-color: #1f1c2e !important;
             }
 
-            .stream_info_channel_partner_icon {
-                display: inline-block;
-                font-size: 75%;
-                width: 2ch;
+            /* Foco en sidebar items */
+            .side_panel_new_icons_text_holder.side_panel_div_focused,
+            .side_panel_new_icons_text_holder:hover {
+                background: linear-gradient(90deg, rgba(145, 70, 255, 0.3) 0%, rgba(119, 44, 232, 0.1) 100%) !important;
+                border: 0.05em solid rgba(145, 70, 255, 0.5) !important;
             }
 
-            .stream_info_user_name,
-            .stream_info_user_title,
-            .stream_info_channel_name {
-                font-size: 72%;
-                white-space: nowrap;
-                text-overflow: ellipsis;
-                overflow: hidden;
-                width: calc(100% - 3ch);
-                display: inline-block;
-                margin-left: 0.3ch;
+            /* ==========================================================
+               PANEL LATERAL DE FEED (sidepannel)
+               ========================================================== */
+            .side_panel {
+                background: #0e0b14 !important;
+                width: 20% !important;
             }
 
-            .stream_info_user_title,
-            .stream_info_user_name {
-                font-size: 67%;
-                width: 100%;
-                display: block;
-            }
-
-            .stream_info_user_name {
-                padding-top: 0.25em;
-            }
-
-            .stream_info_live {
-                white-space: nowrap;
-                text-overflow: ellipsis;
-                overflow: hidden;
-                font-family: 'Roboto';
-                font-size: 74%;
-            }
-
-            .stream_info_live_title {
-                word-wrap: break-word;
-                max-height: 2.35em;
-                font-size: 72%;
-                overflow: hidden;
-                white-space: normal;
-            }
-
-            .stream_info_live_title_single_line {
-                word-wrap: break-word;
-                max-height: 1.175em;
-                font-size: 72%;
-                overflow: hidden;
-                white-space: normal;
-            }
-
-            .add_user_text {
-                width: 99% !important;
-                height: auto !important;
-                left: 0;
-                color: #ffffff;
-                font-size: 200%;
-                text-align: center;
-            }
-
-            .dialog_multi_help,
-            .dialog_multi {
-                z-index: 2;
-                border-radius: 1em;
-                left: 15%;
+            .side_panel_feed_thumb {
+                background: #16131f !important;
+                border-radius: 0.6em !important;
+                left: 20% !important;
                 width: 70% !important;
-                height: auto !important;
-                top: 50%;
-                text-align: center;
-                transform: translateY(-50%);
-                font-size: 110%;
-                background-color: rgba(0, 0, 0, 0.85) !important;
-                border: 0.1em solid #ffffff;
             }
 
-            .dialog_multi_help {
-                width: 99% !important;
-                height: auto !important;
-                left: 0;
-                color: #ffffff;
-                font-size: 89%;
+            .side_panel_div {
+                border-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)) 1 !important;
+                border: none !important;
             }
 
-            .dialog_multi_help_holder {
-                width: 48% !important;
-                height: 48% !important;
-                top: 51%;
-                left: 51%;
-                z-index: -1;
+            .side_panel_div_focused {
+                background: linear-gradient(90deg, rgba(145, 70, 255, 0.2) 0%, transparent 100%) !important;
+                border: 0.05em solid rgba(145, 70, 255, 0.4) !important;
             }
 
-            .stream_info_multi_diag_div,
-            .stream_info_pp_div,
-            .stream_info_multi_div {
-                width: 35%;
-                display: inline-block;
+            .side_panel_feed_top {
+                color: #8f8c9f !important;
+                font-size: 75% !important;
             }
 
-            .stream_info_pp_div {
-                width: 70%;
+            .side_panel_feed_thumb_text_holder {
+                background: linear-gradient(to top, rgba(22, 19, 31, 0.95), transparent) !important;
             }
 
-            .stream_info_multi_diag_div {
-                width: 45%;
-                padding: 2%;
-                padding-right: 2.5%;
+            .side_panel_new_title {
+                color: #ffffff !important;
             }
 
-            .stream_thumbnail_channel {
-                padding-bottom: 112%;
-                background-color: #000000;
-                color: #ffffff;
+            .side_panel_new_game {
+                color: #8f8c9f !important;
             }
 
-            .stream_thumbnail_user {
-                padding-bottom: 122%;
-                background-color: #000000;
-                color: #ffffff;
-            }
-
-            .stream_user_icon {
-                width: 100%;
-                color: #ffffff;
-                text-align: center;
-                font-size: 100%;
-            }
-
-            img.stream_img_channel {
-                /* height: 84%; */
-                max-height: 47%;
-                max-width: 92%;
-                margin-left: 2%;
-                position: absolute;
-                left: 50%;
-                transform: translate(-50%, -1%);
-            }
-
-            img.stream_img_channel_logo {
-                height: 150%;
-                position: absolute;
-                left: 50%;
-                transform: translateX(-50%);
-            }
-
-            img.stream_img_side,
-            img.stream_img_channels,
-            img.stream_img {
-                width: 100%;
-                position: absolute;
-                max-width: 100%;
-                max-height: 100%;
-                overflow: hidden;
-            }
-
-            img.stream_img_follow {
-                height: 100%;
-                position: absolute;
-                right: 0;
-            }
-
-            .next_channel,
-            .next_info {
-                width: 100%;
-                text-align: left;
-                word-wrap: break-word;
-                color: #ffffff;
-                font-family: 'Roboto-Bold';
-                font-size: 85%;
-            }
-
-            .next_info {
-                white-space: nowrap;
-                text-overflow: ellipsis;
-                overflow: hidden;
-                font-family: 'Roboto';
-                font-size: 75%;
-                padding-right: 0.5em;
-            }
-
-            .next_info_dialog {
-                overflow: hidden;
-                font-family: 'Roboto';
-                font-size: 75%;
-                max-height: 9.2vh;
-                height: auto;
-                text-align: left;
-            }
-
-            .end_text {
-                overflow: hidden;
-                height: 1.15em;
-            }
-
-            .icon_end {
-                font-size: 6vh !important;
-            }
-
-            .stream_channel_follow_game {
-                text-align: center;
-                font-size: 71%;
-                line-height: 0.5em;
-                width: 100%;
-                word-wrap: break-word;
-                color: #ffffff;
-                font-family: 'Roboto-Bold';
-                transform: translateY(1ch);
-            }
-
-            .stream_channel_follow_game,
-            .pause_button3d {
-                text-shadow:
-                    -0.1em 0 0 #000000,
-                    0.05em -0.05em 0 #000000,
-                    0.05em 0.05em 0 #000000,
-                    0 0.05em 0 #000000,
-                    -0.05em 0 0 #000000,
-                    -0.05em 0.05em 0 #000000,
-                    0 -0.05em 0 #000000,
-                    0 0.0375em 0 #777777,
-                    0 0.075em 0 #666666,
-                    0 0.1125em 0 #555555,
-                    0 0.2em 0 #000000,
-                    0 0.2em 0 #000000,
-                    0.1em 0.1em 0 #000000,
-                    0.1em 0.1em 0 #000000,
-                    -0.1em 0.1em 0 #000000,
-                    -0.1em 0.1em 0 #000000,
-                    -0.05em 0.15em 0 #000000,
-                    0.05em 0.15em 0 #000000;
-            }
-
-            .sidepanel_heart {
-                text-shadow:
-                    0.05em -0.05em 0 #ffffff,
-                    0.05em 0 0 #ffffff,
-                    -0.05em 0 0 #ffffff,
-                    0 -0.05em 0 #ffffff,
-                    0 0.075em 0 #ffffff;
-            }
-
-            .strokicon_title,
-            .strokicon {
-                text-shadow:
-                    0 0.025em 0 #000000,
-                    -0.025em 0 0 #000000,
-                    0 0.0375em 0 #777777,
-                    0 0.055em 0 #666666,
-                    0 0.07em 0 #555455,
-                    -0.03em -0.03em 0 #000000,
-                    0.03em -0.03em 0 #000000,
-                    -0.03em 0.08em 0 #000000,
-                    0.03em 0.08em 0 #000000,
-                    -0.04em 0.03em 0 #000000,
-                    0.04em 0.03em 0 #000000,
-                    0 0.1em 0 #000000,
-                    0 -0.04em 0 #000000;
-            }
-
-            .strokicon_title {
-                font-size: 90%;
-                color: #ffffff;
-                text-shadow:
-                    -0.1em 0 0 #000000,
-                    0.05em -0.05em 0 #000000,
-                    0.05em 0.05em 0 #000000,
-                    0 0.05em 0 #000000,
-                    -0.05em 0 0 #000000,
-                    -0.05em 0.05em 0 #000000,
-                    0 -0.05em 0 #000000,
-                    0 0.0375em 0 #777777,
-                    0 0.075em 0 #666666,
-                    0 0.1125em 0 #555555,
-                    0 0.2em 0 #000000,
-                    0 0.2em 0 #000000,
-                    0.1em 0.1em 0 #000000,
-                    0.1em 0.1em 0 #000000,
-                    -0.1em 0.1em 0 #000000,
-                    -0.1em 0.1em 0 #000000,
-                    -0.05em 0.15em 0 #000000,
-                    0.05em 0.15em 0 #000000;
-            }
-
-            .seek_previews_holder {
-                transform: translate(0%, 0%);
-                position: absolute;
-                display: inline-block;
-                width: 100%;
-                height: 100%;
-            }
-
-            .seek_previews {
-                transform: translateX(-53%);
-                left: 0;
-                bottom: 0;
-                position: absolute;
-                border-radius: 0.5vh;
-                box-shadow:
-                    inset 0 0 0 0.025vh #ffffff,
-                    0 0 0 0.3vh #ffffff,
-                    0 0 0 0.6vh #000000;
-            }
-
-            .stream_channel_follow_icon {
-                color: #ffffff;
-                font-size: 100%;
-            }
-
-            .scenefeed_background_no_ani,
-            .scenefeed_background {
-                background: rgba(0, 0, 0, 1);
-            }
-
-            .scenefeed_background {
-                transition: background 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
-                background: rgba(0, 0, 0, 1);
-            }
-
-            .user_feed {
-                z-index: 100;
-                position: absolute;
-                bottom: -0.1%;
-                height: 43.75%;
-                width: 100%;
-                overflow: hidden;
-                background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
-                transform: translateY(0);
-                transition: transform 200ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
-                will-change: transform;
-            }
-
-            .user_feed_hide {
-                transform: translateY(101%);
-            }
-
-            .user_feed_scroll_game,
-            .user_feed_scroll {
-                position: absolute;
-                width: 100%;
-                left: 0.55vh;
-                white-space: nowrap;
-                /* height calculated manual to be 100% of content*/
-                height: 78%;
-                bottom: 17.7%;
-                transform: translateX(0);
-                transition: transform 200ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
-                will-change: transform;
-            }
-
-            .user_feed_scroll_game {
-                left: 0.9vh;
-                /* height calculated manual to be 100% of content*/
-                height: 85%;
-                bottom: 11.7%;
-            }
-
-            .user_feed_thumb_game,
-            .user_feed_thumb {
-                width: 19.95%;
-                display: inline-block;
-                transform: translate(0px, -103%);
-                transition: transform 200ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
-                will-change: transform;
-                position: absolute;
-            }
-
-            .user_feed_thumb_game {
-                width: 12.465%;
-            }
-
-            .chat_input_text_box {
-                width: 95%;
-                text-align: center;
-                margin-left: 2.5%;
-            }
-
-            .chat_result,
-            .chat_result_holder,
-            .chat_result_text {
-                width: 100%;
-                text-align: center;
-                font-size: 2.4vh;
-                font-family: 'Roboto-Bold';
-                background-color: #000000;
-                color: #ffffff;
-            }
-
-            .chat_result_holder_inner {
-                padding: 0.5%;
-            }
-
-            .chat_result_text {
-                width: 100%;
-                height: 100%;
-                transform: rotate(180deg);
-                text-align: left;
-            }
-
-            .chat_result_holder {
-                max-height: 24.5vh;
-                margin-bottom: 1%;
-                border: 0.4vh solid #ffffff;
-                transform: rotate(180deg);
-                overflow: hidden;
-            }
-
-            .chat_result {
-                background-color: rgba(0, 0, 0, 0);
-            }
-
-            .chat_input_class {
-                width: 100%;
-                margin-bottom: 0.5%;
-                height: 1.25em;
-                color: #000000;
-                font-family: 'Roboto-Bold';
-                font-size: 2vh;
-                text-align: center;
-                background-color: #dcdcdc;
-                border: 0.125em solid #ffffff;
-                box-shadow: inset 0 0 0 0.1em #000000;
-                padding: 0.08em;
-                outline: none;
-            }
-
-            .chat_input_class_focus {
-                border: 0.2em solid red;
-                caret-color: red;
-                box-shadow: inset 0 0 0 0.1em #ffffff;
-                background-color: #ffffff;
-            }
-
-            .chat_input_class_block {
-                border: 0.2em solid red;
-                caret-color: red;
-                color: red;
-                box-shadow: inset 0 0 0 0.1em #ffffff;
-                background-color: #ffffff;
-            }
-
-            .chat_emotes_img_container,
-            .chat_emotes_img {
-                width: 10vh;
-                height: 10vh;
-                object-fit: contain;
-            }
-
-            .chat_emotes_div {
-                overflow: hidden;
-            }
-
-            .chat_emotes {
-                width: 100%;
-                margin-left: 2%;
-                text-align: left;
-                transform: translateY(0);
-                transition: transform 200ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
-                will-change: transform;
-            }
-
-            .chat_emotes_img_div {
-                padding: 1vh;
-                padding-left: 2vh;
-            }
-
-            .chat_emotes_img_holder {
-                width: 8%;
-                display: inline-block;
-            }
-
-            .chat_emotes_focus {
-                background-color: rgba(0, 0, 0, 0.6);
-                box-shadow: inset 0 0 0 0.4vh #ebebeb;
-            }
-
-            .chat_emotes_name_holder {
-                height: 2vh;
-            }
-
-            .chat_emotes_name {
-                color: #ffffff;
-                font-size: 2vh;
-                width: 100vw;
-                text-align: center;
-                position: relative;
-                left: 50%;
-                transform: translateX(-50%);
-            }
-
-            .chat_emotes_counter {
-                position: absolute;
-                top: 0;
-                right: 0;
-                margin-right: 1vh;
-                font-size: 2.5vh;
-                color: #ffffff;
-            }
-
-            .chat_emotes_holder {
-                position: absolute;
-                text-align: center;
-                width: 100%;
-                height: 46.5%;
-                bottom: 0;
-                font-size: 0;
-                background: rgba(0, 0, 0, 0.7);
-                z-index: 2;
-            }
-
-            .chat_emotes_text {
-                color: #ffffff;
-                font-family: 'Roboto-Bold';
-                font-size: 3vh;
-            }
-
-            .button_chat {
-                width: 14%;
-                overflow: hidden;
-                white-space: nowrap;
-                text-overflow: ellipsis;
-                height: 1.25em;
-                margin-left: 2%;
-                margin-bottom: 0.5%;
-                color: #ffffff;
-                font-family: 'Roboto-Bold';
-                font-size: 2.4vh;
-                background-color: #2f2f2f;
-                display: inline-block;
-                border: 0.1em solid #ffffff;
-                box-shadow: inset 0 0 0 0.1em #000000;
-                text-align: center;
-            }
-
-            .chat_send {
-                font-size: 0;
-                top: 0;
-                z-index: 8;
-                background: rgba(0, 0, 0, 0.7);
-                height: 0;
-            }
-
-            .button_chat_focused {
-                color: #000000;
-                background-color: #ebebeb;
-                border-color: #000000;
-                box-shadow: inset 0 0 0 0.1em #ff0000;
-            }
-
-            .input_text_box {
-                width: 70%;
-                margin-top: 13%;
-                margin-left: 15%;
-            }
-
-            .input_class {
-                width: 100%;
-                height: 2em;
-                color: black;
-                font-family: 'Roboto-Bold';
-                font-size: 150%;
-                text-align: center;
-                vertical-align: middle;
-                background-color: #ebebeb;
-                border-radius: 0.75em;
-                border: 0.1em solid #ffffff;
-                box-shadow: inset 0 0 0 0.08em #000000;
-                padding: 0.08em;
-                outline: none;
-            }
-            .button_search_container {
-                /* 101 to acount for the boarder of the input */
-                width: 101%;
-                display: flex;
-                justify-content: space-evenly;
+            /* ==========================================================
+               DIÁLOGOS Y POPUPS
+               ========================================================== */
+            .about_dialogs,
+            .dialog_exit,
+            .dialog_period {
+                background-color: #16131f !important;
+                border-radius: 1em !important;
+                border: 0.08em solid rgba(255, 255, 255, 0.06) !important;
+                box-shadow: 0 1em 3em rgba(0, 0, 0, 0.7) !important;
             }
 
             .button_dialog,
             .button_search {
-                width: 19%;
-                height: 2.2em;
-                line-height: 2.2em;
-                border-radius: 0.75em;
-                margin-top: 1%;
-                /* margin-left: 4.5%; */
-                color: #ffffff;
-                font-family: 'Roboto-Bold';
-                font-size: 150%;
-                background-color: rgba(0 0 0 0);
-                display: inline-block;
-                border-top: 0.055em solid;
-                border-bottom: 0.06em solid;
-                border-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)) 1;
-                text-align: center;
-                overflow: hidden;
-                text-overflow: ellipsis;
+                background-color: rgba(255, 255, 255, 0.05) !important;
+                border: none !important;
+                border-radius: 0.5em !important;
+                color: #ffffff !important;
             }
 
-            .button_search:hover,
-            .button_dialog:hover,
             .button_dialog_focused,
             .button_search_focused {
-                background-color: #3e3e3e;
-                text-shadow:
-                    -0.03em -0.03em 0 #000,
-                    0.03em -0.03em 0 #000,
-                    -0.03em 0.03em 0 #000,
-                    0.03em 0.03em 0 #000;
-                border-image: linear-gradient(to right, #000000 6%, #d0d3d4, #000000 94%) 1;
-                margin-bottom: 0 !important;
-            }
-
-            .button_dialog_focused {
-                border-image: linear-gradient(to right, #101010 9%, #d0d3d4, #101010 91%) 1;
-            }
-
-            .about_text_title {
-                text-align: center;
-                width: 100%;
-                font-size: 125%;
-                font-family: 'Roboto-Bold';
-            }
-
-            .about_text,
-            .exit_text,
-            .controls_text {
-                width: 99%;
-                display: inline-block;
-                color: #ffffff;
-                margin: 0.5%;
-                text-align: center;
-                word-wrap: break-word;
-                font-size: 75%;
-                text-shadow:
-                    #000000 0 0 0.2em,
-                    #000000 0 0 0.2em,
-                    #000000 0 0 0.15em;
+                background: linear-gradient(90deg, #9146ff 0%, #772ce8 100%) !important;
+                box-shadow: 0 0 1em rgba(145, 70, 255, 0.5) !important;
+                border-image: none !important;
             }
 
             .exit_text {
-                margin-top: 2%;
-                margin-bottom: 2%;
-                width: 96%;
-                font-size: 110%;
-                margin-left: 2%;
-            }
-
-            .controls_text {
-                font-size: 1.65vh;
-                margin-top: 0;
-                margin-bottom: 0;
-            }
-
-            .up,
-            .down {
-                border-left: 0.6em solid transparent;
-                border-right: 0.6em solid transparent;
-            }
-
-            .up {
-                border-bottom: 0.8em solid white;
-                margin-bottom: 15%;
-            }
-
-            .down {
-                border-top: 0.8em solid white;
-            }
-
-            .scene_channel_panel {
-                position: absolute;
-                z-index: 2;
-            }
-
-            .playsideinfostatus {
-                word-wrap: break-word;
-                line-height: 2.1ch;
-            }
-
-            .playsideinfo {
-                z-index: 2;
-                position: absolute;
-                right: 0;
-                width: 40ch;
-                color: #ffffff;
-                font-size: 2.15vh;
-                padding: 0.75%;
-                text-shadow:
-                    -0.05em -0.05em 0 #000,
-                    0.05em -0.05em 0 #000,
-                    -0.05em 0.05em 0 #000,
-                    0.05em 0.05em 0 #000;
-            }
-
-            .playsideinfofocus {
-                border-radius: 0.75em;
-                background-color: rgba(0, 0, 0, 0.25);
-            }
-
-            .playclock {
-                position: absolute;
-                text-align: center;
-                top: 0.75%;
-                width: 100%;
-                color: #ffffff;
-                font-size: 100%;
-                text-shadow:
-                    -0.05em -0.05em 0 #000,
-                    0.05em -0.05em 0 #000,
-                    -0.05em 0.05em 0 #000,
-                    0.05em 0.05em 0 #000;
-            }
-
-            .playmaininfo {
-                vertical-align: top;
-                padding-left: 1%;
-                padding-top: 2%;
-                display: inline-block;
-                width: 53%;
-                line-height: 2.2ch;
-                font-size: 90%;
-                color: #ffffff;
-                word-wrap: break-word;
-                text-shadow:
-                    -0.05em -0.05em 0 #000,
-                    0.05em -0.05em 0 #000,
-                    -0.05em 0.05em 0 #000,
-                    0.05em 0.05em 0 #000;
-            }
-
-            .playerinfo {
-                width: 100%;
-                background: linear-gradient(to bottom, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0));
-            }
-
-            .partnericon_div {
-                display: inline-block;
-                width: auto;
-                max-width: 73%;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                transform: translateY(17%);
-                font-size: 93%;
-            }
-
-            img.partnericon_img {
-                display: inline-block;
-                width: 1.5ch;
-                transform: translateY(8%);
-            }
-
-            .stream_info_pp_name {
-                display: inline-block;
-                width: auto;
-                max-width: 80%;
-            }
-
-            .lang_text,
-            .audio_icon,
-            .vodicon_text,
-            .partnericon_text {
-                display: inline-block;
-                width: auto;
-                font-size: 70%;
-                font-family: 'Roboto';
-            }
-
-            .vodicon_text,
-            .partnericon_text {
-                border-radius: 0.1em;
-                text-shadow: none;
-                font-size: 60%;
-                font-family: 'Roboto-Bold';
-            }
-
-            .vodicon_text {
-                transform: translateY(-8%);
-                border-radius: 0.5em;
-                font-size: 70%;
-            }
-
-            .lang_text,
-            .vodicon_text,
-            .partnericon_text {
-                transform: translateY(-20%);
-            }
-
-            .audio_icon {
-                font-size: 100%;
-            }
-
-            .side_panel_new_holder {
-                will-change: opacity;
-                transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1) 0s;
-                height: 100%;
-                width: 0;
-            }
-
-            /* don't use this class for anything else other then side panel div because of Sidepannel_GetSize()*/
-
-            .side_panel_feed {
-                width: 100%;
-                padding: 1%;
-            }
-
-            .side_panel_feed_top {
-                margin-top: 1%;
-                margin-bottom: 1%;
-                vertical-align: middle;
-                display: inline-block;
-                width: 98%;
-                font-size: 70%;
-                word-wrap: break-word;
-                overflow: hidden;
-                color: #ffffff;
-            }
-
-            .side_panel_feed_thumb_text_holder {
-                width: 98%;
-                height: 21%;
-                bottom: 0;
-                color: #ffffff;
-                font-size: 110%;
-                padding: 1%;
-            }
-
-            .side_panel_feed_thumb_text {
-                overflow: hidden;
-                white-space: nowrap;
-                text-overflow: ellipsis;
-            }
-
-            .side_panel_feed_thumb_title_text {
-                word-wrap: break-word;
-                max-height: 2.5em;
-                font-family: 'Roboto-Bold';
-                font-size: 97%;
-                overflow: hidden;
-            }
-
-            .side_panel_feed_thumb {
-                position: absolute;
-                width: 75%;
-                height: 97.5%;
-                top: 2.1%;
-                left: 24.3%;
-                background-color: #000000;
-                will-change: opacity;
-                transition: opacity 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
-            }
-
-            .side_panel_dialog {
-                text-align: center;
-                margin-left: 24.5%;
-                transform: translateY(-50%);
-                width: 50%;
-                font-family: 'Roboto-Bold';
-                color: #ffffff;
-                position: absolute;
-            }
-
-            .side_panel_dialog_hide {
-                margin-left: -15.75%;
-            }
-
-            .side_panel_fix,
-            .side_panel_movel {
-                position: absolute;
-                height: 100%;
-                width: 5%;
-                margin-left: -1%;
-                overflow: hidden;
-                transform: translateX(0);
-                transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
-                will-change: transform;
-                /* on chrome do to the focus class side_panel_new_icons_text that uses background: linear-gradient
-                                    is needed to add a border here to prevent visual glitches right on the border of the element
-                                    border-right: 2px solid #000000;*/
-            }
-
-            .side_panel_fix {
-                transition: margin-left 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
-                z-index: 3;
-                height: 100%;
-            }
-
-            .side_panel_background_color {
-                background-color: #000000;
-            }
-
-            .side_panel_fix_top_2,
-            .side_panel_fix_top {
-                height: 42%;
-            }
-
-            .side_panel_fix_top_2 {
-                height: 42%;
-                transform: translateY(-65%);
-            }
-
-            .side_panel_fix_bottom {
-                height: 32%;
-                transform: translateY(-172%);
-            }
-
-            .side_panel_fix_center {
-                height: 42%;
-                transform: translateY(-118%);
-            }
-
-            .side_panel_movel_bottom_holder {
-                height: 35%;
-                padding-top: 9vh;
-                padding-left: 0.5vw;
-                color: #ffffff;
-                font-size: 75%;
-                text-shadow:
-                    -0.03em -0.03em 0 #000,
-                    0.03em -0.03em 0 #000,
-                    -0.03em 0.03em 0 #000,
-                    0.03em 0.03em 0 #000;
-            }
-
-            .side_panel_movel_bottom_text {
-                height: 25%;
-                width: auto;
-            }
-
-            .side_panel_new_icons_text_holder,
-            .side_panel_new_icons {
-                width: 80%;
-                height: 9.25%;
-                margin-top: 0.7vh;
-                position: relative;
-                color: #ffffff;
-                font-size: 100%;
-                text-align: center;
-                text-shadow:
-                    -0.02em -0.02em 0 #000,
-                    0.02em -0.02em 0 #000,
-                    -0.02em 0.02em 0 #000,
-                    0.02em 0.02em 0 #000;
-            }
-
-            .side_panel_new_text_options,
-            .side_panel_new_icons_text_holder,
-            .side_panel_new_icons {
-                border-top: 0.05em solid;
-                border-bottom: 0.05em solid;
-                border-image: linear-gradient(#000000, #000000) 1;
-                box-sizing: border-box;
-            }
-
-            .side_panel_new_icons {
-                margin-left: 20%;
-            }
-
-            .side_panel_new_icons_text_holder {
-                padding-left: 8vh;
-                width: auto;
-                text-align: left;
-                font-size: 1.1em;
-            }
-
-            .side_panel_new_icons_text {
-                background: linear-gradient(to right, #000000 18%, rgba(255, 255, 255, 0.3), #000000 80%);
-                border-image: linear-gradient(to right, #000000 18%, #d0d3d4, #000000 80%) 1 !important;
-            }
-
-            .side_panel_new_icons_text_botton {
-                background: linear-gradient(to right, #000000 0%, rgba(255, 255, 255, 0.3), #000000 70%);
-                border-image: linear-gradient(to right, #000000 0%, #d0d3d4, #000000 70%) 1 !important;
-            }
-
-            .side_panel_new_icons_pad {
-                vertical-align: sub;
-            }
-
-            .side_panel_new_icons_start {
-                background: linear-gradient(to right, #000000 8%, rgba(255, 255, 255, 0.3), #000000 92%);
-                border-image: linear-gradient(to right, #000000 8%, #d0d3d4, #000000 92%) 1 !important;
-            }
-
-            .side_panel_movel_user_text,
-            .side_panel_movel_top_text {
-                color: #ffffff;
-                font-size: 75%;
-                position: absolute;
-                padding-top: 1vh;
-                left: 25%;
-                width: 75%;
-            }
-
-            .side_panel_movel_user_text {
-                transform: translateY(-115%);
-                text-decoration: underline;
-            }
-
-            img.side_panel_new_img {
-                width: 70%;
-            }
-
-            .side_panel {
-                position: absolute;
-                bottom: 0;
-                left: -1.9%;
-                height: 100%;
-                width: 25.5%;
-                overflow: hidden;
-                transform: translateX(0);
-                transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
-                will-change: transform;
-                background: #000000;
-            }
-
-            .side_panel_hide {
-                transform: translateX(-76.52%);
-            }
-
-            .side_panel_hide_full {
-                transform: translateX(-100%);
-            }
-
-            .side_panel_inner {
-                transform: translateX(0);
-                transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
-                will-change: transform;
-                width: 100%;
-                position: absolute;
-            }
-
-            .side_panel_inner_hide {
-                /* 0.5% more then side_panel_hide */
-                transform: translateX(77.02%);
-                width: 100%;
-                position: absolute;
-            }
-
-            .side_panel_icons {
-                vertical-align: middle;
-                display: inline-block;
-                margin-left: 1.5%;
-            }
-
-            .dialog_end_stream_text {
-                margin-top: 12.25%;
-                font-size: 4.25vh;
-                padding-bottom: 0.75%;
-                width: 50%;
-                margin-left: 25%;
-                white-space: nowrap;
-                text-overflow: ellipsis;
-                overflow: hidden;
-            }
-
-            .about_dialogs {
-                position: absolute;
-                z-index: 99;
-                background-color: #101010;
-                top: 50%;
-                transform: translateY(-50%);
-                border-radius: 0.2em;
-                border-color: #ffffff !important;
-            }
-
-            .dialogs {
-                position: absolute;
-                text-align: center;
-                width: 100%;
-                font-family: 'Roboto-Bold';
-                color: #ffffff;
-            }
-
-            .dialogs_feed {
-                text-align: center;
-                width: 100%;
-                font-family: 'Roboto-Bold';
-                color: #ffffff;
-            }
-
-            .strokedeline {
-                text-shadow:
-                    -0.05em -0.05em 0 #000,
-                    0.05em -0.05em 0 #000,
-                    -0.05em 0.05em 0 #000,
-                    0.05em 0.05em 0 #000;
-            }
-
-            .strokedelinebig {
-                text-shadow:
-                    -0.0175em -0.0175em 0 #000,
-                    0.0175em -0.0175em 0 #000,
-                    -0.0175em 0.0175em 0 #000,
-                    0.0175em 0.0175em 0 #000;
+                color: #ffffff !important;
             }
 
             .dialog_text {
-                width: fit-content;
-                text-align: center;
-                display: inline-block;
-                filter: drop-shadow(0 0.05em 0.15em #000000) drop-shadow(0 0.05em 0.15em #000000);
-                white-space: normal;
+                color: #ffffff !important;
             }
 
-            .shadow_text {
-                filter: drop-shadow(0 0.05em 0.15em rgba(0, 0, 0, 0.8)) drop-shadow(0 0.05em 0.15em rgba(0, 0, 0, 0.5));
+            /* ==========================================================
+               SETTINGS
+               ========================================================== */
+            .settings_holder {
+                background: #0e0b14 !important;
             }
 
-            .red_text {
-                color: #ff2121;
-            }
-
-            .streams_div {
-                margin-left: 4.6%;
-                width: 94.5%;
-                height: 100%;
-            }
-
-            .streams_game_div {
-                margin-left: 6.75%;
-                width: 94.5%;
-                height: 100%;
-            }
-
-            .exit_player_embed {
-                background: rgba(0, 0, 0, 0.6);
-                border-radius: 0.5em;
-                padding: 0.3em;
-            }
-
-            .counter_class {
-                width: 100%;
-                text-align: left;
-                word-wrap: break-word;
-                color: #ffffff;
-                font-size: 70%;
-                font-family: 'Roboto-Bold';
-                text-shadow:
-                    #000000 0 0 0.15em,
-                    #000000 0 0 0.15em,
-                    #000000 0 0 0.1em;
-            }
-
-            .dialog_period,
-            .dialog_exit {
-                position: absolute;
-                z-index: 99;
-                width: 60%;
-                margin-top: 14%;
-                margin-left: 20%;
-                background-color: #101010;
-                border-top: 0.1em solid;
-                border-bottom: 0.1em solid;
-                border-image: linear-gradient(to right, #101010 20%, #d0d3d4, #101010 80%) 1;
-            }
-
-            .dialog_period {
-                margin-top: 10%;
-                width: 80%;
-                margin-left: 12.1%;
-            }
-
-            .chat_container1,
-            .chat_container {
-                z-index: 2;
-                border-radius: 0.1em;
-                left: 75.1%;
-                top: 51.5%;
-                position: absolute;
-                width: 24.7%;
-                height: 48%;
-                background-color: rgba(0, 0, 0, 0.5);
-            }
-
-            .chat_container1 {
-                left: 0.2%;
-                top: 0.2%;
-                height: 96.1%;
-                background-color: rgba(0, 0, 0, 1);
-            }
-
-            .chat_container_name,
-            .chat_container1_name {
-                z-index: 2;
-                border-radius: 0.2em;
-                left: 0.15%;
-                bottom: 0.2%;
-                position: absolute;
-                width: 24.5%;
-                height: 3%;
-                background-color: #000;
-                border: 0.09em solid #ffffff;
-                color: #ffffff;
-                text-align: center;
-                font-size: 90%;
-                white-space: nowrap;
-                text-overflow: ellipsis;
-                overflow: hidden;
-            }
-
-            .chat_container_name {
-                top: 0.2%;
-                left: 75.1%;
-            }
-
-            .chat_container_name_text {
-                display: inline-block;
-                padding-top: 0.5%;
-                white-space: nowrap;
-                text-overflow: ellipsis;
-                overflow: hidden;
-                max-width: 77%;
-            }
-
-            .top_lable {
-                text-align: center;
-                width: 100%;
-                color: #ffffff;
-                font-size: 130%;
-                font-family: 'Roboto-Bold';
-                position: absolute;
-                /* 1vh offset to hide content that may show benhide it*/
-                top: 1vh;
-            }
-
-            .topbar {
-                position: absolute;
-                margin-left: 4.75%;
-                width: 95.24%;
-                background: rgba(0, 0, 0, 1);
-                /* 1vh offset to hide content that may show benhide it*/
-                height: 5.35%;
-                transform: translateY(-1vh);
-            }
-
-            .controls_div {
-                float: left;
-                padding-left: 0.5%;
-                /* 1vh offset to hide content that may show benhide it*/
-                padding-top: calc(1vh + 0.2%);
-            }
-
-            .top_clock {
-                position: absolute;
-                right: 2vh;
-                /* 1vh offset to hide content that may show benhide it*/
-                top: 0.2vh;
-                z-index: 4;
-            }
-
-            .opacity_zero {
-                opacity: 0;
-            }
-
-            .transform_base {
-                transform: scale(1);
-                will-change: transform;
-            }
-
-            .transform_hide {
-                transform: scale(0);
-            }
-
-            .hide {
-                display: none;
-            }
-
-            .hideimp {
-                display: none !important;
-            }
-
-            .dialog_end_icons_start,
-            .dialog_end_icons {
-                font-size: 2.75vh;
-                vertical-align: top;
-                display: inline-block;
-                padding: 0.25em;
-                width: 15.1%;
-                max-height: 22.75%;
-                height: auto;
-                border-radius: 0.2em;
-            }
-
-            .dialog_end_icons_start {
-                height: 23%;
-            }
-
-            .dialog_end_icons_focus {
-                border-color: #ffffff !important;
-                background-color: rgba(150, 150, 150, 0.55);
-            }
-
-            .right,
-            .left {
-                border-top: 0.26em solid transparent;
-                border-bottom: 0.26em solid transparent;
-                opacity: 0;
-            }
-
-            .right {
-                border-left: 0.45em solid white;
-            }
-
-            .left {
-                border-right: 0.45em solid white;
-            }
-
-            .settings_main {
-                font-family: 'Roboto-Bold';
-                color: #ffffff;
-                width: 98%;
-                margin-left: 1%;
-                margin-bottom: 0.5%;
-            }
-
-            .hist_div,
-            .settings_div,
-            .settings_title,
-            .settings_summary,
-            .settings_section {
-                width: 100%;
-                display: inline-block;
-                vertical-align: middle;
-                font-size: 135%;
-            }
-
-            .hist_div,
             .settings_div {
-                line-height: 0.9em;
-                box-sizing: border-box;
-                border-top: 0.05em solid;
-                border-bottom: 0.05em solid;
-                border-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)) 1;
-            }
-
-            .hist_div {
-                width: 92%;
+                border-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)) 1 !important;
+                color: #ffffff !important;
             }
 
             .settings_div_focus {
-                background-color: rgba(255, 255, 255, 0.15);
-                border-image: linear-gradient(to right, #000000 20%, #d0d3d4, #000000 80%) 1 !important;
-            }
-
-            .hist_value,
-            .settings_value {
-                line-height: 1em;
-                width: 18%;
-                display: inline-block;
-                text-align: center;
-                font-size: 55%;
-                margin-left: 0.5em;
-                margin-right: 0.5em;
-                vertical-align: middle;
-                border-top: 0.1em solid;
-                border-bottom: 0.1em solid;
-                border-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)) 1;
-            }
-
-            .hist_value {
-                width: 27%;
+                background-color: rgba(145, 70, 255, 0.1) !important;
+                border-image: linear-gradient(to right, transparent 15%, #9146ff, transparent 85%) 1 !important;
             }
 
             .settings_value_focus {
-                background-color: rgba(255, 255, 255, 0.15);
-                border-image: linear-gradient(to right, #000000 20%, #d0d3d4, #000000 80%) 1 !important;
+                background-color: rgba(145, 70, 255, 0.15) !important;
+                border-image: linear-gradient(to right, transparent 20%, #9146ff, transparent 80%) 1 !important;
+                color: #9146ff !important;
             }
 
-            .settings_section {
-                font-size: 130%;
-                text-align: center;
-            }
-
-            .settings_title {
-                width: 80%;
-                font-size: 95%;
-                text-align: center;
+            .settings_name {
+                color: #ffffff !important;
             }
 
             .settings_summary {
-                line-height: 1.4em;
-                width: 100%;
-                margin-left: 1%;
-                font-size: 75%;
-                text-align: left;
-                font-family: 'Roboto';
+                color: #6b6880 !important;
             }
 
-            .hist_name,
-            .settings_name {
-                margin-left: 1.5%;
-                width: 74.5%;
-                display: inline-block;
-                text-align: left;
-                font-size: 72%;
-                vertical-align: middle;
-                word-wrap: break-word;
+            .settings_section {
+                color: #8f8c9f !important;
             }
 
-            .hist_name {
-                width: 54%;
-            }
-
-            .settings_arraw_div {
-                width: 2%;
-                display: inline-block;
-                vertical-align: middle;
-                /* When the html code is compressed loaded from js this div and the next have no space in between, adding a margin makes it look ok, but too big when the code is not compresed*/
-            }
-
-            .settings_codec_container {
-                height: 51vh;
-                overflow: hidden;
-            }
-
-            .settings_scroll_container {
-                height: 87vh;
-                overflow: hidden;
-            }
-
+            /* ==========================================================
+               REPRODUCTOR (PLAYER)
+               ========================================================== */
             .controls_holder {
-                z-index: -100;
-                position: absolute;
-                bottom: 0;
-                width: 100%;
-                height: auto;
-                text-align: center;
-                padding-top: 3%;
-                background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
-            }
-
-            .colorCanvas {
-                margin: 0;
-                padding: 0;
-                height: 100%;
-                width: 100%;
-                vertical-align: middle;
-                overflow: hidden;
-                display: block;
-            }
-
-            .color_name {
-                width: 15% !important;
-            }
-
-            .cavas_holder {
-                z-index: 99;
-                border-radius: 0.2em;
-                border: 0.4vh solid #000000;
-                width: 96%;
-                margin-left: 2%;
-                height: 5vh;
-                position: relative;
-            }
-
-            .cavas_holder_focused {
-                border-color: #ffffff !important;
-            }
-
-            .colorCanvas_pos {
-                transform: translateY(-100%);
-                left: 50%;
-                position: absolute;
-                width: 0.4em;
-                height: 100%;
-                border-radius: 1em;
-                box-shadow:
-                    0 0 0 0.25vh #ffffff,
-                    0 0 0 0.5vh #000000;
-            }
-
-            .color_options {
-                font-size: 2.7vh !important;
-                position: absolute !important;
-                width: 96% !important;
-                margin-left: 2% !important;
-                position: relative !important;
-                transform: translateY(-75%) !important;
-            }
-
-            .cavas_text_shadows,
-            .cavas_text,
-            .color_result {
-                height: 5%;
-                width: 96%;
-                margin-left: 2%;
-            }
-
-            .cavas_text_shadows,
-            .cavas_text {
-                color: #ffffff;
-                text-align: center;
-                height: 1.2em;
-                margin-top: 0.5%;
-            }
-
-            .cavas_text_shadows {
-                width: 23%;
-                margin: 0;
-                display: inline-block;
-                text-align: left;
-            }
-
-            .progress_pause_holder {
-                bottom: 7ch;
-                position: absolute;
-                width: 100%;
-                justify-content: center;
-            }
-
-            .next_button,
-            .pause_button {
-                display: inline-block;
-                width: auto;
-                padding-top: 0.25em;
-                padding-bottom: 0.25em;
-                text-align: center;
-                border-radius: 0.2em;
-                background-color: rgba(0, 0, 0, 0);
-                will-change: border-color, background-color;
-            }
-
-            .next_button {
-                padding-left: 0.35em;
-                padding-right: 0.35em;
-                max-width: 96%;
-            }
-
-            .pause_button {
-                height: auto;
-            }
-
-            .controls_button_holder {
-                display: inline-block;
-                width: 4.9%;
-            }
-
-            .controls_button {
-                display: inline-block;
-                width: 3ch;
-                padding: 0.25em;
-                height: 1.25em;
-                text-align: center;
-                background-color: rgba(0, 0, 0, 0);
-                will-change: border-color, background-color;
-                position: relative;
-                border-radius: 0.2em;
-            }
-
-            .controls_button_title {
-                width: 100vw;
-                height: 1.5ch;
-                position: relative;
-                left: 50%;
-                /* translateX(-50%) but as scale(0.8) it because 0.5/0.8 = 0.625 */
-                transform: scale(0.8) translateX(-62.5%);
-            }
-
-            .controls_text_title_holder {
-                font-size: 100%;
-                color: #ffffff;
-                white-space: nowrap;
-            }
-
-            .arrows_text {
-                display: inline-block;
-                vertical-align: middle;
-                color: #ffffff;
-            }
-
-            .pause_button3d {
-                color: #ffffff;
-                font-size: 120%;
-                vertical-align: middle;
-            }
-
-            .next_text {
-                display: inline-block;
-                width: auto;
-                max-width: 90%;
-                font-size: 100%;
-                vertical-align: middle;
-            }
-
-            .pause_next_div {
-                text-align: center;
-                width: 95%;
-                margin-left: 2.5%;
-            }
-
-            .next_img_holder {
-                position: absolute;
-                transform: translateY(-101%);
-                width: 55vh;
-            }
-
-            .next_img {
-                width: 100%;
-                max-width: 100%;
-                max-height: 100%;
-                overflow: hidden;
-                border-radius: 0.5vh;
-                box-shadow:
-                    inset 0 0 0 0.025vh #ffffff,
-                    0 0 0 0.3vh #ffffff,
-                    0 0 0 0.6vh #000000;
-            }
-
-            .end_img_holder {
-                position: absolute;
-                transform: translate(-24.5%, -104%);
-                width: 53vh;
-            }
-
-            .end_img {
-                width: 100%;
-                max-width: 100%;
-                max-height: 100%;
-                overflow: hidden;
-                border-radius: 0.5vh;
-                box-shadow:
-                    inset 0 0 0 0.025vh #ffffff,
-                    0 0 0 0.3vh #ffffff,
-                    0 0 0 0.6vh #000000;
-            }
-
-            .progress_bar_div {
-                width: 95%;
-                margin-left: 2.5%;
-                height: 4.25em;
-                border-radius: 0.2em;
-                background-color: rgba(0, 0, 0, 0);
-                will-change: border-color, background-color;
-                text-align: center;
-                transform: translateY(35%);
-            }
-
-            .progress_bar_div_focus {
-                background-color: rgba(0, 0, 0, 0.7);
-                border-color: #ffffff !important;
-            }
-
-            .progress_bar_jump,
-            .progress_bar_timer {
-                width: 7%;
-                font-size: 75%;
-                font-family: 'Roboto-Bold';
-                color: #ffffff;
-                display: inline-block;
-                text-align: center;
-            }
-
-            .seek_previews_text {
-                transform: translateY(-77%);
-                position: absolute;
-                text-align: center;
-                width: 100%;
-            }
-
-            .progress_bar_jump {
-                width: 40%;
-            }
-
-            .progress_bar_holder {
-                vertical-align: middle;
-                width: 80%;
-                border-radius: 0.6em;
-                display: inline-block;
-                text-align: left;
-            }
-
-            .progress_bar_holder_focus {
-                box-shadow: 0 0 0 0.1em #ffffff;
-            }
-
-            .progress_bar {
-                width: 100%;
-                box-sizing: border-box;
-                border: 0.1em solid #000000;
-                border-radius: 0.1em;
-                background-color: #ebebeb;
-            }
-
-            .inner_progress_animate_holder {
-                overflow: hidden;
-                transform: translate(-0.1%, -37%);
-                border-radius: 30%;
-                width: 100.2%;
+                background: linear-gradient(to top, rgba(14, 11, 20, 0.95), transparent) !important;
             }
 
             .inner_progress_animate {
-                height: 0.29em !important;
-                transform: translate(0%, 0%);
-                display: inline-block;
-                border: 0.1em solid rgb(0, 0, 0);
-                border-radius: 0.15em;
+                background-color: #9146ff !important;
+            }
+
+            .inner_progress_bar {
+                background-color: #3a3750 !important;
+            }
+
+            .progress_bar {
+                background-color: rgba(255, 255, 255, 0.1) !important;
+            }
+
+            .progress_bar_div_focus {
+                background-color: rgba(145, 70, 255, 0.2) !important;
+                border-color: #9146ff !important;
             }
 
             .inner_progress_circle {
-                transform: translate(25%, -29%);
-                right: 0;
-                position: absolute;
-                display: inline-block;
-                width: 0.5em;
-                height: 0.5em;
-                background: #ffffff;
-                border-radius: 1em;
-                border: 0.1em solid #000000;
+                background: #9146ff !important;
+                box-shadow: 0 0 0.5em rgba(145, 70, 255, 0.6) !important;
             }
 
-            .inner_progress_bar_muted,
-            .inner_progress_bar {
-                width: 100%;
-                height: 0.3em;
-                line-height: 1.5em;
-                will-change: transform;
-                /* Keep this same as PlayVod_RefreshProgressBarrTimeout */
-                transition: transform 1s linear;
+            .pause_button3d {
+                color: #ffffff !important;
             }
 
-            .inner_progress_bar_muted {
-                width: 80%;
-                left: 10%;
-                display: inline-block;
-                transform: translateY(-478%);
-                height: 0.32em;
-                position: absolute;
+            .next_channel, .next_info {
+                color: #ffffff !important;
             }
 
-            .inner_progress_bar_muted_segment {
-                height: 0.37em;
-                background-color: rgba(0, 0, 0, 0.65);
-                position: absolute;
+            /* ==========================================================
+               CHAT
+               ========================================================== */
+            .chat_container, .chat_container1 {
+                background-color: rgba(22, 19, 31, 0.9) !important;
+                border: 0.08em solid rgba(255, 255, 255, 0.05) !important;
+                border-radius: 0.4em !important;
             }
 
-            .dialog_end_icons_start,
-            .dialog_end_icons,
-            .next_button,
-            .pause_button,
-            .about_dialogs,
-            .progress_bar_div,
-            .controls_button {
-                border: 0.07em solid rgba(0, 0, 0, 0);
+            .chat_input_class {
+                background-color: #1a1725 !important;
+                border: 0.1em solid rgba(255, 255, 255, 0.1) !important;
+                color: #ffffff !important;
+                border-radius: 0.4em !important;
             }
 
-            .stream_thumbnail_channel_vod,
-            .stream_thumbnail_player_feed,
-            .inner_banner_holder,
-            .stream_thumbnail_game_feed,
-            .stream_thumbnail_game,
-            .stream_thumbnail_side,
-            .stream_thumbnail_live,
-            .stream_thumbnail_player_feed,
-            .stream_thumbnail_user,
-            .stream_thumbnail_channel,
-            .stream_thumbnail_game_feed,
-            .stream_thumbnail_game {
-                border: 0.09em solid rgba(0, 0, 0, 0);
+            .chat_input_class_focus {
+                border-color: #9146ff !important;
+                box-shadow: 0 0 0.5em rgba(145, 70, 255, 0.4) !important;
+                background-color: #1f1c2e !important;
             }
 
-            /* Chat this is a adaptation of https://www.nightdev.com/kapchat/ functions*/
-
-            .nick {
-                font-family: 'Roboto-Bold';
+            .button_chat {
+                background-color: #1a1725 !important;
+                border: 0.08em solid rgba(255, 255, 255, 0.08) !important;
+                color: #8f8c9f !important;
+                border-radius: 0.3em !important;
             }
 
-            .chat_line {
-                padding: 0.35em;
-                color: #ffffff;
-                text-shadow:
-                    -0.03em 0 0 #000,
-                    0.03em 0 0 #000,
-                    0 0.03em 0 #000,
-                    0 -0.03em 0 #000,
-                    0.03em -0.03em 0 #000,
-                    -0.03em -0.03em 0 #000,
-                    -0.03em 0.03em 0 #000,
-                    0.03em 0.03em 0 #000;
+            .button_chat_focused {
+                background: linear-gradient(90deg, #9146ff 0%, #772ce8 100%) !important;
+                color: #ffffff !important;
+                border-color: transparent !important;
             }
 
-            .chat_line_holder {
-                overflow: hidden;
+            .chat_result, .chat_result_text {
+                background-color: #0e0b14 !important;
+                color: #ffffff !important;
             }
 
-            .chat_line_animation {
-                will-change: height, max-height;
-                animation: height_animation 450ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+            /* ==========================================================
+               FEED INFERIOR
+               ========================================================== */
+            .user_feed {
+                background: linear-gradient(to top, rgba(14, 11, 20, 0.95), rgba(14, 11, 20, 0.6), transparent) !important;
             }
 
-            @keyframes height_animation {
-                from {
-                    max-height: 0;
-                }
-
-                to {
-                    max-height: 100vh;
-                }
+            .user_feed_scroll, .user_feed_scroll_game {
+                left: 1% !important;
             }
 
-            .chat_line,
-            .message {
-                word-wrap: break-word;
-                line-height: 1.25em;
+            .user_feed_thumb, .user_feed_thumb_game {
+                border-radius: 0.5em !important;
+                overflow: hidden !important;
             }
 
-            .chat_line_ind {
-                border-bottom: 0.025em solid rgba(255, 255, 255, 0.75);
+            .feed_thumbnail_focused {
+                box-shadow: 0 0 1em rgba(145, 70, 255, 0.6) !important;
             }
 
-            .chat_line_slim {
-                padding-bottom: 0 !important;
-                padding-top: 0.12em !important;
-                margin-bottom: 0 !important;
-                line-height: 1em !important;
+            .icon_feed_refresh {
+                color: #8f8c9f !important;
             }
 
-            .chat_loggedin {
-                color: #ffffff;
-                text-shadow:
-                    -0.03em 0 0 #000,
-                    0.03em 0 0 #000,
-                    0 0.03em 0 #000,
-                    0 -0.03em 0 #000,
-                    0.03em -0.03em 0 #000,
-                    -0.03em -0.03em 0 #000,
-                    -0.03em 0.03em 0 #000,
-                    0.03em 0.03em 0 #000;
-                /* font-size in relation to vh to avoid size change when chat font size is changed by the user*/
-                font-size: 2.5vh;
-                height: 2.8vh;
-                width: 100%;
-                text-align: center;
-                overflow: hidden;
+            .feed_end_name {
+                color: #8f8c9f !important;
+                border-color: rgba(255, 255, 255, 0.08) !important;
             }
 
-            .chat_box_holder {
-                height: 100%;
-                transform: rotate(180deg);
-                overflow: hidden;
+            .feed_end_name_focus {
+                background-color: rgba(145, 70, 255, 0.2) !important;
+                border-color: #9146ff !important;
+                color: #ffffff !important;
             }
 
-            .tag {
-                display: inline-block;
-                background-position: 0 center;
-                background-repeat: no-repeat;
-                background-size: contain;
-                vertical-align: bottom;
-                height: 1.4em;
-                min-width: 1.4em;
-                margin-right: 0.2em;
-                overflow: hidden;
-            }
-
-            .emoticon {
-                min-width: 1.75em;
-                height: 1.75em;
-                margin-bottom: -0.35em;
-            }
-
-            .zero-width-container {
-                display: inline-grid;
-                vertical-align: -0.35em;
-            }
-
-            .zero-width-emote {
-                grid-column: 1;
-                grid-row: 1;
-                margin: auto;
-            }
-
-            .emoji {
-                min-width: 1em;
-                height: 1em;
-                margin-right: 0.1em;
-                margin-left: 0.1em;
-                margin-bottom: -0.2em;
-            }
-
-            .chat_size {
-                width: 100%;
-                height: 100%;
-            }
-
-            .multi_dialog_div,
-            .div_panel_pp,
-            .side_panel_div {
-                width: 100%;
-                height: 0;
-                position: relative;
-                padding-bottom: 15.4%;
-                background-repeat: no-repeat;
-                color: #ffffff;
-                text-shadow:
-                    -0.04em -0.04em 0 #000,
-                    0.04em -0.04em 0 #000,
-                    -0.04em 0.04em 0 #000,
-                    0.04em 0.04em 0 #000;
-                border-top: 0.075em solid;
-                border-bottom: 0.075em solid;
-                border-image: linear-gradient(#000000, #000000) 1;
-            }
-
-            .div_panel_pp {
-                border: 0;
-                padding-bottom: 9%;
-            }
-
-            .multi_dialog_div {
-                border-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)) 1;
-            }
-
-            .side_panel_div_focused {
-                background: linear-gradient(to right, #000000 20%, rgba(255, 255, 255, 0.25), #000000 80%);
-                border-image: linear-gradient(to right, #000000 20%, #d0d3d4, #000000 80%) 1 !important;
-            }
-
-            .side_panel_iner_div1_pp,
-            .side_panel_iner_div1,
-            .side_panel_iner_div2_multi,
-            .side_panel_iner_div2_multi_dialog,
-            .side_panel_iner_div2_pp,
-            .side_panel_iner_div2,
-            .side_panel_iner_div3 {
-                width: 15.4%;
-                display: inline-block;
-                overflow: hidden;
-            }
-
-            .side_panel_iner_div1 {
-                padding-left: 1%;
-            }
-
-            .side_panel_iner_div1_pp {
-                width: 8%;
-            }
-
-            .side_panel_iner_div2_multi_dialog,
-            .side_panel_iner_div2 {
-                width: 59.5%;
-                padding-left: 0.4em;
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-            }
-
-            .side_panel_iner_div2_pp,
-            .side_panel_iner_div2_multi {
-                padding-left: 0.2em;
-                padding-top: 0;
-                width: 75%;
-            }
-
-            .side_panel_iner_div2_multi {
-                padding-left: 6%;
-            }
-
-            .side_panel_iner_div2_pp {
-                width: 90%;
-                line-height: 80%;
-                padding-top: 0.25%;
-            }
-
-            .side_panel_iner_div3 {
-                width: 20%;
-                position: absolute;
-                right: 2%;
-                top: 50%;
-                transform: translateY(-60%);
-            }
-
-            img.notify_img {
-                height: 92%;
-                position: absolute;
-                top: 4%;
-            }
-
-            img.side_panel_channel_img,
-            img.panel_pp_img {
-                position: relative;
-            }
-
-            img.multi_info_img,
-            img.multi_info_img_big {
-                position: absolute;
-                top: 0;
-            }
-
-            img.side_panel_channel_img {
-                width: 100%;
-            }
-
-            img.panel_pp_img {
-                width: 9.25%;
-            }
-
-            img.multi_info_img_big,
-            img.multi_info_img {
-                width: 22%;
-            }
-
-            img.multi_info_img_big {
-                margin-top: 0.5%;
-            }
-
-            img.panel_pp_img {
-                position: absolute;
-                top: 0;
-                width: 8.75%;
-            }
-
-            img.thumb_info_icon {
-                width: 100%;
-            }
-
-            img.stream_info_icon {
-                margin-left: 1%;
-                margin-top: 2%;
-                margin-bottom: 2%;
-                display: inline-block;
-                width: 9.5%;
-            }
-
-            .stream_info_timers {
-                display: inline-block;
-                width: auto !important;
-            }
-
-            .multi_info_line {
-                line-height: 1.1em;
-            }
-
-            .notification_holder {
-                display: inline-block;
-                width: 78%;
-                padding-left: 3%;
-            }
-
-            .dialog_multi_title {
-                width: 100%;
-                text-align: center;
-                color: #ffffff;
-                font-family: 'Roboto-Bold';
-                font-size: 100%;
-            }
-
-            .side_panel_new_title,
-            .side_panel_new_game {
-                width: 100%;
-                text-align: left;
-                white-space: nowrap;
-                text-overflow: ellipsis;
-                overflow: hidden;
-                font-family: 'Roboto-Bold';
-                font-size: 84%;
-                padding-left: 1%;
-            }
-
-            .side_panel_new_game {
-                font-family: 'Roboto';
-                font-size: 68%;
-            }
-
-            .side_panel_feed_img_focus {
-                box-shadow:
-                    0 0 0 0.1em #000000,
-                    0 0 0 0.2em #ffffff;
-            }
-
-            /*adapted from https://loading.io/css/*/
-
+            /* ==========================================================
+               LOADING SPINNER
+               ========================================================== */
             .loading {
-                display: inline-block;
-                position: relative;
-                width: 3em;
-                height: 3em;
-                color: #ffffff;
-                background-color: rgba(0, 0, 0, 0.15);
-                border-radius: 2em;
+                background-color: rgba(145, 70, 255, 0.08) !important;
             }
 
             .loading div {
-                box-sizing: border-box;
-                display: block;
-                position: absolute;
-                width: 2.390625em;
-                height: 2.390625em;
-                margin: 0.28125em;
-                border: 0.28125em solid #ffffff;
-                border-radius: 50%;
-                animation: loading 600ms cubic-bezier(0.5, 0, 0.5, 1) infinite;
-                border-color: #ffffff transparent transparent transparent;
+                border-color: #9146ff transparent transparent transparent !important;
             }
 
-            .loading div:nth-child(1) {
-                animation-delay: -0.225s;
+            /* ==========================================================
+               CANAL / USUARIO THUMBNAILS
+               ========================================================== */
+            .stream_thumbnail_channel,
+            .stream_thumbnail_user {
+                background-color: #1a1725 !important;
+                border-radius: 0.8em !important;
+                border: 0.08em solid rgba(255, 255, 255, 0.04) !important;
             }
 
-            .loading div:nth-child(2) {
-                animation-delay: -0.15s;
+            .stream_thumbnail_channel_text_holder,
+            .stream_thumbnail_user_text_holder {
+                color: #ffffff !important;
             }
 
-            .loading div:nth-child(3) {
-                animation-delay: -0.075s;
+            .stream_info_channel_name,
+            .stream_info_user_name {
+                color: #ffffff !important;
             }
 
-            @keyframes loading {
-                0% {
-                    transform: rotate(0deg);
-                }
-
-                100% {
-                    transform: rotate(360deg);
-                }
+            /* ==========================================================
+               INPUTS Y SEARCH
+               ========================================================== */
+            .input_class {
+                background-color: #1a1725 !important;
+                border: 0.1em solid rgba(255, 255, 255, 0.1) !important;
+                color: #ffffff !important;
+                border-radius: 0.5em !important;
             }
 
-            .exit_player {
-                color: #ffffff;
-                position: absolute;
-                left: 1%;
-                font-family: 'Roboto-Bold';
-                z-index: 100;
-                top: 0;
-                font-size: 85%;
+            .input_class:focus {
+                border-color: #9146ff !important;
+                box-shadow: 0 0 0.5em rgba(145, 70, 255, 0.3) !important;
             }
 
-            .embedbutton:hover > .embedbuttoninner {
-                opacity: 1 !important;
+            .input_text_box {
+                background: transparent !important;
             }
 
-            #button_full_screen {
-                background: rgba(0, 0, 0, 0);
-                border: 0;
-                top: 3vh;
-                right: 1vh;
-                position: absolute;
-                font-size: 68%;
-                cursor: pointer;
+            /* ==========================================================
+               MULTI-STREAM DIALOG
+               ========================================================== */
+            .dialog_multi {
+                background-color: rgba(22, 19, 31, 0.95) !important;
+                border-radius: 1em !important;
+                border: 0.08em solid rgba(255, 255, 255, 0.06) !important;
             }
 
-            #button_full_screen:hover > #button_full_screen_text {
-                opacity: 1 !important;
+            .multi_dialog_div {
+                background: transparent !important;
+                border: none !important;
             }
 
-            .scene2_click_button_holder {
-                position: absolute;
-                margin-top: 0.5%;
+            .dialog_multi_title {
+                color: #ffffff !important;
             }
 
-            /* Simple way to see center of screen
-                                .center {
-                                    border: 2px solid blue;
-                                    margin: auto;
-                                    background: #F00;
-                                    position: relative;
-                                    text-align: center;
-                                    top: 50%;
-                                    width: 20%;
-                                    color: #FFF;
-                                }*/
+            /* ==========================================================
+               END STREAM DIALOG
+               ========================================================== */
+            .dialog_end_icons {
+                background-color: rgba(255, 255, 255, 0.03) !important;
+                border: 0.07em solid rgba(255, 255, 255, 0.05) !important;
+                border-radius: 0.5em !important;
+            }
+
+            .dialog_end_icons_focus {
+                background-color: rgba(145, 70, 255, 0.12) !important;
+                border-color: #9146ff !important;
+                box-shadow: 0 0 1em rgba(145, 70, 255, 0.4) !important;
+            }
+
+            .dialog_end_stream_text {
+                color: #ffffff !important;
+            }
+
+            /* ==========================================================
+               PLAYER INFO OVERLAY
+               ========================================================== */
+            .playerinfo {
+                background: linear-gradient(to bottom, rgba(14, 11, 20, 0.95), transparent) !important;
+            }
+
+            .playmaininfo {
+                color: #ffffff !important;
+            }
+
+            .playclock {
+                color: #8f8c9f !important;
+            }
+
+            .shadow_text {
+                filter: none !important;
+            }
+
+            .strokedeline {
+                text-shadow: none !important;
+            }
+
+            /* ==========================================================
+               SCROLL ANIMATIONS
+               ========================================================== */
+            .animate_height_transition,
+            .animate_height_transition_channel,
+            .animate_height_transition_games {
+                transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s !important;
+            }
+
+            /* ==========================================================
+               AJUSTES DIVERSOS
+               ========================================================== */
+            .side_panel_background_color {
+                background-color: #16131f !important;
+            }
+
+            .side_panel_heart {
+                color: #9146ff !important;
+                text-shadow: 0 0 0.5em rgba(145, 70, 255, 0.5) !important;
+            }
+
+            .scenefeed_background {
+                background: #0e0b14 !important;
+            }
+
+            .about_text {
+                color: #8f8c9f !important;
+            }
+
+            .controls_text {
+                color: #8f8c9f !important;
+            }
+
+            .stream_channel_follow_game {
+                color: #8f8c9f !important;
+            }
+
+            .counter_class {
+                color: #8f8c9f !important;
+            }
+
+            .add_user_text {
+                color: #ffffff !important;
+            }
+
+            .stream_user_icon {
+                color: #8f8c9f !important;
+            }
+
+            .banner_text_holder {
+                color: #ffffff !important;
+            }
+
+            .inner_banner_holder {
+                background-color: #1a1725 !important;
+                border-radius: 0.6em !important;
+            }
+
+            /* Ocultar elementos que estorban */
+            #side_panel_top_text_empty,
+            .side_panel_new_icons_text_holder:empty {
+                display: none !important;
+            }
+
+            /* Ajustar padding de las celdas del grid */
+            .stream_cell_period {
+                padding-left: 2ch !important;
+            }
+
+            /* Mejorar visibilidad de iconos */
+            .side_panel_icons {
+                color: #8f8c9f !important;
+            }
+
+            /* Color canvas */
+            .colorCanvas {
+                background: #1a1725 !important;
+            }
+
+            .cavas_holder {
+                border-color: rgba(255, 255, 255, 0.1) !important;
+                border-radius: 0.4em !important;
+            }
+
+            .cavas_text, .cavas_text_shadows {
+                color: #ffffff !important;
+            }
+
+            /* Chat emotes */
+            .chat_emotes_holder {
+                background: rgba(14, 11, 20, 0.9) !important;
+            }
+
+            .chat_emotes_text {
+                color: #ffffff !important;
+            }
+
+            .chat_emotes_name {
+                color: #8f8c9f !important;
+            }
+
+            /* Seek previews */
+            .seek_previews {
+                box-shadow: 
+                    inset 0 0 0 0.025vh #9146ff,
+                    0 0 0 0.3vh #9146ff,
+                    0 0 0 0.6vh #0e0b14 !important;
+            }
+
+            /* Progress bar jump */
+            .progress_bar_jump, .progress_bar_timer {
+                color: #8f8c9f !important;
+            }
+
+            /* VOD watched indicator */
+            .vod_watched {
+                background-color: #9146ff !important;
+            }
+
+            /* Dialog loading play */
+            #dialog_loading_play .loading {
+                background-color: rgba(145, 70, 255, 0.1) !important;
+            }
+
+            /* Update dialog */
+            #update_dialog {
+                background: rgba(14, 11, 20, 0.85) !important;
+            }
+
+            /* Burn in protection */
+            .burn_in_protection {
+                background-color: #0e0b14 !important;
+            }
+
+            /* Scene keys */
+            .scene_keys {
+                background-color: transparent !important;
+            }
+
+            /* Chat container name */
+            .chat_container_name, .chat_container1_name {
+                background-color: #16131f !important;
+                border-color: rgba(255, 255, 255, 0.1) !important;
+                color: #ffffff !important;
+            }
+
+            /* Partner icon */
+            .partnericon_text {
+                background-color: #9146ff !important;
+                color: #ffffff !important;
+            }
+
+            .vodicon_text {
+                background-color: #3a3750 !important;
+                color: #ffffff !important;
+            }
+
+            /* Audio icon */
+            .audio_icon {
+                color: #8f8c9f !important;
+            }
+
+            /* Stream info PP */
+            .stream_info_pp_name {
+                color: #ffffff !important;
+            }
+
+            /* Dialog controls player */
+            #dialog_controls_player {
+                background: rgba(14, 11, 20, 0.85) !important;
+            }
+
+            /* Dialog warning play */
+            #dialog_warning_play, #dialog_warning_play_middle {
+                background: transparent !important;
+            }
+
+            #dialog_warning_play_text, #dialog_warning_play_middle_text {
+                background-color: rgba(14, 11, 20, 0.9) !important;
+                padding: 0.5em 1em !important;
+                border-radius: 0.5em !important;
+            }
+
+            /* Dialog warning muted */
+            #dialog_warning_muted {
+                background: transparent !important;
+            }
+
+            #dialog_warning_muted_text {
+                background-color: rgba(14, 11, 20, 0.9) !important;
+                padding: 0.5em !important;
+                border-radius: 0.4em !important;
+            }
+
+            /* Play dialog exit/retry */
+            #play_dialog_exit, #play_dialog_retry {
+                background: transparent !important;
+            }
+
+            #play_dialog_exit_text, #play_dialog_retry_text {
+                background-color: rgba(14, 11, 20, 0.9) !important;
+                padding: 0.5em 1em !important;
+                border-radius: 0.5em !important;
+            }
+
+            /* Minimize warning */
+            #minimize_warning {
+                background-color: rgba(14, 11, 20, 0.9) !important;
+                padding: 0.5em 1em !important;
+                border-radius: 0.5em !important;
+            }
+
+            /* Dialog warning chat */
+            #dialog_warning_chat_text {
+                background-color: rgba(14, 11, 20, 0.85) !important;
+                border-radius: 0.4em !important;
+                padding: 0.3em 0.8em !important;
+            }
+
+            /* Chat line */
+            .chat_line {
+                color: #ffffff !important;
+                border-bottom-color: rgba(255, 255, 255, 0.05) !important;
+            }
+
+            .chat_loggedin {
+                color: #8f8c9f !important;
+            }
+
+            /* Nick colors in chat - keep them but add subtle glow */
+            .nick {
+                font-family: 'Roboto-Bold' !important;
+            }
+
+            /* Emoji and emoticon sizing */
+            .emoticon, .emoji {
+                filter: none !important;
+            }
+
+            /* Tag badges */
+            .tag {
+                filter: none !important;
+            }
+
+            /* ==========================================================
+               AJUSTES DE TAMAÑO DE FUENTE GLOBAL
+               ========================================================== */
+            body, html {
+                -webkit-text-stroke: 0 !important;
+            }
+
+            /* Reducir stroke en textos */
+            .strokicon, .strokicon_title {
+                text-shadow: none !important;
+            }
+
+            .stream_channel_follow_game,
+            .pause_button3d {
+                text-shadow: none !important;
+            }
+
+            /* ==========================================================
+               AJUSTES RESPONSIVE FINALES
+               ========================================================== */
+            /* Asegurar que todo el contenido principal se desplace a la derecha del sidebar */
+            #screens_holder {
+                margin-left: 0 !important;
+            }
+
+            /* Ajustar el topbar para que no se solape */
+            #topbar {
+                z-index: 5 !important;
+            }
+
+            /* Ajustar z-index del sidebar */
+            #side_panel_new_holder {
+                z-index: 10 !important;
+            }
+
+            /* Ocultar elementos vacíos del sidebar que causan espacio extra */
+            .side_panel_movel_bottom_holder {
+                padding-top: 2vh !important;
+            }
+
+            .side_panel_movel_bottom_text {
+                height: auto !important;
+            }
+
+            /* Ajustar altura de los icon holders del sidebar */
+            .side_panel_new_icons_text_holder {
+                min-height: 2em !important;
+                line-height: 2em !important;
+            }
+
+            /* ==========================================================
+               CORRECCIONES ESPECÍFICAS PARA LAS CAPTURAS
+               ========================================================== */
+            /* En la captura se ven 3 columnas porque el ancho del holder es 32% - forzar 24% */
+            div[class*="stream_thumbnail_live_holder"] {
+                width: 24% !important;
+            }
+
+            /* Forzar fondo oscuro en todas las tarjetas */
+            div[class*="stream_thumbnail_live"] {
+                background-color: #1a1725 !important;
+            }
+
+            /* Ocultar bordes de gradiente del sidebar original */
+            [class*="side_panel_new_icons_text"] {
+                border-image: none !important;
+            }
+
+            /* Forzar color de fondo del sidebar */
+            [id*="side_panel"] {
+                background-color: #16131f !important;
+            }
+
+            /* Override para el side_panel_feed que aparece en la captura 1 */
+            .side_panel_feed {
+                background: transparent !important;
+            }
+
+            /* Ajustar el contenedor de la escena para que no tenga margen extra */
+            #scene1 {
+                overflow: hidden !important;
+            }
+
+            /* Ajustar posición del feed de usuario */
+            .user_feed {
+                z-index: 50 !important;
+            }
+
+            /* Asegurar que las imágenes del grid se vean correctamente */
+            .stream_thumbnail_live_img img {
+                position: absolute !important;
+                top: 0 !important;
+                left: 0 !important;
+                width: 100% !important;
+                height: 100% !important;
+                object-fit: cover !important;
+            }
         </style>
-    </head>
+
+    <base target="_blank">
+</head>
 
     <body>
         <div id="body_container" class="screen_size" style="position: relative">
