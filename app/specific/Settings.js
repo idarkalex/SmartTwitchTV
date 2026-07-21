@@ -1581,7 +1581,7 @@ function Settings_proxy_set_Type() {
 function Settings_proxy_set_current(current) {
     if (current === 'T1080') {
         proxy_url = T1080_proxy;
-        proxy_headers = Play_Headers;
+        proxy_headers = null;
         proxy_has_parameter = true;
         proxy_has_token = true;
     } else if (current === 'k_twitch') {

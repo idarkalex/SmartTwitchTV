@@ -155,7 +155,7 @@ function PlayHLS_GetPlayListUrl(isLive, Channel_or_VOD_Id, Token, Sig, useProxy)
             .replace('%c', play_ExtraCodecsValues);
 
         if (useProxy) {
-            headers = proxy_headers || Play_Headers;
+            headers = proxy_headers;
 
             var proxy_base = proxy_url.endsWith('/') ? proxy_url : proxy_url + '/';
 
