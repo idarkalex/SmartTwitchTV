@@ -1561,6 +1561,7 @@ function Settings_set_all_proxy(current) {
 function Settings_proxy_set_start() {
     var i = 0,
         len = proxyArray.length;
+    use_proxy = false;
     for (i; i < len; i++) {
         if (Settings_Obj_default(proxyArray[i]) === 1) {
             use_proxy = true;

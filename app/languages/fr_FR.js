@@ -983,4 +983,7 @@ function fr_FRLang() {
     STR_BACKUP_SYNC_ENABLE = 'Synchroniser entre appareils';
     STR_BACKUP_SYNC_ENABLE_SUMMARY =
         "L'activation ajoute un léger délai au démarrage de l'app et est inutile si vous l'utilisez sur un seul appareil. L'app synchronise toutes les options activées ci-dessous entre cet appareil et les autres utilisant le même compte Google Drive. Pour changer d'appareil et reprendre la lecture, réduisez l'app sur l'appareil actuel avec la touche Home. Puis, assurez-vous qu'elle est totalement fermée sur l'autre appareil avant de l'ouvrir.";
+
+    STR_EXPORT_LOGS = 'Exporter les logs proxy';
+    STR_PROXY_LOGS_EMPTY = 'Aucun log proxy à exporter';
 }

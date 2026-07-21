@@ -956,4 +956,7 @@ function pt_BRLang() {
 
     STR_BACKUP_SYNC_ENABLE = 'Habilitar sincronização';
     STR_BACKUP_SYNC_ENABLE_SUMMARY = 'Se definido como SIM, o aplicativo sincronizará automaticamente as informações do usuário entre dispositivos';
+
+    STR_EXPORT_LOGS = 'Exportar logs do proxy';
+    STR_PROXY_LOGS_EMPTY = 'Nenhum log de proxy para exportar';
 }

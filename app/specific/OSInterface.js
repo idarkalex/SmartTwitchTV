@@ -1137,3 +1137,10 @@ function OSInterface_updateScreenDuration(callback, key, obj_id) {
 function OSInterface_getPlaybackState() {
     return Main_IsOn_OSInterface ? Android.getPlaybackState() : true;
 }
+
+//public void SaveFile(String fileName, String content)
+//Android specific: true
+//Save a text file to the Downloads directory
+function OSInterface_SaveFile(fileName, content) {
+    if (Main_IsOn_OSInterface) Android.SaveFile(fileName, content);
+}

@@ -237,6 +237,11 @@ function PlayHLS_PlayListUrlResult(result, checkResult, check_1, check_2, check_
         Main_Log('Proxy: PlayListUrlResult SUCCESS channel=' + Channel_or_VOD_Id + (useProxy ? ' (via PROXY)' : ' (DIRECT)'));
     }
 
+    if (useProxy) {
+        proxy_fail_counter = 0;
+        Main_EventProxy(true);
+    }
+
     // prettier-ignore
     eval(callBackSuccess)(// jshint ignore:line
         result,
@@ -319,7 +324,7 @@ function PlayHLS_GetPlayListSyncUrl(isLive, Channel_or_VOD_Id, useProxy, Token, 
 
     var obj = OSInterface_mMethodUrlHeaders(
         urlObj.url, //urlString
-        DefaultHttpGetTimeout / 2, //timeout
+        useProxy ? proxy_timeout : DefaultHttpGetTimeout / 2, //timeout
         null, //postMessage
         null, //Method
         0, //checkResult
@@ -333,6 +338,7 @@ function PlayHLS_GetPlayListSyncUrl(isLive, Channel_or_VOD_Id, useProxy, Token, 
             if (response.status === 200) {
                 Main_Log('Proxy: GetPlayListSyncUrl SUCCESS' + (useProxy ? ' (via PROXY)' : ' (DIRECT)'));
                 if (useProxy) {
+                    proxy_fail_counter = 0;
                     Main_EventProxy(true);
                 }
                 return obj;

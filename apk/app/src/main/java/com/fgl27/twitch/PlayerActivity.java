@@ -3654,6 +3654,23 @@ public class PlayerActivity extends Activity {
                 Tools.recordException(TAG, "UpdateAPK Exception ", e);
             }
         }
+
+        @JavascriptInterface
+        public void SaveFile(String fileName, String content) {
+            try {
+                java.io.File dir = android.os.Environment.getExternalStoragePublicDirectory(android.os.Environment.DIRECTORY_DOWNLOADS);
+                if (!dir.exists()) dir.mkdirs();
+                java.io.File file = new java.io.File(dir, fileName);
+                java.io.FileWriter writer = new java.io.FileWriter(file);
+                writer.write(content);
+                writer.close();
+                final String path = file.getAbsolutePath();
+                runOnUiThread(() -> Toast.makeText(mWebViewContext, "Saved: " + path, Toast.LENGTH_SHORT).show());
+            } catch (Exception e) {
+                runOnUiThread(() -> Toast.makeText(mWebViewContext, "Save failed: " + e.getMessage(), Toast.LENGTH_SHORT).show());
+                Tools.recordException(TAG, "SaveFile Exception ", e);
+            }
+        }
     }
 
     // Basic EventListener for exoplayer

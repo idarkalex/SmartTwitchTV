@@ -2000,6 +2000,7 @@ var Play_controlsChatSend = temp_controls_pos++;
 
 var Play_controlsPlayerStatus = temp_controls_pos++;
 var Play_controlsProxy = temp_controls_pos++;
+var Play_controlsExportLog = temp_controls_pos++;
 var Play_controlsPreview = temp_controls_pos++;
 
 var Play_controlsChatForceDis = temp_controls_pos++;
@@ -3066,6 +3067,28 @@ function Play_MakeControls() {
         },
         setLabel: function () {
             Main_textContentWithEle(this.doc_title, PROXY_SERVICE + this.values[this.defaultValue]);
+        }
+    };
+
+    Play_controls[Play_controlsExportLog] = {
+        ShowInLive: true,
+        ShowInVod: false,
+        ShowInClip: false,
+        ShowInPP: true,
+        ShowInMulti: false,
+        ShowInChat: false,
+        ShowInAudio: false,
+        ShowInAudioPP: false,
+        ShowInAudioMulti: false,
+        ShowInPreview: false,
+        ShowInStay: false,
+        icons: 'external',
+        offsetY: -5,
+        string: STR_EXPORT_LOGS,
+        values: null,
+        defaultValue: null,
+        enterKey: function () {
+            Play_ExportProxyLogs();
         }
     };
 

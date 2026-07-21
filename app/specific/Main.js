@@ -3215,11 +3215,18 @@ function Main_LoadUrl(url) {
     else window.location = url;
 }
 
+var Main_LogBuffer = [];
+var Main_LogBufferMax = 50;
+
 function Main_Log(text) {
     if (Main_isDebug) {
         text = text + ' ' + Main_LogDate(new Date());
         console.log(text);
         OSInterface_LongLog(text);
+    }
+    if (text.charAt(0) === 'P') {
+        Main_LogBuffer.push(text);
+        if (Main_LogBuffer.length > Main_LogBufferMax) Main_LogBuffer.shift();
     }
 }
 

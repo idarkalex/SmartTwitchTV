@@ -977,4 +977,7 @@ function en_USLang() {
     STR_BACKUP_SYNC_ENABLE = 'Sync across devices';
     STR_BACKUP_SYNC_ENABLE_SUMMARY =
         "Enabling this will add a slight delay to the application's startup process, and is unnecessary if you are using the app in a single device. The app will sync all enabled options below between this device and others using the same Google Drive account. To switch devices and continue watching seamlessly, minimize the app on the current device by pressing the Home key. Then, make sure the app is fully closed on the other device before opening it.";
+
+    STR_EXPORT_LOGS = 'Export Proxy Logs';
+    STR_PROXY_LOGS_EMPTY = 'No proxy logs to export';
 }

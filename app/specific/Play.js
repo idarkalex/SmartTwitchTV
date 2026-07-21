@@ -1719,7 +1719,8 @@ function Play_UpdateVideoStatus(net_speed, net_act, dropped_frames, buffer_size,
             (latency !== null ? STR_LATENCY + latency + STR_BR : '') +
             STR_PING +
             ping +
-            STR_AVG
+            STR_AVG +
+            Play_UpdateVideoStatusGetProxy()
     );
 }
 
@@ -1727,17 +1728,54 @@ function Play_UpdateVideoStatusGetProxy() {
     if (!Play_isOn) {
         return '';
     }
-    var proxyString = STR_BR + PROXY_SERVICE;
+    var str = STR_BR + PROXY_SERVICE;
 
     if (!use_proxy) {
-        return proxyString + PROXY_SERVICE_OFF;
+        str += PROXY_SERVICE_OFF;
+    } else if (proxy_fail_counter > proxy_fail_counter_checker) {
+        str += PROXY_SERVICE_FAIL.replace('%x', proxy_fail_counter);
+    } else {
+        str += PROXY_SERVICE_STATUS;
     }
 
-    if (proxy_fail_counter > proxy_fail_counter_checker) {
-        return proxyString + PROXY_SERVICE_FAIL.replace('%x', proxy_fail_counter);
+    var len = Main_LogBuffer.length;
+    if (len > 0) {
+        var start = Math.max(0, len - 6);
+        for (var i = start; i < len; i++) {
+            var logLine = Main_LogBuffer[i];
+            var lastSpace = logLine.lastIndexOf(' ');
+            if (lastSpace > 40) logLine = logLine.substring(0, lastSpace);
+            if (logLine.length > 55) logLine = logLine.substring(0, 55) + '…';
+            str += STR_BR + '<span style="color:#CCC;font-size:85%">' + logLine + '</span>';
+        }
     }
 
-    return proxyString + PROXY_SERVICE_STATUS;
+    return str;
+}
+
+function Play_ExportProxyLogs() {
+    if (!Main_LogBuffer.length) {
+        OSInterface_showToast(STR_PROXY_LOGS_EMPTY);
+        return;
+    }
+    var now = new Date();
+    var fileName =
+        'SmartTwitchTV_proxy_logs_' +
+        now.getFullYear() +
+        ('0' + (now.getMonth() + 1)).slice(-2) +
+        ('0' + now.getDate()).slice(-2) +
+        '_' +
+        ('0' + now.getHours()).slice(-2) +
+        ('0' + now.getMinutes()).slice(-2) +
+        '.txt';
+    var content =
+        'SmartTwitchTV Proxy Log Export\nDate: ' +
+        now.toLocaleString() +
+        '\n========================================\n\n' +
+        Main_LogBuffer.join('\n') +
+        '\n';
+    OSInterface_SaveFile(fileName, content);
+    OSInterface_showToast(STR_EXPORT_LOGS + ': ' + fileName);
 }
 
 var Play_BufferSize = 0;

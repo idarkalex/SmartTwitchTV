@@ -993,4 +993,7 @@ function tr_TRLang() {
     STR_BACKUP_SYNC_ENABLE = 'Cihazlar arasında senkronize et';
     STR_BACKUP_SYNC_ENABLE_SUMMARY =
         'Bunu etkinleştirmek, uygulamanın başlangıç sürecine hafif bir gecikme ekleyecektir ve uygulamayı tek bir cihazda kullanıyorsanız gereksizdir. Uygulama, aşağıdaki tüm etkin seçenekleri bu cihaz ile aynı Google Drive hesabını kullanan diğer cihazlar arasında senkronize edecektir. Cihazları değiştirmek ve sorunsuz bir şekilde izlemeye devam etmek için, mevcut cihazda Ana Ekran tuşuna basarak uygulamayı simge durumuna küçültün. Ardından, uygulamayı açmadan önce diğer cihazda tamamen kapalı olduğundan emin olun.';
+
+    STR_EXPORT_LOGS = 'Proxy loglarını dışa aktar';
+    STR_PROXY_LOGS_EMPTY = 'Dışa aktarılacak proxy logu yok';
 }
