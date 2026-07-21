@@ -155,14 +155,14 @@ function PlayHLS_GetPlayListUrl(isLive, Channel_or_VOD_Id, Token, Sig, useProxy)
             .replace('%c', play_ExtraCodecsValues);
 
         if (useProxy) {
-            headers = proxy_headers;
+            headers = proxy_headers || Play_Headers;
 
             if (proxy_has_parameter && !proxy_has_token) {
                 url = proxy_url + Channel_or_VOD_Id + '.m3u8' + encodeURIComponent('?' + URL_parameters);
             } else {
                 url = proxy_url + Channel_or_VOD_Id + '.m3u8?token=' + encodeURIComponent(Token) + '&sig=' + Sig + '&' + URL_parameters;
             }
-            Main_Log('Proxy: GetPlayListUrl PROXY url=' + proxy_url + ' channel=' + Channel_or_VOD_Id + ' has_token=' + proxy_has_token + ' has_parameter=' + proxy_has_parameter);
+            Main_Log('Proxy: GetPlayListUrl PROXY url=' + proxy_url + ' channel=' + Channel_or_VOD_Id + ' has_token=' + proxy_has_token + ' has_parameter=' + proxy_has_parameter + ' has_headers=' + (headers !== null && headers !== undefined));
         } else {
             url = Play_original_live_links + Channel_or_VOD_Id + '.m3u8?token=' + encodeURIComponent(Token) + '&sig=' + Sig + '&' + URL_parameters;
             Main_Log('Proxy: GetPlayListUrl DIRECT url=' + Play_original_live_links + ' channel=' + Channel_or_VOD_Id);
