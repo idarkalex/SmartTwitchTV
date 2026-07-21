@@ -512,12 +512,12 @@ function Sidepannel_Go(GoTo) {
     }
 }
 
-function Sidepannel_Start(callback, forceFeed) {
+function Sidepannel_Start(callback, forceFeed, noAnim) {
     Sidepannel_Callback = callback;
     Main_removeEventListener('keydown', Sidepannel_Callback);
     if (!Sidepannel_IsMain || forceFeed) {
         if (AddUser_UserHasToken()) {
-            Sidepannel_StartFeed();
+            Sidepannel_StartFeed(noAnim);
         } else {
             Sidepannel_ShowNoUserWarning();
             Sidepannel_StartMain();
@@ -525,10 +525,18 @@ function Sidepannel_Start(callback, forceFeed) {
     } else Sidepannel_StartMain();
 }
 
-function Sidepannel_StartFeed() {
+function Sidepannel_StartFeed(noAnim) {
     Main_HideLoadDialog();
     Sidepannel_IsMain = false;
     Main_addEventListener('keydown', Sidepannel_handleKeyDown);
+
+    if (noAnim) {
+        Sidepannel_SidepannelDoc.style.transition = 'none';
+        Sidepannel_SidepannelInnerDoc.style.transition = 'none';
+        Sidepannel_scenefeed.style.transition = 'none';
+        Sidepannel_MovelDiv.style.transition = 'none';
+        Sidepannel_FixDiv.style.transition = 'none';
+    }
 
     Main_RemoveClassWithEle(Sidepannel_SidepannelDoc, 'side_panel_hide');
     Main_RemoveClassWithEle(Sidepannel_SidepannelDoc, 'side_panel_hide_full');
@@ -538,6 +546,16 @@ function Sidepannel_StartFeed() {
 
     Sidepannel_ShowFeed();
     Sidepannel_HideMain(true);
+
+    if (noAnim) {
+        Main_setTimeout(function () {
+            Sidepannel_SidepannelDoc.style.transition = '';
+            Sidepannel_SidepannelInnerDoc.style.transition = '';
+            Sidepannel_scenefeed.style.transition = '';
+            Sidepannel_MovelDiv.style.transition = '';
+            Sidepannel_FixDiv.style.transition = '';
+        }, 50);
+    }
 }
 
 function Sidepannel_ShowFeed() {

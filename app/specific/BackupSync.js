@@ -65,7 +65,14 @@ var GDriveConfig = {};
 var GDriveConfigItemName = 'GDriveConfig';
 
 //device specific or general settings that we don't wanna to sync between devices
-var GDriveSettingsToSkip = {av1_codec: true, hevc_codec: true, Settings_DisableCodecs: true};
+var GDriveSettingsToSkip = {
+    av1_codec: true,
+    hevc_codec: true,
+    Settings_DisableCodecs: true,
+    start_user_screen: true,
+    start_at_feed: true,
+    restor_playback: true
+};
 
 function GDriveSetExpires(obj) {
     GDriveConfig.tokenExpiresTime = (parseInt(obj.expires_in) - 60) * 1000;

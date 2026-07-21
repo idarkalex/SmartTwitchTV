@@ -228,7 +228,15 @@ function Screens_first_init() {
 
     Main_values.API_Change = false;
 
-    if (startScreen === 2) {
+    if (startScreen === 1 && AddUser_UserHasToken()) {
+        Main_values.Search_isSearching = false;
+        Main_values.Main_BeforeChannelisSet = false;
+        Main_values.Main_BeforeAgameisSet = false;
+        Main_values.Main_Go = Main_Live;
+        ScreenObj[Main_Live].label_init();
+        Main_removeEventListener('keydown', ScreenObj[Main_Live].key_fun);
+        Main_ShowElementWithEle(ScreenObj[Main_Live].ScrollDoc);
+    } else if (startScreen === 2) {
         Users_beforeUser = Main_GoBefore;
         Main_values.Main_Before = Users_beforeUser;
         Main_values.Play_WasPlaying = 0;
@@ -282,7 +290,7 @@ function Screens_first_init() {
 
     if (startScreen === 1 && AddUser_UserHasToken()) {
         Main_setTimeout(function () {
-            Sidepannel_Start(null, true);
+            Sidepannel_Start(null, true, true);
         }, 300);
     }
 }
