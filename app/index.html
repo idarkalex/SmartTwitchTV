@@ -2670,6 +2670,187 @@
                                     color: #FFF;
                                 }*/
         </style>
+     <!-- SKIN OVERRIDE: Rediseño visual sin alterar la estructura base -->
+        <style id="modern_twitch_skin">
+          /* ==========================================================================
+             1. FONDO GLOBAL Y BARRA SUPERIOR
+             ========================================================================== */
+          body, html, #scene1, #app, .screen_size {
+            background-color: #13111c !important; /* Fondo violeta oscuro del mockup */
+          }
+        
+          .topbar {
+            background: #13111c !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+          }
+        
+          .icon_top_label {
+            color: #8f8c9f !important; /* Texto secundario gris tenue */
+          }
+        
+          /* ==========================================================================
+             2. PANEL LATERAL IZQUIERDO (SIDEBAR)
+             ========================================================================== */
+          .side_panel_background_color,
+          .side_panel,
+          .side_panel_fix_top,
+          #side_panel_fix_center,
+          #side_panel_fix_botton,
+          #side_panel_new_row_1 {
+            background-color: #181524 !important; /* Color de fondo sidebar */
+          }
+        
+          /* Quitar bordes horizontales oscuros del sidebar original */
+          .side_panel_new_icons_text_holder,
+          .side_panel_new_icons {
+            border-top: none !important;
+            border-bottom: none !important;
+            color: #8f8c9f !important;
+          }
+        
+          /* Estilo del botón activo/enfocado en sidebar (Ej. HOME en violeta degradado) */
+          .side_panel_div_focused,
+          .side_panel_new_icons_text,
+          .side_panel_new_icons_start {
+            background: linear-gradient(90deg, #9146ff 0%, #772ce8 100%) !important;
+            border-image: none !important;
+            border-radius: 0.5em !important;
+            color: #ffffff !important;
+            box-shadow: 0 0.2em 0.8em rgba(145, 70, 255, 0.4) !important;
+          }
+        
+          /* ==========================================================================
+             3. RECONFIGURACIÓN A 4 COLUMNAS (MOCKUP GRID)
+             ========================================================================== */
+          /* Cambia las 3 columnas originales (32%) por 4 columnas (~23.8%) */
+          .stream_thumbnail_live_holder {
+            width: 23.8% !important;
+            padding: 0.4% !important;
+            padding-bottom: 1.2% !important;
+          }
+        
+          /* Tarjetas individuales de streams */
+          .stream_thumbnail_live,
+          .stream_thumbnail_channel,
+          .stream_thumbnail_user {
+            background-color: #1f1c2e !important; /* Fondo violeta-grisáceo de tarjeta */
+            border-radius: 0.7em !important; /* Redondeado curvo moderno */
+            border: 0.1em solid transparent !important;
+            overflow: hidden;
+            padding-bottom: 78% !important;
+            transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), 
+                        border-color 0.2s ease, 
+                        box-shadow 0.2s ease !important;
+          }
+        
+          /* Imagen de la miniatura del stream */
+          .stream_thumbnail_live_img {
+            width: 94% !important;
+            margin: 3% auto 0 auto !important;
+            background-color: #0f0e17 !important;
+            padding-bottom: 52.8% !important;
+            border-radius: 0.5em !important;
+            overflow: hidden;
+          }
+        
+          .stream_thumbnail_live_img img,
+          img.stream_img {
+            border-radius: 0.5em !important;
+          }
+        
+          /* Textos e información de la miniatura */
+          .stream_thumbnail_live_text_holder {
+            position: absolute;
+            right: 3%;
+            left: 3%;
+            padding: 0.2em;
+            margin-top: 0.2em;
+            height: 32%;
+          }
+        
+          .stream_info_live_name {
+            color: #ffffff !important;
+            font-size: 82% !important;
+            font-family: 'Roboto-Bold' !important;
+          }
+        
+          .stream_info_live {
+            color: #8f8c9f !important; /* Nombre de canal en gris */
+            font-size: 72% !important;
+          }
+        
+          /* ==========================================================================
+             4. GRID DE JUEGOS Y CATEGORÍAS (6 COLUMNAS EN BROWSE)
+             ========================================================================== */
+          .stream_thumbnail_blocked_game_holder,
+          .stream_thumbnail_game_holder {
+            width: 15.2% !important;
+            padding: 0.4% !important;
+          }
+        
+          .stream_thumbnail_game {
+            background-color: #1f1c2e !important;
+            border-radius: 0.7em !important;
+          }
+        
+          /* ==========================================================================
+             5. EFECTO DE FOCO Y SELECCIÓN (PURPLE GLOW)
+             ========================================================================== */
+          /* Destello resplandeciente púrpura cuando el cursor/mando pasa sobre un elemento */
+          .stream_switch_focused,
+          .stream_thumbnail_focused,
+          .stream_thumbnail_focused_no_ani,
+          .feed_thumbnail_focused {
+            border-color: #9146ff !important;
+            box-shadow: 0 0 1.2em rgba(145, 70, 255, 0.65) !important;
+            transform: scale(1.03) !important;
+            z-index: 20 !important;
+            background-color: #1f1c2e !important;
+          }
+        
+          /* ==========================================================================
+             6. DIÁLOGOS, POPUPS Y VENTANAS FLOTANTES
+             ========================================================================== */
+          .about_dialogs,
+          .dialog_exit,
+          .dialog_period,
+          .dialog_multi {
+            background-color: #181524 !important;
+            border-radius: 0.8em !important;
+            border: 1px solid rgba(255, 255, 255, 0.08) !important;
+            box-shadow: 0 0.8em 2em rgba(0, 0, 0, 0.7) !important;
+          }
+        
+          .button_dialog,
+          .button_search {
+            border-radius: 0.5em !important;
+            background-color: rgba(255, 255, 255, 0.06) !important;
+            border: none !important;
+          }
+        
+          .button_dialog_focused,
+          .button_search_focused {
+            background: linear-gradient(90deg, #9146ff 0%, #772ce8 100%) !important;
+            color: #ffffff !important;
+            box-shadow: 0 0 0.8em rgba(145, 70, 255, 0.5) !important;
+          }
+        
+          /* ==========================================================================
+             7. REPRODUCTOR (PLAYER OVERLAY)
+             ========================================================================== */
+          .controls_holder {
+            background: linear-gradient(to top, rgba(19, 17, 28, 0.95), transparent) !important;
+          }
+        
+          .inner_progress_animate {
+            background-color: #9146ff !important;
+          }
+        
+          .progress_bar_div_focus {
+            background-color: rgba(145, 70, 255, 0.3) !important;
+            border-color: #9146ff !important;
+          }
+        </style>
     </head>
 
     <body>
