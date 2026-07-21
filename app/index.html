@@ -2658,231 +2658,17 @@
                 margin-top: 0.5%;
             }
 
-            /* ============================================================== */
-            /* NUEVO DISEÑO TIPO MOCKUP (Agregado al final del CSS existente) */
-            /* ============================================================== */
-
-            /* --- SIDEBAR MODERNO --- */
-            #side_panel_new_holder {
-                width: 16.5%;
-                height: 100%;
-                position: absolute;
-                top: 0;
-                left: 0;
-                background-color: #1f1f23;
-                z-index: 10;
-                display: flex;
-                flex-direction: column;
-                padding-top: 2%;
-                box-sizing: border-box;
-            }
-            .sidebar-logo {
-                margin-left: 8%;
-                margin-bottom: 2.5em;
-                font-size: 3em;
-                color: #ffffff;
-                opacity: 0.8;
-            }
-            .sidebar-item {
-                width: 100%;
-                height: 4.5%;
-                display: flex;
-                align-items: center;
-                font-family: 'Roboto-Bold';
-                font-size: 1.4em;
-                color: #efeff1;
-                padding-left: 14%;
-                box-sizing: border-box;
-                border-left: 0.4em solid transparent;
-                cursor: pointer;
-                transition: all 0.2s ease;
-                margin-bottom: 0.5em;
-            }
-            .sidebar-item i {
-                margin-right: 1.2em;
-                font-size: 1.1em;
-            }
-            .sidebar-item.active {
-                background-color: #9147ff;
-                color: #ffffff;
-                border-left-color: #772ce8;
-            }
-            .sidebar-item:hover {
-                background-color: rgba(255,255,255,0.05);
-            }
-            .sidebar-item.active:hover {
-                background-color: #772ce8;
-            }
-            /* Ocultar paneles antiguos del sidebar */
-            #side_panel_fix, .side_panel_movel, .side_panel_new_icons, .side_panel_new_icons_text_holder,
-            #side_panel_fix_top, #side_panel_movel_center, #side_panel_fix_center,
-            .side_panel_movel_top_text {
-                display: none !important;
-            }
-
-            /* --- TOP BAR --- */
-            #topbar {
-                position: absolute;
-                top: 0;
-                left: 18%;
-                width: 82%;
-                height: 8%;
-                background: transparent !important;
-                border: none !important;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                padding: 0 2% 0 1%;
-                box-sizing: border-box;
-                z-index: 5;
-                transform: none !important;
-                margin: 0 !important;
-            }
-            #top_lable {
-                font-family: 'Roboto-Bold';
-                font-size: 2.2em;
-                color: #efeff1;
-                text-align: left;
-                position: static !important;
-                width: auto !important;
-            }
-            .topbar-right {
-                display: flex;
-                flex-direction: column;
-                align-items: flex-end;
-            }
-            .topbar-date {
-                color: #adadb8;
-                font-size: 0.9em;
-                font-family: 'Roboto';
-            }
-            .topbar-tabs {
-                display: flex;
-                gap: 2em;
-                margin-top: 1em;
-            }
-            .tab-button {
-                font-family: 'Roboto-Bold';
-                font-size: 1.2em;
-                color: #adadb8;
-                cursor: pointer;
-                padding-bottom: 0.5em;
-                border-bottom: 0.2em solid transparent;
-                transition: color 0.2s, border-color 0.2s;
-            }
-            .tab-button.active {
-                color: #efeff1;
-                border-bottom-color: #9147ff;
-            }
-            #top_clock { position: static !important; }
-            #controls_div { display: none !important; }
-
-            /* --- GRID DE 4 COLUMNAS --- */
-            .streams_div {
-                margin-left: 18.5% !important;
-                width: 81.5% !important;
-                height: 100%;
-                position: absolute;
-                top: 10%;
-            }
-            .stream_thumbnail_live_holder {
-                width: 23.5% !important;
-                display: inline-block;
-                padding: 0.75%;
-                box-sizing: border-box;
-                vertical-align: top;
-            }
-            .stream_thumbnail_live {
-                background: #1f1f23;
-                border-radius: 0.6em;
-                overflow: hidden;
-                position: relative;
-                padding-bottom: 0 !important;
-                border: 0.2em solid transparent;
-                transition: all 0.2s ease;
-            }
-            .stream_thumbnail_live_img {
-                padding-bottom: 56.25%;
-                background: #000;
-                position: relative;
-            }
-            .stream_thumbnail_live_img img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                position: absolute;
-                top: 0;
-                left: 0;
-            }
-            .viewer-count {
-                position: absolute;
-                top: 0.6em;
-                right: 0.6em;
-                background: rgba(0,0,0,0.7);
-                padding: 0.25em 0.6em;
-                border-radius: 0.3em;
-                font-size: 0.7em;
-                color: #efeff1;
-                font-family: 'Roboto-Bold';
-                display: flex;
-                align-items: center;
-            }
-            .viewer-count i {
-                margin-right: 0.3em;
-                font-size: 0.8em;
-            }
-            .stream_thumbnail_live_text_holder {
-                position: static !important;
-                padding: 0.8em 0.6em;
-                display: flex;
-                align-items: center;
-                height: auto !important;
-            }
-            .stream_avatar {
-                width: 2.2em;
-                height: 2.2em;
-                border-radius: 50%;
-                margin-right: 0.7em;
-                object-fit: cover;
-            }
-            .stream_info_col {
-                flex: 1;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-            }
-            .stream_info_live_name {
-                font-family: 'Roboto-Bold';
-                font-size: 0.85em;
-                color: #efeff1;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-            }
-            .stream_info_live_title {
-                font-family: 'Roboto';
-                font-size: 0.75em;
-                color: #adadb8;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                padding-top: 0.1em;
-            }
-            .stream_thumbnail_focused {
-                border-color: #9147ff !important;
-                background-color: #2a2a30 !important;
-            }
-            /* Ocultar overlays antiguos */
-            .stream_thumbnail_live_text_holder { 
-                position: static !important; 
-                height: auto !important; 
-                margin: 0 !important; 
-            }
-            .stream_text_holder {
-                position: static !important;
-                transform: none !important;
-            }
-
+            /* Simple way to see center of screen
+                                .center {
+                                    border: 2px solid blue;
+                                    margin: auto;
+                                    background: #F00;
+                                    position: relative;
+                                    text-align: center;
+                                    top: 50%;
+                                    width: 20%;
+                                    color: #FFF;
+                                }*/
         </style>
     </head>
 
@@ -3410,31 +3196,117 @@
                 <div id="clock_holder" class="top_clock hide">
                     <div id="label_clock" class="icon_top_label" style="text-align: right"></div>
                 </div>
-                
-                <!-- TOP BAR MODIFICADO -->
                 <div id="topbar" class="topbar">
-                    <div id="top_lable">HOME</div>
-                    <div class="topbar-right">
-                        <div class="topbar-date">FRIDAY, OCT 27 | <span id="top_clock">20:15</span></div>
-                        <div class="topbar-tabs">
-                            <div id="tab_live_feed" class="tab-button active">LIVE FEED</div>
-                            <div id="tab_top_categories" class="tab-button">TOP CATEGORIES</div>
+                    <div id="top_lable" class="top_lable"></div>
+                    <button id="button_full_screen" class="hide">
+                        <div id="button_full_screen_text" style="opacity: 0; color: #ffffff; display: inline-block"></div>
+                        <div id="button_full_screen_icon_contaner" style="display: inline-block; transform: translateY(-50%)">
+                            <i id="button_full_screen_icon" class="pause_button3d icon-pp"></i>
+                        </div>
+                    </button>
+                    <div class="top_clock" style="top: 1.75ch">
+                        <div class="icon_top_label"></div>
+                        <div id="label_update" class="icon_top_label"></div>
+                    </div>
+                    <div id="controls_div" class="controls_div">
+                        <div id="top_lable_etc" class="show_pointer" style="line-height: 1vh">
+                            <div id="label_refresh" class="icon_top_label" style="display: inline-block"></div>
+                            <div id="label_last_refresh" class="icon_top_label" style="display: inline-block; transform: translateY(10%)"></div>
+                        </div>
+                        <div id="label_thumb" class="icon_top_label show_pointer" style="margin-top: 1%"></div>
+                    </div>
+                </div>
+                <div id="side_panel_new_holder" class="hide side_panel_new_holder">
+                    <div id="side_panel_movel" class="side_panel_movel side_panel_background_color" style="z-index: 3">
+                        <div class="side_panel_fix_top">
+                            <div id="side_panel_top_text" class="side_panel_movel_top_text">
+                                <div class="side_panel_icons">
+                                    <i class="icon icon-arrow-left"></i>
+                                </div>
+                                &nbsp;
+                                <span id="side_panel_movel_top_text"></span>
+                            </div>
+                            <!-- Empty div are added to fill up the container and make the layout perfect align-->
+                            <div id="side_panel_top_text_empty" class="side_panel_new_icons_text_holder"></div>
+                            <div id="side_panel_movel_new_0" class="side_panel_new_icons_text_holder" style="height: 1.9em"></div>
+                            <div class="side_panel_new_icons_text_holder"></div>
+                        </div>
+                        <div class="side_panel_fix_top_2">
+                            <div class="side_panel_new_icons_text_holder"></div>
+                            <div id="side_panel_movel_new_1" class="side_panel_new_icons_text_holder"></div>
+                            <div class="side_panel_new_icons_text_holder"></div>
+                        </div>
+                        <div id="side_panel_movel_center" class="side_panel_fix_center">
+                            <div id="side_panel_movel_user_text_holder" class="side_panel_movel_user_text hide">
+                                <span id="side_panel_movel_user_text"></span>
+                            </div>
+                            <div id="side_panel_movel_new_2" class="side_panel_new_icons_text_holder"></div>
+                            <div id="side_panel_movel_new_3" class="side_panel_new_icons_text_holder"></div>
+                            <div id="side_panel_movel_new_4" class="side_panel_new_icons_text_holder"></div>
+                            <div id="side_panel_movel_new_5" class="side_panel_new_icons_text_holder"></div>
+                            <div id="side_panel_movel_new_6" class="side_panel_new_icons_text_holder"></div>
+                            <div id="side_panel_movel_new_7" class="side_panel_new_icons_text_holder"></div>
+                            <div id="side_panel_movel_new_8" class="side_panel_new_icons_text_holder hide"></div>
+                            <div id="side_panel_movel_new_9" class="side_panel_new_icons_text_holder hide"></div>
+                        </div>
+                        <div id="side_panel_movel_bottom" class="side_panel_fix_bottom">
+                            <div class="side_panel_movel_bottom_holder">
+                                <div class="side_panel_movel_bottom_text">
+                                    <div id="side_panel_movel_new_10" class="side_panel_new_text_options"></div>
+                                </div>
+                                <div class="side_panel_movel_bottom_text">
+                                    <div id="side_panel_movel_new_11" class="side_panel_new_text_options"></div>
+                                </div>
+                                <div class="side_panel_movel_bottom_text">
+                                    <div id="side_panel_movel_new_12" class="side_panel_new_text_options"></div>
+                                </div>
+                                <div class="side_panel_movel_bottom_text">
+                                    <div id="side_panel_movel_new_13" class="side_panel_new_text_options"></div>
+                                </div>
+                                <div class="side_panel_movel_bottom_text">
+                                    <div id="side_panel_movel_new_14" class="side_panel_new_text_options"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <!-- SIDEBAR MODIFICADO -->
-                <div id="side_panel_new_holder" class="side_panel_new_holder" style="z-index: 99;">
-                    <div class="sidebar-logo"><i class="icon-twitch"></i></div>
-                    <div id="sidebar_menu_container">
-                        <div class="sidebar-item active" data-screen="Home"><i class="icon-home"></i> HOME</div>
-                        <div class="sidebar-item" data-screen="Live"><i class="icon-play"></i> LIVE</div>
-                        <div class="sidebar-item" data-screen="Browse"><i class="icon-folder"></i> BROWSE</div>
-                        <div class="sidebar-item" data-screen="Search"><i class="icon-search"></i> SEARCH</div>
-                        <div class="sidebar-item" data-screen="Settings"><i class="icon-settings"></i> SETTINGS</div>
+                    <div id="side_panel_fix" class="side_panel_fix avoidclicks">
+                        <div class="side_panel_fix_top" style="background-color: #000000">
+                            <!-- Empty div are added to fill up the container and make the layout perfect align-->
+                            <div class="side_panel_new_icons"></div>
+                            <div id="side_panel_new_0" class="side_panel_new_icons">
+                                <div id="icon_side_panel_imgholder_0"></div>
+                            </div>
+                        </div>
+                        <div class="side_panel_fix_top_2">
+                            <div class="side_panel_new_icons"></div>
+                            <div id="side_panel_new_1" class="side_panel_new_icons">
+                                <i class="icon icon-search side_panel_new_icons_pad"></i>
+                            </div>
+                            <div class="side_panel_new_icons"></div>
+                        </div>
+                        <div id="side_panel_fix_center" class="side_panel_fix_center" style="background-color: #000000">
+                            <div id="side_panel_new_2" class="side_panel_new_icons"></div>
+                            <div id="side_panel_new_3" class="side_panel_new_icons">
+                                <i id="icon_side_panel_new_3" class="icon icon-play side_panel_new_icons_pad"></i>
+                            </div>
+                            <div id="side_panel_new_4" class="side_panel_new_icons"></div>
+                            <div id="side_panel_new_5" class="side_panel_new_icons"></div>
+                            <div id="side_panel_new_6" class="side_panel_new_icons"></div>
+                            <div id="side_panel_new_7" class="side_panel_new_icons"></div>
+                            <div id="side_panel_new_8" class="side_panel_new_icons">
+                                <i id="icon_side_panel_new_8" class="icon icon-history side_panel_new_icons_pad"></i>
+                            </div>
+                            <div id="side_panel_new_9" class="side_panel_new_icons">
+                                <i id="icon_side_panel_new_9" class="icon icon-blocked side_panel_new_icons_pad"></i>
+                            </div>
+                        </div>
+                        <div
+                            id="side_panel_fix_botton"
+                            class="side_panel_fix_bottom avoidclicks"
+                            style="width: 30%; background-color: #000000; pointer-events: none"
+                        ></div>
                     </div>
                 </div>
-
                 <div id="scenefeed" class="feed_screen_new">
                     <div id="sidepannel_dialog_warning" class="strokedeline dialogs hide" style="top: 35vh; left: 28%; width: 69%; z-index: 100">
                         <div id="sidepannel_dialog_warning_text" class="strokedeline dialog_text" style="font-size: 150%"></div>
@@ -3537,6 +3409,10 @@
                         </div>
                     </div>
                 </div>
+                <!-- Simple way to see center of screen
+        <div class="center">
+            <p>Test Text</p>
+        </div>-->
             </div>
             <div
                 id="scene2"
