@@ -190,6 +190,10 @@ function PlayHLS_PlayListUrl(isLive, Channel_or_VOD_Id, CheckId_y, CheckId_x, ca
 
     var urlObj = PlayHLS_GetPlayListUrl(isLive, Channel_or_VOD_Id, Token, Sig, useProxy);
 
+    if (useProxy) {
+        Main_Log('Proxy: PlayListUrl sending urlLen=' + urlObj.url.length + ' headers=' + (urlObj.headers !== null && urlObj.headers !== undefined) + ' timeout=' + (useProxy ? proxy_timeout : DefaultHttpGetTimeout));
+    }
+
     OSInterface_XmlHttpGetFull(
         urlObj.url, //String urlString
         useProxy ? proxy_timeout : DefaultHttpGetTimeout, //int timeout

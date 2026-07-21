@@ -107,6 +107,9 @@ public final class Tools {
 
     private static final String TAG = "STTV_Tools";
 
+    static String LastHttpError = "";
+    static int LastHttpUrlLen = 0;
+
     private static final Type ArrayType = new TypeToken<String[][]>() {}.getType();
 
     private static final Type setType = new TypeToken<Set<String>>() {}.getType();
@@ -258,6 +261,14 @@ public final class Tools {
             urlConnection.setConnectTimeout(timeout);
             urlConnection.setReadTimeout(timeout);
 
+            Log.d(TAG, "Internal_MethodUrl urlLen=" + urlString.length()
+                + " headers=" + HEADERS.length
+                + " method=" + (Method != null ? Method : "GET")
+                + " timeout=" + timeout);
+
+            LastHttpUrlLen = urlString.length();
+            LastHttpError = "";
+
             if (Method != null) { //If Method == null this will use the default get method, same as readUrl
                 urlConnection.setRequestMethod(Method);
             }
@@ -290,10 +301,13 @@ public final class Tools {
                     checkResult
                 );
             } else {
+                LastHttpError = "status=-1";
+                Log.d(TAG, "Internal_MethodUrl status=-1 urlLen=" + urlString.length());
                 return null;
             }
-        } catch (Throwable ignore) {
-            //recordException(TAG, "Internal_MethodUrl ", e);
+        } catch (Throwable e) {
+            LastHttpError = e.getClass().getSimpleName() + ": " + e.getMessage();
+            recordException(TAG, "Internal_MethodUrl url=" + (urlString != null ? urlString.length() : 0) + " err=" + e.getMessage(), e);
             return null;
         } finally {
             if (urlConnection != null) urlConnection.disconnect();

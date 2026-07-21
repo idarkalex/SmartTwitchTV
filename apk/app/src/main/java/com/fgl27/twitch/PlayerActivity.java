@@ -2887,6 +2887,12 @@ public class PlayerActivity extends Activity {
                             "')"
                         );
                     } else {
+                        if (Tools.LastHttpError.length() > 0 || Tools.LastHttpUrlLen > 0) {
+                            LoadUrlWebView(
+                                "javascript:Main_Log('Proxy: Java HTTP err=" + Tools.LastHttpError
+                                + " urlLen=" + Tools.LastHttpUrlLen + "')"
+                            );
+                        }
                         XmlHttpGetFullError(
                             DataResultPos,
                             callback,
