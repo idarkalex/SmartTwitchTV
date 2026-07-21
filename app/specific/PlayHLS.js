@@ -49,6 +49,7 @@ var proxy_url = '';
 var proxy_headers = null;
 var proxy_has_parameter = false;
 var proxy_has_token = false;
+var proxy_is_forward_proxy = false;
 
 //var proxy_ping_url = 'https://api.ttv.lol/ping';
 
@@ -157,15 +158,23 @@ function PlayHLS_GetPlayListUrl(isLive, Channel_or_VOD_Id, Token, Sig, useProxy)
         if (useProxy) {
             headers = proxy_headers;
 
-            var proxy_base = proxy_url.endsWith('/') ? proxy_url : proxy_url + '/';
-
-            if (proxy_has_parameter && !proxy_has_token) {
-                url = proxy_base + Channel_or_VOD_Id + '.m3u8' + encodeURIComponent('?' + URL_parameters);
+            if (proxy_is_forward_proxy) {
+                OSInterface_SetProxyUrl(proxy_url);
+                url = Play_original_live_links + Channel_or_VOD_Id + '.m3u8?token=' + encodeURIComponent(Token) + '&sig=' + Sig + '&' + URL_parameters;
+                Main_Log('Proxy: GetPlayListUrl FORWARD_PROXY via=' + proxy_url + ' real_url=' + Play_original_live_links + ' has_headers=' + (headers !== null && headers !== undefined));
             } else {
-                url = proxy_base + Channel_or_VOD_Id + '.m3u8?token=' + encodeURIComponent(Token) + '&sig=' + Sig + '&' + URL_parameters;
+                OSInterface_SetProxyUrl('');
+                var proxy_base = proxy_url.endsWith('/') ? proxy_url : proxy_url + '/';
+
+                if (proxy_has_parameter && !proxy_has_token) {
+                    url = proxy_base + Channel_or_VOD_Id + '.m3u8' + encodeURIComponent('?' + URL_parameters);
+                } else {
+                    url = proxy_base + Channel_or_VOD_Id + '.m3u8?token=' + encodeURIComponent(Token) + '&sig=' + Sig + '&' + URL_parameters;
+                }
+                Main_Log('Proxy: GetPlayListUrl REVERSE_PROXY url=' + proxy_base + ' channel=' + Channel_or_VOD_Id + ' has_token=' + proxy_has_token + ' has_parameter=' + proxy_has_parameter + ' has_headers=' + (headers !== null && headers !== undefined));
             }
-            Main_Log('Proxy: GetPlayListUrl PROXY url=' + proxy_base + ' channel=' + Channel_or_VOD_Id + ' has_token=' + proxy_has_token + ' has_parameter=' + proxy_has_parameter + ' has_headers=' + (headers !== null && headers !== undefined));
         } else {
+            OSInterface_SetProxyUrl('');
             url = Play_original_live_links + Channel_or_VOD_Id + '.m3u8?token=' + encodeURIComponent(Token) + '&sig=' + Sig + '&' + URL_parameters;
             Main_Log('Proxy: GetPlayListUrl DIRECT url=' + Play_original_live_links + ' channel=' + Channel_or_VOD_Id);
         }

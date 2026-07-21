@@ -177,6 +177,12 @@ function OSInterface_XmlHttpGetFull(
     }
 }
 
+function OSInterface_SetProxyUrl(url) {
+    try {
+        Android.SetProxyUrl(url || '');
+    } catch (e) {}
+}
+
 //public void BaseXmlHttpGet(String urlString, int timeout, String postMessage, String Method, String JsonHeadersArray,
 //                           String callback, long checkResult, long key, int DataResultPos, String callbackSucess, String calbackError) {
 //Android specific: true

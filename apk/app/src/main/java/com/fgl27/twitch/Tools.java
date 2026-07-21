@@ -88,6 +88,8 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.lang.reflect.Type;
 import java.net.HttpURLConnection;
+import java.net.InetSocketAddress;
+import java.net.Proxy;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -109,6 +111,7 @@ public final class Tools {
 
     static String LastHttpError = "";
     static int LastHttpUrlLen = 0;
+    static String ProxyUrl = null;
 
     private static final Type ArrayType = new TypeToken<String[][]>() {}.getType();
 
@@ -254,7 +257,22 @@ public final class Tools {
         HttpURLConnection urlConnection = null;
 
         try {
-            urlConnection = (HttpURLConnection) new URL(urlString).openConnection();
+            if (ProxyUrl != null && !ProxyUrl.isEmpty()) {
+                try {
+                    java.net.URI proxyUri = new java.net.URI(ProxyUrl);
+                    Proxy proxy = new Proxy(
+                        Proxy.Type.HTTP,
+                        new InetSocketAddress(proxyUri.getHost(), proxyUri.getPort())
+                    );
+                    urlConnection = (HttpURLConnection) new URL(urlString).openConnection(proxy);
+                    Log.d(TAG, "Internal_MethodUrl using proxy=" + ProxyUrl + " target=" + urlString);
+                } catch (Throwable pe) {
+                    Log.e(TAG, "Internal_MethodUrl proxy setup failed: " + pe.getMessage());
+                    urlConnection = (HttpURLConnection) new URL(urlString).openConnection();
+                }
+            } else {
+                urlConnection = (HttpURLConnection) new URL(urlString).openConnection();
+            }
 
             for (String[] header : HEADERS) urlConnection.setRequestProperty(header[0], header[1]);
 

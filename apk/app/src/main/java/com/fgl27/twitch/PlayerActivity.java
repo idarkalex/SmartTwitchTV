@@ -2831,6 +2831,12 @@ public class PlayerActivity extends Activity {
         }
 
         @JavascriptInterface
+        public void SetProxyUrl(String url) {
+            Tools.ProxyUrl = (url != null && !url.isEmpty()) ? url : null;
+            Log.d(TAG, "SetProxyUrl=" + Tools.ProxyUrl);
+        }
+
+        @JavascriptInterface
         public void XmlHttpGetFull(
             String urlString,
             int timeout,

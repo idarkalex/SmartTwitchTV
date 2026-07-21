@@ -1584,21 +1584,25 @@ function Settings_proxy_set_current(current) {
         proxy_headers = null;
         proxy_has_parameter = true;
         proxy_has_token = true;
+        proxy_is_forward_proxy = true;
     } else if (current === 'k_twitch') {
         proxy_url = ktwitch_proxy;
         proxy_headers = null;
         proxy_has_parameter = true;
         proxy_has_token = true;
+        proxy_is_forward_proxy = false;
     } else if (current === 'custom_proxy') {
         proxy_url = Main_getItemJson('custom_proxy_url', '');
         proxy_headers = null;
         proxy_has_parameter = Settings_Obj_default('custom_proxy_has_parameter') === 1;
         proxy_has_token = Settings_Obj_default('custom_proxy_has_token') === 1;
+        proxy_is_forward_proxy = false;
     } else {
         proxy_url = Play_live_ttv_lol_links;
         proxy_headers = ttv_lol_headers;
         proxy_has_parameter = true;
         proxy_has_token = false;
+        proxy_is_forward_proxy = false;
     }
 }
 
