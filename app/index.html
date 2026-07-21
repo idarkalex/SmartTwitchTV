@@ -2670,188 +2670,692 @@
                                     color: #FFF;
                                 }*/
         </style>
-     <!-- SKIN OVERRIDE: Rediseño visual sin alterar la estructura base -->
-        <style id="modern_twitch_skin">
-          /* ==========================================================================
-             1. FONDO GLOBAL Y BARRA SUPERIOR
-             ========================================================================== */
-          body, html, #scene1, #app, .screen_size {
-            background-color: #13111c !important; /* Fondo violeta oscuro del mockup */
-          }
-        
-          .topbar {
-            background: #13111c !important;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-          }
-        
-          .icon_top_label {
-            color: #8f8c9f !important; /* Texto secundario gris tenue */
-          }
-        
-          /* ==========================================================================
-             2. PANEL LATERAL IZQUIERDO (SIDEBAR)
-             ========================================================================== */
-          .side_panel_background_color,
-          .side_panel,
-          .side_panel_fix_top,
-          #side_panel_fix_center,
-          #side_panel_fix_botton,
-          #side_panel_new_row_1 {
-            background-color: #181524 !important; /* Color de fondo sidebar */
-          }
-        
-          /* Quitar bordes horizontales oscuros del sidebar original */
-          .side_panel_new_icons_text_holder,
-          .side_panel_new_icons {
-            border-top: none !important;
-            border-bottom: none !important;
-            color: #8f8c9f !important;
-          }
-        
-          /* Estilo del botón activo/enfocado en sidebar (Ej. HOME en violeta degradado) */
-          .side_panel_div_focused,
-          .side_panel_new_icons_text,
-          .side_panel_new_icons_start {
-            background: linear-gradient(90deg, #9146ff 0%, #772ce8 100%) !important;
-            border-image: none !important;
-            border-radius: 0.5em !important;
-            color: #ffffff !important;
-            box-shadow: 0 0.2em 0.8em rgba(145, 70, 255, 0.4) !important;
-          }
-        
-          /* ==========================================================================
-             3. RECONFIGURACIÓN A 4 COLUMNAS (MOCKUP GRID)
-             ========================================================================== */
-          /* Cambia las 3 columnas originales (32%) por 4 columnas (~23.8%) */
-          .stream_thumbnail_live_holder {
-            width: 23.8% !important;
-            padding: 0.4% !important;
-            padding-bottom: 1.2% !important;
-          }
-        
-          /* Tarjetas individuales de streams */
-          .stream_thumbnail_live,
-          .stream_thumbnail_channel,
-          .stream_thumbnail_user {
-            background-color: #1f1c2e !important; /* Fondo violeta-grisáceo de tarjeta */
-            border-radius: 0.7em !important; /* Redondeado curvo moderno */
-            border: 0.1em solid transparent !important;
-            overflow: hidden;
-            padding-bottom: 78% !important;
-            transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), 
-                        border-color 0.2s ease, 
-                        box-shadow 0.2s ease !important;
-          }
-        
-          /* Imagen de la miniatura del stream */
-          .stream_thumbnail_live_img {
-            width: 94% !important;
-            margin: 3% auto 0 auto !important;
-            background-color: #0f0e17 !important;
-            padding-bottom: 52.8% !important;
-            border-radius: 0.5em !important;
-            overflow: hidden;
-          }
-        
-          .stream_thumbnail_live_img img,
-          img.stream_img {
-            border-radius: 0.5em !important;
-          }
-        
-          /* Textos e información de la miniatura */
-          .stream_thumbnail_live_text_holder {
-            position: absolute;
-            right: 3%;
-            left: 3%;
-            padding: 0.2em;
-            margin-top: 0.2em;
-            height: 32%;
-          }
-        
-          .stream_info_live_name {
-            color: #ffffff !important;
-            font-size: 82% !important;
-            font-family: 'Roboto-Bold' !important;
-          }
-        
-          .stream_info_live {
-            color: #8f8c9f !important; /* Nombre de canal en gris */
-            font-size: 72% !important;
-          }
-        
-          /* ==========================================================================
-             4. GRID DE JUEGOS Y CATEGORÍAS (6 COLUMNAS EN BROWSE)
-             ========================================================================== */
-          .stream_thumbnail_blocked_game_holder,
-          .stream_thumbnail_game_holder {
-            width: 15.2% !important;
-            padding: 0.4% !important;
-          }
-        
-          .stream_thumbnail_game {
-            background-color: #1f1c2e !important;
-            border-radius: 0.7em !important;
-          }
-        
-          /* ==========================================================================
-             5. EFECTO DE FOCO Y SELECCIÓN (PURPLE GLOW)
-             ========================================================================== */
-          /* Destello resplandeciente púrpura cuando el cursor/mando pasa sobre un elemento */
-          .stream_switch_focused,
-          .stream_thumbnail_focused,
-          .stream_thumbnail_focused_no_ani,
-          .feed_thumbnail_focused {
-            border-color: #9146ff !important;
-            box-shadow: 0 0 1.2em rgba(145, 70, 255, 0.65) !important;
-            transform: scale(1.03) !important;
-            z-index: 20 !important;
-            background-color: #1f1c2e !important;
-          }
-        
-          /* ==========================================================================
-             6. DIÁLOGOS, POPUPS Y VENTANAS FLOTANTES
-             ========================================================================== */
-          .about_dialogs,
-          .dialog_exit,
-          .dialog_period,
-          .dialog_multi {
-            background-color: #181524 !important;
-            border-radius: 0.8em !important;
-            border: 1px solid rgba(255, 255, 255, 0.08) !important;
-            box-shadow: 0 0.8em 2em rgba(0, 0, 0, 0.7) !important;
-          }
-        
-          .button_dialog,
-          .button_search {
-            border-radius: 0.5em !important;
-            background-color: rgba(255, 255, 255, 0.06) !important;
-            border: none !important;
-          }
-        
-          .button_dialog_focused,
-          .button_search_focused {
-            background: linear-gradient(90deg, #9146ff 0%, #772ce8 100%) !important;
-            color: #ffffff !important;
-            box-shadow: 0 0 0.8em rgba(145, 70, 255, 0.5) !important;
-          }
-        
-          /* ==========================================================================
-             7. REPRODUCTOR (PLAYER OVERLAY)
-             ========================================================================== */
-          .controls_holder {
-            background: linear-gradient(to top, rgba(19, 17, 28, 0.95), transparent) !important;
-          }
-        
-          .inner_progress_animate {
-            background-color: #9146ff !important;
-          }
-        
-          .progress_bar_div_focus {
-            background-color: rgba(145, 70, 255, 0.3) !important;
-            border-color: #9146ff !important;
-          }
+        <!-- ============================================================
+             SMARTTWITCHTV MODERN TWITCH SKIN OVERRIDE v2
+             Rediseño visual completo inspirado en el mockup proporcionado
+             ============================================================ -->
+        <style id="modern_twitch_skin_v2">
+            /* ==========================================================
+               1. VARIABLES Y RESET GLOBAL
+               ========================================================== */
+            :root {
+                --bg-primary: #13111c;
+                --bg-secondary: #181524;
+                --bg-card: #1f1c2e;
+                --bg-card-hover: #252236;
+                --text-primary: #ffffff;
+                --text-secondary: #8f8c9f;
+                --text-muted: #5c5a6b;
+                --accent: #9146ff;
+                --accent-dark: #772ce8;
+                --accent-glow: rgba(145, 70, 255, 0.65);
+                --border-radius-sm: 0.4em;
+                --border-radius-md: 0.7em;
+                --border-radius-lg: 1em;
+                --transition-fast: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+                --transition-medium: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            body, html, #scene1, #app, .screen_size {
+                background-color: var(--bg-primary) !important;
+            }
+
+            /* ==========================================================
+               2. BARRA SUPERIOR (TOPBAR) - Estilo mockup
+               ========================================================== */
+            .topbar {
+                background: var(--bg-primary) !important;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+                height: 6.5% !important;
+            }
+
+            .top_lable {
+                color: var(--text-primary) !important;
+                font-size: 140% !important;
+                font-family: 'Roboto-Bold' !important;
+                text-align: left !important;
+                padding-left: 2%;
+                letter-spacing: 0.05em;
+            }
+
+            .icon_top_label {
+                color: var(--text-secondary) !important;
+                font-size: 60% !important;
+                font-family: 'Roboto' !important;
+            }
+
+            .top_clock {
+                color: var(--text-secondary) !important;
+            }
+
+            /* ==========================================================
+               3. PANEL LATERAL IZQUIERDO (SIDEBAR)
+               ========================================================== */
+            .side_panel_background_color,
+            .side_panel,
+            .side_panel_fix_top,
+            #side_panel_fix_center,
+            #side_panel_fix_botton,
+            #side_panel_new_row_1,
+            .side_panel_fix {
+                background-color: var(--bg-secondary) !important;
+            }
+
+            /* Eliminar bordes horizontales del sidebar */
+            .side_panel_new_icons_text_holder,
+            .side_panel_new_icons {
+                border-top: none !important;
+                border-bottom: none !important;
+                border-image: none !important;
+                color: var(--text-secondary) !important;
+                background: transparent !important;
+                transition: all var(--transition-fast);
+            }
+
+            /* Iconos del sidebar */
+            .side_panel_new_icons {
+                margin-left: 15% !important;
+                width: 75% !important;
+                border-radius: var(--border-radius-sm);
+            }
+
+            .side_panel_new_icons_text_holder {
+                padding-left: 6vh !important;
+                font-size: 1em !important;
+            }
+
+            /* Item activo/enfocado en sidebar - degradado púrpura */
+            .side_panel_div_focused,
+            .side_panel_new_icons_text,
+            .side_panel_new_icons_start {
+                background: linear-gradient(90deg, var(--accent) 0%, var(--accent-dark) 100%) !important;
+                border-image: none !important;
+                border-radius: var(--border-radius-sm) !important;
+                color: var(--text-primary) !important;
+                box-shadow: 0 0.15em 0.6em var(--accent-glow) !important;
+                text-shadow: none !important;
+            }
+
+            .side_panel_new_icons_text_botton {
+                background: linear-gradient(90deg, var(--accent) 0%, var(--accent-dark) 100%) !important;
+                border-image: none !important;
+            }
+
+            /* Hover en items del sidebar */
+            .side_panel_new_icons:hover,
+            .side_panel_new_icons_text_holder:hover {
+                background-color: rgba(255, 255, 255, 0.05) !important;
+            }
+
+            /* Panel fijo de iconos */
+            .side_panel_fix {
+                width: 4.5% !important;
+            }
+
+            .side_panel_movel {
+                width: 18% !important;
+            }
+
+            /* ==========================================================
+               4. GRID DE STREAMS - 4 COLUMNAS (RECONFIGURACIÓN)
+               ========================================================== */
+            .streams_div {
+                margin-left: 5.5% !important;
+                width: 93% !important;
+            }
+
+            .stream_thumbnail_live_holder {
+                width: 23.5% !important;
+                padding: 0.35% !important;
+                padding-bottom: 1% !important;
+                transition: transform var(--transition-fast);
+            }
+
+            /* Tarjeta de stream individual */
+            .stream_thumbnail_live,
+            .stream_thumbnail_channel,
+            .stream_thumbnail_user {
+                background-color: var(--bg-card) !important;
+                border-radius: var(--border-radius-md) !important;
+                border: 0.08em solid rgba(255, 255, 255, 0.03) !important;
+                overflow: hidden;
+                padding-bottom: 76% !important;
+                transition: transform var(--transition-fast), 
+                            border-color var(--transition-fast), 
+                            box-shadow var(--transition-fast) !important;
+            }
+
+            /* Contenedor de imagen del stream */
+            .stream_thumbnail_live_img {
+                width: 92% !important;
+                margin: 4% auto 0 auto !important;
+                background-color: #0f0e17 !important;
+                padding-bottom: 51.75% !important;
+                border-radius: var(--border-radius-sm) !important;
+                overflow: hidden;
+            }
+
+            .stream_thumbnail_live_img img,
+            img.stream_img {
+                border-radius: var(--border-radius-sm) !important;
+            }
+
+            /* Texto/info de la tarjeta */
+            .stream_thumbnail_live_text_holder {
+                position: absolute;
+                right: 4%;
+                left: 4%;
+                padding: 0.15em 0.3em;
+                margin-top: 0.15em;
+                height: 30%;
+            }
+
+            .stream_info_live_name {
+                color: var(--text-primary) !important;
+                font-size: 80% !important;
+                font-family: 'Roboto-Bold' !important;
+                line-height: 1.3em;
+            }
+
+            .stream_info_live {
+                color: var(--text-secondary) !important;
+                font-size: 70% !important;
+                font-family: 'Roboto' !important;
+            }
+
+            .stream_info_live_title {
+                color: var(--text-secondary) !important;
+                font-size: 68% !important;
+            }
+
+            /* Icono LIVE */
+            .live_icon {
+                color: #ff4444 !important;
+                font-size: 60% !important;
+            }
+
+            /* ==========================================================
+               5. GRID DE JUEGOS - 6 COLUMNAS
+               ========================================================== */
+            .streams_game_div {
+                margin-left: 5.5% !important;
+            }
+
+            .stream_thumbnail_blocked_game_holder,
+            .stream_thumbnail_game_holder {
+                width: 15.5% !important;
+                padding: 0.35% !important;
+            }
+
+            .stream_thumbnail_game {
+                background-color: var(--bg-card) !important;
+                border-radius: var(--border-radius-md) !important;
+                border: 0.08em solid rgba(255, 255, 255, 0.03) !important;
+            }
+
+            .stream_thumbnail_game_text_holder {
+                height: 16%;
+            }
+
+            /* ==========================================================
+               6. EFECTO DE FOCO Y SELECCIÓN (PURPLE GLOW)
+               ========================================================== */
+            .stream_switch_focused,
+            .stream_thumbnail_focused,
+            .stream_thumbnail_focused_no_ani,
+            .feed_thumbnail_focused {
+                border-color: var(--accent) !important;
+                box-shadow: 0 0 1em var(--accent-glow),
+                            0 0 2em rgba(145, 70, 255, 0.3) !important;
+                transform: scale(1.04) !important;
+                z-index: 20 !important;
+                background-color: var(--bg-card-hover) !important;
+                border-radius: var(--border-radius-md) !important;
+            }
+
+            /* Foco en sidebar */
+            .side_panel_div_focused {
+                background: linear-gradient(90deg, rgba(145, 70, 255, 0.3) 0%, rgba(119, 44, 232, 0.15) 100%) !important;
+                border-image: linear-gradient(to right, transparent 10%, var(--accent), transparent 90%) 1 !important;
+            }
+
+            /* ==========================================================
+               7. DIÁLOGOS, POPUPS Y VENTANAS FLOTANTES
+               ========================================================== */
+            .about_dialogs,
+            .dialog_exit,
+            .dialog_period,
+            .dialog_multi {
+                background-color: var(--bg-secondary) !important;
+                border-radius: var(--border-radius-lg) !important;
+                border: 1px solid rgba(255, 255, 255, 0.06) !important;
+                box-shadow: 0 1em 3em rgba(0, 0, 0, 0.6) !important;
+            }
+
+            .button_dialog,
+            .button_search {
+                border-radius: var(--border-radius-sm) !important;
+                background-color: rgba(255, 255, 255, 0.05) !important;
+                border: none !important;
+                color: var(--text-primary) !important;
+                transition: all var(--transition-fast);
+            }
+
+            .button_dialog:hover,
+            .button_search:hover {
+                background-color: rgba(255, 255, 255, 0.1) !important;
+            }
+
+            .button_dialog_focused,
+            .button_search_focused {
+                background: linear-gradient(90deg, var(--accent) 0%, var(--accent-dark) 100%) !important;
+                color: var(--text-primary) !important;
+                box-shadow: 0 0 0.8em var(--accent-glow) !important;
+                border-image: none !important;
+            }
+
+            /* ==========================================================
+               8. REPRODUCTOR (PLAYER OVERLAY)
+               ========================================================== */
+            .controls_holder {
+                background: linear-gradient(to top, rgba(19, 17, 28, 0.95), transparent) !important;
+            }
+
+            .inner_progress_animate {
+                background-color: var(--accent) !important;
+            }
+
+            .progress_bar_div_focus {
+                background-color: rgba(145, 70, 255, 0.25) !important;
+                border-color: var(--accent) !important;
+            }
+
+            .inner_progress_bar {
+                background-color: #4a4a5a !important;
+            }
+
+            .inner_progress_circle {
+                background: var(--accent) !important;
+                box-shadow: 0 0 0.5em var(--accent-glow) !important;
+            }
+
+            /* ==========================================================
+               9. SETTINGS Y MENÚS
+               ========================================================== */
+            .settings_holder {
+                background: var(--bg-primary) !important;
+            }
+
+            .settings_div {
+                border-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)) 1 !important;
+                transition: all var(--transition-fast);
+            }
+
+            .settings_div_focus {
+                background-color: rgba(145, 70, 255, 0.12) !important;
+                border-image: linear-gradient(to right, transparent 15%, var(--accent), transparent 85%) 1 !important;
+            }
+
+            .settings_value {
+                border-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)) 1 !important;
+            }
+
+            .settings_value_focus {
+                background-color: rgba(145, 70, 255, 0.2) !important;
+                border-image: linear-gradient(to right, transparent 20%, var(--accent), transparent 80%) 1 !important;
+                color: var(--accent) !important;
+            }
+
+            .settings_section {
+                color: var(--text-secondary) !important;
+                font-size: 110% !important;
+            }
+
+            .settings_name {
+                color: var(--text-primary) !important;
+            }
+
+            .settings_summary {
+                color: var(--text-muted) !important;
+            }
+
+            /* ==========================================================
+               10. CHAT Y INPUTS
+               ========================================================== */
+            .chat_container, .chat_container1 {
+                background-color: rgba(24, 21, 36, 0.85) !important;
+                border: 1px solid rgba(255, 255, 255, 0.05) !important;
+                border-radius: var(--border-radius-sm) !important;
+            }
+
+            .chat_input_class {
+                background-color: var(--bg-card) !important;
+                border: 0.125em solid rgba(255, 255, 255, 0.1) !important;
+                color: var(--text-primary) !important;
+                border-radius: var(--border-radius-sm) !important;
+            }
+
+            .chat_input_class_focus {
+                border-color: var(--accent) !important;
+                box-shadow: 0 0 0.5em var(--accent-glow) !important;
+                background-color: var(--bg-card-hover) !important;
+            }
+
+            .button_chat {
+                background-color: var(--bg-card) !important;
+                border: 0.08em solid rgba(255, 255, 255, 0.08) !important;
+                border-radius: var(--border-radius-sm) !important;
+                color: var(--text-secondary) !important;
+                transition: all var(--transition-fast);
+            }
+
+            .button_chat_focused {
+                background: linear-gradient(90deg, var(--accent) 0%, var(--accent-dark) 100%) !important;
+                color: var(--text-primary) !important;
+                border-color: transparent !important;
+                box-shadow: 0 0 0.6em var(--accent-glow) !important;
+            }
+
+            /* ==========================================================
+               11. FEED HORIZONTAL INFERIOR
+               ========================================================== */
+            .user_feed {
+                background: linear-gradient(to top, rgba(19, 17, 28, 0.95), rgba(19, 17, 28, 0.7), transparent) !important;
+            }
+
+            .user_feed_thumb, .user_feed_thumb_game {
+                border-radius: var(--border-radius-sm) !important;
+                overflow: hidden;
+            }
+
+            .feed_thumbnail_focused {
+                box-shadow: 0 0 0.8em var(--accent-glow) !important;
+                border-color: var(--accent) !important;
+            }
+
+            .icon_feed_refresh {
+                color: var(--text-secondary) !important;
+            }
+
+            .feed_end_name {
+                color: var(--text-secondary) !important;
+                border-color: rgba(255, 255, 255, 0.1) !important;
+            }
+
+            .feed_end_name_focus {
+                background-color: rgba(145, 70, 255, 0.2) !important;
+                border-color: var(--accent) !important;
+                color: var(--text-primary) !important;
+            }
+
+            /* ==========================================================
+               12. SIDE PANEL FEED (Panel lateral de streams)
+               ========================================================== */
+            .side_panel_feed_thumb {
+                background-color: var(--bg-secondary) !important;
+                border-radius: var(--border-radius-md) !important;
+            }
+
+            .side_panel_feed_thumb_text_holder {
+                background: linear-gradient(to top, rgba(24, 21, 36, 0.95), transparent) !important;
+            }
+
+            .side_panel_feed_top {
+                color: var(--text-secondary) !important;
+            }
+
+            /* ==========================================================
+               13. SCROLLBARS Y ELEMENTOS DIVERSOS
+               ========================================================== */
+            .scenefeed_background {
+                background: var(--bg-primary) !important;
+            }
+
+            .dialog_text {
+                color: var(--text-primary) !important;
+            }
+
+            .exit_text {
+                color: var(--text-primary) !important;
+            }
+
+            .about_text {
+                color: var(--text-secondary) !important;
+            }
+
+            .about_text_title {
+                color: var(--text-primary) !important;
+            }
+
+            .controls_text {
+                color: var(--text-secondary) !important;
+            }
+
+            .stream_channel_follow_game {
+                color: var(--text-secondary) !important;
+            }
+
+            .next_channel, .next_info {
+                color: var(--text-primary) !important;
+            }
+
+            .counter_class {
+                color: var(--text-secondary) !important;
+            }
+
+            /* Loading spinner */
+            .loading {
+                background-color: rgba(145, 70, 255, 0.1) !important;
+            }
+
+            .loading div {
+                border-color: var(--accent) transparent transparent transparent !important;
+            }
+
+            /* Color picker */
+            .cavas_holder {
+                border-color: rgba(255, 255, 255, 0.1) !important;
+                border-radius: var(--border-radius-sm) !important;
+            }
+
+            .cavas_holder_focused {
+                border-color: var(--accent) !important;
+                box-shadow: 0 0 0.5em var(--accent-glow) !important;
+            }
+
+            .color_result {
+                border-radius: var(--border-radius-sm) !important;
+            }
+
+            /* ==========================================================
+               14. ANIMACIONES ADICIONALES
+               ========================================================== */
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(0.5em);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .stream_thumbnail_live_holder {
+                animation: fadeInUp 0.4s ease-out;
+            }
+
+            /* Mejoras en el panel de canal */
+            .screen_holder_channel {
+                background: var(--bg-primary) !important;
+            }
+
+            .channel_about {
+                color: var(--text-secondary) !important;
+            }
+
+            /* Input boxes */
+            .input_class {
+                background-color: var(--bg-card) !important;
+                border: 0.1em solid rgba(255, 255, 255, 0.1) !important;
+                color: var(--text-primary) !important;
+                border-radius: var(--border-radius-sm) !important;
+            }
+
+            .input_class:focus {
+                border-color: var(--accent) !important;
+                box-shadow: 0 0 0.5em var(--accent-glow) !important;
+                outline: none;
+            }
+
+            /* Search buttons */
+            .button_search_container {
+                margin-top: 2%;
+            }
+
+            /* Dialog end stream */
+            .dialog_end_icons {
+                background-color: rgba(255, 255, 255, 0.03) !important;
+                border: 0.07em solid rgba(255, 255, 255, 0.05) !important;
+                border-radius: var(--border-radius-sm) !important;
+                transition: all var(--transition-fast);
+            }
+
+            .dialog_end_icons_focus {
+                background-color: rgba(145, 70, 255, 0.15) !important;
+                border-color: var(--accent) !important;
+                box-shadow: 0 0 1em var(--accent-glow) !important;
+            }
+
+            /* Progress bar en VOD */
+            .progress_bar {
+                background-color: rgba(255, 255, 255, 0.1) !important;
+                border-radius: 0.3em !important;
+            }
+
+            .progress_bar_holder {
+                background-color: rgba(255, 255, 255, 0.08) !important;
+                border-radius: 0.6em !important;
+            }
+
+            /* Chat highlights */
+            .chat_line {
+                border-bottom: 0.025em solid rgba(255, 255, 255, 0.05) !important;
+            }
+
+            /* Side panel new holder */
+            .side_panel_new_holder {
+                background: transparent !important;
+            }
+
+            /* Mejora en los holders de pantalla */
+            .screen_holder, .screen_holder_switch, .screen_holder_games,
+            .screen_holder_channel, .screen_holder_user {
+                background: var(--bg-primary) !important;
+            }
+
+            /* Thumbnail de usuario */
+            .stream_thumbnail_user {
+                background-color: var(--bg-card) !important;
+            }
+
+            .stream_thumbnail_channel {
+                background-color: var(--bg-card) !important;
+            }
+
+            /* Mejoras en el panel de información del stream */
+            .playmaininfo {
+                color: var(--text-primary) !important;
+            }
+
+            .playsideinfo {
+                color: var(--text-secondary) !important;
+            }
+
+            .playsideinfofocus {
+                background-color: rgba(145, 70, 255, 0.1) !important;
+                border-radius: var(--border-radius-sm) !important;
+            }
+
+            /* Stream info multi */
+            .stream_info_multi_div {
+                background: rgba(24, 21, 36, 0.8) !important;
+                border-radius: var(--border-radius-sm) !important;
+                border: 1px solid rgba(255, 255, 255, 0.05) !important;
+            }
+
+            /* Mejoras en notificaciones y warnings */
+            .dialog_warning {
+                background-color: rgba(19, 17, 28, 0.9) !important;
+            }
+
+            /* Mejoras en el panel de búsqueda */
+            .screen_holder .input_text_box {
+                background: transparent !important;
+            }
+
+            /* Stream thumbnail side (panel lateral) */
+            .stream_thumbnail_side {
+                background-color: var(--bg-card) !important;
+                border-radius: var(--border-radius-sm) !important;
+            }
+
+            /* Player feed thumbnail */
+            .stream_thumbnail_player_feed {
+                background-color: var(--bg-card) !important;
+                border-radius: var(--border-radius-sm) !important;
+            }
+
+            /* Banner holder */
+            .inner_banner_holder {
+                background-color: var(--bg-card) !important;
+                border-radius: var(--border-radius-md) !important;
+                overflow: hidden;
+            }
+
+            .banner_text_holder {
+                color: var(--text-primary) !important;
+            }
+
+            /* ==========================================================
+               15. RESPONSIVE Y AJUSTES FINALES
+               ========================================================== */
+            /* Asegurar que las transiciones sean suaves */
+            * {
+                transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            /* Ocultar el corazón morado del side panel original y ponerlo en acento */
+            .sidepanel_heart {
+                color: var(--accent) !important;
+                text-shadow: 0 0 0.5em var(--accent-glow) !important;
+            }
+
+            /* Mejorar visibilidad de iconos en sidebar */
+            .side_panel_new_icons_pad {
+                font-size: 110% !important;
+            }
+
+            /* Ajuste del ancho del side panel para que no tape el grid */
+            .side_panel {
+                width: 22% !important;
+            }
+
+            .side_panel_hide {
+                transform: translateX(-78%) !important;
+            }
+
+            .side_panel_hide_full {
+                transform: translateX(-100%) !important;
+            }
+
+            .side_panel_inner_hide {
+                transform: translateX(78.5%) !important;
+            }
         </style>
-    </head>
+
+    <base target="_blank">
+</head>
 
     <body>
         <div id="body_container" class="screen_size" style="position: relative">
