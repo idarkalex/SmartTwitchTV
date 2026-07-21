@@ -1,1025 +1,970 @@
 <!doctype html>
         <!-- ============================================================
-             SMARTTWITCHTV MODERN TWITCH SKIN v3 - Basado en capturas reales
+             SMARTTWITCHTV MODERN SKIN v4 - Solo colores, sin tocar layout
              ============================================================ -->
-        <style id="modern_twitch_skin_v3">
-            /* ==========================================================
-               RESET GLOBAL Y FONDO
-               ========================================================== */
-            body, html, #scene1, #app, .screen_size, #body_container {
-                background-color: #0e0b14 !important;
+        <style id="modern_twitch_skin_v4">
+            /*
+             * REGLA DE ORO: NUNCA tocar width, height, margin, padding,
+             * display, position, top, left, right, bottom, transform,
+             * ni ninguna propiedad de layout.
+             * SOLO colores, fondos, bordes, sombras, radius, fuentes.
+             */
+
+            /* ===== FONDO GLOBAL ===== */
+            body, html, #scene1, .screen_size {
+                background-color: #13111c;
             }
 
-            /* ==========================================================
-               BARRA SUPERIOR (TOPBAR) - Limpia como en el mockup
-               ========================================================== */
+            /* ===== BARRA SUPERIOR ===== */
             .topbar {
-                background: #0e0b14 !important;
-                border-bottom: none !important;
-                height: 5.5% !important;
-                margin-left: 0 !important;
-                width: 100% !important;
-                transform: translateY(0) !important;
+                background: #13111c;
             }
 
             .top_lable {
-                color: #ffffff !important;
-                font-size: 160% !important;
-                font-family: 'Roboto-Bold' !important;
-                text-align: left !important;
-                padding-left: 19% !important;
-                padding-top: 0.5% !important;
-                letter-spacing: 0.08em;
-                text-transform: uppercase;
+                color: #ffffff;
             }
 
             .icon_top_label {
-                color: #8f8c9f !important;
-                font-size: 55% !important;
-                font-family: 'Roboto' !important;
+                color: #8f8c9f;
             }
 
-            .top_clock {
-                position: absolute !important;
-                right: 2% !important;
-                top: 0.5% !important;
-                color: #8f8c9f !important;
-                font-size: 90% !important;
-            }
-
-            .controls_div {
-                display: none !important; /* Ocultar labels de refresh en topbar */
-            }
-
-            #button_full_screen {
-                display: none !important;
-            }
-
-            /* ==========================================================
-               PANEL LATERAL IZQUIERDO (SIDEBAR) - Estilo lista limpia
-               ========================================================== */
-            .side_panel_new_holder {
-                width: 16% !important;
-                height: 100% !important;
-                position: absolute !important;
-                left: 0 !important;
-                top: 0 !important;
-                z-index: 10 !important;
-            }
-
-            .side_panel_movel {
-                width: 100% !important;
-                margin-left: 0 !important;
-                background: #16131f !important;
-            }
-
-            .side_panel_fix {
-                display: none !important; /* Ocultar panel de iconos fijos */
-            }
-
-            /* Ocultar elementos del sidebar que no queremos */
-            .side_panel_fix_top, .side_panel_fix_top_2, 
-            .side_panel_fix_center, .side_panel_fix_bottom {
-                background: #16131f !important;
+            /* ===== SIDEBAR ===== */
+            .side_panel_background_color,
+            .side_panel,
+            .side_panel_fix_top,
+            #side_panel_fix_center,
+            #side_panel_fix_botton,
+            #side_panel_new_row_1 {
+                background-color: #181524;
             }
 
             .side_panel_new_icons_text_holder,
             .side_panel_new_icons {
-                border: none !important;
-                border-image: none !important;
-                background: transparent !important;
-                color: #8f8c9f !important;
-                width: 90% !important;
-                margin-left: 5% !important;
-                text-align: left !important;
-                padding-left: 1em !important;
-                height: 7% !important;
-                margin-top: 0.5vh !important;
-                border-radius: 0.4em !important;
-                font-size: 95% !important;
+                color: #8f8c9f;
+                border-top-color: transparent;
+                border-bottom-color: transparent;
             }
 
-            .side_panel_new_icons_text {
-                background: transparent !important;
-                border-image: none !important;
-            }
-
-            /* Item activo/enfocado - púrpura sólido */
-            .side_panel_div_focused,
-            .side_panel_new_icons_text.side_panel_new_icons_start,
-            .side_panel_new_icons_text_holder.side_panel_new_icons_text {
-                background: linear-gradient(90deg, #9146ff 0%, #772ce8 100%) !important;
-                color: #ffffff !important;
-                box-shadow: 0 0.1em 0.5em rgba(145, 70, 255, 0.4) !important;
-                border-radius: 0.4em !important;
-            }
-
+            .side_panel_new_icons_text,
+            .side_panel_new_icons_start,
             .side_panel_new_icons_text_botton {
-                background: transparent !important;
-                border-image: none !important;
+                background: linear-gradient(to right, #9146ff, #772ce8);
+                border-image: none;
+                color: #ffffff;
+                box-shadow: 0 0.15em 0.6em rgba(145, 70, 255, 0.35);
             }
 
-            /* Texto del sidebar */
             .side_panel_movel_top_text,
             .side_panel_movel_user_text {
-                color: #8f8c9f !important;
-                font-size: 80% !important;
-                left: 5% !important;
-                width: 90% !important;
+                color: #8f8c9f;
             }
 
-            /* Ocultar secciones vacías del sidebar */
-            #side_panel_movel_new_0,
-            #side_panel_movel_new_1 {
-                height: 1em !important;
+            .sidepanel_heart {
+                color: #9146ff;
             }
 
-            /* ==========================================================
-               GRID PRINCIPAL DE STREAMS - 4 COLUMNAS EXACTAS
-               ========================================================== */
-            .screen_holder {
-                top: 5.5% !important;
-                height: 94.5% !important;
-                left: 16% !important;
-                width: 84% !important;
+            /* ===== TARJETAS DE STREAM ===== */
+            .stream_thumbnail_live,
+            .stream_thumbnail_channel,
+            .stream_thumbnail_user {
+                background-color: #1f1c2e;
+                border-color: rgba(255, 255, 255, 0.04);
+                border-radius: 0.6em;
             }
 
-            .screen_holder_switch {
-                top: 5.5% !important;
-                height: 94.5% !important;
-                left: 16% !important;
-                width: 84% !important;
+            .stream_thumbnail_live_img,
+            .stream_thumbnail_channel_img {
+                background-color: #0f0e17;
+                border-radius: 0.4em;
             }
 
-            .screen_holder_games {
-                top: 5.5% !important;
-                height: 94.5% !important;
-                left: 16% !important;
-                width: 84% !important;
+            .stream_thumbnail_live_text_holder,
+            .stream_thumbnail_channel_text_holder,
+            .stream_thumbnail_user_text_holder {
+                background: transparent;
             }
 
-            .screen_holder_channel {
-                top: 5.5% !important;
-                height: 94.5% !important;
-                left: 16% !important;
-                width: 84% !important;
-            }
-
-            .screen_holder_user {
-                top: 5.5% !important;
-                height: 94.5% !important;
-                left: 16% !important;
-                width: 84% !important;
-            }
-
-            .streams_div {
-                margin-left: 1.5% !important;
-                width: 97% !important;
-                height: 100% !important;
-            }
-
-            .streams_game_div {
-                margin-left: 1.5% !important;
-                width: 97% !important;
-            }
-
-            /* 4 COLUMNAS PARA STREAMS EN VIVO */
-            .stream_thumbnail_live_holder {
-                width: 24% !important;
-                padding: 0.4% !important;
-                padding-bottom: 0.8% !important;
-                display: inline-block !important;
-                vertical-align: top !important;
-                box-sizing: border-box !important;
-            }
-
-            /* TARJETA DE STREAM - Fondo oscuro con bordes redondeados */
-            .stream_thumbnail_live {
-                background-color: #1a1725 !important;
-                border-radius: 0.8em !important;
-                border: 0.08em solid rgba(255, 255, 255, 0.04) !important;
-                overflow: hidden !important;
-                padding-bottom: 82% !important;
-                position: relative !important;
-                transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1) !important;
-            }
-
-            /* Contenedor de imagen - 16:9 con margen */
-            .stream_thumbnail_live_img {
-                width: 94% !important;
-                margin: 3% auto 0 auto !important;
-                padding-bottom: 52.8% !important;
-                background-color: #0f0d18 !important;
-                border-radius: 0.5em !important;
-                overflow: hidden !important;
-                position: relative !important;
-            }
-
-            .stream_thumbnail_live_img img,
-            img.stream_img {
-                width: 100% !important;
-                height: 100% !important;
-                object-fit: cover !important;
-                border-radius: 0.5em !important;
-            }
-
-            /* TEXTO DEBAJO DE LA IMAGEN */
-            .stream_thumbnail_live_text_holder {
-                position: absolute !important;
-                bottom: 0 !important;
-                left: 0 !important;
-                right: 0 !important;
-                padding: 0.4em 0.6em !important;
-                height: auto !important;
-                min-height: 22% !important;
-                background: transparent !important;
-            }
-
-            .stream_text_holder {
-                position: static !important;
-                transform: none !important;
-                top: auto !important;
-            }
-
-            /* Nombre del streamer - BLANCO, BOLD */
             .stream_info_live_name {
-                color: #ffffff !important;
-                font-size: 78% !important;
-                font-family: 'Roboto-Bold' !important;
-                line-height: 1.3em !important;
-                white-space: nowrap !important;
-                overflow: hidden !important;
-                text-overflow: ellipsis !important;
-                width: 100% !important;
-                display: block !important;
+                color: #ffffff;
             }
 
-            /* Título del stream - GRIS */
+            .stream_info_live {
+                color: #8f8c9f;
+            }
+
             .stream_info_live_title,
             .stream_info_live_title_single_line {
-                color: #8f8c9f !important;
-                font-size: 68% !important;
-                font-family: 'Roboto' !important;
-                line-height: 1.3em !important;
-                max-height: 2.6em !important;
-                overflow: hidden !important;
-                display: block !important;
-                width: 100% !important;
+                color: #6b6880;
             }
 
-            /* Nombre del canal/juego - GRIS MÁS OSCURO */
-            .stream_info_live {
-                color: #6b6880 !important;
-                font-size: 65% !important;
-                font-family: 'Roboto' !important;
-                white-space: nowrap !important;
-                overflow: hidden !important;
-                text-overflow: ellipsis !important;
-                display: block !important;
-                width: 100% !important;
-                margin-top: 0.1em !important;
-            }
-
-            /* Icono LIVE rojo */
             .live_icon {
-                color: #ff4444 !important;
-                font-size: 55% !important;
-                margin-right: 0.3em !important;
+                color: #ff4444;
             }
 
-            /* ==========================================================
-               GRID DE JUEGOS - 6 COLUMNAS
-               ========================================================== */
-            .stream_thumbnail_game_holder,
-            .stream_thumbnail_blocked_game_holder {
-                width: 15.8% !important;
-                padding: 0.35% !important;
-                padding-bottom: 0.5% !important;
-                display: inline-block !important;
-                vertical-align: top !important;
-            }
-
-            .stream_thumbnail_game {
-                background-color: #1a1725 !important;
-                border-radius: 0.8em !important;
-                border: 0.08em solid rgba(255, 255, 255, 0.04) !important;
-                overflow: hidden !important;
-                padding-bottom: 155% !important;
-            }
-
+            /* ===== TARJETAS DE JUEGOS ===== */
+            .stream_thumbnail_game,
             .stream_thumbnail_game_feed {
-                background-color: #1a1725 !important;
-                border-radius: 0.8em !important;
-            }
-
-            .stream_thumbnail_game_text_holder {
-                height: 15% !important;
-                padding: 0.3em !important;
+                background-color: #1f1c2e;
+                border-color: rgba(255, 255, 255, 0.04);
+                border-radius: 0.6em;
             }
 
             .stream_info_game_name {
-                color: #ffffff !important;
-                font-size: 75% !important;
+                color: #ffffff;
             }
 
-            /* ==========================================================
-               EFECTO DE FOCO (FOCUSED) - Glow púrpura
-               ========================================================== */
+            /* ===== FOCO / SELECCIONADO ===== */
+            .stream_switch_focused,
             .stream_thumbnail_focused,
             .stream_thumbnail_focused_no_ani,
-            .stream_switch_focused,
             .feed_thumbnail_focused {
-                border-color: #9146ff !important;
-                box-shadow: 
-                    0 0 0 0.15em #9146ff,
-                    0 0 1.5em rgba(145, 70, 255, 0.5),
-                    0 0 3em rgba(145, 70, 255, 0.2) !important;
-                transform: scale(1.03) !important;
-                z-index: 100 !important;
-                background-color: #1f1c2e !important;
-            }
-
-            /* Foco en sidebar items */
-            .side_panel_new_icons_text_holder.side_panel_div_focused,
-            .side_panel_new_icons_text_holder:hover {
-                background: linear-gradient(90deg, rgba(145, 70, 255, 0.3) 0%, rgba(119, 44, 232, 0.1) 100%) !important;
-                border: 0.05em solid rgba(145, 70, 255, 0.5) !important;
-            }
-
-            /* ==========================================================
-               PANEL LATERAL DE FEED (sidepannel)
-               ========================================================== */
-            .side_panel {
-                background: #0e0b14 !important;
-                width: 20% !important;
-            }
-
-            .side_panel_feed_thumb {
-                background: #16131f !important;
-                border-radius: 0.6em !important;
-                left: 20% !important;
-                width: 70% !important;
-            }
-
-            .side_panel_div {
-                border-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)) 1 !important;
-                border: none !important;
+                border-color: #9146ff;
+                box-shadow: 0 0 1em rgba(145, 70, 255, 0.5),
+                            0 0 2em rgba(145, 70, 255, 0.2);
+                background-color: #252236;
             }
 
             .side_panel_div_focused {
-                background: linear-gradient(90deg, rgba(145, 70, 255, 0.2) 0%, transparent 100%) !important;
-                border: 0.05em solid rgba(145, 70, 255, 0.4) !important;
+                background: linear-gradient(to right, rgba(145, 70, 255, 0.25), rgba(119, 44, 232, 0.1));
+                border-image: linear-gradient(to right, transparent, #9146ff, transparent) 1;
             }
 
-            .side_panel_feed_top {
-                color: #8f8c9f !important;
-                font-size: 75% !important;
-            }
-
-            .side_panel_feed_thumb_text_holder {
-                background: linear-gradient(to top, rgba(22, 19, 31, 0.95), transparent) !important;
-            }
-
-            .side_panel_new_title {
-                color: #ffffff !important;
-            }
-
-            .side_panel_new_game {
-                color: #8f8c9f !important;
-            }
-
-            /* ==========================================================
-               DIÁLOGOS Y POPUPS
-               ========================================================== */
+            /* ===== DIÁLOGOS ===== */
             .about_dialogs,
             .dialog_exit,
-            .dialog_period {
-                background-color: #16131f !important;
-                border-radius: 1em !important;
-                border: 0.08em solid rgba(255, 255, 255, 0.06) !important;
-                box-shadow: 0 1em 3em rgba(0, 0, 0, 0.7) !important;
+            .dialog_period,
+            .dialog_multi {
+                background-color: #181524;
+                border-color: rgba(255, 255, 255, 0.06);
+                border-radius: 0.8em;
+                box-shadow: 0 1em 3em rgba(0, 0, 0, 0.6);
             }
 
             .button_dialog,
             .button_search {
-                background-color: rgba(255, 255, 255, 0.05) !important;
-                border: none !important;
-                border-radius: 0.5em !important;
-                color: #ffffff !important;
+                background-color: rgba(255, 255, 255, 0.05);
+                border-color: transparent;
+                border-radius: 0.5em;
+                color: #ffffff;
+            }
+
+            .button_dialog:hover,
+            .button_search:hover {
+                background-color: rgba(255, 255, 255, 0.08);
             }
 
             .button_dialog_focused,
             .button_search_focused {
-                background: linear-gradient(90deg, #9146ff 0%, #772ce8 100%) !important;
-                box-shadow: 0 0 1em rgba(145, 70, 255, 0.5) !important;
-                border-image: none !important;
+                background: linear-gradient(to right, #9146ff, #772ce8);
+                color: #ffffff;
+                box-shadow: 0 0 0.8em rgba(145, 70, 255, 0.4);
+                border-image: none;
             }
 
-            .exit_text {
-                color: #ffffff !important;
-            }
-
+            .exit_text,
             .dialog_text {
-                color: #ffffff !important;
+                color: #ffffff;
             }
 
-            /* ==========================================================
-               SETTINGS
-               ========================================================== */
+            /* ===== SETTINGS ===== */
             .settings_holder {
-                background: #0e0b14 !important;
+                background: #13111c;
             }
 
             .settings_div {
-                border-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)) 1 !important;
-                color: #ffffff !important;
+                color: #ffffff;
             }
 
             .settings_div_focus {
-                background-color: rgba(145, 70, 255, 0.1) !important;
-                border-image: linear-gradient(to right, transparent 15%, #9146ff, transparent 85%) 1 !important;
+                background-color: rgba(145, 70, 255, 0.1);
+                border-image: linear-gradient(to right, transparent, #9146ff, transparent) 1;
             }
 
             .settings_value_focus {
-                background-color: rgba(145, 70, 255, 0.15) !important;
-                border-image: linear-gradient(to right, transparent 20%, #9146ff, transparent 80%) 1 !important;
-                color: #9146ff !important;
+                background-color: rgba(145, 70, 255, 0.15);
+                border-image: linear-gradient(to right, transparent, #9146ff, transparent) 1;
+                color: #9146ff;
             }
 
             .settings_name {
-                color: #ffffff !important;
+                color: #ffffff;
             }
 
             .settings_summary {
-                color: #6b6880 !important;
+                color: #6b6880;
             }
 
             .settings_section {
-                color: #8f8c9f !important;
+                color: #8f8c9f;
             }
 
-            /* ==========================================================
-               REPRODUCTOR (PLAYER)
-               ========================================================== */
+            /* ===== PLAYER ===== */
             .controls_holder {
-                background: linear-gradient(to top, rgba(14, 11, 20, 0.95), transparent) !important;
+                background: linear-gradient(to top, rgba(19, 17, 28, 0.95), transparent);
             }
 
             .inner_progress_animate {
-                background-color: #9146ff !important;
+                background-color: #9146ff;
             }
 
             .inner_progress_bar {
-                background-color: #3a3750 !important;
+                background-color: #4a4a5a;
             }
 
             .progress_bar {
-                background-color: rgba(255, 255, 255, 0.1) !important;
+                background-color: rgba(255, 255, 255, 0.1);
             }
 
             .progress_bar_div_focus {
-                background-color: rgba(145, 70, 255, 0.2) !important;
-                border-color: #9146ff !important;
+                background-color: rgba(145, 70, 255, 0.2);
+                border-color: #9146ff;
             }
 
             .inner_progress_circle {
-                background: #9146ff !important;
-                box-shadow: 0 0 0.5em rgba(145, 70, 255, 0.6) !important;
+                background: #9146ff;
+                box-shadow: 0 0 0.5em rgba(145, 70, 255, 0.5);
             }
 
             .pause_button3d {
-                color: #ffffff !important;
+                color: #ffffff;
             }
 
             .next_channel, .next_info {
-                color: #ffffff !important;
+                color: #ffffff;
             }
 
-            /* ==========================================================
-               CHAT
-               ========================================================== */
+            /* ===== CHAT ===== */
             .chat_container, .chat_container1 {
-                background-color: rgba(22, 19, 31, 0.9) !important;
-                border: 0.08em solid rgba(255, 255, 255, 0.05) !important;
-                border-radius: 0.4em !important;
+                background-color: rgba(24, 21, 36, 0.85);
+                border-color: rgba(255, 255, 255, 0.05);
             }
 
             .chat_input_class {
-                background-color: #1a1725 !important;
-                border: 0.1em solid rgba(255, 255, 255, 0.1) !important;
-                color: #ffffff !important;
-                border-radius: 0.4em !important;
+                background-color: #1f1c2e;
+                border-color: rgba(255, 255, 255, 0.1);
+                color: #ffffff;
             }
 
             .chat_input_class_focus {
-                border-color: #9146ff !important;
-                box-shadow: 0 0 0.5em rgba(145, 70, 255, 0.4) !important;
-                background-color: #1f1c2e !important;
+                border-color: #9146ff;
+                box-shadow: 0 0 0.5em rgba(145, 70, 255, 0.3);
+                background-color: #252236;
             }
 
             .button_chat {
-                background-color: #1a1725 !important;
-                border: 0.08em solid rgba(255, 255, 255, 0.08) !important;
-                color: #8f8c9f !important;
-                border-radius: 0.3em !important;
+                background-color: #1f1c2e;
+                border-color: rgba(255, 255, 255, 0.08);
+                color: #8f8c9f;
             }
 
             .button_chat_focused {
-                background: linear-gradient(90deg, #9146ff 0%, #772ce8 100%) !important;
-                color: #ffffff !important;
-                border-color: transparent !important;
+                background: linear-gradient(to right, #9146ff, #772ce8);
+                color: #ffffff;
+                border-color: transparent;
             }
 
             .chat_result, .chat_result_text {
-                background-color: #0e0b14 !important;
-                color: #ffffff !important;
+                background-color: #13111c;
+                color: #ffffff;
             }
 
-            /* ==========================================================
-               FEED INFERIOR
-               ========================================================== */
+            /* ===== FEED INFERIOR ===== */
             .user_feed {
-                background: linear-gradient(to top, rgba(14, 11, 20, 0.95), rgba(14, 11, 20, 0.6), transparent) !important;
-            }
-
-            .user_feed_scroll, .user_feed_scroll_game {
-                left: 1% !important;
-            }
-
-            .user_feed_thumb, .user_feed_thumb_game {
-                border-radius: 0.5em !important;
-                overflow: hidden !important;
-            }
-
-            .feed_thumbnail_focused {
-                box-shadow: 0 0 1em rgba(145, 70, 255, 0.6) !important;
-            }
-
-            .icon_feed_refresh {
-                color: #8f8c9f !important;
+                background: linear-gradient(to top, rgba(19, 17, 28, 0.95), rgba(19, 17, 28, 0.5), transparent);
             }
 
             .feed_end_name {
-                color: #8f8c9f !important;
-                border-color: rgba(255, 255, 255, 0.08) !important;
+                color: #8f8c9f;
+                border-color: rgba(255, 255, 255, 0.08);
             }
 
             .feed_end_name_focus {
-                background-color: rgba(145, 70, 255, 0.2) !important;
-                border-color: #9146ff !important;
-                color: #ffffff !important;
+                background-color: rgba(145, 70, 255, 0.2);
+                border-color: #9146ff;
+                color: #ffffff;
             }
 
-            /* ==========================================================
-               LOADING SPINNER
-               ========================================================== */
+            .icon_feed_refresh {
+                color: #8f8c9f;
+            }
+
+            /* ===== SIDE PANEL FEED ===== */
+            .side_panel_feed_thumb {
+                background-color: #181524;
+                border-radius: 0.6em;
+            }
+
+            .side_panel_feed_thumb_text_holder {
+                background: linear-gradient(to top, rgba(24, 21, 36, 0.95), transparent);
+            }
+
+            .side_panel_feed_top {
+                color: #8f8c9f;
+            }
+
+            .side_panel_new_title {
+                color: #ffffff;
+            }
+
+            .side_panel_new_game {
+                color: #8f8c9f;
+            }
+
+            /* ===== LOADING ===== */
             .loading {
-                background-color: rgba(145, 70, 255, 0.08) !important;
+                background-color: rgba(145, 70, 255, 0.08);
             }
 
             .loading div {
-                border-color: #9146ff transparent transparent transparent !important;
+                border-color: #9146ff transparent transparent transparent;
             }
 
-            /* ==========================================================
-               CANAL / USUARIO THUMBNAILS
-               ========================================================== */
+            /* ===== CANAL / USUARIO ===== */
             .stream_thumbnail_channel,
             .stream_thumbnail_user {
-                background-color: #1a1725 !important;
-                border-radius: 0.8em !important;
-                border: 0.08em solid rgba(255, 255, 255, 0.04) !important;
-            }
-
-            .stream_thumbnail_channel_text_holder,
-            .stream_thumbnail_user_text_holder {
-                color: #ffffff !important;
+                background-color: #1f1c2e;
             }
 
             .stream_info_channel_name,
             .stream_info_user_name {
-                color: #ffffff !important;
+                color: #ffffff;
             }
 
-            /* ==========================================================
-               INPUTS Y SEARCH
-               ========================================================== */
+            /* ===== INPUTS ===== */
             .input_class {
-                background-color: #1a1725 !important;
-                border: 0.1em solid rgba(255, 255, 255, 0.1) !important;
-                color: #ffffff !important;
-                border-radius: 0.5em !important;
+                background-color: #1f1c2e;
+                border-color: rgba(255, 255, 255, 0.1);
+                color: #ffffff;
             }
 
-            .input_class:focus {
-                border-color: #9146ff !important;
-                box-shadow: 0 0 0.5em rgba(145, 70, 255, 0.3) !important;
-            }
-
-            .input_text_box {
-                background: transparent !important;
-            }
-
-            /* ==========================================================
-               MULTI-STREAM DIALOG
-               ========================================================== */
+            /* ===== MULTI DIALOG ===== */
             .dialog_multi {
-                background-color: rgba(22, 19, 31, 0.95) !important;
-                border-radius: 1em !important;
-                border: 0.08em solid rgba(255, 255, 255, 0.06) !important;
-            }
-
-            .multi_dialog_div {
-                background: transparent !important;
-                border: none !important;
+                background-color: rgba(24, 21, 36, 0.95);
+                border-color: rgba(255, 255, 255, 0.06);
             }
 
             .dialog_multi_title {
-                color: #ffffff !important;
+                color: #ffffff;
             }
 
-            /* ==========================================================
-               END STREAM DIALOG
-               ========================================================== */
+            /* ===== END STREAM ===== */
             .dialog_end_icons {
-                background-color: rgba(255, 255, 255, 0.03) !important;
-                border: 0.07em solid rgba(255, 255, 255, 0.05) !important;
-                border-radius: 0.5em !important;
+                background-color: rgba(255, 255, 255, 0.03);
+                border-color: rgba(255, 255, 255, 0.05);
             }
 
             .dialog_end_icons_focus {
-                background-color: rgba(145, 70, 255, 0.12) !important;
-                border-color: #9146ff !important;
-                box-shadow: 0 0 1em rgba(145, 70, 255, 0.4) !important;
+                background-color: rgba(145, 70, 255, 0.12);
+                border-color: #9146ff;
+                box-shadow: 0 0 1em rgba(145, 70, 255, 0.3);
             }
 
             .dialog_end_stream_text {
-                color: #ffffff !important;
+                color: #ffffff;
             }
 
-            /* ==========================================================
-               PLAYER INFO OVERLAY
-               ========================================================== */
+            /* ===== PLAYER INFO ===== */
             .playerinfo {
-                background: linear-gradient(to bottom, rgba(14, 11, 20, 0.95), transparent) !important;
+                background: linear-gradient(to bottom, rgba(19, 17, 28, 0.95), transparent);
             }
 
             .playmaininfo {
-                color: #ffffff !important;
+                color: #ffffff;
             }
 
             .playclock {
-                color: #8f8c9f !important;
+                color: #8f8c9f;
             }
 
-            .shadow_text {
-                filter: none !important;
+            .playsideinfo {
+                color: #8f8c9f;
             }
 
-            .strokedeline {
-                text-shadow: none !important;
-            }
-
-            /* ==========================================================
-               SCROLL ANIMATIONS
-               ========================================================== */
-            .animate_height_transition,
-            .animate_height_transition_channel,
-            .animate_height_transition_games {
-                transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s !important;
-            }
-
-            /* ==========================================================
-               AJUSTES DIVERSOS
-               ========================================================== */
-            .side_panel_background_color {
-                background-color: #16131f !important;
-            }
-
-            .side_panel_heart {
-                color: #9146ff !important;
-                text-shadow: 0 0 0.5em rgba(145, 70, 255, 0.5) !important;
-            }
-
-            .scenefeed_background {
-                background: #0e0b14 !important;
-            }
-
-            .about_text {
-                color: #8f8c9f !important;
-            }
-
-            .controls_text {
-                color: #8f8c9f !important;
-            }
-
-            .stream_channel_follow_game {
-                color: #8f8c9f !important;
-            }
-
-            .counter_class {
-                color: #8f8c9f !important;
-            }
-
-            .add_user_text {
-                color: #ffffff !important;
-            }
-
-            .stream_user_icon {
-                color: #8f8c9f !important;
+            /* ===== BANNERS ===== */
+            .inner_banner_holder {
+                background-color: #1f1c2e;
             }
 
             .banner_text_holder {
-                color: #ffffff !important;
+                color: #ffffff;
             }
 
-            .inner_banner_holder {
-                background-color: #1a1725 !important;
-                border-radius: 0.6em !important;
+            /* ===== STREAM INFO PP / MULTI ===== */
+            .stream_info_pp_name,
+            .stream_info_multi_name {
+                color: #ffffff;
             }
 
-            /* Ocultar elementos que estorban */
-            #side_panel_top_text_empty,
-            .side_panel_new_icons_text_holder:empty {
-                display: none !important;
-            }
-
-            /* Ajustar padding de las celdas del grid */
-            .stream_cell_period {
-                padding-left: 2ch !important;
-            }
-
-            /* Mejorar visibilidad de iconos */
-            .side_panel_icons {
-                color: #8f8c9f !important;
-            }
-
-            /* Color canvas */
-            .colorCanvas {
-                background: #1a1725 !important;
-            }
-
+            /* ===== COLOR PICKER ===== */
             .cavas_holder {
-                border-color: rgba(255, 255, 255, 0.1) !important;
-                border-radius: 0.4em !important;
+                border-color: rgba(255, 255, 255, 0.1);
+            }
+
+            .cavas_holder_focused {
+                border-color: #9146ff;
+                box-shadow: 0 0 0.5em rgba(145, 70, 255, 0.3);
             }
 
             .cavas_text, .cavas_text_shadows {
-                color: #ffffff !important;
+                color: #ffffff;
             }
 
-            /* Chat emotes */
+            /* ===== CHAT EMOTES ===== */
             .chat_emotes_holder {
-                background: rgba(14, 11, 20, 0.9) !important;
+                background: rgba(19, 17, 28, 0.9);
             }
 
             .chat_emotes_text {
-                color: #ffffff !important;
+                color: #ffffff;
             }
 
             .chat_emotes_name {
-                color: #8f8c9f !important;
+                color: #8f8c9f;
             }
 
-            /* Seek previews */
-            .seek_previews {
-                box-shadow: 
-                    inset 0 0 0 0.025vh #9146ff,
-                    0 0 0 0.3vh #9146ff,
-                    0 0 0 0.6vh #0e0b14 !important;
-            }
-
-            /* Progress bar jump */
-            .progress_bar_jump, .progress_bar_timer {
-                color: #8f8c9f !important;
-            }
-
-            /* VOD watched indicator */
+            /* ===== VOD WATCHED ===== */
             .vod_watched {
-                background-color: #9146ff !important;
+                background-color: #9146ff;
             }
 
-            /* Dialog loading play */
-            #dialog_loading_play .loading {
-                background-color: rgba(145, 70, 255, 0.1) !important;
-            }
-
-            /* Update dialog */
-            #update_dialog {
-                background: rgba(14, 11, 20, 0.85) !important;
-            }
-
-            /* Burn in protection */
-            .burn_in_protection {
-                background-color: #0e0b14 !important;
-            }
-
-            /* Scene keys */
-            .scene_keys {
-                background-color: transparent !important;
-            }
-
-            /* Chat container name */
-            .chat_container_name, .chat_container1_name {
-                background-color: #16131f !important;
-                border-color: rgba(255, 255, 255, 0.1) !important;
-                color: #ffffff !important;
-            }
-
-            /* Partner icon */
+            /* ===== PARTNER / BADGES ===== */
             .partnericon_text {
-                background-color: #9146ff !important;
-                color: #ffffff !important;
+                background-color: #9146ff;
+                color: #ffffff;
             }
 
             .vodicon_text {
-                background-color: #3a3750 !important;
-                color: #ffffff !important;
+                background-color: #3a3750;
+                color: #ffffff;
             }
 
-            /* Audio icon */
+            /* ===== AUDIO ===== */
             .audio_icon {
-                color: #8f8c9f !important;
+                color: #8f8c9f;
             }
 
-            /* Stream info PP */
-            .stream_info_pp_name {
-                color: #ffffff !important;
+            /* ===== SEEK PREVIEWS ===== */
+            .seek_previews {
+                box-shadow: inset 0 0 0 0.025vh #9146ff,
+                            0 0 0 0.3vh #9146ff,
+                            0 0 0 0.6vh #13111c;
             }
 
-            /* Dialog controls player */
-            #dialog_controls_player {
-                background: rgba(14, 11, 20, 0.85) !important;
+            /* ===== PROGRESS TIMERS ===== */
+            .progress_bar_jump, .progress_bar_timer {
+                color: #8f8c9f;
             }
 
-            /* Dialog warning play */
-            #dialog_warning_play, #dialog_warning_play_middle {
-                background: transparent !important;
+            /* ===== SCENE FEED ===== */
+            .scenefeed_background {
+                background: #13111c;
             }
 
-            #dialog_warning_play_text, #dialog_warning_play_middle_text {
-                background-color: rgba(14, 11, 20, 0.9) !important;
-                padding: 0.5em 1em !important;
-                border-radius: 0.5em !important;
+            /* ===== ABOUT / CONTROLS TEXT ===== */
+            .about_text {
+                color: #8f8c9f;
             }
 
-            /* Dialog warning muted */
-            #dialog_warning_muted {
-                background: transparent !important;
+            .about_text_title {
+                color: #ffffff;
             }
 
-            #dialog_warning_muted_text {
-                background-color: rgba(14, 11, 20, 0.9) !important;
-                padding: 0.5em !important;
-                border-radius: 0.4em !important;
+            .controls_text {
+                color: #8f8c9f;
             }
 
-            /* Play dialog exit/retry */
-            #play_dialog_exit, #play_dialog_retry {
-                background: transparent !important;
+            /* ===== STREAM FOLLOW ===== */
+            .stream_channel_follow_game {
+                color: #8f8c9f;
             }
 
-            #play_dialog_exit_text, #play_dialog_retry_text {
-                background-color: rgba(14, 11, 20, 0.9) !important;
-                padding: 0.5em 1em !important;
-                border-radius: 0.5em !important;
+            /* ===== COUNTER ===== */
+            .counter_class {
+                color: #8f8c9f;
             }
 
-            /* Minimize warning */
-            #minimize_warning {
-                background-color: rgba(14, 11, 20, 0.9) !important;
-                padding: 0.5em 1em !important;
-                border-radius: 0.5em !important;
+            /* ===== ADD USER ===== */
+            .add_user_text {
+                color: #ffffff;
             }
 
-            /* Dialog warning chat */
-            #dialog_warning_chat_text {
-                background-color: rgba(14, 11, 20, 0.85) !important;
-                border-radius: 0.4em !important;
-                padding: 0.3em 0.8em !important;
+            .stream_user_icon {
+                color: #8f8c9f;
             }
 
-            /* Chat line */
+            /* ===== CHAT LINES ===== */
             .chat_line {
-                color: #ffffff !important;
-                border-bottom-color: rgba(255, 255, 255, 0.05) !important;
+                color: #ffffff;
+                border-bottom-color: rgba(255, 255, 255, 0.05);
             }
 
             .chat_loggedin {
-                color: #8f8c9f !important;
+                color: #8f8c9f;
             }
 
-            /* Nick colors in chat - keep them but add subtle glow */
-            .nick {
-                font-family: 'Roboto-Bold' !important;
+            /* ===== DIALOG WARNINGS ===== */
+            #dialog_warning_play_text,
+            #dialog_warning_play_middle_text,
+            #dialog_warning_muted_text,
+            #play_dialog_exit_text,
+            #play_dialog_retry_text,
+            #minimize_warning {
+                background-color: rgba(19, 17, 28, 0.9);
+                border-radius: 0.5em;
+                padding: 0.5em 1em;
             }
 
-            /* Emoji and emoticon sizing */
-            .emoticon, .emoji {
-                filter: none !important;
+            /* ===== UPDATE DIALOG ===== */
+            #update_dialog {
+                background: rgba(19, 17, 28, 0.85);
             }
 
-            /* Tag badges */
-            .tag {
-                filter: none !important;
+            /* ===== BURN IN ===== */
+            .burn_in_protection {
+                background-color: #13111c;
             }
 
-            /* ==========================================================
-               AJUSTES DE TAMAÑO DE FUENTE GLOBAL
-               ========================================================== */
-            body, html {
-                -webkit-text-stroke: 0 !important;
+            /* ===== CHAT CONTAINER NAME ===== */
+            .chat_container_name, .chat_container1_name {
+                background-color: #181524;
+                border-color: rgba(255, 255, 255, 0.1);
+                color: #ffffff;
             }
 
-            /* Reducir stroke en textos */
-            .strokicon, .strokicon_title {
-                text-shadow: none !important;
+            /* ===== DIALOG CONTROLS PLAYER ===== */
+            #dialog_controls_player {
+                background: rgba(19, 17, 28, 0.85);
             }
 
-            .stream_channel_follow_game,
-            .pause_button3d {
-                text-shadow: none !important;
+            /* ===== COLOR CANVAS ===== */
+            .colorCanvas {
+                background: #1f1c2e;
             }
 
-            /* ==========================================================
-               AJUSTES RESPONSIVE FINALES
-               ========================================================== */
-            /* Asegurar que todo el contenido principal se desplace a la derecha del sidebar */
-            #screens_holder {
-                margin-left: 0 !important;
+            /* ===== DIALOG HIST / THUMB OPT ===== */
+            #dialog_hist_setting, #dialog_thumb_opt {
+                color: #ffffff;
             }
 
-            /* Ajustar el topbar para que no se solape */
-            #topbar {
-                z-index: 5 !important;
+            .hist_div {
+                color: #ffffff;
             }
 
-            /* Ajustar z-index del sidebar */
-            #side_panel_new_holder {
-                z-index: 10 !important;
+            .hist_name {
+                color: #ffffff;
             }
 
-            /* Ocultar elementos vacíos del sidebar que causan espacio extra */
-            .side_panel_movel_bottom_holder {
-                padding-top: 2vh !important;
+            .hist_value {
+                color: #ffffff;
             }
 
-            .side_panel_movel_bottom_text {
-                height: auto !important;
+            /* ===== SIDE PANEL DIV ===== */
+            .side_panel_div {
+                color: #ffffff;
             }
 
-            /* Ajustar altura de los icon holders del sidebar */
-            .side_panel_new_icons_text_holder {
-                min-height: 2em !important;
-                line-height: 2em !important;
+            .side_panel_iner_div2_multi,
+            .side_panel_iner_div2 {
+                color: #ffffff;
             }
 
-            /* ==========================================================
-               CORRECCIONES ESPECÍFICAS PARA LAS CAPTURAS
-               ========================================================== */
-            /* En la captura se ven 3 columnas porque el ancho del holder es 32% - forzar 24% */
-            div[class*="stream_thumbnail_live_holder"] {
-                width: 24% !important;
+            /* ===== MULTI INFO ===== */
+            .multi_info_line {
+                color: #ffffff;
             }
 
-            /* Forzar fondo oscuro en todas las tarjetas */
-            div[class*="stream_thumbnail_live"] {
-                background-color: #1a1725 !important;
+            /* ===== DIALOG CODECS / SETTINGS TEXT ===== */
+            #dialog_codecs_text, #dialog_settings_text {
+                color: #8f8c9f;
             }
 
-            /* Ocultar bordes de gradiente del sidebar original */
-            [class*="side_panel_new_icons_text"] {
-                border-image: none !important;
+            /* ===== WELCOME / BACKUP ===== */
+            #welcome_dialog_text, #backup_dialog_text {
+                color: #8f8c9f;
             }
 
-            /* Forzar color de fondo del sidebar */
-            [id*="side_panel"] {
-                background-color: #16131f !important;
+            /* ===== RESTORE / YES NO ===== */
+            #restore_dialog_text, #main_dialog_remove, #main_dialog_user_text {
+                color: #ffffff;
             }
 
-            /* Override para el side_panel_feed que aparece en la captura 1 */
-            .side_panel_feed {
-                background: transparent !important;
+            /* ===== PROXY URL ===== */
+            #proxy_url_title {
+                color: #ffffff;
+                background: #1f1c2e;
             }
 
-            /* Ajustar el contenedor de la escena para que no tenga margen extra */
-            #scene1 {
-                overflow: hidden !important;
+            #proxy_url_help {
+                color: #6b6880;
             }
 
-            /* Ajustar posición del feed de usuario */
-            .user_feed {
-                z-index: 50 !important;
+            /* ===== DIALOG ACCESSIBILITY ===== */
+            #dialog_accessibility_text {
+                color: #8f8c9f;
             }
 
-            /* Asegurar que las imágenes del grid se vean correctamente */
-            .stream_thumbnail_live_img img {
-                position: absolute !important;
-                top: 0 !important;
-                left: 0 !important;
-                width: 100% !important;
-                height: 100% !important;
-                object-fit: cover !important;
+            /* ===== DIALOG COUNTER ===== */
+            #dialog_counter_text {
+                color: #8f8c9f;
+            }
+
+            /* ===== SIDE PANEL FEED THUMB ===== */
+            #feed_thumb_name, #feed_thumb_title, #feed_thumb_game,
+            #feed_thumb_quality, #feed_thumb_since, #feed_thumb_views {
+                color: #ffffff;
+            }
+
+            /* ===== NOTIFICATION ===== */
+            .notification_holder {
+                color: #ffffff;
+            }
+
+            /* ===== DIALOG LOADING ===== */
+            #dialog_loading .loading {
+                background-color: rgba(145, 70, 255, 0.1);
+            }
+
+            /* ===== STREAM INFO ===== */
+            #stream_info_name, #stream_info_title, #stream_info_game {
+                color: #ffffff;
+            }
+
+            #stream_live_time, #stream_live_viewers, #stream_watching_time {
+                color: #8f8c9f;
+            }
+
+            /* ===== EXIT PLAYER ===== */
+            .exit_player {
+                color: #ffffff;
+            }
+
+            /* ===== STREAM INFO PP ===== */
+            #stream_info_pp .side_panel_new_title,
+            #stream_info_pp .side_panel_new_game {
+                color: #ffffff;
+            }
+
+            /* ===== STREAM INFO MULTI ===== */
+            #stream_info_multi .side_panel_new_title,
+            #stream_info_multi .side_panel_new_game,
+            #stream_info_multi_big .side_panel_new_title,
+            #stream_info_multi_big .side_panel_new_game {
+                color: #ffffff;
+            }
+
+            /* ===== DIALOG MULTI ===== */
+            #stream_dialog_multi_title {
+                color: #ffffff;
+            }
+
+            #stream_dialog_multi_name-1,
+            #stream_dialog_multi_title-1,
+            #stream_dialog_multi_game-1 {
+                color: #ffffff;
+            }
+
+            /* ===== DIALOG VOD ===== */
+            #dialog_vod_text, #dialog_vod_saved_text, #dialog_vod_start_text {
+                color: #ffffff;
+            }
+
+            /* ===== DIALOG END ===== */
+            #dialog_end_stream_text {
+                color: #ffffff;
+            }
+
+            #dialog_end_next_text_-1, #dialog_end_replay_text_0,
+            #dialog_end_live_text_1, #dialog_end_vod_text_2,
+            #dialog_end_channel_text_3, #dialog_end_game_text_4 {
+                color: #ffffff;
+            }
+
+            /* ===== DIALOG WARNING CHAT ===== */
+            #dialog_warning_chat_text {
+                background-color: rgba(19, 17, 28, 0.85);
+                color: #ffffff;
+            }
+
+            /* ===== PLAY CHAT DIALOG ===== */
+            #play_chat_dialog_text {
+                color: #ffffff;
+            }
+
+            /* ===== CHAT STATE ===== */
+            #chat_state {
+                color: #8f8c9f;
+            }
+
+            /* ===== CHAT EMOTES COUNTER ===== */
+            #chat_emotes_counter {
+                color: #ffffff;
+            }
+
+            /* ===== FEED REFRESH BUTTON ===== */
+            #feed_refresh_button {
+                background: rgba(145, 70, 255, 0.2);
+                border-color: #9146ff;
+            }
+
+            /* ===== CHANNEL CONTENT ===== */
+            .channel_about {
+                color: #8f8c9f;
+            }
+
+            #channel_content_titley_0,
+            #channel_content_titley_1,
+            #channel_content_titley_2 {
+                color: #ffffff;
+            }
+
+            /* ===== SCREEN HOLDERS (fondo) ===== */
+            .screen_holder, .screen_holder_switch,
+            .screen_holder_games, .screen_holder_channel,
+            .screen_holder_user, .settings_holder {
+                background: #13111c;
+            }
+
+            /* ===== NEXT / BACK BUTTONS ===== */
+            .next_button, .pause_button {
+                color: #ffffff;
+            }
+
+            /* ===== CONTROLS BUTTON ===== */
+            .controls_button {
+                color: #ffffff;
+            }
+
+            .controls_button_title {
+                color: #ffffff;
+            }
+
+            /* ===== ARROWS TEXT ===== */
+            .arrows_text {
+                color: #ffffff;
+            }
+
+            /* ===== PAUSE NEXT DIV ===== */
+            .pause_next_div {
+                color: #ffffff;
+            }
+
+            /* ===== SEEK PREVIEWS TEXT ===== */
+            .seek_previews_text {
+                color: #ffffff;
+            }
+
+            /* ===== PROGRESS BAR STEPS ===== */
+            #progress_bar_steps {
+                color: #8f8c9f;
+            }
+
+            /* ===== DIALOG PERIOD TEXT ===== */
+            #dialog_period_text {
+                color: #ffffff;
+            }
+
+            /* ===== DIALOG OFFSET ===== */
+            #dialog_OffSet_text, #dialog_OffSet_text_summary,
+            #dialog_OffSet_text_end, #dialog_OffSet_val {
+                color: #ffffff;
+            }
+
+            /* ===== DIALOG HIST TEXT ===== */
+            #dialog_hist_text, #dialog_hist_text_end {
+                color: #ffffff;
+            }
+
+            /* ===== DIALOG THUMB OPT TEXT ===== */
+            #dialog_opt_text, #dialog_opt_text_end {
+                color: #ffffff;
+            }
+
+            /* ===== DIALOG WARNING ===== */
+            #dialog_warning_text {
+                color: #ffffff;
+            }
+
+            /* ===== DIALOG CONTROLS TEXT ===== */
+            #dialog_controls_text {
+                color: #8f8c9f;
+            }
+
+            /* ===== DIALOG COLOR ===== */
+            #dialog_color_text, #cavas_text0, #cavas_text1, #cavas_text2 {
+                color: #ffffff;
+            }
+
+            #color_result {
+                background: #1f1c2e;
+            }
+
+            /* ===== COLOR THUMBS ===== */
+            #color_thumb0_text, #color_thumb1_text {
+                color: #ffffff;
+            }
+
+            /* ===== DIALOG ABOUT ===== */
+            #dialog_about_text, #dialog_changelod_text {
+                color: #8f8c9f;
+            }
+
+            /* ===== TOP LABEL ETC ===== */
+            #label_refresh, #label_last_refresh, #label_thumb {
+                color: #8f8c9f;
+            }
+
+            /* ===== LABEL UPDATE ===== */
+            #label_update {
+                color: #8f8c9f;
+            }
+
+            /* ===== SIDE PANNEL DIALOG WARNING ===== */
+            #sidepannel_dialog_warning_text {
+                color: #ffffff;
+            }
+
+            /* ===== SIDE PANNEL COUNTER ===== */
+            #sidepannel_counter {
+                color: #8f8c9f;
+            }
+
+            /* ===== SIDE PANEL WARN ===== */
+            #side_panel_warn_text {
+                color: #8f8c9f;
+            }
+
+            /* ===== SIDE PANEL BACK / REFRESH ===== */
+            #side_panel_back_main_menu, #side_panel_feed_refresh {
+                color: #8f8c9f;
+            }
+
+            /* ===== STREAM TABLE (divs vacíos) ===== */
+            div[id^="stream_table_"] {
+                background: transparent;
+            }
+
+            /* ===== ANIMATE HEIGHT ===== */
+            .animate_height_transition,
+            .animate_height_transition_channel,
+            .animate_height_transition_games,
+            .animate_height_transition_blocked_games,
+            .animate_height_transition_blocked_channel {
+                background: transparent;
+            }
+
+            /* ===== STREAM CELL PERIOD ===== */
+            .stream_cell_period {
+                color: #ffffff;
+            }
+
+            /* ===== STREAM THUMBNAIL BLOCKED ===== */
+            .stream_thumbnail_blocked_game_holder,
+            .stream_thumbnail_blocked_channel_holder {
+                background: transparent;
+            }
+
+            /* ===== BANNER HOLDER ===== */
+            .banner_holder {
+                background: transparent;
+            }
+
+            .banner_img_holder {
+                background-color: #0f0e17;
+            }
+
+            /* ===== IMG BANNER ===== */
+            img.banner_img, img.banner_16by9_img {
+                background-color: #0f0e17;
+            }
+
+            /* ===== STREAM IMG CHANNEL ===== */
+            img.stream_img_channel, img.stream_img_channel_logo {
+                background-color: #0f0e17;
+            }
+
+            /* ===== STREAM IMG SIDE ===== */
+            img.stream_img_side, img.stream_img_channels {
+                background-color: #0f0e17;
+            }
+
+            /* ===== STREAM IMG FOLLOW ===== */
+            img.stream_img_follow {
+                background-color: #0f0e17;
+            }
+
+            /* ===== PANEL PP IMG ===== */
+            img.panel_pp_img {
+                background-color: #0f0e17;
+            }
+
+            /* ===== MULTI INFO IMG ===== */
+            img.multi_info_img, img.multi_info_img_big {
+                background-color: #0f0e17;
+            }
+
+            /* ===== SIDE PANEL CHANNEL IMG ===== */
+            img.side_panel_channel_img {
+                background-color: #0f0e17;
+            }
+
+            /* ===== NOTIFY IMG ===== */
+            img.notify_img {
+                background-color: #0f0e17;
+            }
+
+            /* ===== THUMB INFO ICON ===== */
+            img.thumb_info_icon {
+                background-color: #0f0e17;
+            }
+
+            /* ===== STREAM INFO ICON ===== */
+            img.stream_info_icon {
+                background-color: #0f0e17;
+            }
+
+            /* ===== END / NEXT IMG ===== */
+            img.end_img, img.next_img {
+                background-color: #0f0e17;
+            }
+
+            /* ===== FEED THUMB IMG ===== */
+            #feed_thumb_img {
+                background-color: #0f0e17;
+            }
+
+            /* ===== FEED THUMB ICON ===== */
+            #feed_thumb_icon {
+                background-color: #0f0e17;
+            }
+
+            /* ===== COLOR THUMB IMG ===== */
+            #color_thumb0_img, #color_thumb1_img {
+                background-color: #0f0e17;
+            }
+
+            /* ===== BACK / NEXT BUTTON IMG ===== */
+            #back_button_img, #next_button_img {
+                background-color: #0f0e17;
+            }
+
+            /* ===== END LIVE / VOD IMG ===== */
+            #end_live_img_1, #end_vod_img_2, #end_next_img_-1 {
+                background-color: #0f0e17;
+            }
+
+            /* ===== SIDE PANEL NEW IMG ===== */
+            img.side_panel_new_img {
+                background-color: #0f0e17;
+            }
+
+            /* ===== CLIP PLAYER ===== */
+            #clip_player {
+                background-color: #0f0e17;
+            }
+
+            /* ===== TWITCH EMBED ===== */
+            #twitch-embed {
+                background-color: #0f0e17;
             }
         </style>
 
