@@ -69,6 +69,11 @@ function PlayHLS_GetPlayListAsync(isLive, Channel_or_VOD_Id, CheckId_y, CheckId_
     //if at te end of a request the values are different we have a issues
     proxy_fail_counter_checker = proxy_fail_counter;
 
+    if (use_proxy && proxy_is_forward_proxy) {
+        OSInterface_SetProxyUrl(proxy_url);
+        Main_Log('Proxy: GetPlayListAsync -> forward proxy set ProxyUrl=' + proxy_url + ' (token+playlist via proxy)');
+    }
+
     if (use_proxy && isLive && !proxy_has_token) {
         Main_Log('Proxy: GetPlayListAsync -> direct playlist request via proxy (no token needed)');
         PlayHLS_PlayListUrl(isLive, Channel_or_VOD_Id, CheckId_y, CheckId_x, callBackSuccess.name, null, null, true);
@@ -159,7 +164,6 @@ function PlayHLS_GetPlayListUrl(isLive, Channel_or_VOD_Id, Token, Sig, useProxy)
             headers = proxy_headers;
 
             if (proxy_is_forward_proxy) {
-                OSInterface_SetProxyUrl(proxy_url);
                 url = Play_original_live_links + Channel_or_VOD_Id + '.m3u8?token=' + encodeURIComponent(Token) + '&sig=' + Sig + '&' + URL_parameters;
                 Main_Log('Proxy: GetPlayListUrl FORWARD_PROXY via=' + proxy_url + ' real_url=' + Play_original_live_links + ' has_headers=' + (headers !== null && headers !== undefined));
             } else {
@@ -239,6 +243,7 @@ function PlayHLS_PlayListUrlResult(result, checkResult, check_1, check_2, check_
         //in case we fail using proxy restart the process without using proxy
         if (isLive && useProxy && PlayHLS_CheckProxyResultFail(response.responseText)) {
             Main_Log('Proxy: PlayListUrlResult -> FALLBACK to direct (no proxy)');
+            OSInterface_SetProxyUrl('');
             PlayHLS_GetToken(isLive, Channel_or_VOD_Id, CheckId_y, CheckId_x, callBackSuccess, false);
             return;
         }
@@ -299,6 +304,11 @@ function PlayHLS_GetPlayListSyncToken(isLive, Channel_or_VOD_Id, useProxy) {
     var tokenObj, Token, Sig;
 
     Main_Log('Proxy: GetPlayListSyncToken channel=' + Channel_or_VOD_Id + ' useProxy=' + useProxy + ' proxy_has_token=' + proxy_has_token);
+
+    if (useProxy && proxy_is_forward_proxy) {
+        OSInterface_SetProxyUrl(proxy_url);
+        Main_Log('Proxy: GetPlayListSyncToken -> forward proxy set ProxyUrl=' + proxy_url);
+    }
 
     if (useProxy && isLive && !proxy_has_token) {
         Main_Log('Proxy: GetPlayListSyncToken -> direct playlist via proxy (no token needed)');
@@ -362,6 +372,7 @@ function PlayHLS_GetPlayListSyncUrl(isLive, Channel_or_VOD_Id, useProxy, Token, 
                 //in case we fail using proxy restart the process without using proxy
                 if (isLive && useProxy && PlayHLS_CheckProxyResultFail(response.responseText)) {
                     Main_Log('Proxy: GetPlayListSyncUrl -> FALLBACK to direct (no proxy)');
+                    OSInterface_SetProxyUrl('');
                     return PlayHLS_GetPlayListSyncToken(isLive, Channel_or_VOD_Id, false);
                 } else {
                     return JSON.stringify({
