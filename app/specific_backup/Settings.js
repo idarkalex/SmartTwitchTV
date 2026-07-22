@@ -1361,10 +1361,8 @@ function Settings_RemoveInputFocus() {
 }
 
 function Settings_RemoveInputFocusKey(key) {
-    PlayUtils.removeArrowsOpacity(
-        Main_getElementById(key + '_arrow_left'),
-        Main_getElementById(key + '_arrow_right')
-    );
+    Main_getElementById(key + '_arrow_left').style.opacity = '0';
+    Main_getElementById(key + '_arrow_right').style.opacity = '0';
     Main_RemoveClass(key, 'settings_value_focus');
     Main_RemoveClass(key + '_div', 'settings_div_focus');
 }
@@ -1390,12 +1388,16 @@ function Settings_SetarrowsKey(key) {
     var currentValue = Settings_Obj_default(key);
     var maxValue = Settings_Obj_length(key);
 
-    PlayUtils.setArrowsOpacity(
-        Main_getElementById(key + '_arrow_left'),
-        Main_getElementById(key + '_arrow_right'),
-        currentValue,
-        maxValue
-    );
+    if (currentValue > 0 && currentValue < maxValue) {
+        Main_getElementById(key + '_arrow_left').style.opacity = '1';
+        Main_getElementById(key + '_arrow_right').style.opacity = '1';
+    } else if (currentValue === maxValue) {
+        Main_getElementById(key + '_arrow_left').style.opacity = '1';
+        Main_getElementById(key + '_arrow_right').style.opacity = '0.2';
+    } else {
+        Main_getElementById(key + '_arrow_left').style.opacity = '0.2';
+        Main_getElementById(key + '_arrow_right').style.opacity = '1';
+    }
 }
 
 function Settings_SetDefault(position) {

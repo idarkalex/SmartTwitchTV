@@ -107,16 +107,6 @@ var Base_Channel_obj;
 var Base_History_obj;
 
 function ScreensObj_StartAllVars() {
-    ScreensObj_CreateBaseObj();
-    ScreensObj_CreateBaseVodObj();
-    ScreensObj_CreateBaseLiveObj();
-    ScreensObj_CreateBaseClipObj();
-    ScreensObj_CreateBaseGameObj();
-    ScreensObj_CreateBaseChannelObj();
-    ScreensObj_CreateBaseHistoryObj();
-}
-
-function ScreensObj_CreateBaseObj() {
     Base_obj = {
         posX: 0,
         posY: -1,
@@ -481,9 +471,7 @@ function ScreensObj_CreateBaseObj() {
             }
         }
     };
-}
 
-function ScreensObj_CreateBaseVodObj() {
     Base_Vod_obj = {
         ItemsLimit: Main_ItemsLimitVideo,
         ColumnsCount: Main_ColumnsCountVideo,
@@ -549,9 +537,7 @@ function ScreensObj_CreateBaseVodObj() {
             }
         }
     };
-}
 
-function ScreensObj_CreateBaseLiveObj() {
     Base_Live_obj = {
         ItemsReloadLimit: Main_ItemsReloadLimitVideo,
         ItemsLimit: Main_ItemsLimitVideo,
@@ -674,9 +660,7 @@ function ScreensObj_CreateBaseLiveObj() {
             Screens_addFocusVideo(forceScroll, key);
         }
     };
-}
 
-function ScreensObj_CreateBaseClipObj() {
     Base_Clip_obj = {
         HeadersArray: Main_Bearer_Headers,
         ItemsLimit: Main_ItemsLimitVideo,
@@ -767,9 +751,7 @@ function ScreensObj_CreateBaseClipObj() {
             }
         }
     };
-}
 
-function ScreensObj_CreateBaseGameObj() {
     Base_Game_obj = {
         HeadersArray: Main_base_array_header,
         thumbclass: 'stream_thumbnail_game_holder',
@@ -892,9 +874,7 @@ function ScreensObj_CreateBaseGameObj() {
             }
         }
     };
-}
 
-function ScreensObj_CreateBaseChannelObj() {
     Base_Channel_obj = {
         ItemsLimit: Main_ItemsLimitChannel,
         ColumnsCount: Main_ColumnsCountChannel,
@@ -955,9 +935,7 @@ function ScreensObj_CreateBaseChannelObj() {
             Main_SwitchScreen();
         }
     };
-}
 
-function ScreensObj_CreateBaseHistoryObj() {
     Base_History_obj = {
         ItemsReloadLimit: Main_ItemsReloadLimitVideo,
         ItemsLimit: Main_ItemsLimitVideo,

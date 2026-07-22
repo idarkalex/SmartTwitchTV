@@ -742,7 +742,19 @@ function PlayVod_setHidePanel() {
 }
 
 function PlayVod_qualityIndexReset() {
-    PlayVod_qualityIndex = PlayUtils.qualityIndexReset(PlayVod_qualities, PlayVod_quality, PlayVod_getQualitiesCount);
+    PlayVod_qualityIndex = 0;
+    var i = 0,
+        len = PlayVod_getQualitiesCount();
+
+    for (i; i < len; i++) {
+        if (PlayVod_qualities[i].id === PlayVod_quality) {
+            PlayVod_qualityIndex = i;
+            break;
+        } else if (Main_A_includes_B(PlayVod_qualities[i].id, PlayVod_qualities[i].id)) {
+            //make shore to set a value before break out
+            PlayVod_qualityIndex = i;
+        }
+    }
 
     if (PlayVod_qualities[PlayVod_qualityIndex]) {
         Play_qualityTitleReset(PlayVod_qualities[PlayVod_qualityIndex].id);
@@ -750,11 +762,32 @@ function PlayVod_qualityIndexReset() {
 }
 
 function PlayVod_SetHtmlQuality(element) {
-    var result = PlayUtils.setHtmlQuality(PlayVod_qualities, PlayVod_qualityIndex, element, Play_info_quality);
-    if (!result) return;
+    if (!PlayVod_qualities.length || !PlayVod_qualities[PlayVod_qualityIndex] || !PlayVod_qualities[PlayVod_qualityIndex].hasOwnProperty('id'))
+        return;
 
-    PlayVod_quality = result.quality;
-    Main_textContentWithEle(element, result.display);
+    PlayVod_quality = PlayVod_qualities[PlayVod_qualityIndex].id;
+
+    var quality_string = '';
+
+    //Java getQualities fun will generate the first quality of the array as 'Auto'
+    if (Main_A_includes_B(PlayVod_quality, 'Auto')) {
+        if (Main_IsOn_OSInterface) {
+            quality_string = PlayVod_quality.replace('Auto', STR_AUTO);
+        } else {
+            if (Play_info_quality !== element) {
+                quality_string = PlayVod_quality.replace('Auto', STR_AUTO);
+            } else {
+                quality_string = PlayVod_qualities[1].id.replace('source', STR_AUTO) + PlayVod_qualities[1].band + PlayVod_qualities[1].codec;
+            }
+        }
+    } else if (Main_A_includes_B(PlayVod_quality, 'source')) quality_string = PlayVod_quality.replace('source', STR_SOURCE);
+    else quality_string = PlayVod_quality;
+
+    quality_string += !Main_A_includes_B(PlayVod_quality, 'Auto')
+        ? PlayVod_qualities[PlayVod_qualityIndex].band + PlayVod_qualities[PlayVod_qualityIndex].codec
+        : '';
+
+    Main_textContentWithEle(element, quality_string);
 }
 
 function PlayVod_getQualitiesCount() {
@@ -1377,13 +1410,14 @@ function PlayVod_QuickJump(time) {
 }
 
 function PlayVod_FastBackForward(position) {
-    PlayUtils.fastBackForward(
-        position,
-        function () {
-            PlayVod_showPanel(true);
-        },
-        PlayVod_setHidePanel
-    );
+    if (!Play_isPanelShowing()) PlayVod_showPanel(true);
+    Play_clearHidePanel();
+    PlayVod_PanelY = 0;
+    Play_BottomIconsFocus();
+
+    PlayVod_jumpStart(position, Play_DurationSeconds);
+    PlayVod_ProgressBaroffset = 2500;
+    PlayVod_setHidePanel();
 }
 
 var fullVodInfoQuery =
