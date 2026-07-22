@@ -23,10 +23,10 @@ var SettingsColor_DefaultColorsPos = 0;
 var SettingsColor_DefaultColors = [
     [
         //Default
-        'rgba(0,0,0,1)', //background
+        'rgba(0,0,0,0)', //background (transparent)
         'rgba(255,255,255,1)', //TextColor
-        'rgba(235,235,235,1)', //border
-        'rgba(195,0,0,1)' //progressColor
+        'rgba(145,70,255,1)', //border (Twitch purple #9146FF)
+        'rgba(123,47,247,1)' //progressColor (#7B2FF7)
     ],
     [], //Custom
     [
@@ -422,12 +422,12 @@ function SettingsColor_SetAnimationStyle(pos) {
         border = SettingsColor_DefaultColors[pos][2],
         progressColor = SettingsColor_DefaultColors[pos][3],
         cssClass =
-            '.feed_thumbnail_focused_no_ani,.feed_thumbnail_focused,.stream_thumbnail_focused_no_ani,.stream_thumbnail_focused {background-color:' +
-            background +
+            '.feed_thumbnail_focused_no_ani,.feed_thumbnail_focused,.stream_thumbnail_focused_no_ani,.stream_thumbnail_focused {border: 0.12em solid ' +
+            border +
             ' !important;color:' +
             TextColor +
-            ' !important;border-color:' +
-            border +
+            ' !important;background-color:' +
+            background +
             ' !important;}' +
             //feed_thumbnail_focused same animation time as user_feed_scroll
             '.feed_thumbnail_focused {transition:background-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0s,color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0s,border-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0s;}' +
@@ -448,12 +448,12 @@ function SettingsColor_SetAnimationStyle(pos) {
 
 function SettingsColor_SetAnimationStyleTest(arrayColors) {
     var cssClass =
-        '.stream_thumbnail_focused_test {background-color:' +
-        arrayColors[0] +
+        '.stream_thumbnail_focused_test {border: 0.12em solid ' +
+        arrayColors[2] +
         ' !important;color:' +
         arrayColors[1] +
-        ' !important;border-color:' +
-        arrayColors[2] +
+        ' !important;background-color:' +
+        arrayColors[0] +
         ' !important;}';
 
     cssClass +=

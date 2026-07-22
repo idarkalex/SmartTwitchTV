@@ -883,7 +883,8 @@ function Screens_createCellLive(id, idArray, valuesArray, key, Extra_when, Extra
     if (!valuesArray[1]) valuesArray[1] = valuesArray[6];
 
     var ishosting = valuesArray[16],
-        image = force_VOD ? Extra_vodimg : valuesArray[0].replace('{width}x{height}', Main_VideoSize) + Main_randomImg;
+        image = force_VOD ? Extra_vodimg : valuesArray[0].replace('{width}x{height}', Main_VideoSize) + Main_randomImg,
+        avatar = valuesArray[9] || '';
 
     ScreenObj[key].DataObj[id] = valuesArray;
 
@@ -903,44 +904,22 @@ function Screens_createCellLive(id, idArray, valuesArray, key, Extra_when, Extra
         image +
         '" onerror="this.onerror=null;this.src=\'' +
         ScreenObj[key].img_404 +
-        '\';" ></div><div class="stream_thumbnail_live_text_holder"><div class="stream_text_holder"><div style="line-height: 1.6ch;"><div id="' +
+        '\';" ><div class="viewer_badge"><span class="viewer_dot"></span><span>' +
+        valuesArray[4] +
+        '</span></div></div><div class="thumb_info_row">' +
+        (avatar ? '<img class="thumb_avatar" alt="" src="' + avatar + '" onerror="this.style.display=\'none\'">' : '') +
+        '<div class="thumb_text_info"><div class="thumb_game_name">' +
+        (valuesArray[3] !== '' ? valuesArray[3] : '') +
+        '</div><div class="thumb_streamer_name" id="' +
         idArray[2] +
         id +
-        '" class="stream_info_live_name" style="width:' +
-        (ishosting ? 99 : 66) +
-        '%; display: inline-block;">' +
-        '<i class="icon-' +
-        (valuesArray[8] ? 'refresh' : 'circle') +
-        ' live_icon strokedeline' +
-        (force_VOD ? ' hideimp' : '') +
-        '" style="color: ' +
-        (valuesArray[8] ? '#FFFFFF' : ishosting ? '#FED000' : 'red') +
-        ';"></i> ' +
-        (Extra_vodimg || force_VOD
-            ? '<div class="vodicon_text ' + (force_VOD ? '' : 'hideimp') + '" style="background: #00a94b;">&nbsp;&nbsp;VOD&nbsp;&nbsp;</div>&nbsp;'
-            : '<div style="display: none;"></div>') + //empty div to prevent error when childNodes[2].classList.remove
+        '">' +
         valuesArray[1] +
-        '</div><div class="stream_info_live" style="width:' +
-        (ishosting ? 0 : 33) +
-        '%; float: right; text-align: right; display: inline-block;">' +
-        valuesArray[5] +
-        '</div></div><div class="' +
-        (Extra_when ? 'stream_info_live_title_single_line' : 'stream_info_live_title') +
-        '" id="' +
-        idArray[11] +
-        id +
-        '" >' +
-        Main_ReplaceLargeFont(twemoji.parse(valuesArray[2])) +
-        '</div>' +
-        '<div class="stream_info_live" id="' +
-        idArray[12] +
-        id +
-        '" >' +
-        (valuesArray[3] !== '' ? STR_PLAYING + valuesArray[3] : '') +
-        '</div><div id="' +
+        '</div></div></div>' +
+        '<div style="display: none;" id="' +
         idArray[4] +
         id +
-        '" class="stream_info_live"><span id="' +
+        '"><span id="' +
         idArray[9] +
         id +
         '" >' +
@@ -956,20 +935,19 @@ function Screens_createCellLive(id, idArray, valuesArray, key, Extra_when, Extra
         STR_SPACE_HTML +
         Main_GetViewerStrings(valuesArray[13]) +
         '</span></div>' +
-        (Extra_when
-            ? '<div class="stream_info_live">' +
-              STR_WATCHED +
-              Main_videoCreatedAtWithHM(Extra_when) +
-              STR_SPACE_HTML +
-              STR_UNTIL +
-              '<span id="' +
-              idArray[7] +
-              id +
-              '" >' +
-              Play_timeMs(Extra_when - new Date(valuesArray[12]).getTime()) +
-              '</span></div>'
-            : '') +
-        '</div></div></div></div>'
+        '<div style="display: none;" id="' +
+        idArray[11] +
+        id +
+        '" >' +
+        Main_ReplaceLargeFont(twemoji.parse(valuesArray[2])) +
+        '</div>' +
+        '<div style="display: none;" id="' +
+        idArray[12] +
+        id +
+        '" >' +
+        (valuesArray[3] !== '' ? STR_PLAYING + valuesArray[3] : '') +
+        '</div>' +
+        '</div></div>'
     );
 }
 

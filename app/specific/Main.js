@@ -241,7 +241,7 @@ function Main_StartApp() {
         } catch (e) {
             Main_IsOn_OSInterfaceVersion = version.VersionBase + '.' + version.publishVersionCode;
             Main_IsOn_OSInterface = 0;
-            Main_body.style.backgroundColor = 'rgba(155, 155, 155, 1)'; //default rgba(0, 0, 0, 1)
+            Main_body.style.backgroundColor = '#131318'; //dark theme background
             Main_isDebug = true;
             //Main_Log('Main_isDebug: ' + Main_isDebug);
             //Main_Log('Main_isBrowser: ' + !Main_IsOn_OSInterface);

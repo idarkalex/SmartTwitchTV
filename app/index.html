@@ -180,7 +180,8 @@
             .screen_holder_switch,
             .screen_holder_user,
             .screen_holder_games {
-                width: 100%;
+                width: calc(100% - 11em);
+                margin-left: 11em;
                 position: absolute;
                 top: 6.9%;
                 height: 93.1%;
@@ -212,7 +213,8 @@
             .settings_holder {
                 position: absolute;
                 top: 4.5%;
-                width: 100%;
+                width: calc(100% - 11em);
+                margin-left: 11em;
                 height: 95.5%;
                 overflow: hidden;
             }
@@ -280,7 +282,7 @@
                 width: 100%;
                 display: inline-block;
                 padding-bottom: 2.75%;
-                background-color: #000000;
+                background-color: #131318;
                 color: #ffffff;
                 position: relative;
             }
@@ -292,7 +294,7 @@
 
             .banner_img_holder {
                 padding-bottom: 24%;
-                background-color: #000000 !important;
+                background-color: #131318 !important;
             }
 
             img.banner_img {
@@ -343,28 +345,32 @@
 
             .stream_thumbnail_live {
                 padding-bottom: 79.5%;
-                background-color: #000000;
+                background-color: #1a1a1f;
                 color: #ffffff;
+                border-radius: 0.3em;
+                overflow: hidden;
             }
 
             .stream_thumbnail_feed_game,
             .stream_thumbnail_live_game {
                 width: 100%;
-                background-color: #000000;
+                background-color: #1a1a1f;
                 padding-bottom: 139.7%;
                 position: relative;
             }
 
             .stream_thumbnail_live_img {
                 width: 100%;
-                background-color: #000000;
+                background-color: #1a1a1f;
                 padding-bottom: 56.25%;
                 position: relative;
+                border-radius: 0.3em 0.3em 0 0;
+                overflow: hidden;
             }
 
             .stream_thumbnail_channel_img {
                 width: 100%;
-                background-color: #000000;
+                background-color: #1a1a1f;
                 padding-bottom: 100%;
                 position: relative;
             }
@@ -386,7 +392,7 @@
             .stream_thumbnail_game {
                 padding-bottom: 164%;
                 font-size: 80%;
-                background-color: #000000;
+                background-color: #1a1a1f;
                 color: #ffffff;
             }
 
@@ -397,10 +403,104 @@
             }
 
             .stream_thumbnail_live_holder {
-                width: 32%;
+                width: 23.5%;
                 display: inline-block;
                 padding: 0.5%;
                 padding-bottom: 1.5%;
+            }
+
+            .viewer_badge {
+                position: absolute;
+                bottom: 0.4em;
+                right: 0.4em;
+                background: rgba(0, 0, 0, 0.75);
+                color: #ffffff;
+                font-size: 65%;
+                padding: 0.15em 0.45em;
+                border-radius: 0.15em;
+                display: flex;
+                align-items: center;
+                z-index: 2;
+            }
+
+            .viewer_dot {
+                width: 0.45em;
+                height: 0.45em;
+                background: #FF3B3B;
+                border-radius: 50%;
+                margin-right: 0.3em;
+                flex-shrink: 0;
+            }
+
+            .thumb_info_row {
+                display: flex;
+                align-items: center;
+                padding: 0.4em 0.2em 0.1em 0.2em;
+            }
+
+            .thumb_avatar {
+                width: 1.8em;
+                height: 1.8em;
+                border-radius: 50%;
+                margin-right: 0.5em;
+                flex-shrink: 0;
+                object-fit: cover;
+            }
+
+            .thumb_text_info {
+                flex: 1;
+                min-width: 0;
+                overflow: hidden;
+            }
+
+            .thumb_game_name {
+                font-size: 72%;
+                color: #ffffff;
+                font-family: 'Roboto-Bold';
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .thumb_streamer_name {
+                font-size: 62%;
+                color: #B0B0B8;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .section_header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0.5em 0.5em 0.8em 0.5em;
+            }
+
+            .section_title {
+                font-size: 1.1em;
+                font-family: 'Roboto-Bold';
+                color: #ffffff;
+                letter-spacing: 0.05em;
+            }
+
+            .section_tabs {
+                display: flex;
+                gap: 1.5em;
+            }
+
+            .section_tab {
+                font-size: 0.8em;
+                color: #B0B0B8;
+                cursor: pointer;
+                padding-bottom: 0.2em;
+                border-bottom: 0.12em solid transparent;
+                transition: color 200ms, border-color 200ms;
+            }
+
+            .section_tab_active {
+                color: #9146FF;
+                border-bottom-color: #9146FF;
             }
 
             .stream_thumbnail_user_icon_holder,
@@ -453,7 +553,8 @@
             }
 
             .stream_thumbnail_live_text_holder {
-                height: 28%;
+                height: 0;
+                overflow: hidden;
             }
 
             .stream_text_holder {
@@ -622,13 +723,13 @@
 
             .stream_thumbnail_channel {
                 padding-bottom: 112%;
-                background-color: #000000;
+                background-color: #1a1a1f;
                 color: #ffffff;
             }
 
             .stream_thumbnail_user {
                 padding-bottom: 122%;
-                background-color: #000000;
+                background-color: #1a1a1f;
                 color: #ffffff;
             }
 
@@ -821,12 +922,12 @@
 
             .scenefeed_background_no_ani,
             .scenefeed_background {
-                background: rgba(0, 0, 0, 1);
+                background: #131318;
             }
 
             .scenefeed_background {
                 transition: background 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
-                background: rgba(0, 0, 0, 1);
+                background: #131318;
             }
 
             .user_feed {
@@ -894,7 +995,7 @@
                 text-align: center;
                 font-size: 2.4vh;
                 font-family: 'Roboto-Bold';
-                background-color: #000000;
+                background-color: #131318;
                 color: #ffffff;
             }
 
@@ -1305,7 +1406,10 @@
                 will-change: opacity;
                 transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1) 0s;
                 height: 100%;
-                width: 0;
+                width: 11em;
+                position: absolute;
+                left: 0;
+                z-index: 10;
             }
 
             /* don't use this class for anything else other then side panel div because of Sidepannel_GetSize()*/
@@ -1356,7 +1460,7 @@
                 height: 97.5%;
                 top: 2.1%;
                 left: 24.3%;
-                background-color: #000000;
+                background-color: #131318;
                 will-change: opacity;
                 transition: opacity 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
             }
@@ -1379,8 +1483,8 @@
             .side_panel_movel {
                 position: absolute;
                 height: 100%;
-                width: 5%;
-                margin-left: -1%;
+                width: 11em;
+                margin-left: 0;
                 overflow: hidden;
                 transform: translateX(0);
                 transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
@@ -1397,7 +1501,7 @@
             }
 
             .side_panel_background_color {
-                background-color: #000000;
+                background-color: #131318;
             }
 
             .side_panel_fix_top_2,
@@ -1459,7 +1563,7 @@
             .side_panel_new_icons {
                 border-top: 0.05em solid;
                 border-bottom: 0.05em solid;
-                border-image: linear-gradient(#000000, #000000) 1;
+                border-image: linear-gradient(#131318, #131318) 1;
                 box-sizing: border-box;
             }
 
@@ -1475,13 +1579,13 @@
             }
 
             .side_panel_new_icons_text {
-                background: linear-gradient(to right, #000000 18%, rgba(255, 255, 255, 0.3), #000000 80%);
-                border-image: linear-gradient(to right, #000000 18%, #d0d3d4, #000000 80%) 1 !important;
+                background: linear-gradient(to right, #131318 18%, rgba(255, 255, 255, 0.3), #131318 80%);
+                border-image: linear-gradient(to right, #131318 18%, #d0d3d4, #131318 80%) 1 !important;
             }
 
             .side_panel_new_icons_text_botton {
-                background: linear-gradient(to right, #000000 0%, rgba(255, 255, 255, 0.3), #000000 70%);
-                border-image: linear-gradient(to right, #000000 0%, #d0d3d4, #000000 70%) 1 !important;
+                background: linear-gradient(to right, #131318 0%, rgba(255, 255, 255, 0.3), #131318 70%);
+                border-image: linear-gradient(to right, #131318 0%, #d0d3d4, #131318 70%) 1 !important;
             }
 
             .side_panel_new_icons_pad {
@@ -1489,8 +1593,8 @@
             }
 
             .side_panel_new_icons_start {
-                background: linear-gradient(to right, #000000 8%, rgba(255, 255, 255, 0.3), #000000 92%);
-                border-image: linear-gradient(to right, #000000 8%, #d0d3d4, #000000 92%) 1 !important;
+                background: linear-gradient(to right, #131318 8%, rgba(255, 255, 255, 0.3), #131318 92%);
+                border-image: linear-gradient(to right, #131318 8%, #d0d3d4, #131318 92%) 1 !important;
             }
 
             .side_panel_movel_user_text,
@@ -1737,9 +1841,9 @@
 
             .topbar {
                 position: absolute;
-                margin-left: 4.75%;
-                width: 95.24%;
-                background: rgba(0, 0, 0, 1);
+                margin-left: 11em;
+                width: calc(100% - 11em);
+                background: transparent;
                 /* 1vh offset to hide content that may show benhide it*/
                 height: 5.35%;
                 transform: translateY(-1vh);
@@ -2674,7 +2778,7 @@
 
     <body>
         <div id="body_container" class="screen_size" style="position: relative">
-            <div id="scene1" class="screen_size" style="background-color: rgba(0, 0, 0, 1); opacity: 1; will-change: opacity; z-index: 2">
+            <div id="scene1" class="screen_size" style="background-color: #131318; opacity: 1; will-change: opacity; z-index: 2">
                 <div id="dialog_loading" class="screens dialogs hide" style="z-index: 98; margin-top: 50vh; overflow: visible">
                     <div class="loading">
                         <div></div>
@@ -3024,7 +3128,7 @@
                     </div>
                 </div>
                 <div id="dialog_counter" style="position: absolute; z-index: 2; bottom: 0; right: 2vh; width: auto; height: auto">
-                    <div style="background: linear-gradient(to top, black, rgba(0, 0, 0, 0.75))">
+                    <div style="background: linear-gradient(to top, #131318, rgba(19, 19, 24, 0.75))">
                         <div id="dialog_counter_text" class="counter_class"></div>
                     </div>
                 </div>
@@ -3142,6 +3246,13 @@
 
                     <!-- Live screens-->
                     <div id="Live_scroll" class="screen_holder hide">
+                        <div class="section_header">
+                            <span class="section_title">RECOMMENDED LIVE NOW</span>
+                            <div class="section_tabs">
+                                <span class="section_tab section_tab_active" id="live_feed_tab">LIVE FEED</span>
+                                <span class="section_tab" id="top_categories_tab">TOP CATEGORIES</span>
+                            </div>
+                        </div>
                         <div id="stream_table_live" class="streams_div"></div>
                     </div>
                     <div id="Featured_scroll" class="screen_holder hide">
@@ -3270,21 +3381,21 @@
                         </div>
                     </div>
                     <div id="side_panel_fix" class="side_panel_fix avoidclicks">
-                        <div class="side_panel_fix_top" style="background-color: #000000">
+                        <div class="side_panel_fix_top" style="background-color: #131318">
                             <!-- Empty div are added to fill up the container and make the layout perfect align-->
                             <div class="side_panel_new_icons"></div>
                             <div id="side_panel_new_0" class="side_panel_new_icons">
                                 <div id="icon_side_panel_imgholder_0"></div>
                             </div>
                         </div>
-                        <div class="side_panel_fix_top_2">
+                        <div class="side_panel_fix_top_2" style="background-color: #131318">
                             <div class="side_panel_new_icons"></div>
                             <div id="side_panel_new_1" class="side_panel_new_icons">
                                 <i class="icon icon-search side_panel_new_icons_pad"></i>
                             </div>
                             <div class="side_panel_new_icons"></div>
                         </div>
-                        <div id="side_panel_fix_center" class="side_panel_fix_center" style="background-color: #000000">
+                        <div id="side_panel_fix_center" class="side_panel_fix_center" style="background-color: #131318">
                             <div id="side_panel_new_2" class="side_panel_new_icons"></div>
                             <div id="side_panel_new_3" class="side_panel_new_icons">
                                 <i id="icon_side_panel_new_3" class="icon icon-play side_panel_new_icons_pad"></i>
@@ -3303,7 +3414,7 @@
                         <div
                             id="side_panel_fix_botton"
                             class="side_panel_fix_bottom avoidclicks"
-                            style="width: 30%; background-color: #000000; pointer-events: none"
+                            style="width: 30%; background-color: #131318; pointer-events: none"
                         ></div>
                     </div>
                 </div>
