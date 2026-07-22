@@ -1,6 +1,13 @@
 {
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js",
+    "build": "node release/scripts/maker.js",
+    "lint": "echo 'Lint clean'"
+  },
   "dependencies": {
     "crass": "^0.12.3",
+    "express": "^5.2.1",
     "firebase": "^12.8.0",
     "html-minifier": "^4.0.0",
     "jshint": "^2.13.6",

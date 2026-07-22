@@ -956,12 +956,16 @@ function ChatLiveControls_SetarrowsKey(key) {
     var currentValue = OptionsShowObj[key].defaultValue;
     var maxValue = OptionsShowObj[key].values.length - 1;
 
-    PlayUtils.setArrowsOpacity(
-        Main_getElementById(key + 'arrow_left'),
-        Main_getElementById(key + 'arrow_right'),
-        currentValue,
-        maxValue
-    );
+    if (currentValue > 0 && currentValue < maxValue) {
+        Main_getElementById(key + 'arrow_left').style.opacity = '1';
+        Main_getElementById(key + 'arrow_right').style.opacity = '1';
+    } else if (currentValue === maxValue) {
+        Main_getElementById(key + 'arrow_left').style.opacity = '1';
+        Main_getElementById(key + 'arrow_right').style.opacity = '0.2';
+    } else {
+        Main_getElementById(key + 'arrow_left').style.opacity = '0.2';
+        Main_getElementById(key + 'arrow_right').style.opacity = '1';
+    }
 }
 
 function ChatLiveControls_Optionshide() {
@@ -1011,10 +1015,8 @@ function ChatLiveControls_OptionsUpDown(offset) {
 }
 
 function ChatLiveControls_RemoveinputFocusKey(key) {
-    PlayUtils.removeArrowsOpacity(
-        Main_getElementById(key + 'arrow_left'),
-        Main_getElementById(key + 'arrow_right')
-    );
+    Main_getElementById(key + 'arrow_left').style.opacity = '0';
+    Main_getElementById(key + 'arrow_right').style.opacity = '0';
     Main_RemoveClass(key, 'settings_value_focus');
     Main_RemoveClass(key + '_div', 'settings_div_focus');
 }
