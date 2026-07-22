@@ -4527,7 +4527,7 @@ function Play_PreStart() {
     Play_seek_previews_text = Main_getElementById('seek_previews_text');
     Play_seek_previews_img = new Image();
     Play_chat_container = Main_getElementById('chat_container0');
-    Play_chat_dialog = Play_chat_dialog;
+    Play_chat_dialog = Main_getElementById('play_chat_dialog');
     Play_ProgresBarrElm = Main_getElementById('inner_progress_bar');
     Play_ProgresBarrBufferElm = Main_getElementById('inner_progress_bar_buffer');
     Play_PanneInfoDoclId = Main_getElementById('scene_channel_panel');
