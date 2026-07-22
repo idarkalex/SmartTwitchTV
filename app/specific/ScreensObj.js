@@ -1050,8 +1050,8 @@ function ScreensObj_CreateBaseHistoryObj() {
 
             Main_textContent('dialog_hist_val_3', this.histArrays[3][this.histPosX[3]]);
 
-            Main_getElementById('dialog_hist_left_1').style.opacity = '0';
-            Main_getElementById('dialog_hist_right_1').style.opacity = '0';
+            Main_SetStyleById('dialog_hist_left_1', 'opacity', '0');
+            Main_SetStyleById('dialog_hist_right_1', 'opacity', '0');
             this.histPosXTemp = Main_Slice(this.histPosX);
         }
     };

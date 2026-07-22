@@ -464,8 +464,8 @@ function ChatLive_loadBadgesChannelSuccess(obj, id, chat_number, channelId) {
 function ChatLive_resetChatters(chat_number) {
     Main_textContent('chat_loggedin' + chat_number, '');
     Main_AddClass('chat_loggedin' + chat_number, 'hide');
-    Main_getElementById('chat_box_holder' + chat_number).style.height = '';
-    Main_getElementById('chat_container_name' + chat_number).style.top = '';
+    Main_SetStyleById('chat_box_holder' + chat_number, 'height', '');
+    Main_SetStyleById('chat_container_name' + chat_number, 'top', '');
 }
 
 function ChatLive_loadChatters(chat_number, id) {
@@ -477,10 +477,10 @@ function ChatLive_loadChatters(chat_number, id) {
         );
         Main_RemoveClass('chat_loggedin' + chat_number, 'hide');
 
-        Main_getElementById('chat_box_holder' + chat_number).style.height = 'calc(100% - 2.9vh)';
+        Main_SetStyleById('chat_box_holder' + chat_number, 'height', 'calc(100% - 2.9vh)');
 
         if (!chat_number) {
-            Main_getElementById('chat_container_name' + chat_number).style.top = '3vh';
+            Main_SetStyleById('chat_container_name' + chat_number, 'top', '3vh');
         }
 
         ChatLive_loadChattersCheckType(chat_number, id);

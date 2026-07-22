@@ -1632,7 +1632,7 @@ function Settings_check_min_seek() {
         var key = 'vod_seek_min';
         Main_setItem(key, Settings_Obj_default(key) + 1);
         Main_textContent(key, Settings_Obj_values(key));
-        Main_getElementById(key + '_arrow_right').style.opacity = '0.2';
+        Main_SetStyleById(key + '_arrow_right', 'opacity', '0.2');
     }
 }
 
@@ -1643,7 +1643,7 @@ function Settings_check_max_seek() {
         var key = 'vod_seek_max';
         Main_setItem(key, Settings_Obj_default(key) + 1);
         Main_textContent(key, Settings_Obj_values(key));
-        Main_getElementById(key + '_arrow_left').style.opacity = '0.2';
+        Main_SetStyleById(key + '_arrow_left', 'opacity', '0.2');
     }
 }
 
@@ -2215,7 +2215,7 @@ function Settings_handleKeyDownReturn() {
     Main_HideElement('dialog_codecs');
     Main_removeEventListener('keydown', Settings_handleKeyDownCodecs);
     Main_addEventListener('keydown', Settings_handleKeyDown);
-    Main_getElementById('settings_codec_container_scroll').style.transform = '';
+    Main_SetStyleById('settings_codec_container_scroll', 'transform', '');
 }
 
 function Settings_handleKeyDownCodecsLeft() {

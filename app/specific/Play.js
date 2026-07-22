@@ -376,7 +376,7 @@ function Play_CheckIfIsLiveClean(fail_type, errorCode) {
 
     if (Sidepannel_isShowingUserLive()) {
         Sidepannel_CheckIfIsLiveWarn(reason + Play_GetErrorCode(errorCode), 0);
-    } else if (Main_isScene1DocVisible()) {
+    } else if (Main_isScene1DocVisible() && ScreenObj[Main_values.Main_Go]) {
         if (ScreenObj[Main_values.Main_Go].screenType === 2 && Settings_Obj_default('auto_clip_preview')) {
             var id = ScreenObj[Main_values.Main_Go].posY + '_' + ScreenObj[Main_values.Main_Go].posX;
 
@@ -384,7 +384,7 @@ function Play_CheckIfIsLiveClean(fail_type, errorCode) {
                 //Save as we have watched it all
                 var data = Screens_GetObj(Main_values.Main_Go);
 
-                Main_getElementById(ScreenObj[Main_values.Main_Go].ids[7] + id).style.width = '100%';
+                Main_SetStyleById(ScreenObj[Main_values.Main_Go].ids[7] + id, 'width', '100%');
 
                 Main_Set_history('clip', data);
                 Main_history_UpdateVodClip(data[7], data[1], 'clip');

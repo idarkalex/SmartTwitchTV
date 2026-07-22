@@ -492,7 +492,7 @@ function ChatLiveControls_ShowEmotes() {
 
         Main_addEventListener('keydown', ChatLiveControls_EmotesEvent);
 
-        Main_getElementById('chat_emotes').style.transform = '';
+        Main_SetStyleById('chat_emotes', 'transform', '');
         ChatLiveControls_EmotesUpdateCounter(0);
         Main_ShowElement('chat_emotes_holder');
         ChatLiveControls_EmotesAddFocus(0);
@@ -598,10 +598,10 @@ function ChatLiveControls_EmotesScroll(position) {
         var how_much = Main_getElementById('chat_emotes' + ChatLiveControls_EmotesArray[position_up]).getBoundingClientRect().height;
 
         if (ChatLiveControls_EmotesArray[position_down]) {
-            Main_getElementById('chat_emotes').style.transform = 'translateY(-' + how_much * (position_now - 1) + 'px)';
+            Main_SetStyleById('chat_emotes', 'transform', 'translateY(-' + how_much * (position_now - 1) + 'px)');
         }
     } else {
-        Main_getElementById('chat_emotes').style.transform = '';
+        Main_SetStyleById('chat_emotes', 'transform', '');
     }
 }
 

@@ -184,10 +184,10 @@ function Main_Start() {
 }
 
 function Main_StartApp() {
-    Main_CheckdStyleSheet();
-
     // Use requestAnimationFrame to ensure CSS is applied before reading layout
     requestAnimationFrame(function () {
+        Main_CheckdStyleSheet();
+
         Main_ready(function () {
         try {
             if (Main_A_includes_B(window.location.href, 'asset')) {
@@ -740,6 +740,11 @@ function Main_SetStyle(element, property, value) {
     if (element && element.style) element.style[property] = value;
 }
 
+function Main_SetStyleById(id, property, value) {
+    var element = Main_getElementById(id);
+    if (element && element.style) element.style[property] = value;
+}
+
 function Main_GetStyle(element, property) {
     return element && element.style ? element.style[property] : '';
 }
@@ -749,13 +754,15 @@ function Main_GetClassName(element) {
 }
 
 function Main_replaceClassEmoji(div) {
-    var emojiel = Main_getElementById(div).getElementsByClassName('emoji');
+    var el = Main_getElementById(div);
+    if (!el) return;
+    var emojiel = el.getElementsByClassName('emoji');
     if (emojiel) {
         var i = 0,
             len = emojiel.length;
         for (i; i < len; i++) emojiel[i].classList.add('emoticon');
 
-        emojiel = Main_getElementById(div).getElementsByClassName('emoticon');
+        emojiel = el.getElementsByClassName('emoticon');
         i = 0;
         len = emojiel.length;
         for (i; i < len; i++) emojiel[i].classList.remove('emoji');
@@ -1017,7 +1024,7 @@ function Main_SwitchScreen(removekey, preventRefresh) {
         ScreenObj[1].init_fun(); //live
     }
 
-    if (removekey) {
+    if (removekey && ScreenObj[Main_values.Main_Go]) {
         Main_removeEventListener('keydown', ScreenObj[Main_values.Main_Go].key_fun);
     }
 
@@ -1257,7 +1264,7 @@ function Main_UpdateDialogSet() {
 }
 
 function Main_UpdateDialogSetTitle() {
-    Main_getElementById('update_dialog_upbutton').style.width = !Main_HasUpdate ? '30%' : '23%';
+    Main_SetStyleById('update_dialog_upbutton', 'width', !Main_HasUpdate ? '30%' : '23%');
     Main_innerHTML('update_dialog_upbutton', Main_HasUpdate ? STR_UPDATE : STR_UPDATE_CHECK);
 }
 
@@ -1389,7 +1396,7 @@ function Main_UpdateDialogShowCheck() {
 
 function Main_UpdateDialogStartCheck() {
     Main_Ischecking = true;
-    Main_getElementById('update_dialog_upbutton').style.width = '30%';
+    Main_SetStyleById('update_dialog_upbutton', 'width', '30%');
     Main_innerHTML('update_dialog_upbutton', STR_UPDATE_CHECKING);
     Main_CheckUpdate(true);
 }
@@ -3079,7 +3086,7 @@ function Main_CheckStop() {
     } else Main_CheckDialogs();
 
     //Reset Screen img if hiden
-    var doc = ScreenObj[Main_values.Main_Go].ids
+    var doc = ScreenObj[Main_values.Main_Go] && ScreenObj[Main_values.Main_Go].ids
         ? Main_getElementById(ScreenObj[Main_values.Main_Go].ids[1] + ScreenObj[Main_values.Main_Go].posY + '_' + ScreenObj[Main_values.Main_Go].posX)
         : null;
 
@@ -3097,11 +3104,12 @@ function Main_CheckDialogs() {
         Main_HideChangeDialog();
         Main_HideUpdateDialog();
         Main_HideAboutDialog();
-        Main_removeEventListener('keydown', ScreenObj[Main_values.Main_Go].key_controls);
-
-        Main_addEventListener('keydown', ScreenObj[Main_values.Main_Go].key_fun);
-        if (ScreenObj[Main_values.Main_Go].addFocus) Screens_addFocus(true, Main_values.Main_Go);
-        else ScreenObj[Main_values.Main_Go].init_fun();
+        if (ScreenObj[Main_values.Main_Go]) {
+            Main_removeEventListener('keydown', ScreenObj[Main_values.Main_Go].key_controls);
+            Main_addEventListener('keydown', ScreenObj[Main_values.Main_Go].key_fun);
+            if (ScreenObj[Main_values.Main_Go].addFocus) Screens_addFocus(true, Main_values.Main_Go);
+            else ScreenObj[Main_values.Main_Go].init_fun();
+        }
     } else if (Main_isExitDialogVisible()) {
         //Hide exit if showing
 
@@ -3185,7 +3193,7 @@ function Main_CheckAccessibility(skipRefresCheck) {
                 !Sidepannel_isShowingMenus() &&
                 !skipRefresCheck
             ) {
-                Main_removeEventListener('keydown', ScreenObj[Main_values.Main_Go].key_fun);
+                if (ScreenObj[Main_values.Main_Go]) Main_removeEventListener('keydown', ScreenObj[Main_values.Main_Go].key_fun);
                 Main_SwitchScreen();
             }
         }
@@ -3197,7 +3205,7 @@ function Main_CheckAccessibilitySet() {
 
     Main_innerHTML('dialog_accessibility_text', STR_ACCESSIBILITY_WARN_TEXT);
     Main_ShowElement('dialog_accessibility');
-    Main_removeEventListener('keydown', ScreenObj[Main_values.Main_Go].key_fun);
+    if (ScreenObj[Main_values.Main_Go]) Main_removeEventListener('keydown', ScreenObj[Main_values.Main_Go].key_fun);
     Main_removeEventListener('keydown', Main_CheckAccessibilityKey);
     if (!Sidepannel_isShowingUserLive() && Main_isScene1DocVisible()) {
         Sidepannel_Hide();

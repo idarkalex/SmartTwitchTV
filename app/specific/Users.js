@@ -229,14 +229,14 @@ function Users_addFocus(forceScroll) {
     if (Main_YchangeAddFocus(Users_cursorY) || forceScroll) {
         if (Users_cursorY > 1) {
             if (Main_ThumbNull(Users_cursorY + 1, 0, Users_ids[0])) {
-                Main_getElementById(Users_ids[5]).style.transform =
+                Main_SetStyleById(Users_ids[5], 'transform',
                     'translateY(' +
                     (Main_getElementById(Users_ids[6] + Users_cursorY).offsetHeight -
                         Main_getElementById(Users_ids[4] + Users_cursorY + '_0').offsetTop) /
                         BodyfontSize +
-                    'em)';
+                    'em)');
             }
-        } else Main_getElementById(Users_ids[5]).style.transform = '';
+        } else Main_SetStyleById(Users_ids[5], 'transform', '');
     }
 }
 

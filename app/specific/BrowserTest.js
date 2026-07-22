@@ -499,7 +499,7 @@ function BrowserTestFun() {
                     Users_cursorX = x;
                     Users_cursorY = y;
                     Users_addFocus();
-                } else if (ScreenObj[key].posY !== y || ScreenObj[key].posX !== x) {
+                } else if (ScreenObj[key] && (ScreenObj[key].posY !== y || ScreenObj[key].posX !== x)) {
                     if (!Screens_ObjNotNull_YX(key, y, x)) {
                         return;
                     }
@@ -524,7 +524,7 @@ function BrowserTestFun() {
                     } else if (isUserScrren) {
                         Users_keyEnter();
                     } else {
-                        ScreenObj[key].key_play(true);
+                        if (ScreenObj[key]) ScreenObj[key].key_play(true);
                     }
                 }
 
@@ -1249,7 +1249,7 @@ function BrowserTest_Scene1DocOnwheel(y) {
                 Users_cursorY += y;
                 Users_addFocus();
             }
-        } else if (Screens_IsInUse(key) && (y > 0 || ScreenObj[key].posY > 0)) {
+        } else if (Screens_IsInUse(key) && ScreenObj[key] && (y > 0 || ScreenObj[key].posY > 0)) {
             Screens_KeyUpDownClick(key, y);
         } else if (Sidepannel_isShowingUserLive() && Sidepannel_PosFeed + y > 0 && (y < 0 || Sidepannel_PosFeed + y < Sidepannel_GetSize())) {
             Sidepannel_RemoveFocusFeed();

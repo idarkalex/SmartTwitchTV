@@ -479,12 +479,11 @@ function PlayClip_UpdateHistory(screen) {
     if (time > 0) {
         Main_history_UpdateVodClip(ChannelClip_Id, time, 'clip');
 
-        if (!ScreenObj[Main_HistoryClip].histPosX[1] && ScreenObj[screen].screenType === 2) {
+        if (!ScreenObj[Main_HistoryClip].histPosX[1] && ScreenObj[screen] && ScreenObj[screen].screenType === 2) {
             var data = ScreenObj[screen].DataObj[ScreenObj[screen].posY + '_' + ScreenObj[screen].posX];
 
             if (data && ChannelClip_Id === data[7]) {
-                Main_getElementById(ScreenObj[screen].ids[7] + (ScreenObj[screen].posY + '_' + ScreenObj[screen].posX)).style.width =
-                    (time / data[1]) * 100 + '%';
+                Main_SetStyleById(ScreenObj[screen].ids[7] + (ScreenObj[screen].posY + '_' + ScreenObj[screen].posX), 'width', (time / data[1]) * 100 + '%');
             }
         }
     }
@@ -492,7 +491,7 @@ function PlayClip_UpdateHistory(screen) {
 
 function PlayClip_UpdateNext() {
     var nextid = PlayClip_getIdNext(1, 0);
-    var backid = PlayClip_getIdNext(-1, ScreenObj[Main_values.Main_Go].ColumnsCount - 1);
+    var backid = PlayClip_getIdNext(-1, ScreenObj[Main_values.Main_Go] ? ScreenObj[Main_values.Main_Go].ColumnsCount - 1 : 0);
     var data;
 
     PlayClip_HasNext = false;
@@ -500,7 +499,7 @@ function PlayClip_UpdateNext() {
 
     if (nextid) {
         PlayClip_HasNext = true;
-        data = Main_Slice(ScreenObj[Main_values.Main_Go].DataObj[nextid]);
+        data = ScreenObj[Main_values.Main_Go] ? Main_Slice(ScreenObj[Main_values.Main_Go].DataObj[nextid]) : null;
 
         PlayClip_NextImg(Play_BottonIcons_Next_img, data[15]);
         Main_innerHTMLWithEle(Play_BottonIcons_Next_name, Main_ReplaceLargeFont(data[4]));
@@ -517,7 +516,7 @@ function PlayClip_UpdateNext() {
 
     if (backid) {
         PlayClip_HasBack = true;
-        data = Main_Slice(ScreenObj[Main_values.Main_Go].DataObj[backid]);
+        data = ScreenObj[Main_values.Main_Go] ? Main_Slice(ScreenObj[Main_values.Main_Go].DataObj[backid]) : null;
 
         PlayClip_NextImg(Play_BottonIcons_Back_img, data[15]);
         Main_innerHTMLWithEle(Play_BottonIcons_Back_name, Main_ReplaceLargeFont(data[4]));
@@ -535,6 +534,7 @@ function PlayClip_NextImg(ImgObjet, link) {
 }
 
 function PlayClip_getIdNext(y, x) {
+    if (!ScreenObj[Main_values.Main_Go]) return null;
     if (ScreenObj[Main_values.Main_Go].DataObj[ScreenObj[Main_values.Main_Go].posY + '_' + (ScreenObj[Main_values.Main_Go].posX + y)]) {
         return ScreenObj[Main_values.Main_Go].posY + '_' + (ScreenObj[Main_values.Main_Go].posX + y);
     } else if (ScreenObj[Main_values.Main_Go].DataObj[ScreenObj[Main_values.Main_Go].posY + y + '_' + x]) {
@@ -565,7 +565,7 @@ function PlayClip_PlayNext() {
 function PlayClip_PlayPreviously() {
     PlayClip_PreshutdownStream(false);
 
-    Screens_KeyLeftRight(-1, ScreenObj[Main_values.Main_Go].ColumnsCount - 1, Main_values.Main_Go);
+    if (ScreenObj[Main_values.Main_Go]) Screens_KeyLeftRight(-1, ScreenObj[Main_values.Main_Go].ColumnsCount - 1, Main_values.Main_Go);
     PlayClip_PlayNextPreviously();
 }
 
@@ -573,13 +573,15 @@ function PlayClip_PlayNextPreviously() {
     Play_ForceHidePannel();
     Main_ready(function () {
         PlayClip_replayOrNext = true;
-        Main_OpenClip(
-            Screens_GetObj(Main_values.Main_Go),
-            ScreenObj[Main_values.Main_Go].posY + '_' + ScreenObj[Main_values.Main_Go].posX,
-            ScreenObj[Main_values.Main_Go].ids,
-            ScreenObj[Main_values.Main_Go].key_fun,
-            ScreenObj[Main_values.Main_Go].ScreenName
-        );
+        if (ScreenObj[Main_values.Main_Go]) {
+            Main_OpenClip(
+                Screens_GetObj(Main_values.Main_Go),
+                ScreenObj[Main_values.Main_Go].posY + '_' + ScreenObj[Main_values.Main_Go].posX,
+                ScreenObj[Main_values.Main_Go].ids,
+                ScreenObj[Main_values.Main_Go].key_fun,
+                ScreenObj[Main_values.Main_Go].ScreenName
+            );
+        }
     });
 }
 
@@ -702,7 +704,7 @@ function PlayClip_CheckPreview() {
         !Play_isEndDialogVisible() &&
         Main_values.Main_Go !== Main_ChannelContent &&
         Settings_Obj_default('show_clip_player') &&
-        ScreenObj[Main_values.Main_Go].screenType === 2 &&
+        ScreenObj[Main_values.Main_Go] && ScreenObj[Main_values.Main_Go].screenType === 2 &&
         !Sidepannel_isShowingUserLive() &&
         !Main_ThumbOpenIsNull(ScreenObj[Main_values.Main_Go].posY + '_' + ScreenObj[Main_values.Main_Go].posX, ScreenObj[Main_values.Main_Go].ids[0])
     ) {
@@ -717,7 +719,7 @@ function PlayClip_CheckPreview() {
 function PlayClip_CheckPreviewClip() {
     var restorePreview = false;
 
-    var data = ScreenObj[Main_values.Main_Go].DataObj[ScreenObj[Main_values.Main_Go].posY + '_' + ScreenObj[Main_values.Main_Go].posX];
+    var data = ScreenObj[Main_values.Main_Go] ? ScreenObj[Main_values.Main_Go].DataObj[ScreenObj[Main_values.Main_Go].posY + '_' + ScreenObj[Main_values.Main_Go].posX] : null;
 
     if (data) {
         restorePreview = Main_A_equals_B(data[0], ChannelClip_playUrl);

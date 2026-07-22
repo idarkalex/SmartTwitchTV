@@ -429,8 +429,8 @@ function Play_SetChatFullScreenKeyRight() {
 function Play_SetChatFont() {
     var fontsize = Play_ChatFontObj[Main_values.Chat_font_size_new] * 0.76 + '%';
 
-    Main_getElementById('chat_inner_container1').style.fontSize = fontsize;
-    Main_getElementById('chat_inner_container0').style.fontSize = fontsize;
+    Main_SetStyleById('chat_inner_container1', 'fontSize', fontsize);
+    Main_SetStyleById('chat_inner_container0', 'fontSize', fontsize);
 }
 
 function Play_partnerIcon(name, partner, live_vod_clip, lang, rerun) {
@@ -759,10 +759,10 @@ function Play_EndSet(PlayVodClip) {
         Play_EndIconsRemoveFocus();
         Play_EndCounter = 1;
         Play_EndIconsAddFocus();
-        Main_getElementById('dialog_end_-1').style.display = 'none';
-        Main_getElementById('dialog_end_0').style.display = 'none';
-        Main_getElementById('dialog_end_2').style.display = 'none';
-        Main_getElementById('dialog_end_1').style.display = 'inline-block';
+        Main_SetStyleById('dialog_end_-1', 'display', 'none');
+        Main_SetStyleById('dialog_end_0', 'display', 'none');
+        Main_SetStyleById('dialog_end_2', 'display', 'none');
+        Main_SetStyleById('dialog_end_1', 'display', 'inline-block');
         Main_textContent('dialog_end_live_text_1', STR_OPEN_HOST);
 
         Play_EndTextsReset();
@@ -776,10 +776,10 @@ function Play_EndSet(PlayVodClip) {
         Play_EndIconsRemoveFocus();
         Play_EndCounter = 1;
         Play_EndIconsAddFocus();
-        Main_getElementById('dialog_end_-1').style.display = 'none';
-        Main_getElementById('dialog_end_0').style.display = 'none';
-        Main_getElementById('dialog_end_2').style.display = 'none';
-        Main_getElementById('dialog_end_1').style.display = 'inline-block';
+        Main_SetStyleById('dialog_end_-1', 'display', 'none');
+        Main_SetStyleById('dialog_end_0', 'display', 'none');
+        Main_SetStyleById('dialog_end_2', 'display', 'none');
+        Main_SetStyleById('dialog_end_1', 'display', 'inline-block');
         Play_EndTextsReset();
         Play_HasVod = false;
 
@@ -790,7 +790,7 @@ function Play_EndSet(PlayVodClip) {
 
                 if (Play_VodObj.vodid) {
                     Main_textContent('dialog_end_vod_text_2', STR_OPEN_LAST_BROADCAST);
-                    Main_getElementById('dialog_end_2').style.display = 'inline-block';
+                    Main_SetStyleById('dialog_end_2', 'display', 'inline-block');
                     Main_innerHTML('end_vod_name_text_2', Play_VodObj.data[1]);
                     Main_textContent('end_vod_title_text_2', Play_VodObj.data[2]);
                     Play_HasVod = true;
@@ -804,9 +804,9 @@ function Play_EndSet(PlayVodClip) {
     } else if (PlayVodClip === 2) {
         // vod
         Play_EndIconsResetFocus();
-        Main_getElementById('dialog_end_-1').style.display = 'none';
-        Main_getElementById('dialog_end_0').style.display = 'inline-block';
-        Main_getElementById('dialog_end_2').style.display = 'none';
+        Main_SetStyleById('dialog_end_-1', 'display', 'none');
+        Main_SetStyleById('dialog_end_0', 'display', 'inline-block');
+        Main_SetStyleById('dialog_end_2', 'display', 'none');
         Play_EndTextsSetHasLive();
 
         Main_innerHTML('end_replay_name_text_0', Main_values.Main_selectedChannelDisplayname);
@@ -820,11 +820,11 @@ function Play_EndSet(PlayVodClip) {
         // clip
 
         Play_EndIconsResetFocus();
-        Main_getElementById('dialog_end_-1').style.display = PlayClip_HasNext ? 'inline-block' : 'none';
-        Main_getElementById('dialog_end_0').style.display = 'inline-block';
+        Main_SetStyleById('dialog_end_-1', 'display', PlayClip_HasNext ? 'inline-block' : 'none');
+        Main_SetStyleById('dialog_end_0', 'display', 'inline-block');
         Main_textContent('dialog_end_vod_text_2', PlayClip_HasVOD ? STR_OPEN_BROADCAST : STR_NO_BROADCAST);
         Play_EndTextsSetHasLive();
-        Main_getElementById('dialog_end_2').style.display = 'inline-block';
+        Main_SetStyleById('dialog_end_2', 'display', 'inline-block');
 
         Main_innerHTML('end_replay_name_text_0', Main_values.Main_selectedChannelDisplayname);
         Main_innerHTML('end_replay_title_text_0', ChannelClip_title);
@@ -863,11 +863,11 @@ function Play_EndTextsSetHasLive() {
 
         Main_innerHTML('end_live_name_text_1', Play_controls[Play_controlsOpenLive].string);
 
-        Main_getElementById('dialog_end_1').style.display = 'inline-block';
-        Main_getElementById('end_next_img_holder_-1').style.transform = 'translate(-5%, -104%)';
+        Main_SetStyleById('dialog_end_1', 'display', 'inline-block');
+        Main_SetStyleById('end_next_img_holder_-1', 'transform', 'translate(-5%, -104%)');
     } else {
-        Main_getElementById('dialog_end_1').style.display = 'none';
-        Main_getElementById('end_next_img_holder_-1').style.transform = 'translate(-24.5%, -104%)';
+        Main_SetStyleById('dialog_end_1', 'display', 'none');
+        Main_SetStyleById('end_next_img_holder_-1', 'transform', 'translate(-24.5%, -104%)');
     }
 }
 
@@ -1442,7 +1442,7 @@ function Play_CheckPreviewLive(SkipSidepanelFocus) {
         if (Main_values.Main_Go === Main_ChannelContent) {
             restorePreview = ChannelContent_RestoreThumb(Play_data);
         } else if (
-            ScreenObj[Main_values.Main_Go].screenType === 0 &&
+            ScreenObj[Main_values.Main_Go] && ScreenObj[Main_values.Main_Go].screenType === 0 &&
             ScreenObj[Main_values.Main_Go].posY > -1 &&
             !Main_ThumbOpenIsNull(
                 ScreenObj[Main_values.Main_Go].posY + '_' + ScreenObj[Main_values.Main_Go].posX,

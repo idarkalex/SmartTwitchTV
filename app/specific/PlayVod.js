@@ -544,12 +544,11 @@ function PlayVod_UpdateHistory(screen, saveOffset) {
         if (time > 0 && Play_DurationSeconds - 300 > time) {
             PlayVod_SaveVodIds(time);
 
-            if (!ScreenObj[Main_HistoryVod].histPosX[1] && ScreenObj[screen].screenType === 1) {
+            if (!ScreenObj[Main_HistoryVod].histPosX[1] && ScreenObj[screen] && ScreenObj[screen].screenType === 1) {
                 var data = ScreenObj[screen].DataObj[ScreenObj[screen].posY + '_' + ScreenObj[screen].posX];
 
                 if (data && Main_values.ChannelVod_vodId === data[7]) {
-                    Main_getElementById(ScreenObj[screen].ids[7] + (ScreenObj[screen].posY + '_' + ScreenObj[screen].posX)).style.width =
-                        (time / data[11]) * 100 + '%';
+                    Main_SetStyleById(ScreenObj[screen].ids[7] + (ScreenObj[screen].posY + '_' + ScreenObj[screen].posX), 'width', (time / data[11]) * 100 + '%');
                 }
             }
         }
@@ -982,7 +981,7 @@ function PlayVod_CheckPreview() {
         PlayVod_isOn &&
         Settings_Obj_default('show_vod_player') &&
         Main_values.Main_Go !== Main_ChannelContent &&
-        (ScreenObj[Main_values.Main_Go].screenType === 1 || ScreenObj[Main_values.Main_Go].screen === Main_HistoryLive) &&
+        (ScreenObj[Main_values.Main_Go] && ScreenObj[Main_values.Main_Go].screenType === 1 || ScreenObj[Main_values.Main_Go] && ScreenObj[Main_values.Main_Go].screen === Main_HistoryLive) &&
         !Play_isEndDialogVisible() &&
         !Sidepannel_isShowingUserLive() &&
         !Main_ThumbOpenIsNull(ScreenObj[Main_values.Main_Go].posY + '_' + ScreenObj[Main_values.Main_Go].posX, ScreenObj[Main_values.Main_Go].ids[0])
@@ -994,7 +993,7 @@ function PlayVod_CheckPreview() {
 function PlayVod_CheckPreviewVod() {
     var restorePreview = false;
 
-    if (ScreenObj[Main_values.Main_Go].DataObj[ScreenObj[Main_values.Main_Go].posY + '_' + ScreenObj[Main_values.Main_Go].posX]) {
+    if (ScreenObj[Main_values.Main_Go] && ScreenObj[Main_values.Main_Go].DataObj[ScreenObj[Main_values.Main_Go].posY + '_' + ScreenObj[Main_values.Main_Go].posX]) {
         var obj = Screens_GetObj(Main_values.Main_Go);
 
         if (ScreenObj[Main_values.Main_Go].screen === Main_HistoryLive) {
