@@ -750,19 +750,17 @@ function SettingsColor_RemoveoptFocus() {
     var key = 'color_options' + SettingsColor_canvasPosY;
     Main_RemoveClass(key, 'settings_value_focus');
     Main_RemoveClass(key + '_div', 'settings_div_focus');
-    Main_getElementById(key + 'arrow_left').style.opacity = '0';
-    Main_getElementById(key + 'arrow_right').style.opacity = '0';
+    PlayUtils.removeArrowsOpacity(
+        Main_getElementById(key + 'arrow_left'),
+        Main_getElementById(key + 'arrow_right')
+    );
 }
 
 function SettingsColor_ColorSetarrowsKey(pos, currentValue, maxValue) {
-    if (currentValue > 0 && currentValue < maxValue) {
-        Main_getElementById('color_options' + pos + 'arrow_left').style.opacity = '1';
-        Main_getElementById('color_options' + pos + 'arrow_right').style.opacity = '1';
-    } else if (currentValue === maxValue) {
-        Main_getElementById('color_options' + pos + 'arrow_left').style.opacity = '1';
-        Main_getElementById('color_options' + pos + 'arrow_right').style.opacity = '0.2';
-    } else {
-        Main_getElementById('color_options' + pos + 'arrow_left').style.opacity = '0.2';
-        Main_getElementById('color_options' + pos + 'arrow_right').style.opacity = '1';
-    }
+    PlayUtils.setArrowsOpacity(
+        Main_getElementById('color_options' + pos + 'arrow_left'),
+        Main_getElementById('color_options' + pos + 'arrow_right'),
+        currentValue,
+        maxValue
+    );
 }

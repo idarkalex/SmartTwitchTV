@@ -614,19 +614,7 @@ function PlayClip_showPanel() {
 }
 
 function PlayClip_qualityIndexReset() {
-    PlayClip_qualityIndex = 0;
-    var i = 0,
-        len = PlayClip_getQualitiesCount();
-
-    for (i; i < len; i++) {
-        if (PlayClip_qualities[i].id === PlayClip_quality) {
-            PlayClip_qualityIndex = i;
-            break;
-        } else if (Main_A_includes_B(PlayClip_qualities[i].id, PlayClip_quality)) {
-            //make shore to set a value before break out
-            PlayClip_qualityIndex = i;
-        }
-    }
+    PlayClip_qualityIndex = PlayUtils.qualityIndexReset(PlayClip_qualities, PlayClip_quality, PlayClip_getQualitiesCount);
 
     if (PlayClip_qualities[PlayClip_qualityIndex]) Play_qualityTitleReset(PlayClip_qualities[PlayClip_qualityIndex].id.split(' | mp4')[0]);
 }
@@ -636,14 +624,11 @@ function PlayClip_getQualitiesCount() {
 }
 
 function PlayClip_SetHtmlQuality(element) {
-    if (!PlayClip_getQualitiesCount() || !PlayClip_qualities[PlayClip_qualityIndex].hasOwnProperty('id')) return;
+    var result = PlayUtils.setHtmlQualityClip(PlayClip_qualities, PlayClip_qualityIndex);
+    if (!result) return;
 
-    PlayClip_quality = PlayClip_qualities[PlayClip_qualityIndex].id;
-
-    var quality_string = PlayClip_quality;
-    if (Main_A_includes_B(PlayClip_quality, 'source')) quality_string = quality_string.replace('source', STR_SOURCE);
-
-    Main_textContentWithEle(element, PlayClip_quality);
+    PlayClip_quality = result.quality;
+    Main_textContentWithEle(element, result.display);
 }
 
 function PlayClip_setHidePanel() {
@@ -964,14 +949,7 @@ function PlayClip_handleKeyDown(e) {
 }
 
 function PlayClip_FastBackForward(position) {
-    if (!Play_isPanelShowing()) PlayClip_showPanel();
-    Play_clearHidePanel();
-    PlayVod_PanelY = 0;
-    Play_BottomIconsFocus();
-
-    PlayVod_jumpStart(position, Play_DurationSeconds);
-    PlayVod_ProgressBaroffset = 2500;
-    PlayClip_setHidePanel();
+    PlayUtils.fastBackForward(position, PlayClip_showPanel, PlayClip_setHidePanel);
 }
 
 var PlayClip_CheckIsLiveId;

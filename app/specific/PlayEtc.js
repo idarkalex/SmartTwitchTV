@@ -315,23 +315,13 @@ var Play_ChatFullScreenSizes = [
 ];
 
 function Play_SetChatSideBySide() {
-    if (PlayExtra_PicturePicture) {
-        Play_chat_container.style.width = Play_ChatFullScreenSizes[1][3].width;
-        Play_chat_container.style.left = Play_ChatFullScreenSizes[1][3].left;
+    var sizes = PlayExtra_PicturePicture ? Play_ChatFullScreenSizes[1][3] : Play_ChatFullScreenSizes[Play_FullScreenPosition][Play_FullScreenSize];
+    var dialogTop = Play_ChatSizeVal[3].dialogTop;
 
-        //Default values
-        Play_chat_container.style.height = '99.6%';
-        Main_getElementById('play_chat_dialog').style.marginTop = Play_ChatSizeVal[3].dialogTop + '%';
-        Play_chat_container.style.top = '0.2%';
-    } else {
-        Play_chat_container.style.width = Play_ChatFullScreenSizes[Play_FullScreenPosition][Play_FullScreenSize].width;
-        Play_chat_container.style.left = Play_ChatFullScreenSizes[Play_FullScreenPosition][Play_FullScreenSize].left;
+    Play_chat_container.style.cssText = 'width:' + sizes.width + ';left:' + sizes.left + ';height:99.6%;top:0.2%';
+    Play_chat_dialog.style.marginTop = dialogTop + '%';
 
-        //Default values
-        Play_chat_container.style.height = '99.6%';
-        Main_getElementById('play_chat_dialog').style.marginTop = Play_ChatSizeVal[3].dialogTop + '%';
-        Play_chat_container.style.top = '0.2%';
-
+    if (!PlayExtra_PicturePicture) {
         if (Main_IsOn_OSInterface) OSInterface_mupdatesize(Play_isFullScreen);
 
         Play_controls[Play_controlsChatPos].values = STR_CHAT_SIDE_ARRAY;
@@ -374,10 +364,12 @@ function Play_StoreChatFullScreen() {
     Play_ChatFullScreenObj.controlsSizeDefault = Play_controls[Play_controlsChatPos].defaultValue;
 
     Play_ChatFullScreenObj.WasEnable = Play_ChatEnable;
-    Play_ChatFullScreenObj.height = Play_chat_container.style.height;
-    Play_ChatFullScreenObj.marginTop = Main_getElementById('play_chat_dialog').style.marginTop;
-    Play_ChatFullScreenObj.top = Play_chat_container.style.top;
-    Play_ChatFullScreenObj.left = Play_chat_container.style.left;
+
+    var pos = PlayUtils.storeChatPos(Play_chat_container, Play_chat_dialog);
+    Play_ChatFullScreenObj.height = pos.height;
+    Play_ChatFullScreenObj.marginTop = pos.marginTop;
+    Play_ChatFullScreenObj.top = pos.top;
+    Play_ChatFullScreenObj.left = pos.left;
 
     Play_ResetQualityControls();
 }
@@ -394,13 +386,12 @@ function Play_ResStoreChatFullScreen() {
         Play_BottomArrows(Play_controlsChatSize);
 
         Play_ChatEnable = Play_ChatFullScreenObj.WasEnable;
-        Play_chat_container.style.width = '';
-        if (!Play_ChatEnable) Play_hideChat();
-        else Play_showChat();
-        Play_chat_container.style.height = Play_ChatFullScreenObj.height;
-        Main_getElementById('play_chat_dialog').style.marginTop = Play_ChatFullScreenObj.marginTop;
-        Play_chat_container.style.top = Play_ChatFullScreenObj.top;
-        Play_chat_container.style.left = Play_ChatFullScreenObj.left;
+        PlayUtils.restoreChatPos(
+            Play_chat_container,
+            Play_chat_dialog,
+            {height: Play_ChatFullScreenObj.height, marginTop: Play_ChatFullScreenObj.marginTop, top: Play_ChatFullScreenObj.top, left: Play_ChatFullScreenObj.left},
+            Play_ChatEnable
+        );
 
         Play_ResetQualityControls();
     }
@@ -1618,7 +1609,7 @@ function Play_MultiKeyDown() {
         Play_showChat();
         Play_chat_container.style.width = '32.8%';
         Play_chat_container.style.height = '65.8%';
-        Main_getElementById('play_chat_dialog').style.marginTop = Play_ChatSizeVal[3].dialogTop + '%';
+        Play_chat_dialog.style.marginTop = Play_ChatSizeVal[3].dialogTop + '%';
         Play_chat_container.style.top = '0.2%';
         Play_chat_container.style.left = '67%';
 
@@ -2034,6 +2025,11 @@ var Play_PanelCounter = Play_controlsDefault;
 var Play_PanelCounterBefore = 0;
 
 function Play_MakeControls() {
+    Play_MakeControlsDefinitions();
+    Play_MakeControlsDOM();
+}
+
+function Play_MakeControlsDefinitions() {
     Play_controls[Play_controlsBack] = {
         //Search
         ShowInLive: false,
@@ -4002,7 +3998,9 @@ function Play_MakeControls() {
             Main_innerHTMLWithEle(this.doc_name, Main_ReplaceLargeFont(this.values[this.defaultValue]));
         }
     };
+}
 
+function Play_MakeControlsDOM() {
     var div,
         doc = Main_getElementById('controls_holder'),
         fragment = document.createDocumentFragment(),
@@ -4529,6 +4527,7 @@ function Play_PreStart() {
     Play_seek_previews_text = Main_getElementById('seek_previews_text');
     Play_seek_previews_img = new Image();
     Play_chat_container = Main_getElementById('chat_container0');
+    Play_chat_dialog = Play_chat_dialog;
     Play_ProgresBarrElm = Main_getElementById('inner_progress_bar');
     Play_ProgresBarrBufferElm = Main_getElementById('inner_progress_bar_buffer');
     Play_PanneInfoDoclId = Main_getElementById('scene_channel_panel');
@@ -4649,10 +4648,7 @@ function Play_SetSceneBackground(url, reset) {
     }
 
     if (!Main_A_equals_B(Play_SetSceneBackgroundUrl, url)) {
-        Main_Scene2Doc.style.backgroundRepeat = 'no-repeat';
-        Main_Scene2Doc.style.backgroundSize = '100%';
-        Main_Scene2Doc.style.backgroundColor = '#000000';
-        Main_Scene2Doc.style.backgroundImage = url ? "url('" + url + "')" : 'none';
+        Main_Scene2Doc.style.cssText = 'background: ' + (url ? "url('" + url + "') " : 'none ') + 'no-repeat 0 0 / 100% #000000';
     }
 
     Play_SetSceneBackgroundUrl = url;
