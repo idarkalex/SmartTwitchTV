@@ -862,7 +862,7 @@ function ChatLiveControls_PreventInput() {
 }
 
 function ChatLiveControls_PreventInputClear() {
-    if (Main_A_includes_B(Main_ChatLiveInput.className, 'chat_input_class_block')) {
+    if (Main_ChatLiveInput && Main_A_includes_B(Main_ChatLiveInput.className, 'chat_input_class_block')) {
         Main_RemoveClassWithEle(Main_ChatLiveInput, 'chat_input_class_block');
         Main_ChatLiveInput.value = '';
         ChatLiveControls_UpdateResultTextEmpty();

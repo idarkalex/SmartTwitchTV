@@ -125,7 +125,7 @@ function Sidepannel_isShowingUserLive() {
 }
 
 function Sidepannel_isShowingUserLiveSide() {
-    return !Main_A_includes_B(Sidepannel_SidepannelDoc.className, 'side_panel_hide');
+    return Sidepannel_SidepannelDoc && !Main_A_includes_B(Sidepannel_SidepannelDoc.className, 'side_panel_hide');
 }
 
 function Sidepannel_GetObj() {

@@ -186,7 +186,9 @@ function Main_Start() {
 function Main_StartApp() {
     Main_CheckdStyleSheet();
 
-    Main_ready(function () {
+    // Use requestAnimationFrame to ensure CSS is applied before reading layout
+    requestAnimationFrame(function () {
+        Main_ready(function () {
         try {
             if (Main_A_includes_B(window.location.href, 'asset')) {
                 //Same as in smartTwitchTV/release/api.js
@@ -288,6 +290,7 @@ function Main_StartApp() {
         Sidepannel_MovelDiv = Main_getElementById('side_panel_movel');
 
         AddUser_RestoreUsers();
+    });
     });
 }
 
@@ -694,7 +697,7 @@ function Main_isElementShowing(element) {
 }
 
 function Main_isElementShowingWithEle(element) {
-    return !Main_A_includes_B(element ? element.className : '', 'hide');
+    return !Main_A_includes_B(Main_GetClassName(element), 'hide');
 }
 
 function Main_AddClass(element, mclass) {
@@ -731,6 +734,18 @@ function Main_textContentWithEle(elem, value) {
 
 function Main_RemoveElement(ele) {
     if (ele) ele.remove();
+}
+
+function Main_SetStyle(element, property, value) {
+    if (element && element.style) element.style[property] = value;
+}
+
+function Main_GetStyle(element, property) {
+    return element && element.style ? element.style[property] : '';
+}
+
+function Main_GetClassName(element) {
+    return element && element.className ? element.className : '';
 }
 
 function Main_replaceClassEmoji(div) {
@@ -1585,16 +1600,18 @@ function Main_getElementById(elemString) {
 }
 
 function Main_isScene1DocVisible() {
-    return parseInt(Main_Scene1Doc.style.opacity);
+    return Main_Scene1Doc ? parseInt(Main_Scene1Doc.style.opacity) : 0;
 }
 
 function Main_showScene1Doc() {
+    if (!Main_Scene1Doc) return;
     Main_Scene1Doc.style.opacity = 1;
 
     Main_Scene1Doc.style.pointerEvents = '';
 }
 
 function Main_hideScene1Doc() {
+    if (!Main_Scene1Doc) return;
     Main_Scene1Doc.style.opacity = 0;
 
     Main_Scene1Doc.style.pointerEvents = 'none';
@@ -1611,19 +1628,21 @@ function Main_hideScene1DocAndCallBack(callback) {
 }
 
 function Main_showScene2Doc() {
+    if (!Main_Scene2Doc) return;
     Main_Scene2Doc.style.opacity = 1;
 
     Main_Scene2Doc.style.pointerEvents = '';
 }
 
 function Main_hideScene2Doc() {
+    if (!Main_Scene2Doc) return;
     Main_Scene2Doc.style.opacity = 0;
 
     Main_Scene2Doc.style.pointerEvents = 'none';
 }
 
 function Main_isScene2DocVisible() {
-    return parseInt(Main_Scene2Doc.style.opacity);
+    return Main_Scene2Doc ? parseInt(Main_Scene2Doc.style.opacity) : 0;
 }
 
 function Main_OPenAsVod(historyPos) {

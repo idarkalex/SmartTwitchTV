@@ -1534,10 +1534,11 @@ function Play_UpdateStatus(who_called) {
 }
 
 function Play_isPanelShowing() {
-    return parseInt(Play_PanneInfoDoclId.style.opacity);
+    return Play_PanneInfoDoclId ? parseInt(Play_PanneInfoDoclId.style.opacity) : 0;
 }
 
 function Play_ForceShowPannel() {
+    if (!Play_PanneInfoDoclId) return;
     Play_PanneInfoDoclId.style.opacity = 1;
 
     if (!Play_StayDialogVisible()) {
@@ -1552,6 +1553,7 @@ function Play_ForceShowPannel() {
 }
 
 function Play_ForceHidePannel() {
+    if (!Play_PanneInfoDoclId) return;
     Play_PanneInfoDoclId.style.opacity = 0;
 
     if (!Play_Status_Visible) Main_HideElementWithEle(Play_side_info_div);
@@ -1860,7 +1862,7 @@ function Play_hideChat() {
 }
 
 function Play_isChatShown() {
-    return !Main_A_includes_B(Play_chat_container.className, 'hide');
+    return Play_chat_container && !Main_A_includes_B(Play_chat_container.className, 'hide');
 }
 
 function Play_getQualitiesCount() {

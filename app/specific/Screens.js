@@ -907,7 +907,7 @@ function Screens_createCellLive(id, idArray, valuesArray, key, Extra_when, Extra
         '\';" ><div class="viewer_badge"><span class="viewer_dot"></span><span>' +
         valuesArray[4] +
         '</span></div></div><div class="thumb_info_row">' +
-        (avatar ? '<img class="thumb_avatar" alt="" src="' + avatar + '" onerror="this.style.display=\'none\'">' : '') +
+        (avatar ? '<img class="thumb_avatar" alt="" src="' + avatar + '" crossorigin="anonymous" onerror="this.style.display=\'none\'">' : '') +
         '<div class="thumb_text_info"><div class="thumb_game_name">' +
         (valuesArray[3] !== '' ? valuesArray[3] : '') +
         '</div><div class="thumb_streamer_name" id="' +
