@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const PORT = 8080;
-const ROOT = path.join(__dirname, 'githubio');
+const ROOT = __dirname;
 
 const MIME = {
     '.html': 'text/html',
