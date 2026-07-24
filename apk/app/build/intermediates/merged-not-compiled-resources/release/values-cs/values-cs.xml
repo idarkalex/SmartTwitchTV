@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <string-array name="exo_controls_playback_speeds">
+    <item>0,25×</item>
+    <item>0,5×</item>
+    <item>0,75×</item>
+    <item>Normální</item>
+    <item>1,25×</item>
+    <item>1,5×</item>
+    <item>2×</item>
+  </string-array>
+    <plurals name="exo_controls_fastforward_by_amount_description">
+    <item quantity="one">Posunout vpřed o %d sekundu</item>
+    <item quantity="few">Posunout vpřed o %d sekundy</item>
+    <item quantity="many">Posunout vpřed o %d sekundy</item>
+    <item quantity="other">Posunout vpřed o %d sekund</item>
+  </plurals>
+    <plurals name="exo_controls_rewind_by_amount_description">
+    <item quantity="one">Přetočit zpět o %d sekundu</item>
+    <item quantity="few">Přetočit zpět o %d sekundy</item>
+    <item quantity="many">Přetočit zpět o %d sekundy</item>
+    <item quantity="other">Přetočit zpět o %d sekund</item>
+  </plurals>
+    <string msgid="4600421777120114993" name="abc_action_bar_home_description">"Přejít na plochu"</string>
+    <string msgid="1594238315039666878" name="abc_action_bar_up_description">"Přejít nahoru"</string>
+    <string msgid="3588849162933574182" name="abc_action_menu_overflow_description">"Více možností"</string>
+    <string msgid="4076576682505996667" name="abc_action_mode_done">"Hotovo"</string>
+    <string msgid="7468859129482906941" name="abc_activity_chooser_view_see_all">"Zobrazit vše"</string>
+    <string msgid="2031811694353399454" name="abc_activitychooserview_choose_application">"Vybrat aplikaci"</string>
+    <string msgid="121134116657445385" name="abc_capital_off">"VYPNUTO"</string>
+    <string msgid="3405795526292276155" name="abc_capital_on">"ZAPNUTO"</string>
+    <string msgid="1302280443949172191" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="1324831542140195728" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="8362206064229013510" name="abc_menu_delete_shortcut_label">"delete"</string>
+    <string msgid="8341180395196749340" name="abc_menu_enter_shortcut_label">"enter"</string>
+    <string msgid="4792426091847145555" name="abc_menu_function_shortcut_label">"Fn+"</string>
+    <string msgid="7643535737296831317" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="8126296154200614004" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="2378550843553983978" name="abc_menu_space_shortcut_label">"mezerník"</string>
+    <string msgid="9002602288060866689" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="1351762916121158029" name="abc_prepend_shortcut_label">"Menu+"</string>
+    <string msgid="7723749260725869598" name="abc_search_hint">"Vyhledat…"</string>
+    <string msgid="3691816814315814921" name="abc_searchview_description_clear">"Smazat dotaz"</string>
+    <string msgid="2550479030709304392" name="abc_searchview_description_query">"Vyhledávací dotaz"</string>
+    <string msgid="8264924765203268293" name="abc_searchview_description_search">"Hledat"</string>
+    <string msgid="8928215447528550784" name="abc_searchview_description_submit">"Odeslat dotaz"</string>
+    <string msgid="893419373245838918" name="abc_searchview_description_voice">"Hlasové vyhledávání"</string>
+    <string msgid="3421042268587513524" name="abc_shareactionprovider_share_with">"Sdílet pomocí"</string>
+    <string msgid="3300176832234831527" name="abc_shareactionprovider_share_with_application">"Sdílet s aplikací <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="1603543279005712093" name="abc_toolbar_collapse_description">"Sbalit"</string>
+    <string name="exo_controls_cc_disabled_description">Zapnout titulky</string>
+    <string name="exo_controls_cc_enabled_description">Vypnout titulky</string>
+    <string name="exo_controls_fastforward_description">Rychle vpřed</string>
+    <string name="exo_controls_fullscreen_enter_description">Přejít do režimu celé obrazovky</string>
+    <string name="exo_controls_fullscreen_exit_description">Ukončit režim celé obrazovky</string>
+    <string name="exo_controls_hide">Skrýt ovládací prvky přehrávače</string>
+    <string name="exo_controls_next_description">Další</string>
+    <string name="exo_controls_overflow_hide_description">Skrýt další nastavení</string>
+    <string name="exo_controls_overflow_show_description">Zobrazit další nastavení</string>
+    <string name="exo_controls_pause_description">Pozastavit</string>
+    <string name="exo_controls_play_description">Přehrát</string>
+    <string name="exo_controls_playback_speed">Rychlost</string>
+    <string name="exo_controls_previous_description">Předchozí</string>
+    <string name="exo_controls_repeat_all_description">Aktuálně: Opakovat vše. Zapněte režim opakování.</string>
+    <string name="exo_controls_repeat_off_description">Aktuálně: Nic neopakovat. Zapněte režim opakování.</string>
+    <string name="exo_controls_repeat_one_description">Aktuálně: Opakovat jednu položku. Zapněte režim opakování.</string>
+    <string name="exo_controls_rewind_description">Přetočit zpět</string>
+    <string name="exo_controls_seek_bar_description">Průběh přehrávání</string>
+    <string name="exo_controls_settings_description">Nastavení</string>
+    <string name="exo_controls_show">Zobrazit ovládací prvky přehrávače</string>
+    <string name="exo_controls_shuffle_off_description">Aktivovat náhodné přehrávání</string>
+    <string name="exo_controls_shuffle_on_description">Deaktivovat náhodné přehrávání</string>
+    <string name="exo_controls_stop_description">Zastavit</string>
+    <string name="exo_controls_vr_description">Režim VR</string>
+    <string name="exo_download_completed">Stahování bylo dokončeno</string>
+    <string name="exo_download_description">Stáhnout</string>
+    <string name="exo_download_downloading">Stahování</string>
+    <string name="exo_download_failed">Stažení se nezdařilo</string>
+    <string name="exo_download_notification_channel_name">Stahování</string>
+    <string name="exo_download_paused">Stahování pozastaveno</string>
+    <string name="exo_download_paused_for_network">Stahování čeká na síť</string>
+    <string name="exo_download_paused_for_wifi">Stahování čeká na WiFi</string>
+    <string name="exo_download_removing">Odstraňování staženého obsahu</string>
+    <string name="exo_item_list">%1$s, %2$s</string>
+    <string name="exo_track_bitrate">%1$.2f Mb/s</string>
+    <string name="exo_track_mono">Mono</string>
+    <string name="exo_track_resolution">%1$d × %2$d</string>
+    <string name="exo_track_role_alternate">Alternativní</string>
+    <string name="exo_track_role_closed_captions">Titulky</string>
+    <string name="exo_track_role_commentary">Komentář</string>
+    <string name="exo_track_role_supplementary">Dodatkové</string>
+    <string name="exo_track_selection_auto">Automaticky</string>
+    <string name="exo_track_selection_none">Žádné</string>
+    <string name="exo_track_selection_title_audio">Zvuk</string>
+    <string name="exo_track_stereo">Stereo</string>
+    <string name="exo_track_surround">Prostorový zvuk</string>
+    <string name="exo_track_surround_5_point_1">Prostorový zvuk 5.1</string>
+    <string name="exo_track_surround_7_point_1">Prostorový zvuk 7.1</string>
+    <string name="exo_track_unknown">Neznámé</string>
+    <string name="exo_track_unknown_name">Neznámé (%1$s)</string>
+    <string msgid="4657191930956702614" name="lb_control_display_fast_forward_multiplier">"%1$d×"</string>
+    <string msgid="4597148235912710942" name="lb_control_display_rewind_multiplier">"%1$d×"</string>
+    <string msgid="893619591225519922" name="lb_guidedaction_continue_title">"Pokračovat"</string>
+    <string msgid="3330958750346333890" name="lb_guidedaction_finish_title">"Dokončit"</string>
+    <string msgid="3228326776757666747" name="lb_media_player_error">"Kód chyby přehrávače MediaPlayer %1$d, další %2$d"</string>
+    <string msgid="8084428500709675515" name="lb_navigation_menu_contentDescription">"Navigační nabídka"</string>
+    <string msgid="2394451791544864917" name="lb_onboarding_accessibility_next">"Další"</string>
+    <string msgid="5549711907371161292" name="lb_onboarding_get_started">"ZAČÍT"</string>
+    <string msgid="8691966842977635128" name="lb_playback_controls_closed_captioning_disable">"Vypnout titulky"</string>
+    <string msgid="2346334170216706076" name="lb_playback_controls_closed_captioning_enable">"Zapnout titulky"</string>
+    <string msgid="740570111678243493" name="lb_playback_controls_fast_forward">"Přetočit vpřed"</string>
+    <string msgid="5734614175721471329" name="lb_playback_controls_fast_forward_multiplier">"Přetočit vpřed %1$d×"</string>
+    <string msgid="5859666950961624736" name="lb_playback_controls_hidden">"Ovládací prvky médií jsou skryty, zobrazíte je stisknutím křížového ovladače"</string>
+    <string msgid="1209119371486219736" name="lb_playback_controls_high_quality_disable">"Vypnout vysokou kvalitu"</string>
+    <string msgid="3057698527166674705" name="lb_playback_controls_high_quality_enable">"Zapnout vysokou kvalitu"</string>
+    <string msgid="8730341244454469032" name="lb_playback_controls_more_actions">"Další akce"</string>
+    <string msgid="917331776961802657" name="lb_playback_controls_pause">"Pozastavit"</string>
+    <string msgid="5770668162543767702" name="lb_playback_controls_picture_in_picture">"Přejít do režimu obraz v obraze"</string>
+    <string msgid="7088090604803481121" name="lb_playback_controls_play">"Přehrát"</string>
+    <string msgid="8429099206716245199" name="lb_playback_controls_repeat_all">"Opakovat vše"</string>
+    <string msgid="1614290959784265209" name="lb_playback_controls_repeat_none">"Neopakovat"</string>
+    <string msgid="676658705837320560" name="lb_playback_controls_repeat_one">"Opakovat jednu položku"</string>
+    <string msgid="2866333981131020771" name="lb_playback_controls_rewind">"Přetočit zpět"</string>
+    <string msgid="6038956370475252734" name="lb_playback_controls_rewind_multiplier">"Přetočit zpět %1$d×"</string>
+    <string msgid="8690223891515602822" name="lb_playback_controls_shown">"Ovládací prvky médií jsou zobrazeny"</string>
+    <string msgid="6793109999253893369" name="lb_playback_controls_shuffle_disable">"Vypnout náhodné přehrávání"</string>
+    <string msgid="5151681938752704485" name="lb_playback_controls_shuffle_enable">"Zapnout náhodné přehrávání"</string>
+    <string msgid="8117512422682146745" name="lb_playback_controls_skip_next">"Přeskočit na další"</string>
+    <string msgid="3481218248309447059" name="lb_playback_controls_skip_previous">"Přeskočit na předchozí"</string>
+    <string msgid="3544533410444618518" name="lb_playback_controls_thumb_down">"Zrušit výběr hodnocení palec dolů"</string>
+    <string msgid="8475278766138652105" name="lb_playback_controls_thumb_down_outline">"Vybrat hodnocení palec dolů"</string>
+    <string msgid="3458671378107738666" name="lb_playback_controls_thumb_up">"Zrušit výběr hodnocení palec nahoru"</string>
+    <string msgid="1385865732502550659" name="lb_playback_controls_thumb_up_outline">"Vybrat hodnocení palec nahoru"</string>
+    <string msgid="1471121602610716654" name="lb_playback_time_separator">"/"</string>
+    <string msgid="5700349211583074131" name="lb_search_bar_hint">"Hledat"</string>
+    <string msgid="5926531297066387462" name="lb_search_bar_hint_speech">"Vyhledávejte hlasem"</string>
+    <string msgid="4826526877249029043" name="lb_search_bar_hint_with_title">"Hledat <ns1:g id="SEARCH_CONTEXT">%1$s</ns1:g>"</string>
+    <string msgid="6032250334706920550" name="lb_search_bar_hint_with_title_speech">"Vyhledávejte v kontextu <ns1:g id="SEARCH_CONTEXT">%1$s</ns1:g> hlasem"</string>
+    <string msgid="1301877238242752863" name="orb_search_action">"Akce vyhledávání"</string>
+    <string msgid="146198913615257606" name="search_menu_title">"Hledat"</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+</resources>

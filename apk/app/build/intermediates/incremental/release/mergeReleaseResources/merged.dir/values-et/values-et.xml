@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <string-array name="exo_controls_playback_speeds">
+    <item>0,25-kordne</item>
+    <item>0,5-kordne</item>
+    <item>0,75-kordne</item>
+    <item>Tavaline</item>
+    <item>1,25-kordne</item>
+    <item>1,5-kordne</item>
+    <item>2-kordne</item>
+  </string-array>
+    <plurals name="exo_controls_fastforward_by_amount_description">
+    <item quantity="one">Keri %d sekund edasi</item>
+    <item quantity="other">Keri %d sekundit edasi</item>
+  </plurals>
+    <plurals name="exo_controls_rewind_by_amount_description">
+    <item quantity="one">Keri %d sekund tagasi</item>
+    <item quantity="other">Keri %d sekundit tagasi</item>
+  </plurals>
+    <string msgid="4600421777120114993" name="abc_action_bar_home_description">"Navigeerimine avaekraanile"</string>
+    <string msgid="1594238315039666878" name="abc_action_bar_up_description">"Navigeerimine üles"</string>
+    <string msgid="3588849162933574182" name="abc_action_menu_overflow_description">"Rohkem valikuid"</string>
+    <string msgid="4076576682505996667" name="abc_action_mode_done">"Valmis"</string>
+    <string msgid="7468859129482906941" name="abc_activity_chooser_view_see_all">"Kuva kõik"</string>
+    <string msgid="2031811694353399454" name="abc_activitychooserview_choose_application">"Valige rakendus"</string>
+    <string msgid="121134116657445385" name="abc_capital_off">"VÄLJAS"</string>
+    <string msgid="3405795526292276155" name="abc_capital_on">"SEES"</string>
+    <string msgid="1302280443949172191" name="abc_menu_alt_shortcut_label">"Alt +"</string>
+    <string msgid="1324831542140195728" name="abc_menu_ctrl_shortcut_label">"Ctrl +"</string>
+    <string msgid="8362206064229013510" name="abc_menu_delete_shortcut_label">"kustutamisklahv"</string>
+    <string msgid="8341180395196749340" name="abc_menu_enter_shortcut_label">"sisestusklahv"</string>
+    <string msgid="4792426091847145555" name="abc_menu_function_shortcut_label">"Funktsiooniklahv +"</string>
+    <string msgid="7643535737296831317" name="abc_menu_meta_shortcut_label">"Meta +"</string>
+    <string msgid="8126296154200614004" name="abc_menu_shift_shortcut_label">"Tõstuklahv +"</string>
+    <string msgid="2378550843553983978" name="abc_menu_space_shortcut_label">"tühik"</string>
+    <string msgid="9002602288060866689" name="abc_menu_sym_shortcut_label">"Sym +"</string>
+    <string msgid="1351762916121158029" name="abc_prepend_shortcut_label">"Menüü +"</string>
+    <string msgid="7723749260725869598" name="abc_search_hint">"Otsige …"</string>
+    <string msgid="3691816814315814921" name="abc_searchview_description_clear">"Päringu tühistamine"</string>
+    <string msgid="2550479030709304392" name="abc_searchview_description_query">"Otsingupäring"</string>
+    <string msgid="8264924765203268293" name="abc_searchview_description_search">"Otsing"</string>
+    <string msgid="8928215447528550784" name="abc_searchview_description_submit">"Päringu esitamine"</string>
+    <string msgid="893419373245838918" name="abc_searchview_description_voice">"Häälotsing"</string>
+    <string msgid="3421042268587513524" name="abc_shareactionprovider_share_with">"Jagamine:"</string>
+    <string msgid="3300176832234831527" name="abc_shareactionprovider_share_with_application">"Jagamine rakendusega <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="1603543279005712093" name="abc_toolbar_collapse_description">"Ahendamine"</string>
+    <string name="exo_controls_cc_disabled_description">Luba subtiitrid</string>
+    <string name="exo_controls_cc_enabled_description">Keela subtiitrid</string>
+    <string name="exo_controls_fastforward_description">Keri edasi</string>
+    <string name="exo_controls_fullscreen_enter_description">Avamine täisekraanil</string>
+    <string name="exo_controls_fullscreen_exit_description">Väljumine täisekraanilt</string>
+    <string name="exo_controls_hide">Peida pleieri juhtnupud</string>
+    <string name="exo_controls_next_description">Edasi</string>
+    <string name="exo_controls_overflow_hide_description">Peida lisaseaded</string>
+    <string name="exo_controls_overflow_show_description">Kuva lisaseaded</string>
+    <string name="exo_controls_pause_description">Peata</string>
+    <string name="exo_controls_play_description">Esita</string>
+    <string name="exo_controls_playback_speed">Kiirus</string>
+    <string name="exo_controls_previous_description">Eelmine</string>
+    <string name="exo_controls_repeat_all_description">Praegune režiim: Korda kõiki. Aktiveerige kordusrežiim.</string>
+    <string name="exo_controls_repeat_off_description">Praegune režiim: Ära korda. Aktiveerige kordusrežiim.</string>
+    <string name="exo_controls_repeat_one_description">Praegune režiim: Korda ühte. Aktiveerige kordusrežiim.</string>
+    <string name="exo_controls_rewind_description">Keri tagasi</string>
+    <string name="exo_controls_seek_bar_description">Taasesitus on pooleli</string>
+    <string name="exo_controls_settings_description">Seaded</string>
+    <string name="exo_controls_show">Kuva pleieri juhtnupud</string>
+    <string name="exo_controls_shuffle_off_description">Juhuesituse režiimi lubamine</string>
+    <string name="exo_controls_shuffle_on_description">Juhuesituse režiimi keelamine</string>
+    <string name="exo_controls_stop_description">Lõpeta</string>
+    <string name="exo_controls_vr_description">VR-režiim</string>
+    <string name="exo_download_completed">Allalaadimine lõpetati</string>
+    <string name="exo_download_description">Allalaadimine</string>
+    <string name="exo_download_downloading">Allalaadimine</string>
+    <string name="exo_download_failed">Allalaadimine ebaõnnestus</string>
+    <string name="exo_download_notification_channel_name">Allalaadimised</string>
+    <string name="exo_download_paused">Allalaadimised peatati</string>
+    <string name="exo_download_paused_for_network">Allalaadimised on võrgu ootel</string>
+    <string name="exo_download_paused_for_wifi">Allalaadimised on WiFi-võrgu ootel</string>
+    <string name="exo_download_removing">Allalaadimiste eemaldamine</string>
+    <string name="exo_item_list">%1$s, %2$s</string>
+    <string name="exo_track_bitrate">%1$.2f Mbit/s</string>
+    <string name="exo_track_mono">Mono</string>
+    <string name="exo_track_resolution">%1$d × %2$d</string>
+    <string name="exo_track_role_alternate">Alternatiiv</string>
+    <string name="exo_track_role_closed_captions">Subtiitrid</string>
+    <string name="exo_track_role_commentary">Kommentaar</string>
+    <string name="exo_track_role_supplementary">Lisalugu</string>
+    <string name="exo_track_selection_auto">Automaatne</string>
+    <string name="exo_track_selection_none">Ühtegi</string>
+    <string name="exo_track_selection_title_audio">Heli</string>
+    <string name="exo_track_stereo">Stereo</string>
+    <string name="exo_track_surround">Ruumiline heli</string>
+    <string name="exo_track_surround_5_point_1">Ruumiline heli 5.1</string>
+    <string name="exo_track_surround_7_point_1">Ruumiline heli 7.1</string>
+    <string name="exo_track_unknown">Teadmata</string>
+    <string name="exo_track_unknown_name">Teadmata (%1$s)</string>
+    <string msgid="4657191930956702614" name="lb_control_display_fast_forward_multiplier">"%1$dX"</string>
+    <string msgid="4597148235912710942" name="lb_control_display_rewind_multiplier">"%1$dX"</string>
+    <string msgid="893619591225519922" name="lb_guidedaction_continue_title">"Jätka"</string>
+    <string msgid="3330958750346333890" name="lb_guidedaction_finish_title">"Lõpeta"</string>
+    <string msgid="3228326776757666747" name="lb_media_player_error">"MediaPlayeri veakood %1$d, lisakood %2$d"</string>
+    <string msgid="8084428500709675515" name="lb_navigation_menu_contentDescription">"Navigeerimismenüü"</string>
+    <string msgid="2394451791544864917" name="lb_onboarding_accessibility_next">"Järgmine"</string>
+    <string msgid="5549711907371161292" name="lb_onboarding_get_started">"ALUSTAGE"</string>
+    <string msgid="8691966842977635128" name="lb_playback_controls_closed_captioning_disable">"Keela subtiitrid"</string>
+    <string msgid="2346334170216706076" name="lb_playback_controls_closed_captioning_enable">"Luba subtiitrid"</string>
+    <string msgid="740570111678243493" name="lb_playback_controls_fast_forward">"Keri edasi"</string>
+    <string msgid="5734614175721471329" name="lb_playback_controls_fast_forward_multiplier">"Keri edasi %1$dX"</string>
+    <string msgid="5859666950961624736" name="lb_playback_controls_hidden">"Meedia juhtnupud on peidetud, kuvamiseks vajutage juhtimisklahvistikku"</string>
+    <string msgid="1209119371486219736" name="lb_playback_controls_high_quality_disable">"Keela kvaliteetne taasesitus"</string>
+    <string msgid="3057698527166674705" name="lb_playback_controls_high_quality_enable">"Luba kvaliteetne taasesitus"</string>
+    <string msgid="8730341244454469032" name="lb_playback_controls_more_actions">"Rohkem toiminguid"</string>
+    <string msgid="917331776961802657" name="lb_playback_controls_pause">"Peata"</string>
+    <string msgid="5770668162543767702" name="lb_playback_controls_picture_in_picture">"Sisene režiimi Pilt pildis"</string>
+    <string msgid="7088090604803481121" name="lb_playback_controls_play">"Esita"</string>
+    <string msgid="8429099206716245199" name="lb_playback_controls_repeat_all">"Korda kõiki"</string>
+    <string msgid="1614290959784265209" name="lb_playback_controls_repeat_none">"Ära korda midagi"</string>
+    <string msgid="676658705837320560" name="lb_playback_controls_repeat_one">"Korda ühte"</string>
+    <string msgid="2866333981131020771" name="lb_playback_controls_rewind">"Keri tagasi"</string>
+    <string msgid="6038956370475252734" name="lb_playback_controls_rewind_multiplier">"Keri tagasi %1$dX"</string>
+    <string msgid="8690223891515602822" name="lb_playback_controls_shown">"Meedia juhtnupud on kuvatud"</string>
+    <string msgid="6793109999253893369" name="lb_playback_controls_shuffle_disable">"Keela juhuslikus järjekorras esitamine"</string>
+    <string msgid="5151681938752704485" name="lb_playback_controls_shuffle_enable">"Luba juhuslikus järjekorras esitamine"</string>
+    <string msgid="8117512422682146745" name="lb_playback_controls_skip_next">"Liigu järgmise üksuse juurde"</string>
+    <string msgid="3481218248309447059" name="lb_playback_controls_skip_previous">"Liigu eelmise üksuse juurde"</string>
+    <string msgid="3544533410444618518" name="lb_playback_controls_thumb_down">"Tühista valik Ei meeldi"</string>
+    <string msgid="8475278766138652105" name="lb_playback_controls_thumb_down_outline">"Tee valik Ei meeldi"</string>
+    <string msgid="3458671378107738666" name="lb_playback_controls_thumb_up">"Tühista valik Meeldib"</string>
+    <string msgid="1385865732502550659" name="lb_playback_controls_thumb_up_outline">"Tee valik Meeldib"</string>
+    <string msgid="1471121602610716654" name="lb_playback_time_separator">"/"</string>
+    <string msgid="5700349211583074131" name="lb_search_bar_hint">"Otsige"</string>
+    <string msgid="5926531297066387462" name="lb_search_bar_hint_speech">"Rääkige otsimiseks"</string>
+    <string msgid="4826526877249029043" name="lb_search_bar_hint_with_title">"Otsige rakendusest <ns1:g id="SEARCH_CONTEXT">%1$s</ns1:g>"</string>
+    <string msgid="6032250334706920550" name="lb_search_bar_hint_with_title_speech">"Rääkige rakendusest <ns1:g id="SEARCH_CONTEXT">%1$s</ns1:g> otsimiseks"</string>
+    <string msgid="1301877238242752863" name="orb_search_action">"Otsimistoiming"</string>
+    <string msgid="146198913615257606" name="search_menu_title">"Otsing"</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+</resources>

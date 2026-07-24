@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <string-array name="exo_controls_playback_speeds">
+    <item>x 0,25</item>
+    <item>x 0,5</item>
+    <item>x 0,75</item>
+    <item>Normal</item>
+    <item>x 1,25</item>
+    <item>x 1,5</item>
+    <item>x 2</item>
+  </string-array>
+    <plurals name="exo_controls_fastforward_by_amount_description">
+    <item quantity="one">Avancer de %d seconde</item>
+    <item quantity="other">Avancer de %d secondes</item>
+  </plurals>
+    <plurals name="exo_controls_rewind_by_amount_description">
+    <item quantity="one">Revenir en arrière de %d seconde</item>
+    <item quantity="other">Revenir en arrière de %d secondes</item>
+  </plurals>
+    <string msgid="4600421777120114993" name="abc_action_bar_home_description">"Revenir à l\'accueil"</string>
+    <string msgid="1594238315039666878" name="abc_action_bar_up_description">"Revenir en haut de la page"</string>
+    <string msgid="3588849162933574182" name="abc_action_menu_overflow_description">"Plus d\'options"</string>
+    <string msgid="4076576682505996667" name="abc_action_mode_done">"OK"</string>
+    <string msgid="7468859129482906941" name="abc_activity_chooser_view_see_all">"Tout afficher"</string>
+    <string msgid="2031811694353399454" name="abc_activitychooserview_choose_application">"Sélectionner une application"</string>
+    <string msgid="121134116657445385" name="abc_capital_off">"DÉSACTIVÉ"</string>
+    <string msgid="3405795526292276155" name="abc_capital_on">"ACTIVÉ"</string>
+    <string msgid="1302280443949172191" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="1324831542140195728" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="8362206064229013510" name="abc_menu_delete_shortcut_label">"supprimer"</string>
+    <string msgid="8341180395196749340" name="abc_menu_enter_shortcut_label">"entrée"</string>
+    <string msgid="4792426091847145555" name="abc_menu_function_shortcut_label">"Fonction+"</string>
+    <string msgid="7643535737296831317" name="abc_menu_meta_shortcut_label">"Méta+"</string>
+    <string msgid="8126296154200614004" name="abc_menu_shift_shortcut_label">"Maj+"</string>
+    <string msgid="2378550843553983978" name="abc_menu_space_shortcut_label">"espace"</string>
+    <string msgid="9002602288060866689" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="1351762916121158029" name="abc_prepend_shortcut_label">"Menu+"</string>
+    <string msgid="7723749260725869598" name="abc_search_hint">"Rechercher…"</string>
+    <string msgid="3691816814315814921" name="abc_searchview_description_clear">"Effacer la requête"</string>
+    <string msgid="2550479030709304392" name="abc_searchview_description_query">"Requête de recherche"</string>
+    <string msgid="8264924765203268293" name="abc_searchview_description_search">"Rechercher"</string>
+    <string msgid="8928215447528550784" name="abc_searchview_description_submit">"Envoyer la requête"</string>
+    <string msgid="893419373245838918" name="abc_searchview_description_voice">"Recherche vocale"</string>
+    <string msgid="3421042268587513524" name="abc_shareactionprovider_share_with">"Partager avec"</string>
+    <string msgid="3300176832234831527" name="abc_shareactionprovider_share_with_application">"Partager avec <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="1603543279005712093" name="abc_toolbar_collapse_description">"Réduire"</string>
+    <string name="app_name">SmartTV Client for Twitch</string>
+    <string name="channel_disable">Ce contenu a été désactivé ou n\'a pas pu être chargé. Appuyez
+        sur OK pour actualiser maintenant (l\'actualisation ne se produit que lorsque
+        l\'application est visible)</string>
+    <string name="channel_empty">Liste vide</string>
+    <string name="channel_game_title">%s chaînes\nPour %s spectateurs</string>
+    <string name="channel_last_refresh">Dernière actualisation - %s %s %02d:%02d</string>
+    <string name="channel_live_title">%s %s depuis %s pour %s spectateurs\n%s</string>
+    <string name="channel_no_user">Il est nécessaire d\'ajouter un utilisateur avant de charger
+        ce contenu</string>
+    <string name="channel_refresh">Appuyez sur OK pour actualiser (mise à jour automatique toutes
+        les 30 minutes en arrière-plan), l\'actualisation manuelle ne se produit que lorsque
+        l\'application est visible</string>
+    <string name="channel_refreshed">%s canal de l\'écran d\'accueil actualisé</string>
+    <string name="exo_controls_cc_disabled_description">Activer les sous-titres</string>
+    <string name="exo_controls_cc_enabled_description">Désactiver les sous-titres</string>
+    <string name="exo_controls_fastforward_description">Avance rapide</string>
+    <string name="exo_controls_fullscreen_enter_description">Activer le mode plein écran</string>
+    <string name="exo_controls_fullscreen_exit_description">Quitter le mode plein écran</string>
+    <string name="exo_controls_hide">Masquer les commandes du lecteur</string>
+    <string name="exo_controls_next_description">Suivant</string>
+    <string name="exo_controls_overflow_hide_description">Masquer les paramètres supplémentaires</string>
+    <string name="exo_controls_overflow_show_description">Afficher les paramètres supplémentaires</string>
+    <string name="exo_controls_pause_description">Pause</string>
+    <string name="exo_controls_play_description">Lecture</string>
+    <string name="exo_controls_playback_speed">Vitesse</string>
+    <string name="exo_controls_previous_description">Précédent</string>
+    <string name="exo_controls_repeat_all_description">Mode actuel : tout répéter. Changer le mode répétition.</string>
+    <string name="exo_controls_repeat_off_description">Mode actuel : sans répétition. Changer le mode répétition.</string>
+    <string name="exo_controls_repeat_one_description">Mode actuel : une répétition. Changer le mode répétition.</string>
+    <string name="exo_controls_rewind_description">Retour arrière</string>
+    <string name="exo_controls_seek_bar_description">Progression de la lecture</string>
+    <string name="exo_controls_settings_description">Paramètres</string>
+    <string name="exo_controls_show">Afficher les commandes du lecteur</string>
+    <string name="exo_controls_shuffle_off_description">Activer le mode aléatoire</string>
+    <string name="exo_controls_shuffle_on_description">Désactiver le mode aléatoire</string>
+    <string name="exo_controls_stop_description">Arrêter</string>
+    <string name="exo_controls_vr_description">Mode RV</string>
+    <string name="exo_download_completed">Téléchargement terminé</string>
+    <string name="exo_download_description">Télécharger</string>
+    <string name="exo_download_downloading">Téléchargement…</string>
+    <string name="exo_download_failed">Échec du téléchargement</string>
+    <string name="exo_download_notification_channel_name">Téléchargements</string>
+    <string name="exo_download_paused">Téléchargements mis en pause</string>
+    <string name="exo_download_paused_for_network">Téléchargements en attente de réseau</string>
+    <string name="exo_download_paused_for_wifi">Téléchargements en attente de Wi-Fi</string>
+    <string name="exo_download_removing">Suppression des téléchargements…</string>
+    <string name="exo_item_list">%1$s, %2$s</string>
+    <string name="exo_track_bitrate">%1$.2f Mbit/s</string>
+    <string name="exo_track_mono">Mono</string>
+    <string name="exo_track_resolution">%1$d × %2$d</string>
+    <string name="exo_track_role_alternate">Piste alternative</string>
+    <string name="exo_track_role_closed_captions">Sous-titres</string>
+    <string name="exo_track_role_commentary">Commentaires</string>
+    <string name="exo_track_role_supplementary">Piste supplémentaire</string>
+    <string name="exo_track_selection_auto">Automatique</string>
+    <string name="exo_track_selection_none">Aucun</string>
+    <string name="exo_track_selection_title_audio">Audio</string>
+    <string name="exo_track_stereo">Stéréo</string>
+    <string name="exo_track_surround">Son surround</string>
+    <string name="exo_track_surround_5_point_1">Son surround 5.1</string>
+    <string name="exo_track_surround_7_point_1">Son surround 7.1</string>
+    <string name="exo_track_unknown">Inconnu</string>
+    <string name="exo_track_unknown_name">Inconnu (%1$s)</string>
+    <string name="external_player_fail">Aucune application de lecture vidéo externe disponible</string>
+    <string msgid="4657191930956702614" name="lb_control_display_fast_forward_multiplier">"%1$dX"</string>
+    <string msgid="4597148235912710942" name="lb_control_display_rewind_multiplier">"%1$dX"</string>
+    <string msgid="893619591225519922" name="lb_guidedaction_continue_title">"Continuer"</string>
+    <string msgid="3330958750346333890" name="lb_guidedaction_finish_title">"Terminer"</string>
+    <string msgid="3228326776757666747" name="lb_media_player_error">"Code d\'erreur MediaPlayer %1$d extra %2$d"</string>
+    <string msgid="8084428500709675515" name="lb_navigation_menu_contentDescription">"Menu de navigation"</string>
+    <string msgid="2394451791544864917" name="lb_onboarding_accessibility_next">"Suivante"</string>
+    <string msgid="5549711907371161292" name="lb_onboarding_get_started">"COMMENCER"</string>
+    <string msgid="8691966842977635128" name="lb_playback_controls_closed_captioning_disable">"Désactiver les sous-titres"</string>
+    <string msgid="2346334170216706076" name="lb_playback_controls_closed_captioning_enable">"Activer les sous-titres"</string>
+    <string msgid="740570111678243493" name="lb_playback_controls_fast_forward">"Avance rapide"</string>
+    <string msgid="5734614175721471329" name="lb_playback_controls_fast_forward_multiplier">"Avance rapide de %1$dX"</string>
+    <string msgid="5859666950961624736" name="lb_playback_controls_hidden">"Les commandes multimédias sont masquées. Appuyez sur le pavé directionnel pour les afficher"</string>
+    <string msgid="1209119371486219736" name="lb_playback_controls_high_quality_disable">"Désactiver la haute qualité"</string>
+    <string msgid="3057698527166674705" name="lb_playback_controls_high_quality_enable">"Activer la haute qualité"</string>
+    <string msgid="8730341244454469032" name="lb_playback_controls_more_actions">"Autres actions"</string>
+    <string msgid="917331776961802657" name="lb_playback_controls_pause">"Pause"</string>
+    <string msgid="5770668162543767702" name="lb_playback_controls_picture_in_picture">"Activer le mode Picture-in-picture"</string>
+    <string msgid="7088090604803481121" name="lb_playback_controls_play">"Lecture"</string>
+    <string msgid="8429099206716245199" name="lb_playback_controls_repeat_all">"Tout lire en boucle"</string>
+    <string msgid="1614290959784265209" name="lb_playback_controls_repeat_none">"Ne rien lire en boucle"</string>
+    <string msgid="676658705837320560" name="lb_playback_controls_repeat_one">"Lire en boucle un élément"</string>
+    <string msgid="2866333981131020771" name="lb_playback_controls_rewind">"Retour arrière"</string>
+    <string msgid="6038956370475252734" name="lb_playback_controls_rewind_multiplier">"Retour arrière de %1$dX"</string>
+    <string msgid="8690223891515602822" name="lb_playback_controls_shown">"Les commandes multimédias sont affichées"</string>
+    <string msgid="6793109999253893369" name="lb_playback_controls_shuffle_disable">"Désactiver la lecture en mode aléatoire"</string>
+    <string msgid="5151681938752704485" name="lb_playback_controls_shuffle_enable">"Activer la lecture en mode aléatoire"</string>
+    <string msgid="8117512422682146745" name="lb_playback_controls_skip_next">"Ignorer l\'élément suivant"</string>
+    <string msgid="3481218248309447059" name="lb_playback_controls_skip_previous">"Ignorer l\'élément précédent"</string>
+    <string msgid="3544533410444618518" name="lb_playback_controls_thumb_down">"Annuler Je n\'aime pas"</string>
+    <string msgid="8475278766138652105" name="lb_playback_controls_thumb_down_outline">"Sélectionner Je n\'aime pas"</string>
+    <string msgid="3458671378107738666" name="lb_playback_controls_thumb_up">"Annuler J\'aime"</string>
+    <string msgid="1385865732502550659" name="lb_playback_controls_thumb_up_outline">"Sélectionner J\'aime"</string>
+    <string msgid="1471121602610716654" name="lb_playback_time_separator">"/"</string>
+    <string msgid="5700349211583074131" name="lb_search_bar_hint">"Rechercher"</string>
+    <string msgid="5926531297066387462" name="lb_search_bar_hint_speech">"Énoncez votre recherche"</string>
+    <string msgid="4826526877249029043" name="lb_search_bar_hint_with_title">"Rechercher dans <ns1:g id="SEARCH_CONTEXT">%1$s</ns1:g>"</string>
+    <string msgid="6032250334706920550" name="lb_search_bar_hint_with_title_speech">"Énoncez votre recherche dans <ns1:g id="SEARCH_CONTEXT">%1$s</ns1:g>"</string>
+    <string name="no_internet">Le ping vers Twitch a échoué durant les 30 dernières secondes !\n\nSi
+        l\'application ne fonctionne pas correctement, vérifiez votre connexion Internet
+        locale\n\nMaintenez la touche Retour pour fermer l\'application si elle se fige ou ne
+        répond plus.\n\nSi la connexion revient, cet avertissement se masquera automatiquement,
+        sinon il se masquera dans 30 secondes\n\nCet avertissement peut être désactivé dans les
+        paramètres</string>
+    <string name="no_network">Aucune connexion Internet disponible !\n\nConnectez-vous à un réseau
+        pour que l\'application termine son chargement\n\nou\n\nmaintenez la touche Retour pour
+        fermer l\'application.</string>
+    <string name="notification_game">Le streamer a changé de jeu</string>
+    <string name="notification_live">Le streamer est en live</string>
+    <string name="notification_live_game">Le jeu est en live</string>
+    <string name="notification_service">Service de notifications en cours d\'exécution</string>
+    <string name="notification_text">Sans ceci, les notifications en arrière-plan ne
+        s\'afficheront pas</string>
+    <string name="notification_title">Le streamer a changé de titre</string>
+    <string name="notification_title_game">Le streamer a changé de jeu et de titre</string>
+    <string msgid="1301877238242752863" name="orb_search_action">"Commande de recherche"</string>
+    <string name="playing">Joue à</string>
+    <string msgid="146198913615257606" name="search_menu_title">"Rechercher"</string>
+    <string name="short_app_name">STTV</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string name="streaming">En live</string>
+    <string name="webview_exception">L\'application n\'a pas pu se charger car WebView système
+        est soit absent (peu probable), soit en cours de mise à jour ; réessayez dans quelques
+        secondes</string>
+</resources>

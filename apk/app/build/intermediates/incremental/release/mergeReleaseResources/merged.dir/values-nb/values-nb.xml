@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <string-array name="exo_controls_playback_speeds">
+    <item>0,25x</item>
+    <item>0,5x</item>
+    <item>0,75x</item>
+    <item>Normal</item>
+    <item>1,25x</item>
+    <item>1,5x</item>
+    <item>2x</item>
+  </string-array>
+    <plurals name="exo_controls_fastforward_by_amount_description">
+    <item quantity="one">Spol %d sekund fremover</item>
+    <item quantity="other">Spol %d sekunder fremover</item>
+  </plurals>
+    <plurals name="exo_controls_rewind_by_amount_description">
+    <item quantity="one">Spol %d sekund bakover</item>
+    <item quantity="other">Spol %d sekunder bakover</item>
+  </plurals>
+    <string msgid="4600421777120114993" name="abc_action_bar_home_description">"Gå til startsiden"</string>
+    <string msgid="1594238315039666878" name="abc_action_bar_up_description">"Gå opp"</string>
+    <string msgid="3588849162933574182" name="abc_action_menu_overflow_description">"Flere alternativer"</string>
+    <string msgid="4076576682505996667" name="abc_action_mode_done">"Ferdig"</string>
+    <string msgid="7468859129482906941" name="abc_activity_chooser_view_see_all">"Se alle"</string>
+    <string msgid="2031811694353399454" name="abc_activitychooserview_choose_application">"Velg en app"</string>
+    <string msgid="121134116657445385" name="abc_capital_off">"AV"</string>
+    <string msgid="3405795526292276155" name="abc_capital_on">"PÅ"</string>
+    <string msgid="1302280443949172191" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="1324831542140195728" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="8362206064229013510" name="abc_menu_delete_shortcut_label">"delete"</string>
+    <string msgid="8341180395196749340" name="abc_menu_enter_shortcut_label">"enter"</string>
+    <string msgid="4792426091847145555" name="abc_menu_function_shortcut_label">"Funksjon+"</string>
+    <string msgid="7643535737296831317" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="8126296154200614004" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="2378550843553983978" name="abc_menu_space_shortcut_label">"mellomrom"</string>
+    <string msgid="9002602288060866689" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="1351762916121158029" name="abc_prepend_shortcut_label">"Meny+"</string>
+    <string msgid="7723749260725869598" name="abc_search_hint">"Søk …"</string>
+    <string msgid="3691816814315814921" name="abc_searchview_description_clear">"Slett søket"</string>
+    <string msgid="2550479030709304392" name="abc_searchview_description_query">"Søkeord"</string>
+    <string msgid="8264924765203268293" name="abc_searchview_description_search">"Søk"</string>
+    <string msgid="8928215447528550784" name="abc_searchview_description_submit">"Utfør søket"</string>
+    <string msgid="893419373245838918" name="abc_searchview_description_voice">"Talesøk"</string>
+    <string msgid="3421042268587513524" name="abc_shareactionprovider_share_with">"Del med"</string>
+    <string msgid="3300176832234831527" name="abc_shareactionprovider_share_with_application">"Del med <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="1603543279005712093" name="abc_toolbar_collapse_description">"Skjul"</string>
+    <string name="exo_controls_cc_disabled_description">Slå på undertekstene</string>
+    <string name="exo_controls_cc_enabled_description">Slå av undertekstene</string>
+    <string name="exo_controls_fastforward_description">Spol forover</string>
+    <string name="exo_controls_fullscreen_enter_description">Se i fullskjerm</string>
+    <string name="exo_controls_fullscreen_exit_description">Avslutt fullskjerm</string>
+    <string name="exo_controls_hide">Skjul avspillingskontrollene</string>
+    <string name="exo_controls_next_description">Neste</string>
+    <string name="exo_controls_overflow_hide_description">Skjul flere innstillinger</string>
+    <string name="exo_controls_overflow_show_description">Vis flere innstillinger</string>
+    <string name="exo_controls_pause_description">Sett på pause</string>
+    <string name="exo_controls_play_description">Spill av</string>
+    <string name="exo_controls_playback_speed">Hastighet</string>
+    <string name="exo_controls_previous_description">Forrige</string>
+    <string name="exo_controls_repeat_all_description">Modus: gjenta alle. Endre gjentakelsesmodus.</string>
+    <string name="exo_controls_repeat_off_description">Modus: gjenta ingen. Endre gjentakelsesmodus.</string>
+    <string name="exo_controls_repeat_one_description">Modus: gjenta én. Endre gjentakelsesmodus.</string>
+    <string name="exo_controls_rewind_description">Spol tilbake</string>
+    <string name="exo_controls_seek_bar_description">Avspillingsfremdrift</string>
+    <string name="exo_controls_settings_description">Innstillinger</string>
+    <string name="exo_controls_show">Vis avspillingskontrollene</string>
+    <string name="exo_controls_shuffle_off_description">Slå på modus for tilfeldig rekkefølge</string>
+    <string name="exo_controls_shuffle_on_description">Slå av modus for tilfeldig rekkefølge</string>
+    <string name="exo_controls_stop_description">Stopp</string>
+    <string name="exo_controls_vr_description">VR-modus</string>
+    <string name="exo_download_completed">Nedlastingen er fullført</string>
+    <string name="exo_download_description">Last ned</string>
+    <string name="exo_download_downloading">Laster ned</string>
+    <string name="exo_download_failed">Nedlastingen mislyktes</string>
+    <string name="exo_download_notification_channel_name">Nedlastinger</string>
+    <string name="exo_download_paused">Nedlastinger er satt på pause</string>
+    <string name="exo_download_paused_for_network">Nedlastinger venter på nettverket</string>
+    <string name="exo_download_paused_for_wifi">Nedlastinger venter på Wi-FI-tilkobling</string>
+    <string name="exo_download_removing">Fjerner nedlastinger</string>
+    <string name="exo_item_list">%1$s, %2$s</string>
+    <string name="exo_track_bitrate">%1$.2f Mbps</string>
+    <string name="exo_track_mono">Mono</string>
+    <string name="exo_track_resolution">%1$d × %2$d</string>
+    <string name="exo_track_role_alternate">Alternativt spor</string>
+    <string name="exo_track_role_closed_captions">Teksting</string>
+    <string name="exo_track_role_commentary">Kommentarer</string>
+    <string name="exo_track_role_supplementary">Tilleggsspor</string>
+    <string name="exo_track_selection_auto">Automatisk</string>
+    <string name="exo_track_selection_none">Ingen</string>
+    <string name="exo_track_selection_title_audio">Lyd</string>
+    <string name="exo_track_stereo">Stereo</string>
+    <string name="exo_track_surround">Surround-lyd</string>
+    <string name="exo_track_surround_5_point_1">5.1 surround-lyd</string>
+    <string name="exo_track_surround_7_point_1">7.1 surround-lyd</string>
+    <string name="exo_track_unknown">Ukjent</string>
+    <string name="exo_track_unknown_name">Ukjent (%1$s)</string>
+    <string msgid="4657191930956702614" name="lb_control_display_fast_forward_multiplier">"%1$dX"</string>
+    <string msgid="4597148235912710942" name="lb_control_display_rewind_multiplier">"%1$dX"</string>
+    <string msgid="893619591225519922" name="lb_guidedaction_continue_title">"Fortsett"</string>
+    <string msgid="3330958750346333890" name="lb_guidedaction_finish_title">"Fullfør"</string>
+    <string msgid="3228326776757666747" name="lb_media_player_error">"MediaPlayer-feilkode %1$d ekstra %2$d"</string>
+    <string msgid="8084428500709675515" name="lb_navigation_menu_contentDescription">"Navigasjonsmeny"</string>
+    <string msgid="2394451791544864917" name="lb_onboarding_accessibility_next">"Neste"</string>
+    <string msgid="5549711907371161292" name="lb_onboarding_get_started">"KOM I GANG"</string>
+    <string msgid="8691966842977635128" name="lb_playback_controls_closed_captioning_disable">"Slå av teksting for hørselshemmede"</string>
+    <string msgid="2346334170216706076" name="lb_playback_controls_closed_captioning_enable">"Slå på teksting for hørselshemmede"</string>
+    <string msgid="740570111678243493" name="lb_playback_controls_fast_forward">"Spol fremover"</string>
+    <string msgid="5734614175721471329" name="lb_playback_controls_fast_forward_multiplier">"Spol fremover %1$dX"</string>
+    <string msgid="5859666950961624736" name="lb_playback_controls_hidden">"Mediekontrollene er skjult – trykk på styrepilene for å vise dem"</string>
+    <string msgid="1209119371486219736" name="lb_playback_controls_high_quality_disable">"Slå av høy kvalitet"</string>
+    <string msgid="3057698527166674705" name="lb_playback_controls_high_quality_enable">"Slå på høy kvalitet"</string>
+    <string msgid="8730341244454469032" name="lb_playback_controls_more_actions">"Flere handlinger"</string>
+    <string msgid="917331776961802657" name="lb_playback_controls_pause">"Sett på pause"</string>
+    <string msgid="5770668162543767702" name="lb_playback_controls_picture_in_picture">"Slå på bilde-i-bilde-modus"</string>
+    <string msgid="7088090604803481121" name="lb_playback_controls_play">"Spill av"</string>
+    <string msgid="8429099206716245199" name="lb_playback_controls_repeat_all">"Gjenta alle"</string>
+    <string msgid="1614290959784265209" name="lb_playback_controls_repeat_none">"Ikke gjenta noen"</string>
+    <string msgid="676658705837320560" name="lb_playback_controls_repeat_one">"Gjenta én"</string>
+    <string msgid="2866333981131020771" name="lb_playback_controls_rewind">"Spol tilbake"</string>
+    <string msgid="6038956370475252734" name="lb_playback_controls_rewind_multiplier">"Spol tilbake %1$dX"</string>
+    <string msgid="8690223891515602822" name="lb_playback_controls_shown">"Mediekontrollene vises"</string>
+    <string msgid="6793109999253893369" name="lb_playback_controls_shuffle_disable">"Slå av avspilling i tilfeldig rekkefølge"</string>
+    <string msgid="5151681938752704485" name="lb_playback_controls_shuffle_enable">"Slå på avspilling i tilfeldig rekkefølge"</string>
+    <string msgid="8117512422682146745" name="lb_playback_controls_skip_next">"Hopp til neste"</string>
+    <string msgid="3481218248309447059" name="lb_playback_controls_skip_previous">"Hopp til forrige"</string>
+    <string msgid="3544533410444618518" name="lb_playback_controls_thumb_down">"Fjern valg av «liker ikke»"</string>
+    <string msgid="8475278766138652105" name="lb_playback_controls_thumb_down_outline">"Velg «liker ikke»"</string>
+    <string msgid="3458671378107738666" name="lb_playback_controls_thumb_up">"Fjern valg av «liker»"</string>
+    <string msgid="1385865732502550659" name="lb_playback_controls_thumb_up_outline">"Velg «liker»"</string>
+    <string msgid="1471121602610716654" name="lb_playback_time_separator">"/"</string>
+    <string msgid="5700349211583074131" name="lb_search_bar_hint">"Søk"</string>
+    <string msgid="5926531297066387462" name="lb_search_bar_hint_speech">"Snakk for å søke"</string>
+    <string msgid="4826526877249029043" name="lb_search_bar_hint_with_title">"Søk i <ns1:g id="SEARCH_CONTEXT">%1$s</ns1:g>"</string>
+    <string msgid="6032250334706920550" name="lb_search_bar_hint_with_title_speech">"Snakk for å søke i <ns1:g id="SEARCH_CONTEXT">%1$s</ns1:g>"</string>
+    <string msgid="1301877238242752863" name="orb_search_action">"Søkehandling"</string>
+    <string msgid="146198913615257606" name="search_menu_title">"Søk"</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+</resources>
