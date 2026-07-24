@@ -1,0 +1,6 @@
+// FIX: Play_extractQualitiesTest has a huge template literal that corrupts uglify build
+// In Play.js:
+//   1. Comment out or delete the call (line ~266):
+//      //Play_extractQualitiesTest();
+//   2. Delete the entire function (lines ~1070-1096):
+//      function Play_extractQualitiesTest() { ... }

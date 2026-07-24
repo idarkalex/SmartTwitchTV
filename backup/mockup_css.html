@@ -1,0 +1,100 @@
+﻿<!-- MOCKUP CSS - Restore this in app/index.html before </head> -->
+<style id="mockup-ui-style">
+    /* MODERN GLASS & PURPLE ACCENT THEME OVERRIDES FOR SMARTTWITCHTV */
+    body, html, #scene1, #body_container {
+        background: #0b0914 radial-gradient(ellipse at 85% 15%, rgba(120, 50, 220, 0.22) 0%, rgba(11, 9, 20, 0.97) 55%, #0b0914 100%) !important;
+        color: #efeff1 !important;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+    }
+    /* SIDE PANEL - keep original overflow:hidden from base CSS, add glass effect */
+    .side_panel_fix,
+    .side_panel_movel {
+        background: rgba(16, 13, 26, 0.95) !important;
+        backdrop-filter: blur(20px) !important;
+        -webkit-backdrop-filter: blur(20px) !important;
+        border-right: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 4px 0 30px rgba(0, 0, 0, 0.5);
+    }
+    /* avatar / profile image at top of side panel */
+    img.side_panel_new_img {
+        width: 2.2em !important;
+        height: 2.2em !important;
+        border-radius: 50% !important;
+        object-fit: cover !important;
+        display: block !important;
+        margin: 0.2em auto !important;
+    }
+    /* Hide overflowing collapsed side_panel_movel text */
+    .side_panel_fix .side_panel_movel_text,
+    .side_panel_fix .side_panel_movel_bottom_text {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    /* STREAM CARDS - subtle inner shadow + purple border-radius */
+    .stream_thumbnail_live_holder,
+    .stream_thumbnail_game_holder {
+        border-radius: 0.3em;
+        background: rgba(255, 255, 255, 0.03);
+    }
+    /* FEED - semi-transparent backgrounds */
+    .stream_thumbnail_feed,
+    .stream_thumbnail_live,
+    .stream_thumbnail_game,
+    .stream_thumbnail_live_game,
+    .player_feed {
+        background-color: rgba(18, 15, 28, 0.85);
+    }
+    /* VIEWER BADGE - glass effect */
+    .viewer_badge {
+        background: rgba(255, 255, 255, 0.08) !important;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 0.25em;
+        padding: 0.05em 0.35em;
+        font-size: 0.75em;
+        backdrop-filter: blur(4px);
+    }
+    .viewer_dot {
+        width: 0.45em;
+        height: 0.45em;
+        border-radius: 50%;
+        background: #ef4444;
+        box-shadow: 0 0 6px rgba(239, 68, 68, 0.7);
+        display: inline-block;
+        margin-right: 0.25em;
+    }
+    /* PROGRESS BAR focus - purple glow */
+    .progress_bar_div_focus {
+        box-shadow: 0 0 12px rgba(168, 85, 247, 0.55);
+        border-radius: 0.35em;
+    }
+    /* DIALOG BUTTON focus */
+    .button_dialog_focused {
+        box-shadow: 0 0 16px rgba(168, 85, 247, 0.45);
+        border-radius: 0.35em;
+    }
+    /* SETTINGS focus */
+    .settings_div_focus {
+        box-shadow: 0 0 12px rgba(168, 85, 247, 0.45);
+        border-radius: 0.35em;
+    }
+    /* SIDE PANEL FEED focus */
+    .side_panel_feed_img_focus {
+        box-shadow: 0 0 12px rgba(168, 85, 247, 0.55);
+        border-radius: 50%;
+    }
+    /* TAB ACCENT */
+    .section_tab_active {
+        color: #a855f7 !important;
+        border-bottom: 2px solid #a855f7;
+    }
+    /* DIALOGS - glass effect */
+    .dialog_exit,
+    .about_dialogs {
+        background: rgba(18, 15, 28, 0.92) !important;
+        border-radius: 0.6em;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(16px) !important;
+        -webkit-backdrop-filter: blur(16px) !important;
+    }
+</style>

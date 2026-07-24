@@ -38,378 +38,2845 @@
         <link rel="preconnect" href="https://api.betterttv.net" />
         <link rel="dns-prefetch" href="https://api.betterttv.net" />
         <link rel="preconnect" href="https://badges.twitch.tv" />
-        <link rel="stylesheet" href="githubio/css/icons.css" />
+        <link rel="stylesheet" href="css/icons.min.css" />
         <title>SmartTV Twitch</title>
-        <link rel="shortcut icon" type="image/png" href="githubio/images/favicon.png" />
+        <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
         <style id="focus_class_holder"></style>
         <style id="focus_class_test"></style>
         <style id="round_images_css"></style>
         <style id="pointer_css"></style>
         <style id="vh_class"></style>
         <style id="chat_highlights"></style>
-        <link rel="stylesheet" href="githubio/css/app.css" />
-    <style id="mockup-ui-style">
+        <style>
+            body,
+            html {
+                background-color: rgba(0, 0, 0, 0);
+                font-family: 'Roboto', 'Roboto-Bold';
+                margin: auto;
+                overflow: hidden;
+                -webkit-text-stroke: 0.005em;
+            }
 
-    /* ================================================================
-       MODERN DARK THEME OVERRIDES FOR SMARTTWITCHTV
-       ================================================================ */
+            .class_bold {
+                font-family: 'Roboto-Bold';
+            }
 
-    /* --- GLOBAL --- */
-    body, html {
-        background: #0b0914 !important;
-    }
-    #scene1, #body_container {
-        background: #0b0914 radial-gradient(ellipse at 80% 10%, rgba(120, 50, 220, 0.15) 0%, transparent 60%) !important;
-        color: #efeff1 !important;
-    }
+            .feed_end_up_down {
+                display: inline-block;
+                font-size: 65%;
+                transform: translate(0, 33%);
+                padding-right: 0.3em;
+            }
 
-    /* --- COLLAPSED SIDEBAR: narrow icon strip --- */
-    .side_panel_new_holder {
-        width: 3.5em !important;
-        height: 100% !important;
-        position: absolute !important;
-        left: 0 !important;
-        z-index: 10 !important;
-        overflow: visible !important;
-    }
-    .side_panel_fix {
-        width: 3.5em !important;
-        background: linear-gradient(180deg, #161225 0%, #13111d 30%, #13111d 70%, #161225 100%) !important;
-        border-right: 1px solid rgba(168, 85, 247, 0.15) !important;
-        overflow: hidden !important;
-    }
-    .side_panel_new_icons {
-        width: 100% !important;
-        margin-left: 0 !important;
-        height: 9.25% !important;
-        margin-top: 0.7vh !important;
-        position: relative !important;
-        color: #ffffff !important;
-        font-size: 100% !important;
-        text-align: center !important;
-        text-shadow: -0.02em -0.02em 0 #000, 0.02em -0.02em 0 #000, -0.02em 0.02em 0 #000, 0.02em 0.02em 0 #000 !important;
-        border: none !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-    }
-    .side_panel_new_icons_pad {
-        vertical-align: middle !important;
-        font-size: 1.1em !important;
-    }
-    .side_panel_new_icons_text_holder {
-        padding-left: 0 !important;
-        width: 100% !important;
-        text-align: center !important;
-    }
+            .feed_end_name {
+                transform: translate(0, 29%);
+                display: inline-block;
+                max-width: 27%;
+                width: auto;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                margin-left: 1vh;
+                margin-right: 1vh;
+                padding-left: 0.3em;
+                padding-right: 0.3em;
+                will-change: border-color, background-color;
+                border-radius: 0.2em;
+                border: 0.09em solid rgba(0, 0, 0, 0);
+                background-color: rgba(0, 0, 0, 0);
+            }
 
-    /* --- EXPANDED SIDEBAR: text menu --- */
-    .side_panel_movel {
-        width: 11em !important;
-        background: #13111d !important;
-        border-right: 1px solid rgba(168, 85, 247, 0.2) !important;
-        overflow: hidden !important;
-    }
-    /* Override the inline translateX(5%) set by JS to slide flush past the 3.5em icon strip */
-    .side_panel_movel[style*="translateX(5%)"] {
-        transform: translateX(31.5%) !important;
-    }
-    .side_panel_fix_top,
-    .side_panel_fix_top_2,
-    .side_panel_fix_center {
-        background-color: #13111d !important;
-    }
-    #side_panel_fix_botton {
-        background-color: #13111d !important;
-    }
-    .side_panel_background_color {
-        background-color: #13111d !important;
-    }
+            .feed_end_name_focus {
+                transform: translate(0, 29%) scale(1.25);
+                background-color: rgba(0, 0, 0, 0.85);
+                border-color: #ffffff;
+                z-index: 999;
+                position: relative;
+            }
 
-    /* Movel header: back arrow + title */
-    .side_panel_movel .side_panel_movel_top_text {
-        left: 5% !important;
-        width: 90% !important;
-        font-size: 0.85em !important;
-        color: #a78bfa !important;
-        font-weight: bold !important;
-        letter-spacing: 0.05em !important;
-        padding-bottom: 0.4em !important;
-        margin-bottom: 0.2em !important;
-    }
-    .side_panel_movel .side_panel_movel_user_text {
-        left: 5% !important;
-        width: 90% !important;
-        font-size: 0.8em !important;
-        color: #c4b5fd !important;
-    }
+            .screen_size,
+            .scene_keys,
+            .burn_in_protection,
+            .screens {
+                position: absolute;
+                background-color: rgba(0, 0, 0, 0);
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                letter-spacing: 0.075ch;
+                font-kerning: none;
+            }
 
-    /* Movel menu items */
-    .side_panel_movel .side_panel_new_icons_text_holder {
-        padding-left: 0 !important;
-        font-size: 0.82em !important;
-        margin-left: 5% !important;
-        width: 90% !important;
-        text-align: left !important;
-        border: none !important;
-        border-radius: 0.3em !important;
-        transition: background 150ms ease !important;
-        box-sizing: border-box !important;
-    }
+            .feed_screen_new {
+                background-color: rgba(0, 0, 0, 0);
+                overflow: hidden;
+                width: 100%;
+                height: 100%;
+                transform: translateY(-100%);
+                position: absolute;
+                z-index: 3;
+                will-change: opacity;
+                transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+            }
 
-    /* Focus states: purple highlight — icon and text as one entity */
-    .side_panel_new_icons_text {
-        color: #ffffff !important;
-        background: rgba(168, 85, 247, 0.15) !important;
-        border-image: none !important;
-        border-left: 3px solid #a855f7 !important;
-        border-radius: 0.3em !important;
-    }
-    .side_panel_new_icons_text_botton {
-        color: #ffffff !important;
-        background: rgba(168, 85, 247, 0.15) !important;
-        border-image: none !important;
-        border-left: 3px solid #a855f7 !important;
-        border-radius: 0.3em !important;
-    }
-    .side_panel_new_icons_start {
-        background: rgba(168, 85, 247, 0.2) !important;
-        border-image: none !important;
-        border-left: 3px solid #a855f7 !important;
-        border-radius: 0.3em !important;
-    }
+            .scene_keys {
+                z-index: 200;
+            }
 
-    /* Fix icon focus: matches movel focus so icon+text look unified */
-    .side_panel_fix_icon_focused {
-        background: rgba(168, 85, 247, 0.15) !important;
-        border-radius: 0.3em !important;
-        box-shadow: inset 0 0 0 1px rgba(168, 85, 247, 0.3) !important;
-    }
+            .burn_in_protection {
+                z-index: 400;
+                background-color: rgba(0, 0, 0, 1);
+            }
 
-    /* Bottom config text in movel: same format as top text */
-    .side_panel_movel .side_panel_fix_bottom {
-        position: absolute !important;
-        bottom: 0 !important;
-        left: 0 !important;
-        width: 100% !important;
-        height: auto !important;
-        transform: none !important;
-        padding-top: 0.3em !important;
-        background: #13111d !important;
-    }
-    .side_panel_movel .side_panel_movel_bottom_holder {
-        height: auto !important;
-        padding: 0.4em 0 !important;
-        font-size: 0.82em !important;
-        text-align: left !important;
-    }
-    .side_panel_movel .side_panel_movel_bottom_text {
-        height: auto !important;
-        margin-left: 5% !important;
-        width: 90% !important;
-        padding: 0.3em 0 !important;
-        border-radius: 0.3em !important;
-    }
-    .side_panel_movel .side_panel_new_text_options {
-        font-size: 0.82em !important;
-        border: none !important;
-        color: #c4b5fd !important;
-        text-shadow: none !important;
-        text-align: left !important;
-    }
+            .avoidclicks {
+                pointer-events: none !important;
+            }
 
-    /* Remove default borders on movel items */
-    .side_panel_new_text_options {
-        border-image: none !important;
-        border: none !important;
-    }
+            .feed_screen_input {
+                pointer-events: none;
+            }
 
-    /* --- CONTENT: fill remaining space --- */
-    .screen_holder {
-        width: calc(100% - 3.5em) !important;
-        margin-left: 3.5em !important;
-    }
+            .screens {
+                position: absolute;
+            }
 
-    /* Remove streams_div left margin that creates gap */
-    .streams_div {
-        margin-left: 0 !important;
-        width: 100% !important;
-        height: 100% !important;
-        padding: 0 !important;
-    }
+            .animate_height_transition_blocked_channel,
+            .animate_height_transition_channel,
+            .animate_height_transition_games,
+            .animate_height_transition_blocked_games,
+            .animate_height_transition {
+                height: 49%;
+                width: 95%;
+                transform: translateY(0);
+                transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+                will-change: transform;
+                position: absolute;
+            }
 
-    /* --- 4x4 STREAM GRID --- */
-    .animate_height_transition {
-        height: 24.5% !important;
-        width: 100% !important;
-        display: flex !important;
-        gap: 0.3% !important;
-        padding: 0.15% !important;
-        box-sizing: border-box !important;
-    }
+            .animate_height_transition_games {
+                height: 50.1%;
+            }
 
-    /* Card: 4 columns filling full row width */
-    .stream_thumbnail_live_holder {
-        flex: 1 !important;
-        width: auto !important;
-        display: block !important;
-        padding: 0 !important;
-        box-sizing: border-box !important;
-    }
+            .animate_height_transition_blocked_games {
+                height: 48.7%;
+            }
 
-    /* Card: exact 16:9 */
-    .stream_thumbnail_live {
-        padding-bottom: 56.25% !important;
-        background-color: #000 !important;
-        border-radius: 0.4em !important;
-        overflow: hidden;
-    }
+            .animate_height_transition_channel {
+                height: 32.075%;
+            }
 
-    /* Image fills entire card */
-    .stream_thumbnail_live_img {
-        position: absolute !important;
-        top: 0 !important;
-        left: 0 !important;
-        width: 100% !important;
-        height: 100% !important;
-        padding-bottom: 0 !important;
-        background-color: #000 !important;
-        border-radius: 0.4em !important;
-        overflow: hidden;
-    }
-    img.stream_img {
-        width: 100% !important;
-        height: 100% !important;
-        object-fit: cover !important;
-    }
+            .animate_height_transition_blocked_channel {
+                height: 31.575%;
+            }
 
-    /* Text overlay — bottom of card, aligned to bottom */
-    .stream_thumbnail_live_text_holder {
-        position: absolute !important;
-        bottom: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-        height: auto !important;
-        overflow: hidden !important;
-        background: linear-gradient(transparent, rgba(0, 0, 0, 0.8) 60%) !important;
-        padding: 0.3em 0.4em 0.25em !important;
-        border-radius: 0 0 0.4em 0.4em !important;
-    }
+            .side_panel_holder_ani {
+                transform: translateY(0);
+                transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+                will-change: transform;
+            }
 
-    /* Override stream_text_holder vertical centering — text flows from bottom */
-    .stream_thumbnail_live .stream_text_holder {
-        position: relative !important;
-        top: auto !important;
-        transform: none !important;
-        padding: 0 !important;
-    }
+            .screen_holder,
+            .screen_holder_channel,
+            .screen_holder_switch,
+            .screen_holder_user,
+            .screen_holder_games {
+                width: calc(100% - 11em);
+                margin-left: 11em;
+                position: absolute;
+                top: 6.9%;
+                height: 93.1%;
+                transform: translateY(0);
+                transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+                will-change: transform;
+            }
 
-    /* Compact text styling */
-    .stream_thumbnail_live .stream_info_live_name {
-        font-size: 72% !important;
-        line-height: 1.2 !important;
-    }
-    .stream_thumbnail_live .stream_info_live {
-        font-size: 62% !important;
-        line-height: 1.2 !important;
-    }
-    .stream_thumbnail_live .stream_info_live_title {
-        font-size: 65% !important;
-        line-height: 1.15 !important;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-    }
+            .screen_holder_switch {
+                top: 2.6%;
+                height: 97.4%;
+            }
 
-    /* --- FOCUS STATES --- */
-    .progress_bar_div_focus {
-        box-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
-        border-radius: 0.35em;
-    }
-    .button_dialog_focused {
-        box-shadow: 0 0 18px rgba(168, 85, 247, 0.4);
-        border-radius: 0.35em;
-    }
-    .settings_div_focus {
-        box-shadow: 0 0 12px rgba(168, 85, 247, 0.4);
-        border-radius: 0.35em;
-    }
-    .side_panel_feed_img_focus {
-        box-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
-        border-radius: 50%;
-    }
+            .screen_holder_games {
+                top: 4.5%;
+                height: 95.5%;
+            }
 
-    /* --- DIALOGS --- */
-    .dialog_exit,
-    .about_dialogs {
-        background: rgba(14, 12, 22, 0.94) !important;
-        border-radius: 0.6em;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-    }
+            .screen_holder_channel {
+                top: 4.25%;
+                height: 95.75%;
+            }
 
-    /* --- SECTION TABS --- */
-    .section_tab_active {
-        color: #a855f7 !important;
-        border-bottom: 2px solid #a855f7;
-    }
+            .screen_holder_user {
+                top: 7%;
+                height: 93%;
+            }
 
-    /* --- GAMES/CHANNELS CARDS --- */
-    .stream_thumbnail_game {
-        background-color: #1a1a22 !important;
-    }
-    /* --- TOP BAR --- */
-    .topbar {
-        left: 3.5em !important;
-        width: calc(100% - 3.5em) !important;
-        height: 3.5vh !important;
-        background: #0b0914 !important;
-        border-bottom: 1px solid rgba(168, 85, 247, 0.12) !important;
-        transform: none !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-    }
-    .top_lable {
-        font-size: 0.65em !important;
-        color: #c4b5fd !important;
-        font-weight: 600 !important;
-        letter-spacing: 0.03em !important;
-        position: static !important;
-        top: auto !important;
-    }
-    #button_full_screen,
-    #controls_div,
-    #top_lable_etc,
-    .top_clock:not(#clock_holder) {
-        display: none !important;
-    }
-    #clock_holder {
-        position: absolute !important;
-        right: 1.5em !important;
-        top: 50% !important;
-        transform: translateY(-50%) !important;
-        left: auto !important;
-        z-index: 3 !important;
-        display: block !important;
-    }
-    #label_clock {
-        font-size: 0.65em !important;
-        color: #a78bfa !important;
-        text-align: right !important;
-    }
-    /* Remove gap between topbar and content */
-    .screen_holder {
-        top: 3.5vh !important;
-        height: calc(100% - 3.5vh) !important;
-    }
-    /* Card spacing fix */
-    .animate_height_transition {
-        gap: 0.6% !important;
-        padding: 0.2% !important;
-    }
+            .settings_holder {
+                position: absolute;
+                top: 4.5%;
+                width: calc(100% - 11em);
+                margin-left: 11em;
+                height: 95.5%;
+                overflow: hidden;
+            }
 
-</style>
-</head>
+            .screen_holder_settings {
+                position: absolute;
+                overflow: hidden;
+                margin-left: 3%;
+                width: 97.5%;
+                height: 100%;
+                font-size: 2.67vh;
+            }
+
+            .live_icon {
+                vertical-align: middle;
+                font-size: 65%;
+            }
+
+            .icon_top_label {
+                width: auto;
+                height: 1.75%;
+                text-align: left;
+                color: #ffffff;
+                font-size: 55%;
+                font-family: 'Roboto-Bold';
+                vertical-align: middle;
+            }
+
+            .stream_cell_period {
+                padding-left: 3ch;
+                position: relative;
+                width: 30%;
+                display: inline-block;
+                transform: translateY(25%);
+            }
+
+            .icon_feed_refresh {
+                width: 100%;
+                font-family: 'Roboto-Bold';
+                color: #ffffff;
+                text-align: left;
+                margin-left: 0.5%;
+                filter: drop-shadow(0 0.05em 0.15em #000000) drop-shadow(0 0.05em 0.15em #000000);
+            }
+
+            .stream_thumbnail_game_feed,
+            .stream_thumbnail_game,
+            .stream_thumbnail_side,
+            .stream_thumbnail_live,
+            .stream_thumbnail_player_feed,
+            .stream_thumbnail_user,
+            .stream_thumbnail_channel {
+                width: 100%;
+                height: 0;
+                position: relative;
+            }
+
+            .banner_holder {
+                width: 98.75%;
+                display: inline-block;
+                padding: 0.5%;
+            }
+
+            .inner_banner_holder {
+                width: 100%;
+                display: inline-block;
+                padding-bottom: 2.75%;
+                background-color: #131318;
+                color: #ffffff;
+                position: relative;
+            }
+
+            .banner_text_holder {
+                height: 2.5vh;
+                font-family: 'Roboto-Bold';
+            }
+
+            .banner_img_holder {
+                padding-bottom: 24%;
+                background-color: #131318 !important;
+            }
+
+            img.banner_img {
+                height: 89.5%;
+                max-width: 96%;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            img.banner_16by9_img {
+                height: 118.3%;
+                position: absolute;
+                max-width: 100%;
+                max-height: 118.3%;
+                overflow: hidden;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .stream_thumbnail_side {
+                width: 99.75%;
+                /*16 by 9 in relation to the width % size*/
+                padding-bottom: 56.109375%;
+                background-repeat: no-repeat;
+                background: #000000;
+            }
+
+            .stream_thumbnail_player_feed {
+                padding-bottom: 93%;
+                width: 97%;
+                background-repeat: no-repeat;
+                background: #000000;
+                color: #ffffff;
+            }
+
+            .stream_switch_focused {
+                background-color: rgba(255, 255, 255, 0.15);
+                border-color: #ebebeb !important;
+            }
+
+            .stream_thumbnail_channel_vod {
+                margin-left: 5%;
+                width: 90%;
+                height: 0;
+                padding-bottom: 6%;
+            }
+
+            .stream_thumbnail_live {
+                padding-bottom: 79.5%;
+                background-color: #1a1a1f;
+                color: #ffffff;
+                border-radius: 0.3em;
+                overflow: hidden;
+            }
+
+            .stream_thumbnail_feed_game,
+            .stream_thumbnail_live_game {
+                width: 100%;
+                background-color: #1a1a1f;
+                padding-bottom: 139.7%;
+                position: relative;
+            }
+
+            .stream_thumbnail_live_img {
+                width: 100%;
+                background-color: #1a1a1f;
+                padding-bottom: 56.25%;
+                position: relative;
+                border-radius: 0.3em 0.3em 0 0;
+                overflow: hidden;
+            }
+
+            .stream_thumbnail_channel_img {
+                width: 100%;
+                background-color: #1a1a1f;
+                padding-bottom: 100%;
+                position: relative;
+            }
+
+            .stream_thumbnail_blocked_game_holder,
+            .stream_thumbnail_game_holder {
+                width: 17%;
+                display: inline-block;
+                padding: 1%;
+                padding-top: 0;
+                padding-bottom: 0.2%;
+            }
+
+            .stream_thumbnail_blocked_game_holder {
+                width: 16.5%;
+            }
+
+            .stream_thumbnail_game_feed,
+            .stream_thumbnail_game {
+                padding-bottom: 164%;
+                font-size: 80%;
+                background-color: #1a1a1f;
+                color: #ffffff;
+            }
+
+            .stream_thumbnail_game_feed {
+                padding-bottom: 158%;
+                font-size: 80%;
+                width: 93%;
+            }
+
+            .stream_thumbnail_live_holder {
+                width: 23.5%;
+                display: inline-block;
+                padding: 0.5%;
+                padding-bottom: 1.5%;
+            }
+
+            .viewer_badge {
+                position: absolute;
+                bottom: 0.4em;
+                right: 0.4em;
+                background: rgba(0, 0, 0, 0.75);
+                color: #ffffff;
+                font-size: 65%;
+                padding: 0.15em 0.45em;
+                border-radius: 0.15em;
+                display: flex;
+                align-items: center;
+                z-index: 2;
+            }
+
+            .viewer_dot {
+                width: 0.45em;
+                height: 0.45em;
+                background: #FF3B3B;
+                border-radius: 50%;
+                margin-right: 0.3em;
+                flex-shrink: 0;
+            }
+
+            .thumb_info_row {
+                display: flex;
+                align-items: center;
+                padding: 0.4em 0.2em 0.1em 0.2em;
+            }
+
+            .thumb_avatar {
+                width: 1.8em;
+                height: 1.8em;
+                border-radius: 50%;
+                margin-right: 0.5em;
+                flex-shrink: 0;
+                object-fit: cover;
+            }
+
+            .thumb_text_info {
+                flex: 1;
+                min-width: 0;
+                overflow: hidden;
+            }
+
+            .thumb_game_name {
+                font-size: 72%;
+                color: #ffffff;
+                font-family: 'Roboto-Bold';
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .thumb_streamer_name {
+                font-size: 62%;
+                color: #B0B0B8;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .section_header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0.5em 0.5em 0.8em 0.5em;
+            }
+
+            .section_title {
+                font-size: 1.1em;
+                font-family: 'Roboto-Bold';
+                color: #ffffff;
+                letter-spacing: 0.05em;
+            }
+
+            .section_tabs {
+                display: flex;
+                gap: 1.5em;
+            }
+
+            .section_tab {
+                font-size: 0.8em;
+                color: #B0B0B8;
+                cursor: pointer;
+                padding-bottom: 0.2em;
+                border-bottom: 0.12em solid transparent;
+                transition: color 200ms, border-color 200ms;
+            }
+
+            .section_tab_active {
+                color: #9146FF;
+                border-bottom-color: #9146FF;
+            }
+
+            .stream_thumbnail_user_icon_holder,
+            .stream_thumbnail_blocked_channel_holder,
+            .stream_thumbnail_channel_holder {
+                width: 15%;
+                display: inline-block;
+                padding: 0.5%;
+                padding-bottom: 1.25%;
+            }
+
+            .stream_thumbnail_blocked_channel_holder {
+                width: 14.5%;
+            }
+
+            .stream_thumbnail_user_icon_holder {
+                width: 14.5%;
+                transform: translateY(-11%);
+                padding: 1%;
+                padding-top: 0.8%;
+                padding-bottom: 0;
+            }
+
+            .channel_about {
+                text-overflow: ellipsis;
+                overflow: hidden;
+                height: 98% !important;
+                font-size: 80%;
+                width: 96%;
+                margin-left: 2%;
+            }
+
+            .stream_thumbnail_user_text_holder,
+            .stream_thumbnail_channel_text_holder,
+            .stream_thumbnail_game_text_holder,
+            .stream_thumbnail_game_feed_text_holder,
+            .stream_thumbnail_feed_text_holder,
+            .banner_text_holder,
+            .stream_thumbnail_live_text_holder {
+                position: absolute;
+                right: 0;
+                left: 0;
+                padding: 0.5%;
+                font-size: 94%;
+                margin-top: 0.1em;
+            }
+
+            .stream_thumbnail_feed_text_holder {
+                height: 35%;
+            }
+
+            .stream_thumbnail_live_text_holder {
+                height: 0;
+                overflow: hidden;
+            }
+
+            .stream_text_holder {
+                display: inline-block;
+                width: 100%;
+                top: 50%;
+                position: relative;
+                transform: translateY(-50%);
+            }
+
+            .stream_thumbnail_game_text_holder {
+                height: 14%;
+            }
+
+            .stream_thumbnail_game_feed_text_holder {
+                height: 17%;
+            }
+
+            .stream_thumbnail_channel_text_holder {
+                bottom: 0;
+                height: 1em;
+            }
+
+            .stream_thumbnail_user_text_holder {
+                bottom: 0;
+                height: 2em;
+            }
+
+            .stream_info_live,
+            .stream_info_live_title,
+            .stream_info_live_title_single_line,
+            .stream_info_channel_name,
+            .stream_info_user_name,
+            .stream_info_user_title,
+            .stream_info_live_name {
+                width: 100%;
+                text-align: left;
+                word-wrap: break-word;
+                font-size: 85%;
+                font-family: 'Roboto-Bold';
+            }
+
+            .stream_info_game_name {
+                width: 100%;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                font-size: 75%;
+                font-family: 'Roboto-Bold';
+            }
+
+            .channel_live_icon {
+                vertical-align: middle;
+                margin-right: 0.2ch;
+            }
+
+            .stream_info_channel_partner_icon {
+                display: inline-block;
+                font-size: 75%;
+                width: 2ch;
+            }
+
+            .stream_info_user_name,
+            .stream_info_user_title,
+            .stream_info_channel_name {
+                font-size: 72%;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                width: calc(100% - 3ch);
+                display: inline-block;
+                margin-left: 0.3ch;
+            }
+
+            .stream_info_user_title,
+            .stream_info_user_name {
+                font-size: 67%;
+                width: 100%;
+                display: block;
+            }
+
+            .stream_info_user_name {
+                padding-top: 0.25em;
+            }
+
+            .stream_info_live {
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                font-family: 'Roboto';
+                font-size: 74%;
+            }
+
+            .stream_info_live_title {
+                word-wrap: break-word;
+                max-height: 2.35em;
+                font-size: 72%;
+                overflow: hidden;
+                white-space: normal;
+            }
+
+            .stream_info_live_title_single_line {
+                word-wrap: break-word;
+                max-height: 1.175em;
+                font-size: 72%;
+                overflow: hidden;
+                white-space: normal;
+            }
+
+            .add_user_text {
+                width: 99% !important;
+                height: auto !important;
+                left: 0;
+                color: #ffffff;
+                font-size: 200%;
+                text-align: center;
+            }
+
+            .dialog_multi_help,
+            .dialog_multi {
+                z-index: 2;
+                border-radius: 1em;
+                left: 15%;
+                width: 70% !important;
+                height: auto !important;
+                top: 50%;
+                text-align: center;
+                transform: translateY(-50%);
+                font-size: 110%;
+                background-color: rgba(0, 0, 0, 0.85) !important;
+                border: 0.1em solid #ffffff;
+            }
+
+            .dialog_multi_help {
+                width: 99% !important;
+                height: auto !important;
+                left: 0;
+                color: #ffffff;
+                font-size: 89%;
+            }
+
+            .dialog_multi_help_holder {
+                width: 48% !important;
+                height: 48% !important;
+                top: 51%;
+                left: 51%;
+                z-index: -1;
+            }
+
+            .stream_info_multi_diag_div,
+            .stream_info_pp_div,
+            .stream_info_multi_div {
+                width: 35%;
+                display: inline-block;
+            }
+
+            .stream_info_pp_div {
+                width: 70%;
+            }
+
+            .stream_info_multi_diag_div {
+                width: 45%;
+                padding: 2%;
+                padding-right: 2.5%;
+            }
+
+            .stream_thumbnail_channel {
+                padding-bottom: 112%;
+                background-color: #1a1a1f;
+                color: #ffffff;
+            }
+
+            .stream_thumbnail_user {
+                padding-bottom: 122%;
+                background-color: #1a1a1f;
+                color: #ffffff;
+            }
+
+            .stream_user_icon {
+                width: 100%;
+                color: #ffffff;
+                text-align: center;
+                font-size: 100%;
+            }
+
+            img.stream_img_channel {
+                /* height: 84%; */
+                max-height: 47%;
+                max-width: 92%;
+                margin-left: 2%;
+                position: absolute;
+                left: 50%;
+                transform: translate(-50%, -1%);
+            }
+
+            img.stream_img_channel_logo {
+                height: 150%;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            img.stream_img_side,
+            img.stream_img_channels,
+            img.stream_img {
+                width: 100%;
+                position: absolute;
+                max-width: 100%;
+                max-height: 100%;
+                overflow: hidden;
+            }
+
+            img.stream_img_follow {
+                height: 100%;
+                position: absolute;
+                right: 0;
+            }
+
+            .next_channel,
+            .next_info {
+                width: 100%;
+                text-align: left;
+                word-wrap: break-word;
+                color: #ffffff;
+                font-family: 'Roboto-Bold';
+                font-size: 85%;
+            }
+
+            .next_info {
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                font-family: 'Roboto';
+                font-size: 75%;
+                padding-right: 0.5em;
+            }
+
+            .next_info_dialog {
+                overflow: hidden;
+                font-family: 'Roboto';
+                font-size: 75%;
+                max-height: 9.2vh;
+                height: auto;
+                text-align: left;
+            }
+
+            .end_text {
+                overflow: hidden;
+                height: 1.15em;
+            }
+
+            .icon_end {
+                font-size: 6vh !important;
+            }
+
+            .stream_channel_follow_game {
+                text-align: center;
+                font-size: 71%;
+                line-height: 0.5em;
+                width: 100%;
+                word-wrap: break-word;
+                color: #ffffff;
+                font-family: 'Roboto-Bold';
+                transform: translateY(1ch);
+            }
+
+            .stream_channel_follow_game,
+            .pause_button3d {
+                text-shadow:
+                    -0.1em 0 0 #000000,
+                    0.05em -0.05em 0 #000000,
+                    0.05em 0.05em 0 #000000,
+                    0 0.05em 0 #000000,
+                    -0.05em 0 0 #000000,
+                    -0.05em 0.05em 0 #000000,
+                    0 -0.05em 0 #000000,
+                    0 0.0375em 0 #777777,
+                    0 0.075em 0 #666666,
+                    0 0.1125em 0 #555555,
+                    0 0.2em 0 #000000,
+                    0 0.2em 0 #000000,
+                    0.1em 0.1em 0 #000000,
+                    0.1em 0.1em 0 #000000,
+                    -0.1em 0.1em 0 #000000,
+                    -0.1em 0.1em 0 #000000,
+                    -0.05em 0.15em 0 #000000,
+                    0.05em 0.15em 0 #000000;
+            }
+
+            .sidepanel_heart {
+                text-shadow:
+                    0.05em -0.05em 0 #ffffff,
+                    0.05em 0 0 #ffffff,
+                    -0.05em 0 0 #ffffff,
+                    0 -0.05em 0 #ffffff,
+                    0 0.075em 0 #ffffff;
+            }
+
+            .strokicon_title,
+            .strokicon {
+                text-shadow:
+                    0 0.025em 0 #000000,
+                    -0.025em 0 0 #000000,
+                    0 0.0375em 0 #777777,
+                    0 0.055em 0 #666666,
+                    0 0.07em 0 #555455,
+                    -0.03em -0.03em 0 #000000,
+                    0.03em -0.03em 0 #000000,
+                    -0.03em 0.08em 0 #000000,
+                    0.03em 0.08em 0 #000000,
+                    -0.04em 0.03em 0 #000000,
+                    0.04em 0.03em 0 #000000,
+                    0 0.1em 0 #000000,
+                    0 -0.04em 0 #000000;
+            }
+
+            .strokicon_title {
+                font-size: 90%;
+                color: #ffffff;
+                text-shadow:
+                    -0.1em 0 0 #000000,
+                    0.05em -0.05em 0 #000000,
+                    0.05em 0.05em 0 #000000,
+                    0 0.05em 0 #000000,
+                    -0.05em 0 0 #000000,
+                    -0.05em 0.05em 0 #000000,
+                    0 -0.05em 0 #000000,
+                    0 0.0375em 0 #777777,
+                    0 0.075em 0 #666666,
+                    0 0.1125em 0 #555555,
+                    0 0.2em 0 #000000,
+                    0 0.2em 0 #000000,
+                    0.1em 0.1em 0 #000000,
+                    0.1em 0.1em 0 #000000,
+                    -0.1em 0.1em 0 #000000,
+                    -0.1em 0.1em 0 #000000,
+                    -0.05em 0.15em 0 #000000,
+                    0.05em 0.15em 0 #000000;
+            }
+
+            .seek_previews_holder {
+                transform: translate(0%, 0%);
+                position: absolute;
+                display: inline-block;
+                width: 100%;
+                height: 100%;
+            }
+
+            .seek_previews {
+                transform: translateX(-53%);
+                left: 0;
+                bottom: 0;
+                position: absolute;
+                border-radius: 0.5vh;
+                box-shadow:
+                    inset 0 0 0 0.025vh #ffffff,
+                    0 0 0 0.3vh #ffffff,
+                    0 0 0 0.6vh #000000;
+            }
+
+            .stream_channel_follow_icon {
+                color: #ffffff;
+                font-size: 100%;
+            }
+
+            .scenefeed_background_no_ani,
+            .scenefeed_background {
+                background: #131318;
+            }
+
+            .scenefeed_background {
+                transition: background 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+                background: #131318;
+            }
+
+            .user_feed {
+                z-index: 100;
+                position: absolute;
+                bottom: -0.1%;
+                height: 43.75%;
+                width: 100%;
+                overflow: hidden;
+                background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
+                transform: translateY(0);
+                transition: transform 200ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+                will-change: transform;
+            }
+
+            .user_feed_hide {
+                transform: translateY(101%);
+            }
+
+            .user_feed_scroll_game,
+            .user_feed_scroll {
+                position: absolute;
+                width: 100%;
+                left: 0.55vh;
+                white-space: nowrap;
+                /* height calculated manual to be 100% of content*/
+                height: 78%;
+                bottom: 17.7%;
+                transform: translateX(0);
+                transition: transform 200ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+                will-change: transform;
+            }
+
+            .user_feed_scroll_game {
+                left: 0.9vh;
+                /* height calculated manual to be 100% of content*/
+                height: 85%;
+                bottom: 11.7%;
+            }
+
+            .user_feed_thumb_game,
+            .user_feed_thumb {
+                width: 19.95%;
+                display: inline-block;
+                transform: translate(0px, -103%);
+                transition: transform 200ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+                will-change: transform;
+                position: absolute;
+            }
+
+            .user_feed_thumb_game {
+                width: 12.465%;
+            }
+
+            .chat_input_text_box {
+                width: 95%;
+                text-align: center;
+                margin-left: 2.5%;
+            }
+
+            .chat_result,
+            .chat_result_holder,
+            .chat_result_text {
+                width: 100%;
+                text-align: center;
+                font-size: 2.4vh;
+                font-family: 'Roboto-Bold';
+                background-color: #131318;
+                color: #ffffff;
+            }
+
+            .chat_result_holder_inner {
+                padding: 0.5%;
+            }
+
+            .chat_result_text {
+                width: 100%;
+                height: 100%;
+                transform: rotate(180deg);
+                text-align: left;
+            }
+
+            .chat_result_holder {
+                max-height: 24.5vh;
+                margin-bottom: 1%;
+                border: 0.4vh solid #ffffff;
+                transform: rotate(180deg);
+                overflow: hidden;
+            }
+
+            .chat_result {
+                background-color: rgba(0, 0, 0, 0);
+            }
+
+            .chat_input_class {
+                width: 100%;
+                margin-bottom: 0.5%;
+                height: 1.25em;
+                color: #000000;
+                font-family: 'Roboto-Bold';
+                font-size: 2vh;
+                text-align: center;
+                background-color: #dcdcdc;
+                border: 0.125em solid #ffffff;
+                box-shadow: inset 0 0 0 0.1em #000000;
+                padding: 0.08em;
+                outline: none;
+            }
+
+            .chat_input_class_focus {
+                border: 0.2em solid red;
+                caret-color: red;
+                box-shadow: inset 0 0 0 0.1em #ffffff;
+                background-color: #ffffff;
+            }
+
+            .chat_input_class_block {
+                border: 0.2em solid red;
+                caret-color: red;
+                color: red;
+                box-shadow: inset 0 0 0 0.1em #ffffff;
+                background-color: #ffffff;
+            }
+
+            .chat_emotes_img_container,
+            .chat_emotes_img {
+                width: 10vh;
+                height: 10vh;
+                object-fit: contain;
+            }
+
+            .chat_emotes_div {
+                overflow: hidden;
+            }
+
+            .chat_emotes {
+                width: 100%;
+                margin-left: 2%;
+                text-align: left;
+                transform: translateY(0);
+                transition: transform 200ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+                will-change: transform;
+            }
+
+            .chat_emotes_img_div {
+                padding: 1vh;
+                padding-left: 2vh;
+            }
+
+            .chat_emotes_img_holder {
+                width: 8%;
+                display: inline-block;
+            }
+
+            .chat_emotes_focus {
+                background-color: rgba(0, 0, 0, 0.6);
+                box-shadow: inset 0 0 0 0.4vh #ebebeb;
+            }
+
+            .chat_emotes_name_holder {
+                height: 2vh;
+            }
+
+            .chat_emotes_name {
+                color: #ffffff;
+                font-size: 2vh;
+                width: 100vw;
+                text-align: center;
+                position: relative;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .chat_emotes_counter {
+                position: absolute;
+                top: 0;
+                right: 0;
+                margin-right: 1vh;
+                font-size: 2.5vh;
+                color: #ffffff;
+            }
+
+            .chat_emotes_holder {
+                position: absolute;
+                text-align: center;
+                width: 100%;
+                height: 46.5%;
+                bottom: 0;
+                font-size: 0;
+                background: rgba(0, 0, 0, 0.7);
+                z-index: 2;
+            }
+
+            .chat_emotes_text {
+                color: #ffffff;
+                font-family: 'Roboto-Bold';
+                font-size: 3vh;
+            }
+
+            .button_chat {
+                width: 14%;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                height: 1.25em;
+                margin-left: 2%;
+                margin-bottom: 0.5%;
+                color: #ffffff;
+                font-family: 'Roboto-Bold';
+                font-size: 2.4vh;
+                background-color: #2f2f2f;
+                display: inline-block;
+                border: 0.1em solid #ffffff;
+                box-shadow: inset 0 0 0 0.1em #000000;
+                text-align: center;
+            }
+
+            .chat_send {
+                font-size: 0;
+                top: 0;
+                z-index: 8;
+                background: rgba(0, 0, 0, 0.7);
+                height: 0;
+            }
+
+            .button_chat_focused {
+                color: #000000;
+                background-color: #ebebeb;
+                border-color: #000000;
+                box-shadow: inset 0 0 0 0.1em #ff0000;
+            }
+
+            .input_text_box {
+                width: 70%;
+                margin-top: 13%;
+                margin-left: 15%;
+            }
+
+            .input_class {
+                width: 100%;
+                height: 2em;
+                color: black;
+                font-family: 'Roboto-Bold';
+                font-size: 150%;
+                text-align: center;
+                vertical-align: middle;
+                background-color: #ebebeb;
+                border-radius: 0.75em;
+                border: 0.1em solid #ffffff;
+                box-shadow: inset 0 0 0 0.08em #000000;
+                padding: 0.08em;
+                outline: none;
+            }
+            .button_search_container {
+                /* 101 to acount for the boarder of the input */
+                width: 101%;
+                display: flex;
+                justify-content: space-evenly;
+            }
+
+            .button_dialog,
+            .button_search {
+                width: 19%;
+                height: 2.2em;
+                line-height: 2.2em;
+                border-radius: 0.75em;
+                margin-top: 1%;
+                /* margin-left: 4.5%; */
+                color: #ffffff;
+                font-family: 'Roboto-Bold';
+                font-size: 150%;
+                background-color: rgba(0 0 0 0);
+                display: inline-block;
+                border-top: 0.055em solid;
+                border-bottom: 0.06em solid;
+                border-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)) 1;
+                text-align: center;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .button_search:hover,
+            .button_dialog:hover,
+            .button_dialog_focused,
+            .button_search_focused {
+                background-color: #3e3e3e;
+                text-shadow:
+                    -0.03em -0.03em 0 #000,
+                    0.03em -0.03em 0 #000,
+                    -0.03em 0.03em 0 #000,
+                    0.03em 0.03em 0 #000;
+                border-image: linear-gradient(to right, #000000 6%, #d0d3d4, #000000 94%) 1;
+                margin-bottom: 0 !important;
+            }
+
+            .button_dialog_focused {
+                border-image: linear-gradient(to right, #101010 9%, #d0d3d4, #101010 91%) 1;
+            }
+
+            .about_text_title {
+                text-align: center;
+                width: 100%;
+                font-size: 125%;
+                font-family: 'Roboto-Bold';
+            }
+
+            .about_text,
+            .exit_text,
+            .controls_text {
+                width: 99%;
+                display: inline-block;
+                color: #ffffff;
+                margin: 0.5%;
+                text-align: center;
+                word-wrap: break-word;
+                font-size: 75%;
+                text-shadow:
+                    #000000 0 0 0.2em,
+                    #000000 0 0 0.2em,
+                    #000000 0 0 0.15em;
+            }
+
+            .exit_text {
+                margin-top: 2%;
+                margin-bottom: 2%;
+                width: 96%;
+                font-size: 110%;
+                margin-left: 2%;
+            }
+
+            .controls_text {
+                font-size: 1.65vh;
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+
+            .up,
+            .down {
+                border-left: 0.6em solid transparent;
+                border-right: 0.6em solid transparent;
+            }
+
+            .up {
+                border-bottom: 0.8em solid white;
+                margin-bottom: 15%;
+            }
+
+            .down {
+                border-top: 0.8em solid white;
+            }
+
+            .scene_channel_panel {
+                position: absolute;
+                z-index: 2;
+            }
+
+            .playsideinfostatus {
+                word-wrap: break-word;
+                line-height: 2.1ch;
+            }
+
+            .playsideinfo {
+                z-index: 2;
+                position: absolute;
+                right: 0;
+                width: 40ch;
+                color: #ffffff;
+                font-size: 2.15vh;
+                padding: 0.75%;
+                text-shadow:
+                    -0.05em -0.05em 0 #000,
+                    0.05em -0.05em 0 #000,
+                    -0.05em 0.05em 0 #000,
+                    0.05em 0.05em 0 #000;
+            }
+
+            .playsideinfofocus {
+                border-radius: 0.75em;
+                background-color: rgba(0, 0, 0, 0.25);
+            }
+
+            .playclock {
+                position: absolute;
+                text-align: center;
+                top: 0.75%;
+                width: 100%;
+                color: #ffffff;
+                font-size: 100%;
+                text-shadow:
+                    -0.05em -0.05em 0 #000,
+                    0.05em -0.05em 0 #000,
+                    -0.05em 0.05em 0 #000,
+                    0.05em 0.05em 0 #000;
+            }
+
+            .playmaininfo {
+                vertical-align: top;
+                padding-left: 1%;
+                padding-top: 2%;
+                display: inline-block;
+                width: 53%;
+                line-height: 2.2ch;
+                font-size: 90%;
+                color: #ffffff;
+                word-wrap: break-word;
+                text-shadow:
+                    -0.05em -0.05em 0 #000,
+                    0.05em -0.05em 0 #000,
+                    -0.05em 0.05em 0 #000,
+                    0.05em 0.05em 0 #000;
+            }
+
+            .playerinfo {
+                width: 100%;
+                background: linear-gradient(to bottom, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0));
+            }
+
+            .partnericon_div {
+                display: inline-block;
+                width: auto;
+                max-width: 73%;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                transform: translateY(17%);
+                font-size: 93%;
+            }
+
+            img.partnericon_img {
+                display: inline-block;
+                width: 1.5ch;
+                transform: translateY(8%);
+            }
+
+            .stream_info_pp_name {
+                display: inline-block;
+                width: auto;
+                max-width: 80%;
+            }
+
+            .lang_text,
+            .audio_icon,
+            .vodicon_text,
+            .partnericon_text {
+                display: inline-block;
+                width: auto;
+                font-size: 70%;
+                font-family: 'Roboto';
+            }
+
+            .vodicon_text,
+            .partnericon_text {
+                border-radius: 0.1em;
+                text-shadow: none;
+                font-size: 60%;
+                font-family: 'Roboto-Bold';
+            }
+
+            .vodicon_text {
+                transform: translateY(-8%);
+                border-radius: 0.5em;
+                font-size: 70%;
+            }
+
+            .lang_text,
+            .vodicon_text,
+            .partnericon_text {
+                transform: translateY(-20%);
+            }
+
+            .audio_icon {
+                font-size: 100%;
+            }
+
+            .side_panel_new_holder {
+                will-change: opacity;
+                transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+                height: 100%;
+                width: 11em;
+                position: absolute;
+                left: 0;
+                z-index: 10;
+            }
+
+            /* don't use this class for anything else other then side panel div because of Sidepannel_GetSize()*/
+
+            .side_panel_feed {
+                width: 100%;
+                padding: 1%;
+            }
+
+            .side_panel_feed_top {
+                margin-top: 1%;
+                margin-bottom: 1%;
+                vertical-align: middle;
+                display: inline-block;
+                width: 98%;
+                font-size: 70%;
+                word-wrap: break-word;
+                overflow: hidden;
+                color: #ffffff;
+            }
+
+            .side_panel_feed_thumb_text_holder {
+                width: 98%;
+                height: 21%;
+                bottom: 0;
+                color: #ffffff;
+                font-size: 110%;
+                padding: 1%;
+            }
+
+            .side_panel_feed_thumb_text {
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+
+            .side_panel_feed_thumb_title_text {
+                word-wrap: break-word;
+                max-height: 2.5em;
+                font-family: 'Roboto-Bold';
+                font-size: 97%;
+                overflow: hidden;
+            }
+
+            .side_panel_feed_thumb {
+                position: absolute;
+                width: 75%;
+                height: 97.5%;
+                top: 2.1%;
+                left: 24.3%;
+                background-color: #131318;
+                will-change: opacity;
+                transition: opacity 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+            }
+
+            .side_panel_dialog {
+                text-align: center;
+                margin-left: 24.5%;
+                transform: translateY(-50%);
+                width: 50%;
+                font-family: 'Roboto-Bold';
+                color: #ffffff;
+                position: absolute;
+            }
+
+            .side_panel_dialog_hide {
+                margin-left: -15.75%;
+            }
+
+            .side_panel_fix,
+            .side_panel_movel {
+                position: absolute;
+                height: 100%;
+                width: 11em;
+                margin-left: 0;
+                overflow: hidden;
+                transform: translateX(0);
+                transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+                will-change: transform;
+                /* on chrome do to the focus class side_panel_new_icons_text that uses background: linear-gradient
+                                    is needed to add a border here to prevent visual glitches right on the border of the element
+                                    border-right: 2px solid #000000;*/
+            }
+
+            .side_panel_fix {
+                transition: margin-left 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+                z-index: 3;
+                height: 100%;
+            }
+
+            .side_panel_background_color {
+                background-color: #131318;
+            }
+
+            .side_panel_fix_top_2,
+            .side_panel_fix_top {
+                height: 42%;
+            }
+
+            .side_panel_fix_top_2 {
+                height: 42%;
+                transform: translateY(-65%);
+            }
+
+            .side_panel_fix_bottom {
+                height: 32%;
+                transform: translateY(-172%);
+            }
+
+            .side_panel_fix_center {
+                height: 42%;
+                transform: translateY(-118%);
+            }
+
+            .side_panel_movel_bottom_holder {
+                height: 35%;
+                padding-top: 9vh;
+                padding-left: 0.5vw;
+                color: #ffffff;
+                font-size: 75%;
+                text-shadow:
+                    -0.03em -0.03em 0 #000,
+                    0.03em -0.03em 0 #000,
+                    -0.03em 0.03em 0 #000,
+                    0.03em 0.03em 0 #000;
+            }
+
+            .side_panel_movel_bottom_text {
+                height: 25%;
+                width: auto;
+            }
+
+            .side_panel_new_icons_text_holder,
+            .side_panel_new_icons {
+                width: 80%;
+                height: 9.25%;
+                margin-top: 0.7vh;
+                position: relative;
+                color: #ffffff;
+                font-size: 100%;
+                text-align: center;
+                text-shadow:
+                    -0.02em -0.02em 0 #000,
+                    0.02em -0.02em 0 #000,
+                    -0.02em 0.02em 0 #000,
+                    0.02em 0.02em 0 #000;
+            }
+
+            .side_panel_new_text_options,
+            .side_panel_new_icons_text_holder,
+            .side_panel_new_icons {
+                border-top: 0.05em solid;
+                border-bottom: 0.05em solid;
+                border-image: linear-gradient(#131318, #131318) 1;
+                box-sizing: border-box;
+            }
+
+            .side_panel_new_icons {
+                margin-left: 20%;
+            }
+
+            .side_panel_new_icons_text_holder {
+                padding-left: 8vh;
+                width: auto;
+                text-align: left;
+                font-size: 1.1em;
+            }
+
+            .side_panel_new_icons_text {
+                background: linear-gradient(to right, #131318 18%, rgba(255, 255, 255, 0.3), #131318 80%);
+                border-image: linear-gradient(to right, #131318 18%, #d0d3d4, #131318 80%) 1 !important;
+            }
+
+            .side_panel_new_icons_text_botton {
+                background: linear-gradient(to right, #131318 0%, rgba(255, 255, 255, 0.3), #131318 70%);
+                border-image: linear-gradient(to right, #131318 0%, #d0d3d4, #131318 70%) 1 !important;
+            }
+
+            .side_panel_new_icons_pad {
+                vertical-align: sub;
+            }
+
+            .side_panel_new_icons_start {
+                background: linear-gradient(to right, #131318 8%, rgba(255, 255, 255, 0.3), #131318 92%);
+                border-image: linear-gradient(to right, #131318 8%, #d0d3d4, #131318 92%) 1 !important;
+            }
+
+            .side_panel_movel_user_text,
+            .side_panel_movel_top_text {
+                color: #ffffff;
+                font-size: 75%;
+                position: absolute;
+                padding-top: 1vh;
+                left: 25%;
+                width: 75%;
+            }
+
+            .side_panel_movel_user_text {
+                transform: translateY(-115%);
+                text-decoration: underline;
+            }
+
+            img.side_panel_new_img {
+                width: 70%;
+            }
+
+            .side_panel {
+                position: absolute;
+                bottom: 0;
+                left: -1.9%;
+                height: 100%;
+                width: 25.5%;
+                overflow: hidden;
+                transform: translateX(0);
+                transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+                will-change: transform;
+                background: #000000;
+            }
+
+            .side_panel_hide {
+                transform: translateX(-76.52%);
+            }
+
+            .side_panel_hide_full {
+                transform: translateX(-100%);
+            }
+
+            .side_panel_inner {
+                transform: translateX(0);
+                transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+                will-change: transform;
+                width: 100%;
+                position: absolute;
+            }
+
+            .side_panel_inner_hide {
+                /* 0.5% more then side_panel_hide */
+                transform: translateX(77.02%);
+                width: 100%;
+                position: absolute;
+            }
+
+            .side_panel_icons {
+                vertical-align: middle;
+                display: inline-block;
+                margin-left: 1.5%;
+            }
+
+            .dialog_end_stream_text {
+                margin-top: 12.25%;
+                font-size: 4.25vh;
+                padding-bottom: 0.75%;
+                width: 50%;
+                margin-left: 25%;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+
+            .about_dialogs {
+                position: absolute;
+                z-index: 99;
+                background-color: #101010;
+                top: 50%;
+                transform: translateY(-50%);
+                border-radius: 0.2em;
+                border-color: #ffffff !important;
+            }
+
+            .dialogs {
+                position: absolute;
+                text-align: center;
+                width: 100%;
+                font-family: 'Roboto-Bold';
+                color: #ffffff;
+            }
+
+            .dialogs_feed {
+                text-align: center;
+                width: 100%;
+                font-family: 'Roboto-Bold';
+                color: #ffffff;
+            }
+
+            .strokedeline {
+                text-shadow:
+                    -0.05em -0.05em 0 #000,
+                    0.05em -0.05em 0 #000,
+                    -0.05em 0.05em 0 #000,
+                    0.05em 0.05em 0 #000;
+            }
+
+            .strokedelinebig {
+                text-shadow:
+                    -0.0175em -0.0175em 0 #000,
+                    0.0175em -0.0175em 0 #000,
+                    -0.0175em 0.0175em 0 #000,
+                    0.0175em 0.0175em 0 #000;
+            }
+
+            .dialog_text {
+                width: fit-content;
+                text-align: center;
+                display: inline-block;
+                filter: drop-shadow(0 0.05em 0.15em #000000) drop-shadow(0 0.05em 0.15em #000000);
+                white-space: normal;
+            }
+
+            .shadow_text {
+                filter: drop-shadow(0 0.05em 0.15em rgba(0, 0, 0, 0.8)) drop-shadow(0 0.05em 0.15em rgba(0, 0, 0, 0.5));
+            }
+
+            .red_text {
+                color: #ff2121;
+            }
+
+            .streams_div {
+                margin-left: 4.6%;
+                width: 94.5%;
+                height: 100%;
+            }
+
+            .streams_game_div {
+                margin-left: 6.75%;
+                width: 94.5%;
+                height: 100%;
+            }
+
+            .exit_player_embed {
+                background: rgba(0, 0, 0, 0.6);
+                border-radius: 0.5em;
+                padding: 0.3em;
+            }
+
+            .counter_class {
+                width: 100%;
+                text-align: left;
+                word-wrap: break-word;
+                color: #ffffff;
+                font-size: 70%;
+                font-family: 'Roboto-Bold';
+                text-shadow:
+                    #000000 0 0 0.15em,
+                    #000000 0 0 0.15em,
+                    #000000 0 0 0.1em;
+            }
+
+            .dialog_period,
+            .dialog_exit {
+                position: absolute;
+                z-index: 99;
+                width: 60%;
+                margin-top: 14%;
+                margin-left: 20%;
+                background-color: #101010;
+                border-top: 0.1em solid;
+                border-bottom: 0.1em solid;
+                border-image: linear-gradient(to right, #101010 20%, #d0d3d4, #101010 80%) 1;
+            }
+
+            .dialog_period {
+                margin-top: 10%;
+                width: 80%;
+                margin-left: 12.1%;
+            }
+
+            .chat_container1,
+            .chat_container {
+                z-index: 2;
+                border-radius: 0.1em;
+                left: 75.1%;
+                top: 51.5%;
+                position: absolute;
+                width: 24.7%;
+                height: 48%;
+                background-color: rgba(0, 0, 0, 0.5);
+            }
+
+            .chat_container1 {
+                left: 0.2%;
+                top: 0.2%;
+                height: 96.1%;
+                background-color: rgba(0, 0, 0, 1);
+            }
+
+            .chat_container_name,
+            .chat_container1_name {
+                z-index: 2;
+                border-radius: 0.2em;
+                left: 0.15%;
+                bottom: 0.2%;
+                position: absolute;
+                width: 24.5%;
+                height: 3%;
+                background-color: #000;
+                border: 0.09em solid #ffffff;
+                color: #ffffff;
+                text-align: center;
+                font-size: 90%;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+
+            .chat_container_name {
+                top: 0.2%;
+                left: 75.1%;
+            }
+
+            .chat_container_name_text {
+                display: inline-block;
+                padding-top: 0.5%;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                max-width: 77%;
+            }
+
+            .top_lable {
+                text-align: center;
+                width: 100%;
+                color: #ffffff;
+                font-size: 130%;
+                font-family: 'Roboto-Bold';
+                position: absolute;
+                /* 1vh offset to hide content that may show benhide it*/
+                top: 1vh;
+            }
+
+            .topbar {
+                position: absolute;
+                margin-left: 11em;
+                width: calc(100% - 11em);
+                background: transparent;
+                /* 1vh offset to hide content that may show benhide it*/
+                height: 5.35%;
+                transform: translateY(-1vh);
+            }
+
+            .controls_div {
+                float: left;
+                padding-left: 0.5%;
+                /* 1vh offset to hide content that may show benhide it*/
+                padding-top: calc(1vh + 0.2%);
+            }
+
+            .top_clock {
+                position: absolute;
+                right: 2vh;
+                /* 1vh offset to hide content that may show benhide it*/
+                top: 0.2vh;
+                z-index: 4;
+            }
+
+            .opacity_zero {
+                opacity: 0;
+            }
+
+            .transform_base {
+                transform: scale(1);
+                will-change: transform;
+            }
+
+            .transform_hide {
+                transform: scale(0);
+            }
+
+            .hide {
+                display: none;
+            }
+
+            .hideimp {
+                display: none !important;
+            }
+
+            .dialog_end_icons_start,
+            .dialog_end_icons {
+                font-size: 2.75vh;
+                vertical-align: top;
+                display: inline-block;
+                padding: 0.25em;
+                width: 15.1%;
+                max-height: 22.75%;
+                height: auto;
+                border-radius: 0.2em;
+            }
+
+            .dialog_end_icons_start {
+                height: 23%;
+            }
+
+            .dialog_end_icons_focus {
+                border-color: #ffffff !important;
+                background-color: rgba(150, 150, 150, 0.55);
+            }
+
+            .right,
+            .left {
+                border-top: 0.26em solid transparent;
+                border-bottom: 0.26em solid transparent;
+                opacity: 0;
+            }
+
+            .right {
+                border-left: 0.45em solid white;
+            }
+
+            .left {
+                border-right: 0.45em solid white;
+            }
+
+            .settings_main {
+                font-family: 'Roboto-Bold';
+                color: #ffffff;
+                width: 98%;
+                margin-left: 1%;
+                margin-bottom: 0.5%;
+            }
+
+            .hist_div,
+            .settings_div,
+            .settings_title,
+            .settings_summary,
+            .settings_section {
+                width: 100%;
+                display: inline-block;
+                vertical-align: middle;
+                font-size: 135%;
+            }
+
+            .hist_div,
+            .settings_div {
+                line-height: 0.9em;
+                box-sizing: border-box;
+                border-top: 0.05em solid;
+                border-bottom: 0.05em solid;
+                border-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)) 1;
+            }
+
+            .hist_div {
+                width: 92%;
+            }
+
+            .settings_div_focus {
+                background-color: rgba(255, 255, 255, 0.15);
+                border-image: linear-gradient(to right, #000000 20%, #d0d3d4, #000000 80%) 1 !important;
+            }
+
+            .hist_value,
+            .settings_value {
+                line-height: 1em;
+                width: 18%;
+                display: inline-block;
+                text-align: center;
+                font-size: 55%;
+                margin-left: 0.5em;
+                margin-right: 0.5em;
+                vertical-align: middle;
+                border-top: 0.1em solid;
+                border-bottom: 0.1em solid;
+                border-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)) 1;
+            }
+
+            .hist_value {
+                width: 27%;
+            }
+
+            .settings_value_focus {
+                background-color: rgba(255, 255, 255, 0.15);
+                border-image: linear-gradient(to right, #000000 20%, #d0d3d4, #000000 80%) 1 !important;
+            }
+
+            .settings_section {
+                font-size: 130%;
+                text-align: center;
+            }
+
+            .settings_title {
+                width: 80%;
+                font-size: 95%;
+                text-align: center;
+            }
+
+            .settings_summary {
+                line-height: 1.4em;
+                width: 100%;
+                margin-left: 1%;
+                font-size: 75%;
+                text-align: left;
+                font-family: 'Roboto';
+            }
+
+            .hist_name,
+            .settings_name {
+                margin-left: 1.5%;
+                width: 74.5%;
+                display: inline-block;
+                text-align: left;
+                font-size: 72%;
+                vertical-align: middle;
+                word-wrap: break-word;
+            }
+
+            .hist_name {
+                width: 54%;
+            }
+
+            .settings_arraw_div {
+                width: 2%;
+                display: inline-block;
+                vertical-align: middle;
+                /* When the html code is compressed loaded from js this div and the next have no space in between, adding a margin makes it look ok, but too big when the code is not compresed*/
+            }
+
+            .settings_codec_container {
+                height: 51vh;
+                overflow: hidden;
+            }
+
+            .settings_scroll_container {
+                height: 87vh;
+                overflow: hidden;
+            }
+
+            .controls_holder {
+                z-index: -100;
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                height: auto;
+                text-align: center;
+                padding-top: 3%;
+                background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
+            }
+
+            .colorCanvas {
+                margin: 0;
+                padding: 0;
+                height: 100%;
+                width: 100%;
+                vertical-align: middle;
+                overflow: hidden;
+                display: block;
+            }
+
+            .color_name {
+                width: 15% !important;
+            }
+
+            .cavas_holder {
+                z-index: 99;
+                border-radius: 0.2em;
+                border: 0.4vh solid #000000;
+                width: 96%;
+                margin-left: 2%;
+                height: 5vh;
+                position: relative;
+            }
+
+            .cavas_holder_focused {
+                border-color: #ffffff !important;
+            }
+
+            .colorCanvas_pos {
+                transform: translateY(-100%);
+                left: 50%;
+                position: absolute;
+                width: 0.4em;
+                height: 100%;
+                border-radius: 1em;
+                box-shadow:
+                    0 0 0 0.25vh #ffffff,
+                    0 0 0 0.5vh #000000;
+            }
+
+            .color_options {
+                font-size: 2.7vh !important;
+                position: absolute !important;
+                width: 96% !important;
+                margin-left: 2% !important;
+                position: relative !important;
+                transform: translateY(-75%) !important;
+            }
+
+            .cavas_text_shadows,
+            .cavas_text,
+            .color_result {
+                height: 5%;
+                width: 96%;
+                margin-left: 2%;
+            }
+
+            .cavas_text_shadows,
+            .cavas_text {
+                color: #ffffff;
+                text-align: center;
+                height: 1.2em;
+                margin-top: 0.5%;
+            }
+
+            .cavas_text_shadows {
+                width: 23%;
+                margin: 0;
+                display: inline-block;
+                text-align: left;
+            }
+
+            .progress_pause_holder {
+                bottom: 7ch;
+                position: absolute;
+                width: 100%;
+                justify-content: center;
+            }
+
+            .next_button,
+            .pause_button {
+                display: inline-block;
+                width: auto;
+                padding-top: 0.25em;
+                padding-bottom: 0.25em;
+                text-align: center;
+                border-radius: 0.2em;
+                background-color: rgba(0, 0, 0, 0);
+                will-change: border-color, background-color;
+            }
+
+            .next_button {
+                padding-left: 0.35em;
+                padding-right: 0.35em;
+                max-width: 96%;
+            }
+
+            .pause_button {
+                height: auto;
+            }
+
+            .controls_button_holder {
+                display: inline-block;
+                width: 4.9%;
+            }
+
+            .controls_button {
+                display: inline-block;
+                width: 3ch;
+                padding: 0.25em;
+                height: 1.25em;
+                text-align: center;
+                background-color: rgba(0, 0, 0, 0);
+                will-change: border-color, background-color;
+                position: relative;
+                border-radius: 0.2em;
+            }
+
+            .controls_button_title {
+                width: 100vw;
+                height: 1.5ch;
+                position: relative;
+                left: 50%;
+                /* translateX(-50%) but as scale(0.8) it because 0.5/0.8 = 0.625 */
+                transform: scale(0.8) translateX(-62.5%);
+            }
+
+            .controls_text_title_holder {
+                font-size: 100%;
+                color: #ffffff;
+                white-space: nowrap;
+            }
+
+            .arrows_text {
+                display: inline-block;
+                vertical-align: middle;
+                color: #ffffff;
+            }
+
+            .pause_button3d {
+                color: #ffffff;
+                font-size: 120%;
+                vertical-align: middle;
+            }
+
+            .next_text {
+                display: inline-block;
+                width: auto;
+                max-width: 90%;
+                font-size: 100%;
+                vertical-align: middle;
+            }
+
+            .pause_next_div {
+                text-align: center;
+                width: 95%;
+                margin-left: 2.5%;
+            }
+
+            .next_img_holder {
+                position: absolute;
+                transform: translateY(-101%);
+                width: 55vh;
+            }
+
+            .next_img {
+                width: 100%;
+                max-width: 100%;
+                max-height: 100%;
+                overflow: hidden;
+                border-radius: 0.5vh;
+                box-shadow:
+                    inset 0 0 0 0.025vh #ffffff,
+                    0 0 0 0.3vh #ffffff,
+                    0 0 0 0.6vh #000000;
+            }
+
+            .end_img_holder {
+                position: absolute;
+                transform: translate(-24.5%, -104%);
+                width: 53vh;
+            }
+
+            .end_img {
+                width: 100%;
+                max-width: 100%;
+                max-height: 100%;
+                overflow: hidden;
+                border-radius: 0.5vh;
+                box-shadow:
+                    inset 0 0 0 0.025vh #ffffff,
+                    0 0 0 0.3vh #ffffff,
+                    0 0 0 0.6vh #000000;
+            }
+
+            .progress_bar_div {
+                width: 95%;
+                margin-left: 2.5%;
+                height: 4.25em;
+                border-radius: 0.2em;
+                background-color: rgba(0, 0, 0, 0);
+                will-change: border-color, background-color;
+                text-align: center;
+                transform: translateY(35%);
+            }
+
+            .progress_bar_div_focus {
+                background-color: rgba(0, 0, 0, 0.7);
+                border-color: #ffffff !important;
+            }
+
+            .progress_bar_jump,
+            .progress_bar_timer {
+                width: 7%;
+                font-size: 75%;
+                font-family: 'Roboto-Bold';
+                color: #ffffff;
+                display: inline-block;
+                text-align: center;
+            }
+
+            .seek_previews_text {
+                transform: translateY(-77%);
+                position: absolute;
+                text-align: center;
+                width: 100%;
+            }
+
+            .progress_bar_jump {
+                width: 40%;
+            }
+
+            .progress_bar_holder {
+                vertical-align: middle;
+                width: 80%;
+                border-radius: 0.6em;
+                display: inline-block;
+                text-align: left;
+            }
+
+            .progress_bar_holder_focus {
+                box-shadow: 0 0 0 0.1em #ffffff;
+            }
+
+            .progress_bar {
+                width: 100%;
+                box-sizing: border-box;
+                border: 0.1em solid #000000;
+                border-radius: 0.1em;
+                background-color: #ebebeb;
+            }
+
+            .inner_progress_animate_holder {
+                overflow: hidden;
+                transform: translate(-0.1%, -37%);
+                border-radius: 30%;
+                width: 100.2%;
+            }
+
+            .inner_progress_animate {
+                height: 0.29em !important;
+                transform: translate(0%, 0%);
+                display: inline-block;
+                border: 0.1em solid rgb(0, 0, 0);
+                border-radius: 0.15em;
+            }
+
+            .inner_progress_circle {
+                transform: translate(25%, -29%);
+                right: 0;
+                position: absolute;
+                display: inline-block;
+                width: 0.5em;
+                height: 0.5em;
+                background: #ffffff;
+                border-radius: 1em;
+                border: 0.1em solid #000000;
+            }
+
+            .inner_progress_bar_muted,
+            .inner_progress_bar {
+                width: 100%;
+                height: 0.3em;
+                line-height: 1.5em;
+                will-change: transform;
+                /* Keep this same as PlayVod_RefreshProgressBarrTimeout */
+                transition: transform 1s linear;
+            }
+
+            .inner_progress_bar_muted {
+                width: 80%;
+                left: 10%;
+                display: inline-block;
+                transform: translateY(-478%);
+                height: 0.32em;
+                position: absolute;
+            }
+
+            .inner_progress_bar_muted_segment {
+                height: 0.37em;
+                background-color: rgba(0, 0, 0, 0.65);
+                position: absolute;
+            }
+
+            .dialog_end_icons_start,
+            .dialog_end_icons,
+            .next_button,
+            .pause_button,
+            .about_dialogs,
+            .progress_bar_div,
+            .controls_button {
+                border: 0.07em solid rgba(0, 0, 0, 0);
+            }
+
+            .stream_thumbnail_channel_vod,
+            .stream_thumbnail_player_feed,
+            .inner_banner_holder,
+            .stream_thumbnail_game_feed,
+            .stream_thumbnail_game,
+            .stream_thumbnail_side,
+            .stream_thumbnail_live,
+            .stream_thumbnail_player_feed,
+            .stream_thumbnail_user,
+            .stream_thumbnail_channel,
+            .stream_thumbnail_game_feed,
+            .stream_thumbnail_game {
+                border: 0.09em solid rgba(0, 0, 0, 0);
+            }
+
+            /* Chat this is a adaptation of https://www.nightdev.com/kapchat/ functions*/
+
+            .nick {
+                font-family: 'Roboto-Bold';
+            }
+
+            .chat_line {
+                padding: 0.35em;
+                color: #ffffff;
+                text-shadow:
+                    -0.03em 0 0 #000,
+                    0.03em 0 0 #000,
+                    0 0.03em 0 #000,
+                    0 -0.03em 0 #000,
+                    0.03em -0.03em 0 #000,
+                    -0.03em -0.03em 0 #000,
+                    -0.03em 0.03em 0 #000,
+                    0.03em 0.03em 0 #000;
+            }
+
+            .chat_line_holder {
+                overflow: hidden;
+            }
+
+            .chat_line_animation {
+                will-change: height, max-height;
+                animation: height_animation 450ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+            }
+
+            @keyframes height_animation {
+                from {
+                    max-height: 0;
+                }
+
+                to {
+                    max-height: 100vh;
+                }
+            }
+
+            .chat_line,
+            .message {
+                word-wrap: break-word;
+                line-height: 1.25em;
+            }
+
+            .chat_line_ind {
+                border-bottom: 0.025em solid rgba(255, 255, 255, 0.75);
+            }
+
+            .chat_line_slim {
+                padding-bottom: 0 !important;
+                padding-top: 0.12em !important;
+                margin-bottom: 0 !important;
+                line-height: 1em !important;
+            }
+
+            .chat_loggedin {
+                color: #ffffff;
+                text-shadow:
+                    -0.03em 0 0 #000,
+                    0.03em 0 0 #000,
+                    0 0.03em 0 #000,
+                    0 -0.03em 0 #000,
+                    0.03em -0.03em 0 #000,
+                    -0.03em -0.03em 0 #000,
+                    -0.03em 0.03em 0 #000,
+                    0.03em 0.03em 0 #000;
+                /* font-size in relation to vh to avoid size change when chat font size is changed by the user*/
+                font-size: 2.5vh;
+                height: 2.8vh;
+                width: 100%;
+                text-align: center;
+                overflow: hidden;
+            }
+
+            .chat_box_holder {
+                height: 100%;
+                transform: rotate(180deg);
+                overflow: hidden;
+            }
+
+            .tag {
+                display: inline-block;
+                background-position: 0 center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                vertical-align: bottom;
+                height: 1.4em;
+                min-width: 1.4em;
+                margin-right: 0.2em;
+                overflow: hidden;
+            }
+
+            .emoticon {
+                min-width: 1.75em;
+                height: 1.75em;
+                margin-bottom: -0.35em;
+            }
+
+            .zero-width-container {
+                display: inline-grid;
+                vertical-align: -0.35em;
+            }
+
+            .zero-width-emote {
+                grid-column: 1;
+                grid-row: 1;
+                margin: auto;
+            }
+
+            .emoji {
+                min-width: 1em;
+                height: 1em;
+                margin-right: 0.1em;
+                margin-left: 0.1em;
+                margin-bottom: -0.2em;
+            }
+
+            .chat_size {
+                width: 100%;
+                height: 100%;
+            }
+
+            .multi_dialog_div,
+            .div_panel_pp,
+            .side_panel_div {
+                width: 100%;
+                height: 0;
+                position: relative;
+                padding-bottom: 15.4%;
+                background-repeat: no-repeat;
+                color: #ffffff;
+                text-shadow:
+                    -0.04em -0.04em 0 #000,
+                    0.04em -0.04em 0 #000,
+                    -0.04em 0.04em 0 #000,
+                    0.04em 0.04em 0 #000;
+                border-top: 0.075em solid;
+                border-bottom: 0.075em solid;
+                border-image: linear-gradient(#000000, #000000) 1;
+            }
+
+            .div_panel_pp {
+                border: 0;
+                padding-bottom: 9%;
+            }
+
+            .multi_dialog_div {
+                border-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)) 1;
+            }
+
+            .side_panel_div_focused {
+                background: linear-gradient(to right, #000000 20%, rgba(255, 255, 255, 0.25), #000000 80%);
+                border-image: linear-gradient(to right, #000000 20%, #d0d3d4, #000000 80%) 1 !important;
+            }
+
+            .side_panel_iner_div1_pp,
+            .side_panel_iner_div1,
+            .side_panel_iner_div2_multi,
+            .side_panel_iner_div2_multi_dialog,
+            .side_panel_iner_div2_pp,
+            .side_panel_iner_div2,
+            .side_panel_iner_div3 {
+                width: 15.4%;
+                display: inline-block;
+                overflow: hidden;
+            }
+
+            .side_panel_iner_div1 {
+                padding-left: 1%;
+            }
+
+            .side_panel_iner_div1_pp {
+                width: 8%;
+            }
+
+            .side_panel_iner_div2_multi_dialog,
+            .side_panel_iner_div2 {
+                width: 59.5%;
+                padding-left: 0.4em;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+
+            .side_panel_iner_div2_pp,
+            .side_panel_iner_div2_multi {
+                padding-left: 0.2em;
+                padding-top: 0;
+                width: 75%;
+            }
+
+            .side_panel_iner_div2_multi {
+                padding-left: 6%;
+            }
+
+            .side_panel_iner_div2_pp {
+                width: 90%;
+                line-height: 80%;
+                padding-top: 0.25%;
+            }
+
+            .side_panel_iner_div3 {
+                width: 20%;
+                position: absolute;
+                right: 2%;
+                top: 50%;
+                transform: translateY(-60%);
+            }
+
+            img.notify_img {
+                height: 92%;
+                position: absolute;
+                top: 4%;
+            }
+
+            img.side_panel_channel_img,
+            img.panel_pp_img {
+                position: relative;
+            }
+
+            img.multi_info_img,
+            img.multi_info_img_big {
+                position: absolute;
+                top: 0;
+            }
+
+            img.side_panel_channel_img {
+                width: 100%;
+            }
+
+            img.panel_pp_img {
+                width: 9.25%;
+            }
+
+            img.multi_info_img_big,
+            img.multi_info_img {
+                width: 22%;
+            }
+
+            img.multi_info_img_big {
+                margin-top: 0.5%;
+            }
+
+            img.panel_pp_img {
+                position: absolute;
+                top: 0;
+                width: 8.75%;
+            }
+
+            img.thumb_info_icon {
+                width: 100%;
+            }
+
+            img.stream_info_icon {
+                margin-left: 1%;
+                margin-top: 2%;
+                margin-bottom: 2%;
+                display: inline-block;
+                width: 9.5%;
+            }
+
+            .stream_info_timers {
+                display: inline-block;
+                width: auto !important;
+            }
+
+            .multi_info_line {
+                line-height: 1.1em;
+            }
+
+            .notification_holder {
+                display: inline-block;
+                width: 78%;
+                padding-left: 3%;
+            }
+
+            .dialog_multi_title {
+                width: 100%;
+                text-align: center;
+                color: #ffffff;
+                font-family: 'Roboto-Bold';
+                font-size: 100%;
+            }
+
+            .side_panel_new_title,
+            .side_panel_new_game {
+                width: 100%;
+                text-align: left;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                font-family: 'Roboto-Bold';
+                font-size: 84%;
+                padding-left: 1%;
+            }
+
+            .side_panel_new_game {
+                font-family: 'Roboto';
+                font-size: 68%;
+            }
+
+            .side_panel_feed_img_focus {
+                box-shadow:
+                    0 0 0 0.1em #000000,
+                    0 0 0 0.2em #ffffff;
+            }
+
+            /*adapted from https://loading.io/css/*/
+
+            .loading {
+                display: inline-block;
+                position: relative;
+                width: 3em;
+                height: 3em;
+                color: #ffffff;
+                background-color: rgba(0, 0, 0, 0.15);
+                border-radius: 2em;
+            }
+
+            .loading div {
+                box-sizing: border-box;
+                display: block;
+                position: absolute;
+                width: 2.390625em;
+                height: 2.390625em;
+                margin: 0.28125em;
+                border: 0.28125em solid #ffffff;
+                border-radius: 50%;
+                animation: loading 600ms cubic-bezier(0.5, 0, 0.5, 1) infinite;
+                border-color: #ffffff transparent transparent transparent;
+            }
+
+            .loading div:nth-child(1) {
+                animation-delay: -0.225s;
+            }
+
+            .loading div:nth-child(2) {
+                animation-delay: -0.15s;
+            }
+
+            .loading div:nth-child(3) {
+                animation-delay: -0.075s;
+            }
+
+            @keyframes loading {
+                0% {
+                    transform: rotate(0deg);
+                }
+
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+
+            .exit_player {
+                color: #ffffff;
+                position: absolute;
+                left: 1%;
+                font-family: 'Roboto-Bold';
+                z-index: 100;
+                top: 0;
+                font-size: 85%;
+            }
+
+            .embedbutton:hover > .embedbuttoninner {
+                opacity: 1 !important;
+            }
+
+            #button_full_screen {
+                background: rgba(0, 0, 0, 0);
+                border: 0;
+                top: 3vh;
+                right: 1vh;
+                position: absolute;
+                font-size: 68%;
+                cursor: pointer;
+            }
+
+            #button_full_screen:hover > #button_full_screen_text {
+                opacity: 1 !important;
+            }
+
+            .scene2_click_button_holder {
+                position: absolute;
+                margin-top: 0.5%;
+            }
+
+            /* Simple way to see center of screen
+                                .center {
+                                    border: 2px solid blue;
+                                    margin: auto;
+                                    background: #F00;
+                                    position: relative;
+                                    text-align: center;
+                                    top: 50%;
+                                    width: 20%;
+                                    color: #FFF;
+                                }*/
+        </style>
+        <style id="mockup-ui-style">
+            /* MODERN GLASS & PURPLE ACCENT THEME OVERRIDES FOR SMARTTWITCHTV */
+
+            body, html, #scene1, #body_container {
+                background: #0b0914 radial-gradient(ellipse at 85% 15%, rgba(120, 50, 220, 0.22) 0%, rgba(11, 9, 20, 0.98) 70%) !important;
+                color: #efeff1 !important;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+            }
+
+            /* SIDE PANEL - keep original overflow:hidden from base CSS, add glass effect */
+            .side_panel_fix,
+            .side_panel_movel {
+                background: rgba(16, 13, 26, 0.95) !important;
+                backdrop-filter: blur(20px) !important;
+                -webkit-backdrop-filter: blur(20px) !important;
+                border-right: 1px solid rgba(255, 255, 255, 0.08);
+                box-shadow: 4px 0 30px rgba(0, 0, 0, 0.5);
+            }
+
+            /* avatar / profile image at top of side panel */
+            img.side_panel_new_img {
+                width: 2.2em !important;
+                height: 2.2em !important;
+                border-radius: 50% !important;
+                object-fit: cover !important;
+                display: block !important;
+                margin: 0.2em auto !important;
+            }
+
+            /* Hide overflowing collapsed side_panel_movel text */
+            .side_panel_movel_bottom_holder,
+            .side_panel_movel_bottom_text,
+            .side_panel_new_text_options {
+                overflow: hidden !important;
+            }
+
+            /* STREAM CARDS - visual only, no layout math changes */
+            .stream_thumbnail_live,
+            .stream_thumbnail_game,
+            .stream_thumbnail_feed_game,
+            .stream_thumbnail_live_game,
+            .stream_thumbnail_player_feed {
+                background: rgba(24, 20, 38, 0.85) !important;
+                border-radius: 0.3em !important;
+                overflow: hidden !important;
+            }
+
+            .stream_thumbnail_live_img {
+                border-radius: 0.3em 0.3em 0 0 !important;
+            }
+
+            /* FOCUS - box-shadow only, NO transform/scale */
+            .stream_thumbnail_focused,
+            .stream_thumbnail_focused_no_ani {
+                outline: none !important;
+            }
+
+            .progress_bar_div_focus {
+                box-shadow: inset 0 0 0 2px #a855f7, 0 0 25px rgba(168, 85, 247, 0.85) !important;
+            }
+
+            .button_dialog_focused {
+                box-shadow: inset 0 0 0 2px #a855f7, 0 0 15px rgba(168, 85, 247, 0.6) !important;
+            }
+
+            .settings_div_focus {
+                box-shadow: inset 0 0 0 2px #a855f7, 0 0 15px rgba(168, 85, 247, 0.6) !important;
+            }
+
+            .side_panel_feed_img_focus {
+                box-shadow: 0 0 0 0.1em #000000, 0 0 0 0.2em #a855f7, 0 0 20px rgba(168, 85, 247, 0.6) !important;
+            }
+
+            /* BADGES & LIVE INDICATORS */
+            .viewer_badge {
+                background: rgba(0, 0, 0, 0.82) !important;
+                backdrop-filter: blur(8px) !important;
+                border-radius: 6px !important;
+                font-weight: 600 !important;
+                letter-spacing: 0.03em !important;
+                border: 1px solid rgba(255, 255, 255, 0.15) !important;
+            }
+
+            .viewer_dot {
+                background: #ff4554 !important;
+                box-shadow: 0 0 8px #ff4554 !important;
+            }
+
+            .section_tab_active {
+                color: #a855f7 !important;
+                border-bottom-color: #a855f7 !important;
+            }
+
+            /* SETTINGS & DIALOGS */
+            .dialog_exit,
+            .about_dialogs {
+                background: rgba(18, 15, 29, 0.95) !important;
+                backdrop-filter: blur(20px) !important;
+                border-radius: 16px !important;
+                border: 1px solid rgba(255, 255, 255, 0.1) !important;
+                box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6) !important;
+            }
+        </style>    </head>
 
     <body>
         <div id="body_container" class="screen_size" style="position: relative">
@@ -881,6 +3348,13 @@
 
                     <!-- Live screens-->
                     <div id="Live_scroll" class="screen_holder hide">
+                        <div class="section_header">
+                            <span class="section_title">RECOMMENDED LIVE NOW</span>
+                            <div class="section_tabs">
+                                <span class="section_tab section_tab_active" id="live_feed_tab">LIVE FEED</span>
+                                <span class="section_tab" id="top_categories_tab">TOP CATEGORIES</span>
+                            </div>
+                        </div>
                         <div id="stream_table_live" class="streams_div"></div>
                     </div>
                     <div id="Featured_scroll" class="screen_holder hide">
@@ -1120,7 +3594,7 @@
                                         </div>
                                     </div>
                                     <div id="side_panel_cell0_1" style="width: 100%; display: inline-block; padding: 1%">
-                                        <div id="side_panel_thumbdiv0_0" class="side_panel_div" style="background: #0e0c16">
+                                        <div id="side_panel_thumbdiv0_0" class="side_panel_div" style="background: #000000">
                                             <div id="side_panel_feed_1" class="side_panel_feed_top">
                                                 <div class="side_panel_icons">
                                                     <i class="icon icon-arrow-right"></i>
@@ -1138,7 +3612,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div id="side_panel_new_row_1" style="overflow: hidden; width: 94%; position: absolute; background: #0e0c16">
+                                <div id="side_panel_new_row_1" style="overflow: hidden; width: 94%; position: absolute; background: #000000">
                                     <div id="side_panel_holder" class="side_panel_holder_ani"></div>
                                     <div id="side_panel_warn" class="side_panel_feed_top" style="display: none; margin-left: 3%">
                                         <span id="side_panel_warn_text"></span>
@@ -2108,56 +4582,7 @@
         </div>
 
         <!-- jsstart this is here so release_maker can work don't remove-->
-        <script src="languages/0_Strings.js" defer></script>
-        <script src="languages/en_US.js" defer></script>
-        <script src="languages/uk_UA.js" defer></script>
-        <script src="languages/tr_TR.js" defer></script>
-        <script src="languages/ru_RU.js" defer></script>
-        <script src="languages/pt_BR.js" defer></script>
-        <script src="languages/es_ES.js" defer></script>
-        <script src="languages/fr_FR.js" defer></script>
-        <script src="languages/default.js" defer></script>
-        <script src="general/TVKeyValue.js" defer></script>
-        <script src="general/img64.js" defer></script>
-        <script src="general/emojis.js" defer></script>
-        <script src="general/version.js" defer></script>
-        <script src="specific/OSInterface.js" defer></script>
-        <script src="specific/PlayUtils.js" defer></script>
-        <script src="specific/Play.js" defer></script>
-        <script src="specific/PlayHLS.js" defer></script>
-        <script src="specific/PlayMulti.js" defer></script>
-        <script src="specific/PlayEtc.js" defer></script>
-        <script src="specific/PlayExtra.js" defer></script>
-        <script src="specific/PlayClip.js" defer></script>
-        <script src="specific/PlayVod.js" defer></script>
-        <script src="specific/BackupSync.js" defer></script>
-        <script src="specific/BackupSyncRestore.js" defer></script>
-        <script src="specific/BackupSyncBackup.js" defer></script>
-        <script src="specific/BackupSyncSave.js" defer></script>
-        <script src="specific/BackupSyncRequests.js" defer></script>
-        <script src="specific/AddUser.js" defer></script>
-        <script src="specific/AddCode.js" defer></script>
-        <script src="specific/ChatLive.js" defer></script>
-        <script src="specific/ChatLiveControls.js" defer></script>
-        <script src="specific/ChatVod.js" defer></script>
-        <script src="thirdparty/irc-message.js" defer></script>
-        <script src="thirdparty/twemoji.js" defer></script>
-        <script src="thirdparty/punycode.js" defer></script>
-        <script src="thirdparty/kapchat.js" defer></script>
-        <script src="specific/Settings.js" defer></script>
-        <script src="specific/SettingsColor.js" defer></script>
-        <script src="specific/ChannelContent.js" defer></script>
-        <script src="specific/Search.js" defer></script>
-        <script src="specific/Password.js" defer></script>
-        <script src="specific/Users.js" defer></script>
-        <script src="specific/UserLiveFeed.js" defer></script>
-        <script src="specific/UserLiveFeedobj.js" defer></script>
-        <script src="specific/Screens.js" defer></script>
-        <script src="specific/Sidepannel.js" defer></script>
-        <script src="general/resize.js" defer></script>
-        <script src="specific/ScreensObj.js" defer></script>
-        <script src="specific/BrowserTest.js" defer></script>
-        <script src="specific/Main.js" defer></script>
+        <script src="js/main.js" defer></script>
         <!-- this is here so release_maker can work don't remove jsend-->
     </body>
 </html>

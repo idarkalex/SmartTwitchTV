@@ -850,7 +850,9 @@ var STR_NUMBER_SEPARATOR,
     STR_BACKUP_NAME,
     STR_BACKUP_SIZE,
     STR_BACKUP_SYNC_RESTORE_SUCCESS,
-    STR_BACKUP_RESTORE_FAIL;
+    STR_BACKUP_RESTORE_FAIL,
+    STR_EXPORT_LOGS,
+    STR_PROXY_LOGS_EMPTY;
 
 /*
  * Copyright (c) 2017–present Felipe de Leon <fglfgl27@gmail.com>
@@ -2356,6 +2358,9 @@ function en_USLang() {
     STR_BACKUP_SYNC_ENABLE = 'Sync across devices';
     STR_BACKUP_SYNC_ENABLE_SUMMARY =
         "Enabling this will add a slight delay to the application's startup process, and is unnecessary if you are using the app in a single device. The app will sync all enabled options below between this device and others using the same Google Drive account. To switch devices and continue watching seamlessly, minimize the app on the current device by pressing the Home key. Then, make sure the app is fully closed on the other device before opening it.";
+
+    STR_EXPORT_LOGS = 'Export Proxy Logs';
+    STR_PROXY_LOGS_EMPTY = 'No proxy logs to export';
 }
 
 /*
@@ -3015,6 +3020,9 @@ function es_ESLang() {
     STR_OPEN_REWIND = 'Abrir retroceso';
     STR_OPEN_REWIND_SUMMARY = 'Abrir el VOD con retroceso completo';
     STR_OPEN_REWIND_FAIL = 'Sin retroceso para esta transmisión en vivo';
+
+    STR_EXPORT_LOGS = 'Exportar logs del proxy';
+    STR_PROXY_LOGS_EMPTY = 'No hay logs del proxy para exportar';
 }
 
 /*
@@ -4002,6 +4010,9 @@ function fr_FRLang() {
     STR_BACKUP_SYNC_ENABLE = 'Synchroniser entre appareils';
     STR_BACKUP_SYNC_ENABLE_SUMMARY =
         "L'activation ajoute un léger délai au démarrage de l'app et est inutile si vous l'utilisez sur un seul appareil. L'app synchronise toutes les options activées ci-dessous entre cet appareil et les autres utilisant le même compte Google Drive. Pour changer d'appareil et reprendre la lecture, réduisez l'app sur l'appareil actuel avec la touche Home. Puis, assurez-vous qu'elle est totalement fermée sur l'autre appareil avant de l'ouvrir.";
+
+    STR_EXPORT_LOGS = 'Exporter les logs proxy';
+    STR_PROXY_LOGS_EMPTY = 'Aucun log proxy à exporter';
 }
 
 /*
@@ -4962,6 +4973,9 @@ function pt_BRLang() {
 
     STR_BACKUP_SYNC_ENABLE = 'Habilitar sincronização';
     STR_BACKUP_SYNC_ENABLE_SUMMARY = 'Se definido como SIM, o aplicativo sincronizará automaticamente as informações do usuário entre dispositivos';
+
+    STR_EXPORT_LOGS = 'Exportar logs do proxy';
+    STR_PROXY_LOGS_EMPTY = 'Nenhum log de proxy para exportar';
 }
 
 /*
@@ -5959,6 +5973,9 @@ function ru_RULang() {
     STR_BACKUP_SYNC_ENABLE = 'Включить синхронизацию';
     STR_BACKUP_SYNC_ENABLE_SUMMARY =
         'Если установлено ДА, приложение будет автоматически синхронизировать информацию пользователя между устройствами';
+
+    STR_EXPORT_LOGS = 'Экспорт логов прокси';
+    STR_PROXY_LOGS_EMPTY = 'Нет логов прокси для экспорта';
 }
 
 /*
@@ -6956,6 +6973,9 @@ function tr_TRLang() {
     STR_BACKUP_SYNC_ENABLE = 'Cihazlar arasında senkronize et';
     STR_BACKUP_SYNC_ENABLE_SUMMARY =
         'Bunu etkinleştirmek, uygulamanın başlangıç sürecine hafif bir gecikme ekleyecektir ve uygulamayı tek bir cihazda kullanıyorsanız gereksizdir. Uygulama, aşağıdaki tüm etkin seçenekleri bu cihaz ile aynı Google Drive hesabını kullanan diğer cihazlar arasında senkronize edecektir. Cihazları değiştirmek ve sorunsuz bir şekilde izlemeye devam etmek için, mevcut cihazda Ana Ekran tuşuna basarak uygulamayı simge durumuna küçültün. Ardından, uygulamayı açmadan önce diğer cihazda tamamen kapalı olduğundan emin olun.';
+
+    STR_EXPORT_LOGS = 'Proxy loglarını dışa aktar';
+    STR_PROXY_LOGS_EMPTY = 'Dışa aktarılacak proxy logu yok';
 }
 
 /*
@@ -7935,6 +7955,9 @@ function uk_UALang() {
     STR_BACKUP_SYNC_ENABLE = 'Увімкнути синхронізацію';
     STR_BACKUP_SYNC_ENABLE_SUMMARY =
         'Якщо встановлено ТАК, додаток синхронізуватиме всі ввімкнені опції нижче між цим пристроєм та іншими, що використовують той самий обліковий запис Google Drive. Щоб перемкнутися між пристроями та продовжити перегляд без проблем, згорніть додаток на поточному пристрої, натиснувши клавішу Home. Потім переконайтеся, що додаток повністю закрито на іншому пристрої, перш ніж відкривати його.';
+
+    STR_EXPORT_LOGS = 'Експорт логів проксі';
+    STR_PROXY_LOGS_EMPTY = 'Немає логів проксі для експорту';
 }
 
 /*
@@ -9296,7 +9319,14 @@ var GDriveConfig = {};
 var GDriveConfigItemName = 'GDriveConfig';
 
 //device specific or general settings that we don't wanna to sync between devices
-var GDriveSettingsToSkip = {av1_codec: true, hevc_codec: true, Settings_DisableCodecs: true};
+var GDriveSettingsToSkip = {
+    av1_codec: true,
+    hevc_codec: true,
+    Settings_DisableCodecs: true,
+    start_user_screen: true,
+    start_at_feed: true,
+    restor_playback: true
+};
 
 function GDriveSetExpires(obj) {
     GDriveConfig.tokenExpiresTime = (parseInt(obj.expires_in) - 60) * 1000;
@@ -10967,7 +10997,7 @@ function BrowserTestFun() {
                     Users_cursorX = x;
                     Users_cursorY = y;
                     Users_addFocus();
-                } else if (ScreenObj[key].posY !== y || ScreenObj[key].posX !== x) {
+                } else if (ScreenObj[key] && (ScreenObj[key].posY !== y || ScreenObj[key].posX !== x)) {
                     if (!Screens_ObjNotNull_YX(key, y, x)) {
                         return;
                     }
@@ -10992,7 +11022,7 @@ function BrowserTestFun() {
                     } else if (isUserScrren) {
                         Users_keyEnter();
                     } else {
-                        ScreenObj[key].key_play(true);
+                        if (ScreenObj[key]) ScreenObj[key].key_play(true);
                     }
                 }
 
@@ -11717,7 +11747,7 @@ function BrowserTest_Scene1DocOnwheel(y) {
                 Users_cursorY += y;
                 Users_addFocus();
             }
-        } else if (Screens_IsInUse(key) && (y > 0 || ScreenObj[key].posY > 0)) {
+        } else if (Screens_IsInUse(key) && ScreenObj[key] && (y > 0 || ScreenObj[key].posY > 0)) {
             Screens_KeyUpDownClick(key, y);
         } else if (Sidepannel_isShowingUserLive() && Sidepannel_PosFeed + y > 0 && (y < 0 || Sidepannel_PosFeed + y < Sidepannel_GetSize())) {
             Sidepannel_RemoveFocusFeed();
@@ -20029,11 +20059,18 @@ function Main_LoadUrl(url) {
     else window.location = url;
 }
 
+var Main_LogBuffer = [];
+var Main_LogBufferMax = 50;
+
 function Main_Log(text) {
     if (Main_isDebug) {
         text = text + ' ' + Main_LogDate(new Date());
         console.log(text);
         OSInterface_LongLog(text);
+    }
+    if (text.charAt(0) === 'P') {
+        Main_LogBuffer.push(text);
+        if (Main_LogBuffer.length > Main_LogBufferMax) Main_LogBuffer.shift();
     }
 }
 
@@ -20727,6 +20764,12 @@ function OSInterface_XmlHttpGetFull(
             null
         );
     }
+}
+
+function OSInterface_SetProxyUrl(url) {
+    try {
+        Android.SetProxyUrl(url || '');
+    } catch (e) {}
 }
 
 //public void BaseXmlHttpGet(String urlString, int timeout, String postMessage, String Method, String JsonHeadersArray,
@@ -21690,6 +21733,13 @@ function OSInterface_getPlaybackState() {
     return Main_IsOn_OSInterface ? Android.getPlaybackState() : true;
 }
 
+//public void SaveFile(String fileName, String content)
+//Android specific: true
+//Save a text file to the Downloads directory
+function OSInterface_SaveFile(fileName, content) {
+    if (Main_IsOn_OSInterface) Android.SaveFile(fileName, content);
+}
+
 /*
  * Copyright (c) 2017–present Felipe de Leon <fglfgl27@gmail.com>
  *
@@ -22234,7 +22284,7 @@ function Play_Start(offline_chat) {
             Chat_Disable();
             BrowserTestStartLive(Play_data.data[6]);
         }
-        Play_extractQualitiesTest();
+        //Play_extractQualitiesTest();
     }
 
     //Play_ResetProxy();
@@ -23038,32 +23088,6 @@ function Play_FixQualities(input) {
     return input;
 }
 
-function Play_extractQualitiesTest() {
-    /* jshint ignore:start */
-    var testString = `
-#EXTM3U
-#EXT-X-TWITCH-INFO:NODE="video-edge-6205c6.sao03",MANIFEST-NODE-TYPE="weaver_cluster",MANIFEST-NODE="video-weaver.sao03",SUPPRESS="true",SERVER-TIME="1722602179.79",TRANSCODESTACK="2023-Transcode-Gen2-V1",TRANSCODEMODE="cbr_v1",USER-IP="177.22.171.246",SERVING-ID="f",CLUSTER="sao03",ABS="true",VIDEO-SESSION-ID="2118154500142300273",BROADCAST-ID="40914639541",STREAM-TIME="18032.793634",B="false",USER-COUNTRY="BR",MANIFEST-CLUSTER="sao03",ORIGIN="muc03",C="a",D="false"
-#EXT-X-MEDIA:TYPE=VIDEO,GROUP-ID="chunked",NAME="1080p60 (source)",AUTOSELECT=YES,DEFAULT=YES
-#EXT-X-STREAM-INF:BANDWIDTH=6857175,RESOLUTION=1920x1080,CODECS="avc1.64002A,mp4a.40.2",VIDEO="chunked",FRAME-RATE=59.000
-https://video-weaver.sao03.hls.ttvnw.net/v1/playlist/C.m3u8
-#EXT-X-MEDIA:TYPE=VIDEO,GROUP-ID="720p60",NAME="720p60",AUTOSELECT=YES,DEFAULT=YES
-#EXT-X-STREAM-INF:BANDWIDTH=3422999,RESOLUTION=1280x720,CODECS="avc1.4D401F,mp4a.40.2",VIDEO="720p60",FRAME-RATE=60.000
-https://video-weaver.sao03.hls.ttvnw.net/v1/playlist/C.m3u8
-#EXT-X-MEDIA:TYPE=VIDEO,GROUP-ID="480p30",NAME="480p",AUTOSELECT=YES,DEFAULT=YES
-#EXT-X-STREAM-INF:BANDWIDTH=1427999,RESOLUTION=852x480,CODECS="avc1.4D401F,mp4a.40.2",VIDEO="480p30",FRAME-RATE=30.000
-https://video-weaver.sao03.hls.ttvnw.net/v1/playlist/C.m3u8
-#EXT-X-MEDIA:TYPE=VIDEO,GROUP-ID="360p30",NAME="360p",AUTOSELECT=YES,DEFAULT=YES
-#EXT-X-STREAM-INF:BANDWIDTH=630000,RESOLUTION=640x360,CODECS="avc1.4D401F,mp4a.40.2",VIDEO="360p30",FRAME-RATE=30.000
-https://video-weaver.sao03.hls.ttvnw.net/v1/playlist/C.m3u8
-#EXT-X-MEDIA:TYPE=VIDEO,GROUP-ID="160p30",NAME="160p",AUTOSELECT=YES,DEFAULT=YES
-#EXT-X-STREAM-INF:BANDWIDTH=230000,RESOLUTION=284x160,CODECS="avc1.4D401F,mp4a.40.2",VIDEO="160p30",FRAME-RATE=27.000
-https://video-weaver.sao03.hls.ttvnw.net/v1/playlist/C.m3u8 09:36:20.90
-        `;
-
-    console.log('Play_extractQualitiesTest', Play_extractQualities(testString));
-    /* jshint ignore:end */
-}
-
 function Play_extractQualities(input) {
     var result = [],
         addedResolution = {},
@@ -23691,7 +23715,8 @@ function Play_UpdateVideoStatus(net_speed, net_act, dropped_frames, buffer_size,
             (latency !== null ? STR_LATENCY + latency + STR_BR : '') +
             STR_PING +
             ping +
-            STR_AVG
+            STR_AVG +
+            Play_UpdateVideoStatusGetProxy()
     );
 }
 
@@ -23699,17 +23724,54 @@ function Play_UpdateVideoStatusGetProxy() {
     if (!Play_isOn) {
         return '';
     }
-    var proxyString = STR_BR + PROXY_SERVICE;
+    var str = STR_BR + PROXY_SERVICE;
 
     if (!use_proxy) {
-        return proxyString + PROXY_SERVICE_OFF;
+        str += PROXY_SERVICE_OFF;
+    } else if (proxy_fail_counter > proxy_fail_counter_checker) {
+        str += PROXY_SERVICE_FAIL.replace('%x', proxy_fail_counter);
+    } else {
+        str += PROXY_SERVICE_STATUS;
     }
 
-    if (proxy_fail_counter > proxy_fail_counter_checker) {
-        return proxyString + PROXY_SERVICE_FAIL.replace('%x', proxy_fail_counter);
+    var len = Main_LogBuffer.length;
+    if (len > 0) {
+        var start = Math.max(0, len - 6);
+        for (var i = start; i < len; i++) {
+            var logLine = Main_LogBuffer[i];
+            var lastSpace = logLine.lastIndexOf(' ');
+            if (lastSpace > 40) logLine = logLine.substring(0, lastSpace);
+            if (logLine.length > 55) logLine = logLine.substring(0, 55) + '…';
+            str += STR_BR + '<span style="color:#CCC;font-size:85%">' + logLine + '</span>';
+        }
     }
 
-    return proxyString + PROXY_SERVICE_STATUS;
+    return str;
+}
+
+function Play_ExportProxyLogs() {
+    if (!Main_LogBuffer.length) {
+        OSInterface_showToast(STR_PROXY_LOGS_EMPTY);
+        return;
+    }
+    var now = new Date();
+    var fileName =
+        'SmartTwitchTV_proxy_logs_' +
+        now.getFullYear() +
+        ('0' + (now.getMonth() + 1)).slice(-2) +
+        ('0' + now.getDate()).slice(-2) +
+        '_' +
+        ('0' + now.getHours()).slice(-2) +
+        ('0' + now.getMinutes()).slice(-2) +
+        '.txt';
+    var content =
+        'SmartTwitchTV Proxy Log Export\nDate: ' +
+        now.toLocaleString() +
+        '\n========================================\n\n' +
+        Main_LogBuffer.join('\n') +
+        '\n';
+    OSInterface_SaveFile(fileName, content);
+    OSInterface_showToast(STR_EXPORT_LOGS + ': ' + fileName);
 }
 
 var Play_BufferSize = 0;
@@ -27322,6 +27384,7 @@ var Play_controlsChatSend = temp_controls_pos++;
 
 var Play_controlsPlayerStatus = temp_controls_pos++;
 var Play_controlsProxy = temp_controls_pos++;
+var Play_controlsExportLog = temp_controls_pos++;
 var Play_controlsPreview = temp_controls_pos++;
 
 var Play_controlsChatForceDis = temp_controls_pos++;
@@ -28388,6 +28451,28 @@ function Play_MakeControls() {
         },
         setLabel: function () {
             Main_textContentWithEle(this.doc_title, PROXY_SERVICE + this.values[this.defaultValue]);
+        }
+    };
+
+    Play_controls[Play_controlsExportLog] = {
+        ShowInLive: true,
+        ShowInVod: false,
+        ShowInClip: false,
+        ShowInPP: true,
+        ShowInMulti: false,
+        ShowInChat: false,
+        ShowInAudio: false,
+        ShowInAudioPP: false,
+        ShowInAudioMulti: false,
+        ShowInPreview: false,
+        ShowInStay: false,
+        icons: 'external',
+        offsetY: -5,
+        string: STR_EXPORT_LOGS,
+        values: null,
+        defaultValue: null,
+        enterKey: function () {
+            Play_ExportProxyLogs();
         }
     };
 
@@ -30505,6 +30590,7 @@ var proxy_url = '';
 var proxy_headers = null;
 var proxy_has_parameter = false;
 var proxy_has_token = false;
+var proxy_is_forward_proxy = false;
 
 //var proxy_ping_url = 'https://api.ttv.lol/ping';
 
@@ -30519,18 +30605,21 @@ var Play_vod_links =
     'https://usher.ttvnw.net/vod/%x.m3u8?nauth=%t&nauthsig=%s&reassignments_supported=true&playlist_include_framerate=true&allow_source=true&cdm=wv&p=%d&supported_codecs=%c';
 
 function PlayHLS_GetPlayListAsync(isLive, Channel_or_VOD_Id, CheckId_y, CheckId_x, callBackSuccess) {
-    // console.log('isLive', isLive);
-    // console.log('Channel_or_VOD_Id', Channel_or_VOD_Id);
-    // console.log('CheckId_y', CheckId_y);
-    // console.log('CheckId_x', CheckId_x);
-    // console.log('callBackSuccess', callBackSuccess.name);
+    Main_Log('Proxy: GetPlayListAsync channel=' + Channel_or_VOD_Id + ' isLive=' + isLive + ' use_proxy=' + use_proxy + ' proxy_has_token=' + proxy_has_token + ' proxy_url=' + proxy_url);
 
     //if at te end of a request the values are different we have a issues
     proxy_fail_counter_checker = proxy_fail_counter;
 
+    if (use_proxy && proxy_is_forward_proxy) {
+        OSInterface_SetProxyUrl(proxy_url);
+        Main_Log('Proxy: GetPlayListAsync -> forward proxy set ProxyUrl=' + proxy_url + ' (token+playlist via proxy)');
+    }
+
     if (use_proxy && isLive && !proxy_has_token) {
+        Main_Log('Proxy: GetPlayListAsync -> direct playlist request via proxy (no token needed)');
         PlayHLS_PlayListUrl(isLive, Channel_or_VOD_Id, CheckId_y, CheckId_x, callBackSuccess.name, null, null, true);
     } else {
+        Main_Log('Proxy: GetPlayListAsync -> get token first, useProxy=' + use_proxy);
         PlayHLS_GetToken(isLive, Channel_or_VOD_Id, CheckId_y, CheckId_x, callBackSuccess.name, use_proxy);
     }
 }
@@ -30555,21 +30644,14 @@ function PlayHLS_GetToken(isLive, Channel_or_VOD_Id, CheckId_y, CheckId_x, callB
 }
 
 function PlayHLS_GetTokenResult(result, checkResult, check_1, check_2, check_3, check_4, check_5, callBackSuccess) {
-    //console.log('result', result);
-    // console.log('checkResult', checkResult);
-    // console.log('check_1', check_1);
-    // console.log('check_2', check_2);
-    // console.log('check_3', check_3);
-    // console.log('check_4', check_4);
-    // console.log('check_5', check_5);
-    // console.log('callBackSuccess', callBackSuccess);
-
     var isLive = check_1 === '1',
         useProxy = check_2 === '1',
         Channel_or_VOD_Id = check_3,
         CheckId_x = check_5;
 
     var response = JSON.parse(result);
+
+    Main_Log('Proxy: GetTokenResult status=' + response.status + ' channel=' + Channel_or_VOD_Id + ' useProxy=' + useProxy);
 
     if (response.status === 200) {
         var obj = JSON.parse(response.responseText);
@@ -30579,11 +30661,13 @@ function PlayHLS_GetTokenResult(result, checkResult, check_1, check_2, check_3, 
             var Token = tokenObj.value;
             var Sig = tokenObj.signature;
 
+            Main_Log('Proxy: GetTokenResult -> token OK, proceeding to playlist');
             PlayHLS_PlayListUrl(isLive, Channel_or_VOD_Id, checkResult, CheckId_x, callBackSuccess, Token, Sig, useProxy);
             return;
         }
     }
 
+    Main_Log('Proxy: GetTokenResult -> FAIL, token request failed');
     // prettier-ignore
     eval(callBackSuccess)(// jshint ignore:line
         null
@@ -30620,13 +30704,24 @@ function PlayHLS_GetPlayListUrl(isLive, Channel_or_VOD_Id, Token, Sig, useProxy)
         if (useProxy) {
             headers = proxy_headers;
 
-            if (proxy_has_parameter && !proxy_has_token) {
-                url = proxy_url + Channel_or_VOD_Id + '.m3u8' + encodeURIComponent('?' + URL_parameters);
+            if (proxy_is_forward_proxy) {
+                url = Play_original_live_links + Channel_or_VOD_Id + '.m3u8?token=' + encodeURIComponent(Token) + '&sig=' + Sig + '&' + URL_parameters;
+                Main_Log('Proxy: GetPlayListUrl FORWARD_PROXY via=' + proxy_url + ' real_url=' + Play_original_live_links + ' has_headers=' + (headers !== null && headers !== undefined));
             } else {
-                url = proxy_url + Channel_or_VOD_Id + '.m3u8?token=' + encodeURIComponent(Token) + '&sig=' + Sig + '&' + URL_parameters;
+                OSInterface_SetProxyUrl('');
+                var proxy_base = proxy_url.endsWith('/') ? proxy_url : proxy_url + '/';
+
+                if (proxy_has_parameter && !proxy_has_token) {
+                    url = proxy_base + Channel_or_VOD_Id + '.m3u8' + encodeURIComponent('?' + URL_parameters);
+                } else {
+                    url = proxy_base + Channel_or_VOD_Id + '.m3u8?token=' + encodeURIComponent(Token) + '&sig=' + Sig + '&' + URL_parameters;
+                }
+                Main_Log('Proxy: GetPlayListUrl REVERSE_PROXY url=' + proxy_base + ' channel=' + Channel_or_VOD_Id + ' has_token=' + proxy_has_token + ' has_parameter=' + proxy_has_parameter + ' has_headers=' + (headers !== null && headers !== undefined));
             }
         } else {
+            OSInterface_SetProxyUrl('');
             url = Play_original_live_links + Channel_or_VOD_Id + '.m3u8?token=' + encodeURIComponent(Token) + '&sig=' + Sig + '&' + URL_parameters;
+            Main_Log('Proxy: GetPlayListUrl DIRECT url=' + Play_original_live_links + ' channel=' + Channel_or_VOD_Id);
         }
     } else {
         url = Play_vod_links.replace('%x', Channel_or_VOD_Id)
@@ -30651,6 +30746,10 @@ function PlayHLS_PlayListUrl(isLive, Channel_or_VOD_Id, CheckId_y, CheckId_x, ca
 
     var urlObj = PlayHLS_GetPlayListUrl(isLive, Channel_or_VOD_Id, Token, Sig, useProxy);
 
+    if (useProxy) {
+        Main_Log('Proxy: PlayListUrl sending urlLen=' + urlObj.url.length + ' headers=' + (urlObj.headers !== null && urlObj.headers !== undefined) + ' timeout=' + (useProxy ? proxy_timeout : DefaultHttpGetTimeout));
+    }
+
     OSInterface_XmlHttpGetFull(
         urlObj.url, //String urlString
         useProxy ? proxy_timeout : DefaultHttpGetTimeout, //int timeout
@@ -30670,15 +30769,6 @@ function PlayHLS_PlayListUrl(isLive, Channel_or_VOD_Id, CheckId_y, CheckId_x, ca
 }
 
 function PlayHLS_PlayListUrlResult(result, checkResult, check_1, check_2, check_3, check_4, check_5, callBackSuccess) {
-    // console.log('result', result);
-    // console.log('checkResult', checkResult);
-    // console.log('check_1', check_1);
-    // console.log('check_2', check_2);
-    // console.log('check_3', check_3);
-    // console.log('check_4', check_4);
-    // console.log('check_5', check_5);
-    // console.log('callBackSuccess', callBackSuccess);
-
     var CheckId_y = checkResult,
         isLive = check_1 === '1',
         useProxy = check_2 === '1',
@@ -30687,9 +30777,14 @@ function PlayHLS_PlayListUrlResult(result, checkResult, check_1, check_2, check_
         CheckId_x = check_5,
         response = JSON.parse(result);
 
+    Main_Log('Proxy: PlayListUrlResult status=' + response.status + ' channel=' + Channel_or_VOD_Id + ' useProxy=' + useProxy + ' isLive=' + isLive);
+
     if (response.status !== 200) {
+        Main_Log('Proxy: PlayListUrlResult FAIL status=' + response.status + ' response=' + response.responseText);
         //in case we fail using proxy restart the process without using proxy
         if (isLive && useProxy && PlayHLS_CheckProxyResultFail(response.responseText)) {
+            Main_Log('Proxy: PlayListUrlResult -> FALLBACK to direct (no proxy)');
+            OSInterface_SetProxyUrl('');
             PlayHLS_GetToken(isLive, Channel_or_VOD_Id, CheckId_y, CheckId_x, callBackSuccess, false);
             return;
         }
@@ -30699,6 +30794,13 @@ function PlayHLS_PlayListUrlResult(result, checkResult, check_1, check_2, check_
             responseText: response.responseText,
             checkResult: response.checkResult
         });
+    } else {
+        Main_Log('Proxy: PlayListUrlResult SUCCESS channel=' + Channel_or_VOD_Id + (useProxy ? ' (via PROXY)' : ' (DIRECT)'));
+    }
+
+    if (useProxy) {
+        proxy_fail_counter = 0;
+        Main_EventProxy(true);
     }
 
     // prettier-ignore
@@ -30715,10 +30817,12 @@ function PlayHLS_PlayListUrlResult(result, checkResult, check_1, check_2, check_
 
 function PlayHLS_CheckProxyResultFail(responseText) {
     if (Main_A_includes_B(responseText, 'not_found: transcode does not exist')) {
+        Main_Log('Proxy: CheckProxyResultFail -> transcode not found (stream offline, not proxy fail)');
         return false;
     }
 
     proxy_fail_counter++;
+    Main_Log('Proxy: CheckProxyResultFail -> FAIL #' + proxy_fail_counter + ' responseText=' + responseText);
     Main_EventProxy(false);
 
     return true;
@@ -30740,7 +30844,15 @@ function PlayHLS_GetPlayListSync(isLive, Channel_or_VOD_Id) {
 function PlayHLS_GetPlayListSyncToken(isLive, Channel_or_VOD_Id, useProxy) {
     var tokenObj, Token, Sig;
 
+    Main_Log('Proxy: GetPlayListSyncToken channel=' + Channel_or_VOD_Id + ' useProxy=' + useProxy + ' proxy_has_token=' + proxy_has_token);
+
+    if (useProxy && proxy_is_forward_proxy) {
+        OSInterface_SetProxyUrl(proxy_url);
+        Main_Log('Proxy: GetPlayListSyncToken -> forward proxy set ProxyUrl=' + proxy_url);
+    }
+
     if (useProxy && isLive && !proxy_has_token) {
+        Main_Log('Proxy: GetPlayListSyncToken -> direct playlist via proxy (no token needed)');
         return PlayHLS_GetPlayListSyncUrl(isLive, Channel_or_VOD_Id, true);
     } else {
         //getToken
@@ -30774,9 +30886,11 @@ function PlayHLS_GetPlayListSyncToken(isLive, Channel_or_VOD_Id, useProxy) {
 function PlayHLS_GetPlayListSyncUrl(isLive, Channel_or_VOD_Id, useProxy, Token, Sig, tokenObj) {
     var urlObj = PlayHLS_GetPlayListUrl(isLive, Channel_or_VOD_Id, Token, Sig, useProxy);
 
+    Main_Log('Proxy: GetPlayListSyncUrl useProxy=' + useProxy + ' channel=' + Channel_or_VOD_Id);
+
     var obj = OSInterface_mMethodUrlHeaders(
         urlObj.url, //urlString
-        DefaultHttpGetTimeout / 2, //timeout
+        useProxy ? proxy_timeout : DefaultHttpGetTimeout / 2, //timeout
         null, //postMessage
         null, //Method
         0, //checkResult
@@ -30788,13 +30902,18 @@ function PlayHLS_GetPlayListSyncUrl(isLive, Channel_or_VOD_Id, useProxy, Token, 
 
         if (response) {
             if (response.status === 200) {
+                Main_Log('Proxy: GetPlayListSyncUrl SUCCESS' + (useProxy ? ' (via PROXY)' : ' (DIRECT)'));
                 if (useProxy) {
+                    proxy_fail_counter = 0;
                     Main_EventProxy(true);
                 }
                 return obj;
             } else {
+                Main_Log('Proxy: GetPlayListSyncUrl FAIL status=' + response.status + ' response=' + response.responseText);
                 //in case we fail using proxy restart the process without using proxy
                 if (isLive && useProxy && PlayHLS_CheckProxyResultFail(response.responseText)) {
+                    Main_Log('Proxy: GetPlayListSyncUrl -> FALLBACK to direct (no proxy)');
+                    OSInterface_SetProxyUrl('');
                     return PlayHLS_GetPlayListSyncToken(isLive, Channel_or_VOD_Id, false);
                 } else {
                     return JSON.stringify({
@@ -33847,12 +33966,20 @@ function Screens_first_init() {
 
     Main_values.API_Change = false;
 
-    if (startScreen === 3) {
+    if (startScreen === 1 && AddUser_UserHasToken()) {
+        Main_values.Search_isSearching = false;
+        Main_values.Main_BeforeChannelisSet = false;
+        Main_values.Main_BeforeAgameisSet = false;
+        Main_values.Main_Go = Main_Live;
+        ScreenObj[Main_Live].label_init();
+        Main_removeEventListener('keydown', ScreenObj[Main_Live].key_fun);
+        Main_ShowElementWithEle(ScreenObj[Main_Live].ScrollDoc);
+    } else if (startScreen === 2) {
         Users_beforeUser = Main_GoBefore;
         Main_values.Main_Before = Users_beforeUser;
         Main_values.Play_WasPlaying = 0;
         ScreenObj[Main_Users].init_fun();
-    } else if (startScreen === 4 && Main_values.Play_WasPlaying) {
+    } else if (startScreen === 3 && Main_values.Play_WasPlaying) {
         Main_values.Main_Go = Main_GoBefore;
         if (Main_values.IsUpDating) {
             Play_showWarningDialog(STR_UPDATE_WARNING_OK, 5000);
@@ -33899,9 +34026,9 @@ function Screens_first_init() {
     Main_ShowElement('side_panel_new_holder');
     Main_values.IsUpDating = false;
 
-    if (startScreen === 2 && AddUser_UserHasToken()) {
+    if (startScreen === 1 && AddUser_UserHasToken()) {
         Main_setTimeout(function () {
-            Sidepannel_Start(null, true);
+            Sidepannel_Start(null, true, true);
         }, 300);
     }
 }
@@ -35338,7 +35465,7 @@ function Screens_addrow(forceScroll, y, key, forceAfterDelete) {
     } else if (ScreenObj[key].currY > y) {
         // Up
 
-        if ((y && ScreenObj[key].Cells.length > y + 1 && ScreenObj[key].Cells[y + 2]) || forceAfterDelete) {
+        if ((y && ScreenObj[key].Cells.length > y + 1 && ScreenObj[key].Cells[y + 3]) || forceAfterDelete) {
             if (Screens_ChangeFocusAnimationFinished && Screens_SettingDoAnimations && !Screens_ChangeFocusAnimationFast) {
                 //If with animation
 
@@ -35347,9 +35474,9 @@ function Screens_addrow(forceScroll, y, key, forceAfterDelete) {
                     -1, //y_plus
                     -1, //y_plus_offset
                     -1, //for_in
-                    3, //for_out
+                    4, //for_out
                     1, //for_offset
-                    2, //eleRemovePos
+                    3, //eleRemovePos
                     0, //down?
                     key
                 );
@@ -35358,9 +35485,9 @@ function Screens_addrow(forceScroll, y, key, forceAfterDelete) {
                     y,
                     -1, //y_plus
                     -1, //for_in
-                    3, //for_out
+                    4, //for_out
                     1, //for_offset
-                    2, //eleRemovePos
+                    3, //eleRemovePos
                     0, //down?
                     key
                 );
@@ -35380,18 +35507,18 @@ function Screens_addrow(forceScroll, y, key, forceAfterDelete) {
 }
 
 function Screens_addrowDown(y, key) {
-    if (y > 1 && ScreenObj[key].Cells[y + 1]) {
+    if (y > 2 && ScreenObj[key].Cells[y + 1]) {
         if (Screens_ChangeFocusAnimationFinished && Screens_SettingDoAnimations && !Screens_ChangeFocusAnimationFast) {
             //If with animation
 
             Screens_addrowAnimated(
                 y,
                 1, //y_plus
-                3, //y_plus_offset
+                4, //y_plus_offset
                 -1, //for_in
-                2, //for_out
+                3, //for_out
                 1, //for_offset
-                -2, //eleRemovePos
+                -3, //eleRemovePos
                 1, //down?
                 key
             );
@@ -35400,16 +35527,16 @@ function Screens_addrowDown(y, key) {
                 y,
                 1, //y_plus
                 -1, //for_in
-                2, //for_out
+                3, //for_out
                 1, //for_offset
-                -2, //eleRemovePos
+                -3, //eleRemovePos
                 1, //down?
                 key
             );
         }
     } else if (ScreenObj[key].loadingData) {
         //Technically we will not get here because
-        //Key down or right (ScreenObj[key].Cells.length - 1) >= (ScreenObj[key].posY + 3) will hold the screen
+        //Key down or right (ScreenObj[key].Cells.length - 1) >= (ScreenObj[key].posY + 4) will hold the screen
         //but this works, the issue is related to slow to load more content
         //Only happens if scroll too fast
         Main_setTimeout(function () {
@@ -35598,12 +35725,7 @@ function Screens_addFocusVideo(forceScroll, key) {
     var y = ScreenObj[key].posY;
 
     if (Main_YchangeAddFocus(y) || forceScroll) {
-        if (!y) ScreenObj[key].ScrollDoc.style.transform = '';
-        else if (y === 1) {
-            if (ScreenObj[key].Cells[y + 1])
-                //We didn't reach the bottom yet
-                ScreenObj[key].ScrollDoc.style.transform = 'translateY(-' + ScreenObj[key].offsettop + 'em)';
-        }
+    ScreenObj[key].ScrollDoc.style.transform = '';
     }
 }
 
@@ -37932,8 +38054,8 @@ var Main_ItemsLimitMax = 100;
 var Main_ReloadLimitOffsetGames = 1.35;
 var Main_ReloadLimitOffsetVideos = 1.5;
 
-var Main_ItemsLimitVideo = 30;
-var Main_ColumnsCountVideo = 3;
+var Main_ItemsLimitVideo = 32;
+var Main_ColumnsCountVideo = 4;
 var Main_ItemsReloadLimitVideo = Math.floor(Main_ItemsLimitVideo / Main_ColumnsCountVideo / Main_ReloadLimitOffsetVideos);
 
 var Main_ItemsLimitGame = 30;
@@ -38029,7 +38151,7 @@ function ScreensObj_StartAllVars() {
         MaxOffset: 0,
         offset: 0,
         enable_mature: 0,
-        visiblerows: 3,
+        visiblerows: 4,
         status: false,
         FirstRunEnd: false,
         emptyContent: true,
@@ -43176,9 +43298,11 @@ function Settings_set_all_proxy(current) {
     var currentEnable = Settings_Obj_default(current) === 1;
 
     use_proxy = currentEnable;
+    Main_Log('Proxy: set_all_proxy current=' + current + ' enabled=' + currentEnable);
 
     if (currentEnable) {
         Settings_proxy_set_current(current);
+        Main_Log('Proxy: set_all_proxy url=' + proxy_url + ' has_token=' + proxy_has_token + ' has_parameter=' + proxy_has_parameter);
 
         var i = 0,
             len = proxyArray.length;
@@ -43194,14 +43318,17 @@ function Settings_set_all_proxy(current) {
 function Settings_proxy_set_start() {
     var i = 0,
         len = proxyArray.length;
+    use_proxy = false;
     for (i; i < len; i++) {
         if (Settings_Obj_default(proxyArray[i]) === 1) {
             use_proxy = true;
             Settings_proxy_set_current(proxyArray[i]);
+            Main_Log('Proxy: init proxy=' + proxyArray[i] + ' url=' + proxy_url + ' has_token=' + proxy_has_token + ' has_parameter=' + proxy_has_parameter + ' timeout=' + proxy_timeout);
             break;
         }
     }
     Settings_proxy_set_Type();
+    Main_Log('Proxy: use_proxy=' + use_proxy + ' proxyType=' + proxyType);
 }
 
 function Settings_proxy_set_Type() {
@@ -43214,21 +43341,25 @@ function Settings_proxy_set_current(current) {
         proxy_headers = null;
         proxy_has_parameter = true;
         proxy_has_token = true;
+        proxy_is_forward_proxy = true;
     } else if (current === 'k_twitch') {
         proxy_url = ktwitch_proxy;
         proxy_headers = null;
         proxy_has_parameter = true;
         proxy_has_token = true;
+        proxy_is_forward_proxy = false;
     } else if (current === 'custom_proxy') {
         proxy_url = Main_getItemJson('custom_proxy_url', '');
         proxy_headers = null;
         proxy_has_parameter = Settings_Obj_default('custom_proxy_has_parameter') === 1;
         proxy_has_token = Settings_Obj_default('custom_proxy_has_token') === 1;
+        proxy_is_forward_proxy = false;
     } else {
         proxy_url = Play_live_ttv_lol_links;
         proxy_headers = ttv_lol_headers;
         proxy_has_parameter = true;
         proxy_has_token = false;
+        proxy_is_forward_proxy = false;
     }
 }
 
@@ -46401,6 +46532,9 @@ function Sidepannel_AddFocusMain() {
         'side_panel_movel_new_' + Sidepannel_Sidepannel_Pos,
         Sidepannel_Sidepannel_Pos < 8 ? 'side_panel_new_icons_text' : 'side_panel_new_icons_text_botton'
     );
+    if (Sidepannel_Sidepannel_Pos < 10) {
+        Main_AddClass('side_panel_new_' + Sidepannel_Sidepannel_Pos, 'side_panel_fix_icon_focused');
+    }
 }
 
 function Sidepannel_RemoveFocusMain() {
@@ -46408,6 +46542,9 @@ function Sidepannel_RemoveFocusMain() {
         'side_panel_movel_new_' + Sidepannel_Sidepannel_Pos,
         Sidepannel_Sidepannel_Pos < 8 ? 'side_panel_new_icons_text' : 'side_panel_new_icons_text_botton'
     );
+    if (Sidepannel_Sidepannel_Pos < 10) {
+        Main_RemoveClass('side_panel_new_' + Sidepannel_Sidepannel_Pos, 'side_panel_fix_icon_focused');
+    }
 }
 
 function Sidepannel_AddFocusLiveFeed(skipAnimation) {
@@ -46470,7 +46607,7 @@ function Sidepannel_isShowingUserLive() {
 }
 
 function Sidepannel_isShowingUserLiveSide() {
-    return !Main_A_includes_B(Sidepannel_SidepannelDoc.className, 'side_panel_hide');
+    return Sidepannel_SidepannelDoc && !Main_A_includes_B(Sidepannel_SidepannelDoc.className, 'side_panel_hide');
 }
 
 function Sidepannel_GetObj() {
@@ -46857,12 +46994,12 @@ function Sidepannel_Go(GoTo) {
     }
 }
 
-function Sidepannel_Start(callback, forceFeed) {
+function Sidepannel_Start(callback, forceFeed, noAnim) {
     Sidepannel_Callback = callback;
     Main_removeEventListener('keydown', Sidepannel_Callback);
     if (!Sidepannel_IsMain || forceFeed) {
         if (AddUser_UserHasToken()) {
-            Sidepannel_StartFeed();
+            Sidepannel_StartFeed(noAnim);
         } else {
             Sidepannel_ShowNoUserWarning();
             Sidepannel_StartMain();
@@ -46870,10 +47007,18 @@ function Sidepannel_Start(callback, forceFeed) {
     } else Sidepannel_StartMain();
 }
 
-function Sidepannel_StartFeed() {
+function Sidepannel_StartFeed(noAnim) {
     Main_HideLoadDialog();
     Sidepannel_IsMain = false;
     Main_addEventListener('keydown', Sidepannel_handleKeyDown);
+
+    if (noAnim) {
+        Sidepannel_SidepannelDoc.style.transition = 'none';
+        Sidepannel_SidepannelInnerDoc.style.transition = 'none';
+        Sidepannel_scenefeed.style.transition = 'none';
+        Sidepannel_MovelDiv.style.transition = 'none';
+        Sidepannel_FixDiv.style.transition = 'none';
+    }
 
     Main_RemoveClassWithEle(Sidepannel_SidepannelDoc, 'side_panel_hide');
     Main_RemoveClassWithEle(Sidepannel_SidepannelDoc, 'side_panel_hide_full');
@@ -46883,6 +47028,16 @@ function Sidepannel_StartFeed() {
 
     Sidepannel_ShowFeed();
     Sidepannel_HideMain(true);
+
+    if (noAnim) {
+        Main_setTimeout(function () {
+            Sidepannel_SidepannelDoc.style.transition = '';
+            Sidepannel_SidepannelInnerDoc.style.transition = '';
+            Sidepannel_scenefeed.style.transition = '';
+            Sidepannel_MovelDiv.style.transition = '';
+            Sidepannel_FixDiv.style.transition = '';
+        }, 50);
+    }
 }
 
 function Sidepannel_ShowFeed() {

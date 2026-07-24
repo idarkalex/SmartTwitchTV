@@ -1727,7 +1727,7 @@ function Screens_addrow(forceScroll, y, key, forceAfterDelete) {
     } else if (ScreenObj[key].currY > y) {
         // Up
 
-        if ((y && ScreenObj[key].Cells.length > y + 1 && ScreenObj[key].Cells[y + 2]) || forceAfterDelete) {
+        if ((y && ScreenObj[key].Cells.length > y + 1 && ScreenObj[key].Cells[y + 3]) || forceAfterDelete) {
             if (Screens_ChangeFocusAnimationFinished && Screens_SettingDoAnimations && !Screens_ChangeFocusAnimationFast) {
                 //If with animation
 
@@ -1736,9 +1736,9 @@ function Screens_addrow(forceScroll, y, key, forceAfterDelete) {
                     -1, //y_plus
                     -1, //y_plus_offset
                     -1, //for_in
-                    3, //for_out
+                    4, //for_out
                     1, //for_offset
-                    2, //eleRemovePos
+                    3, //eleRemovePos
                     0, //down?
                     key
                 );
@@ -1747,9 +1747,9 @@ function Screens_addrow(forceScroll, y, key, forceAfterDelete) {
                     y,
                     -1, //y_plus
                     -1, //for_in
-                    3, //for_out
+                    4, //for_out
                     1, //for_offset
-                    2, //eleRemovePos
+                    3, //eleRemovePos
                     0, //down?
                     key
                 );
@@ -1769,18 +1769,18 @@ function Screens_addrow(forceScroll, y, key, forceAfterDelete) {
 }
 
 function Screens_addrowDown(y, key) {
-    if (y > 1 && ScreenObj[key].Cells[y + 1]) {
+    if (y > 2 && ScreenObj[key].Cells[y + 1]) {
         if (Screens_ChangeFocusAnimationFinished && Screens_SettingDoAnimations && !Screens_ChangeFocusAnimationFast) {
             //If with animation
 
             Screens_addrowAnimated(
                 y,
                 1, //y_plus
-                3, //y_plus_offset
+                4, //y_plus_offset
                 -1, //for_in
-                2, //for_out
+                3, //for_out
                 1, //for_offset
-                -2, //eleRemovePos
+                -3, //eleRemovePos
                 1, //down?
                 key
             );
@@ -1789,16 +1789,16 @@ function Screens_addrowDown(y, key) {
                 y,
                 1, //y_plus
                 -1, //for_in
-                2, //for_out
+                3, //for_out
                 1, //for_offset
-                -2, //eleRemovePos
+                -3, //eleRemovePos
                 1, //down?
                 key
             );
         }
     } else if (ScreenObj[key].loadingData) {
         //Technically we will not get here because
-        //Key down or right (ScreenObj[key].Cells.length - 1) >= (ScreenObj[key].posY + 3) will hold the screen
+        //Key down or right (ScreenObj[key].Cells.length - 1) >= (ScreenObj[key].posY + 4) will hold the screen
         //but this works, the issue is related to slow to load more content
         //Only happens if scroll too fast
         Main_setTimeout(function () {
@@ -1987,12 +1987,7 @@ function Screens_addFocusVideo(forceScroll, key) {
     var y = ScreenObj[key].posY;
 
     if (Main_YchangeAddFocus(y) || forceScroll) {
-        if (!y) ScreenObj[key].ScrollDoc.style.transform = '';
-        else if (y === 1) {
-            if (ScreenObj[key].Cells[y + 1])
-                //We didn't reach the bottom yet
-                ScreenObj[key].ScrollDoc.style.transform = 'translateY(-' + ScreenObj[key].offsettop + 'em)';
-        }
+    ScreenObj[key].ScrollDoc.style.transform = '';
     }
 }
 

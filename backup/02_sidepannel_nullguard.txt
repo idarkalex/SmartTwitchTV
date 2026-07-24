@@ -1,0 +1,5 @@
+// FIX: Sidepannel_SidepannelDoc null guard
+// In Sidepannel.js line ~128, change:
+//   return !Main_A_includes_B(Sidepannel_SidepannelDoc.className, 'side_panel_hide');
+// To:
+//   return Sidepannel_SidepannelDoc && !Main_A_includes_B(Sidepannel_SidepannelDoc.className, 'side_panel_hide');

@@ -25,8 +25,8 @@ var Main_ItemsLimitMax = 100;
 var Main_ReloadLimitOffsetGames = 1.35;
 var Main_ReloadLimitOffsetVideos = 1.5;
 
-var Main_ItemsLimitVideo = 30;
-var Main_ColumnsCountVideo = 3;
+var Main_ItemsLimitVideo = 32;
+var Main_ColumnsCountVideo = 4;
 var Main_ItemsReloadLimitVideo = Math.floor(Main_ItemsLimitVideo / Main_ColumnsCountVideo / Main_ReloadLimitOffsetVideos);
 
 var Main_ItemsLimitGame = 30;
@@ -122,7 +122,7 @@ function ScreensObj_StartAllVars() {
         MaxOffset: 0,
         offset: 0,
         enable_mature: 0,
-        visiblerows: 3,
+        visiblerows: 4,
         status: false,
         FirstRunEnd: false,
         emptyContent: true,

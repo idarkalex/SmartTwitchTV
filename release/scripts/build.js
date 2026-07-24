@@ -110,6 +110,7 @@ try {
     html = html.replace(/<!-- jsstart[\s\S]*?jsend-->/, '<script src="githubio/js/main.js" defer></script>');
     html = html.replace(/\.\.\/release\//g, '');
     html = html.replace(/css\/icons\.css/g, 'css/icons.min.css');
+    html = html.replace(/css\/app\.css/g, 'css/app.min.css');
 
     if (canHtmlMin) {
         fs.mkdirSync(TEMP, { recursive: true });
@@ -138,14 +139,28 @@ try {
     // Compress CSS
     if (canCrass) {
         console.log('Minifying CSS...');
-        const cssSrc = path.join(RELEASE, 'githubio', 'css', 'icons.css');
-        const cssDst = path.join(RELEASE, 'githubio', 'css', 'icons.min.css');
-        if (fs.existsSync(cssSrc)) {
-            write(path.join(TEMP, '_icons.css'), read(cssSrc));
+        
+        // Minify icons.css
+        const iconsSrc = path.join(RELEASE, 'githubio', 'css', 'icons.css');
+        const iconsDst = path.join(RELEASE, 'githubio', 'css', 'icons.min.css');
+        if (fs.existsSync(iconsSrc)) {
+            write(path.join(TEMP, '_icons.css'), read(iconsSrc));
             const minCSS = tryExec(`npx crass "${path.join(TEMP, '_icons.css')}"`);
             if (minCSS) {
-                write(cssDst, minCSS);
+                write(iconsDst, minCSS);
                 console.log(`  -> icons.min.css (${(minCSS.length / 1024).toFixed(0)} KB)`);
+            }
+        }
+        
+        // Minify app.css
+        const appCssSrc = path.join(APP, 'css', 'app.css');
+        const appCssDst = path.join(RELEASE, 'githubio', 'css', 'app.min.css');
+        if (fs.existsSync(appCssSrc)) {
+            write(path.join(TEMP, '_app.css'), read(appCssSrc));
+            const minCSS = tryExec(`npx crass "${path.join(TEMP, '_app.css')}"`);
+            if (minCSS) {
+                write(appCssDst, minCSS);
+                console.log(`  -> app.min.css (${(minCSS.length / 1024).toFixed(0)} KB)`);
             }
         }
     }

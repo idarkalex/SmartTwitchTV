@@ -1,0 +1,16 @@
+// FIX: ScreenObj null guards in BrowserTest.js
+//
+// Line ~502 - click handler:
+//   } else if (ScreenObj[key].posY !== y || ScreenObj[key].posX !== x)) {
+// To:
+//   } else if (ScreenObj[key] && (ScreenObj[key].posY !== y || ScreenObj[key].posX !== x)) {
+//
+// Line ~527 - key_play:
+//   ScreenObj[key].key_play(true);
+// To:
+//   if (ScreenObj[key]) ScreenObj[key].key_play(true);
+//
+// Line ~1252 - onwheel:
+//   } else if (Screens_IsInUse(key) && (y > 0 || ScreenObj[key].posY > 0)) {
+// To:
+//   } else if (Screens_IsInUse(key) && ScreenObj[key] && (y > 0 || ScreenObj[key].posY > 0)) {
