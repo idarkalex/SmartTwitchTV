@@ -3006,11 +3006,7 @@ function es_ESLang() {
         'Si se establece en SÃ, la aplicaciÃ³n sincronizarÃ¡ automÃ¡ticamente la informaciÃ³n del usuario entre dispositivos';
     STR_OPEN_REWIND = 'Abrir retroceso';
     STR_OPEN_REWIND_SUMMARY = 'Abrir el VOD con retroceso completo';
-<<<<<<< HEAD
     STR_OPEN_REWIND_FAIL = 'Sin retroceso para esta transmisión en vivo';
-=======
-    STR_OPEN_REWIND_FAIL = 'Sin retroceso para esta transmisiÃ³n en vivo';
->>>>>>> 49841b4ac648fd4d8761719e548526d96dc075a3
 
     STR_EXPORT_LOGS = 'Exportar logs del proxy';
     STR_PROXY_LOGS_EMPTY = 'No hay logs del proxy para exportar';
@@ -4000,17 +3996,10 @@ function fr_FRLang() {
 
     STR_BACKUP_SYNC_ENABLE = 'Synchroniser entre appareils';
     STR_BACKUP_SYNC_ENABLE_SUMMARY =
-<<<<<<< HEAD
         "L'activation ajoute un léger délai au démarrage de l'app et est inutile si vous l'utilisez sur un seul appareil. L'app synchronise toutes les options activées ci-dessous entre cet appareil et les autres utilisant le même compte Google Drive. Pour changer d'appareil et reprendre la lecture, réduisez l'app sur l'appareil actuel avec la touche Home. Puis, assurez-vous qu'elle est totalement fermée sur l'autre appareil avant de l'ouvrir.";
 
     STR_EXPORT_LOGS = 'Exporter les logs proxy';
     STR_PROXY_LOGS_EMPTY = 'Aucun log proxy à exporter';
-=======
-        "L'activation ajoute un lÃ©ger dÃ©lai au dÃ©marrage de l'app et est inutile si vous l'utilisez sur un seul appareil. L'app synchronise toutes les options activÃ©es ci-dessous entre cet appareil et les autres utilisant le mÃªme compte Google Drive. Pour changer d'appareil et reprendre la lecture, rÃ©duisez l'app sur l'appareil actuel avec la touche Home. Puis, assurez-vous qu'elle est totalement fermÃ©e sur l'autre appareil avant de l'ouvrir.";
-
-    STR_EXPORT_LOGS = 'Exporter les logs proxy';
-    STR_PROXY_LOGS_EMPTY = 'Aucun log proxy Ã  exporter';
->>>>>>> 49841b4ac648fd4d8761719e548526d96dc075a3
 }
 
 /*
@@ -4969,13 +4958,8 @@ function pt_BRLang() {
     STR_BACKUP_ENABLE = 'Habilitar backup';
     STR_BACKUP_ENABLE_SUMMARY = 'Se definido como SIM, o aplicativo manterÃ¡ um backup de todas as informaÃ§Ãµes do usuÃ¡rio ' + STR_BACKUP_USER_INFO;
 
-<<<<<<< HEAD
     STR_BACKUP_SYNC_ENABLE = 'Habilitar sincronização';
     STR_BACKUP_SYNC_ENABLE_SUMMARY = 'Se definido como SIM, o aplicativo sincronizará automaticamente as informações do usuário entre dispositivos';
-=======
-    STR_BACKUP_SYNC_ENABLE = 'Habilitar sincronizaÃ§Ã£o';
-    STR_BACKUP_SYNC_ENABLE_SUMMARY = 'Se definido como SIM, o aplicativo sincronizarÃ¡ automaticamente as informaÃ§Ãµes do usuÃ¡rio entre dispositivos';
->>>>>>> 49841b4ac648fd4d8761719e548526d96dc075a3
 
     STR_EXPORT_LOGS = 'Exportar logs do proxy';
     STR_PROXY_LOGS_EMPTY = 'Nenhum log de proxy para exportar';
@@ -5975,17 +5959,10 @@ function ru_RULang() {
 
     STR_BACKUP_SYNC_ENABLE = 'Ð’ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ ÑÐ¸Ð½Ñ…Ñ€Ð¾Ð½Ð¸Ð·Ð°Ñ†Ð¸ÑŽ';
     STR_BACKUP_SYNC_ENABLE_SUMMARY =
-<<<<<<< HEAD
         'Если установлено ДА, приложение будет автоматически синхронизировать информацию пользователя между устройствами';
 
     STR_EXPORT_LOGS = 'Экспорт логов прокси';
     STR_PROXY_LOGS_EMPTY = 'Нет логов прокси для экспорта';
-=======
-        'Ð•ÑÐ»Ð¸ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ð¾ Ð”Ð, Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ Ð±ÑƒÐ´ÐµÑ‚ Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡ÐµÑÐºÐ¸ ÑÐ¸Ð½Ñ…Ñ€Ð¾Ð½Ð¸Ð·Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ Ð¸Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸ÑŽ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ Ð¼ÐµÐ¶Ð´Ñƒ ÑƒÑÑ‚Ñ€Ð¾Ð¹ÑÑ‚Ð²Ð°Ð¼Ð¸';
-
-    STR_EXPORT_LOGS = 'Ð­ÐºÑÐ¿Ð¾Ñ€Ñ‚ Ð»Ð¾Ð³Ð¾Ð² Ð¿Ñ€Ð¾ÐºÑÐ¸';
-    STR_PROXY_LOGS_EMPTY = 'ÐÐµÑ‚ Ð»Ð¾Ð³Ð¾Ð² Ð¿Ñ€Ð¾ÐºÑÐ¸ Ð´Ð»Ñ ÑÐºÑÐ¿Ð¾Ñ€Ñ‚Ð°';
->>>>>>> 49841b4ac648fd4d8761719e548526d96dc075a3
 }
 
 /*
@@ -6982,17 +6959,10 @@ function tr_TRLang() {
 
     STR_BACKUP_SYNC_ENABLE = 'Cihazlar arasÄ±nda senkronize et';
     STR_BACKUP_SYNC_ENABLE_SUMMARY =
-<<<<<<< HEAD
         'Bunu etkinleştirmek, uygulamanın başlangıç sürecine hafif bir gecikme ekleyecektir ve uygulamayı tek bir cihazda kullanıyorsanız gereksizdir. Uygulama, aşağıdaki tüm etkin seçenekleri bu cihaz ile aynı Google Drive hesabını kullanan diğer cihazlar arasında senkronize edecektir. Cihazları değiştirmek ve sorunsuz bir şekilde izlemeye devam etmek için, mevcut cihazda Ana Ekran tuşuna basarak uygulamayı simge durumuna küçültün. Ardından, uygulamayı açmadan önce diğer cihazda tamamen kapalı olduğundan emin olun.';
 
     STR_EXPORT_LOGS = 'Proxy loglarını dışa aktar';
     STR_PROXY_LOGS_EMPTY = 'Dışa aktarılacak proxy logu yok';
-=======
-        'Bunu etkinleÅŸtirmek, uygulamanÄ±n baÅŸlangÄ±Ã§ sÃ¼recine hafif bir gecikme ekleyecektir ve uygulamayÄ± tek bir cihazda kullanÄ±yorsanÄ±z gereksizdir. Uygulama, aÅŸaÄŸÄ±daki tÃ¼m etkin seÃ§enekleri bu cihaz ile aynÄ± Google Drive hesabÄ±nÄ± kullanan diÄŸer cihazlar arasÄ±nda senkronize edecektir. CihazlarÄ± deÄŸiÅŸtirmek ve sorunsuz bir ÅŸekilde izlemeye devam etmek iÃ§in, mevcut cihazda Ana Ekran tuÅŸuna basarak uygulamayÄ± simge durumuna kÃ¼Ã§Ã¼ltÃ¼n. ArdÄ±ndan, uygulamayÄ± aÃ§madan Ã¶nce diÄŸer cihazda tamamen kapalÄ± olduÄŸundan emin olun.';
-
-    STR_EXPORT_LOGS = 'Proxy loglarÄ±nÄ± dÄ±ÅŸa aktar';
-    STR_PROXY_LOGS_EMPTY = 'DÄ±ÅŸa aktarÄ±lacak proxy logu yok';
->>>>>>> 49841b4ac648fd4d8761719e548526d96dc075a3
 }
 
 /*
@@ -7971,17 +7941,10 @@ function uk_UALang() {
 
     STR_BACKUP_SYNC_ENABLE = 'Ð£Ð²Ñ–Ð¼ÐºÐ½ÑƒÑ‚Ð¸ ÑÐ¸Ð½Ñ…Ñ€Ð¾Ð½Ñ–Ð·Ð°Ñ†Ñ–ÑŽ';
     STR_BACKUP_SYNC_ENABLE_SUMMARY =
-<<<<<<< HEAD
         'Якщо встановлено ТАК, додаток синхронізуватиме всі ввімкнені опції нижче між цим пристроєм та іншими, що використовують той самий обліковий запис Google Drive. Щоб перемкнутися між пристроями та продовжити перегляд без проблем, згорніть додаток на поточному пристрої, натиснувши клавішу Home. Потім переконайтеся, що додаток повністю закрито на іншому пристрої, перш ніж відкривати його.';
 
     STR_EXPORT_LOGS = 'Експорт логів проксі';
     STR_PROXY_LOGS_EMPTY = 'Немає логів проксі для експорту';
-=======
-        'Ð¯ÐºÑ‰Ð¾ Ð²ÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ð¾ Ð¢ÐÐš, Ð´Ð¾Ð´Ð°Ñ‚Ð¾Ðº ÑÐ¸Ð½Ñ…Ñ€Ð¾Ð½Ñ–Ð·ÑƒÐ²Ð°Ñ‚Ð¸Ð¼Ðµ Ð²ÑÑ– Ð²Ð²Ñ–Ð¼ÐºÐ½ÐµÐ½Ñ– Ð¾Ð¿Ñ†Ñ–Ñ— Ð½Ð¸Ð¶Ñ‡Ðµ Ð¼Ñ–Ð¶ Ñ†Ð¸Ð¼ Ð¿Ñ€Ð¸ÑÑ‚Ñ€Ð¾Ñ”Ð¼ Ñ‚Ð° Ñ–Ð½ÑˆÐ¸Ð¼Ð¸, Ñ‰Ð¾ Ð²Ð¸ÐºÐ¾Ñ€Ð¸ÑÑ‚Ð¾Ð²ÑƒÑŽÑ‚ÑŒ Ñ‚Ð¾Ð¹ ÑÐ°Ð¼Ð¸Ð¹ Ð¾Ð±Ð»Ñ–ÐºÐ¾Ð²Ð¸Ð¹ Ð·Ð°Ð¿Ð¸Ñ Google Drive. Ð©Ð¾Ð± Ð¿ÐµÑ€ÐµÐ¼ÐºÐ½ÑƒÑ‚Ð¸ÑÑ Ð¼Ñ–Ð¶ Ð¿Ñ€Ð¸ÑÑ‚Ñ€Ð¾ÑÐ¼Ð¸ Ñ‚Ð° Ð¿Ñ€Ð¾Ð´Ð¾Ð²Ð¶Ð¸Ñ‚Ð¸ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´ Ð±ÐµÐ· Ð¿Ñ€Ð¾Ð±Ð»ÐµÐ¼, Ð·Ð³Ð¾Ñ€Ð½Ñ–Ñ‚ÑŒ Ð´Ð¾Ð´Ð°Ñ‚Ð¾Ðº Ð½Ð° Ð¿Ð¾Ñ‚Ð¾Ñ‡Ð½Ð¾Ð¼Ñƒ Ð¿Ñ€Ð¸ÑÑ‚Ñ€Ð¾Ñ—, Ð½Ð°Ñ‚Ð¸ÑÐ½ÑƒÐ²ÑˆÐ¸ ÐºÐ»Ð°Ð²Ñ–ÑˆÑƒ Home. ÐŸÐ¾Ñ‚Ñ–Ð¼ Ð¿ÐµÑ€ÐµÐºÐ¾Ð½Ð°Ð¹Ñ‚ÐµÑÑ, Ñ‰Ð¾ Ð´Ð¾Ð´Ð°Ñ‚Ð¾Ðº Ð¿Ð¾Ð²Ð½Ñ–ÑÑ‚ÑŽ Ð·Ð°ÐºÑ€Ð¸Ñ‚Ð¾ Ð½Ð° Ñ–Ð½ÑˆÐ¾Ð¼Ñƒ Ð¿Ñ€Ð¸ÑÑ‚Ñ€Ð¾Ñ—, Ð¿ÐµÑ€Ñˆ Ð½Ñ–Ð¶ Ð²Ñ–Ð´ÐºÑ€Ð¸Ð²Ð°Ñ‚Ð¸ Ð¹Ð¾Ð³Ð¾.';
-
-    STR_EXPORT_LOGS = 'Ð•ÐºÑÐ¿Ð¾Ñ€Ñ‚ Ð»Ð¾Ð³Ñ–Ð² Ð¿Ñ€Ð¾ÐºÑÑ–';
-    STR_PROXY_LOGS_EMPTY = 'ÐÐµÐ¼Ð°Ñ” Ð»Ð¾Ð³Ñ–Ð² Ð¿Ñ€Ð¾ÐºÑÑ– Ð´Ð»Ñ ÐµÐºÑÐ¿Ð¾Ñ€Ñ‚Ñƒ';
->>>>>>> 49841b4ac648fd4d8761719e548526d96dc075a3
 }
 
 /*
@@ -23140,15 +23103,6 @@ function Play_FixQualities(input) {
     return input;
 }
 
-<<<<<<< HEAD
-=======
-//function Play_extractQualitiesTest() { /* jshint ignore:start */
-//    var testString = '#EXTM3U\n#EXT-X-TWITCH-INFO:NODE="video-edge-6205c6.sao03"\n#EXT-X-MEDIA:TYPE=VIDEO,GROUP-ID="chunked",NAME="1080p60 (source)"\nhttps://video-weaver.sao03.hls.ttvnw.net/v1/playlist/C.m3u8';
-//    console.log('Play_extractQualitiesTest', Play_extractQualities(testString));
-//    /* jshint ignore:end */
-//}
-
->>>>>>> 49841b4ac648fd4d8761719e548526d96dc075a3
 function Play_extractQualities(input) {
     var result = [],
         addedResolution = {},
@@ -23778,11 +23732,7 @@ function Play_UpdateVideoStatusGetProxy() {
             var logLine = Main_LogBuffer[i];
             var lastSpace = logLine.lastIndexOf(' ');
             if (lastSpace > 40) logLine = logLine.substring(0, lastSpace);
-<<<<<<< HEAD
             if (logLine.length > 55) logLine = logLine.substring(0, 55) + '…';
-=======
-            if (logLine.length > 55) logLine = logLine.substring(0, 55) + 'â€¦';
->>>>>>> 49841b4ac648fd4d8761719e548526d96dc075a3
             str += STR_BR + '<span style="color:#CCC;font-size:85%">' + logLine + '</span>';
         }
     }
@@ -35619,12 +35569,7 @@ function Screens_addrow(forceScroll, y, key, forceAfterDelete) {
 }
 
 function Screens_addrowDown(y, key) {
-<<<<<<< HEAD
     if (y > 2 && ScreenObj[key].Cells[y + 1]) {
-=======
-    if (!ScreenObj[key]) return;
-    if (y > 1 && ScreenObj[key].Cells[y + 1]) {
->>>>>>> 49841b4ac648fd4d8761719e548526d96dc075a3
         if (Screens_ChangeFocusAnimationFinished && Screens_SettingDoAnimations && !Screens_ChangeFocusAnimationFast) {
             //If with animation
 
@@ -38199,11 +38144,7 @@ var Main_ItemsLimitMax = 100;
 var Main_ReloadLimitOffsetGames = 1.35;
 var Main_ReloadLimitOffsetVideos = 1.5;
 
-<<<<<<< HEAD
 var Main_ItemsLimitVideo = 32;
-=======
-var Main_ItemsLimitVideo = 30;
->>>>>>> 49841b4ac648fd4d8761719e548526d96dc075a3
 var Main_ColumnsCountVideo = 4;
 var Main_ItemsReloadLimitVideo = Math.floor(Main_ItemsLimitVideo / Main_ColumnsCountVideo / Main_ReloadLimitOffsetVideos);
 
