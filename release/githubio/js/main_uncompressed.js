@@ -3007,7 +3007,6 @@ function es_ESLang() {
     STR_OPEN_REWIND = 'Abrir retroceso';
     STR_OPEN_REWIND_SUMMARY = 'Abrir el VOD con retroceso completo';
     STR_OPEN_REWIND_FAIL = 'Sin retroceso para esta transmisión en vivo';
-
     STR_EXPORT_LOGS = 'Exportar logs del proxy';
     STR_PROXY_LOGS_EMPTY = 'No hay logs del proxy para exportar';
 }
@@ -5963,6 +5962,8 @@ function ru_RULang() {
 
     STR_EXPORT_LOGS = 'Экспорт логов прокси';
     STR_PROXY_LOGS_EMPTY = 'Нет логов прокси для экспорта';
+	STR_EXPORT_LOGS = 'Ð­ÐºÑÐ¿Ð¾Ñ€Ñ‚ Ð»Ð¾Ð³Ð¾Ð² Ð¿Ñ€Ð¾ÐºÑÐ¸';
+    STR_PROXY_LOGS_EMPTY = 'ÐÐµÑ‚ Ð»Ð¾Ð³Ð¾Ð² Ð¿Ñ€Ð¾ÐºÑÐ¸ Ð´Ð»Ñ ÑÐºÑÐ¿Ð¾Ñ€Ñ‚Ð°';
 }
 
 /*
