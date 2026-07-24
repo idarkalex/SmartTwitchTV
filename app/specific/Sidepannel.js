@@ -88,7 +88,7 @@ function Sidepannel_AddFocusLiveFeed(skipAnimation) {
         Main_innerHTMLWithEle(Sidepannel_PosCounter, pos + '/' + size);
     } else {
         if (!UserLiveFeed_loadingData[UserLiveFeedobj_UserLivePos]) {
-            Main_getElementById('side_panel_warn').style.display = 'inline-block';
+            Main_SetStyleById('side_panel_warn', 'display', 'inline-block');
         }
 
         Main_AddClassWithEle(Sidepannel_ThumbDoc, 'opacity_zero');
@@ -470,9 +470,9 @@ function Sidepannel_KeyEnterBase() {
     } else if (Sidepannel_Sidepannel_Pos === 10) {
         Main_showSettings();
     } else if (Sidepannel_Sidepannel_Pos === 11) {
-        Main_showAboutDialog(Sidepannel_Callback, ScreenObj[Main_values.Main_Go].key_controls);
+        Main_showAboutDialog(Sidepannel_Callback, ScreenObj[Main_values.Main_Go] ? ScreenObj[Main_values.Main_Go].key_controls : null);
     } else if (Sidepannel_Sidepannel_Pos === 12) {
-        Main_showControlsDialog(Sidepannel_Callback, ScreenObj[Main_values.Main_Go].key_controls);
+        Main_showControlsDialog(Sidepannel_Callback, ScreenObj[Main_values.Main_Go] ? ScreenObj[Main_values.Main_Go].key_controls : null);
     } else if (Sidepannel_Sidepannel_Pos === 13) {
         Main_showExitDialog();
     } else if (Sidepannel_Sidepannel_Pos === 14) {
@@ -900,19 +900,21 @@ function Sidepannel_handleKeyDown(event) {
             Main_showSettings();
             Sidepannel_Hide();
             break;
-        case KEY_A:
+                case KEY_A:
         case KEY_7:
-            Main_showAboutDialog(Sidepannel_Callback, ScreenObj[Main_values.Main_Go].key_controls);
+            Main_showAboutDialog(Sidepannel_Callback, ScreenObj[Main_values.Main_Go] ? ScreenObj[Main_values.Main_Go].key_controls : null);
             Sidepannel_Hide();
             break;
         case KEY_C:
         case KEY_8:
-            Main_showControlsDialog(Sidepannel_Callback, ScreenObj[Main_values.Main_Go].key_controls);
+            Main_showControlsDialog(Sidepannel_Callback, ScreenObj[Main_values.Main_Go] ? ScreenObj[Main_values.Main_Go].key_controls : null);
             Sidepannel_Hide();
             break;
         case KEY_E:
         case KEY_9:
             Main_showExitDialog();
+
+
             Sidepannel_Hide();
             break;
         case KEY_0:
@@ -994,19 +996,21 @@ function Sidepannel_handleKeyDownMain(event) {
             Main_showSettings();
             Sidepannel_Hide();
             break;
-        case KEY_A:
+                case KEY_A:
         case KEY_7:
-            Main_showAboutDialog(Sidepannel_Callback, ScreenObj[Main_values.Main_Go].key_controls);
+            Main_showAboutDialog(Sidepannel_Callback, ScreenObj[Main_values.Main_Go] ? ScreenObj[Main_values.Main_Go].key_controls : null);
             Sidepannel_Hide();
             break;
         case KEY_C:
         case KEY_8:
-            Main_showControlsDialog(Sidepannel_Callback, ScreenObj[Main_values.Main_Go].key_controls);
+            Main_showControlsDialog(Sidepannel_Callback, ScreenObj[Main_values.Main_Go] ? ScreenObj[Main_values.Main_Go].key_controls : null);
             Sidepannel_Hide();
             break;
         case KEY_E:
         case KEY_9:
             Main_showExitDialog();
+
+
             Sidepannel_Hide();
             break;
         default:

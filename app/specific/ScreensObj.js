@@ -25,7 +25,11 @@ var Main_ItemsLimitMax = 100;
 var Main_ReloadLimitOffsetGames = 1.35;
 var Main_ReloadLimitOffsetVideos = 1.5;
 
+<<<<<<< HEAD
 var Main_ItemsLimitVideo = 32;
+=======
+var Main_ItemsLimitVideo = 30;
+>>>>>>> 49841b4ac648fd4d8761719e548526d96dc075a3
 var Main_ColumnsCountVideo = 4;
 var Main_ItemsReloadLimitVideo = Math.floor(Main_ItemsLimitVideo / Main_ColumnsCountVideo / Main_ReloadLimitOffsetVideos);
 
@@ -107,6 +111,16 @@ var Base_Channel_obj;
 var Base_History_obj;
 
 function ScreensObj_StartAllVars() {
+    ScreensObj_CreateBaseObj();
+    ScreensObj_CreateBaseVodObj();
+    ScreensObj_CreateBaseLiveObj();
+    ScreensObj_CreateBaseClipObj();
+    ScreensObj_CreateBaseGameObj();
+    ScreensObj_CreateBaseChannelObj();
+    ScreensObj_CreateBaseHistoryObj();
+}
+
+function ScreensObj_CreateBaseObj() {
     Base_obj = {
         posX: 0,
         posY: -1,
@@ -471,7 +485,9 @@ function ScreensObj_StartAllVars() {
             }
         }
     };
+}
 
+function ScreensObj_CreateBaseVodObj() {
     Base_Vod_obj = {
         ItemsLimit: Main_ItemsLimitVideo,
         ColumnsCount: Main_ColumnsCountVideo,
@@ -537,7 +553,9 @@ function ScreensObj_StartAllVars() {
             }
         }
     };
+}
 
+function ScreensObj_CreateBaseLiveObj() {
     Base_Live_obj = {
         ItemsReloadLimit: Main_ItemsReloadLimitVideo,
         ItemsLimit: Main_ItemsLimitVideo,
@@ -660,7 +678,9 @@ function ScreensObj_StartAllVars() {
             Screens_addFocusVideo(forceScroll, key);
         }
     };
+}
 
+function ScreensObj_CreateBaseClipObj() {
     Base_Clip_obj = {
         HeadersArray: Main_Bearer_Headers,
         ItemsLimit: Main_ItemsLimitVideo,
@@ -751,7 +771,9 @@ function ScreensObj_StartAllVars() {
             }
         }
     };
+}
 
+function ScreensObj_CreateBaseGameObj() {
     Base_Game_obj = {
         HeadersArray: Main_base_array_header,
         thumbclass: 'stream_thumbnail_game_holder',
@@ -874,7 +896,9 @@ function ScreensObj_StartAllVars() {
             }
         }
     };
+}
 
+function ScreensObj_CreateBaseChannelObj() {
     Base_Channel_obj = {
         ItemsLimit: Main_ItemsLimitChannel,
         ColumnsCount: Main_ColumnsCountChannel,
@@ -935,7 +959,9 @@ function ScreensObj_StartAllVars() {
             Main_SwitchScreen();
         }
     };
+}
 
+function ScreensObj_CreateBaseHistoryObj() {
     Base_History_obj = {
         ItemsReloadLimit: Main_ItemsReloadLimitVideo,
         ItemsLimit: Main_ItemsLimitVideo,
@@ -1028,8 +1054,8 @@ function ScreensObj_StartAllVars() {
 
             Main_textContent('dialog_hist_val_3', this.histArrays[3][this.histPosX[3]]);
 
-            Main_getElementById('dialog_hist_left_1').style.opacity = '0';
-            Main_getElementById('dialog_hist_right_1').style.opacity = '0';
+            Main_SetStyleById('dialog_hist_left_1', 'opacity', '0');
+            Main_SetStyleById('dialog_hist_right_1', 'opacity', '0');
             this.histPosXTemp = Main_Slice(this.histPosX);
         }
     };

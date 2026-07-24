@@ -697,6 +697,7 @@ function ChannelContent_LoadPreviewResult(StreamData, x) {
         !Settings_isVisible() &&
         x === Main_values.Main_Go &&
         ChannelContent_DataObj &&
+        Main_getElementById('channel_content_thumbdiv0_0') &&
         Main_A_includes_B(Main_getElementById('channel_content_thumbdiv0_0').className, 'stream_thumbnail_focused')
     ) {
         if (StreamData) {

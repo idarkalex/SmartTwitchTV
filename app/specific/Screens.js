@@ -297,6 +297,7 @@ function Screens_first_init() {
 
 function Screens_init(key, preventRefresh) {
     //Main_Log('Screens_init ' + ScreenObj[key].screen);
+    if (!ScreenObj[key]) return;
     Main_addFocusVideoOffset = -1;
     Main_values.Main_Go = key; //Sidepannel, playclip, Main_updateClock Screens_Isfocused Main_CheckStop use this var
     ScreenObj[key].label_init();
@@ -330,11 +331,12 @@ function Screens_init(key, preventRefresh) {
 }
 
 function Screens_needsRefresh(key, preventRefresh) {
+    if (!ScreenObj[key]) return true;
     return (
         !ScreenObj[key].status ||
         (!preventRefresh && Screens_RefreshTimeout(key)) ||
         ScreenObj[key].posY < 0 ||
-        ScreenObj[key].DataObj[ScreenObj[key].posY + '_' + ScreenObj[key].posX].empty ||
+        (ScreenObj[key].DataObj[ScreenObj[key].posY + '_' + ScreenObj[key].posX] && ScreenObj[key].DataObj[ScreenObj[key].posY + '_' + ScreenObj[key].posX].empty) ||
         !ScreenObj[key].offsettop ||
         (ScreenObj[key].CheckContentLang && !Main_A_equals_B(ScreenObj[key].ContentLang, Main_ContentLang)) ||
         !Main_A_equals_B(ScreenObj[key].Lang, Settings_AppLang) ||
@@ -346,6 +348,7 @@ function Screens_needsRefresh(key, preventRefresh) {
 
 function Screens_exit(key) {
     //Main_Log('Screens_exit ' + ScreenObj[key].screen);
+    if (!ScreenObj[key]) return;
 
     Main_addFocusVideoOffset = 0;
     if (ScreenObj[key].label_exit) ScreenObj[key].label_exit();
@@ -356,6 +359,7 @@ function Screens_exit(key) {
 }
 
 function Screens_StartLoad(key) {
+    if (!ScreenObj[key]) return;
     if (key === Main_values.Main_Go && Main_isScene1DocVisible()) {
         Screens_RemoveFocus(key);
         Main_showLoadDialog();
@@ -413,6 +417,7 @@ function Screens_StartLoad(key) {
 }
 
 function Screens_loadDataRequestStart(key) {
+    if (!ScreenObj[key]) return;
     ScreenObj[key].loadingData = true;
 
     if ((ScreenObj[key].screenType === 1 || ScreenObj[key].screenType === 2) && !ScreenObj[key].enable_mature) {
@@ -435,6 +440,7 @@ function Screens_loadDataRequestStart(key) {
 }
 
 function Screens_loadDataRequest(key) {
+    if (!ScreenObj[key]) return;
     ScreenObj[key].set_url();
 
     if (ScreenObj[key].isBlocked) {
@@ -495,6 +501,7 @@ function Screens_HttpResultStatus(resultObj, key) {
 }
 
 function Screens_loadDataFail(key) {
+    if (!ScreenObj[key]) return;
     ScreenObj[key].loadingData = false;
     ScreenObj[key].FirstRunEnd = true;
     ScreenObj[key].LoadOneMoreTimeForced = false;
@@ -522,10 +529,12 @@ function Screens_loadDataFail(key) {
 }
 
 function Screens_concatenate(responseObj, key) {
+    if (!ScreenObj[key]) return;
     ScreenObj[key].concatenate(responseObj);
 }
 
 function Screens_loadDataSuccess(key) {
+    if (!ScreenObj[key]) return;
     var data_length = ScreenObj[key].data.length,
         response_items = data_length - ScreenObj[key].data_cursor,
         currentRowId = ScreenObj[key].row_id;
@@ -657,6 +666,7 @@ function Screens_loadDataSuccess(key) {
 }
 
 function Screens_createRow(key) {
+    if (!ScreenObj[key]) return null;
     var div = document.createElement('div');
     if (ScreenObj[key].rowClass) div.className = ScreenObj[key].rowClass;
     div.id = ScreenObj[key].ids[6] + ScreenObj[key].row_id;
@@ -666,6 +676,7 @@ function Screens_createRow(key) {
 }
 
 function Screens_createCellChannel(id, idArray, valuesArray, key) {
+    if (!ScreenObj[key]) return;
     ScreenObj[key].DataObj[id] = valuesArray;
 
     return (
@@ -704,6 +715,7 @@ function Screens_createCellChannel(id, idArray, valuesArray, key) {
 }
 
 function Screens_createCellGame(id, idArray, valuesArray, key) {
+    if (!ScreenObj[key]) return;
     ScreenObj[key].DataObj[id] = valuesArray;
 
     return (
@@ -734,6 +746,7 @@ function Screens_createCellGame(id, idArray, valuesArray, key) {
 }
 
 function Screens_createCellClip(id, idArray, valuesArray, key, Extra_when, Extra_until) {
+    if (!ScreenObj[key]) return;
     var playing = valuesArray[3] && valuesArray[3] !== '' ? STR_PLAYING + valuesArray[3] : '';
     ScreenObj[key].DataObj[id] = valuesArray;
 
@@ -803,6 +816,7 @@ function Screens_createCellClip(id, idArray, valuesArray, key, Extra_when, Extra
 }
 
 function Screens_createCellVod(id, idArray, valuesArray, key, Extra_when, Extra_until) {
+    if (!ScreenObj[key]) return;
     ScreenObj[key].DataObj[id] = valuesArray;
 
     return (
@@ -883,7 +897,8 @@ function Screens_createCellLive(id, idArray, valuesArray, key, Extra_when, Extra
     if (!valuesArray[1]) valuesArray[1] = valuesArray[6];
 
     var ishosting = valuesArray[16],
-        image = force_VOD ? Extra_vodimg : valuesArray[0].replace('{width}x{height}', Main_VideoSize) + Main_randomImg;
+        image = force_VOD ? Extra_vodimg : valuesArray[0].replace('{width}x{height}', Main_VideoSize) + Main_randomImg,
+        avatar = valuesArray[9] || '';
 
     ScreenObj[key].DataObj[id] = valuesArray;
 
@@ -903,44 +918,22 @@ function Screens_createCellLive(id, idArray, valuesArray, key, Extra_when, Extra
         image +
         '" onerror="this.onerror=null;this.src=\'' +
         ScreenObj[key].img_404 +
-        '\';" ></div><div class="stream_thumbnail_live_text_holder"><div class="stream_text_holder"><div style="line-height: 1.6ch;"><div id="' +
+        '\';" ><div class="viewer_badge"><span class="viewer_dot"></span><span>' +
+        valuesArray[4] +
+        '</span></div></div><div class="thumb_info_row">' +
+        (avatar ? '<img class="thumb_avatar" alt="" src="' + avatar + '" onerror="this.style.display=\'none\'">' : '') +
+        '<div class="thumb_text_info"><div class="thumb_game_name">' +
+        (valuesArray[3] !== '' ? valuesArray[3] : '') +
+        '</div><div class="thumb_streamer_name" id="' +
         idArray[2] +
         id +
-        '" class="stream_info_live_name" style="width:' +
-        (ishosting ? 99 : 66) +
-        '%; display: inline-block;">' +
-        '<i class="icon-' +
-        (valuesArray[8] ? 'refresh' : 'circle') +
-        ' live_icon strokedeline' +
-        (force_VOD ? ' hideimp' : '') +
-        '" style="color: ' +
-        (valuesArray[8] ? '#FFFFFF' : ishosting ? '#FED000' : 'red') +
-        ';"></i> ' +
-        (Extra_vodimg || force_VOD
-            ? '<div class="vodicon_text ' + (force_VOD ? '' : 'hideimp') + '" style="background: #00a94b;">&nbsp;&nbsp;VOD&nbsp;&nbsp;</div>&nbsp;'
-            : '<div style="display: none;"></div>') + //empty div to prevent error when childNodes[2].classList.remove
+        '">' +
         valuesArray[1] +
-        '</div><div class="stream_info_live" style="width:' +
-        (ishosting ? 0 : 33) +
-        '%; float: right; text-align: right; display: inline-block;">' +
-        valuesArray[5] +
-        '</div></div><div class="' +
-        (Extra_when ? 'stream_info_live_title_single_line' : 'stream_info_live_title') +
-        '" id="' +
-        idArray[11] +
-        id +
-        '" >' +
-        Main_ReplaceLargeFont(twemoji.parse(valuesArray[2])) +
-        '</div>' +
-        '<div class="stream_info_live" id="' +
-        idArray[12] +
-        id +
-        '" >' +
-        (valuesArray[3] !== '' ? STR_PLAYING + valuesArray[3] : '') +
-        '</div><div id="' +
+        '</div></div></div>' +
+        '<div style="display: none;" id="' +
         idArray[4] +
         id +
-        '" class="stream_info_live"><span id="' +
+        '"><span id="' +
         idArray[9] +
         id +
         '" >' +
@@ -956,24 +949,24 @@ function Screens_createCellLive(id, idArray, valuesArray, key, Extra_when, Extra
         STR_SPACE_HTML +
         Main_GetViewerStrings(valuesArray[13]) +
         '</span></div>' +
-        (Extra_when
-            ? '<div class="stream_info_live">' +
-              STR_WATCHED +
-              Main_videoCreatedAtWithHM(Extra_when) +
-              STR_SPACE_HTML +
-              STR_UNTIL +
-              '<span id="' +
-              idArray[7] +
-              id +
-              '" >' +
-              Play_timeMs(Extra_when - new Date(valuesArray[12]).getTime()) +
-              '</span></div>'
-            : '') +
-        '</div></div></div></div>'
+        '<div style="display: none;" id="' +
+        idArray[11] +
+        id +
+        '" >' +
+        Main_ReplaceLargeFont(twemoji.parse(valuesArray[2])) +
+        '</div>' +
+        '<div style="display: none;" id="' +
+        idArray[12] +
+        id +
+        '" >' +
+        (valuesArray[3] !== '' ? STR_PLAYING + valuesArray[3] : '') +
+        '</div>' +
+        '</div></div>'
     );
 }
 
 function Screens_loadDataSuccessFinish(key) {
+    if (!ScreenObj[key]) return;
     //Main_Log('Screens_loadDataSuccessFinish ' + ScreenObj[key].screen);
     ScreenObj[key].FirstRunEnd = true;
     if (!ScreenObj[key].status) {
@@ -1059,6 +1052,7 @@ function Screens_loadDataSuccessFinish(key) {
 }
 
 function Screens_SetAutoRefresh(key) {
+    if (!ScreenObj[key]) return;
     if (
         Settings_Obj_default('auto_refresh_screen') &&
         Settings_Obj_default('auto_refresh_background') &&
@@ -1075,6 +1069,7 @@ function Screens_SetAutoRefresh(key) {
 }
 
 function Screens_CheckAutoRefresh(key, timeout) {
+    if (!ScreenObj[key]) return;
     ScreenObj[key].AutoRefreshId = Main_setTimeout(
         function () {
             if (!ScreenObj[key].isRefreshing) {
@@ -1185,6 +1180,7 @@ function Screens_loadDataSuccessFinishEnd(SkipHidedialog) {
 }
 
 function Screens_addFocus(forceScroll, key) {
+    if (!ScreenObj[key]) return;
     if (ScreenObj[key].emptyContent) {
         if (ScreenObj[key].HasSwitches) {
             ScreenObj[key].posY = -1;
@@ -1238,20 +1234,24 @@ function Screens_LoadPreviewSTop(PreventCleanQualities) {
 }
 
 function Screens_GetObj(key) {
+    if (!ScreenObj[key]) return null;
     var obj_id = ScreenObj[key].posY + '_' + ScreenObj[key].posX;
 
     return Screens_GetObjId(obj_id, key);
 }
 
 function Screens_GetObjId(obj_id, key) {
+    if (!ScreenObj[key] || !ScreenObj[key].DataObj[obj_id]) return null;
     return Main_Slice(ScreenObj[key].posY > -1 && ScreenObj[key].DataObj[obj_id].image ? [] : ScreenObj[key].DataObj[obj_id]);
 }
 
 function Screens_ObjNotNull(key) {
+    if (!ScreenObj[key]) return false;
     return Boolean(ScreenObj[key].DataObj[ScreenObj[key].posY + '_' + ScreenObj[key].posX]);
 }
 
 function Screens_ObjNotNull_YX(key, y, x) {
+    if (!ScreenObj[key]) return false;
     return Boolean(ScreenObj[key].DataObj[y + '_' + x]);
 }
 
@@ -1259,6 +1259,7 @@ var Screens_LoadPreviewId;
 //Clips load too fast, so only call this function after animations have ended
 //Also help to prevent lag on animation
 function Screens_LoadPreview(key) {
+    if (!ScreenObj[key]) return;
     var obj_id = ScreenObj[key].posY + '_' + ScreenObj[key].posX;
 
     if (
@@ -1312,6 +1313,7 @@ function Screens_LoadPreviewRestore(key) {
         return;
     }
 
+    if (!ScreenObj[key]) return;
     var img = Main_getElementById(ScreenObj[key].ids[1] + ScreenObj[key].posY + '_' + ScreenObj[key].posX);
     var Rect = img.parentElement.getBoundingClientRect();
 
@@ -1333,6 +1335,7 @@ function Screens_LoadPreviewRestore(key) {
 }
 
 function Screens_LoadPreviewStart(key, obj) {
+    if (!ScreenObj[key]) return;
     Play_CheckIfIsLiveCleanEnd();
 
     if (
@@ -1539,6 +1542,7 @@ function Screens_LoadPreviewResult(StreamData, x, y) {
 }
 
 function Screens_LoadPreviewResultError(UserIsSet, StreamInfo, StreamDataObj, x) {
+    if (!ScreenObj[x]) return;
     var error = StreamInfo[6] + STR_SPACE_HTML;
 
     if (ScreenObj[x].screenType === 2) {
@@ -1560,11 +1564,12 @@ function Screens_LoadPreviewResultError(UserIsSet, StreamInfo, StreamDataObj, x)
 
 function Screens_LoadPreviewWarn(ErrorText, x, time) {
     Play_CheckIfIsLiveCleanEnd();
-    Main_RemoveClass(ScreenObj[x].ids[1] + ScreenObj[x].posY + '_' + ScreenObj[x].posX, 'opacity_zero');
+    if (ScreenObj[x]) Main_RemoveClass(ScreenObj[x].ids[1] + ScreenObj[x].posY + '_' + ScreenObj[x].posX, 'opacity_zero');
     Main_showWarningDialog(ErrorText, time);
 }
 
 function Screens_addrowAnimated(y, y_plus, y_plus_offset, for_in, for_out, for_offset, eleRemovePos, down, key) {
+    if (!ScreenObj[key]) return;
     Screens_ChangeFocusAnimationFinished = false;
     Screens_ChangeFocusAnimationFast = true;
 
@@ -1620,6 +1625,7 @@ function Screens_addrowAnimated(y, y_plus, y_plus_offset, for_in, for_out, for_o
 }
 
 function Screens_addrowNotAnimated(y, y_plus, for_in, for_out, for_offset, eleRemovePos, down, key) {
+    if (!ScreenObj[key]) return;
     if (down) ScreenObj[key].tableDoc.appendChild(ScreenObj[key].Cells[y + y_plus]);
     else
         ScreenObj[key].tableDoc.insertBefore(
@@ -1640,6 +1646,7 @@ function Screens_addrowNotAnimated(y, y_plus, for_in, for_out, for_offset, eleRe
 }
 
 function Screens_addrowChannel(forceScroll, y, key, forceAfterDelete) {
+    if (!ScreenObj[key]) return;
     if (ScreenObj[key].currY < y) {
         // down
 
@@ -1682,6 +1689,7 @@ function Screens_addrowChannel(forceScroll, y, key, forceAfterDelete) {
 }
 
 function Screens_addrowChannelDown(y, key) {
+    if (!ScreenObj[key]) return;
     if (ScreenObj[key].Cells[y + 2]) {
         if (Screens_ChangeFocusAnimationFinished && Screens_SettingDoAnimations && !Screens_ChangeFocusAnimationFast) {
             //If with animation
@@ -1721,6 +1729,7 @@ function Screens_addrowChannelDown(y, key) {
 }
 
 function Screens_addrow(forceScroll, y, key, forceAfterDelete) {
+    if (!ScreenObj[key]) return;
     if (ScreenObj[key].currY < y) {
         // down
         Screens_addrowDown(y, key);
@@ -1769,7 +1778,12 @@ function Screens_addrow(forceScroll, y, key, forceAfterDelete) {
 }
 
 function Screens_addrowDown(y, key) {
+<<<<<<< HEAD
     if (y > 2 && ScreenObj[key].Cells[y + 1]) {
+=======
+    if (!ScreenObj[key]) return;
+    if (y > 1 && ScreenObj[key].Cells[y + 1]) {
+>>>>>>> 49841b4ac648fd4d8761719e548526d96dc075a3
         if (Screens_ChangeFocusAnimationFinished && Screens_SettingDoAnimations && !Screens_ChangeFocusAnimationFast) {
             //If with animation
 
@@ -1828,7 +1842,7 @@ function Screens_addrowEnd(forceScroll, key) {
             data = Screens_GetObj(key);
 
             if (Main_history_Watched_Obj[data[7]]) {
-                Main_getElementById(ScreenObj[key].ids[7] + id).style.width = Main_history_Watched_Obj[data[7]] + '%';
+                Main_SetStyleById(ScreenObj[key].ids[7] + id, 'width', Main_history_Watched_Obj[data[7]] + '%');
 
                 if (ScreenObj[key].screen === Main_HistoryVod) {
                     var index = Main_history_Exist('vod', data[7]);
@@ -1984,6 +1998,7 @@ function Screens_addFocusChannel(forceScroll, key) {
 }
 
 function Screens_addFocusVideo(forceScroll, key) {
+    if (!ScreenObj[key]) return;
     var y = ScreenObj[key].posY;
 
     if (Main_YchangeAddFocus(y) || forceScroll) {
@@ -1992,6 +2007,7 @@ function Screens_addFocusVideo(forceScroll, key) {
 }
 
 function Screens_ChangeFocus(y, x, key) {
+    if (!ScreenObj[key]) return;
     Screens_RemoveFocus(key);
 
     Screens_ClearAnimation(key);
@@ -2002,7 +2018,7 @@ function Screens_ChangeFocus(y, x, key) {
 }
 
 function Screens_RemoveFocus(key) {
-    if (!ScreenObj[key].itemsCount) return;
+    if (!ScreenObj[key] || !ScreenObj[key].itemsCount) return;
 
     var id = ScreenObj[key].posY + '_' + ScreenObj[key].posX;
 
@@ -2017,7 +2033,7 @@ function Screens_RemoveFocus(key) {
 }
 
 function Screens_addFocusFollow(key) {
-    if (!ScreenObj[key].FirstRunEnd) return;
+    if (!ScreenObj[key] || !ScreenObj[key].FirstRunEnd) return;
 
     if (ScreenObj[key].posX > ScreenObj[key].SwitchesIcons.length - 1) ScreenObj[key].posX = 0;
     else if (ScreenObj[key].posX < 0) ScreenObj[key].posX = ScreenObj[key].SwitchesIcons.length - 1;
@@ -2027,6 +2043,7 @@ function Screens_addFocusFollow(key) {
 }
 
 function Screens_removeFocusFollow(key) {
+    if (!ScreenObj[key]) return;
     if (ScreenObj[key].posX > ScreenObj[key].SwitchesIcons.length - 1) {
         ScreenObj[key].posX = 0;
     } else if (ScreenObj[key].posX < 0) {
@@ -2040,14 +2057,14 @@ function Screens_BasicExit(before, key) {
     if (Main_isControlsDialogVisible()) Main_HideControlsDialog();
     else if (Main_isAboutDialogVisible()) Main_HideAboutDialog();
     else {
-        if (before === ScreenObj[key].screen) Main_values.Main_Go = Main_Live;
+        if (ScreenObj[key] && before === ScreenObj[key].screen) Main_values.Main_Go = Main_Live;
         else Main_values.Main_Go = before;
         Screens_exit(key);
     }
 }
 
 function Screens_KeyUpDown(y, key) {
-    if (!ScreenObj[key].FirstRunEnd) return;
+    if (!ScreenObj[key] || !ScreenObj[key].FirstRunEnd) return;
 
     //TODO improve this
     if (ScreenObj[key].HasSwitches && !ScreenObj[key].posY && y === -1 && !ScreenObj[key].emptyContent) {
@@ -2074,15 +2091,18 @@ function Screens_KeyUpDown(y, key) {
 
 function Screens_ClearAnimation(key) {
     if (
+        ScreenObj[key] &&
         ScreenObj[key].HasAnimateThumb &&
         ScreenObj[key].posY > -1 &&
         ScreenObj[key].itemsCount &&
+        ScreenObj[key].DataObj[ScreenObj[key].posY + '_' + ScreenObj[key].posX] &&
         !ScreenObj[key].DataObj[ScreenObj[key].posY + '_' + ScreenObj[key].posX].image
     ) {
         Main_clearInterval(ScreenObj[key].AnimateThumbId);
 
         if (Screens_ObjNotNull(key) && ScreenObj[key].FirstRunEnd) {
-            Main_getElementById(ScreenObj[key].ids[5] + ScreenObj[key].posY + '_' + ScreenObj[key].posX).style.backgroundSize = 0;
+            var elem = Main_getElementById(ScreenObj[key].ids[5] + ScreenObj[key].posY + '_' + ScreenObj[key].posX);
+            if (elem) elem.style.backgroundSize = 0;
 
             Main_RemoveClass(ScreenObj[key].ids[1] + ScreenObj[key].posY + '_' + ScreenObj[key].posX, 'opacity_zero');
         }
@@ -2090,7 +2110,7 @@ function Screens_ClearAnimation(key) {
 }
 
 function Screens_KeyLeftRight(y, x, key) {
-    if (!ScreenObj[key].FirstRunEnd) return;
+    if (!ScreenObj[key] || !ScreenObj[key].FirstRunEnd) return;
 
     if (ScreenObj[key].HasSwitches && ScreenObj[key].posY === -1) {
         ScreenObj[key].posY = -1;
@@ -2105,6 +2125,7 @@ function Screens_KeyLeftRight(y, x, key) {
 }
 
 function Screens_OpenSidePanel(forceFeed, key) {
+    if (!ScreenObj[key]) return;
     Screens_RemoveAllFocus(key);
     if (Main_values.Main_Go === Main_aGame) {
         Main_values.Main_OldGameSelected = Main_values.Main_gameSelected_id;
@@ -2115,6 +2136,7 @@ function Screens_OpenSidePanel(forceFeed, key) {
 }
 
 function Screens_RemoveAllFocus(key) {
+    if (!ScreenObj[key]) return;
     if (Screens_ObjNotNull(key) && ScreenObj[key].FirstRunEnd) {
         Main_removeFocus(ScreenObj[key].posY + '_' + ScreenObj[key].posX, ScreenObj[key].ids);
     } else if (ScreenObj[key].posY < 0) {
@@ -2128,6 +2150,7 @@ var Screens_handleKeyUpIsClear = false;
 
 function Screens_handleKeyUp(key, e) {
     //Main_Log('Screens_handleKeyUp e.keyCode ' + e.keyCode + ' key ' + key);
+    if (!ScreenObj[key]) return;
 
     if (e.keyCode === KEY_ENTER) {
         Screens_handleKeyUpClear(key);
@@ -2152,6 +2175,7 @@ function Screens_handleKeyUp(key, e) {
 }
 
 function Screens_handleKeyUpClear(key) {
+    if (!ScreenObj[key]) return;
     Main_clearTimeout(Screens_KeyEnterID);
     Main_removeEventListener('keyup', ScreenObj[key].key_up);
     Main_addEventListener('keydown', ScreenObj[key].key_fun);
@@ -2164,7 +2188,7 @@ function Screens_handleKeyUpAnimationFast() {
 }
 
 function Screens_keyRight(key) {
-    if (!ScreenObj[key].FirstRunEnd) return;
+    if (!ScreenObj[key] || !ScreenObj[key].FirstRunEnd) return;
 
     //Prevent scroll too fast out of ScreenObj[key].Cells.length
     //here (ScreenObj[key].posY + 3) the 3 is 1 bigger then the 2 in Screens_addrow*Down (ScreenObj[key].Cells[y + 2])
@@ -2180,6 +2204,7 @@ function Screens_keyRight(key) {
 }
 
 function Screens_KeyUpDownClick(key, y) {
+    if (!ScreenObj[key]) return;
     if (y > 0) {
         if (Screens_ChangeFocusAnimationFinished) Screens_KeyUpDown(y, key);
     } else {
@@ -2201,7 +2226,7 @@ function Screens_KeyUpDownClick(key, y) {
 
 function Screens_handleKeyDown(key, event) {
     //Main_Log('Screens_handleKeyDown ' + event.keyCode + ' key ' + key);
-    if (Main_CantClick()) return;
+    if (!ScreenObj[key] || Main_CantClick()) return;
 
     Main_keyClickDelayStart();
 
@@ -2356,6 +2381,7 @@ function Screens_handleKeyDown(key, event) {
 }
 
 function AGame_headerOptions(key) {
+    if (!ScreenObj[key]) return;
     if (!ScreenObj[key].posX) {
         Main_values.Main_Go = Main_AGameVod;
         Main_values.Main_OldGameSelected = Main_values.Main_gameSelected_id;
@@ -2373,6 +2399,7 @@ function AGame_headerOptions(key) {
 }
 
 function AGame_headerOptionsExit(key) {
+    if (!ScreenObj[key]) return;
     if (ScreenObj[key].status && ScreenObj[key].posY === -1) {
         Screens_removeFocusFollow(key);
         ScreenObj[key].posY = 0;
@@ -2388,6 +2415,7 @@ var Screens_PeriodDialogID;
 var Screens_PeriodDialogPos = 0;
 
 function Screens_PeriodStart(key) {
+    if (!ScreenObj[key]) return;
     Screens_setPeriodDialog(key);
     Main_ShowElement('dialog_period');
     Main_removeEventListener('keydown', ScreenObj[key].key_fun);
@@ -2411,6 +2439,7 @@ function Screens_setPeriodDialog(key) {
 }
 
 function Screens_PeriodDialogHide(key) {
+    if (!ScreenObj[key]) return;
     Main_clearTimeout(Screens_PeriodDialogID);
     Screens_PeriodRemoveFocus(Screens_PeriodDialogPos);
     Main_removeEventListener('keydown', ScreenObj[key].key_period);
@@ -2428,6 +2457,7 @@ function Screens_PeriodRemoveFocus(pos) {
 
 function Screens_PeriodhandleKeyEnter(key) {
     Screens_PeriodDialogHide(key);
+    if (!ScreenObj[key]) return;
     if (ScreenObj[key].periodPos !== Screens_PeriodDialogPos) {
         ScreenObj[key].periodPos = Screens_PeriodDialogPos;
         ScreenObj[key].SetPeriod();
@@ -2555,6 +2585,7 @@ var Screens_ThumbOptionSpecial;
 // }
 
 function Screens_histStart(key, click) {
+    if (!ScreenObj[key]) return;
     ScreenObj[key].sethistDialog();
     Main_textContent('dialog_hist_text_end', click ? STR_THUMB_OPTIONS_CLICK : STR_THUMB_OPTIONS_KEY);
     Main_ShowElement('dialog_hist_setting');
@@ -2565,6 +2596,7 @@ function Screens_histStart(key, click) {
 var Screens_DeleteDialogAll = true;
 
 function Screens_histDialogHide(Update, key) {
+    if (!ScreenObj[key]) return;
     Screens_histRemoveFocus(ScreenObj[key].histPosY, 'hist');
 
     Main_removeEventListener('keydown', ScreenObj[key].key_hist);
@@ -2588,6 +2620,7 @@ function Screens_histDialogHide(Update, key) {
 }
 
 function Screens_showDeleteDialog(text, key) {
+    if (!ScreenObj[key]) return;
     Main_innerHTML('main_dialog_remove', text);
     Main_ShowElementWithEle(Screens_dialog_thumb_delete_div);
     Main_removeEventListener('keydown', ScreenObj[key].key_fun);
@@ -2606,6 +2639,7 @@ function Screens_setRemoveDialog(key) {
 }
 
 function Screens_HideRemoveDialog(key) {
+    if (!ScreenObj[key]) return;
     Users_clearRemoveDialog();
     Main_removeEventListener('keydown', ScreenObj[key].key_histdelete);
     Main_addEventListener('keydown', ScreenObj[key].key_fun);
@@ -2718,6 +2752,7 @@ function Screens_addToDelete(value, type) {
 // Does this is very complicated
 //TODO on future UI improve update this
 function Screens_deleteUpdateRows(key) {
+    if (!ScreenObj[key]) return;
     var i = ScreenObj[key].posY,
         removeId = i + '_' + ScreenObj[key].posX;
 
@@ -2804,6 +2839,7 @@ function Screens_deleteUpdateRows(key) {
 }
 
 function Screens_deleteUpdateRowsFor(i, key) {
+    if (!ScreenObj[key] || !ScreenObj[key].Cells[i]) return;
     var cellNodes = ScreenObj[key].Cells[i].childNodes,
         len_j = cellNodes.length,
         j = 0,
@@ -2841,6 +2877,7 @@ function Screens_deleteUpdateRowsFor(i, key) {
 }
 
 function Screens_deleteAppendNext(nextPos, currPos, key) {
+    if (!ScreenObj[key] || !ScreenObj[key].Cells[nextPos] || !ScreenObj[key].Cells[currPos]) return;
     var nextDiv = ScreenObj[key].Cells[nextPos].childNodes;
     ScreenObj[key].Cells[currPos].appendChild(nextDiv[0]);
 }
@@ -2852,6 +2889,7 @@ function Screens_deleteUpdateFixId(div, id) {
 }
 
 function Screens_deleteUpdateMoveObj(idArray, key, id) {
+    if (!ScreenObj[key]) return;
     var nextId = idArray[idArray.length - 2] + '_' + idArray[idArray.length - 1],
         nextObj = ScreenObj[key].DataObj[nextId];
 
@@ -2879,8 +2917,8 @@ function Screens_histAddFocus(divPos, key) {
 function Screens_histRemoveFocus(divPos, dialog) {
     Main_RemoveClass('dialog_' + dialog + '_setting_' + divPos, 'settings_div_focus');
     Main_RemoveClass('dialog_' + dialog + '_val_' + divPos, 'settings_value_focus');
-    Main_getElementById('dialog_' + dialog + '_left_' + divPos).style.opacity = '0';
-    Main_getElementById('dialog_' + dialog + '_right_' + divPos).style.opacity = '0';
+    Main_SetStyleById('dialog_' + dialog + '_left_' + divPos, 'opacity', '0');
+    Main_SetStyleById('dialog_' + dialog + '_right_' + divPos, 'opacity', '0');
 }
 
 function Screens_histSetArrow(key) {
@@ -2899,17 +2937,17 @@ function Screens_histArrow(dialog, pos, maxValue, text, divPos) {
     Main_innerHTML('dialog_' + dialog + '_val_' + divPos, text);
 
     if (maxValue === 1) {
-        Main_getElementById('dialog_' + dialog + '_left_' + divPos).style.opacity = '0';
-        Main_getElementById('dialog_' + dialog + '_right_' + divPos).style.opacity = '0';
+        Main_SetStyleById('dialog_' + dialog + '_left_' + divPos, 'opacity', '0');
+        Main_SetStyleById('dialog_' + dialog + '_right_' + divPos, 'opacity', '0');
     } else if (!pos) {
-        Main_getElementById('dialog_' + dialog + '_left_' + divPos).style.opacity = '0.2';
-        Main_getElementById('dialog_' + dialog + '_right_' + divPos).style.opacity = '1';
+        Main_SetStyleById('dialog_' + dialog + '_left_' + divPos, 'opacity', '0.2');
+        Main_SetStyleById('dialog_' + dialog + '_right_' + divPos, 'opacity', '1');
     } else if (pos === maxValue - 1) {
-        Main_getElementById('dialog_' + dialog + '_left_' + divPos).style.opacity = '1';
-        Main_getElementById('dialog_' + dialog + '_right_' + divPos).style.opacity = '0.2';
+        Main_SetStyleById('dialog_' + dialog + '_left_' + divPos, 'opacity', '1');
+        Main_SetStyleById('dialog_' + dialog + '_right_' + divPos, 'opacity', '0.2');
     } else {
-        Main_getElementById('dialog_' + dialog + '_left_' + divPos).style.opacity = '1';
-        Main_getElementById('dialog_' + dialog + '_right_' + divPos).style.opacity = '1';
+        Main_SetStyleById('dialog_' + dialog + '_left_' + divPos, 'opacity', '1');
+        Main_SetStyleById('dialog_' + dialog + '_right_' + divPos, 'opacity', '1');
     }
 }
 
@@ -2967,6 +3005,7 @@ function Screens_histhandleKeyDown(key, event) {
 var Screens_ThumbOptionPosY = 0;
 
 function Screens_ThumbOptionStart(key, click) {
+    if (!ScreenObj[key]) return;
     var obj_id = ScreenObj[key].posY + '_' + ScreenObj[key].posX;
 
     Screens_ThumbOptionSpecial = ScreenObj[key].histPosXName ? false : true;
@@ -3322,6 +3361,7 @@ function Screens_ThumbOptionDialogKeyEnter(key) {
 }
 
 function Screens_ThumbOptionDialogHide(Update, key) {
+    if (!ScreenObj[key]) return;
     Screens_histRemoveFocus(Screens_ThumbOptionPosY, 'thumb_opt');
 
     Main_removeEventListener('keydown', ScreenObj[key].key_thumb);
@@ -4081,6 +4121,7 @@ function Screens_IsInUse(key) {
 }
 
 function Screens_UpdatePlaybackTimeStart(key) {
+    if (!ScreenObj[key]) return;
     var id = ScreenObj[key].posY + '_' + ScreenObj[key].posX;
     Screens_UpdatePlaybackTime(key, id);
 }
@@ -4088,6 +4129,7 @@ function Screens_UpdatePlaybackTimeStart(key) {
 var Screens_UpdatePlaybackTimeId;
 
 function Screens_UpdatePlaybackTime(key, id) {
+    if (!ScreenObj[key]) return;
     var currentId = ScreenObj[key].posY + '_' + ScreenObj[key].posX;
     if (
         !Play_PreviewId ||

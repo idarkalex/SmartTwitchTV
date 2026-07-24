@@ -69,6 +69,7 @@ var Play_ChatDelayValue = 0;
 //var Play_4K_ModeEnable = false;
 var Play_TargetHost = '';
 var Play_chat_container;
+var Play_chat_dialog;
 var Play_ProgresBarrElm;
 var Play_ProgresBarrBufferElm;
 var Play_DefaultjumpTimers = [];
@@ -375,7 +376,7 @@ function Play_CheckIfIsLiveClean(fail_type, errorCode) {
 
     if (Sidepannel_isShowingUserLive()) {
         Sidepannel_CheckIfIsLiveWarn(reason + Play_GetErrorCode(errorCode), 0);
-    } else if (Main_isScene1DocVisible()) {
+    } else if (Main_isScene1DocVisible() && ScreenObj[Main_values.Main_Go]) {
         if (ScreenObj[Main_values.Main_Go].screenType === 2 && Settings_Obj_default('auto_clip_preview')) {
             var id = ScreenObj[Main_values.Main_Go].posY + '_' + ScreenObj[Main_values.Main_Go].posX;
 
@@ -383,7 +384,7 @@ function Play_CheckIfIsLiveClean(fail_type, errorCode) {
                 //Save as we have watched it all
                 var data = Screens_GetObj(Main_values.Main_Go);
 
-                Main_getElementById(ScreenObj[Main_values.Main_Go].ids[7] + id).style.width = '100%';
+                Main_SetStyleById(ScreenObj[Main_values.Main_Go].ids[7] + id, 'width', '100%');
 
                 Main_Set_history('clip', data);
                 Main_history_UpdateVodClip(data[7], data[1], 'clip');
@@ -1066,6 +1067,15 @@ function Play_FixQualities(input) {
     return input;
 }
 
+<<<<<<< HEAD
+=======
+//function Play_extractQualitiesTest() { /* jshint ignore:start */
+//    var testString = '#EXTM3U\n#EXT-X-TWITCH-INFO:NODE="video-edge-6205c6.sao03"\n#EXT-X-MEDIA:TYPE=VIDEO,GROUP-ID="chunked",NAME="1080p60 (source)"\nhttps://video-weaver.sao03.hls.ttvnw.net/v1/playlist/C.m3u8';
+//    console.log('Play_extractQualitiesTest', Play_extractQualities(testString));
+//    /* jshint ignore:end */
+//}
+
+>>>>>>> 49841b4ac648fd4d8761719e548526d96dc075a3
 function Play_extractQualities(input) {
     var result = [],
         addedResolution = {},
@@ -1176,38 +1186,12 @@ function Play_onPlayer() {
 }
 
 function Play_SetHtmlQuality(element) {
-    if (
-        !Play_data.qualities.length ||
-        !Play_data.qualities[Play_data.qualityIndex] ||
-        !Play_data.qualities[Play_data.qualityIndex].hasOwnProperty('id')
-    )
-        return;
+    var result = PlayUtils.setHtmlQuality(Play_data.qualities, Play_data.qualityIndex, element, Play_info_quality);
+    if (!result) return;
 
-    Play_data.quality = Play_data.qualities[Play_data.qualityIndex].id;
-
-    Play_data_base.quality = Play_data.quality;
-
-    var quality_string = '';
-
-    //Java getQualities fun will generate the first quality of the array as 'Auto'
-    if (Main_A_includes_B(Play_data.quality, 'Auto')) {
-        if (Main_IsOn_OSInterface) {
-            quality_string = Play_data.quality.replace('Auto', STR_AUTO);
-        } else {
-            if (Play_info_quality !== element) {
-                quality_string = Play_data.quality.replace('Auto', STR_AUTO);
-            } else {
-                quality_string = Play_data.qualities[1].id.replace('source', STR_AUTO) + Play_data.qualities[1].band + Play_data.qualities[1].codec;
-            }
-        }
-    } else if (Main_A_includes_B(Play_data.quality, 'source')) quality_string = Play_data.quality.replace('source', STR_SOURCE);
-    else quality_string = Play_data.quality;
-
-    quality_string += !Main_A_includes_B(Play_data.quality, 'Auto')
-        ? Play_data.qualities[Play_data.qualityIndex].band + Play_data.qualities[Play_data.qualityIndex].codec
-        : '';
-
-    Main_innerHTMLWithEle(element, quality_string);
+    Play_data.quality = result.quality;
+    Play_data_base.quality = result.quality;
+    Main_innerHTMLWithEle(element, result.display);
 }
 
 function Play_PlayerCheck(mwhocall, errorCode) {
@@ -1533,10 +1517,11 @@ function Play_UpdateStatus(who_called) {
 }
 
 function Play_isPanelShowing() {
-    return parseInt(Play_PanneInfoDoclId.style.opacity);
+    return Play_PanneInfoDoclId ? parseInt(Play_PanneInfoDoclId.style.opacity) : 0;
 }
 
 function Play_ForceShowPannel() {
+    if (!Play_PanneInfoDoclId) return;
     Play_PanneInfoDoclId.style.opacity = 1;
 
     if (!Play_StayDialogVisible()) {
@@ -1551,6 +1536,7 @@ function Play_ForceShowPannel() {
 }
 
 function Play_ForceHidePannel() {
+    if (!Play_PanneInfoDoclId) return;
     Play_PanneInfoDoclId.style.opacity = 0;
 
     if (!Play_Status_Visible) Main_HideElementWithEle(Play_side_info_div);
@@ -1859,7 +1845,7 @@ function Play_hideChat() {
 }
 
 function Play_isChatShown() {
-    return !Main_A_includes_B(Play_chat_container.className, 'hide');
+    return Play_chat_container && !Main_A_includes_B(Play_chat_container.className, 'hide');
 }
 
 function Play_getQualitiesCount() {
@@ -1869,7 +1855,7 @@ function Play_getQualitiesCount() {
 function Play_ChatSize(showDialog) {
     if (Play_ChatSizeValue > Play_MaxChatSizeValue) Play_ChatSizeValue = Play_MaxChatSizeValue;
     Play_chat_container.style.height = Play_ChatSizeVal[Play_ChatSizeValue].containerHeight + '%';
-    Main_getElementById('play_chat_dialog').style.marginTop = Play_ChatSizeVal[Play_ChatSizeValue].dialogTop + '%';
+    Play_chat_dialog.style.marginTop = Play_ChatSizeVal[Play_ChatSizeValue].dialogTop + '%';
     Play_ChatPosition();
 
     if (showDialog) Play_showChatBackgroundDialog(STR_SIZE + Play_ChatSizeVal[Play_ChatSizeValue].percentage);
@@ -1961,19 +1947,7 @@ function Play_qualityDisplay(getQualitiesCount, qualityIndex, callback, obj) {
 function Play_qualityIndexReset() {
     if (PlayExtra_PicturePicture || Play_MultiEnable) return;
 
-    Play_data.qualityIndex = 0;
-    var i = 0,
-        len = Play_getQualitiesCount();
-
-    for (i; i < len; i++) {
-        if (Play_data.qualities[i].id === Play_data.quality) {
-            Play_data.qualityIndex = i;
-            break;
-        } else if (Main_A_includes_B(Play_data.qualities[i].id, Play_data.quality)) {
-            //make sure to set a value before break out
-            Play_data.qualityIndex = i;
-        }
-    }
+    Play_data.qualityIndex = PlayUtils.qualityIndexReset(Play_data.qualities, Play_data.quality, Play_getQualitiesCount);
 
     if (Play_data.qualities[Play_data.qualityIndex]) {
         Play_qualityTitleReset(Play_data.qualities[Play_data.qualityIndex].id);
@@ -2227,29 +2201,13 @@ var Play_StoreChatPosValue = {
 };
 
 function Play_StoreChatPos() {
-    Play_StoreChatPosValue.height = Play_chat_container.style.height;
-    Play_StoreChatPosValue.marginTop = Main_getElementById('play_chat_dialog').style.marginTop;
-    Play_StoreChatPosValue.top = Play_chat_container.style.top;
-    Play_StoreChatPosValue.left = Play_chat_container.style.left;
+    Play_StoreChatPosValue = PlayUtils.storeChatPos(Play_chat_container, Play_chat_dialog);
 }
 
 function Play_ResStoreChatPos() {
-    Play_chat_container.style.width = '';
-    if (!Play_ChatEnable) Play_hideChat();
-    else Play_showChat();
-    Play_chat_container.style.height = Play_StoreChatPosValue.height;
-    Main_getElementById('play_chat_dialog').style.marginTop = Play_StoreChatPosValue.marginTop;
-    Play_chat_container.style.top = Play_StoreChatPosValue.top;
-    Play_chat_container.style.left = Play_StoreChatPosValue.left;
+    PlayUtils.restoreChatPos(Play_chat_container, Play_chat_dialog, Play_StoreChatPosValue, Play_ChatEnable);
 }
 
 function Play_FastBackForward(position) {
-    if (!Play_isPanelShowing()) Play_showPanel();
-    Play_clearHidePanel();
-    PlayVod_PanelY = 0;
-    Play_BottomIconsFocus();
-
-    PlayVod_jumpStart(position, Play_DurationSeconds);
-    PlayVod_ProgressBaroffset = 2500;
-    Play_setHidePanel();
+    PlayUtils.fastBackForward(position, Play_showPanel, Play_setHidePanel);
 }

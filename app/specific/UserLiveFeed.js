@@ -611,7 +611,7 @@ function UserLiveFeed_FeedAddFocus(skipAnimation, pos, Adder) {
                 data = UserLiveFeed_GetObj(pos);
 
                 if (Main_history_Watched_Obj[data[7]]) {
-                    Main_getElementById(UserLiveFeed_ids[4] + id).style.width = Main_history_Watched_Obj[data[7]] + '%';
+                    Main_SetStyleById(UserLiveFeed_ids[4] + id, 'width', Main_history_Watched_Obj[data[7]] + '%');
                 }
             }
         } else if (!isGame && !isBanner) {

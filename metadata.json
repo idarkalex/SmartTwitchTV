@@ -1,0 +1,8 @@
+{
+  "name": "SmartTwitchTV",
+  "description": "A web application designed to give access to Twitch features on SmartTVs and web browsers.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

@@ -544,12 +544,11 @@ function PlayVod_UpdateHistory(screen, saveOffset) {
         if (time > 0 && Play_DurationSeconds - 300 > time) {
             PlayVod_SaveVodIds(time);
 
-            if (!ScreenObj[Main_HistoryVod].histPosX[1] && ScreenObj[screen].screenType === 1) {
+            if (!ScreenObj[Main_HistoryVod].histPosX[1] && ScreenObj[screen] && ScreenObj[screen].screenType === 1) {
                 var data = ScreenObj[screen].DataObj[ScreenObj[screen].posY + '_' + ScreenObj[screen].posX];
 
                 if (data && Main_values.ChannelVod_vodId === data[7]) {
-                    Main_getElementById(ScreenObj[screen].ids[7] + (ScreenObj[screen].posY + '_' + ScreenObj[screen].posX)).style.width =
-                        (time / data[11]) * 100 + '%';
+                    Main_SetStyleById(ScreenObj[screen].ids[7] + (ScreenObj[screen].posY + '_' + ScreenObj[screen].posX), 'width', (time / data[11]) * 100 + '%');
                 }
             }
         }
@@ -742,19 +741,7 @@ function PlayVod_setHidePanel() {
 }
 
 function PlayVod_qualityIndexReset() {
-    PlayVod_qualityIndex = 0;
-    var i = 0,
-        len = PlayVod_getQualitiesCount();
-
-    for (i; i < len; i++) {
-        if (PlayVod_qualities[i].id === PlayVod_quality) {
-            PlayVod_qualityIndex = i;
-            break;
-        } else if (Main_A_includes_B(PlayVod_qualities[i].id, PlayVod_qualities[i].id)) {
-            //make shore to set a value before break out
-            PlayVod_qualityIndex = i;
-        }
-    }
+    PlayVod_qualityIndex = PlayUtils.qualityIndexReset(PlayVod_qualities, PlayVod_quality, PlayVod_getQualitiesCount);
 
     if (PlayVod_qualities[PlayVod_qualityIndex]) {
         Play_qualityTitleReset(PlayVod_qualities[PlayVod_qualityIndex].id);
@@ -762,32 +749,11 @@ function PlayVod_qualityIndexReset() {
 }
 
 function PlayVod_SetHtmlQuality(element) {
-    if (!PlayVod_qualities.length || !PlayVod_qualities[PlayVod_qualityIndex] || !PlayVod_qualities[PlayVod_qualityIndex].hasOwnProperty('id'))
-        return;
+    var result = PlayUtils.setHtmlQuality(PlayVod_qualities, PlayVod_qualityIndex, element, Play_info_quality);
+    if (!result) return;
 
-    PlayVod_quality = PlayVod_qualities[PlayVod_qualityIndex].id;
-
-    var quality_string = '';
-
-    //Java getQualities fun will generate the first quality of the array as 'Auto'
-    if (Main_A_includes_B(PlayVod_quality, 'Auto')) {
-        if (Main_IsOn_OSInterface) {
-            quality_string = PlayVod_quality.replace('Auto', STR_AUTO);
-        } else {
-            if (Play_info_quality !== element) {
-                quality_string = PlayVod_quality.replace('Auto', STR_AUTO);
-            } else {
-                quality_string = PlayVod_qualities[1].id.replace('source', STR_AUTO) + PlayVod_qualities[1].band + PlayVod_qualities[1].codec;
-            }
-        }
-    } else if (Main_A_includes_B(PlayVod_quality, 'source')) quality_string = PlayVod_quality.replace('source', STR_SOURCE);
-    else quality_string = PlayVod_quality;
-
-    quality_string += !Main_A_includes_B(PlayVod_quality, 'Auto')
-        ? PlayVod_qualities[PlayVod_qualityIndex].band + PlayVod_qualities[PlayVod_qualityIndex].codec
-        : '';
-
-    Main_textContentWithEle(element, quality_string);
+    PlayVod_quality = result.quality;
+    Main_textContentWithEle(element, result.display);
 }
 
 function PlayVod_getQualitiesCount() {
@@ -1015,7 +981,7 @@ function PlayVod_CheckPreview() {
         PlayVod_isOn &&
         Settings_Obj_default('show_vod_player') &&
         Main_values.Main_Go !== Main_ChannelContent &&
-        (ScreenObj[Main_values.Main_Go].screenType === 1 || ScreenObj[Main_values.Main_Go].screen === Main_HistoryLive) &&
+        (ScreenObj[Main_values.Main_Go] && ScreenObj[Main_values.Main_Go].screenType === 1 || ScreenObj[Main_values.Main_Go] && ScreenObj[Main_values.Main_Go].screen === Main_HistoryLive) &&
         !Play_isEndDialogVisible() &&
         !Sidepannel_isShowingUserLive() &&
         !Main_ThumbOpenIsNull(ScreenObj[Main_values.Main_Go].posY + '_' + ScreenObj[Main_values.Main_Go].posX, ScreenObj[Main_values.Main_Go].ids[0])
@@ -1027,7 +993,7 @@ function PlayVod_CheckPreview() {
 function PlayVod_CheckPreviewVod() {
     var restorePreview = false;
 
-    if (ScreenObj[Main_values.Main_Go].DataObj[ScreenObj[Main_values.Main_Go].posY + '_' + ScreenObj[Main_values.Main_Go].posX]) {
+    if (ScreenObj[Main_values.Main_Go] && ScreenObj[Main_values.Main_Go].DataObj[ScreenObj[Main_values.Main_Go].posY + '_' + ScreenObj[Main_values.Main_Go].posX]) {
         var obj = Screens_GetObj(Main_values.Main_Go);
 
         if (ScreenObj[Main_values.Main_Go].screen === Main_HistoryLive) {
@@ -1410,14 +1376,13 @@ function PlayVod_QuickJump(time) {
 }
 
 function PlayVod_FastBackForward(position) {
-    if (!Play_isPanelShowing()) PlayVod_showPanel(true);
-    Play_clearHidePanel();
-    PlayVod_PanelY = 0;
-    Play_BottomIconsFocus();
-
-    PlayVod_jumpStart(position, Play_DurationSeconds);
-    PlayVod_ProgressBaroffset = 2500;
-    PlayVod_setHidePanel();
+    PlayUtils.fastBackForward(
+        position,
+        function () {
+            PlayVod_showPanel(true);
+        },
+        PlayVod_setHidePanel
+    );
 }
 
 var fullVodInfoQuery =

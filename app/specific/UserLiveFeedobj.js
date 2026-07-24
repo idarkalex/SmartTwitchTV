@@ -135,7 +135,7 @@ function UserLiveFeedobj_CheckToken() {
     Main_emptyWithEle(Sidepannel_ScroolDoc);
     Main_textContentWithEle(Sidepannel_PosCounter, '');
     Sidepannel_Html = '';
-    Main_getElementById('side_panel_warn').style.display = 'none';
+    Main_SetStyleById('side_panel_warn', 'display', 'none');
 
     UserLiveFeed_loadChannelOffsset = 0;
     UserLiveFeed_followerChannels = [];

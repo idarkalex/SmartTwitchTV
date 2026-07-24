@@ -492,7 +492,7 @@ function ChatLiveControls_ShowEmotes() {
 
         Main_addEventListener('keydown', ChatLiveControls_EmotesEvent);
 
-        Main_getElementById('chat_emotes').style.transform = '';
+        Main_SetStyleById('chat_emotes', 'transform', '');
         ChatLiveControls_EmotesUpdateCounter(0);
         Main_ShowElement('chat_emotes_holder');
         ChatLiveControls_EmotesAddFocus(0);
@@ -598,10 +598,10 @@ function ChatLiveControls_EmotesScroll(position) {
         var how_much = Main_getElementById('chat_emotes' + ChatLiveControls_EmotesArray[position_up]).getBoundingClientRect().height;
 
         if (ChatLiveControls_EmotesArray[position_down]) {
-            Main_getElementById('chat_emotes').style.transform = 'translateY(-' + how_much * (position_now - 1) + 'px)';
+            Main_SetStyleById('chat_emotes', 'transform', 'translateY(-' + how_much * (position_now - 1) + 'px)');
         }
     } else {
-        Main_getElementById('chat_emotes').style.transform = '';
+        Main_SetStyleById('chat_emotes', 'transform', '');
     }
 }
 
@@ -862,7 +862,7 @@ function ChatLiveControls_PreventInput() {
 }
 
 function ChatLiveControls_PreventInputClear() {
-    if (Main_A_includes_B(Main_ChatLiveInput.className, 'chat_input_class_block')) {
+    if (Main_ChatLiveInput && Main_A_includes_B(Main_ChatLiveInput.className, 'chat_input_class_block')) {
         Main_RemoveClassWithEle(Main_ChatLiveInput, 'chat_input_class_block');
         Main_ChatLiveInput.value = '';
         ChatLiveControls_UpdateResultTextEmpty();
@@ -956,16 +956,12 @@ function ChatLiveControls_SetarrowsKey(key) {
     var currentValue = OptionsShowObj[key].defaultValue;
     var maxValue = OptionsShowObj[key].values.length - 1;
 
-    if (currentValue > 0 && currentValue < maxValue) {
-        Main_getElementById(key + 'arrow_left').style.opacity = '1';
-        Main_getElementById(key + 'arrow_right').style.opacity = '1';
-    } else if (currentValue === maxValue) {
-        Main_getElementById(key + 'arrow_left').style.opacity = '1';
-        Main_getElementById(key + 'arrow_right').style.opacity = '0.2';
-    } else {
-        Main_getElementById(key + 'arrow_left').style.opacity = '0.2';
-        Main_getElementById(key + 'arrow_right').style.opacity = '1';
-    }
+    PlayUtils.setArrowsOpacity(
+        Main_getElementById(key + 'arrow_left'),
+        Main_getElementById(key + 'arrow_right'),
+        currentValue,
+        maxValue
+    );
 }
 
 function ChatLiveControls_Optionshide() {
@@ -1015,8 +1011,10 @@ function ChatLiveControls_OptionsUpDown(offset) {
 }
 
 function ChatLiveControls_RemoveinputFocusKey(key) {
-    Main_getElementById(key + 'arrow_left').style.opacity = '0';
-    Main_getElementById(key + 'arrow_right').style.opacity = '0';
+    PlayUtils.removeArrowsOpacity(
+        Main_getElementById(key + 'arrow_left'),
+        Main_getElementById(key + 'arrow_right')
+    );
     Main_RemoveClass(key, 'settings_value_focus');
     Main_RemoveClass(key + '_div', 'settings_div_focus');
 }

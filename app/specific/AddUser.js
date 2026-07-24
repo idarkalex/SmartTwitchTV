@@ -294,6 +294,7 @@ function AddUser_UpdateSidePanelAfterShow() {
 }
 
 function AddUser_UpdateSidePanelSize(logo, username) {
+    if (!Sidepannel_MovelDiv) return;
     //remove transition to change size
     Sidepannel_MovelDiv.style.transition = 'none';
     var MoveldefaultWidth = Sidepannel_MoveldefaultMargin + Sidepannel_FixdefaultMargin - 1;
