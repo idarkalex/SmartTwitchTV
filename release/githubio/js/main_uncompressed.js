@@ -1,5 +1,18 @@
+/* jshint eqeqeq: true, laxbreak: true, undef: true, unused: true, node: true, browser: true */
+/*globals Android, punycode, smartTwitchTV, firebase, dataLayer, ActiveXObject, Twitch */
+/* exported Play_CheckResume */
+(function (root) {
+    /** Detect free variables */
+    var smartTwitchTVGlobal = typeof global === 'object' && global;
+    if (
+        smartTwitchTVGlobal.global === smartTwitchTVGlobal ||
+        smartTwitchTVGlobal.window === smartTwitchTVGlobal ||
+        smartTwitchTVGlobal.self === smartTwitchTVGlobal
+    ) {
+        root = smartTwitchTVGlobal;
+    }
 /*
- * Copyright (c) 2017â€“present Felipe de Leon <fglfgl27@gmail.com>
+ * Copyright (c) 2017–present Felipe de Leon <fglfgl27@gmail.com>
  *
  * This file is part of SmartTwitchTV <https://github.com/fgl27/SmartTwitchTV>
  *
@@ -842,7 +855,7 @@ var STR_NUMBER_SEPARATOR,
     STR_PROXY_LOGS_EMPTY;
 
 /*
- * Copyright (c) 2017â€“present Felipe de Leon <fglfgl27@gmail.com>
+ * Copyright (c) 2017–present Felipe de Leon <fglfgl27@gmail.com>
  *
  * This file is part of SmartTwitchTV <https://github.com/fgl27/SmartTwitchTV>
  *
@@ -1367,7 +1380,7 @@ function DefaultMakeLink(link, prefix) {
 }
 
 /*
- * Copyright (c) 2017â€“present Felipe de Leon <fglfgl27@gmail.com>
+ * Copyright (c) 2017–present Felipe de Leon <fglfgl27@gmail.com>
  *
  * This file is part of SmartTwitchTV <https://github.com/fgl27/SmartTwitchTV>
  *
@@ -1631,7 +1644,7 @@ function en_USLang() {
     STR_SETTINGS_BUFFER_SIZE = 'Start buffer size:';
     STR_SETTINGS_BUFFER_SIZE_SHORT_SUMMARY = 'Controls start buffer size';
     STR_SETTINGS_BUFFER_SIZE_SUMMARY =
-        'Specifies the amount of data needed to buffer before starting playback. This value is unrelated to the maximum buffer size, which depends on the deviceâ€™s available RAM. A lower setting will start playback sooner, which is generally recommended. Increasing this value rarely improves performance and may cause delays.';
+        'Specifies the amount of data needed to buffer before starting playback. This value is unrelated to the maximum buffer size, which depends on the device’s available RAM. A lower setting will start playback sooner, which is generally recommended. Increasing this value rarely improves performance and may cause delays.';
     STR_SETTINGS_BUFFER_LIVE = 'Lives start buffer';
     STR_SETTINGS_BUFFER_VOD = 'Videos (past broadcasts and highlights) start buffer';
     STR_SETTINGS_BUFFER_CLIP = 'Clips start buffer';
@@ -1660,7 +1673,7 @@ function en_USLang() {
     STR_RESTORE_PLAYBACK_WARN = 'The app was closed during playback. Restoring previous session...';
     STR_RESTORE_PLAYBACK = 'Restore Previous Playback';
     STR_RESTORE_PLAYBACK_SUMMARY =
-        'The app saves playback progress in case itâ€™s closed unintentionally. Switching apps may lead to system out of memory issues that close the app. When reopened, it will resume the previous playback.';
+        'The app saves playback progress in case it’s closed unintentionally. Switching apps may lead to system out of memory issues that close the app. When reopened, it will resume the previous playback.';
     STR_CHAT_FONT = 'Chat Font Size';
     STR_VIDEOS_ANIMATION = 'Animated Video Thumbnails';
     STR_VIDEOS_ANIMATION_SUMMARY =
@@ -1675,7 +1688,7 @@ function en_USLang() {
     STR_MINUTE = 'minute';
     STR_MINUTES = 'minutes';
     STR_CLOCK_OFFSET = 'Clock offset';
-    STR_CLOCK_OFFSET_SUMMARY = 'Adjust the appâ€™s main clock based on your preferred time offset.';
+    STR_CLOCK_OFFSET_SUMMARY = 'Adjust the app’s main clock based on your preferred time offset.';
     STR_CLOCK_AM_PM = 'Clock style';
     STR_CLOCK_AM_PM_SUMMARY = 'Set 24H or 12H AM PM or 12H.';
     STR_CONTENT_LANG = 'Content language';
@@ -2262,7 +2275,7 @@ function en_USLang() {
     STR_PLAYER_EXTRA_CODEC_SUMMARY = 'Most streams use AVC (H.264) up to 1080p60; HEVC/AV1 enable 1440p, 4K, and 60+fps where available.';
 
     STR_PLAYER_EXTRA_CODEC_SUMMARY1 =
-        'This feature only works for logged-in users. Not all streams are supported â€” it depends on the streamer enabling it and whether Twitch provides it in your region.';
+        'This feature only works for logged-in users. Not all streams are supported — it depends on the streamer enabling it and whether Twitch provides it in your region.';
 
     STR_PLAYER_EXTRA_CODEC_SUMMARY_EXTRA = 'The app checks if your device supports HEVC or AV1 for higher-quality streams.';
 
@@ -2351,7 +2364,7 @@ function en_USLang() {
 }
 
 /*
- * Copyright (c) 2017â€“present Felipe de Leon <fglfgl27@gmail.com>
+ * Copyright (c) 2017–present Felipe de Leon <fglfgl27@gmail.com>
  *
  * This file is part of SmartTwitchTV <https://github.com/fgl27/SmartTwitchTV>
  *
@@ -2385,16 +2398,16 @@ function es_ESLang() {
 
     STR_REFRESH = 'Actualizar';
     STR_SEARCH = 'Buscar';
-    STR_SETTINGS = 'ConfiguraciÃ³n';
+    STR_SETTINGS = 'Configuración';
     STR_CONTROLS = 'Controles';
     STR_ABOUT = 'Acerca de';
     STR_HIDE = 'Ocultar';
-    STR_SEARCH_EMPTY = 'El texto que ingresaste estÃ¡ vacÃ­o.';
-    STR_SEARCH_RESULT_EMPTY = 'El resultado de la bÃºsqueda estÃ¡ vacÃ­o.';
+    STR_SEARCH_EMPTY = 'El texto que ingresaste está vacío.';
+    STR_SEARCH_RESULT_EMPTY = 'El resultado de la búsqueda está vacío.';
     STR_SWITCH = 'Cambiar de pantalla';
     STR_SWITCH_USER = 'Cambiar pantalla de usuario';
     STR_SWITCH_VOD = 'Cambiar: Vods o Highlights';
-    STR_SWITCH_CLIP = 'Cambiar: Periodo (24 h, 7 dÃ­as, 30 dÃ­as, todos)';
+    STR_SWITCH_CLIP = 'Cambiar: Periodo (24 h, 7 días, 30 días, todos)';
     STR_GO_TO = 'Ir a la pantalla';
     STR_USER = 'Usuario';
     STR_LIVE = 'En directo';
@@ -2405,58 +2418,58 @@ function es_ESLang() {
     STR_WAITING = 'Tiempo de espera';
     STR_SINCE = 'Desde';
 
-    STR_PLACEHOLDER_SEARCH = 'Escriba su bÃºsqueda ...';
-    STR_PLACEHOLDER_OAUTH = 'Escriba su clave de autorizaciÃ³n...';
+    STR_PLACEHOLDER_SEARCH = 'Escriba su búsqueda ...';
+    STR_PLACEHOLDER_OAUTH = 'Escriba su clave de autorización...';
     STR_PLACEHOLDER_USER = 'Escriba su nombre de usuario...';
     STR_PLACEHOLDER_PRESS = 'Presione la tecla Enter o Seleccionar para,';
     STR_CHANNELS = 'Canales';
     STR_CHANNEL = 'Canal';
     STR_GOBACK_START = 'Volver a la pantalla anterior: tecla de retorno';
     STR_IS_OFFLINE = 'ha terminado';
-    STR_CHECK_HOST = ', comprobaciÃ³n de host';
-    STR_IS_SUB_ONLY = 'Este video solo estÃ¡ disponible para suscriptores.';
+    STR_CHECK_HOST = ', comprobación de host';
+    STR_IS_SUB_ONLY = 'Este video solo está disponible para suscriptores.';
     STR_IS_SUB_ONLY_ERROR = 'es contenido solo para suscriptores.';
-    STR_REFRESH_PROBLEM = 'La conexiÃ³n fallÃ³, no se pudo cargar el contenido. Presiona actualizar para volver a intentarlo';
+    STR_REFRESH_PROBLEM = 'La conexión falló, no se pudo cargar el contenido. Presiona actualizar para volver a intentarlo';
     STR_NO = 'No';
     STR_FOR_THIS = 'for this';
-    STR_PLAYER_PROBLEM = 'La conexiÃ³n fallÃ³, no se pudo cargar el contenido de video saliendo...';
+    STR_PLAYER_PROBLEM = 'La conexión falló, no se pudo cargar el contenido de video saliendo...';
     STR_VODS = 'Vods';
     STR_HIGHLIGHTS = 'Destacados';
     STR_CLIPS = 'Clips';
     STR_CONTENT = 'Contenido';
     STR_STREAM_ON = 'Transmitido';
-    STR_DURATION = 'DuraciÃ³n';
+    STR_DURATION = 'Duración';
     STR_VIEWS = 'Vistas';
     STR_VIEWER = 'Espectadores';
     STR_EXIT_AGAIN = 'Haga clic de nuevo para salir!';
     STR_EXIT_AGAIN_PICTURE = 'Pulse de nuevo para salir de Imagen en Imagen!';
     STR_EXIT_AGAIN_MULTI = 'Pulse de nuevo para salir de MultiStream!';
-    STR_EXIT_MESSAGE = 'Â¿Quieres salir del Cliente SmartTV para Twitch?';
+    STR_EXIT_MESSAGE = '¿Quieres salir del Cliente SmartTV para Twitch?';
     STR_EXIT = 'Salir';
     STR_CHANGELOG = 'Cambios';
     STR_FULL_CHANGELOG = 'Registro de cambios completo';
-    STR_CHANGELOG_SUMMARY = 'Estos son sÃ³lo los Ãºltimos cambios, para leer los cambios completos consulte el siguiente enlace:';
+    STR_CHANGELOG_SUMMARY = 'Estos son sólo los últimos cambios, para leer los cambios completos consulte el siguiente enlace:';
     STR_UPDATE = 'Haga clic para actualizar';
     STR_UPDATE_CHECK = 'Buscar actualizaciones';
     STR_UPDATE_CHECKING = 'Buscando actualizaciones...';
-    STR_UPDATE_CHECKING_FAIL = 'Error de comprobaciÃ³n de actualizaciÃ³n';
-    STR_NO_UPDATES = 'La aplicaciÃ³n estÃ¡ actualizada';
-    //STR_UPDATE_CHANGELOG = 'ActualizaciÃ³n & Cambios';
-    STR_UPDATE_LATEST = 'Ãšltimo cambio:';
-    STR_UPDATE_FAIL = 'El proceso de actualizaciÃ³n ha fallado, por favor, intÃ©ntelo manualmente!';
-    STR_UPDATE_FAIL_DOWNLOAD = 'El proceso de actualizaciÃ³n no logra descargar el APK, por favor intÃ©ntelo manualmente!';
-    STR_UPDATE_AVAILABLE = 'ActualizaciÃ³n de Apk disponible';
-    STR_WEB_UPDATE_AVAILABLE = 'ActualizaciÃ³n Web disponible';
+    STR_UPDATE_CHECKING_FAIL = 'Error de comprobación de actualización';
+    STR_NO_UPDATES = 'La aplicación está actualizada';
+    //STR_UPDATE_CHANGELOG = 'Actualización & Cambios';
+    STR_UPDATE_LATEST = 'Último cambio:';
+    STR_UPDATE_FAIL = 'El proceso de actualización ha fallado, por favor, inténtelo manualmente!';
+    STR_UPDATE_FAIL_DOWNLOAD = 'El proceso de actualización no logra descargar el APK, por favor inténtelo manualmente!';
+    STR_UPDATE_AVAILABLE = 'Actualización de Apk disponible';
+    STR_WEB_UPDATE_AVAILABLE = 'Actualización Web disponible';
     STR_UPDATE_CHECK_SIDE = ', comprobar en el panel lateral';
-    STR_UPDATE_LAST_CHECK = 'Ãšltima comprobaciÃ³n:';
-    STR_UPDATE_OPT = 'Opciones de actualizaciÃ³n';
+    STR_UPDATE_LAST_CHECK = 'Última comprobación:';
+    STR_UPDATE_OPT = 'Opciones de actualización';
     STR_UPDATE_CHECK_FOR = 'Buscar actualizaciones en segundo plano';
-    STR_UPDATE_SHOW = 'Mostrar el diÃ¡logo de actualizaciones cuando Ã©stas estÃ¡n disponibles';
-    STR_UPDATE_SHOW_ARRAY = ['Si', 'SÃ³lo un mensaje de brindis', 'No'];
-    STR_UPDATE_START = 'El proceso de actualizaciÃ³n ha comenzado, esto puede tardar unos segundos, por favor espere!';
-    STR_UPDATE_PLAY = 'Si Play Store no muestra la actualizaciÃ³n intÃ©ntalo de nuevo despuÃ©s de unos minutos!';
-    STR_UPDATE_ERROR = 'Necesitas la versiÃ³n 3.0.303 o superior del APK para poder usar esto, por favor actualiza de la forma antigua';
-    STR_UPDATE_WARNING_OK = 'AplicaciÃ³n actualizada OK';
+    STR_UPDATE_SHOW = 'Mostrar el diálogo de actualizaciones cuando éstas están disponibles';
+    STR_UPDATE_SHOW_ARRAY = ['Si', 'Sólo un mensaje de brindis', 'No'];
+    STR_UPDATE_START = 'El proceso de actualización ha comenzado, esto puede tardar unos segundos, por favor espere!';
+    STR_UPDATE_PLAY = 'Si Play Store no muestra la actualización inténtalo de nuevo después de unos minutos!';
+    STR_UPDATE_ERROR = 'Necesitas la versión 3.0.303 o superior del APK para poder usar esto, por favor actualiza de la forma antigua';
+    STR_UPDATE_WARNING_OK = 'Aplicación actualizada OK';
     STR_CLOSE = 'Cerrar';
     STR_MINIMIZE = 'Minimizar';
     STR_CANCEL = 'Cancelar';
@@ -2470,10 +2483,10 @@ function es_ESLang() {
     STR_USER_REMOVE = 'Remover usuario';
     STR_USER_ERROR = 'El usuario no existe';
     STR_USER_HOSTING = 'hosteando';
-    STR_USER_SET = 'ya estÃ¡ configurado';
+    STR_USER_SET = 'ya está configurado';
     STR_USER_MAKE_ONE = 'Cambiar a';
     STR_USER_NUMBER_ONE = 'El primer usuario puede seguir (al proporcionar una clave) y ver los canales en directo fuera de la pantalla del usuario';
-    STR_ADD_USER_SH = 'AÃ±ade un usuario de Twitch para mostrar el contenido de los canales seguidos aquÃ­';
+    STR_ADD_USER_SH = 'Añade un usuario de Twitch para mostrar el contenido de los canales seguidos aquí';
     STR_CLIP_DAY = '24h';
     STR_CLIP_WEEK = '7d';
     STR_CLIP_MONTH = '30d';
@@ -2481,7 +2494,7 @@ function es_ESLang() {
     STR_JUMP_TIME = 'Saltar';
     STR_JUMP_T0 = 'a';
     STR_JUMP_CANCEL = 'Salto cancelado';
-    STR_JUMP_TIME_BIG = ', tiempo de salto mayor que la duraciÃ³n';
+    STR_JUMP_TIME_BIG = ', tiempo de salto mayor que la duración';
     STR_SEC = 'Seg';
     STR_MIN = 'Min';
     STR_MS = 'Ms';
@@ -2490,47 +2503,47 @@ function es_ESLang() {
     STR_TWITCH_TV = 'Cliente SmartTV para Twitch';
     STR_CLOSE_THIS = 'Presione Regresar o Enter para cerrar este.';
     STR_CLOSE_THIS2 = 'Presione regresar para cerrar esto.';
-    STR_CLOSE_THIS3 = 'Presione volver para mostrar el cuadro de diÃ¡logo de actualizaciÃ³n o enter para cerrar este.';
+    STR_CLOSE_THIS3 = 'Presione volver para mostrar el cuadro de diálogo de actualización o enter para cerrar este.';
     STR_PLAYER = 'Relacionado al Reproductor:';
     STR_CHAT = 'Relacionado al Chat:';
     STR_CHAT_SHOW = 'Mostrar chat';
-    STR_CURRENT_VERSION = 'VersiÃ³n actual instalada';
-    STR_LATEST_VERSION = 'Ãºltima versiÃ³n disponible';
+    STR_CURRENT_VERSION = 'Versión actual instalada';
+    STR_LATEST_VERSION = 'última versión disponible';
     STR_CONTROLS_MAIN_2 =
-        'Reproduce un vÃ­deo: Navega con el pad direccional (arriba/abajo/izquierda/derecha), pulsa enter o las teclas multimedia de reproducir/pausa o ver pista o 1 tecla';
+        'Reproduce un vídeo: Navega con el pad direccional (arriba/abajo/izquierda/derecha), pulsa enter o las teclas multimedia de reproducir/pausa o ver pista o 1 tecla';
     STR_CONTROLS_MAIN_3 = 'Actualizar el contenido de la pantalla:';
-    STR_CONTROLS_MAIN_4 = 'Salir de la aplicaciÃ³n: desde el panel lateral haga clic en salir';
-    STR_CONTROLS_MAIN_5 = 'Forzar el cierre de la aplicaciÃ³n: Mantenga la tecla de retorno hasta que se cierre automÃ¡ticamente';
+    STR_CONTROLS_MAIN_4 = 'Salir de la aplicación: desde el panel lateral haga clic en salir';
+    STR_CONTROLS_MAIN_5 = 'Forzar el cierre de la aplicación: Mantenga la tecla de retorno hasta que se cierre automáticamente';
     STR_CONTROLS_MAIN_6 = 'Cambiar de pantalla: tecla de retorno y luego D-Pad arriba/abajo o' + STR_KEY_UP_DOWN + STR_KEY_MEDIA_FF;
     STR_CONTROLS_MAIN_10 =
-        'Inicie una bÃºsqueda: desde el panel lateral haga clic en buscar, escribiendo la bÃºsqueda pulse la tecla Enter en el teclado virtual y elija una opciÃ³n de bÃºsqueda';
-    STR_CONTROLS_MAIN_14 = 'Acerca de esta aplicaciÃ³n: en el panel lateral haga clic en Acerca de';
+        'Inicie una búsqueda: desde el panel lateral haga clic en buscar, escribiendo la búsqueda pulse la tecla Enter en el teclado virtual y elija una opción de búsqueda';
+    STR_CONTROLS_MAIN_14 = 'Acerca de esta aplicación: en el panel lateral haga clic en Acerca de';
     STR_ABOUT_INFO_1 = 'Se trata de un cliente de Twitch para Android TV, liberado de forma gratuita para todo aquel que quiera utilizarlo';
-    STR_ABOUT_INFO_2_SOURCE = 'Esta versiÃ³n de la aplicaciÃ³n es sÃ³lo de prueba en el navegador!';
-    STR_ABOUT_INFO_3 = 'InformaciÃ³n de contacto:';
-    STR_ABOUT_INFO_4 = 'Esta es una aplicaciÃ³n de cÃ³digo abierto licenciada bajo la Licencia PÃºblica General GNU v3.0, consÃºltela en GitHub';
-    STR_ABOUT_INFO_6 = 'Esta aplicaciÃ³n utiliza las siguientes dependencias:';
+    STR_ABOUT_INFO_2_SOURCE = 'Esta versión de la aplicación es sólo de prueba en el navegador!';
+    STR_ABOUT_INFO_3 = 'Información de contacto:';
+    STR_ABOUT_INFO_4 = 'Esta es una aplicación de código abierto licenciada bajo la Licencia Pública General GNU v3.0, consúltela en GitHub';
+    STR_ABOUT_INFO_6 = 'Esta aplicación utiliza las siguientes dependencias:';
 
     STR_CONTROLS_PLAY_14 =
-        'Chat y vÃ­deo (lado a lado): tecla 2 o tecla multimedia avance rÃ¡pido, tambiÃ©n cambia entre los modos Picture in Picture y 50/50';
+        'Chat y vídeo (lado a lado): tecla 2 o tecla multimedia avance rápido, también cambia entre los modos Picture in Picture y 50/50';
     STR_F_DISABLE_CHAT = 'Forzar deshabilitar el chat';
     STR_OAUTH_IN =
-        'AÃ±adir una clave permite que la aplicaciÃ³n acceda al chat usando tu usuario para enviar mensajes y obtener tu lista de emote (te permite obtener sub dones para el chat), seguir/deshacer canales y acceder a algunos contenidos de los usuarios mÃ¡s rÃ¡pidamente<br><br>AÃ±adir una clave no es exigente y puede hacerse en cualquier momento posterior<br><br>En caso de duda lee este enlace:<br><br>%x<br><br>Para algunos dispositivos es necesario un ratÃ³n para completar la acciÃ³n de autorizaciÃ³n ya que puede ser necesario pulsar manualmente un botÃ³n para confirmar.<br><br>AÃ±adir clave para';
-    STR_USER_CODE = 'AÃ±adir clave de autorizaciÃ³n';
-    STR_USER_CODE_OK = 'Clave aÃ±adida OK';
-    STR_KEY_BAD = 'La prueba de la llave ha fallado, hay que aÃ±adir una nueva';
-    STR_OAUTH_WRONG = 'Intenta aÃ±adir una clave para el usuario';
+        'Añadir una clave permite que la aplicación acceda al chat usando tu usuario para enviar mensajes y obtener tu lista de emote (te permite obtener sub dones para el chat), seguir/deshacer canales y acceder a algunos contenidos de los usuarios más rápidamente<br><br>Añadir una clave no es exigente y puede hacerse en cualquier momento posterior<br><br>En caso de duda lee este enlace:<br><br>%x<br><br>Para algunos dispositivos es necesario un ratón para completar la acción de autorización ya que puede ser necesario pulsar manualmente un botón para confirmar.<br><br>Añadir clave para';
+    STR_USER_CODE = 'Añadir clave de autorización';
+    STR_USER_CODE_OK = 'Clave añadida OK';
+    STR_KEY_BAD = 'La prueba de la llave ha fallado, hay que añadir una nueva';
+    STR_OAUTH_WRONG = 'Intenta añadir una clave para el usuario';
     STR_OAUTH_WRONG2 = 'pero esta clave es para el usuario';
     STR_FOLLOWING = 'Siguiendo';
     STR_FOLLOW = 'Seguir';
-    STR_IS_SUB_NOOAUTH = 'Y si no has aÃ±adido una clave de autorizaciÃ³n, la aplicaciÃ³n no puede comprobar el estado de tu sub..';
+    STR_IS_SUB_NOOAUTH = 'Y si no has añadido una clave de autorización, la aplicación no puede comprobar el estado de tu sub..';
     STR_IS_SUB_NOT_SUB = 'Y no eres un sub de este canal';
 
-    STR_OAUTH_FAIL = 'Fallo en la comprobaciÃ³n de la autorizaciÃ³n con la clave del proveedor, por favor, compruebe y vuelva a intentarlo';
-    STR_OAUTH_FAIL_USER = 'La clave aÃ±adida no pertenece al usuario';
-    STR_NOKEY = 'NingÃºn usuario';
-    STR_NOKEY_WARN = 'Establecer un usuario y una clave de autorizaciÃ³n para poder seguir o dejar de seguir';
-    STR_NOKUSER_WARN = 'AÃ±ade primero un usuario';
+    STR_OAUTH_FAIL = 'Fallo en la comprobación de la autorización con la clave del proveedor, por favor, compruebe y vuelva a intentarlo';
+    STR_OAUTH_FAIL_USER = 'La clave añadida no pertenece al usuario';
+    STR_NOKEY = 'Ningún usuario';
+    STR_NOKEY_WARN = 'Establecer un usuario y una clave de autorización para poder seguir o dejar de seguir';
+    STR_NOKUSER_WARN = 'Añade primero un usuario';
     STR_RESET = 'Reinicie el';
     STR_CLIP = 'Clip';
     STR_CHANNEL_CONT = 'Contenido del canal';
@@ -2544,48 +2557,48 @@ function es_ESLang() {
     STR_MONTHS = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dec'];
     STR_DAYS = ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'];
 
-    STR_VIDEOS = 'VÃ­deos';
-    STR_REPLAY = 'RepeticiÃ³n';
+    STR_VIDEOS = 'Vídeos';
+    STR_REPLAY = 'Repetición';
     STR_STREAM_END = 'saliendo en';
     STR_STREAM_END_EXIT = 'pulse "Retorno" para salir';
     STR_CREATED_AT = 'Creado';
 
     STR_SHOW_ISLIVE_WARNING = 'Mostrar Advertencia de "Streamer en directo"';
     STR_SHOW_ISLIVE_WARNING_SUMMARY =
-        'Al ver un clip o un VOD, la aplicaciÃ³n puede comprobar si ese streamer estÃ¡ en directo, si esto estÃ¡ configurado como SÃ, se mostrarÃ¡ una advertencia, para abrir el directo sÃ³lo tienes que utilizar la opciÃ³n de controles inferiores del reproductor';
+        'Al ver un clip o un VOD, la aplicación puede comprobar si ese streamer está en directo, si esto está configurado como SÍ, se mostrará una advertencia, para abrir el directo sólo tienes que utilizar la opción de controles inferiores del reproductor';
 
     STR_STAY_OPEN = 'Permanecer en el stream';
 
-    STR_STAY_CHECK_LAST = 'Ãšltimo resultado:';
-    STR_STAY_CHECKING = 'Comprobando si la transmisiÃ³n estÃ¡ en vivo...';
+    STR_STAY_CHECK_LAST = 'Último resultado:';
+    STR_STAY_CHECKING = 'Comprobando si la transmisión está en vivo...';
     STR_IS_NOW = 'es ahora';
 
-    STR_SETTINGS_BUFFER_SIZE = 'TamaÃ±o del buffer de inicio:';
+    STR_SETTINGS_BUFFER_SIZE = 'Tamaño del buffer de inicio:';
     STR_SETTINGS_BUFFER_SIZE_SUMMARY =
-        'CuÃ¡nto se necesita para almacenar en el buffer antes de comenzar la reproducciÃ³n, esto no estÃ¡ relacionado con el tamaÃ±o mÃ¡ximo que puede alcanzar el buffer (el tamaÃ±o mÃ¡ximo del buffer se basa en el tamaÃ±o de la RAM del dispositivo), un valor mÃ¡s bajo aquÃ­ harÃ¡ que la reproducciÃ³n comience antes y eso es siempre recomendable. Cambiar este valor a un valor mÃ¡s grande en la mayorÃ­a de los casos no causarÃ¡ ninguna mejora pero sÃ­ contratiempos';
+        'Cuánto se necesita para almacenar en el buffer antes de comenzar la reproducción, esto no está relacionado con el tamaño máximo que puede alcanzar el buffer (el tamaño máximo del buffer se basa en el tamaño de la RAM del dispositivo), un valor más bajo aquí hará que la reproducción comience antes y eso es siempre recomendable. Cambiar este valor a un valor más grande en la mayoría de los casos no causará ninguna mejora pero sí contratiempos';
     STR_SETTINGS_BUFFER_LIVE = 'Buffer inicial de Streams en directo';
-    STR_SETTINGS_BUFFER_VOD = 'Buffer inicial de VÃ­deos (Emisiones pasadas y destacados)';
+    STR_SETTINGS_BUFFER_VOD = 'Buffer inicial de Vídeos (Emisiones pasadas y destacados)';
     STR_SETTINGS_BUFFER_CLIP = 'Buffer inicial de Clips';
     STR_SETTINGS_LANG = 'Idioma';
 
-    STR_CHAT_SEND_DELAY = 'El mensaje se envÃ­a, pero el retraso del chat estÃ¡ activado, el mensaje se mostrarÃ¡ en el chat despuÃ©s';
+    STR_CHAT_SEND_DELAY = 'El mensaje se envía, pero el retraso del chat está activado, el mensaje se mostrará en el chat después';
     STR_CHAT_DELAY = 'Chat: retraso';
 
     STR_VOD_HISTORY = STR_VOD_HISTORY_BASE + ' VOD?';
 
-    STR_NOKEY_VIDEO_WARN = 'AÃ±adir una clave de autorizaciÃ³n de usuario para poder ver los vÃ­deos seguidos';
-    STR_SWITCH_TYPE = 'Cambiar: MÃ¡s recientes o vistas';
+    STR_NOKEY_VIDEO_WARN = 'Añadir una clave de autorización de usuario para poder ver los vídeos seguidos';
+    STR_SWITCH_TYPE = 'Cambiar: Más recientes o vistas';
     STR_ENABLE = 'Activar';
     STR_ENABLED = 'Activado';
     STR_DISABLE = 'Desactivar';
     STR_DISABLED = 'Desactivado';
 
-    STR_RESTORE_PLAYBACK_WARN = 'La aplicaciÃ³n se cerrÃ³ durante la reproducciÃ³n, restaurando la reproducciÃ³n';
-    STR_RESTORE_PLAYBACK = 'Restaurar la reproducciÃ³n';
+    STR_RESTORE_PLAYBACK_WARN = 'La aplicación se cerró durante la reproducción, restaurando la reproducción';
+    STR_RESTORE_PLAYBACK = 'Restaurar la reproducción';
     STR_RESTORE_PLAYBACK_SUMMARY =
-        'La aplicaciÃ³n guarda lo que estaba reproduciendo en caso de que se cierre involuntariamente, al cambiar de aplicaciÃ³n el sistema puede quedarse sin memoria y cerrarla, en este caso la aplicaciÃ³n restaurarÃ¡ lo que estaba reproduciendo previamente en el siguiente inicio';
-    STR_CHAT_FONT = 'TamaÃ±o de la fuente del chat';
-    STR_VIDEOS_ANIMATION = 'Las miniaturas animadas del vÃ­deo';
+        'La aplicación guarda lo que estaba reproduciendo en caso de que se cierre involuntariamente, al cambiar de aplicación el sistema puede quedarse sin memoria y cerrarla, en este caso la aplicación restaurará lo que estaba reproduciendo previamente en el siguiente inicio';
+    STR_CHAT_FONT = 'Tamaño de la fuente del chat';
+    STR_VIDEOS_ANIMATION = 'Las miniaturas animadas del vídeo';
 
     STR_JUMPING_STEP = 'Paso de salto';
     STR_SECOND = 'segundo';
@@ -2593,38 +2606,38 @@ function es_ESLang() {
     STR_MINUTE = 'minuto';
     STR_MINUTES = 'minutos';
     STR_CLOCK_OFFSET = 'Desplazamiento del reloj';
-    STR_CLOCK_OFFSET_SUMMARY = 'Ajustar el reloj de la aplicaciÃ³n principal en relaciÃ³n con su elecciÃ³n';
+    STR_CLOCK_OFFSET_SUMMARY = 'Ajustar el reloj de la aplicación principal en relación con su elección';
     STR_CLOCK_AM_PM = 'Estilo de reloj';
     STR_CLOCK_AM_PM_SUMMARY = 'Elige entre 24H, 12H con AM/PM o 12H sin AM/PM.';
     STR_CONTENT_LANG = 'Idioma del contenido';
     STR_CONTENT_LANG_SUMMARY = 'El idioma del contenido en su pantalla, directo, vods, clips';
-    STR_APP_LANG = 'Idioma de la aplicaciÃ³n';
-    STR_APP_LANG_SUMMARY = 'El idioma del texto de la aplicaciÃ³n';
+    STR_APP_LANG = 'Idioma de la aplicación';
+    STR_APP_LANG_SUMMARY = 'El idioma del texto de la aplicación';
     STR_ENTER_TO_OPEN = 'Presione enter para acceder';
     STR_LANG_ALL = 'Todas';
 
     STR_CHAT_BRIGHTNESS = 'Brillo del fondo del chat';
 
     STR_PLAY_ALL = 'Reproducir Todo';
-    STR_AUTO_PLAY_NEXT = 'ReproducciÃ³n automÃ¡tica del siguiente clip';
-    STR_SIDE_PANEL_BACK_MAIN_MENU = 'Volver al MenÃº principal';
+    STR_AUTO_PLAY_NEXT = 'Reproducción automática del siguiente clip';
+    STR_SIDE_PANEL_BACK_MAIN_MENU = 'Volver al Menú principal';
 
     STR_HOLD_UP = 'Mantenga pulsado arriba';
 
-    STR_VOD_DIALOG = 'DiÃ¡logo de inicio de VOD';
+    STR_VOD_DIALOG = 'Diálogo de inicio de VOD';
     STR_VOD_DIALOG_SUMMARY =
-        'Elija el comportamiento por defecto, cuando reproduzca un VOD si la informaciÃ³n estÃ¡ presente en el historial del usuario puede ser reproducido desde donde usted dejÃ³ de ver por Ãºltima vez, si establece esto como "siempre desde el principio" este comportamiento tambiÃ©n se aplicarÃ¡ a la vista previa del VOD';
+        'Elija el comportamiento por defecto, cuando reproduzca un VOD si la información está presente en el historial del usuario puede ser reproducido desde donde usted dejó de ver por última vez, si establece esto como "siempre desde el principio" este comportamiento también se aplicará a la vista previa del VOD';
     STR_VOD_DIALOG_START = 'Siempre desde el principio';
-    STR_VOD_DIALOG_LAST = 'Siempre desde la Ãºltima parada';
+    STR_VOD_DIALOG_LAST = 'Siempre desde la última parada';
     STR_VOD_DIALOG_SHOW = 'Pregunte siempre';
-    STR_END_DIALOG_OPT = 'Opciones de diÃ¡logo en fin de reproduciÃ³n';
-    STR_END_DIALOG_SETTINGS = 'Tiempo de diÃ¡logo en fin de reproduciÃ³n';
+    STR_END_DIALOG_OPT = 'Opciones de diálogo en fin de reprodución';
+    STR_END_DIALOG_SETTINGS = 'Tiempo de diálogo en fin de reprodución';
     STR_END_DIALOG_SETTINGS_SUMMARY =
-        'Cuando un Directo/VOD/Clip termina se muestra un diÃ¡logo con la opciÃ³n de quÃ© hacer a continuaciÃ³n, establezca el tiempo (en segundos) que tardarÃ¡ la opciÃ³n por defecto en actuar';
+        'Cuando un Directo/VOD/Clip termina se muestra un diálogo con la opción de qué hacer a continuación, establezca el tiempo (en segundos) que tardará la opción por defecto en actuar';
     STR_END_DIALOG_DISABLE = 'Disable the timer';
-    STR_CHAT_SIZE = 'TamaÃ±o del chat';
-    STR_CHAT_POS = 'PosiciÃ³n de chat';
-    STR_CHAT_VIDEO_MODE = 'Modo de vÃ­deo';
+    STR_CHAT_SIZE = 'Tamaño del chat';
+    STR_CHAT_POS = 'Posición de chat';
+    STR_CHAT_VIDEO_MODE = 'Modo de vídeo';
     STR_CHAT_SIDE_FULL = 'Pantalla completa';
 
     STR_CHAT_SIDE = 'Lado a lado, video y chat';
@@ -2639,104 +2652,104 @@ function es_ESLang() {
     STR_VERY_HIGH = 'Muy alta';
     STR_THUMB_RESOLUTION = 'Calidad de las miniaturas';
     STR_THUMB_RESOLUTION_SUMMARY =
-        'ResoluciÃ³n de las miniaturas por defecto para el directo, los vÃ­deos y los juegos (no se puede aplicar a los clips) un valor mÃ¡s bajo ayudarÃ¡ a que la aplicaciÃ³n cargue mÃ¡s rÃ¡pido pero la miniatura puede verse borrosa';
+        'Resolución de las miniaturas por defecto para el directo, los vídeos y los juegos (no se puede aplicar a los clips) un valor más bajo ayudará a que la aplicación cargue más rápido pero la miniatura puede verse borrosa';
 
-    STR_PLAYER_BITRATE = 'Calidad automÃ¡tica mÃ¡xima permitida ResoluciÃ³n/Tasa de bits';
+    STR_PLAYER_BITRATE = 'Calidad automática máxima permitida Resolución/Tasa de bits';
     STR_PLAYER_BITRATE_SUMMARY =
-        'Esto se utilizarÃ¡ para evitar retrasos en los dispositivos de gama baja cuando se reproduzcan varios vÃ­deos al mismo tiempo (la mayorÃ­a de los dispositivos se retrasarÃ¡n saltÃ¡ndose fotogramas en esa situaciÃ³n, ya que sÃ³lo estÃ¡n hechos para reproducir un Ãºnico vÃ­deo), tambiÃ©n ayuda a limitar el uso del ancho de banda de Internet en caso de que necesites limitarlo, tambiÃ©n establece la "Calidad predeterminada del reproductor" en Auto, la resoluciÃ³n/velocidad de transmisiÃ³n recomendada para todos los reproductores pequeÃ±os es 720p/3 Mbps e ilimitada para el reproductor principal o grande para la mayorÃ­a de los dispositivos de gama baja';
+        'Esto se utilizará para evitar retrasos en los dispositivos de gama baja cuando se reproduzcan varios vídeos al mismo tiempo (la mayoría de los dispositivos se retrasarán saltándose fotogramas en esa situación, ya que sólo están hechos para reproducir un único vídeo), también ayuda a limitar el uso del ancho de banda de Internet en caso de que necesites limitarlo, también establece la "Calidad predeterminada del reproductor" en Auto, la resolución/velocidad de transmisión recomendada para todos los reproductores pequeños es 720p/3 Mbps e ilimitada para el reproductor principal o grande para la mayoría de los dispositivos de gama baja';
     STR_PLAYER_BITRATE_SUMMARY_ETC =
-        'Diferentes valores aquÃ­ para la resoluciÃ³n y la tasa de bits del reproductor principal y del pequeÃ±o, puede causar un corto buffering/carga cuando se cambia el reproductor principal en el modo Picture Picture (presionando hacia abajo se cambian los reproductores), para prevenir esto ponga ambos valores iguales a costa de un posible lag, el mejor indicativo de un bitrate demasiado alto es una constante acumulaciÃ³n de cuadros saltados o un constante buffering del stream.';
+        'Diferentes valores aquí para la resolución y la tasa de bits del reproductor principal y del pequeño, puede causar un corto buffering/carga cuando se cambia el reproductor principal en el modo Picture Picture (presionando hacia abajo se cambian los reproductores), para prevenir esto ponga ambos valores iguales a costa de un posible lag, el mejor indicativo de un bitrate demasiado alto es una constante acumulación de cuadros saltados o un constante buffering del stream.';
     STR_PLAYER_MAIN = 'Reproductor principal, reproductor de Picture in Picture o el reproductor principal 50/50';
-    STR_PLAYER_RES_SMALL = 'Reproductores pequeÃ±os, reproductor pequeÃ±o del modo Picture in Picture y todos los reproductores Multistream';
+    STR_PLAYER_RES_SMALL = 'Reproductores pequeños, reproductor pequeño del modo Picture in Picture y todos los reproductores Multistream';
     STR_PLAYER_BITRATE_MAIN = 'Tasa de bits - ' + STR_PLAYER_MAIN;
     STR_PLAYER_BITRATE_SMALL = 'Tasa de bits - ' + STR_PLAYER_RES_SMALL;
-    STR_PLAYER_RES_MAIN = 'ResoluciÃ³n - ' + STR_PLAYER_MAIN;
-    STR_PLAYER_RES_SMALL = 'ResoluciÃ³n - ' + STR_PLAYER_RES_SMALL;
+    STR_PLAYER_RES_MAIN = 'Resolución - ' + STR_PLAYER_MAIN;
+    STR_PLAYER_RES_SMALL = 'Resolución - ' + STR_PLAYER_RES_SMALL;
     STR_BLOCK_RES = 'Resoluciones bloqueadas';
     STR_BLOCK_RES_SUMMARY =
-        'Cuando se utiliza la calidad automÃ¡tica es posible bloquear una o mÃ¡s resoluciones para que no se utilicen nunca, esto es utilizable para los dispositivos que se retrasan en la reproducciÃ³n de una resoluciÃ³n en particular, ya que los clips no se pueden reproducir en modo automÃ¡tico esto tambiÃ©n bloquearÃ¡ la secciÃ³n automÃ¡tica de esta resoluciÃ³n en un clip.';
+        'Cuando se utiliza la calidad automática es posible bloquear una o más resoluciones para que no se utilicen nunca, esto es utilizable para los dispositivos que se retrasan en la reproducción de una resolución en particular, ya que los clips no se pueden reproducir en modo automático esto también bloqueará la sección automática de esta resolución en un clip.';
     STR_BLOCK_RES_SUMMARY_EXTRA =
-        'El usuario puede sobrescribir la selecciÃ³n manualmente durante la reproducciÃ³n<br><br>XX significa que todas las resoluciones que empiecen por ese valor antes de XX no podrÃ¡n ser utilizadas, si la resoluciÃ³n estÃ¡ marcada como bloqueada';
+        'El usuario puede sobrescribir la selección manualmente durante la reproducción<br><br>XX significa que todas las resoluciones que empiecen por ese valor antes de XX no podrán ser utilizadas, si la resolución está marcada como bloqueada';
     STR_BLOCKED = 'Bloqueada';
     STR_BLOCKED_NOT = 'No Bloqueada';
 
     STR_AUDIO = 'Audio -';
     STR_DEF_QUALITY = 'Calidad del reproductor por defecto';
     STR_DEF_QUALITY_SUMMARY =
-        'Esta opciÃ³n siempre serÃ¡ respetada cuando se reproduzca un solo video, en el modo de Imagen o Multistream la reproducciÃ³n necesita usar la calidad Auto, para el por quÃ© es eso, revisa la opciÃ³n de ajustes "' +
+        'Esta opción siempre será respetada cuando se reproduzca un solo video, en el modo de Imagen o Multistream la reproducción necesita usar la calidad Auto, para el por qué es eso, revisa la opción de ajustes "' +
         STR_PLAYER_BITRATE +
         '"';
 
-    STR_PLAYER_INFO_VISIBILITY_ARRAY = ['Cuando la informaciÃ³n del reproductor es visible', 'Siempre visible', 'Nunca visible'];
+    STR_PLAYER_INFO_VISIBILITY_ARRAY = ['Cuando la información del reproductor es visible', 'Siempre visible', 'Nunca visible'];
     STR_SINGLE_EXIT = 'Pulsar una sola tecla de retorno';
     STR_SINGLE_EXIT_SUMMARY = 'Salir del reproductor, del modo picture in picture, 50/50 o Multistream con un solo clic de retorno de la tecla';
-    STR_NOTIFICATION_OPT = 'Opciones de notificaciÃ³n';
-    STR_NOW_LIVE_SHOW = 'Mostrar la notificaciÃ³n "Streamer estÃ¡ en directo" para los canales seguidos';
-    STR_TITLE_CHANGE_SHOW = 'Mostrar la notificaciÃ³n "Streamer cambio de tÃ­tulo" para los canales seguidos';
-    STR_GAME_CHANGE_SHOW = 'Mostrar la notificaciÃ³n "Streamer cambiÃ³ de juego" para los canales seguidos';
-    STR_NOW_LIVE_GAME_SHOW = 'Mostrar la notificaciÃ³n "Juego en directo" para los juegos seguidos';
-    STR_NOTIFICATION_BACKGROUND = 'NotificaciÃ³n sobre otras aplicaciones, cuando la aplicaciÃ³n estÃ¡ en segundo plano';
+    STR_NOTIFICATION_OPT = 'Opciones de notificación';
+    STR_NOW_LIVE_SHOW = 'Mostrar la notificación "Streamer está en directo" para los canales seguidos';
+    STR_TITLE_CHANGE_SHOW = 'Mostrar la notificación "Streamer cambio de título" para los canales seguidos';
+    STR_GAME_CHANGE_SHOW = 'Mostrar la notificación "Streamer cambió de juego" para los canales seguidos';
+    STR_NOW_LIVE_GAME_SHOW = 'Mostrar la notificación "Juego en directo" para los juegos seguidos';
+    STR_NOTIFICATION_BACKGROUND = 'Notificación sobre otras aplicaciones, cuando la aplicación está en segundo plano';
     STR_NOTIFICATION_BACKGROUND_SUMMARY =
-        'Para activar esta funciÃ³n, asegÃºrate de que la aplicaciÃ³n tenga permiso para mostrar notificaciones en la configuraciÃ³n de Android. En dispositivos con Android 11 o versiones posteriores, la app mostrarÃ¡ una notificaciÃ³n simple de una sola lÃ­nea cuando se ejecute en segundo plano.';
-    STR_NOTIFICATION_BACKGROUND_WARNING = 'Â¡Falta el permiso de notificaciones del sistema Android!';
-    STR_NOTIFICATION_REPEAT = 'CuÃ¡ntas veces hay que mostrar la notificaciÃ³n individual';
+        'Para activar esta función, asegúrate de que la aplicación tenga permiso para mostrar notificaciones en la configuración de Android. En dispositivos con Android 11 o versiones posteriores, la app mostrará una notificación simple de una sola línea cuando se ejecute en segundo plano.';
+    STR_NOTIFICATION_BACKGROUND_WARNING = '¡Falta el permiso de notificaciones del sistema Android!';
+    STR_NOTIFICATION_REPEAT = 'Cuántas veces hay que mostrar la notificación individual';
     STR_NOTIFICATION_REPEAT_SUMMARY =
-        'El tiempo de espera de las notificaciones individuales es de unos 3 segundos, y no se puede cambiar porque este tiempo de espera estÃ¡ controlado por el sistema, pero se puede establecer el nÃºmero de veces que se mostrarÃ¡ la misma notificaciÃ³n';
+        'El tiempo de espera de las notificaciones individuales es de unos 3 segundos, y no se puede cambiar porque este tiempo de espera está controlado por el sistema, pero se puede establecer el número de veces que se mostrará la misma notificación';
     STR_NOTIFICATION_SINCE =
-        'Evitar que se muestre la notificaciÃ³n "Streamer estÃ¡ en directo" para las transmisiones que estÃ¡n en directo hace mÃ¡s de';
+        'Evitar que se muestre la notificación "Streamer está en directo" para las transmisiones que están en directo hace más de';
     STR_NOTIFICATION_SINCE_SUMMARY =
-        'Esto es Ãºtil para evitar que la aplicaciÃ³n muestre una larga lista de notificaciones cuando la aplicaciÃ³n no se utiliza durante algÃºn tiempo, por ejemplo, cuando se apaga el dispositivo o la pantalla estÃ¡ apagada (la aplicaciÃ³n no mostrarÃ¡ notificaciones cuando el dispositivo estÃ¡ encendido pero la pantalla estÃ¡ apagada)';
-    STR_GLOBAL_FONT = 'TamaÃ±o de la fuente en la aplicaciÃ³n';
+        'Esto es útil para evitar que la aplicación muestre una larga lista de notificaciones cuando la aplicación no se utiliza durante algún tiempo, por ejemplo, cuando se apaga el dispositivo o la pantalla está apagada (la aplicación no mostrará notificaciones cuando el dispositivo está encendido pero la pantalla está apagada)';
+    STR_GLOBAL_FONT = 'Tamaño de la fuente en la aplicación';
     STR_GLOBAL_FONT_SUMMARY =
-        'Esto cambiarÃ¡ el tamaÃ±o de todo el texto y la mayorÃ­a de los iconos en la aplicaciÃ³n (menos el tamaÃ±o de la fuente del chat, porque tiene su propio control), un valor demasiado pequeÃ±o puede no ser visible un valor demasiado grande desbordarÃ¡ el soporte de la caja de texto, esa es la forma en que este valor estÃ¡ limitado, cambiar esto refrescarÃ¡ todas las pantallas';
-    STR_MAIN_MENU = 'MenÃº principal';
-    STR_USER_MENU = 'MenÃº de usuario';
+        'Esto cambiará el tamaño de todo el texto y la mayoría de los iconos en la aplicación (menos el tamaño de la fuente del chat, porque tiene su propio control), un valor demasiado pequeño puede no ser visible un valor demasiado grande desbordará el soporte de la caja de texto, esa es la forma en que este valor está limitado, cambiar esto refrescará todas las pantallas';
+    STR_MAIN_MENU = 'Menú principal';
+    STR_USER_MENU = 'Menú de usuario';
 
-    STR_ROUND_IMAGES = 'ImÃ¡genes de canales redondeadas';
-    STR_ROUND_IMAGES_SUMMARY = 'Como la mayorÃ­a de las imÃ¡genes de los canales son cuadradas, algunas imÃ¡genes pueden no verse bien';
-    STR_SCREEN_COUNTER = 'Ocultar PosiciÃ³n/Contador total';
+    STR_ROUND_IMAGES = 'Imágenes de canales redondeadas';
+    STR_ROUND_IMAGES_SUMMARY = 'Como la mayoría de las imágenes de los canales son cuadradas, algunas imágenes pueden no verse bien';
+    STR_SCREEN_COUNTER = 'Ocultar Posición/Contador total';
     STR_SCREEN_COUNTER_SUMMARY =
-        'Hay un contador de posiciones que informa de la posiciÃ³n actual y del contenido total cargado en las pantallas que tienen contenido jugable, a medida que se desplaza se carga mÃ¡s contenido y el total se actualiza';
+        'Hay un contador de posiciones que informa de la posición actual y del contenido total cargado en las pantallas que tienen contenido jugable, a medida que se desplaza se carga más contenido y el total se actualiza';
 
     STR_MAIN_USER = 'Usuario principal';
     STR_USER_TOP_LABEL = 'Haga clic en un usuario para ver las opciones';
-    STR_USER_EXTRAS = 'Usuario: Cambiar, aÃ±adir, llave';
+    STR_USER_EXTRAS = 'Usuario: Cambiar, añadir, llave';
     STR_LOW_LATENCY = 'Baja Latencia';
 
-    STR_LIVE_FEED_SORT = 'Panel lateral o reproductor ClasificaciÃ³n previa';
+    STR_LIVE_FEED_SORT = 'Panel lateral o reproductor Clasificación previa';
     STR_LIVE_FEED_SORT_SUMMARY =
-        'Ordena el panel lateral en directo y la vista previa del reproductor, en la vista previa esto sÃ³lo se aplica al usuario en directo y destacado (todos los que no son historia son base de vistas, la historia es la Ãºltima vista primero, y vod es la mÃ¡s reciente)';
+        'Ordena el panel lateral en directo y la vista previa del reproductor, en la vista previa esto sólo se aplica al usuario en directo y destacado (todos los que no son historia son base de vistas, la historia es la última vista primero, y vod es la más reciente)';
 
-    STR_APP_ANIMATIONS = 'Activar las animaciones de la aplicaciÃ³n';
+    STR_APP_ANIMATIONS = 'Activar las animaciones de la aplicación';
     STR_APP_ANIMATIONS_SUMMARY = 'Activa el panel lateral, el desplazamiento y las animaciones relacionadas';
-    STR_UI_SETTINGS = 'PersonalizaciÃ³n de la interfaz, estilo de color, animaciones y otros aspectos';
-    STR_GENERAL_CUSTOM = 'PersonalizaciÃ³n de contenidos, ordenaciÃ³n, actualizaciÃ³n automÃ¡tica, tiempos de espera y otros';
+    STR_UI_SETTINGS = 'Personalización de la interfaz, estilo de color, animaciones y otros aspectos';
+    STR_GENERAL_CUSTOM = 'Personalización de contenidos, ordenación, actualización automática, tiempos de espera y otros';
 
     STR_PRESS_ENTER_TO_CHANGE = 'Pulse Enter para cambiar a -';
     STR_CLICK_UNFOLLOW = '(Pulsa enter para dejar de seguir)';
     STR_CLICK_FOLLOW = '(Pulsa enter para seguir)';
     STR_TODAY = 'Hoy';
     STR_DROOPED_FRAMES = 'Fotogramas omitidos:';
-    STR_BUFFER_HEALT = 'TamaÃ±o buffer (Seg):';
+    STR_BUFFER_HEALT = 'Tamaño buffer (Seg):';
     STR_NET_ACT = 'Actividad de red (Mb):';
     STR_NET_SPEED = 'Velocidad de red (Mb):';
-    STR_LATENCY_TO_BROADCASTER = 'Latencia de transmisiÃ³n';
-    STR_LATENCY = 'Latencia de transmisiÃ³n (Seg):';
+    STR_LATENCY_TO_BROADCASTER = 'Latencia de transmisión';
+    STR_LATENCY = 'Latencia de transmisión (Seg):';
     STR_CHAT_DELAY_LATENCY_TO_BROADCASTER = 'Base en la ' + STR_LATENCY_TO_BROADCASTER;
     STR_PING = 'Ping a Twitch (Ms):';
     STR_WARNINGS = 'Advertencias';
 
-    STR_DPAD_POSTION = 'PosiciÃ³n de la pantalla del D-pad';
+    STR_DPAD_POSTION = 'Posición de la pantalla del D-pad';
     STR_DPAD_OPACITY = 'Opacidad del D-pad';
     STR_DPAD_OPT = 'Opciones del D-pad';
     STR_BLOCKED_CODEC = 'Codecs bloqueados';
-    STR_BLOCKED_CODEC_SUMMARY = 'Lista de los cÃ³decs utilizados y permite bloquear el uso de un cÃ³dec';
+    STR_BLOCKED_CODEC_SUMMARY = 'Lista de los códecs utilizados y permite bloquear el uso de un códec';
 
-    STR_MAX_RES = 'ResoluciÃ³n mÃ¡xima:';
-    STR_MAX_BIT = 'Tasa de bits mÃ¡xima:';
-    STR_MAX_LEVEL = 'Nivel mÃ¡ximo:';
+    STR_MAX_RES = 'Resolución máxima:';
+    STR_MAX_BIT = 'Tasa de bits máxima:';
+    STR_MAX_LEVEL = 'Nivel máximo:';
     STR_MAX_FPS = 'Max fps per resolution:';
-    STR_MAX_INSTANCES = 'Instancias mÃ¡ximas:';
+    STR_MAX_INSTANCES = 'Instancias máximas:';
     STR_UNKNOWN = 'Desconocido';
 
     STR_HISTORY = 'Historial';
@@ -2745,51 +2758,51 @@ function es_ESLang() {
 
     STR_OPEN_GAME = 'Abrir el juego';
     STR_OPEN_CHANNEL = 'Abrir el canal';
-    STR_THUMB_OPTIONS_KEY = 'Pulse enter encima de una acciÃ³n (para abrirla o aplicarla), volver para salir sin aplicarla';
+    STR_THUMB_OPTIONS_KEY = 'Pulse enter encima de una acción (para abrirla o aplicarla), volver para salir sin aplicarla';
 
     STR_THUMB_OPTIONS_TOP = 'Mantenga pulsado izquierda para ver las opciones de las miniaturas';
 
     STR_4_WAY_MULTI = '4 directos simultaneos';
 
-    STR_PICTURE_LIVE_FEED = 'Picture in Picture: MantÃ©n pulsado Enter y utiliza el D-Pad para mover o cambiar los vÃ­deos';
+    STR_PICTURE_LIVE_FEED = 'Picture in Picture: Mantén pulsado Enter y utiliza el D-Pad para mover o cambiar los vídeos';
 
-    STR_SHOW_LIVE_PLAYER = 'Mostrar la vista previa en las pantallas de emisiÃ³n en directo';
-    STR_SHOW_VOD_PLAYER_WARNING = 'Iniciar la reproducciÃ³n desde donde se detuvo por Ãºltima vez:';
+    STR_SHOW_LIVE_PLAYER = 'Mostrar la vista previa en las pantallas de emisión en directo';
+    STR_SHOW_VOD_PLAYER_WARNING = 'Iniciar la reproducción desde donde se detuvo por última vez:';
     STR_SHOW_VOD_PLAYER = 'Mostrar la vista previa en las pantallas de VOD';
     STR_SHOW_CLIP_PLAYER = 'Mostrar la vista previa en las pantallas de CLIP';
-    STR_PREVIEW_CLIP_NEXT = 'Cuando la vista previa de un clip termina, el siguiente clip disponible cambia automÃ¡ticamente';
+    STR_PREVIEW_CLIP_NEXT = 'Cuando la vista previa de un clip termina, el siguiente clip disponible cambia automáticamente';
     STR_SHOW_SIDE_PLAYER = 'Mostrar la vista previa en el panel lateral';
     STR_SHOW_FEED_PLAYER = 'Mostrar la vista previa en las miniaturas del reproductor';
-    STR_SHOW_FEED_PLAYER_SUMMARY = 'Si no quieres o tu dispositivo se retrasa cuando hay mÃ¡s de un reproductor activo, ponlo en NO';
+    STR_SHOW_FEED_PLAYER_SUMMARY = 'Si no quieres o tu dispositivo se retrasa cuando hay más de un reproductor activo, ponlo en NO';
     STR_DISABLED_FEED_PLAYER_MULTI = 'Desactivar la vista previa cuando se activa el multistream';
     STR_DISABLED_FEED_PLAYER_MULTI_SUMMARY =
-        'Por razones de rendimiento, algunos dispositivos pueden tener un retraso con mÃºltiples reproductores, si tu estÃ¡ bien para el multistream pero cuando el reproductor de vista previa y el multistream estÃ¡n activos el dispositivo se retrasa establece esto en NO';
+        'Por razones de rendimiento, algunos dispositivos pueden tener un retraso con múltiples reproductores, si tu está bien para el multistream pero cuando el reproductor de vista previa y el multistream están activos el dispositivo se retrasa establece esto en NO';
     STR_PREVIEW_ERROR_LOAD = 'La vista previa no se carga:';
     STR_PREVIEW_ERROR_LINK = 'inalcanzable';
 
-    STR_PREVIEW_END = 'La vista previa del vÃ­deo ha terminado';
-    STR_PLAYER_LAG_ERRO = 'El reproductor no puede reproducir debido a un problema de conexiÃ³n a la red';
+    STR_PREVIEW_END = 'La vista previa del vídeo ha terminado';
+    STR_PLAYER_LAG_ERRO = 'El reproductor no puede reproducir debido a un problema de conexión a la red';
     STR_PLAYER_ERROR = 'El reproductor no puede reproducir debido a un error del reproductor';
 
-    STR_PREVIEW_SIZE = 'TamaÃ±o de la vista previa del reproductor';
-    STR_PREVIEW_SIZE_SUMMARY = 'Establecer el tamaÃ±o de la vista previa del reproductor de las miniaturas de la vista previa';
-    STR_PREVIEW_SIZE_ARRAY = ['PequeÃ±o', 'Mediano', 'Grande', 'Extra grande'];
-    STR_PREVIEW_SIZE_SCREEN = 'TamaÃ±o de la vista previa de las pantallas';
-    STR_PREVIEW_SIZE_SCREEN_SUMMARY = 'Establecer el tamaÃ±o de la vista previa';
-    STR_PREVIEW_SIZE_SCREEN_ARRAY = ['TamaÃ±o de la miniatura', 'MÃ¡s grande'];
+    STR_PREVIEW_SIZE = 'Tamaño de la vista previa del reproductor';
+    STR_PREVIEW_SIZE_SUMMARY = 'Establecer el tamaño de la vista previa del reproductor de las miniaturas de la vista previa';
+    STR_PREVIEW_SIZE_ARRAY = ['Pequeño', 'Mediano', 'Grande', 'Extra grande'];
+    STR_PREVIEW_SIZE_SCREEN = 'Tamaño de la vista previa de las pantallas';
+    STR_PREVIEW_SIZE_SCREEN_SUMMARY = 'Establecer el tamaño de la vista previa';
+    STR_PREVIEW_SIZE_SCREEN_ARRAY = ['Tamaño de la miniatura', 'Más grande'];
     STR_SIDE_PANEL_PLAYER_DELAY = 'Retraso de la vista previa';
     STR_SIDE_PANEL_PLAYER_DELAY_SUMMARY =
-        'Establezca el tiempo de retraso que la vista previa tardarÃ¡ en comenzar a cargar despuÃ©s de seleccionar una miniatura, esto ayuda con los dispositivos lentos que se retrasan al desplazarse';
+        'Establezca el tiempo de retraso que la vista previa tardará en comenzar a cargar después de seleccionar una miniatura, esto ayuda con los dispositivos lentos que se retrasan al desplazarse';
     STR_PREVIEW_VOLUME = 'Volumen de la vista previa';
-    STR_PREVIEW_VOLUME_SUMMARY = 'Permitir establecer lo que serÃ¡ el volumen de vista previa de la alimentaciÃ³n';
+    STR_PREVIEW_VOLUME_SUMMARY = 'Permitir establecer lo que será el volumen de vista previa de la alimentación';
     STR_PREVIEW_OTHERS_VOLUME = 'Volumen de los principales reproductores';
     STR_PREVIEW_OTHERS_VOLUME_SUMMARY =
-        'El volumen del reproductor principal (Todos los reproductores picture in picture, reproductores multistream) puede ser mÃ¡s bajo cuando se muestra el reproductor de vista previa';
-    STR_SIDE_PANEL_PLAYER = 'Vista previa de la configuraciÃ³n de los reproductores de miniaturas';
-    STR_START_AT_USER = 'Inicie siempre la aplicaciÃ³n en la pantalla del usuario';
-    STR_START_AT_USER_SUMMARY = 'Esto evitarÃ¡ que funcione la reproducciÃ³n de Restaurar, pero permite elegir el usuario al inicio de la aplicaciÃ³n';
+        'El volumen del reproductor principal (Todos los reproductores picture in picture, reproductores multistream) puede ser más bajo cuando se muestra el reproductor de vista previa';
+    STR_SIDE_PANEL_PLAYER = 'Vista previa de la configuración de los reproductores de miniaturas';
+    STR_START_AT_USER = 'Inicie siempre la aplicación en la pantalla del usuario';
+    STR_START_AT_USER_SUMMARY = 'Esto evitará que funcione la reproducción de Restaurar, pero permite elegir el usuario al inicio de la aplicación';
     STR_START_AT_FEED = 'Inicie siempre mostrando el feed de canales seguidos';
-    STR_START_AT_FEED_SUMMARY = 'Esta opciÃ³n abre el panel lateral con los canales seguidos en vivo y una vista previa del stream al iniciar la app. Desactiva "Restaurar reproducciÃ³n".';
+    STR_START_AT_FEED_SUMMARY = 'Esta opción abre el panel lateral con los canales seguidos en vivo y una vista previa del stream al iniciar la app. Desactiva "Restaurar reproducción".';
 
     STR_CUSTOM_PROXY = 'Proxy Personalizado';
     STR_CUSTOM_PROXY_SUMMARY = 'Usar una URL de servidor proxy personalizada, presione enter para editar la URL';
@@ -2797,41 +2810,41 @@ function es_ESLang() {
     STR_CUSTOM_PROXY_URL_PROMPT = 'Ingrese la URL del proxy personalizado (la URL debe terminar con /):';
     STR_CUSTOM_PROXY_HAS_TOKEN = 'El proxy personalizado tiene token';
     STR_CUSTOM_PROXY_HAS_TOKEN_SUMMARY =
-        'Si la URL del proxy ya incluye el token, desactive esta opciÃ³n para que el token no se agregue de nuevo';
-    STR_CUSTOM_PROXY_HAS_PARAMETER = 'El proxy personalizado tiene parÃ¡metros';
+        'Si la URL del proxy ya incluye el token, desactive esta opción para que el token no se agregue de nuevo';
+    STR_CUSTOM_PROXY_HAS_PARAMETER = 'El proxy personalizado tiene parámetros';
     STR_CUSTOM_PROXY_HAS_PARAMETER_SUMMARY =
-        'Si la URL del proxy ya incluye los parÃ¡metros, active esta opciÃ³n para que los parÃ¡metros se agreguen como una cadena de consulta';
+        'Si la URL del proxy ya incluye los parámetros, active esta opción para que los parámetros se agreguen como una cadena de consulta';
 
-    STR_LAST_REFRESH = 'Ãºltima actualizaciÃ³n:';
+    STR_LAST_REFRESH = 'última actualización:';
 
-    STR_SETTINGS_ACCESSIBILITY = 'Mostrar "un servicio de accesibilidad se estÃ¡ ejecutando"';
+    STR_SETTINGS_ACCESSIBILITY = 'Mostrar "un servicio de accesibilidad se está ejecutando"';
     STR_SETTINGS_ACCESSIBILITY_SUMMARY =
-        'Si el dispositivo tiene un servicio de accesibilidad activado la aplicaciÃ³n mostrarÃ¡ una advertencia, es un problema conocido de android que el servicio de accesibilidad puede retrasar algunos dispositivos y causar congelaciones o retrasos en esta aplicaciÃ³n.';
+        'Si el dispositivo tiene un servicio de accesibilidad activado la aplicación mostrará una advertencia, es un problema conocido de android que el servicio de accesibilidad puede retrasar algunos dispositivos y causar congelaciones o retrasos en esta aplicación.';
     STR_ACCESSIBILITY_WARN = 'Servicio(s) de accesibilidad detectado(s)';
-    STR_AUTO_REFRESH = 'Tiempo de refresco automÃ¡tico';
+    STR_AUTO_REFRESH = 'Tiempo de refresco automático';
     STR_AUTO_REFRESH_SUMMARY =
-        'Cuando esta opciÃ³n estÃ¡ activada, la aplicaciÃ³n refrescarÃ¡ automÃ¡ticamente una pantalla o una pantalla de vista previa de miniaturas, el refresco se produce sÃ³lo cuando la pantalla estÃ¡ seleccionada, si quieres un refresco en segundo plano activa la opciÃ³n de abajo';
-    STR_AUTO_REFRESH_BACKGROUND = 'ActualizaciÃ³n automÃ¡tica en segundo plano';
+        'Cuando esta opción está activada, la aplicación refrescará automáticamente una pantalla o una pantalla de vista previa de miniaturas, el refresco se produce sólo cuando la pantalla está seleccionada, si quieres un refresco en segundo plano activa la opción de abajo';
+    STR_AUTO_REFRESH_BACKGROUND = 'Actualización automática en segundo plano';
     STR_AUTO_REFRESH_BACKGROUND_SUMMARY =
-        'Cuando "ActualizaciÃ³n automÃ¡tica en segundo plano" estÃ¡ configurado y estÃ¡ activado, el refresco automÃ¡tico ocurrirÃ¡ en segundo plano (pero con la aplicaciÃ³n visible, android no permite que se ejecute sin restricciones en segundo plano para evitar el retraso de otra aplicaciÃ³n) cuando la pantalla no es visible o cuando vuelves a una pantalla que el refresco no se ejecutÃ³ antes, ten en cuenta que debido a que la aplicaciÃ³n tiene demasiadas pantallas cuando esta opciÃ³n estÃ¡ activada el refresco automÃ¡tico puede causar retraso aleatorio en algunos dispositivos de gama baja.';
-    STR_SOURCE_CHECK = 'Cambiar automÃ¡ticamente la calidad del reproductor de Fuente a Auto cuando el reproductor se retrasa';
+        'Cuando "Actualización automática en segundo plano" está configurado y está activado, el refresco automático ocurrirá en segundo plano (pero con la aplicación visible, android no permite que se ejecute sin restricciones en segundo plano para evitar el retraso de otra aplicación) cuando la pantalla no es visible o cuando vuelves a una pantalla que el refresco no se ejecutó antes, ten en cuenta que debido a que la aplicación tiene demasiadas pantallas cuando esta opción está activada el refresco automático puede causar retraso aleatorio en algunos dispositivos de gama baja.';
+    STR_SOURCE_CHECK = 'Cambiar automáticamente la calidad del reproductor de Fuente a Auto cuando el reproductor se retrasa';
     STR_SOURCE_CHECK_SUMMARY =
-        'Cuando esta opciÃ³n estÃ¡ activada y no se utiliza la calidad automÃ¡tica, si el reproductor se retrasa cambiarÃ¡ a la calidad automÃ¡tica y advertirÃ¡ de ello, un retraso en el reproductor es, por ejemplo, cuando el reproductor es incapaz de jugar durante mÃ¡s de 15 segundos (el algoritmo es mÃ¡s complejo que el tiempo, por supuesto), despuÃ©s de este cambio, el reproductor volverÃ¡ automÃ¡ticamente a la fuente cuando se inicie un nuevo flujo de vod.';
+        'Cuando esta opción está activada y no se utiliza la calidad automática, si el reproductor se retrasa cambiará a la calidad automática y advertirá de ello, un retraso en el reproductor es, por ejemplo, cuando el reproductor es incapaz de jugar durante más de 15 segundos (el algoritmo es más complejo que el tiempo, por supuesto), después de este cambio, el reproductor volverá automáticamente a la fuente cuando se inicie un nuevo flujo de vod.';
     STR_CHAT_WRITE = 'Escribir para chatear';
     STR_CHAT_EXTRA = 'Ajustes adicionales del chat';
     STR_CHAT_ROOMSTATE = 'Chat ROOMSTATE:';
     STR_CHAT_NO_RESTRICTIONS = 'Sin restricciones';
     STR_OPTIONS = 'Opciones';
     STR_CHAT_DELL_ALL = 'Borrar todo';
-    STR_CHAT_FOLLOWER_ONLY = 'El chat estÃ¡ en modo "Solo seguidores", y usted no es un seguidor de';
-    STR_CHAT_FOLLOWER_ONLY_USER_TIME = 'y sÃ³lo estÃ¡is siguiendo para';
+    STR_CHAT_FOLLOWER_ONLY = 'El chat está en modo "Solo seguidores", y usted no es un seguidor de';
+    STR_CHAT_FOLLOWER_ONLY_USER_TIME = 'y sólo estáis siguiendo para';
     STR_CHAT_EMOTE_ONLY = 'Modo Twitch solo Emote';
     STR_CHAT_CHOOSE = 'Elija el chat al que desea escribir o pulse Retorno para cerrarlo';
-    STR_NOKEY_CHAT_WARN = 'AÃ±adir una clave de autorizaciÃ³n de usuario para poder registrar y escribir en el chat';
-    STR_CHAT_NOT_READY = 'El chat no estÃ¡ listo para ser enviado. IntÃ©ntelo de nuevo en uno o dos segundos.';
+    STR_NOKEY_CHAT_WARN = 'Añadir una clave de autorización de usuario para poder registrar y escribir en el chat';
+    STR_CHAT_NOT_READY = 'El chat no está listo para ser enviado. Inténtelo de nuevo en uno o dos segundos.';
     STR_CHAT_FIRST_MESSAGE_HIGH = 'PRIMER MENSAJE';
     STR_CHAT_OPTIONS = 'Opciones del chat';
-    STR_CHAT_HIGHLIGHT_REDEEMED = 'Resaltar los mensajes de recompensa (sÃ³lo el mensaje de fondo pÃºrpura)';
+    STR_CHAT_HIGHLIGHT_REDEEMED = 'Resaltar los mensajes de recompensa (sólo el mensaje de fondo púrpura)';
     STR_CHAT_HIGHLIGHT_FIRST = 'Resaltar Primer Usuario en el Chat (Fondo rosa oscuro)';
     STR_CHAT_HIGHLIGHT_STREAMER = 'Resaltar los mensajes de @streamer (fondo rojo oscuro, la @ es azul)';
     STR_CHAT_HIGHLIGHT_USER = 'Resalte sus mensajes de @nombredeusuario (fondo verde oscuro, la @ es azul)';
@@ -2840,38 +2853,38 @@ function es_ESLang() {
     STR_CHAT_HIGHLIGHT_BIT = 'Mostrar mensaje de bits (fondo amarillo oscuro)';
     STR_CHAT_HIGHLIGHT_ACTIONS = 'Mostrar mensajes de Acciones (normalmente son de Bots de flujo)';
     STR_CHAT_HIGHLIGHT_ACTIONS_SUMMARY =
-        'Estos mensajes suelen ser iguales a los mensajes Sub, pero enviados a travÃ©s de un bot de flujo, por lo que si usted tiene "Mostrar sub..." activar esto es redundante';
+        'Estos mensajes suelen ser iguales a los mensajes Sub, pero enviados a través de un bot de flujo, por lo que si usted tiene "Mostrar sub..." activar esto es redundante';
     STR_CHAT_INDIVIDUAL_BACKGROUND = 'Diferencia de color de fondo de los mensajes individuales';
     STR_CHAT_INDIVIDUAL_BACKGROUND_SUMMARY =
-        'Los modos son deshabilitar, habilitar (modo automÃ¡tico), brillante o mÃ¡s oscuro, En el modo automÃ¡tico si el chat estÃ¡ por encima de la corriente que el mensaje impar tendrÃ¡ un color de acento de fondo mÃ¡s oscuro de la par, si el chat no estÃ¡ por encima (lado a lado, por ejemplo) el color serÃ¡ claro';
-    STR_CHAT_INDIVIDUAL_LINE = 'Insertar una lÃ­nea para separar los mensajes de chat individuales';
-    STR_CHAT_LOGGING = 'Iniciar sesiÃ³n en el chat con el usuario actual';
+        'Los modos son deshabilitar, habilitar (modo automático), brillante o más oscuro, En el modo automático si el chat está por encima de la corriente que el mensaje impar tendrá un color de acento de fondo más oscuro de la par, si el chat no está por encima (lado a lado, por ejemplo) el color será claro';
+    STR_CHAT_INDIVIDUAL_LINE = 'Insertar una línea para separar los mensajes de chat individuales';
+    STR_CHAT_LOGGING = 'Iniciar sesión en el chat con el usuario actual';
     STR_CHAT_LOGGING_SUMMARY =
-        'La aplicaciÃ³n siempre iniciarÃ¡ sesiÃ³n en el chat con el usuario actual cuando se proporcione una clave de autorizaciÃ³n, a menos que el chat estÃ© desactivado en los controles inferiores del reproductor, pero si esta opciÃ³n estÃ¡ configurada en NO, evitarÃ¡ el inicio de sesiÃ³n con el nombre de usuario actual y en su lugar, iniciarÃ¡ sesiÃ³n como anÃ³nimo, incluso proporcionando una clave de autorizaciÃ³n. Esto no evita que se envÃ­e un mensaje de chat para este usuario si se agrega una clave, pero evita que se sepa si estÃ¡ prohibido en el chat y evita que se conozca el estado del chat ROOMSTATE';
+        'La aplicación siempre iniciará sesión en el chat con el usuario actual cuando se proporcione una clave de autorización, a menos que el chat esté desactivado en los controles inferiores del reproductor, pero si esta opción está configurada en NO, evitará el inicio de sesión con el nombre de usuario actual y en su lugar, iniciará sesión como anónimo, incluso proporcionando una clave de autorización. Esto no evita que se envíe un mensaje de chat para este usuario si se agrega una clave, pero evita que se sepa si está prohibido en el chat y evita que se conozca el estado del chat ROOMSTATE';
     STR_CHAT_TIMESTAMP = 'Mostrar la marca de tiempo del mensaje';
-    STR_CHAT_USER_NOTICE = 'Mostrar advertencia de notificaciÃ³n indirecta en el chat';
+    STR_CHAT_USER_NOTICE = 'Mostrar advertencia de notificación indirecta en el chat';
     STR_CHAT_USER_NOTICE_SUMMARY =
-        'Mostrar una advertencia en pantalla cuando el chat reciba una notificaciÃ³n indirecta. Ej.: Chat: Esta sala ahora estÃ¡ en modo solo emoticonos.';
+        'Mostrar una advertencia en pantalla cuando el chat reciba una notificación indirecta. Ej.: Chat: Esta sala ahora está en modo solo emoticonos.';
     STR_CHAT_NICK_COLOR = 'Colores de nick legibles';
     STR_CHAT_NICK_COLOR_SUMMARY =
-        'En lugar de usar el color de nick predeterminado que algunas veces no se puede leer sobre un fondo oscuro, use un color personalizado fÃ¡cil de ver';
+        'En lugar de usar el color de nick predeterminado que algunas veces no se puede leer sobre un fondo oscuro, use un color personalizado fácil de ver';
     STR_CHAT_CLEAR_MSG = 'Limpiar el chat, eliminar los mensajes del usuario';
     STR_CHAT_SHOW_BADGES = 'Mostrar insignias de usuarios (excepto las siguientes)';
     STR_CHAT_SHOW_BADGES_MOD = 'Mostrar insignias de moderadores';
     STR_CHAT_SHOW_BADGES_VIP = 'Mostrar insignias VIP';
     STR_CHAT_SHOW_BADGES_SHARED = 'Mostrar insignias del chat compartido';
-    STR_CHAT_MESSAGE_DELETED = 'Se solicitÃ³ la eliminaciÃ³n de este mensaje de usuario Ãºnico';
-    STR_CHAT_MESSAGE_DELETED_ALL = 'Se solicitÃ³ la eliminaciÃ³n de todos los mensajes de este usuario';
+    STR_CHAT_MESSAGE_DELETED = 'Se solicitó la eliminación de este mensaje de usuario único';
+    STR_CHAT_MESSAGE_DELETED_ALL = 'Se solicitó la eliminación de todos los mensajes de este usuario';
     STR_CHAT_CLEAR_MSG_SUMMARY =
-        'Borrar los mensajes de chat de un usuario especÃ­fico (tÃ­picamente despuÃ©s de haber recibido un tiempo de espera o un baneo), los mensajes borrados siempre tendrÃ¡n un fondo azul, el mensaje serÃ¡ borrado si esto se establece en sÃ­, si no sÃ³lo el color de fondo cambiarÃ¡';
-    STR_OPEN_HOST_SETTINGS = 'Siempre abra el host en un extremo de la transmisiÃ³n si estÃ¡ disponible';
-    STR_ALWAYS_STAY = 'Permanecer siempre con el reproductor abierto despuÃ©s de un final en directo';
+        'Borrar los mensajes de chat de un usuario específico (típicamente después de haber recibido un tiempo de espera o un baneo), los mensajes borrados siempre tendrán un fondo azul, el mensaje será borrado si esto se establece en sí, si no sólo el color de fondo cambiará';
+    STR_OPEN_HOST_SETTINGS = 'Siempre abra el host en un extremo de la transmisión si está disponible';
+    STR_ALWAYS_STAY = 'Permanecer siempre con el reproductor abierto después de un final en directo';
     STR_PING_WARNING = 'Mostrar "Aviso de fallo de ping a Twitch""';
     STR_PING_WARNING_SUMMARY =
-        'La aplicaciÃ³n estÃ¡ constantemente comprobando la conexiÃ³n con Twitch a travÃ©s de un ping, si eso falla demasiado se mostrarÃ¡ una advertencia, si esa advertencia se muestra involuntariamente establece esto en NO';
+        'La aplicación está constantemente comprobando la conexión con Twitch a través de un ping, si eso falla demasiado se mostrará una advertencia, si esa advertencia se muestra involuntariamente establece esto en NO';
     STR_KEY_UP_TIMEOUT = 'Tiempo de espera de la tecla (en milisegundos)';
     STR_KEY_UP_TIMEOUT_SUMMARY =
-        'CuÃ¡nto tiempo hay que mantener una tecla para que ocurra una acciÃ³n de retenciÃ³n, las acciones son refrescar una pantalla, mostrar opciones de miniaturas, etc.';
+        'Cuánto tiempo hay que mantener una tecla para que ocurra una acción de retención, las acciones son refrescar una pantalla, mostrar opciones de miniaturas, etc.';
     STR_THUMB_STYLE = 'Estilo de miniatura seleccionado';
     STR_OPEN_EXTERNAL_PLAYER = 'Abrir en un reproductor externo';
     STR_CHAT_BASE_ARRAY = [
@@ -2885,42 +2898,42 @@ function es_ESLang() {
         'Centro abajo'
     ];
     STR_CHAT_100_ARRAY = ['Derecha", "Centro", "Izquierda'];
-    STR_NOTIFICATION_POS = 'PosiciÃ³n de la notificaciÃ³n en la pantalla';
+    STR_NOTIFICATION_POS = 'Posición de la notificación en la pantalla';
     STR_NOTIFICATION_POS_ARRAY = [
         'Arriba a la derecha", "Arriba al centro", "Arriba a la izquierda", "Abajo a la izquierda", "Abajo al centro", "Abajo a la derecha'
     ];
-    STR_LOWLATENCY_ARRAY = [STR_DISABLE, 'Modo normal, puede provocar re-buffers', 'El modo mÃ¡s bajo, puede causar aÃºn mÃ¡s re-buffers'];
-    STR_VOD_SEEK = 'Controles de avance/retroceso rÃ¡pido de VOD';
+    STR_LOWLATENCY_ARRAY = [STR_DISABLE, 'Modo normal, puede provocar re-buffers', 'El modo más bajo, puede causar aún más re-buffers'];
+    STR_VOD_SEEK = 'Controles de avance/retroceso rápido de VOD';
     STR_VOD_SEEK_SUMMARY =
-        'Controla la velocidad de los pasos hacia atrÃ¡s/adelante, al pulsar y mantener pulsada la tecla izquierda/derecha el tiempo de paso aumentarÃ¡ despuÃ©s de que el tiempo de aumento haya pasado, aumentarÃ¡ hasta el tiempo de paso mÃ¡ximo, despuÃ©s de soltar la tecla y no hacer clic durante un segundo el tiempo de paso se restablecerÃ¡ al tiempo de paso mÃ­nimo. <br><br>Pulsando arriba se sobreescribirÃ¡ el valor mim/mÃ¡ximo permitiÃ©ndole pasar por todos los pasos posibles y bloquearÃ¡ el valor hasta que la barra de progreso sea descartada<br><br>Haciendo clics simples sin mantener la tecla no se incrementarÃ¡ el tiempo<br><br>Estas opciones sÃ³lo funcionan en VODs para Clip el paso es siempre de 1 segundo';
-    STR_VOD_SEEK_MIN = 'Tiempo de paso mÃ­nimo (inicial)';
-    STR_VOD_SEEK_MAX = 'Tiempo mÃ¡ximo de paso';
-    STR_VOD_SEEK_TIME = 'Aumentar el tiempo de espera despuÃ©s de mantener';
+        'Controla la velocidad de los pasos hacia atrás/adelante, al pulsar y mantener pulsada la tecla izquierda/derecha el tiempo de paso aumentará después de que el tiempo de aumento haya pasado, aumentará hasta el tiempo de paso máximo, después de soltar la tecla y no hacer clic durante un segundo el tiempo de paso se restablecerá al tiempo de paso mínimo. <br><br>Pulsando arriba se sobreescribirá el valor mim/máximo permitiéndole pasar por todos los pasos posibles y bloqueará el valor hasta que la barra de progreso sea descartada<br><br>Haciendo clics simples sin mantener la tecla no se incrementará el tiempo<br><br>Estas opciones sólo funcionan en VODs para Clip el paso es siempre de 1 segundo';
+    STR_VOD_SEEK_MIN = 'Tiempo de paso mínimo (inicial)';
+    STR_VOD_SEEK_MAX = 'Tiempo máximo de paso';
+    STR_VOD_SEEK_TIME = 'Aumentar el tiempo de espera después de mantener';
     STR_UP_LOCKED = 'pulse arriba para bloquear el valor del paso';
     STR_LOCKED = 'bloqueado pulse arriba para cambiar';
     STR_IN_CHAT = 'En el chat';
     STR_IN_SHARED_CHAT = 'En Chat Compartido';
     STR_SHOW_IN_CHAT = 'Mostrar el total de usuarios conectados en la parte superior del chat o de los espectadores';
     STR_SHOW_IN_CHAT_SUMMARY =
-        'Esto es muy Ãºtil para saber, por ejemplo, si el chat fuera de lÃ­nea tiene algÃºn usuario con el que hablar, tambiÃ©n permite al usuario saber la diferencia de espectador total VS usuario total del chat';
+        'Esto es muy útil para saber, por ejemplo, si el chat fuera de línea tiene algún usuario con el que hablar, también permite al usuario saber la diferencia de espectador total VS usuario total del chat';
     STR_SHOW_IN_CHAT_VIEWERS = 'Mostrar a los espectadores';
     STR_SHOW_IN_CHAT_CHATTERS = 'Mostrar los chats';
     STR_HIDE_MAIN_CLOCK = 'Ocultar el reloj de la pantalla principal';
     STR_HIDE_PLAYER_CLOCK = 'Ocultar el reloj en el reproductor';
-    STR_HIDE_MAIN_SCREEN_TITLE = 'Ocultar el tÃ­tulo de la pantalla principal';
-    STR_HIDE_MAIN_SCREEN_TITLE_SUMMARY = 'El tÃ­tulo del centro, Directo, Clip, Ajustes, etc...';
-    STR_HIDE_ETC_HELP_INFO = 'Ocultar los consejos de navegaciÃ³n en pantalla';
-    STR_HIDE_ETC_HELP_INFO_SUMMARY = 'Consejos de navegaciÃ³n como, mantener una tecla para una acciÃ³n y relacionada';
-    STR_INACTIVE_SETTINGS = 'Minimizar automÃ¡ticamente la aplicaciÃ³n cuando estÃ¡ inactiva';
+    STR_HIDE_MAIN_SCREEN_TITLE = 'Ocultar el título de la pantalla principal';
+    STR_HIDE_MAIN_SCREEN_TITLE_SUMMARY = 'El título del centro, Directo, Clip, Ajustes, etc...';
+    STR_HIDE_ETC_HELP_INFO = 'Ocultar los consejos de navegación en pantalla';
+    STR_HIDE_ETC_HELP_INFO_SUMMARY = 'Consejos de navegación como, mantener una tecla para una acción y relacionada';
+    STR_INACTIVE_SETTINGS = 'Minimizar automáticamente la aplicación cuando está inactiva';
     STR_INACTIVE_SETTINGS_SUMMARY =
-        'Evita que la aplicaciÃ³n se ejecute cuando no se estÃ¡ utilizando, se mostrarÃ¡ una advertencia dando al usuario 15 segundos para presionar cualquier tecla para evitar la minimizaciÃ³n';
+        'Evita que la aplicación se ejecute cuando no se está utilizando, se mostrará una advertencia dando al usuario 15 segundos para presionar cualquier tecla para evitar la minimización';
     STR_PLAYER_INFO_VISIBILITY = 'Visibilidad del estado del reproductor';
     STR_PREVIEW_SET = 'Ajustes de la vista previa';
     STR_PREVIEW_SHOW = 'Mostrar vista previa';
-    STR_PREVIEW_SIZE_CONTROLS = 'TamaÃ±o de la vista previa';
-    STR_OLED_BURN_IN = 'ProtecciÃ³n contra quemaduras de OLED';
+    STR_PREVIEW_SIZE_CONTROLS = 'Tamaño de la vista previa';
+    STR_OLED_BURN_IN = 'Protección contra quemaduras de OLED';
     STR_OLED_BURN_IN_SUMMARY =
-        'Cuando esta opciÃ³n estÃ¡ activada, la pantalla se volverÃ¡ completamente negra durante 50 a 20 minutos, sÃ³lo es necesario para los dispositivos con pantallas OLED que tienen problemas de quemaduras';
+        'Cuando esta opción está activada, la pantalla se volverá completamente negra durante 50 a 20 minutos, sólo es necesario para los dispositivos con pantallas OLED que tienen problemas de quemaduras';
     STR_MILLISECONDS = 'milisegundos';
     STR_HOUR = 'hora';
     STR_HOURS = 'horas';
@@ -2929,90 +2942,91 @@ function es_ESLang() {
     STR_TOP = 'Arriba';
     STR_AVG = 'Avg';
 
-    STR_LOAD_ALL_LANG = 'Cambiar automÃ¡ticamente el contenido al idioma "Todos"';
+    STR_LOAD_ALL_LANG = 'Cambiar automáticamente el contenido al idioma "Todos"';
     STR_LOAD_ALL_LANG_SUMMARY =
-        'Cambiar automÃ¡ticamente al idioma "Todos" cuando el idioma actual no tiene contenido. Solo se aplica a la pantalla de "sin contenido" y a algunas pantallas especÃ­ficas (Juegos y PÃ¡gina Principal).';
-    STR_LOAD_ALL_LANG_WARNING = STR_LOAD_ALL_LANG + ' debido al contenido vacÃ­o';
+        'Cambiar automáticamente al idioma "Todos" cuando el idioma actual no tiene contenido. Solo se aplica a la pantalla de "sin contenido" y a algunas pantallas específicas (Juegos y Página Principal).';
+    STR_LOAD_ALL_LANG_WARNING = STR_LOAD_ALL_LANG + ' debido al contenido vacío';
 
     STR_DISABLE_SHARED_CHAT = 'Desactivar chat compartido';
-    STR_DISABLE_SHARED_CHAT_SUMMARY = 'Si se establece en "sÃ­", solo mostrarÃ¡ los mensajes del chat del stream que abriste';
+    STR_DISABLE_SHARED_CHAT_SUMMARY = 'Si se establece en "sí", solo mostrará los mensajes del chat del stream que abriste';
 
-    STR_PLAYER_EXTRA_CODEC = 'TransmisiÃ³n Mejorada: soporte para HEVC, AV1, 1440p y 4K';
+    STR_PLAYER_EXTRA_CODEC = 'Transmisión Mejorada: soporte para HEVC, AV1, 1440p y 4K';
     STR_PLAYER_EXTRA_CODEC_SUMMARY =
-        'La mayorÃ­a de las transmisiones usan AVC (H.264) hasta 1080p60; HEVC/AV1 permite 1440p, 4K y mÃ¡s de 60fps cuando estÃ¡ disponible (No todas las transmisiones son compatibles, depende de que el streamer lo habilite y que Twitch lo ofrezca en tu regiÃ³n).';
+        'La mayoría de las transmisiones usan AVC (H.264) hasta 1080p60; HEVC/AV1 permite 1440p, 4K y más de 60fps cuando está disponible (No todas las transmisiones son compatibles, depende de que el streamer lo habilite y que Twitch lo ofrezca en tu región).';
     STR_PLAYER_EXTRA_CODEC_SUMMARY1 =
-        'Esta funciÃ³n solo funciona para usuarios con sesiÃ³n iniciada. No todas las transmisiones son compatibles â€” depende de que el streamer lo habilite y que Twitch lo ofrezca en tu regiÃ³n.';
+        'Esta función solo funciona para usuarios con sesión iniciada. No todas las transmisiones son compatibles — depende de que el streamer lo habilite y que Twitch lo ofrezca en tu región.';
 
     STR_PLAYER_EXTRA_CODEC_SUMMARY_EXTRA =
-        'La aplicaciÃ³n verifica si tu dispositivo es compatible con HEVC o AV1 para transmisiones de mayor calidad.';
+        'La aplicación verifica si tu dispositivo es compatible con HEVC o AV1 para transmisiones de mayor calidad.';
 
     STR_PLAYER_EXTRA_CODEC_SUMMARY_EXTRA2 =
-        'Sin compatibilidad en el dispositivo, la reproducciÃ³n serÃ¡ limitada y puede que no funcione en transmisiones mejoradas.';
+        'Sin compatibilidad en el dispositivo, la reproducción será limitada y puede que no funcione en transmisiones mejoradas.';
 
     STR_PLAYER_CODEC_AV1 = 'AV1';
     STR_PLAYER_CODEC_HEVC = 'HEVC';
 
     STR_PLAYER_CODEC_SUPPORTED = 'dispositivo compatible';
-    STR_PLAYER_CODEC_NOT_SUPPORTED = 'Â¡Dispositivo no compatible! Activar este cÃ³dec puede causar errores de reproducciÃ³n.';
+    STR_PLAYER_CODEC_NOT_SUPPORTED = '¡Dispositivo no compatible! Activar este códec puede causar errores de reproducción.';
 
-    STR_PLAYER_EXTRA_CODEC_SUMMARY_EXTRA3 = 'Para comprender mejor las capacidades del dispositivo, revisa la opciÃ³n de configuraciÃ³n: ';
+    STR_PLAYER_EXTRA_CODEC_SUMMARY_EXTRA3 = 'Para comprender mejor las capacidades del dispositivo, revisa la opción de configuración: ';
 
     STR_BACKUP_ACCOUNT_REMOVE = 'Eliminar cuenta de Google Drive';
-    STR_BACKUP_ACCOUNT_ADD = 'AÃ±adir cuenta de Google Drive para copia de seguridad';
-    STR_BACKUP_ACCOUNT_ADD_SUMMARY = 'Para restaurar una copia de seguridad, agrega una cuenta y la aplicaciÃ³n te mostrarÃ¡ las opciones disponibles.';
+    STR_BACKUP_ACCOUNT_ADD = 'Añadir cuenta de Google Drive para copia de seguridad';
+    STR_BACKUP_ACCOUNT_ADD_SUMMARY = 'Para restaurar una copia de seguridad, agrega una cuenta y la aplicación te mostrará las opciones disponibles.';
 
-    STR_BACKUP_ACCOUNT_DIALOG_TITLE = 'Cuenta de Google Drive aÃ±adida';
-    STR_BACKUP_ACCOUNT_DIALOG_BODY = 'Recuperando informaciÃ³n de la API, por favor espera...';
+    STR_BACKUP_ACCOUNT_DIALOG_TITLE = 'Cuenta de Google Drive añadida';
+    STR_BACKUP_ACCOUNT_DIALOG_BODY = 'Recuperando información de la API, por favor espera...';
     STR_BACKUP_ACCOUNT_DIALOG_CODE_FAIL = 'Acceso denegado';
-    STR_BACKUP_ACCOUNT_DIALOG_CODE_SUCCESS = 'Acceso exitoso, espere mientras la aplicaciÃ³n verifica...';
+    STR_BACKUP_ACCOUNT_DIALOG_CODE_SUCCESS = 'Acceso exitoso, espere mientras la aplicación verifica...';
 
-    STR_BACKUP_ACCOUNT_DIALOG_CODE_SUCCESS_END = 'La aplicaciÃ³n restaurarÃ¡ y cerrarÃ¡ este diÃ¡logo en breve';
-    STR_BACKUP_NO_BACKUP_FOUND = 'No se encontrÃ³ copia de seguridad previa, copia de seguridad creada con Ã©xito';
+    STR_BACKUP_ACCOUNT_DIALOG_CODE_SUCCESS_END = 'La aplicación restaurará y cerrará este diálogo en breve';
+    STR_BACKUP_NO_BACKUP_FOUND = 'No se encontró copia de seguridad previa, copia de seguridad creada con éxito';
     STR_BACKUP_ACCOUNT_REFRESH_ERROR =
-        'Â¡Se perdiÃ³ el acceso a la cuenta de Copia de seguridad y SincronizaciÃ³n, cuenta de copia de seguridad eliminada!';
+        '¡Se perdió el acceso a la cuenta de Copia de seguridad y Sincronización, cuenta de copia de seguridad eliminada!';
 
-    STR_BACKUP_SIZE = 'TamaÃ±o de la copia de seguridad:';
+    STR_BACKUP_SIZE = 'Tamaño de la copia de seguridad:';
     STR_BACKUP_NAME = 'Nombre de la copia de seguridad:';
-    STR_BACKUP_SYNC = 'SincronizaciÃ³n, Copia de seguridad y RestauraciÃ³n';
+    STR_BACKUP_SYNC = 'Sincronización, Copia de seguridad y Restauración';
     STR_BACKUP_SYNC_SUMMARY =
-        'La aplicaciÃ³n podrÃ¡ ver, crear, editar y eliminar solo los archivos especÃ­ficos de Google Drive que crea, NO podrÃ¡ ver, modificar o eliminar ningÃºn otro archivo en su Google Drive.' +
+        'La aplicación podrá ver, crear, editar y eliminar solo los archivos específicos de Google Drive que crea, NO podrá ver, modificar o eliminar ningún otro archivo en su Google Drive.' +
         '<br><br>' +
-        'TambiÃ©n podrÃ¡ leer su direcciÃ³n de correo electrÃ³nico e imagen de perfil para mostrar la cuenta activa actualmente. Esta informaciÃ³n solo se mostrarÃ¡ y NO se modificarÃ¡.';
+        'También podrá leer su dirección de correo electrónico e imagen de perfil para mostrar la cuenta activa actualmente. Esta información solo se mostrará y NO se modificará.';
 
-    STR_BACKUP_USER_INFO = '(InformaciÃ³n del usuario: Usuarios, historial, bloqueados y configuraciÃ³n)';
+    STR_BACKUP_USER_INFO = '(Información del usuario: Usuarios, historial, bloqueados y configuración)';
 
     STR_BACKUP_SYNC_USER = 'Sincronizar usuarios';
     STR_BACKUP_SYNC_HISTORY = 'Sincronizar el historial y la lista de bloqueados de los usuarios.';
-    STR_BACKUP_SYNC_SETTINGS = 'Sincronizar configuraciÃ³n';
+    STR_BACKUP_SYNC_SETTINGS = 'Sincronizar configuración';
     STR_BACKUP_RESTORE_USER = 'Restaurar usuarios';
     STR_BACKUP_RESTORE_HISTORY = 'Restaurar historial y lista de bloqueados de los usuarios.';
-    STR_BACKUP_RESTORE_SETTINGS = 'Restaurar configuraciÃ³n';
+    STR_BACKUP_RESTORE_SETTINGS = 'Restaurar configuración';
     STR_BACKUP_RESTORE_SUMMARY =
-        'Si tienes problemas despuÃ©s de restaurar, intenta borrar los datos de la aplicaciÃ³n y restaurar omitiendo una de las opciones.';
+        'Si tienes problemas después de restaurar, intenta borrar los datos de la aplicación y restaurar omitiendo una de las opciones.';
 
     STR_BACKUP_SYNC_SETTINGS_SUMMARY =
-        'La copia de seguridad tiene solo un conjunto de configuraciones unificadas para todos sus dispositivos. Cualquier cambio que realice se aplicarÃ¡ en sus otros dispositivos la prÃ³xima vez que abra la aplicaciÃ³n.'; // New line to add
+        'La copia de seguridad tiene solo un conjunto de configuraciones unificadas para todos sus dispositivos. Cualquier cambio que realice se aplicará en sus otros dispositivos la próxima vez que abra la aplicación.'; // New line to add
     STR_BACKUP_SYNC_RESTORE = 'Copia de seguridad encontrada';
-    STR_BACKUP_SYNC_RESTORE_SUMMARY = 'Copia de seguridad encontrada. Elige quÃ© restaurar ahora, luego presiona Return o Enter para confirmar.';
-    STR_BACKUP_SYNC_RESTORE_SUCCESS = 'Â¡RestauraciÃ³n exitosa!';
+    STR_BACKUP_SYNC_RESTORE_SUMMARY = 'Copia de seguridad encontrada. Elige qué restaurar ahora, luego presiona Return o Enter para confirmar.';
+    STR_BACKUP_SYNC_RESTORE_SUCCESS = '¡Restauración exitosa!';
     STR_BACKUP_RESTORE_FAIL = 'Error al restaurar la copia de seguridad';
 
     STR_BACKUP_ENABLE = 'Habilitar copia de seguridad';
     STR_BACKUP_ENABLE_SUMMARY =
-        'Si se establece en SÃ, la aplicaciÃ³n mantendrÃ¡ una copia de seguridad de toda la informaciÃ³n del usuario ' + STR_BACKUP_USER_INFO;
+        'Si se establece en SÍ, la aplicación mantendrá una copia de seguridad de toda la información del usuario ' + STR_BACKUP_USER_INFO;
 
-    STR_BACKUP_SYNC_ENABLE = 'Habilitar sincronizaciÃ³n';
+    STR_BACKUP_SYNC_ENABLE = 'Habilitar sincronización';
     STR_BACKUP_SYNC_ENABLE_SUMMARY =
-        'Si se establece en SÃ, la aplicaciÃ³n sincronizarÃ¡ automÃ¡ticamente la informaciÃ³n del usuario entre dispositivos';
+        'Si se establece en SÍ, la aplicación sincronizará automáticamente la información del usuario entre dispositivos';
     STR_OPEN_REWIND = 'Abrir retroceso';
     STR_OPEN_REWIND_SUMMARY = 'Abrir el VOD con retroceso completo';
     STR_OPEN_REWIND_FAIL = 'Sin retroceso para esta transmisión en vivo';
+
     STR_EXPORT_LOGS = 'Exportar logs del proxy';
     STR_PROXY_LOGS_EMPTY = 'No hay logs del proxy para exportar';
 }
 
 /*
- * Copyright (c) 2017â€“present Felipe de Leon <fglfgl27@gmail.com>
+ * Copyright (c) 2017–present Felipe de Leon <fglfgl27@gmail.com>
  *
  * This file is part of SmartTwitchTV <https://github.com/fgl27/SmartTwitchTV>
  *
@@ -3031,4925 +3045,67 @@ function es_ESLang() {
  *
  */
 
-//Spacing for release maker not trow errors from jshint
-function fr_FRLang() {
-    // This is a false/true var change if day comes first in your language eg (27/12/2010) day 27 month 12 year 2010
-    //Then copy this and set it to true, if doesn't don't copy it
-    Main_IsDayFirst = true;
+//https://developer.android.com/reference/android/view/KeyEvent
+//overwrite from java dispatchKeyEvent()
+var KEY_PAUSE = 83; //overwrite key S = stop because p = play
+var KEY_PLAY = 80; //overwrite key P = play
 
-    // This is the size of side pannel a adjustments may be needed here so it can fit all words in the horizontal axis
-    // If it need ajustment or yours language just copy the below line and change it value until it does
-    Sidepannel_MoveldefaultMargin = 14.5;
+var KEY_STOP = 178;
+var KEY_PLAYPAUSE = 179;
 
-    //Below are variables to translate
-    STR_NUMBER_SEPARATOR = 'â€¯';
-    STR_KEY_UP_DOWN = 'Pg prÃ©c/suiv';
-    STR_KEY_MEDIA_FF = 'ou la touche mÃ©dia avance/retour rapide';
-    STR_GUIDE_EXTRA = 'ou appuyez sur la touche 2';
-    STR_GUIDE_EXTRA2 = 'ou touche mÃ©dia piste suivante';
-    STR_REFRESH = 'Actualiser';
-    STR_SEARCH = 'Rechercher';
-    STR_SETTINGS = 'ParamÃ¨tres';
-    STR_CONTROLS = 'Commandes';
-    STR_ABOUT = 'Ã€ propos';
-    STR_HIDE = 'Masquer';
-    STR_SEARCH_EMPTY = 'Vous avez saisi une recherche vide';
-    STR_SEARCH_RESULT_EMPTY = 'Aucun rÃ©sultat trouvÃ©';
-    STR_SWITCH = "Changer d'Ã©cran";
-    STR_SWITCH_USER = "Changer d'Ã©cran utilisateur";
-    STR_SWITCH_VOD = 'Changer : VOD ou temps forts';
-    STR_SWITCH_CLIP = 'Changer : PÃ©riode (24 h, 7 j, 30 j, tout)';
-    STR_GO_TO = "Aller Ã  l'Ã©cran";
-    STR_USER = 'Utilisateur';
-    STR_GAMES = 'Jeux';
-    STR_PLAYING = 'Joue Ã ';
-    STR_FOR = 'pour';
-    STR_WATCHING = 'Temps de visionnage';
-    STR_WAITING = "Temps d'attente";
-    STR_SINCE = 'Depuis';
-    STR_AGAME = 'Un jeu';
-    STR_PLACEHOLDER_PASS = 'Entrez votre mot de passe...';
-    STR_PLACEHOLDER_SEARCH = 'Entrez votre recherche...';
-    STR_PLACEHOLDER_OAUTH = "Entrez votre clÃ© d'autorisation...";
-    STR_PLACEHOLDER_USER = "Entrez votre nom d'utilisateur puis appuyez sur OK...";
-    STR_PLACEHOLDER_PRESS = 'Appuyez sur OK ou SÃ©lectionner pour';
-    STR_CHANNELS = 'ChaÃ®nes';
-    STR_CHANNEL = 'ChaÃ®ne';
-    STR_GOBACK_START = "Revenir Ã  l'Ã©cran prÃ©cÃ©dent : appuyez sur Retour";
-    STR_IS_OFFLINE = "s'est terminÃ©";
-    STR_CHECK_HOST = ", vÃ©rification de l'hÃ´te";
-    STR_IS_SUB_ONLY = 'Cette vidÃ©o est rÃ©servÃ©e aux abonnÃ©s';
-    STR_IS_SUB_ONLY_ERROR = 'est un contenu rÃ©servÃ© aux abonnÃ©s.';
-    STR_NOKEY_GENERAL_WARN =
-        ", allez dans le panneau latÃ©ral (option du haut) Ajouter un utilisateur ou Utilisateur : changer, ajouter, clÃ©, appuyez sur OK sur l'utilisateur";
-    STR_REFRESH_PROBLEM = "Ã‰chec de la connexion ou aucun contenu disponible. Essayez d'actualiser";
-    STR_REFRESH_PROBLEM_ENTER = "Ã‰chec de la connexion ou aucun contenu disponible. Essayez d'actualiser.";
-    STR_REFRESH_PROBLEM_ENTER_LANG =
-        'Ã‰chec de la connexion ou aucun contenu pour cette langue. Changez la langue du contenu (maintenez Gauche) ou appuyez sur OK pour actualiser';
-    STR_NO = 'Non';
-    STR_FOR_THIS = 'pour ceci';
-    STR_PLAYER_PROBLEM = 'Ã‰chec de la connexion, impossible de charger la vidÃ©o, fermeture...';
-    STR_VODS = 'VOD';
-    STR_HIGHLIGHTS = 'Temps forts';
-    STR_CONTENT = 'Contenu';
-    STR_STREAM_ON = 'En live le';
-    STR_DURATION = 'DurÃ©e';
-    STR_VIEW = 'Vue';
-    STR_VIEWS = 'Vues';
-    STR_VIEWER = 'Spectateur';
-    STR_VIEWERS = 'Spectateurs';
-    STR_EXIT_AGAIN = 'Appuyez Ã  nouveau pour quitter';
-    STR_EXIT_AGAIN_PICTURE = 'Appuyez Ã  nouveau pour quitter le mode picture-in-picture';
-    STR_EXIT_AGAIN_MULTI = 'Appuyez Ã  nouveau pour quitter le mode multistream';
-    STR_EXIT_MESSAGE = 'Voulez-vous vraiment quitter SmartTV Client for Twitch ?';
-    STR_EXIT = 'Quitter';
-    STR_CHANGELOG = 'Journal des modifications';
-    STR_FULL_CHANGELOG = 'Journal complet des modifications';
-    STR_CHANGELOG_SUMMARY = 'Voici les derniÃ¨res modifications. Pour la liste complÃ¨te, consultez le lien ci-dessous :';
-    STR_UPDATE = 'Cliquer pour mettre Ã  jour';
-    STR_UPDATE_CHECK = 'Rechercher des mises Ã  jour';
-    STR_UPDATE_CHECKING = 'Recherche de mises Ã  jour...';
-    STR_UPDATE_CHECKING_FAIL = 'Ã‰chec de la vÃ©rification des mises Ã  jour';
-    STR_NO_UPDATES = "L'application est Ã  jour";
-    STR_UPDATE_CHANGELOG = 'Mises Ã  jour et journal des modifications';
-    STR_UPDATE_LATEST = 'DerniÃ¨re modification :';
-    STR_UPDATE_FAIL = 'Ã‰chec du processus de mise Ã  jour, veuillez essayer manuellement !';
-    STR_UPDATE_FAIL_DOWNLOAD = 'Ã‰chec du tÃ©lÃ©chargement de la mise Ã  jour. Veuillez essayer manuellement';
-    STR_UPDATE_AVAILABLE = 'Mise Ã  jour APK disponible';
-    STR_WEB_UPDATE_AVAILABLE = 'Mise Ã  jour Web disponible';
-    STR_UPDATE_CHECK_SIDE = ', vÃ©rifiez le panneau latÃ©ral pour les mises Ã  jour';
-    STR_UPDATE_LAST_CHECK = 'DerniÃ¨re vÃ©rification :';
-    STR_UPDATE_OPT = 'Options de mise Ã  jour';
-    STR_UPDATE_CHECK_FOR = 'Rechercher des mises Ã  jour en arriÃ¨re-plan';
-    STR_UPDATE_SHOW = "Afficher une boÃ®te de dialogue lorsqu'une mise Ã  jour est disponible";
-    STR_UPDATE_SHOW_ARRAY = ['Oui', 'Seulement un toast', 'Non'];
-    STR_UPDATE_START = 'Processus de mise Ã  jour dÃ©marrÃ©. Cela peut prendre quelques secondes, veuillez patienter !';
-    STR_UPDATE_PLAY = "Si le Play Store n'affiche pas la mise Ã  jour, rÃ©essayez aprÃ¨s quelques minutes !";
-    STR_UPDATE_ERROR = "Vous avez besoin de l'APK version 3.0.303 ou plus rÃ©cente pour utiliser ceci, mettez Ã  jour de l'ancienne faÃ§on !";
-    STR_UPDATE_WARNING_OK = 'Application mise Ã  jour avec succÃ¨s';
-    STR_CLOSE = 'Fermer';
-    STR_MINIMIZE = 'RÃ©duire';
-    STR_CANCEL = 'Annuler';
-    STR_RERUN = 'Relancer';
-    STR_LIVE_CHANNELS = 'ChaÃ®nes en live';
-    STR_LIVE_HOSTS = 'HÃ´tes';
-    STR_LIVE_GAMES = 'Jeux en live';
-    STR_USER_CHANNEL = 'ChaÃ®nes suivies';
-    STR_USER_MY_CHANNEL = 'Ma chaÃ®ne';
-    STR_USER_ADD = 'Ajouter un utilisateur';
-    STR_USER_REMOVE = 'Supprimer un utilisateur';
-    STR_USER_ERROR = "L'utilisateur n'existe pas";
-    STR_USER_HOSTING = 'hÃ©berge';
-    STR_USER_HOSTED_BY = 'hÃ©bergÃ© par';
-    STR_USER_SET = 'dÃ©jÃ  dÃ©fini';
-    STR_USER_MAKE_ONE = 'Basculer sur';
-    STR_USER_NUMBER_ONE = 'Le premier utilisateur peut voir le flux des chaÃ®nes en live et suivre/ne plus suivre';
-    STR_ADD_USER_SH = "Ajoutez un utilisateur Twitch pour afficher ici les contenus qu'il suit";
-    STR_CLIP_WEEK = '7j';
-    STR_CLIP_MONTH = '30j';
-    STR_CLIP_ALL = 'tout';
-    STR_JUMP_TIME = 'Saut';
-    STR_JUMP_TIME_CLICK_AGAIN = 'Appuyez Ã  nouveau pour sauter';
-    STR_JUMP_T0 = 'vers';
-    STR_JUMP_CANCEL = 'Saut annulÃ©';
-    STR_JUMP_TIME_BIG = ', temps de saut supÃ©rieur Ã  la durÃ©e';
-    STR_SEC = 's';
-    STR_MIN = 'min';
-    STR_MS = 'ms';
-    STR_HR = 'h';
-    STR_CLOSE_THIS = 'Appuyez sur Retour ou OK pour fermer ceci';
-    STR_CLOSE_THIS2 = 'Appuyez sur Retour pour fermer ceci';
-    STR_CLOSE_THIS3 = 'Appuyez sur Retour pour afficher la boÃ®te de mise Ã  jour ou sur OK pour fermer ceci';
-    STR_PLAYER = 'Lecteur :';
-    STR_CHAT = 'Chat :';
-    STR_CHAT_SHOW = 'Afficher le chat';
-    STR_CURRENT_VERSION = 'Version actuellement installÃ©e';
-    STR_LATEST_VERSION = 'derniÃ¨re version disponible';
-    STR_CONTROLS_MAIN_2 =
-        'Lire une vidÃ©o : naviguez avec le pavÃ© directionnel (haut/bas/gauche/droite), appuyez sur OK, lecture/pause, touches mÃ©dia de prÃ©visualisation ou touche 1';
-    STR_CONTROLS_MAIN_3 = "Actualiser le contenu de l'Ã©cran :";
-    STR_CONTROLS_MAIN_4 = "Quitter l'application : cliquez sur Quitter dans le panneau latÃ©ral";
-    STR_CONTROLS_MAIN_5 = "Forcer la fermeture de l'application : maintenez Retour jusqu'Ã  la fermeture forcÃ©e";
-    STR_CONTROLS_MAIN_6 =
-        "Changer d'Ã©cran : appuyez sur Retour, puis utilisez le pavÃ© directionnel haut/bas ou " + STR_KEY_UP_DOWN + ' ' + STR_KEY_MEDIA_FF;
-    STR_CONTROLS_MAIN_10 =
-        'Lancer une recherche : dans le panneau latÃ©ral, cliquez sur Rechercher, tapez votre requÃªte et appuyez sur OK sur le clavier virtuel, puis choisissez une des options de recherche';
-    STR_CONTROLS_MAIN_14 = 'Ã€ propos de cette application : cliquez sur Ã€ propos dans le panneau latÃ©ral';
-    STR_ABOUT_INFO_1 = 'Ceci est un client Twitch pour Android TV, disponible gratuitement pour tous.';
-    STR_ABOUT_INFO_2 =
-        "Cette application n'est pas affiliÃ©e Ã  Twitch, c'est une application crÃ©Ã©e par un utilisateur, rendue possible uniquement parce que Twitch fournit toutes les API permettant d'afficher le contenu Twitch.";
-    STR_ABOUT_INFO_2_SOURCE = "Cette version de l'application est uniquement destinÃ©e aux tests dans le navigateur !";
-    STR_ABOUT_INFO_3 = 'CoordonnÃ©es :';
-    STR_ABOUT_INFO_4 = 'Cette application open source est distribuÃ©e sous licence GNU GPL v3.0, consultez-la sur GitHub :';
+var KEY_LEFT = 37;
+var KEY_UP = 38;
+var KEY_RIGHT = 39;
+var KEY_DOWN = 40;
+var KEY_ENTER = 13;
 
-    STR_ABOUT_INFO_6 = "Pour voir les dÃ©pendances de l'application, utilisez le lien :";
-    STR_ABOUT_INFO_18 = 'Support tÃ©lÃ©phone et tablette :';
-    STR_ABOUT_INFO_19 =
-        "Il est possible d'utiliser cette application sur tÃ©lÃ©phone et tablette, mais elle est principalement conÃ§ue pour les tÃ©lÃ©viseurs. Le support des autres appareils est limitÃ© et, pour cette raison, l'application n'est pas publiÃ©e sur le Play Store. Utilisez le lien ci-dessous pour tÃ©lÃ©charger la derniÃ¨re APK et installer manuellement l'application sur un tÃ©lÃ©phone ou une tablette :";
+var KEY_PG_DOWN = 34;
+var KEY_PG_UP = 33;
 
-    STR_CONTROLS_PLAY_0 = 'ou dans les commandes en bas du lecteur';
-    STR_CONTROLS_PLAY_1 =
-        "Afficher le panneau d'information : appuyez sur OK ou sur le pavÃ© directionnel si le chat et le flux des chaÃ®nes en live ne sont pas affichÃ©s";
-    STR_CONTROLS_PLAY_2 = 'Fermer la vidÃ©o : appuyez deux fois sur Retour ou utilisez la touche mÃ©dia Stop';
-    STR_CONTROLS_PLAY_3 = "Mettre en pause / reprendre une vidÃ©o : ouvrez le panneau d'information et cliquez sur l'icÃ´ne Pause";
-    STR_CONTROLS_PLAY_4 = "Afficher le flux d'aperÃ§u : pavÃ© directionnel Haut";
-    STR_CONTROLS_PLAY_5 = "Changer la qualitÃ© vidÃ©o : choisissez l'option Â« QualitÃ© Â» en bas du lecteur";
-    STR_CONTROLS_PLAY_6 = "Forcer l'actualisation d'une vidÃ©o (en cas de gel) : changez la qualitÃ© vidÃ©o pour la mÃªme";
-    STR_CONTROLS_PLAY_7 = 'Afficher ou masquer le chat : pavÃ© directionnel Bas ou touche 3 ' + STR_CONTROLS_PLAY_0;
-    STR_CONTROLS_PLAY_8 =
-        'Changer la position du chat : pavÃ© directionnel Gauche, Pg haut ou touches de retour rapide (VOD et clips uniquement) ' +
-        STR_CONTROLS_PLAY_0;
-    STR_CONTROLS_PLAY_9 = 'Changer la taille du chat : pavÃ© directionnel Droite, Pg bas ' + STR_CONTROLS_PLAY_0;
-    STR_CONTROLS_PLAY_10 = 'Changer la luminositÃ© du fond du chat : modifier dans les commandes en bas du lecteur';
-    STR_CONTROLS_PLAY_11 =
-        "Forcer l'actualisation du chat sur un live (en cas de gel ou de non chargement) : choisissez l'option Â« Forcer la dÃ©sactivation du chat Â» en bas du lecteur (cliquez deux fois)";
-    STR_CONTROLS_PLAY_12 =
-        "Lancer une recherche : ouvrez le panneau d'information, utilisez le pavÃ© directionnel (gauche/droite) pour aller sur Â« Rechercher Â» puis appuyez sur OK";
-    STR_CONTROLS_PLAY_13 =
-        'Toutes les touches mÃ©dia sont supportÃ©es (lecture, pause, stop, piste suivante, avance rapide, etc.), certaines servent de raccourcis pour les modes audio et vidÃ©o';
-    STR_CONTROLS_PLAY_14 =
-        "Chat et vidÃ©o cÃ´te Ã  cÃ´te : touche 2 ou touche mÃ©dia avance rapide. Permet aussi de basculer entre l'incrustation (picture-in-picture) et le mode 50/50";
-    STR_F_DISABLE_CHAT = 'Forcer la dÃ©sactivation du chat';
-    STR_OAUTH_IN =
-        "Ajouter une clÃ© permet Ã  l'application d'accÃ©der au chat avec votre compte pour envoyer des messages et rÃ©cupÃ©rer votre liste d'Ã©motes (permet aussi de recevoir les sub offerts dans le chat), suivre/ne plus suivre des chaÃ®nes et accÃ©der plus rapidement Ã  certains contenus utilisateur.<br><br>Ajouter une clÃ© n'est pas obligatoire et peut Ãªtre fait plus tard.<br><br>En cas de doute, lisez le contenu de ce lien :<br><br>%x<br><br>Sur certains appareils, une souris est nÃ©cessaire pour terminer l'autorisation, car vous devrez peut-Ãªtre cliquer manuellement sur un bouton pour confirmer certaines actions.<br><br>Ajouter une clÃ© pour";
-    STR_USER_CODE = "Ajouter une clÃ© d'autorisation";
-    STR_USER_CODE_OK = 'ClÃ© ajoutÃ©e avec succÃ¨s';
-    STR_KEY_BAD = 'Ã‰chec du test de la clÃ©, une nouvelle clÃ© doit Ãªtre ajoutÃ©e';
-    STR_OAUTH_WRONG = "Vous essayez d'ajouter une clÃ© pour l'utilisateur";
-    STR_OAUTH_WRONG2 = "mais cette clÃ© appartient Ã  l'utilisateur";
-    STR_FOLLOWING = 'Suivi';
-    STR_FOLLOW = 'Non suivi';
-    STR_IS_SUB_NOOAUTH = "et vous n'avez pas ajoutÃ© de clÃ© d'autorisation, l'application ne peut donc pas vÃ©rifier votre statut d'abonnÃ©.";
-    STR_IS_SUB_NOT_SUB = "et vous n'Ãªtes pas abonnÃ© Ã  cette chaÃ®ne";
-    STR_IS_SUB_IS_SUB = 'Vous Ãªtes abonnÃ© Ã  cette chaÃ®ne, mais un problÃ¨me inconnu empÃªche la lecture.';
-    STR_OAUTH_FAIL = "Ã‰chec de la vÃ©rification d'autorisation avec la clÃ© fournie, veuillez vÃ©rifier et rÃ©essayer";
-    STR_OAUTH_FAIL_USER = "La clÃ© ajoutÃ©e n'appartient pas Ã  l'utilisateur";
-    STR_NOKEY = 'Aucun utilisateur';
-    STR_NOKEY_WARN = 'Vous devez dÃ©finir un utilisateur pour suivre ou ne plus suivre des chaÃ®nes.';
-    STR_FOLLOW_ISSUE =
-        "Les applications tierces ne peuvent plus suivre ou ne plus suivre des chaÃ®nes. Le bouton n'apparaÃ®tra que si vous suivez dÃ©jÃ  une chaÃ®ne.";
-    STR_NOKUSER_WARN = 'Vous devez dÃ©finir un utilisateur pour voir les contenus suivis.';
-    STR_RESET = 'RedÃ©marrer le';
-    STR_CHANNEL_CONT = 'Contenu de la chaÃ®ne';
-    STR_NET_DOWN = "Aucune connexion rÃ©seau. L'application nÃ©cessite une connexion Internet pour fonctionner.";
-    STR_NET_UP = 'Connexion rÃ©seau rÃ©tablie';
-    STR_CANT_FOLLOW = ', impossible de suivre ou de ne plus suivre';
-    STR_GAME_CONT = 'Contenu du jeu';
-    STR_YES = 'Oui';
-    STR_REMOVE_USER = "Voulez-vous vraiment supprimer l'utilisateur";
-    STR_PLACEHOLDER_PRESS_UP = 'Appuyez sur Haut pour';
-    STR_FOLLOW_GAMES = 'Jeux en live suivis';
-    STR_USER_GAMES_CHANGE = 'Alterner entre';
-    STR_GUIDE = 'Maintenez OK';
-    STR_MONTHS = ['janv.', 'fÃ©vr.', 'mars', 'avr.', 'mai', 'juin', 'juil.', 'aoÃ»t', 'sept.', 'oct.', 'nov.', 'dÃ©c.'];
-    STR_DAYS = ['dim.', 'lun.', 'mar.', 'mer.', 'jeu.', 'ven.', 'sam.'];
-    STR_STARTED = 'CommencÃ©';
-    STR_VIDEOS = 'VidÃ©os';
-    STR_REPLAY = 'Relecture';
-    STR_STREAM_END = 'fermeture dans';
-    STR_STREAM_END_EXIT = 'Appuyez sur Retour pour quitter';
-    STR_FEATURED = "Page d'accueil";
-    STR_CREATED_AT = 'CrÃ©Ã©e le';
-    STR_OPEN_BROADCAST = 'Ouvrir la VOD';
-    STR_OPEN_LAST_BROADCAST = 'Ouvrir la derniÃ¨re VOD';
-    STR_IS_LIVE = 'est maintenant en live';
-    STR_OPEN_REWIND = 'Ouvrir le rewind';
-    STR_OPEN_REWIND_SUMMARY = 'Ouvrir la VOD complÃ¨te du rewind';
-    STR_OPEN_REWIND_FAIL = 'Aucun rewind pour ce live';
-    STR_SHOW_ISLIVE_WARNING = "Afficher l'alerte Â« Le streamer est en live Â»";
-    STR_SHOW_ISLIVE_WARNING_SUMMARY =
-        "Pendant que vous regardez un clip ou une VOD, l'application peut vÃ©rifier si le streamer est en live. Si activÃ©, un avertissement apparaÃ®t. Pour regarder le live, utilisez les commandes en bas du lecteur.";
-    STR_OPEN_CHAT = 'Cliquez pour ouvrir le chat ou attendez que le live reprenne.';
-    STR_STAY_OPEN = 'Rester sur le stream';
-    STR_STAY_OPEN_SUMMARY = "Rester sur le stream et l'application vÃ©rifiera rÃ©guliÃ¨rement s'il redevient live.";
-    STR_STAY_CHECK = 'VÃ©rifier si le live est en cours dans :';
-    STR_STAY_CHECKING = 'VÃ©rification si le live est en cours...';
-    STR_STAY_CHECK_LAST = 'Dernier rÃ©sultat :';
-    STR_STAY_IS_OFFLINE = 'Le live Ã©tait hors ligne';
-    STR_NO_BROADCAST = 'Aucune VOD';
-    STR_NO_BROADCAST_WARNING = "Il n'y a aucune VOD pour ce clip";
-    STR_NO_CHAT = 'et donc pas de chat';
-    STR_IS_NOW = 'est maintenant';
-    STR_OPEN_HOST = 'Ouvrir le host';
-    STR_SETTINGS_PLAYER = 'Lecteur';
-    STR_SETTINGS_BUFFER_SIZE = 'Taille du buffer de dÃ©marrage :';
-    STR_SETTINGS_BUFFER_SIZE_SHORT_SUMMARY = 'ContrÃ´le la taille du buffer de dÃ©marrage';
-    STR_SETTINGS_BUFFER_SIZE_SUMMARY =
-        "SpÃ©cifie la quantitÃ© de donnÃ©es Ã  mettre en mÃ©moire tampon avant de dÃ©marrer la lecture. Cette valeur est indÃ©pendante de la taille maximale du buffer, qui dÃ©pend de la RAM disponible sur l'appareil. Une valeur plus faible dÃ©marre la lecture plus tÃ´t, ce qui est gÃ©nÃ©ralement recommandÃ©. Augmenter cette valeur amÃ©liore rarement les performances et peut provoquer des dÃ©lais.";
-    STR_SETTINGS_BUFFER_LIVE = 'Buffer de dÃ©marrage des lives';
-    STR_SETTINGS_BUFFER_VOD = 'Buffer de dÃ©marrage des vidÃ©os (replays et temps forts)';
-    STR_SETTINGS_BUFFER_CLIP = 'Buffer de dÃ©marrage des clips';
-    STR_SETTINGS_LANG = 'Langue';
-    STR_LOADING_CHAT = 'Chat : connexion Ã ';
-    STR_LOADING_FAIL = 'DÃ©lai de connexion dÃ©passÃ©, Ã©chec de connexion...';
-    STR_CHAT_CONNECTED = 'Chat : connectÃ©';
-    STR_CHAT_SEND_DELAY = 'Message envoyÃ©. En raison du dÃ©lai du chat, il apparaÃ®tra dans quelques instants.';
-    STR_CHAT_DELAY = 'Chat : dÃ©lai';
-    STR_VOD_HISTORY_BASE = 'Commencer la lecture depuis le dÃ©but ou reprendre lÃ  oÃ¹ vous vous Ãªtes arrÃªtÃ©.';
-    STR_VOD_HISTORY = STR_VOD_HISTORY_BASE + ' VOD ?';
-    STR_VOD_HISTORY_FORM_LIVE = STR_VOD_HISTORY_BASE + ' LIVE ?';
-    STR_FROM = 'Depuis :' + STR_BR;
-    STR_FROM_START = STR_FROM + 'DÃ©but';
-    STR_CHAT_END = 'Chat : le chat est terminÃ© !';
-    STR_RECENT = ', plus rÃ©cent';
-    STR_VIWES = ', plus de vues';
-    STR_NOKEY_VIDEO_WARN = 'Ajoutez un utilisateur pour accÃ©der aux vidÃ©os suivies.';
-    STR_SWITCH_TYPE = 'Changer : plus rÃ©cent ou vues';
-    STR_ENABLE = 'Activer';
-    STR_ENABLED = 'ActivÃ©';
-    STR_DISABLE = 'DÃ©sactiver';
-    STR_DISABLED = 'DÃ©sactivÃ©';
-    STR_DARK_MODE = 'Mode sombre';
-    STR_BRIGHT_MODE = 'Mode clair';
-    STR_RESTORE_PLAYBACK_WARN = "L'application a Ã©tÃ© fermÃ©e pendant la lecture. Restauration de la session prÃ©cÃ©dente...";
-    STR_RESTORE_PLAYBACK = 'Restaurer la lecture prÃ©cÃ©dente';
-    STR_RESTORE_PLAYBACK_SUMMARY =
-        "L'application enregistre la progression de lecture au cas oÃ¹ elle se fermerait involontairement. Le changement d'application peut entraÃ®ner des problÃ¨mes de mÃ©moire systÃ¨me qui ferment l'application. Ã€ la rÃ©ouverture, elle reprendra la lecture prÃ©cÃ©dente.";
-    STR_CHAT_FONT = 'Taille de police du chat';
-    STR_VIDEOS_ANIMATION = 'Vignettes vidÃ©o animÃ©es';
-    STR_VIDEOS_ANIMATION_SUMMARY =
-        "Lorsqu'une VOD ou un temps fort est sÃ©lectionnÃ©, animer la vignette si une version animÃ©e est disponible (toutes les vidÃ©os n'en ont pas).";
-    STR_SIDE_PANEL = 'Panneau latÃ©ral : pavÃ© directionnel Gauche ou Retour';
-    STR_SIZE = 'Taille';
-    STR_BRIGHTNESS = 'LuminositÃ©';
-    STR_FORBIDDEN = "Ce contenu est restreint dans votre rÃ©gion ou uniquement accessible via l'application officielle Twitch.";
-    STR_JUMPING_STEP = 'Pas de saut';
-    STR_SECOND = 'seconde';
-    STR_SECONDS = 'secondes';
-    STR_CLOCK_OFFSET = "DÃ©calage de l'horloge";
-    STR_CLOCK_OFFSET_SUMMARY = "Ajuster l'horloge principale de l'application selon le dÃ©calage souhaitÃ©.";
-    STR_CLOCK_AM_PM = "Format d'horloge";
-    STR_CLOCK_AM_PM_SUMMARY = 'Choisir 24 h ou 12 h AM/PM ou 12 h.';
-    STR_CONTENT_LANG = 'Langue du contenu';
-    STR_CONTENT_LANG_SUMMARY = "Langue du contenu affichÃ© Ã  l'Ã©cran : lives, VOD, clips.";
-    STR_APP_LANG = "Langue de l'application";
-    STR_APP_LANG_SUMMARY = "Langue des textes de l'application.";
-    STR_ENTER_TO_OPEN = 'Appuyez sur OK pour accÃ©der';
-    STR_LANG_ALL = 'Toutes';
-    STR_NO_GAME = 'Impossible de rÃ©cupÃ©rer le jeu pour ceci';
-    STR_EMPTY = 'Vide';
-    STR_JUMP_BUFFER_WARNING = 'Impossible de sauter pendant la mise en mÃ©moire tampon';
-    STR_CHAT_DISABLE =
-        "Le chat est actuellement dÃ©sactivÃ©. Vous pouvez l'activer avec l'option Â« Forcer la dÃ©sactivation du chat Â» en bas du lecteur.";
-    STR_CLIP_FAIL = 'Ã‰chec du chargement de ce clip/de cette vidÃ©o. Impossible de relire';
-    STR_CHAT_BRIGHTNESS = 'LuminositÃ© du fond du chat';
-    STR_PLAY_NEXT = 'Lire le suivant';
-    STR_PLAY_NEXT_IN = 'Lecture du suivant dans';
-    STR_PLAY_ALL = 'Tout lire';
-    STR_AUTO_PLAY_NEXT = 'Lecture automatique du clip suivant';
-    STR_SIDE_PANEL_BACK_MAIN_MENU = 'Retour au menu principal';
-    STR_UP = 'Appuyez sur Haut';
-    STR_HOLD_UP = 'Maintenez Haut ou la touche 2';
-    STR_LIVE_FEED = 'Flux live';
-    STR_VOD_DIALOG = 'BoÃ®te de dialogue de dÃ©marrage VOD';
-    STR_VOD_DIALOG_SUMMARY =
-        "DÃ©finir le comportement par dÃ©faut pour la lecture des VOD enregistrÃ©es dans votre historique. Â« Toujours depuis le dÃ©but Â» s'applique aussi aux aperÃ§us VOD.";
-    STR_VOD_DIALOG_START = 'Toujours depuis le dÃ©but';
-    STR_VOD_DIALOG_LAST = 'Toujours depuis le dernier arrÃªt';
-    STR_VOD_DIALOG_SHOW = 'Toujours demander';
-    STR_END_DIALOG_OPT = 'Options de fin du lecteur';
-    STR_END_DIALOG_SETTINGS = 'DÃ©lai de la boÃ®te de fin du lecteur';
-    STR_END_DIALOG_SETTINGS_SUMMARY =
-        "Quand un live, une VOD ou un clip se termine, une boÃ®te de dialogue s'affiche avec les options pour la suite. DÃ©finissez le temps (en secondes) avant que l'option par dÃ©faut ne soit appliquÃ©e.";
-    //TODO improve more after this
-    STR_END_DIALOG_DISABLE = 'DÃ©sactiver le minuteur';
-    STR_CHAT_SIZE = 'Taille du chat';
-    STR_CHAT_POS = 'Position du chat';
-    STR_CHAT_VIDEO_MODE = 'Mode vidÃ©o';
-    STR_CHAT_SIDE_FULL = 'Plein Ã©cran';
-    STR_CHAT_PP_SIDE_FULL = 'Grand + petit Ã©cran';
-    STR_CHAT_SIDE = 'CÃ´te Ã  cÃ´te, vidÃ©o et chat';
-    STR_CHAT_5050 = '50/50 et chats';
-    STR_SPEED = 'Vitesse';
-    STR_QUALITY = 'QualitÃ©';
-    STR_VERY_LOW = 'TrÃ¨s faible';
-    STR_LOW = 'Faible';
-    STR_HIGH = 'Ã‰levÃ©e';
-    STR_VERY_HIGH = 'TrÃ¨s Ã©levÃ©e';
-    STR_THUMB_RESOLUTION = 'QualitÃ© des vignettes';
-    STR_THUMB_RESOLUTION_SUMMARY =
-        "RÃ©solution par dÃ©faut des vignettes pour les lives, vidÃ©os et jeux (non applicable aux clips). Une valeur plus faible aide l'application Ã  charger plus vite, mais la vignette peut paraÃ®tre floue.";
-    STR_PAYPAL_SUMMARY = 'Dons PayPal, utilisez le lien ou le QR code :';
-    STR_BITCOIN_SUMMARY = "Dons Bitcoin, utilisez l'adresse du portefeuille ou scannez le QR code :";
-    STR_PLAYER_PROBLEM_2 = 'Ã‰chec de la connexion, impossible de charger les informations du stream';
-    STR_PLAYER_RESYNC = 'RedÃ©marrage du lecteur';
-    STR_PLAYER_MULTI_ALL = 'Tous';
-    STR_QUALITY_PP = ['Petit', 'Grand', STR_PLAYER_MULTI_ALL];
-    STR_QUALITY_MULTI = [STR_PLAYER_MULTI_ALL, 'En haut Ã  gauche', 'En haut Ã  droite', 'En bas Ã  gauche', 'En bas Ã  droite'];
-    STR_QUALITY_MULTI_BIG = [STR_PLAYER_MULTI_ALL, 'Haut', 'Bas gauche', 'Bas centre', 'Bas droite'];
-    STR_PLAYER_BITRATE_UNLIMITED = 'IllimitÃ©';
-    STR_PLAYER_BITRATE = 'RÃ©solution/DÃ©bit max en qualitÃ© Auto';
-    STR_PLAYER_BITRATE_SHORT_SUMMARY = 'Permet de dÃ©finir la rÃ©solution/le dÃ©bit max utilisÃ©s par la lecture en qualitÃ© Auto';
-    STR_PLAYER_BITRATE_SUMMARY =
-        "UtilisÃ© pour Ã©viter les lags sur les appareils peu puissants lors de la lecture de plusieurs vidÃ©os en mÃªme temps (la plupart des appareils ne sont conÃ§us que pour une seule vidÃ©o et sautent des images dans ce cas). Aide aussi Ã  limiter la bande passante Internet en fixant une limite qui s'applique Ã  la qualitÃ© Auto. La rÃ©solution/dÃ©bit recommandÃ©e pour tous les petits lecteurs est 720p/3 Mbit/s et illimitÃ© pour le lecteur principal sur la plupart des appareils d'entrÃ©e de gamme.";
-    STR_PLAYER_BITRATE_SUMMARY_ETC =
-        "Des valeurs diffÃ©rentes pour la rÃ©solution ou le dÃ©bit entre lecteur principal et petits lecteurs peuvent entraÃ®ner un court buffering/chargement lors d'un changement avec le lecteur principal en incrustation (picture-in-picture). Pour Ã©viter cela, dÃ©finissez les mÃªmes valeurs au prix de possibles lags. Un dÃ©bit trop Ã©levÃ© se remarque par une accumulation constante d'images sautÃ©es ou un buffering continu.";
-    STR_PLAYER_MAIN = 'Lecteur principal, pour le grand lecteur en incrustation ou le lecteur du haut en 50/50';
-    STR_PLAYER_RES_SMALL = 'Petits lecteurs, pour le petit lecteur en incrustation et tous les lecteurs en multistream';
-    STR_PLAYER_BITRATE_MAIN = 'DÃ©bit - ' + STR_PLAYER_MAIN;
-    STR_PLAYER_BITRATE_SMALL = 'DÃ©bit - ' + STR_PLAYER_RES_SMALL;
-    STR_PLAYER_RES_MAIN = 'RÃ©solution - ' + STR_PLAYER_MAIN;
-    STR_PLAYER_RES_SMALL = 'RÃ©solution - ' + STR_PLAYER_RES_SMALL;
-    STR_BLOCK_RES = 'RÃ©solutions bloquÃ©es';
-    STR_BLOCK_RES_SHORT_SUMMARY = "Permet de bloquer une ou plusieurs rÃ©solutions pour qu'elles ne soient jamais utilisÃ©es";
-    STR_BLOCK_RES_SUMMARY =
-        "En qualitÃ© Auto, il est possible de bloquer une ou plusieurs rÃ©solutions pour qu'elles ne soient jamais utilisÃ©es. Utile pour les appareils qui laguent Ã  une rÃ©solution particuliÃ¨re. Les clips ne pouvant Ãªtre lus en mode Auto, cela bloque aussi la partie automatique de cette rÃ©solution pour un clip.";
-    STR_BLOCK_RES_SUMMARY_EXTRA =
-        "L'utilisateur peut ignorer la sÃ©lection manuellement pendant la lecture.<br><br>XX signifie que toutes les rÃ©solutions commenÃ§ant par la mÃªme valeur avant XX seront refusÃ©es si cette rÃ©solution est marquÃ©e comme bloquÃ©e.";
-    STR_BLOCKED = 'BloquÃ©e';
-    STR_BLOCKED_NOT = 'Non bloquÃ©e';
-    STR_AUDIO_SOURCE = 'Source audio';
-    STR_VOLUME_CONTROLS = 'Commandes audio et volume';
-    STR_AUDIO_ALL = "Activer tout l'audio";
-    STR_AUDIO_ALL_ENA = 'Toutes les sources audio activÃ©es';
-    STR_AUDIO_ALL_100 = 'Volume de tout Ã  100 %';
-    STR_AUDIO_ALL_100_SET = 'Le volume de tous les lecteurs est rÃ©glÃ© Ã  100 %';
-    STR_DEF_QUALITY = 'QualitÃ© par dÃ©faut du lecteur';
-    STR_DEF_QUALITY_SUMMARY =
-        "Cette option remplace toutes les autres lors de la lecture d'une seule vidÃ©o. En mode multi-lecteurs, la lecture doit utiliser la qualitÃ© Auto. La raison se trouve dans les paramÃ¨tres Â« " +
-        STR_PLAYER_BITRATE +
-        ' Â».';
-    STR_PICTURE_PICTURE = 'Picture-in-picture, 50/50 ou multistream (lives uniquement) :';
-    STR_PICTURE_CONTROLS1 =
-        "Activer le mode picture-in-picture : appuyez sur Haut pendant la lecture d'une vidÃ©o. Pour afficher le flux d'aperÃ§u, choisissez un stream, puis maintenez OK ou appuyez sur la touche 1 pour dÃ©marrer";
-    STR_PICTURE_CONTROLS2 =
-        "Changer le contenu vidÃ©o : en mode multijoueur, cliquez toujours une fois depuis l'aperÃ§u. En mode picture-in-picture ou 50/50, un simple clic met Ã  jour la grande ou la vidÃ©o du haut, et maintenir OK ou appuyer sur la touche 1 met Ã  jour la petite ou la vidÃ©o du bas";
-    STR_PICTURE_CONTROLS4 =
-        'Ã‰changer le contenu entre les vidÃ©os (picture-in-picture uniquement) : pavÃ© directionnel Bas. Le grand devient petit et inversement';
-    STR_PICTURE_CONTROLS5 = 'Changer la position de la petite vidÃ©o (picture-in-picture uniquement) : pavÃ© directionnel Gauche';
-    STR_PICTURE_CONTROLS6 = 'Changer la taille de la petite vidÃ©o (picture-in-picture uniquement) : pavÃ© directionnel Droit';
-    STR_PICTURE_CONTROLS7 =
-        "Changer la source audio : choisissez l'option Â« Source audio Â» en bas du lecteur. En 50/50 ou multistream, utilisez le pavÃ© directionnel gauche/droite. En picture-in-picture, utilisez les touches mÃ©dia piste prÃ©cÃ©dente/suivante";
-    STR_PICTURE_CONTROLS3 = 'Changer la source audio pour toutes les vidÃ©os : maintenez le pavÃ© directionnel Bas.';
-    STR_PICTURE_CONTROLS8 =
-        "RedÃ©marrer le lecteur : choisissez l'option Â« RedÃ©marrage du lecteur Â» en bas du lecteur. Cela ne redÃ©marre que les lecteurs, utile pour resynchroniser le lecteur et le chat. Cela ne synchronise pas le contenu des diffÃ©rents lecteurs entre eux";
-    STR_PICTURE_CONTROLS9 =
-        "Synchronisation manuelle des lecteurs : comme solution, choisissez l'option Â« Vitesse Â» en bas du lecteur pour ralentir le stream en avance ou inversement. Ne fonctionne qu'en mode picture-in-picture";
-    STR_PICTURE_CONTROLS10 = 'QualitÃ© vidÃ©o en picture-in-picture : consulter les paramÃ¨tres Â« ' + STR_PLAYER_BITRATE + " Â» dans l'application";
-    STR_PICTURE_CONTROLS11 =
-        'Fermer la petite ou la vidÃ©o du bas (picture-in-picture uniquement) : appuyer deux fois sur Retour quitte le picture-in-picture ou le mode 50/50';
-    STR_PICTURE_CONTROLS12 =
-        "Activer le mode 50/50 (deux streams et deux chats) : si le picture-in-picture est activÃ©, appuyez sur la touche 2, la touche mÃ©dia avance rapide ou utilisez l'option Â« Mode vidÃ©o Â» en bas du lecteur, ou si vous Ãªtes dÃ©jÃ  en mode Â« cÃ´te Ã  cÃ´te Â», maintenez OK sur une vignette dans le flux d'aperÃ§u";
-    STR_PICTURE_CONTROLS13 = 'Activer le multistream : utilisez les commandes en bas du lecteur ou la touche mÃ©dia retour rapide';
-    STR_PLAYER_INFO_VISIBILITY_ARRAY = ['Quand les infos du lecteur sont visibles', 'Toujours visibles', 'Jamais visibles'];
-    STR_SINGLE_EXIT = 'Retour simple';
-    STR_SINGLE_EXIT_SUMMARY = 'Quitter le lecteur, le picture-in-picture, le mode 50/50 ou multistream avec une seule pression sur Retour.';
-    STR_NOTIFICATION_OPT = 'Options de notification';
-    STR_NOW_LIVE_SHOW = 'Afficher la notification Â« Le streamer est en live Â» pour les chaÃ®nes suivies';
-    STR_TITLE_CHANGE_SHOW = 'Afficher la notification Â« Le streamer a changÃ© de titre Â» pour les chaÃ®nes suivies';
-    STR_GAME_CHANGE_SHOW = 'Afficher la notification Â« Le streamer a changÃ© de jeu Â» pour les chaÃ®nes suivies';
-    STR_NOW_LIVE_GAME_SHOW = 'Afficher la notification Â« Le jeu est en live Â» pour les jeux suivis';
-    STR_NOTIFICATION_BACKGROUND = "Notifications au-dessus des autres applications quand l'app tourne en arriÃ¨re-plan";
-    STR_NOTIFICATION_BACKGROUND_SUMMARY =
-        "Pour activer cette fonction, assurez-vous que l'application dispose de la permission de notifications dans les paramÃ¨tres Android. Sur les appareils Android 11 ou plus rÃ©cents, l'application affichera une notification simple sur une seule ligne lorsqu'elle fonctionne en arriÃ¨re-plan.";
-    STR_NOTIFICATION_BACKGROUND_WARNING = 'Permission de notifications Android manquante !';
-    STR_NOTIFICATION_REPEAT = "Nombre de fois qu'une notification individuelle est affichÃ©e";
-    STR_NOTIFICATION_REPEAT_SUMMARY =
-        "Le dÃ©lai d'affichage d'une notification individuelle est d'environ 3 secondes et ne peut pas Ãªtre modifiÃ© car contrÃ´lÃ© par le systÃ¨me, mais vous pouvez choisir le nombre de rÃ©pÃ©titions de cette mÃªme notification.";
-    STR_NOTIFICATION_SINCE = "EmpÃªcher l'affichage de Â« Le streamer est en live Â» pour les streams en cours depuis plus de";
-    STR_NOTIFICATION_SINCE_SUMMARY =
-        "Utile pour Ã©viter une longue liste de notifications quand l'application n'a pas Ã©tÃ© utilisÃ©e depuis un moment, par exemple lorsque vous Ã©teignez l'appareil ou quand l'Ã©cran est Ã©teint (l'application ne montre pas de notification si l'appareil est allumÃ© mais l'Ã©cran Ã©teint).";
-    STR_GLOBAL_FONT = 'DÃ©calage global de la taille de police';
-    STR_GLOBAL_FONT_SUMMARY =
-        "Modifie la taille de tous les textes et de la plupart des icÃ´nes de l'application (sauf la taille de police du chat, qui a son propre rÃ©glage). Une valeur trop petite peut rendre le texte illisible, une valeur trop grande le fera dÃ©border : c'est pourquoi cette valeur est limitÃ©e. Changer cette valeur actualise tous les Ã©crans.";
-    STR_MAIN_MENU = 'Menu principal';
-    STR_USER_MENU = 'Menu utilisateur';
-    STR_CH_IS_OFFLINE = 'est hors ligne';
-    STR_ROUND_IMAGES = 'Images de chaÃ®ne arrondies';
-    STR_ROUND_IMAGES_SUMMARY = 'La plupart des images de chaÃ®ne sont carrÃ©es, certaines peuvent ne pas bien ressortir.';
-    STR_SCREEN_COUNTER = "Masquer l'indicateur position/total";
-    STR_SCREEN_COUNTER_SUMMARY =
-        'Un indicateur affiche la position actuelle et le total de contenus chargÃ©s sur les Ã©crans avec du contenu lisible. En faisant dÃ©filer, plus de contenu se charge et le total est mis Ã  jour.';
-    STR_SWITCH_POS = 'Changer : position de dÃ©part';
-    STR_SWITCH_POS_SUMMARY =
-        'Au lieu de commencer au premier Ã©lÃ©ment possible, commencer plus bas dans la liste pour Ã©viter de descendre pour trouver une vidÃ©o plus ancienne.';
-    STR_USER_OPTION = "Choisissez une option pour l'utilisateur";
-    STR_MAIN_USER = 'Utilisateur principal';
-    STR_USER_TOP_LABEL = 'Cliquez sur un utilisateur pour voir les options';
-    STR_USER_EXTRAS = 'Utilisateur : bascule, ajout, clÃ©';
-    STR_LOW_LATENCY = 'Faible latence';
-    STR_LOW_LATENCY_SUMMARY =
-        'Si vous commencez Ã  avoir des problÃ¨mes de buffer, dÃ©sactivez ' +
-        STR_LOW_LATENCY +
-        '<br>Utilisez ' +
-        STR_SETTINGS_BUFFER_LIVE +
-        ' infÃ©rieur ou Ã©gal Ã  1 pour que cela ait un effet';
-    STR_GAME_SORT = 'Tri des aperÃ§us de jeux';
-    STR_LIVE_FEED_SORT = 'Tri du flux live du panneau latÃ©ral ou du lecteur';
-    STR_LIVE_FEED_SORT_SUMMARY =
-        "Trie le flux live du panneau latÃ©ral et l'aperÃ§u du lecteur. Sur l'aperÃ§u, cela ne s'applique qu'aux lives de l'utilisateur et Ã  la page d'accueil (tout ce qui n'est pas historique est triÃ© par vues, l'historique est du plus rÃ©cemment regardÃ© au plus ancien, et les VOD sont les plus rÃ©centes).";
-    STR_A_Z = 'AlphabÃ©tique A - Z';
-    STR_Z_A = 'AlphabÃ©tique Z - A';
-    STR_APP_ANIMATIONS = "Activer les animations de l'app";
-    STR_APP_ANIMATIONS_SUMMARY = 'Active les animations du panneau latÃ©ral, du dÃ©filement et animations associÃ©es.';
-    STR_UI_SETTINGS = "Personnaliser l'interface, les couleurs, les animations et associÃ©s";
-    STR_GENERAL_CUSTOM = "Personnaliser le contenu, le tri, l'actualisation auto, les dÃ©lais et associÃ©s";
-    STR_RUNNINGTIME = 'Application en cours depuis :';
-    STR_410_ERROR = "Impossible d'obtenir le lien vidÃ©o";
-    STR_PRESS_ENTER_TO_CHANGE = 'Appuyez sur OK pour changer en -';
-    STR_CLICK_UNFOLLOW = '(Appuyez sur OK pour ne plus suivre)';
-    STR_CLICK_FOLLOW = '(Appuyez sur OK pour suivre)';
-    STR_TODAY = "Aujourd'hui";
-    STR_DROOPED_FRAMES = 'Images sautÃ©es :';
-    STR_BUFFER_HEALT = 'Taille du buffer (s) :';
-    STR_NET_ACT = 'ActivitÃ© rÃ©seau (Mbit) :';
-    STR_NET_SPEED = 'Vitesse rÃ©seau (Mbit) :';
-    STR_LATENCY_TO_BROADCASTER = 'Latence vers le streamer';
-    STR_LATENCY = 'Latence vers le streamer (s) :';
-    STR_CHAT_DELAY_LATENCY_TO_BROADCASTER = 'BasÃ© sur ' + STR_LATENCY_TO_BROADCASTER;
-    STR_PING = 'Ping vers Twitch (ms) :';
-    STR_WARNINGS = 'Avertissements';
-    STR_WELCOME = 'Bienvenue dans';
-    STR_WELCOME_SUMMARY =
-        "Cette application possÃ¨de Ã©normÃ©ment de fonctionnalitÃ©s. Consultez les paramÃ¨tres et les commandes pour comprendre comment l'utiliser. En cas de doute, regardez la vidÃ©o de dÃ©monstration sur le Play Store, et si ce n'est pas suffisant, utilisez les informations de contact.";
-    STR_WARNING_PHONE = 'Avertissement tÃ©lÃ©phones';
-    STR_WARNING_PHONE_SUMMARY =
-        "Cette application est principalement conÃ§ue pour les tÃ©lÃ©viseurs, le support des autres appareils est limitÃ© et pourrait ne jamais Ãªtre amÃ©liorÃ©. Si vous n'avez pas de clavier ou de manette avec pavÃ© directionnel + OK et Retour (Ã‰chap fonctionne comme Retour sur un ordinateur), utilisez les touches virtuelles Ã  l'Ã©cran pour naviguer (visibles uniquement sur tÃ©lÃ©phone/tablette). Dans les paramÃ¨tres, vous pouvez changer la position et l'opacitÃ© du pavÃ© directionnel virtuel ; cliquez n'importe oÃ¹ sur l'Ã©cran pour l'afficher. Lorsqu'il est cachÃ©, il ne fonctionne pas.";
-    STR_DPAD_POSTION = "Position du pavÃ© directionnel Ã  l'Ã©cran";
-    STR_DPAD_OPACITY = 'OpacitÃ© du pavÃ© directionnel';
-    STR_DPAD_OPT = 'Options du pavÃ© directionnel';
+var KEY_RETURN = 113; //key #F2
 
-    STR_MAX_RES = 'RÃ©solution max :';
-    STR_MAX_BIT = 'DÃ©bit max :';
-    STR_MAX_LEVEL = 'Niveau max :';
-    STR_MAX_FPS = 'FPS max par rÃ©solution :';
-    STR_MAX_INSTANCES = 'Instances max :';
-    STR_UNKNOWN = 'Inconnu';
-    STR_USER_LIVE = "Panneau latÃ©ral lives utilisateur : pavÃ© directionnel Gauche depuis le panneau latÃ©ral ou touche 3 depuis n'importe oÃ¹";
-    STR_PP_WORKAROUND = 'Solution multijoueur, PIP et mode aperÃ§u';
-    STR_PP_WORKAROUND_SUMMARY =
-        "Sur certains appareils, il est nÃ©cessaire d'activer ceci pour que le mode multistream fonctionne correctement. Le problÃ¨me est gÃ©nÃ©ralement qu'un des deux lecteurs reste en Ã©cran noir. Ne l'activez pas si vous n'avez pas de problÃ¨me, car cela rÃ©duit la qualitÃ© d'image et les performances.";
-    STR_HISTORY = 'Historique';
-    STR_WATCHED = 'RegardÃ© le';
-    STR_UNTIL = "jusqu'Ã ";
-    STR_SORTING = 'Tri';
-    STR_DELETE_HISTORY = 'Supprimer cet historique';
-    STR_DELETE_UNREACHABLE = 'Supprimer automatiquement le contenu inaccessible';
-    STR_DELETE_UNREACHABLE_SUMMARY =
-        "Si cette option est sur OUI, l'application supprimera automatiquement de l'historique les VOD et clips devenus inaccessibles (supprimÃ©s par le streamer/crÃ©ateur).";
-    STR_NAME_A_Z = 'Nom A - Z';
-    STR_NAME_Z_A = 'Nom Z - A';
-    STR_GAME_A_Z = 'Jeu A - Z';
-    STR_GAME_Z_A = 'Jeu Z - A';
-    STR_VIWES_MOST = 'Le plus de vues';
-    STR_VIWES_LOWEST = 'Le moins de vues';
-    STR_CHANNELS_MOST = 'Le plus de chaÃ®nes';
-    STR_CHANNELS_LOWEST = 'Le moins de chaÃ®nes';
-    STR_NEWEST = 'RegardÃ© le plus rÃ©cemment';
-    STR_OLDEST = 'RegardÃ© le plus ancien';
-    STR_PRESS_ENTER_D = 'Appuyez sur OK pour supprimer';
-    STR_LIVE_VOD = 'Ce live est maintenant une VOD<br>ouverture de la VOD lÃ  oÃ¹ vous avez arrÃªtÃ© de regarder le live :<br>';
+var KEY_KEYBOARD_BACKSPACE = 8; // http://developer.samsung.com/tv/develop/guides/user-interaction/keyboardime
+var KEY_KEYBOARD_DONE = 13;
+var KEY_KEYBOARD_SPACE = 32;
 
-    STR_DELETE_SURE = 'Voulez-vous vraiment tout supprimer de';
-    STR_CREATED_NEWEST = 'CrÃ©Ã© / Uptime le plus rÃ©cent';
-    STR_CREATED_OLDEST = 'CrÃ©Ã© / Uptime le plus ancien';
-    STR_THUMB_OPTIONS = 'Options de vignette';
-    STR_HISTORY_LIVE_DIS = "Activer l'historique des lives";
-    STR_HISTORY_VOD_DIS = "Activer l'historique des VOD";
-    STR_HISTORY_CLIP_DIS = "Activer l'historique des clips";
-    STR_OPEN_GAME = 'Ouvrir le jeu';
-    STR_OPEN_CHANNEL = 'Ouvrir la chaÃ®ne';
-    STR_THUMB_OPTIONS_KEY = "Appuyez sur OK sur une action (pour l'ouvrir ou l'appliquer), Retour pour quitter sans appliquer";
-    STR_DELETE_FROM_HISTORY = "Supprimer ceci de l'historique";
-    STR_CHECK_FOLLOW = 'VÃ©rification du statut de suivi...';
-    STR_REFRESH_DELETE = "Actualisez l'Ã©cran aprÃ¨s la suppression pour voir le changement.";
-    STR_THUMB_OPTIONS_TOP = 'Maintenez Gauche pour les options de vignette';
-    STR_REPLACE_MULTI = 'Choisir quoi remplacer par ce qui est au-dessus ?';
-    STR_REPLACE_MULTI_ENTER = 'Appuyez sur OK pour remplacer ou Retour pour quitter sans appliquer.';
-    STR_ALREDY_PLAYING = 'DÃ©jÃ  en lecture';
-    STR_STREAM_ERROR = "Impossible d'ouvrir l'aperÃ§u";
-    STR_PP_MODO = 'Mode picture-in-picture';
-    STR_4_WAY_MULTI_INSTANCES = "Votre appareil ne supporte que %x instances de codec (lecteurs en lecture) en mÃªme temps, impossible d'utiliser";
-    STR_MULTI_EMPTY = 'TerminÃ© et/ou vide';
-    STR_4_WAY_MULTI = 'Multistream 4 voies';
-    STR_CONTROLS_MULTI_0 = 'Aide multistream :';
-    STR_CONTROLS_MULTI_1 =
-        "Si vous avez des lags aprÃ¨s l'activation du multistream, essayez de baisser la valeur du Â« DÃ©bit du petit lecteur Â» dans les paramÃ¨tres ; une accumulation d'images sautÃ©es ou un buffering constant indique un dÃ©bit trop Ã©levÃ© ou une connexion trop lente";
-    STR_CONTROLS_MULTI_2 = "Ajouter des streams : ouvrez le flux d'aperÃ§u (touche Haut) et cliquez sur un live";
-    STR_CONTROLS_MULTI_3 =
-        "Remplacer des streams : une fois le multistream plein, choisissez-en un dans le flux d'aperÃ§u et un Ã  remplacer dans la boÃ®te de dialogue";
-    STR_CONTROLS_MULTI_4 =
-        'Changer la source audio : pavÃ© directionnel gauche/droite ou touches mÃ©dia piste prÃ©cÃ©dente/suivante, maintenir Bas pour appliquer Ã  toutes les vidÃ©os';
-    STR_CONTROLS_MULTI_5 = "Quitter le multistream : appuyez deux fois sur Retour ou utilisez l'option en bas du lecteur.";
-    STR_CONTROLS_MULTI_6 = 'Pour fermer ceci, ouvrez 4 lives';
-    STR_PICTURE_LIVE_FEED =
-        'Picture-in-picture : maintenez OK ou appuyez sur la touche 1, puis utilisez Gauche pour dÃ©placer, Droite pour redimensionner ou Bas pour changer les vidÃ©os';
-    STR_MULTI_TITLE = ', cliquez sur une vignette pour ouvrir ou remplacer un stream, utilisez Gauche/Droite pour changer la source audio';
-    STR_FEED_END_DIALOG = ', appuyez sur Retour pour revenir au menu principal';
-    STR_BACK_USER_GAMES = 'Appuyez sur Retour pour revenir Ã ';
-    STR_SHOW_LIVE_PLAYER = "Afficher l'aperÃ§u sur les Ã©crans live";
-    STR_SHOW_VOD_PLAYER_WARNING = 'Lecture Ã  partir du dernier arrÃªt :';
-    STR_SHOW_VOD_PLAYER = "Afficher l'aperÃ§u sur les Ã©crans VOD";
-    STR_SHOW_CLIP_PLAYER = "Afficher l'aperÃ§u sur les Ã©crans de clips";
-    STR_PREVIEW_CLIP_NEXT = "Quand l'aperÃ§u d'un clip se termine, passer automatiquement au clip suivant.";
-    STR_SHOW_SIDE_PLAYER = "Afficher l'aperÃ§u dans le panneau latÃ©ral";
-    STR_SHOW_FEED_PLAYER = "Afficher l'aperÃ§u sur les vignettes du flux du lecteur";
-    STR_SHOW_FEED_PLAYER_SUMMARY =
-        "Si vous ne le souhaitez pas, ou si votre appareil lag dÃ¨s qu'il y a plus d'un lecteur actif, mettez ceci sur NON.";
-    STR_DISABLED_FEED_PLAYER_MULTI = "DÃ©sactiver l'aperÃ§u quand le multistream est activÃ©";
-    STR_DISABLED_FEED_PLAYER_MULTI_SUMMARY =
-        "Pour des raisons de performances, certains appareils laguent avec plusieurs lecteurs. Si le multistream fonctionne, mais que l'appareil lag quand l'aperÃ§u et un multistream sont actifs, mettez cette option sur NON.";
-    STR_PREVIEW_ERROR_LOAD = "Ã‰chec du chargement de l'aperÃ§u :";
-    STR_PREVIEW_ERROR_LINK = 'inaccessible';
-    STR_PREVIEW_VOD_DELETED = ', cette VOD a peut-Ãªtre Ã©tÃ© supprimÃ©e';
-    STR_PREVIEW_END = "La vidÃ©o d'aperÃ§u est terminÃ©e";
-    STR_PLAYER_LAG_ERRO = "Le lecteur ne peut pas lire Ã  cause d'un problÃ¨me de connexion rÃ©seau";
-    STR_PLAYER_ERROR = "Le lecteur ne peut pas lire Ã  cause d'une erreur du lecteur";
-    STR_PLAYER_ERROR_MULTI = ', essayez de rÃ©duire la valeur de dÃ©bit du petit lecteur dans les paramÃ¨tres';
-    STR_PREVIEW_SIZE = "Taille de l'aperÃ§u du lecteur";
-    STR_PREVIEW_SIZE_SUMMARY =
-        "DÃ©finit la taille du petit lecteur d'aperÃ§u qui s'affiche en appuyant sur Haut lorsqu'un live, une VOD ou un clip est ouvert.";
-    STR_PREVIEW_SIZE_ARRAY = ['Petite', 'Moyenne', 'Grande', 'TrÃ¨s grande'];
-    STR_PREVIEW_SIZE_SCREEN = "Taille de l'aperÃ§u sur l'Ã©cran";
-    STR_PREVIEW_SIZE_SCREEN_SUMMARY = "DÃ©finit la taille du lecteur d'aperÃ§u qui apparaÃ®t au-dessus des Ã©crans principaux de l'app.";
-    STR_PREVIEW_VOLUME_SCREEN = "Volume de l'aperÃ§u Ã  l'Ã©cran";
-    STR_PREVIEW_VOLUME_SCREEN_SUMMARY = "DÃ©finit le volume du lecteur d'aperÃ§u qui apparaÃ®t au-dessus des Ã©crans principaux et du panneau latÃ©ral.";
-    STR_PREVIEW_SIZE_SCREEN_ARRAY = ['Taille vignette', 'Plus grand'];
-    STR_SIDE_PANEL_PLAYER_DELAY = "DÃ©lai de l'aperÃ§u";
-    STR_SIDE_PANEL_PLAYER_DELAY_SUMMARY =
-        "DÃ©finit le dÃ©lai avant que l'aperÃ§u ne commence Ã  charger aprÃ¨s la sÃ©lection d'une vignette. Aide les appareils lents qui laguent lors du dÃ©filement.";
-    STR_PREVIEW_VOLUME = "Volume du lecteur d'aperÃ§u";
-    STR_PREVIEW_VOLUME_SUMMARY = "DÃ©finit le volume du petit lecteur d'aperÃ§u qui apparaÃ®t en appuyant sur Haut en live, VOD ou clip.";
-    STR_PREVIEW_OTHERS_VOLUME = "Volume du lecteur principal (quand l'aperÃ§u est affichÃ©)";
-    STR_PREVIEW_OTHERS_VOLUME_SUMMARY =
-        "Le lecteur principal (tous les lecteurs picture-in-picture et multistream) peut voir son volume rÃ©duit quand le lecteur d'aperÃ§u est affichÃ©.";
-    STR_SIDE_PANEL_PLAYER = "ParamÃ¨tres du lecteur d'aperÃ§u de vignettes";
-    STR_START_AT_USER = "Toujours dÃ©marrer l'app sur l'Ã©cran utilisateur";
-    STR_START_AT_USER_SUMMARY = "Cette option dÃ©sactive Â« Restaurer la lecture Â», mais permet de choisir l'utilisateur Ã  l'ouverture de l'app.";
-    STR_START_AT_FEED = "Toujours dÃ©marrer l'app avec le flux des chaÃ®nes suivies";
-    STR_START_AT_FEED_SUMMARY = "Cette option ouvre le panneau latÃ©ral au dÃ©marrage affichant vos chaÃ®nes suivies en direct avec un aperÃ§u du stream. DÃ©sactive Â« Restaurer la lecture Â».";
-    STR_LAST_REFRESH = 'DerniÃ¨re actualisation :';
-    STR_PP_VOD_ERROR = 'Quittez le picture-in-picture ou le multistream pour ouvrir cette VOD';
-    STR_SETTINGS_ACCESSIBILITY = "Afficher l'avertissement Â« Un service d'accessibilitÃ© est en cours d'exÃ©cution Â»";
-    STR_SETTINGS_ACCESSIBILITY_SUMMARY =
-        "Si un service d'accessibilitÃ© est activÃ© sur l'appareil, l'app affichera un avertissement. C'est un problÃ¨me Android connu : certains services d'accessibilitÃ© peuvent faire laguer ou geler cette application.";
-    STR_ACCESSIBILITY_WARN = "Service(s) d'accessibilitÃ© dÃ©tectÃ©(s)";
-    STR_ACCESSIBILITY_WARN_EXTRA = 'En savoir plus sur ce lien :';
-    STR_ACCESSIBILITY_WARN_EXTRA2 =
-        "Si vous avez des gels ou des lags liÃ©s Ã  cela, fermez l'app et dÃ©sactivez tous les services d'accessibilitÃ©, aprÃ¨s quoi tous les problÃ¨mes disparaÃ®tront.<br>Pour ne plus afficher cet avertissement, dÃ©sactivez-le dans les paramÃ¨tres.";
-    STR_AUTO_REFRESH = "DÃ©lai d'actualisation automatique";
-    STR_AUTO_REFRESH_SUMMARY = "Quand c'est activÃ©, l'application actualise automatiquement le contenu en arriÃ¨re-plan.";
-    STR_AUTO_REFRESH_BACKGROUND = 'Actualisation automatique en arriÃ¨re-plan';
-    STR_AUTO_REFRESH_BACKGROUND_SUMMARY =
-        "Quand Â« DÃ©lai d'actualisation automatique Â» est dÃ©fini et que ceci est activÃ©, l'actualisation automatique se fait en arriÃ¨re-plan (mais avec l'app visible, Android n'autorise pas un fonctionnement totalement libre en arriÃ¨re-plan pour Ã©viter de faire laguer d'autres apps). Quand l'Ã©cran n'est pas visible ou que vous revenez sur un Ã©cran oÃ¹ l'actualisation n'a pas eu lieu, attention : si l'app a trop d'Ã©crans, l'actualisation automatique peut provoquer des lags alÃ©atoires sur certains appareils d'entrÃ©e de gamme.";
-    STR_MAIN_WINDOW = 'VidÃ©o principale';
-    STR_MULTI_MAIN_WINDOW = 'VidÃ©o principale multistream';
-    STR_MAIN_MULTI_BIG = STR_MULTI_MAIN_WINDOW + ' plus grande et chat : appuyez sur Bas puis utilisez Gauche/Droite pour changer la grande vidÃ©o';
-    STR_SOURCE_CHECK = 'Changer automatiquement la qualitÃ© de Source Ã  Auto quand le lecteur lag';
-    STR_SOURCE_CHECK_SUMMARY =
-        "Quand c'est activÃ© et que vous n'Ãªtes pas en Auto, le lecteur bascule en qualitÃ© Auto et vous avertit si le lecteur lag. Un lag est dÃ©tectÃ© quand le lecteur ne peut plus lire pendant quelques secondes (l'algorithme est plus complexe que le simple temps). Si vous lancez autre chose, la qualitÃ© repasse Ã  l'origine.";
-    STR_PLAYER_LAG = 'Le lecteur lag, la qualitÃ© est passÃ©e en mode Auto';
-    STR_PLAYER_SOURCE = 'Le lecteur lag, la qualitÃ© a Ã©tÃ© rÃ©duite';
-    STR_TOO_ERRORS = "ou trop d'erreurs";
-    STR_STREAM_ERROR_SMALL = 'AperÃ§u, stream terminÃ© ' + STR_TOO_ERRORS;
-    STR_CONTROLS_MEDIA_FF =
-        'Avance/retour rapide (VOD et clips uniquement) : utilisez le pavÃ© directionnel Gauche/Droite ou les touches mÃ©dia avance/retour rapide';
-    STR_VOD_MUTED =
-        'Une partie de cette VOD est muette car elle contient du contenu protÃ©gÃ© par copyright, indiquÃ© par les zones plus sombres sur la barre de lecture';
-    STR_GIFT_SUB = 'vous a offert un sub !';
-    STR_ANONYMOUS = 'Anonyme';
-    STR_CHAT_BANNED = 'Vous Ãªtes banni dÃ©finitivement du chat de';
-    STR_CHAT_WRITE = 'Ã‰crire dans le chat';
-    STR_CHAT_EXTRA = 'ParamÃ¨tres supplÃ©mentaires du chat';
-    STR_PLACEHOLDER_CHAT =
-        "Quand ceci est sÃ©lectionnÃ©, appuyez sur OK pour afficher le clavier Ã  l'Ã©cran. Si vous avez un clavier physique, appuyez sur Retour ou Ã‰chap pour masquer le clavier Ã  l'Ã©cran";
-    STR_CHAT_ROOMSTATE = 'Chat ROOMSTATE :';
-    STR_CHAT_NO_RESTRICTIONS = 'Aucune restriction';
-    STR_CHAT_DELL_ALL = 'Tout supprimer';
-    STR_CHAT_UNICODE_EMOJI = 'Emoji Unicode';
-    STR_CHAT_TW_EMOTES = 'Ã‰motes Twitch';
-    STR_CHAT_BTTV_GLOBAL = 'BTTV globales';
-    STR_CHAT_BTTV_STREAM = 'BTTV du streamer';
-    STR_CHAT_FFZ_GLOBAL = 'FFZ globales';
-    STR_CHAT_FFZ_STREAM = 'FFZ du streamer';
-    STR_CHAT_SEVENTV_GLOBAL = '7TV globales';
-    STR_CHAT_SEVENTV_STREAM = '7TV du streamer';
-    STR_CHAT_RESULT = 'RÃ©sultat attendu dans le chat :';
-    STR_CHAT_SEND = 'Envoyer';
-    STR_CHAT_EMOTE_EMPTY = "Cette liste d'Ã©motes est vide";
-    STR_CHAT_FOLLOWER_ONLY = "Le chat est en mode Â« followers uniquement Â» et vous n'Ãªtes pas follower de";
-    STR_CHAT_FOLLOWER_ONLY_USER_TIME = 'et vous ne suivez que depuis';
-    STR_CHAT_EMOTE_ONLY = 'Mode Ã©motes Twitch uniquement';
-    STR_CHAT_CHOOSE = 'Choisissez dans quel chat Ã©crire ou appuyez sur Retour pour fermer ceci';
-    STR_CHAT_OPTIONS_TITLE = "Options d'Ã©criture dans le chat";
-    STR_CHAT_OPTIONS_KEYBOARD = 'Masquage auto du clavier logiciel';
-    STR_CHAT_OPTIONS_KEYBOARD_SUMMARY =
-        "Permet de contrÃ´ler le comportement du clavier logiciel Ã  l'Ã©cran. Si vous avez un clavier physique, utilisez-le, sinon mettez sur Â« jamais Â».";
-    STR_CHAT_OPTIONS_KEYBOARD_1 = 'Jamais';
-    STR_CHAT_OPTIONS_KEYBOARD_2 = 'Si clavier dÃ©tectÃ©';
-    STR_CHAT_OPTIONS_KEYBOARD_3 = 'Toujours';
-    STR_CHAT_OPTIONS_EMOTE_SORT = 'Tri des Ã©motes';
-    STR_CHAT_OPTIONS_EMOTE_SORT_SUMMARY = "Si dÃ©sactivÃ©, les listes d'Ã©motes sont affichÃ©es dans l'ordre fourni par le serveur.";
-    STR_CHAT_OPTIONS_FORCE_SHOW = "Forcer l'affichage du chat";
-    STR_CHAT_OPTIONS_FORCE_SHOW_SUMMARY = 'Si vous voulez voir le chat quand la fonction Â« Ã©crire dans le chat Â» est utilisÃ©e, activez ceci';
-    STR_NOKEY_CHAT_WARN = "Ajoutez une clÃ© d'autorisation utilisateur pour pouvoir se connecter et Ã©crire dans le chat";
-    STR_CHAT_NOT_READY = "Le chat n'est pas prÃªt Ã  envoyer ! RÃ©essayez dans une ou deux secondes.";
-    STR_CHAT_REDEEMED_MESSAGE_HIGH = 'Message mis en avant via une rÃ©compense';
-    STR_CHAT_FIRST_MESSAGE_HIGH = 'PREMIER MESSAGE';
-    STR_CHAT_REDEEMED_MESSAGE_SUB = 'Message envoyÃ© en mode abonnÃ©s via une rÃ©compense';
-    STR_CHAT_OPTIONS = 'Options du chat';
-    STR_CHAT_HIGHLIGHT_STREAMER_MSG = 'Surligner les messages du streamer (fond rose foncÃ©)';
-    STR_CHAT_HIGHLIGHT_MOD_MSG = 'Surligner les messages des modÃ©rateurs (fond cyan foncÃ©)';
-    STR_CHAT_HIGHLIGHT_REDEEMED = 'Surligner les messages de rÃ©compense (fond violet, message uniquement)';
-    STR_CHAT_HIGHLIGHT_FIRST = 'Surligner les premiers messages (fond rose foncÃ©)';
-    STR_CHAT_HIGHLIGHT_STREAMER = 'Surligner les messages @streamer (fond rouge foncÃ©, Â« @ Â» en bleu)';
-    STR_CHAT_HIGHLIGHT_USER = 'Surligner vos messages @username (fond vert foncÃ©, Â« @ Â» en bleu)';
-    STR_CHAT_HIGHLIGHT_USER_SEND = 'Surligner vos messages envoyÃ©s (fond vert foncÃ©)';
-    STR_CHAT_SHOW_SUB = 'Afficher les messages de sub dans le chat (fond orange foncÃ©)';
-    STR_CHAT_HIGHLIGHT_BIT = 'Surligner les messages avec bits (fond jaune foncÃ©)';
-    STR_CHAT_HIGHLIGHT_ACTIONS = "Afficher les messages d'action (gÃ©nÃ©ralement des bots)";
-    STR_CHAT_HIGHLIGHT_ACTIONS_SUMMARY =
-        "Ces messages sont gÃ©nÃ©ralement Ã©quivalents aux messages de sub mais envoyÃ©s via un bot ; si Â« Afficher les messages de sub Â» est activÃ©, c'est redondant.";
-    STR_CHAT_INDIVIDUAL_BACKGROUND = 'DiffÃ©rence de fond entre les messages individuels';
-    STR_CHAT_INDIVIDUAL_BACKGROUND_SUMMARY =
-        'Les modes sont Â« dÃ©sactivÃ© Â», Â« activÃ© Â» (auto), Clair ou Plus sombre. En mode auto, le fond alterne entre plus clair et plus sombre si le chat est au-dessus du stream ; sinon le fond est clair.';
-    STR_CHAT_INDIVIDUAL_LINE = 'InsÃ©rer une ligne pour sÃ©parer les messages de chat';
-    STR_CHAT_LINE_ANIMATION = "DÃ©filement animÃ© Ã  l'arrivÃ©e d'un nouveau message";
-    STR_CHAT_LOGGING = "Connexion au chat avec l'utilisateur actuel";
-    STR_CHAT_LOGGING_SUMMARY =
-        "Quand une clÃ© d'autorisation est fournie, l'app se connecte au chat en tant qu'utilisateur actuel sauf si le chat est dÃ©sactivÃ© dans les contrÃ´les du lecteur. Si ceci est sur NON, la connexion est anonyme, les messages sont possibles mais les bans et ROOMSTATE sont cachÃ©s.";
-    STR_CHAT_BOTS = 'Bloquer les bots et commandes de bots (!commande) dans le chat';
-    STR_CHAT_TIMESTAMP = "Afficher l'horodatage des messages";
-    STR_CHAT_USER_NOTICE = 'Afficher les avertissements de notification utilisateur dans le chat';
-    STR_CHAT_USER_NOTICE_SUMMARY =
-        "Afficher un avertissement Ã  l'Ã©cran quand le chat reÃ§oit une notification indirecte pour l'utilisateur. Ex : Â« Chat : cette room est maintenant en mode Ã©motes uniquement Â».";
-    STR_CHAT_NICK_COLOR = 'Couleurs de pseudo lisibles';
-    STR_CHAT_NICK_COLOR_SUMMARY =
-        'Au lieu des couleurs de pseudo par dÃ©faut parfois illisibles sur fond sombre, utiliser des couleurs personnalisÃ©es bien visibles.';
-    STR_CHAT_CLEAR_MSG = "Effacer le chat, supprimer les messages d'un utilisateur";
-    STR_CHAT_SHOW_BADGES = 'Afficher les badges utilisateur (hors ci-dessous)';
-    STR_CHAT_SHOW_BADGES_MOD = 'Afficher les badges de modÃ©rateur';
-    STR_CHAT_SHOW_BADGES_VIP = 'Afficher les badges VIP';
-    STR_CHAT_SHOW_BADGES_SHARED = 'Afficher les badges de chat partagÃ©s';
-    STR_CHAT_MESSAGE_DELETED = 'Ce message utilisateur a Ã©tÃ© demandÃ© Ã  la suppression';
-    STR_CHAT_MESSAGE_DELETED_ALL = 'Tous les messages de cet utilisateur ont Ã©tÃ© demandÃ©s Ã  la suppression';
-    STR_CHAT_MESSAGE_DELETED_TIMEOUT = ', il/elle a Ã©tÃ© mis(e) en timeout pendant';
-    STR_CHAT_CLEAR_MSG_SUMMARY =
-        "Supprimer les messages d'utilisateurs spÃ©cifiques (par exemple aprÃ¨s un timeout ou un ban). Si activÃ©, les messages sont supprimÃ©s ; sinon seul le fond devient bleu.";
-    STR_OPEN_HOST_SETTINGS = 'Toujours ouvrir le live hÃ©bergÃ© Ã  la fin du stream si disponible';
-    STR_ALWAYS_STAY = "Toujours laisser le lecteur ouvert aprÃ¨s la fin d'un live";
-    STR_PING_WARNING = "Afficher l'avertissement Â« Ã‰chec du ping vers Twitch Â»";
-    STR_PING_WARNING_SUMMARY =
-        "L'app vÃ©rifie en permanence la connexion avec Twitch via un ping. Si cela Ã©choue trop souvent, un avertissement s'affiche. Si vous pensez que l'avertissement est incorrect, mettez cette option sur NON.";
-    STR_KEY_UP_TIMEOUT = "DÃ©lai d'appui long (en millisecondes)";
-    STR_KEY_UP_TIMEOUT_SUMMARY =
-        "DurÃ©e pendant laquelle il faut maintenir une touche avant qu'une action longue se dÃ©clenche. Exemples : actualiser l'Ã©cran, afficher les options de vignettes, etc.";
-    STR_CURRENT_THUMB_STYLE = 'Style de focus actuel';
-    STR_NEW_THUMB_STYLE = 'Nouveau style de focus';
-    STR_COLOR_STYLE_TEXT =
-        'Utilisez Haut/Bas pour sÃ©lectionner une option, Retour pour quitter, OK sur Â« Appliquer les changements Â» pour confirmer avant de quitter.';
-    STR_SHADOWS = 'Ombres';
-    STR_SHADOWS_NONE = 'Aucune';
-    STR_SHADOWS_WHITE = 'Blanches';
-    STR_SHADOWS_GRAY = 'Grises';
-    STR_SHADOWS_BLACK = 'Noires';
-    STR_COLORS = 'Couleurs';
-    STR_RESULT = 'RÃ©sultat';
-    STR_APPLY = 'Appliquer les changements';
-    STR_COLOR_TYPE = 'Type de couleur';
-    STR_ENTER = 'Appuyez sur OK';
-    STR_COLOR_ARRAY = 'Fond,Texte,Bordure,Barre de progression regardÃ©';
-    STR_STYLES_ARRAY = 'Par dÃ©faut,PersonnalisÃ©,Blanc,Gris,Rouge,Orange,Jaune,Vert,Bleu,Violet,Rose';
-    STR_ENTER_RGB = STR_ENTER + ' pour valider le changement RGB';
-    STR_THUMB_STYLE = 'Style de vignette sÃ©lectionnÃ©';
-    STR_OPEN_EXTERNAL_PLAYER = 'Ouvrir dans un lecteur externe';
-    STR_CHAT_SIDE_ARRAY = ['Gauche', 'Droite'];
-    STR_CHAT_BASE_ARRAY = ['Bas droite', 'Centre droite', 'Haut droite', 'Centre haut', 'Haut gauche', 'Centre gauche', 'Bas gauche', 'Centre bas'];
-    STR_CHAT_100_ARRAY = ['Droite', 'Centre', 'Gauche'];
-    STR_NOTIFICATION_POS = "Position des notifications Ã  l'Ã©cran";
-    STR_NOTIFICATION_POS_ARRAY = ['Haut droite', 'Haut centre', 'Haut gauche', 'Bas gauche', 'Bas centre', 'Bas droite'];
-    STR_LOWLATENCY_ARRAY = [
-        STR_DISABLE,
-        'Mode normal, peut provoquer des re-buffers',
-        'Mode le plus faible, peut provoquer encore plus de re-buffers'
-    ];
-    STR_LOWLATENCY_ENABLE_ARRAY = [
-        STR_LOW_LATENCY + ' - ' + STR_DISABLED,
-        STR_LOW_LATENCY + ' - Mode normal',
-        STR_LOW_LATENCY + ' - Mode le plus faible'
-    ];
-    STR_VOD_SEEK = "ContrÃ´les d'avance/retour rapide VOD";
-    STR_VOD_SEEK_SUMMARY =
-        "ContrÃ´le la vitesse des pas de retour/avance rapide. En maintenant Gauche/Droite, le pas augmente dans le temps jusqu'Ã  un maximum aprÃ¨s un certain dÃ©lai. AprÃ¨s relÃ¢chement et une seconde sans clic, le pas revient Ã  sa valeur minimale.<br><br>Appuyer sur Haut Ã©crase les valeurs min/max, permet de parcourir tous les pas possibles et de verrouiller la valeur tant que la barre de progression est affichÃ©e.<br><br>Les clics simples sans maintien n'augmentent pas le temps.<br><br>Ces options ne fonctionnent que pour les VOD. Pour les clips, le pas est toujours de 1 seconde.";
-    STR_VOD_SEEK_MIN = 'DurÃ©e minimale (de dÃ©part) du pas';
-    STR_VOD_SEEK_MAX = 'DurÃ©e maximale du pas';
-    STR_VOD_SEEK_TIME = "DÃ©lai d'augmentation aprÃ¨s un maintien de";
-    STR_UP_LOCKED = 'appuyez sur Haut pour verrouiller la valeur de pas';
-    STR_LOCKED = 'verrouillÃ©, appuyez sur Haut pour changer';
-    STR_IN_CHAT = 'Dans le chat';
-    STR_IN_SHARED_CHAT = 'Dans le chat partagÃ©';
-    STR_SHOW_IN_CHAT = "Afficher en haut du chat le total d'utilisateurs connectÃ©s ou de spectateurs";
-    STR_SHOW_IN_CHAT_SUMMARY =
-        'Aide Ã  voir si le chat hors-ligne a des utilisateurs actifs et montre la diffÃ©rence entre le nombre total de spectateurs et les utilisateurs du chat.';
-    STR_SHOW_IN_CHAT_VIEWERS = 'Afficher les spectateurs';
-    STR_SHOW_IN_CHAT_CHATTERS = 'Afficher les utilisateurs du chat';
-    STR_PLAYED = 'JouÃ©';
-    STR_CHAPTERS = 'Chapitres';
-    STR_FROM_SIMPLE = 'depuis';
-    STR_HIDE_MAIN_CLOCK = "Masquer l'horloge de l'Ã©cran principal";
-    STR_HIDE_PLAYER_CLOCK = "Masquer l'horloge du lecteur";
-    STR_HIDE_MAIN_SCREEN_TITLE = "Masquer le titre de l'Ã©cran principal";
-    STR_HIDE_MAIN_SCREEN_TITLE_SUMMARY = 'Le titre au centre : lives, clips, paramÃ¨tres, etc.';
-    STR_HIDE_ETC_HELP_INFO = "Masquer les aides de navigation Ã  l'Ã©cran";
-    STR_HIDE_ETC_HELP_INFO_SUMMARY = 'Aides de navigation comme Â« maintenir une touche pour une action Â» et similaires.';
-    STR_INACTIVE_SETTINGS = "RÃ©duire automatiquement l'app en cas d'inactivitÃ© pendant";
-    STR_INACTIVE_SETTINGS_SUMMARY =
-        "EmpÃªche l'app de rester en fonctionnement quand personne ne regarde. Un avertissement s'affichera, laissant 15 secondes Ã  l'utilisateur pour appuyer sur une touche et annuler la rÃ©duction.";
-    STR_INACTIVE_WARNING = "L'application va se rÃ©duire pour cause d'inactivitÃ© dans<br><br>%x<br><br>Appuyez sur une touche pour annuler";
-    STR_REMAINING = 'Restant :';
-    STR_PLAYER_INFO_VISIBILITY = "VisibilitÃ© de l'Ã©tat du lecteur";
-    STR_PREVIEW_SET = "ParamÃ¨tres d'aperÃ§u";
-    STR_PREVIEW_SHOW = "Afficher l'aperÃ§u";
-    STR_PREVIEW_SIZE_CONTROLS = "Taille de l'aperÃ§u";
-    STR_OLED_BURN_IN = 'Protection anti marquage OLED';
-    STR_OLED_BURN_IN_SUMMARY =
-        "Quand c'est activÃ©, l'Ã©cran devient entiÃ¨rement noir pendant 50 ms toutes les 20 minutes. Utile uniquement pour les appareils OLED sensibles au marquage.";
-    STR_AS = 'comme';
-    STR_MILLISECONDS = 'millisecondes';
-    STR_HOUR = 'heure';
-    STR_HOURS = 'heures';
-    STR_RIGHT = 'Droite';
-    STR_LEFT = 'Gauche';
-    STR_BOTTOM = 'Bas';
-    STR_TOP = 'Haut';
-    STR_AVG = 'Moy.';
-    STR_OFFSET = 'DÃ©calage';
+var KEY_MEDIA_NEXT = 176;
+var KEY_MEDIA_PREVIOUS = 177;
 
-    STR_HISTORY_EMPTY_CONTENT = "L'historique affiche ce que vous avez regardÃ© dans l'application uniquement si l'historique est activÃ©";
-    STR_PREVIEW = "l'aperÃ§u";
+var KEY_MEDIA_FAST_FORWARD = 228;
+var KEY_MEDIA_REWIND = 227;
 
-    STR_EMBED = 'Lecteur intÃ©grÃ© ';
-    STR_CLICK_EXIT = 'Cliquez ici pour quitter le lecteur';
-    STR_GO_FULL = 'Plein Ã©cran';
-    STR_GO_FULL_HELP = 'Cliquez, appuyez sur 9 ou F11';
-    STR_NOT_SUPPORT_BROWSER = "Ce n'est pas supportÃ© dans un navigateur";
+var KEY_0 = 48;
+var KEY_1 = 49;
+var KEY_2 = 50;
+var KEY_3 = 51;
+var KEY_4 = 52;
+var KEY_5 = 53;
+var KEY_6 = 54;
+var KEY_7 = 55;
+var KEY_8 = 56;
+var KEY_9 = 57;
 
-    STR_WARNING_BROWSER = 'Avertissement navigateur';
-    STR_WARNING_BROWSER_SUMMARY =
-        "Cette application est principalement conÃ§ue pour les tÃ©lÃ©viseurs, le support des autres appareils est limitÃ©. Vous pouvez contrÃ´ler l'app avec une souris mais elle fonctionne mieux avec les touches de clavier haut, bas, gauche, droite, OK et Retour (Ã‰chap fonctionne comme Retour).";
-    STR_THUMB_OPTIONS_CLICK =
-        "Cliquez deux fois sur une action (pour l'ouvrir ou l'appliquer), cliquez en dehors de la boÃ®te pour sortir sans appliquer";
-    STR_CLOSE_THIS_BROWSER = 'Appuyez sur Retour, OK ou cliquez en dehors pour fermer ceci';
+var KEY_NUMPAD_0 = 96;
+var KEY_NUMPAD_1 = 97;
+var KEY_NUMPAD_2 = 98;
+var KEY_NUMPAD_3 = 99;
+var KEY_NUMPAD_4 = 100;
+var KEY_NUMPAD_5 = 101;
+var KEY_NUMPAD_6 = 102;
+var KEY_NUMPAD_7 = 103;
+var KEY_NUMPAD_8 = 104;
+var KEY_NUMPAD_9 = 105;
 
-    STR_DISABLE_EMBED = 'Activer le lecteur Twitch Live et VOD';
-    STR_DISABLE_EMBED_SUMMARY =
-        'Ã€ dÃ©sactiver uniquement si vous voulez voir le lecteur Android natif pour vÃ©rifier ses textes et son interface Ã  des fins de test.';
-
-    STR_SPECIAL_FEATURE = 'Utilisez le clavier pour cette fonctionnalitÃ©';
-    STR_FAIL_VOD_INFO = 'Ã‰chec du chargement des informations de la VOD';
-
-    STR_PROXY_DONATE_SUMMARY = 'Si vous voulez en savoir plus ou remercier le mainteneur du proxy, utilisez le lien :';
-
-    STR_PROXY_TIMEOUT = 'DÃ©lai du proxy (en secondes)';
-
-    STR_CUSTOM_PROXY = 'Proxy PersonnalisÃ©';
-    STR_CUSTOM_PROXY_SUMMARY = 'Utiliser une URL de serveur proxy personnalisÃ©, appuyez sur entrÃ©e pour modifier l\'URL';
-    STR_CUSTOM_PROXY_URL = 'URL du Proxy PersonnalisÃ©';
-    STR_CUSTOM_PROXY_URL_PROMPT = 'Entrez l\'URL du proxy personnalisÃ© (l\'URL doit se terminer par /) :';
-    STR_CUSTOM_PROXY_HAS_TOKEN = 'Le proxy personnalisÃ© a un token';
-    STR_CUSTOM_PROXY_HAS_TOKEN_SUMMARY =
-        'Si l\'URL du proxy inclut dÃ©jÃ  le token, dÃ©sactivez cette option pour ne pas ajouter le token Ã  nouveau';
-    STR_CUSTOM_PROXY_HAS_PARAMETER = 'Le proxy personnalisÃ© a des paramÃ¨tres';
-    STR_CUSTOM_PROXY_HAS_PARAMETER_SUMMARY =
-        'Si l\'URL du proxy inclut dÃ©jÃ  les paramÃ¨tres, activez cette option pour que les paramÃ¨tres soient ajoutÃ©s en tant que chaÃ®ne de requÃªte';
-    STR_PROXY_TIMEOUT_SUMMARY =
-        "Si le serveur proxy est hors ligne, c'est le temps avant d'Â« abandonner Â» la connexion et de revenir Ã  l'implÃ©mentation Twitch par dÃ©faut";
-
-    PROXY_SERVICE = 'Proxy : ';
-    PROXY_SERVICE_STATUS = 'ActivÃ© et fonctionnel';
-    PROXY_SERVICE_OFF = 'DÃ©sactivÃ© dans les paramÃ¨tres';
-    PROXY_SERVICE_FAIL = 'Ne fonctionne pas, Ã©chec %x fois';
-
-    PROXY_SETTINGS = 'ParamÃ¨tres Proxy (censure Internet et proxy associÃ©)';
-    PROXY_SETTINGS_SUMMARY =
-        "Un seul proxy peut Ãªtre activÃ©. Il permet d'obtenir les liens de stream depuis un autre serveur, ce qui peut permettre de voir du contenu interdit dans votre rÃ©gion et d'Ã©viter les pubs. DÃ©sactivez-le si vous avez des problÃ¨mes de live (trop de buffering, gels ou baisse de qualitÃ©).";
-    SEEK_PREVIEW = "AperÃ§u lors de l'avance/retour";
-    SEEK_PREVIEW_SUMMARY =
-        "Permet de contrÃ´ler l'image d'aperÃ§u VOD affichÃ©e pendant l'avance/retour rapide. Tous les VOD ne disposent pas d'un tel aperÃ§u.";
-    SEEK_PREVIEW_SINGLE = 'Image unique';
-    SEEK_PREVIEW_CAROUSEL = "Carrousel d'images";
-
-    OPEN_NEW_ISSUE = '(Cliquez sur New issue)';
-
-    STR_CONFIRM = 'Confirmer';
-
-    STR_MATURE_NO_CHANGES = 'Aucun changement au contenu rÃ©servÃ© aux adultes faute de mot de passe';
-    STR_MATURE_PROTECT = 'ProtÃ©ger les rÃ©glages de contenu adulte par mot de passe';
-    STR_MATURE_HELP_SET_PASS = 'DÃ©finissez un mot de passe et cliquez sur Confirmer, quitter rÃ©initialise les paramÃ¨tres de contenu adulte';
-    STR_MATURE_HELP_CHECK_PASS = 'Entrez le mot de passe sauvegardÃ© et cliquez sur Confirmer, quitter rÃ©initialise les paramÃ¨tres de contenu adulte';
-
-    STR_MATURE_DISABLED = 'Le contenu adulte est dÃ©sactivÃ©';
-    STR_ENABLE_MATURE = 'Contenu adulte';
-    STR_ENABLE_MATURE_SUMMARY =
-        "Quand c'est dÃ©sactivÃ©, l'app bloque tout contenu marquÃ© comme mature, y compris les contenus suivis : lives marquÃ©s comme adulte, ainsi que tous les clips et VOD correspondants.";
-
-    STR_SCREEN_OFF = 'Ã‰cran Ã©teint (audio uniquement)';
-
-    STR_UNBLOCK_CHANNEL = 'DÃ©bloquer la chaÃ®ne';
-    STR_UNBLOCK_GAME = 'DÃ©bloquer le jeu';
-    STR_BLOCK_CHANNEL = 'Bloquer la chaÃ®ne';
-    STR_BLOCK_GAME = 'Bloquer le jeu';
-    STR_BLOCK_NO_USER = "Ajoutez d'abord un utilisateur avant de pouvoir bloquer";
-    STR_BLOCK_NO_CHANNEL = 'Impossible de rÃ©cupÃ©rer la chaÃ®ne pour ceci';
-    STR_BLOCK_OVERWRITE = 'Afficher les Ã©lÃ©ments bloquÃ©s';
-    STR_BLOCK_SORT_DATE = 'TriÃ©s par date de blocage';
-    STR_BLOCK_SORT_NAME = 'TriÃ©s par nom A Ã  Z';
-    STR_BLOCK_EMPTY_CONTENT = "Il n'y a aucun contenu bloquÃ© de ce type";
-
-    STR_NO_TOKEN_WARNING = "Sans utilisateur ajoutÃ©, l'app peut Ã©chouer Ã  charger le contenu, c'est une limitation de l'API Twitch";
-    STR_NO_TOKEN_WARNING_429 =
-        "L'app Ã©choue Ã  charger le contenu Ã  cause d'une limitation de l'API Twitch, ajoutez un utilisateur pour corriger ce problÃ¨me.";
-
-    STR_ADD_USER_TEXT = 'Visitez %site sur un autre appareil et entrez le code : %code';
-    STR_ADD_USER_TEXT_COUNTER = "VÃ©rification de la confirmation d'accÃ¨s dans %d...";
-    STR_ADD_USER_TEXT_COUNTER_NOW = 'VÃ©rification maintenant !';
-    STR_ADD_ERROR = "Impossible d'accÃ©der au service d'ajout d'utilisateur";
-    STR_USER_TOKEN_ERROR = "Perte d'accÃ¨s Ã  l'utilisateur actuel, veuillez vÃ©rifier la section utilisateur";
-
-    STR_WRONG_PASS = 'Mauvais mot de passe !';
-    STR_PASS_MATURE_ENABLED = 'Le contenu adulte est activÃ©, ancien mot de passe supprimÃ©';
-
-    STR_PLAYER_EXTRA_CODEC = 'Diffusion amÃ©liorÃ©e HEVC, AV1, support 1440p 4K';
-    STR_PLAYER_EXTRA_CODEC_SUMMARY =
-        "La plupart des streams utilisent AVC (H.264) jusqu'Ã  1080p60 ; HEVC/AV1 permettent le 1440p, 4K et 60+ fps quand disponible.";
-
-    STR_PLAYER_EXTRA_CODEC_SUMMARY1 =
-        'Cette fonctionnalitÃ© ne fonctionne que pour les utilisateurs connectÃ©s. Tous les streams ne sont pas compatibles : cela dÃ©pend du streamer et de la disponibilitÃ© de Twitch dans votre rÃ©gion.';
-
-    STR_PLAYER_EXTRA_CODEC_SUMMARY_EXTRA = "L'app vÃ©rifie si votre appareil supporte HEVC ou AV1 pour des streams de meilleure qualitÃ©.";
-
-    STR_PLAYER_EXTRA_CODEC_SUMMARY_EXTRA2 = "Sans support sur l'appareil, la lecture sera limitÃ©e et pourra Ã©chouer pour les streams amÃ©liorÃ©s.";
-
-    STR_PLAYER_CODEC_SUPPORTED = 'appareil compatible';
-    STR_PLAYER_CODEC_NOT_SUPPORTED = 'Appareil non compatible ! Activer ce codec peut provoquer des erreurs de lecture.';
-
-    STR_PLAYER_EXTRA_CODEC_SUMMARY_EXTRA3 = "Pour mieux comprendre les capacitÃ©s de l'appareil, consultez les paramÃ¨tres : ";
-
-    STR_BLOCKED_CODEC = 'CapacitÃ© des codecs & codecs bloquÃ©s';
-    STR_BLOCKED_CODEC_SUMMARY = 'Liste les capacitÃ©s des codecs utilisÃ©s et permet de bloquer certains codecs.';
-
-    STR_CODEC_DIALOG_SUMMARY_1 =
-        "Cette section liste tous les types de codecs supportÃ©s par l'appareil (AVC H.264, HEVC H.265, AV1) utilisÃ©s par cette app.";
-
-    STR_CODEC_DIALOG_SUMMARY_2 =
-        "Les codecs logiciels (OMX.google) sont dÃ©sactivÃ©s par dÃ©faut si un codec matÃ©riel est disponible. En cas de problÃ¨me de lecture, essayez de dÃ©sactiver le logiciel et d'activer le matÃ©riel ou inversement (une accumulation constante d'images sautÃ©es est typique d'un souci de codec).";
-
-    STR_CODEC_DIALOG_SUMMARY_3 = 'Au moins un codec de chaque type doit rester activÃ© en permanence.';
-
-    STR_SPEED_ADJUST = 'Rattraper en faible latence';
-    STR_SPEED_ADJUST_SUMMARY =
-        "Quand la faible latence est activÃ©e, ajuste automatiquement la latence si elle s'Ã©carte de la cible en ralentissant ou accÃ©lÃ©rant le stream de 1 %. Le changement de vitesse peut provoquer un lÃ©ger bruit audio quand la latence est ajustÃ©e.";
-
-    STR_SW_CODEC = 'Codec logiciel';
-    STR_HW_CODEC = 'Codec matÃ©riel';
-
-    STR_LOAD_ALL_LANG = 'Basculer automatiquement le contenu sur Â« Toutes Â» les langues';
-    STR_LOAD_ALL_LANG_SUMMARY =
-        "Bascule automatiquement sur la langue Â« Toutes Â» quand la langue actuelle n'a pas de contenu, uniquement sur certains Ã©crans (Jeux et Page d'accueil).";
-    STR_LOAD_ALL_LANG_WARNING = STR_LOAD_ALL_LANG + " Ã  cause d'un contenu vide";
-
-    STR_DISABLE_SHARED_CHAT = 'DÃ©sactiver le chat partagÃ©';
-    STR_DISABLE_SHARED_CHAT_SUMMARY = "Si activÃ©, n'affiche que les messages du chat du stream que vous regardez.";
-
-    STR_BACKUP_ACCOUNT_REMOVE = 'Supprimer le compte Google Drive';
-    STR_BACKUP_ACCOUNT_ADD = 'Ajouter un compte Google Drive pour la sauvegarde';
-    STR_BACKUP_ACCOUNT_ADD_SUMMARY = "Pour restaurer une sauvegarde, ajoutez un compte et l'app affichera les options de restauration disponibles.";
-    STR_BACKUP_ACCOUNT_DIALOG_TITLE = 'Ajouter un compte Google Drive';
-
-    STR_BACKUP_ACCOUNT_DIALOG_BODY = "RÃ©cupÃ©ration des informations d'API, veuillez patienter...";
-    STR_BACKUP_ACCOUNT_DIALOG_CODE_FAIL = 'AccÃ¨s refusÃ©';
-    STR_BACKUP_ACCOUNT_DIALOG_CODE_SUCCESS = 'AccÃ¨s rÃ©ussi, veuillez patienter pendant la vÃ©rification...';
-
-    STR_BACKUP_ACCOUNT_DIALOG_CODE_SUCCESS_END = "L'app restaurera et fermera cette boÃ®te de dialogue dans quelques instants";
-    STR_BACKUP_NO_BACKUP_FOUND = 'Aucune sauvegarde prÃ©cÃ©dente trouvÃ©e, sauvegarde crÃ©Ã©e avec succÃ¨s';
-    STR_BACKUP_ACCOUNT_REFRESH_ERROR = "Perte d'accÃ¨s au compte de sauvegarde et de synchronisation, compte de sauvegarde supprimÃ© !";
-
-    STR_BACKUP_SIZE = 'Taille de la sauvegarde :';
-    STR_BACKUP_NAME = 'Nom de la sauvegarde :';
-    STR_BACKUP_SYNC = 'Sync, Sauvegarde et Restauration';
-    STR_BACKUP_SYNC_SUMMARY =
-        "L'app pourra voir, crÃ©er, modifier et supprimer uniquement les fichiers Google Drive qu'elle crÃ©e elle-mÃªme ; elle ne pourra NI voir NI modifier, NI supprimer d'autres fichiers sur votre Google Drive." +
-        '<br><br>' +
-        "Elle pourra aussi lire votre adresse e-mail et votre image de profil pour afficher le compte actif. Ces informations ne seront qu'affichÃ©es et jamais modifiÃ©es.";
-
-    STR_BACKUP_USER_INFO = '(Infos utilisateur : utilisateurs, historique, blocages et paramÃ¨tres)';
-
-    STR_BACKUP_SYNC_USER = 'Synchroniser les utilisateurs';
-    STR_BACKUP_SYNC_HISTORY = "Synchroniser l'historique et la liste des contenus bloquÃ©s.";
-    STR_BACKUP_SYNC_SETTINGS = 'Synchroniser les paramÃ¨tres';
-    STR_BACKUP_RESTORE_USER = 'Restaurer les utilisateurs';
-    STR_BACKUP_RESTORE_HISTORY = "Restaurer l'historique et la liste des contenus bloquÃ©s.";
-    STR_BACKUP_RESTORE_SETTINGS = 'Restaurer les paramÃ¨tres';
-    STR_BACKUP_RESTORE_SUMMARY =
-        "En cas de problÃ¨me aprÃ¨s une restauration, essayez d'effacer les donnÃ©es de l'app et de restaurer en omettant une option.";
-
-    STR_BACKUP_SYNC_SETTINGS_SUMMARY =
-        "La sauvegarde contient un jeu unique de paramÃ¨tres pour tous vos appareils. Tout changement sera appliquÃ© aux autres appareils la prochaine fois que vous ouvrirez l'app.";
-    STR_BACKUP_SYNC_RESTORE = 'Sauvegarde trouvÃ©e';
-    STR_BACKUP_SYNC_RESTORE_SUMMARY = 'Sauvegarde trouvÃ©e. SÃ©lectionnez les Ã©lÃ©ments Ã  restaurer, puis appuyez sur Retour ou OK pour confirmer.';
-    STR_BACKUP_SYNC_RESTORE_SUCCESS = 'Restauration rÃ©ussie !';
-    STR_BACKUP_RESTORE_FAIL = 'Ã‰chec de la restauration de la sauvegarde';
-
-    STR_BACKUP_ENABLE = 'Sauvegarde activÃ©e';
-    STR_BACKUP_ENABLE_SUMMARY = "Si OUI, l'app gardera une sauvegarde de toutes les infos utilisateur " + STR_BACKUP_USER_INFO;
-
-    STR_BACKUP_SYNC_ENABLE = 'Synchroniser entre appareils';
-    STR_BACKUP_SYNC_ENABLE_SUMMARY =
-        "L'activation ajoute un léger délai au démarrage de l'app et est inutile si vous l'utilisez sur un seul appareil. L'app synchronise toutes les options activées ci-dessous entre cet appareil et les autres utilisant le même compte Google Drive. Pour changer d'appareil et reprendre la lecture, réduisez l'app sur l'appareil actuel avec la touche Home. Puis, assurez-vous qu'elle est totalement fermée sur l'autre appareil avant de l'ouvrir.";
-
-    STR_EXPORT_LOGS = 'Exporter les logs proxy';
-    STR_PROXY_LOGS_EMPTY = 'Aucun log proxy à exporter';
-}
+var KEY_A = 65;
+var KEY_C = 67;
+var KEY_E = 69;
+var KEY_J = 74;
+var KEY_K = 75;
+var KEY_T = 84;
+var KEY_U = 85;
 
 /*
- * Copyright (c) 2017â€“present Felipe de Leon <fglfgl27@gmail.com>
- *
- * This file is part of SmartTwitchTV <https://github.com/fgl27/SmartTwitchTV>
- *
- * SmartTwitchTV is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * SmartTwitchTV is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with SmartTwitchTV.  If not, see <https://github.com/fgl27/SmartTwitchTV/blob/master/LICENSE>.
- *
- */
-
-//Spacing for release maker not trow errors from jshint
-function pt_BRLang() {
-    // This is a false/true var change if day comes first in your language eg (27/12/2010) day 27 month 12 year 2010
-    Main_IsDayFirst = true;
-
-    // This is the size of side pannel a adjustments may be needed here so it can fit all words in the horizontal axis
-    Sidepannel_MoveldefaultMargin = 17;
-
-    STR_KEY_UP_DOWN = 'PG para cima/para baixo';
-    STR_KEY_MEDIA_FF = 'ou tecla de retrocesso de mÃ­dia ou de avanÃ§o rÃ¡pido';
-    STR_GUIDE_EXTRA = 'ou pressione a tecla 2';
-    STR_GUIDE_EXTRA2 = 'ou tecla de mÃ­dia prÃ³xima faixa';
-    STR_REFRESH = 'Atualizar';
-    STR_SEARCH = 'Pesquisar';
-    STR_SETTINGS = 'ConfiguraÃ§Ãµes';
-    STR_CONTROLS = 'Controles';
-    STR_ABOUT = 'Sobre';
-    STR_HIDE = 'Ocultar';
-    STR_SEARCH_EMPTY = 'O texto que vocÃª digitou estÃ¡ vazio.';
-    STR_SEARCH_RESULT_EMPTY = 'O resultado da pesquisa estÃ¡ vazio.';
-    STR_SWITCH = 'Alterar de tela';
-    STR_SWITCH_USER = 'Trocar tela de usuÃ¡rio';
-    STR_SWITCH_VOD = 'Trocar: VÃ­deos ou Destaques';
-    STR_SWITCH_CLIP = 'Trocar: PerÃ­odo (24h, 7d, 30d, todos)';
-    STR_GO_TO = 'VÃ¡ para a tela';
-    STR_USER = 'UsuÃ¡rio';
-    STR_LIVE = 'Ao vivo';
-    STR_GAMES = 'Jogos';
-    STR_PLAYING = 'Jogando';
-    STR_FOR = 'para';
-    STR_WATCHING = 'Assistindo por ';
-    STR_WAITING = 'Tempo de espera';
-    STR_SINCE = 'Desde';
-    STR_AGAME = 'Um Jogo';
-    STR_PLACEHOLDER_SEARCH = 'Digite sua pesquisa ...';
-    STR_PLACEHOLDER_OAUTH = 'Digite sua chave de autorizaÃ§Ã£o ...';
-    STR_PLACEHOLDER_USER = 'Digite seu nome de usuÃ¡rio ...';
-    STR_PLACEHOLDER_PRESS = 'Pressione Enter ou de seleÃ§Ã£o para,';
-    STR_CHANNELS = 'Canais';
-    STR_CHANNEL = 'Canal';
-    STR_GOBACK_START = 'Voltar para a tela anterior: tecla de retorno';
-    STR_IS_OFFLINE = 'terminou';
-    STR_CHECK_HOST = ', verificando host';
-    STR_IS_SUB_ONLY = 'Este vÃ­deo Ã© disponÃ­vel apenas para subs.';
-    STR_IS_SUB_ONLY_ERROR = 'Ã© conteÃºdo apenas para sub.';
-    STR_REFRESH_PROBLEM = 'A conexÃ£o falhou ou nÃ£o hÃ¡ conteÃºdo para esse. Atualize para tentar novamente';
-    STR_REFRESH_PROBLEM_ENTER = 'A conexÃ£o falhou ou nÃ£o hÃ¡ conteÃºdo para esse. Pressione Enter para Atualizar';
-    STR_REFRESH_PROBLEM_ENTER_LANG =
-        'A conexÃ£o falhou ou nÃ£o hÃ¡ conteÃºdo para este idioma. Altere o idioma do conteÃºdo (mantenha pressionado Ã  tecla para esquerda) ou pressione Enter para atualizar';
-    STR_NO = 'NÃ£o';
-    STR_FOR_THIS = 'para este';
-    STR_PLAYER_PROBLEM = 'Falha na conexÃ£o, nÃ£o foi possÃ­vel carregar o conteÃºdo do vÃ­deo saindo de ...';
-    STR_VODS = 'VÃ­deos';
-    STR_HIGHLIGHTS = 'Destaques';
-    STR_CLIPS = 'Clipes';
-    STR_CONTENT = 'ConteÃºdo';
-    STR_STREAM_ON = 'Em';
-    STR_DURATION = 'DuraÃ§Ã£o';
-    STR_VIEW = 'VisualizaÃ§Ã£o';
-    STR_VIEWS = 'VisualizaÃ§Ãµes';
-    STR_VIEWER = 'Pessoa';
-    STR_VIEWERS = 'Pessoas';
-    STR_EXIT_AGAIN = 'Clique novamente para sair!';
-    STR_EXIT_AGAIN_PICTURE = 'Clique novamente para sair do Picture in Picture!';
-    STR_EXIT_AGAIN_MULTI = 'Clique novamente para sair do MultiStream!';
-    STR_EXIT_MESSAGE = 'Deseja sair do Cliente SmartTV para Twitch?';
-    STR_EXIT = 'Sair';
-    STR_CHANGELOG = 'Changelog';
-    STR_FULL_CHANGELOG = 'Todas AlteraÃ§Ãµes';
-    STR_CHANGELOG_SUMMARY = 'Estas sÃ£o apenas as alteraÃ§Ãµes mais recentes, para ver todas use o link abaixo:';
-    STR_UPDATE = 'Clique para atualizar';
-    STR_UPDATE_CHECK = 'Verificar se hÃ¡ atualizaÃ§Ãµes';
-    STR_UPDATE_CHECKING = 'Verificando atualizaÃ§Ãµes ...';
-    STR_UPDATE_CHECKING_FAIL = 'Falha na verificaÃ§Ã£o da atualizaÃ§Ã£o';
-    STR_NO_UPDATES = 'O aplicativo estÃ¡ atualizado';
-    //STR_UPDATE_CHANGELOG = 'Atualizar & Changelog';
-    STR_UPDATE_LATEST = 'Ãšltima alteraÃ§Ã£o:';
-    STR_UPDATE_FAIL = 'Falha no processo de atualizaÃ§Ã£o, tente manualmente!';
-    STR_UPDATE_FAIL_DOWNLOAD = 'O processo de atualizaÃ§Ã£o falhou ao baixar o APK, tente manualmente!';
-    STR_UPDATE_AVAILABLE = 'AtualizaÃ§Ã£o Apk disponÃ­vel';
-    STR_WEB_UPDATE_AVAILABLE = 'AtualizaÃ§Ã£o Web disponÃ­vel';
-    STR_UPDATE_CHECK_SIDE = ', verifique no painel lateral';
-    STR_UPDATE_LAST_CHECK = 'Ãšltima verificaÃ§Ã£o:';
-    STR_UPDATE_OPT = 'OpÃ§Ãµes de atualizaÃ§Ãµes';
-    STR_UPDATE_CHECK_FOR = 'Verificar atualizaÃ§Ãµes em segundo plano';
-    STR_UPDATE_SHOW = 'Mostrar diÃ¡logo de atualizaÃ§Ãµes quando houver atualizaÃ§Ãµes disponÃ­veis';
-    STR_UPDATE_SHOW_ARRAY = ['Sim', 'Apenas uma mensagem brinde', 'NÃ£o'];
-    STR_UPDATE_START = 'Processo de atualizaÃ§Ã£o iniciado, pode demorar alguns segundos, aguarde!';
-    STR_UPDATE_PLAY = 'Se a Play Store nÃ£o mostrar a atualizaÃ§Ã£o, tente novamente apÃ³s alguns minutos!';
-    STR_UPDATE_ERROR = 'VocÃª precisa do APK versÃ£o 3.0.303 ou UP para poder usÃ¡-lo, atualize do jeito antigo';
-    STR_UPDATE_WARNING_OK = 'Aplicativo atualizado OK';
-    STR_CLOSE = 'Fechar';
-    STR_MINIMIZE = 'Minimizar';
-    STR_CANCEL = 'Cancelar';
-    STR_LIVE_CHANNELS = 'Canais ao vivo';
-    STR_LIVE_HOSTS = 'Hosts';
-    STR_LIVE_GAMES = 'Jogos ao Vivo';
-    STR_USER_CHANNEL = 'Canais seguidos';
-    STR_USER_MY_CHANNEL = 'Meu canal';
-    STR_USER_ADD = 'Adicionar usuÃ¡rio';
-    STR_USER_REMOVE = 'Remover usuÃ¡rio';
-    STR_USER_ERROR = 'UsuÃ¡rio nÃ£o existe';
-    STR_USER_HOSTING = 'host';
-    STR_USER_HOSTED_BY = 'host por';
-    STR_USER_SET = 'jÃ¡ definido';
-    STR_USER_MAKE_ONE = 'Mudar para';
-    STR_USER_NUMBER_ONE = 'O primeiro usuÃ¡rio pode seguir (ao fornecer uma chave) e ver o feed dos canais ao vivo fora da tela do usuÃ¡rio';
-    STR_ADD_USER_SH = 'Adicionar um usuÃ¡rio Twitch para exibir os seus Canais Seguidos aqui';
-    STR_CLIP_DAY = '24h';
-    STR_CLIP_WEEK = '7d';
-    STR_CLIP_MONTH = '30d';
-    STR_CLIP_ALL = 'todos';
-    STR_JUMP_TIME = 'Salto';
-    STR_JUMP_T0 = 'para';
-    STR_JUMP_CANCEL = 'Salto cancelado';
-    STR_JUMP_TIME_BIG = ', tempo de salto maior que duraÃ§Ã£o';
-    STR_SEC = 'Sec';
-    STR_MIN = 'Min';
-    STR_MS = 'Ms';
-    STR_HR = 'Hr';
-    STR_SOURCE = 'Original';
-    STR_TWITCH_TV = 'Cliente SmartTV para Twitch';
-    STR_CLOSE_THIS = 'Pressione Retornar ou Enter para fechar isto.';
-    STR_CLOSE_THIS2 = 'Pressione Retornar para fechar isso.';
-    STR_CLOSE_THIS3 = 'Pressione Retornar para mostrar a caixa de diÃ¡logo de atualizaÃ§Ã£o ou Enter para fechÃ¡-la.';
-    STR_PLAYER = 'Relacionado ao player:';
-    STR_CHAT = 'Relacionado ao chat:';
-    STR_CHAT_SHOW = 'Mostrar chat';
-    STR_CURRENT_VERSION = 'VersÃ£o atual instalada';
-    STR_LATEST_VERSION = 'Ãºltima versÃ£o disponÃ­vel';
-    STR_CONTROLS_MAIN_2 =
-        'Reproduzir um vÃ­deo: Navegue usando o teclado direcional (para cima/para baixo/esquerda/direita), pressione enter ou reproduzir/pausar ou visualizar as teclas de mÃ­dia da trilha ou tecla 1';
-    STR_CONTROLS_MAIN_3 = 'Atualizar o conteÃºdo da tela:';
-    STR_CONTROLS_MAIN_4 = 'Saia do aplicativo: no painel lateral, clique em sair';
-    STR_CONTROLS_MAIN_5 = 'ForÃ§ar o fechamento do aplicativo: Segure a tecla Enter atÃ© forÃ§ar o fechamento automÃ¡tico';
-    STR_CONTROLS_MAIN_6 = 'Alternar tela: tecla de retorno e depois D-Pad para cima/para baixo ou' + STR_KEY_UP_DOWN + STR_KEY_MEDIA_FF;
-    STR_CONTROLS_MAIN_10 =
-        'Iniciar uma pesquisa: no painel lateral clique em pesquisa, escrevendo a pesquisa pressione a tecla Enter no teclado virtual e escolha uma opÃ§Ã£o de pesquisa';
-    STR_CONTROLS_MAIN_14 = 'Sobre este aplicativo: no painel lateral, clique em';
-    STR_ABOUT_INFO_1 = 'Este Ã© um cliente Twitch para Android TV, lanÃ§ado gratuitamente para quem quiser usÃ¡-lo.';
-    STR_ABOUT_INFO_2 =
-        'Este aplicativo nÃ£o tem afiliaÃ§Ã£o com o Twitch, Ã© um aplicativo feito por um usuÃ¡rio, mas sÃ³ Ã© possÃ­vel porque o Twitch fornece todas as API que permite que o aplicativo mostre o conteÃºdo do Twitch.';
-    STR_ABOUT_INFO_2_SOURCE = 'Esta versÃ£o do aplicativo Ã© para teste apenas no navegador!';
-    STR_ABOUT_INFO_3 = 'InformaÃ§Ãµes de contato:';
-    STR_ABOUT_INFO_4 = 'Este Ã© um aplicativo de cÃ³digo aberto licenciado sob a GNU General Public License v3.0, verifique no GitHub';
-    STR_ABOUT_INFO_6 = 'Este aplicativo usa as seguintes dependÃªncias:';
-    STR_ABOUT_INFO_18 = 'Suporte para telefones e tablets:';
-    STR_ABOUT_INFO_19 =
-        'Sim, Ã© possÃ­vel usar este aplicativo em telefones e tablets, mas este aplicativo foi projetado para ser usado principalmente em TVs, o suporte para outros dispositivos Ã© limitado e por isso nÃ£o Ã© liberado na play store, use o link abaixo para fazer o download APK mais recente e instale manualmente em um telefone ou tablets';
-
-    STR_CONTROLS_PLAY_0 = 'ou nos controles da parte inferior do player';
-    STR_CONTROLS_PLAY_1 =
-        'Mostrar painel de informaÃ§Ãµes: Pressione a tecla Enter ou D-pad se o chat e o feed do canais ao vivo nÃ£o estiverem sendo exibidos';
-    STR_CONTROLS_PLAY_2 = 'Fechar o vÃ­deo: pressione a tecla de retorno duas vezes ou a tecla de mÃ­dia Parar';
-    STR_CONTROLS_PLAY_3 = 'Reproduzir/pausar um vÃ­deo: abra o painel de informaÃ§Ãµes e clique no sÃ­mbolo de pausa';
-    STR_CONTROLS_PLAY_4 = 'Mostrar preview: D-pad para cima';
-    STR_CONTROLS_PLAY_5 = 'Alterar a qualidade do vÃ­deo: use os controles de qualidade da parte inferior do player';
-    STR_CONTROLS_PLAY_6 = 'ForÃ§ar a atualizaÃ§Ã£o de um vÃ­deo (caso ele congele): Altere a qualidade do vÃ­deo para a mesma';
-    STR_CONTROLS_PLAY_7 = 'Mostrar ou ocultar o Chat: D-pad para baixo ou tecla nÃºmero 3' + STR_CONTROLS_PLAY_0;
-    STR_CONTROLS_PLAY_8 = 'Alterar posiÃ§Ã£o de chat: D-pad para a esquerda, PG para cima ou retroceder (apenas VOD e clipes)' + STR_CONTROLS_PLAY_0;
-    STR_CONTROLS_PLAY_9 = 'Alterar tamanho do chat: D-pad para a direita ou PG para baixo' + STR_CONTROLS_PLAY_0;
-    STR_CONTROLS_PLAY_10 = 'Alterar brilho de fundo do chat: alterar os controles da parte inferior do player';
-    STR_CONTROLS_PLAY_11 =
-        'ForÃ§ar atualizaÃ§Ã£o do chat nas transmissÃµes ao vivo (caso ele congele ou nÃ£o carregue): use os controles da parte inferior do player para desativar o chat (clique duas vezes)';
-    STR_CONTROLS_PLAY_12 =
-        'Iniciar uma pesquisa: abra o painel de informaÃ§Ãµes, navegue usando o teclado direcional (esquerda/direita) para " Pesquisar "e pressione Enter';
-    STR_CONTROLS_PLAY_13 =
-        'Todas as teclas de mÃ­dia sÃ£o suportadas (reproduzir, pausar, parar, prÃ³xima faixa, avanÃ§o rÃ¡pido, etc ...) algumas sÃ£o usadas como atalhos para mudanÃ§as de modo de Ã¡udio e vÃ­deo';
-    STR_CONTROLS_PLAY_14 =
-        'chat e vÃ­deo (lado a lado): tecla 2 ou tecla de mÃ­dia avanÃ§o rÃ¡pido, tambÃ©m alterna entre Picture in Picture e modo 50/50';
-    STR_F_DISABLE_CHAT = 'Chat desabilitado forÃ§ado';
-    STR_OAUTH_IN =
-        'Adicionar uma chave permite que o aplicativo acesse o chat usando seu usuÃ¡rio para enviar mensagens e obter sua lista de emoticons (permite que vocÃª receba sub de presente pelo chat), seguir/parar de seguir canais e acessar algum conteÃºdo do usuÃ¡rio mais rÃ¡pido <br><br>Adicionar uma chave nÃ£o Ã© obrigatorio e pode ser feito a qualquer momento mais tarde <br><br> Em caso de dÃºvida, leia este link: <br><br>%x<br><br> Para alguns dispositivos Ã© necessÃ¡rio um mouse para concluir a aÃ§Ã£o de autorizaÃ§Ã£o, pois pode ser necessÃ¡rio clicar manualmente em um botÃ£o para confirmar. <br><br> adicionar chave para';
-    STR_USER_CODE = 'Adicionar chave de autorizaÃ§Ã£o';
-    STR_USER_CODE_OK = 'Chave adicionada OK';
-    STR_KEY_BAD = 'Teste de chave falhou, uma nova precisa ser adicionado';
-    STR_OAUTH_WRONG = 'VocÃª tentou adicionar uma chave para o usuÃ¡rio';
-    STR_OAUTH_WRONG2 = 'mas esta chave Ã© para o usuÃ¡rio';
-    STR_FOLLOWING = 'Seguindo';
-    STR_FOLLOW = 'NÃ£o Seguindo';
-    STR_IS_SUB_NOOAUTH = 'E vocÃª nÃ£o adicionou uma chave de autorizaÃ§Ã£o, o aplicativo nÃ£o pode verificar o seu status de seguidor.';
-    STR_IS_SUB_NOT_SUB = 'E vocÃª nÃ£o Ã© um sub deste canal';
-    STR_IS_SUB_IS_SUB = 'VocÃª Ã© um sub deste canal, mas alguns problemas de radÃ´nio impediram a reproduÃ§Ã£o deste canal.';
-    STR_OAUTH_FAIL = 'Falha na verificaÃ§Ã£o de autorizaÃ§Ã£o com a chave do provedor, verifique e tente novamente';
-    STR_OAUTH_FAIL_USER = 'A chave adicionada nÃ£o pertence a este usuÃ¡rio';
-    STR_NOKEY = 'Nenhum usuÃ¡rio';
-    STR_NOKEY_WARN = 'Definir usuÃ¡rio e uma chave de autorizaÃ§Ã£o para poder seguir/deixar de seguir';
-    STR_FOLLOW_ISSUE = 'Aplicativos de terceiros nÃ£o podem mais seguir ou parar de seguir canais (o botÃ£o pode apenas mostrar se Ã© seguidor)';
-    STR_NOKUSER_WARN = 'Adicionar um usuÃ¡rio primeiro';
-    STR_RESET = 'Reinicie o';
-    STR_CLIP = 'Clipe';
-    STR_CHANNEL_CONT = 'ConteÃºdo do canal';
-    STR_NET_DOWN = 'A rede estÃ¡ desconectada, o aplicativo nÃ£o funciona sem INTERNET';
-    STR_NET_UP = 'ConexÃ£o de rede restabelecida';
-    STR_FOLLOWERS = 'Seguidores';
-    STR_FOLLOWER = 'Seguidor';
-    STR_CANT_FOLLOW = ', NÃ£o Ã© possÃ­vel seguir ou deixar de seguir';
-    STR_GAME_CONT = 'ConteÃºdo do jogo';
-    STR_YES = 'Sim';
-    STR_REMOVE_USER = 'Tem certeza que deseja remover o usuÃ¡rio';
-    STR_PLACEHOLDER_PRESS_UP = 'Pressione atÃ©';
-    STR_FOLLOW_GAMES = 'Jogos Seguidos Ao Vivo';
-    STR_USER_GAMES_CHANGE = 'Mudar entre';
-    STR_GUIDE = 'Segure enter';
-    STR_MONTHS = ['Jan', 'Fev', 'Mar', 'Abr', 'Maio', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
-    STR_DAYS = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'SÃ¡b'];
-    STR_STARTED = 'Iniciou';
-    STR_VIDEOS = 'VÃ­deos';
-    STR_REPLAY = 'Repetir';
-    STR_STREAM_END = 'saindo em';
-    STR_STREAM_END_EXIT = 'pressione "Retornar" para sair';
-    STR_CREATED_AT = 'Criado';
-    STR_OPEN_BROADCAST = 'Abra o VÃ­deo';
-    STR_OPEN_LAST_BROADCAST = 'Abra o Ãºltimo VÃ­deo';
-    STR_IS_LIVE = 'Agora Ao vivo';
-    STR_OPEN_REWIND = 'Abrir retrocesso';
-    STR_OPEN_REWIND_SUMMARY = 'Abrir o VOD com retrocesso completo';
-    STR_OPEN_REWIND_FAIL = 'Sem retrocesso para esta live';
-    STR_SHOW_ISLIVE_WARNING = 'Mostrar aviso "Streamer Agora ao vivo"';
-    STR_SHOW_ISLIVE_WARNING_SUMMARY =
-        'Ao assistir a um clipe ou VOD o aplicativo pode verificar quando o streamer estÃ¡ ao vivo, se estiver definido como SIM, um aviso aparecerÃ¡, para abrir ao vivo basta usar a opÃ§Ã£o de controles inferiores do player';
-    STR_OPEN_CHAT = 'Clique para abrir o chat e/ou aguarde para voltar ao vivo';
-    STR_STAY_OPEN = 'Permanecer na Live';
-    STR_STAY_OPEN_SUMMARY = 'Fique ligado e verifique novamente para ver se volta ao vivo';
-    STR_STAY_CHECK = 'Verificando se estÃ¡ ao vivo em:';
-    STR_STAY_CHECKING = 'Verificando se a transmissÃ£o estÃ¡ ao vivo...';
-    STR_STAY_CHECK_LAST = 'Ãšltimo resultado:';
-    STR_STAY_IS_OFFLINE = 'O stream estava offline';
-    STR_NO_BROADCAST = 'Sem VÃ­deos';
-    STR_NO_BROADCAST_WARNING = 'NÃ£o hÃ¡ VÃ­deo para este clipe';
-    STR_NO_CHAT = 'E por causa disso nenhum chat';
-    STR_IS_NOW = 'Esta agora';
-    STR_OPEN_HOST = 'Abra o Hosting';
-    STR_SETTINGS_PLAYER = 'player relacionado';
-    STR_SETTINGS_BUFFER_SIZE = 'Buffer inicial:';
-    STR_SETTINGS_BUFFER_SIZE_SUMMARY =
-        'Quanto Ã© necessÃ¡rio armazenar em buffer antes de iniciar a reproduÃ§Ã£o, isso nÃ£o estÃ¡ relacionado ao tamanho mÃ¡ximo que o buffer pode atingir (o tamanho mÃ¡ximo do buffer Ã© baseado no tamanho da MemÃ³ria do dispositivo), um valor menor aqui farÃ¡ com que a reproduÃ§Ã£o comece mais rapido e isso Ã© sempre recomendado. Alterar este valor para um valor maior na maioria dos casos nÃ£o causarÃ¡ nenhuma melhora, mas sim retrocessos';
-    STR_SETTINGS_BUFFER_LIVE = 'Buffer inicial de streams ao vivo';
-    STR_SETTINGS_BUFFER_VOD = 'Buffer inicial de VÃ­deos (VÃ­deo e destaque)';
-    STR_SETTINGS_BUFFER_CLIP = 'Buffer inicial de Clipes';
-    STR_SETTINGS_LANG = 'Idioma';
-    STR_LOADING_CHAT = 'Chat: Conectando Ã ';
-    STR_LOADING_FAIL = 'Tempo limite de conexÃ£o, falha ao registrar ...';
-    STR_CHAT_CONNECTED = 'Chat: Conectado';
-    STR_CHAT_SEND_DELAY = 'Mensagem enviada, mas o atraso de chat habilitado, a mensagem serÃ¡ exibida no chat apÃ³s';
-    STR_CHAT_DELAY = 'Chat: atraso';
-    STR_VOD_HISTORY_BASE = 'Reproduzir desde o inÃ­cio ou de onde parou de assistir';
-    STR_VOD_HISTORY = STR_VOD_HISTORY_BASE + 'VOD?';
-    STR_VOD_HISTORY_FORM_LIVE = STR_VOD_HISTORY_BASE + 'AO VIVO?';
-    STR_FROM = 'De:' + STR_BR;
-    STR_FROM_START = STR_FROM + 'Iniciar';
-    STR_CHAT_END = 'chat: O chat terminou!';
-    STR_RECENT = ', Mais recente';
-    STR_VIWES = ', Mais visualizaÃ§Ãµes';
-    STR_NOKEY_VIDEO_WARN = 'Adicionar uma chave de autorizaÃ§Ã£o para poder ver os vÃ­deos de seguidos';
-    STR_SWITCH_TYPE = 'Trocar: Recente ou visualizaÃ§Ã£o';
-    STR_ENABLE = 'Ativar';
-    STR_ENABLED = 'Ativado';
-    STR_DISABLE = 'Desativar';
-    STR_DISABLED = 'Desativado';
-    STR_DARK_MODE = 'Modo escuro';
-    STR_BRIGHT_MODE = 'Modo claro';
-    STR_RESTORE_PLAYBACK_WARN = 'O aplicativo foi fechado durante uma reproduÃ§Ã£o, restaurando a reproduÃ§Ã£o';
-    STR_RESTORE_PLAYBACK = 'Restaurar reproduÃ§Ã£o';
-    STR_RESTORE_PLAYBACK_SUMMARY =
-        'O aplicativo salva o que estava reproduzindo no caso de fechamento acidentalmente, alterando os aplicativos por exemplo, o sistema pode ficar sem memÃ³ria e forÃ§ar o fechamento, nesses casos o aplicativo irÃ¡ restaurar o que estava reproduzindo na prÃ³xima inicializaÃ§Ã£o';
-    STR_CHAT_FONT = 'Tamanho da fonte do chat';
-    STR_VIDEOS_ANIMATION = 'Miniaturas animadas de vÃ­deos';
-    STR_VIDEOS_ANIMATION_SUMMARY =
-        'Quando um VÃ­deo ou destaque Ã© selecionado a miniatura Ã© animada se estiver disponÃ­vel para aquele vÃ­deo (nem todos os vÃ­deos tÃªm animaÃ§Ã£o)';
-    STR_SIDE_PANEL = 'Painel lateral: D-pad para a esquerda ou tecla de retorno';
-    STR_SIZE = 'Tamanho';
-    STR_BRIGHTNESS = 'Brilho';
-    STR_FORBIDDEN = 'ConteÃºdo proibido, restrito Ã  sua regiÃ£o ou a aplicativos oficiais do Twitch';
-    STR_JUMPING_STEP = 'Etapa de salto';
-    STR_SECOND = 'segundo';
-    STR_SECONDS = 'segundos';
-    STR_MINUTE = 'minuto';
-    STR_MINUTES = 'minutos';
-    STR_CLOCK_OFFSET = 'Clock offset';
-    STR_CLOCK_OFFSET_SUMMARY = 'Ajuste o relÃ³gio do aplicativo em relaÃ§Ã£o Ã  sua escolha';
-    STR_CLOCK_AM_PM = 'Estilo do relÃ³gio';
-    STR_CLOCK_AM_PM_SUMMARY = 'Escolha entre 24H, 12H com AM/PM ou 12H sem AM/PM.';
-    STR_APP_LANG = 'Idioma do aplicativo';
-    STR_APP_LANG_SUMMARY = 'A linguagem dos textos do aplicativo';
-    STR_CONTENT_LANG = 'Idioma do conteÃºdo';
-    STR_CONTENT_LANG_SUMMARY = 'O idioma do conteÃºdo das telas, ao vivo, VÃ­deos, clipes';
-    STR_ENTER_TO_OPEN = 'Pressione Enter para abrir';
-    STR_LANG_ALL = 'Todas';
-    STR_NO_GAME = 'NÃ£o Ã© possivel obter o jogo deste';
-    STR_EMPTY = 'vazio';
-    STR_JUMP_BUFFER_WARNING = 'NÃ£o Ã© possÃ­vel saltar durante o buffer';
-    STR_CHAT_DISABLE = 'chat foi desabilitado Ã  forÃ§a, habilite-o nos controles da parte inferior do player chat desabilitado forÃ§ado';
-    STR_CLIP_FAIL = 'Este clipe/vÃ­deo falhou ao carregar. NÃ£o Ã© possÃ­vel reproduzir';
-    STR_CHAT_BRIGHTNESS = 'Brilho de fundo do chat';
-    STR_PLAY_NEXT = 'Iniciar o proximo';
-    STR_PLAY_NEXT_IN = 'Iniciar o proximo em';
-    STR_PLAY_ALL = 'Reproduzir tudo';
-    STR_AUTO_PLAY_NEXT = 'Reproduzir automaticamente o prÃ³ximo clipe';
-    STR_SIDE_PANEL_BACK_MAIN_MENU = 'Voltar ao menu principal';
-    STR_UP = 'Pressione para cima';
-    STR_HOLD_UP = 'Segure pra cima';
-    STR_LIVE_FEED = 'Live Feed';
-    STR_VOD_DIALOG = 'DiÃ¡logo inicial de VÃ­deos';
-    STR_VOD_DIALOG_SUMMARY =
-        'Escolha o comportamento padrÃ£o, ao reproduzir um VÃ­deo se a sua informaÃ§Ã£o estiver presente no histÃ³rico do usuÃ¡rio, ele pode ser reproduzido de onde vocÃª parou de assistir pela Ãºltima vez, se definido como "sempre desde o inÃ­cio" este comportamento tambÃ©m serÃ¡ aplicado a PrÃ©-VisualizaÃ§Ã£o de VOD';
-    STR_VOD_DIALOG_START = 'Sempre desde o inÃ­cio';
-    STR_VOD_DIALOG_LAST = 'Sempre desde onde parou';
-    STR_VOD_DIALOG_SHOW = 'Sempre perguntar';
-    STR_END_DIALOG_OPT = 'OpÃ§Ãµes diÃ¡logo de fim de reproduÃ§Ã£o';
-    STR_END_DIALOG_SETTINGS = 'Tempo limite da do diÃ¡logo de fim de reproduÃ§Ã£o';
-    STR_END_DIALOG_SETTINGS_SUMMARY =
-        'Quando um Live/VÃ­deo/Clipe termina uma caixa de diÃ¡logo mostra opÃ§Ã´es do que fazer a seguir, defina o tempo (em segundos) que levarÃ¡ para a opÃ§Ã£o padrÃ£o agir';
-    STR_END_DIALOG_DISABLE = 'Desativar o cronÃ´metro';
-    STR_CHAT_SIZE = 'Tamanho do chat';
-    STR_CHAT_POS = 'PosiÃ§Ã£o de chat';
-    STR_CHAT_VIDEO_MODE = 'Modo de vÃ­deo';
-    STR_CHAT_SIDE_FULL = 'Tela inteira';
-    STR_CHAT_PP_SIDE_FULL = 'Tela grande e pequena';
-    STR_CHAT_SIDE = 'Lado a lado, vÃ­deo e chat';
-    STR_CHAT_5050 = '50/50 e chats';
-    STR_SPEED = 'Velocidade';
-    STR_QUALITY = 'Qualidade';
-    STR_NORMAL = 'Normal';
-    STR_AUTO = 'Auto';
-    STR_VERY_LOW = 'Muito baixa';
-    STR_LOW = 'Baixa';
-    STR_HIGH = 'Alta';
-    STR_VERY_HIGH = 'Muito alta';
-    STR_THUMB_RESOLUTION = 'Qualidade das miniaturas';
-    STR_THUMB_RESOLUTION_SUMMARY =
-        'ResoluÃ§Ã£o padrÃ£o de miniaturas para vÃ­deos, ao vivo e jogos (nÃ£o pode ser aplicado para clipes) um valor menor ajudarÃ¡ o aplicativo a carregar mais rÃ¡pido, mas a miniatura pode parecer desfocada';
-    STR_PAYPAL_SUMMARY = 'DoaÃ§Ãµes Paypal use o link abaixo:';
-    STR_BITCOIN_SUMMARY = 'DoaÃ§Ãµes de Bitcoin use o endereÃ§o de carteira ou leia o qrcode:';
-    STR_PLAYER_PROBLEM_2 = 'A conexÃ£o falhou, nÃ£o foi possÃ­vel carregar as informaÃ§Ãµes do VÃ­deo';
-    STR_PLAYER_RESYNC = 'Reiniciar player';
-    STR_PLAYER_MULTI_ALL = 'Tudo';
-    STR_QUALITY_PP = ['Pequeno', 'Grande', STR_PLAYER_MULTI_ALL];
-    STR_QUALITY_MULTI = [STR_PLAYER_MULTI_ALL, 'Superior esquerdo', 'Superior direito', 'Inferior esquerdo', 'Inferior direito'];
-    STR_QUALITY_MULTI_BIG = [STR_PLAYER_MULTI_ALL, 'Superior', 'Inferior esquerdo', 'Inferior centro', 'Inferior direito'];
-    STR_PLAYER_BITRATE_UNLIMITED = 'Ilimitado';
-    STR_PLAYER_BITRATE = 'ResoluÃ§Ã£o/taxa de bits mÃ¡xima de qualidade automÃ¡tica permitida';
-    STR_PLAYER_BITRATE_SUMMARY =
-        'Isso serÃ¡ usado para evitar lags em dispositivos lentos ao reproduzir vÃ¡rios vÃ­deos ao mesmo tempo (a maioria dos dispositivos vai pular frames nessa situaÃ§Ã£o, pois eles sÃ£o feitos para reproduzir apenas um Ãºnico vÃ­deo), tambÃ©m ajuda a limitar o uso de banda da Internet, no caso de ser necessario limitar uso de banda habilite "Qualidade do player padrÃ£o" para Auto, a resoluÃ§Ã£o/taxa de bits recomendada para todos os players pequenos Ã© 720p/3 Mbps e ilimitada para o player principal ou grande para a maioria dos dispositivos de baixo custo.';
-    STR_PLAYER_BITRATE_SUMMARY_ETC =
-        'Valores diferentes aqui para a resoluÃ§Ã£o do player principal e pequeno e/ou taxa de bits, pode causar um curto buffering/carregamento ao mudar entre o player principal no modo Picture Picture (pressionando para baixo irÃ¡ alterar os players), para evitar que isto defina ambos os valores mesmo ao custo de um possÃ­vel atraso, o melhor indicativo de uma taxa de bits muito alta Ã© um acÃºmulo constante de quadros ignorados ou um buffer constante do fluxo.';
-    STR_PLAYER_MAIN = 'player principal, para o player grande em Picture in picture ou o player de cima 50/50';
-    STR_PLAYER_RES_SMALL = 'players pequeno, para o player pequeno do modo Picture in Picture e todos os players Multistream';
-    STR_PLAYER_BITRATE_MAIN = 'Taxa de bits -' + STR_PLAYER_MAIN;
-    STR_PLAYER_BITRATE_SMALL = 'Taxa de bits -' + STR_PLAYER_RES_SMALL;
-    STR_PLAYER_RES_MAIN = 'ResoluÃ§Ã£o -' + STR_PLAYER_MAIN;
-    STR_PLAYER_RES_SMALL = 'ResoluÃ§Ã£o -' + STR_PLAYER_RES_SMALL;
-    STR_BLOCK_RES = 'ResoluÃ§Ãµes bloqueadas';
-    STR_BLOCK_RES_SUMMARY =
-        'Ao usar a qualidade automÃ¡tica Ã© possÃ­vel bloquear uma ou mais resoluÃ§Ãµes de serem usadas, isso Ã© Ãºtil para dispositivos que atrasam a reproduÃ§Ã£o de uma resoluÃ§Ã£o particular, como os clipes nÃ£o podem ser reproduzidos no modo automÃ¡tico, isso tambÃ©m bloquearÃ¡ a seÃ§Ã£o automÃ¡tica de esta resoluÃ§Ã£o em um clipe.';
-    STR_BLOCK_RES_SUMMARY_EXTRA =
-        'O usuÃ¡rio pode sobrescrever a seleÃ§Ã£o manualmente durante a reproduÃ§Ã£o <br><br> XX significa que todas as resoluÃ§Ãµes que comeÃ§am com aquele valor antes de XX serÃ£o impedidas de serem usadas, se a resoluÃ§Ã£o for marcada como bloqueada';
-    STR_BLOCKED = 'Bloqueado';
-    STR_BLOCKED_NOT = 'NÃ£o bloqueado';
-    STR_AUDIO_SOURCE = 'Fonte de Ã¡udio';
-    STR_VOLUME_CONTROLS = 'Controles de Ã¡udio e volume';
-    STR_AUDIO_ALL = 'Ãudio habilitar todos';
-    STR_AUDIO_ALL_ENA = 'Todas as fontes de Ã¡udio habilitadas';
-    STR_AUDIO_ALL_100 = 'Volume total atÃ© 100%';
-    STR_AUDIO_ALL_100_SET = 'Todo o volume do player ajustado para 100%';
-    STR_VOLUME = 'Volume -';
-    STR_AUDIO = 'Ãudio -';
-    STR_DEF_QUALITY = 'Qualidade padrÃ£o do player';
-    STR_DEF_QUALITY_SUMMARY =
-        'Esta opÃ§Ã£o serÃ¡ sempre honrada ao reproduzir um Ãºnico vÃ­deo, no modo Picture in Picture ou Multistream a reproduÃ§Ã£o precisa usar a qualidade Auto, pelo motivo Ã© que, marque a opÃ§Ã£o de configuraÃ§Ãµes "' +
-        STR_PLAYER_BITRATE +
-        '"';
-    STR_PICTURE_PICTURE = 'Imagem sobre imagem, 50/50 ou Multistream (apenas para transmissÃµes ao vivo):';
-    STR_PICTURE_CONTROLS1 =
-        'Habilitar modo Picture in Picture: Reproduzindo um vÃ­deo, pressione para cima para mostrar o feed de preview, escolha um fluxo e segure a tecla Enter ou pressione a tecla 1 para iniciar';
-    STR_PICTURE_CONTROLS2 =
-        'Alterar um conteÃºdo de vÃ­deo: a partir da preview do player, se estiver no modo multiplayer, clique sempre uma vez, Se em PP ou 50/50 um Ãºnico clique atualizar o vÃ­deo grande ou superior, segure a tecla Enter ou pressione a tecla 1 para atualizar o vÃ­deo pequeno ou inferior';
-    STR_PICTURE_CONTROLS4 = 'Alterar conteÃºdo entre vÃ­deos (somente imagem sobre imagem): D-pad grande torna-se pequeno e vice-versa';
-    STR_PICTURE_CONTROLS5 = 'Alterar a posiÃ§Ã£o do vÃ­deo pequeno (somente Picture in picture): D-pad para a esquerda';
-    STR_PICTURE_CONTROLS6 = 'Alterar tamanho pequeno do vÃ­deo (somente Picture in picture): D-pad Ã  direita';
-    STR_PICTURE_CONTROLS7 =
-        'Alterar fonte de Ã¡udio: Use os controles inferiores do reprodutor Fonte de Ã¡udio, se em 50/50 ou multistream use a tecla esquerda/direita se em PP use as teclas de mÃ­dia da faixa seguinte/anterior';
-    STR_PICTURE_CONTROLS3 = 'Mudar a fonte de Ã¡udio para todos os vÃ­deos: Mantenha a tecla para baixp pressionada.';
-    STR_PICTURE_CONTROLS8 =
-        'Reiniciar player: use os controles inferiores do player Reiniciar player, isso sÃ³ irÃ¡ reiniciar todos os players, Ãºtil para sincronizar player e chat, isso nÃ£o irÃ¡ sincronizar o conteÃºdo de um player com outro';
-    STR_PICTURE_CONTROLS9 =
-        'Sincronizar players manualmente: Ã‰ uma soluÃ§Ã£o alternativa usar o controle inferior do reprodutor Velocidade para desacelerar o fluxo que estÃ¡ na frente ou vice-versa sÃ³ funciona no modo PP';
-    STR_PICTURE_CONTROLS10 = 'Qualidade de vÃ­deo Imagem sobre Imagem: Verifique nas configuraÃ§Ãµes do aplicativo "' + STR_PLAYER_BITRATE + '"';
-    STR_PICTURE_CONTROLS11 = 'Fechar vÃ­deo pequeno ou inferior (somente Picture in picture): a tecla voltar duas vezes para sair do modo PP ou 50/50';
-    STR_PICTURE_CONTROLS12 =
-        "Habilitar modo 50/50 (dois stream dois chats): Se Picture in Picture habilitar, pressione a tecla 2 ou a tecla de mÃ­dia para avanÃ§ar ou use os controles inferiores 'Modo de VÃ­deo' ou se jÃ¡ estiver no modo 'lado a lado', mantenha a tecla enter pressionada sobre do feed de preview";
-    STR_PICTURE_CONTROLS13 = 'Ativar Multistream: use os controles da parte inferior do player ou a tecla de retrocesso de mÃ­dia';
-    STR_PLAYER_INFO_VISIBILITY_ARRAY = ['Quando as informaÃ§Ãµes do player estÃ£o visÃ­veis', 'Sempre visÃ­vel', 'Nunca visÃ­vel'];
-    STR_SINGLE_EXIT = 'Pressione a tecla de retorno Ãºnico';
-    STR_SINGLE_EXIT_SUMMARY = 'Saia do player, Picture in Picture, modo 50/50 ou Multistream com um Ãºnico clique de retorno da tecla';
-    STR_NOTIFICATION_OPT = 'OpÃ§Ãµes de notificaÃ§Ã£o';
-    STR_NOW_LIVE_SHOW = 'Mostrar notificaÃ§Ã£o "Streamer estÃ¡ ao vivo" para canais seguidos';
-    STR_TITLE_CHANGE_SHOW = 'Mostrar notificaÃ§Ã£o de "TÃ­tulo alterado do Streamer" para canais seguidos';
-    STR_GAME_CHANGE_SHOW = 'Mostrar notificaÃ§Ã£o de "Streamer mudou jogo" para canais seguidos';
-    STR_NOW_LIVE_GAME_SHOW = 'Mostrar notificaÃ§Ã£o de "Jogo ao vivo" para jogos seguidos';
-    STR_NOTIFICATION_BACKGROUND = 'NotificaÃ§Ã£o sobre outros aplicativos, quando o aplicativo estÃ¡ em segundo plano';
-    STR_NOTIFICATION_BACKGROUND_SUMMARY =
-        'Para ativar este recurso, verifique se o app tem permissÃ£o para notificaÃ§Ãµes nas ConfiguraÃ§Ãµes do Android. Em dispositivos com Android 11 ou superior, o app exibirÃ¡ uma notificaÃ§Ã£o simples de uma Ãºnica linha quando estiver em segundo plano.';
-    STR_NOTIFICATION_BACKGROUND_WARNING = 'PermissÃ£o de notificaÃ§Ãµes do sistema Android ausente!';
-    STR_NOTIFICATION_REPEAT = 'Quantas vezes para mostrar notificaÃ§Ã£o individual';
-    STR_NOTIFICATION_REPEAT_SUMMARY =
-        'O tempo limite de notificaÃ§Ã£o individual Ã© de cerca de 3 segundos, e nÃ£o pode ser alterado porque esse tempo limite Ã© controlado pelo sistema, mas vocÃª pode definir o nÃºmero de vezes que a mesma notificaÃ§Ã£o serÃ¡ exibida';
-    STR_NOTIFICATION_SINCE = 'Impedir a exibiÃ§Ã£o da notificaÃ§Ã£o "Streamer estÃ¡ ativo " para streams que estÃ£o ativos hÃ¡ mais de tempo';
-    STR_NOTIFICATION_SINCE_SUMMARY =
-        'Isso Ã© Ãºtil para evitar que o aplicativo mostre uma longa lista de notificaÃ§Ãµes quando o aplicativo nÃ£o for usado por algum tempo, por exemplo, quando vocÃª desliga o dispositivo ou a tela estÃ¡ desligada (o aplicativo nÃ£o mostrarÃ¡ notificaÃ§Ã£o quando o dispositivo estiver ligado mas a tela estÃ¡ desligada)';
-    STR_GLOBAL_FONT = 'Deslocamento global do tamanho da fonte do aplicativo';
-    STR_GLOBAL_FONT_SUMMARY =
-        'Isso mudarÃ¡ o tamanho de todo o texto e da maioria dos Ã­cones no aplicativo (menos o tamanho da fonte do chat, porque tem seu prÃ³prio controle), um valor muito pequeno pode nÃ£o ser visÃ­vel um valor muito grande irÃ¡ estourar o suporte da caixa de texto, ou seja forma este valor Ã© limitado, altere isso irÃ¡ atualizar todas as telas';
-    STR_MAIN_MENU = 'Menu Principal';
-    STR_USER_MENU = 'Menu do usuÃ¡rio';
-    STR_CH_IS_OFFLINE = 'EstÃ¡ offline';
-    STR_ROUND_IMAGES = 'Imagens dos canais arredondadas';
-    STR_ROUND_IMAGES_SUMMARY = 'Como a maioria das imagens de canais sÃ£o quadrados, algumas imagens podem nÃ£o parecer OK quando redondas';
-    STR_SCREEN_COUNTER = 'Ocultar posiÃ§Ã£o/contador total';
-    STR_SCREEN_COUNTER_SUMMARY =
-        'Existe um contador de posiÃ§Ã£o que informa a posiÃ§Ã£o atual e o conteÃºdo total carregado nas telas que possuem conteÃºdo reproduzÃ­vel, conforme vocÃª carrega mais conteÃºdo o total serÃ¡ atualizado';
-    STR_SWITCH_POS = 'Trocar: Deslocar posiÃ§Ã£o inicial';
-    STR_SWITCH_POS_SUMMARY =
-        'Em vez de comeÃ§ar no primeiro vÃ­deo possÃ­vel, comece uma posiÃ§Ã£o inferior na lista, evita ter que descer e descer para encontrar um vÃ­deo mais antigo';
-    STR_USER_OPTION = 'Escolha uma opÃ§Ã£o para o usuÃ¡rio';
-    STR_MAIN_USER = 'UsuÃ¡rio principal';
-    STR_USER_TOP_LABEL = 'Clique em um usuÃ¡rio para ver as opÃ§Ãµes';
-    STR_USER_EXTRAS = 'UsuÃ¡rio: Mudar, adicionar, chave';
-    STR_LOW_LATENCY = 'LatÃªncia Baixa';
-    STR_LOW_LATENCY_SUMMARY =
-        'Se comeÃ§ar a obter problemas de buffers, desative' +
-        STR_LOW_LATENCY +
-        '<br> Use' +
-        STR_SETTINGS_BUFFER_LIVE +
-        'igual ou menor que 1 para que tenha efeito';
-    STR_GAME_SORT = 'ClassificaÃ§Ã£o da prÃ©via dos jogos';
-    STR_LIVE_FEED_SORT = 'Ordenar o painel lateral ou preview do player';
-    STR_LIVE_FEED_SORT_SUMMARY =
-        'Ordena o painel lateral e o preview do player, este se aplica apenas ao usuÃ¡rio ao vivo e em destaque (todos os histÃ³ricos sÃ£o ordenados por ultimo visto e os VÃ­deos Ã© o mais recente)';
-    STR_A_Z = 'AlfabÃ©tico A - Z';
-    STR_Z_A = 'AlfabÃ©tico Z - A';
-    STR_APP_ANIMATIONS = 'Ativar animaÃ§Ãµes do aplicativos';
-    STR_APP_ANIMATIONS_SUMMARY = 'Habilita animaÃ§Ãµes no painel lateral e de rolagem';
-    STR_UI_SETTINGS = 'PersonalizaÃ§Ã£o da interface, estilo de cor, animaÃ§Ãµes e afins';
-    STR_GENERAL_CUSTOM = 'PersonalizaÃ§Ã£o de conteÃºdo, classificaÃ§Ã£o, atualizaÃ§Ã£o automÃ¡tica, tempos limite e relacionados';
-    STR_RUNNINGTIME = 'Aplicativo em execuÃ§Ã£o por:';
-    STR_410_ERROR = 'NÃ£o foi possÃ­vel obter o link do vÃ­deo';
-    STR_PRESS_ENTER_TO_CHANGE = 'Pressione enter para mudar para -';
-    STR_CLICK_UNFOLLOW = '(Pressione enter para deixar de seguir)';
-    STR_CLICK_FOLLOW = '(Pressione enter para seguir)';
-    STR_TODAY = 'Hoje';
-    STR_DROOPED_FRAMES = 'Quadros pulados :';
-    STR_BUFFER_HEALT = 'Tamanho do buffer (Seg):';
-    STR_NET_ACT = 'Rede atividade (Mb):';
-    STR_NET_SPEED = 'Rede velocidade (Mb):';
-    STR_LATENCY_TO_BROADCASTER = 'LatÃªncia para Broadcaster';
-    STR_LATENCY = 'Latencia a transmissÃ£o (Sec):';
-    STR_CHAT_DELAY_LATENCY_TO_BROADCASTER = 'Base em' + STR_LATENCY_TO_BROADCASTER;
-    STR_PING = 'Ping Twitch (Ms):';
-    STR_WARNINGS = 'Avisos';
-    STR_WELCOME = 'Bem vindo ao';
-    STR_WELCOME_SUMMARY =
-        'Esta aplicaÃ§Ã£o possui uma sÃ©rie de funcionalidades e foi desenvolvido para dar ao usuario total controle, por isso tem muitas opÃ§Ãµes, controles e personalizaÃ§Ãµes, olhe as confiuraÃ§Ãµes e os controles do aplicativo para compreender melhor como a utilizalo, em dÃºvida consulte o vÃ­deo demonstrativo na Play Store, se restar qualquer dÃºvida use as informaÃ§Ãµes de contato.';
-    STR_WARNING_PHONE = 'Aviso para celulares';
-    STR_WARNING_PHONE_SUMMARY =
-        'Este aplicativo foi projetado para ser usado principalmente em TVs, o suporte para outro dispositivo Ã© limitado e pode nunca receber um suporte melhor, se vocÃª nÃ£o tiver um teclado ou um D-pad + tecla enter e retorno do controlador (ESC funciona para tecla de retorno em um computador) use as teclas virtuais na tela para navegar (visÃ­veis apenas em dispositivos de telefone/tablet), nas configuraÃ§Ãµes vocÃª pode alterar a posiÃ§Ã£o e a opacidade do D-pad virtual, clique em qualquer lugar da tela para mostrar o direcional virtual quando estÃ¡ oculto, nÃ£o funciona.';
-    STR_DPAD_POSTION = 'PosiÃ§Ã£o da tela do D-pad';
-    STR_DPAD_OPACITY = 'Transparencia do D-pad';
-    STR_DPAD_OPT = 'OpÃ§Ãµes do D-pad';
-    STR_BLOCKED_CODEC = 'Codecs bloqueados';
-    STR_BLOCKED_CODEC_SUMMARY = 'Lista as capacidades dos codecs usados â€‹â€‹e permite bloquear o uso de um codec';
-
-    STR_MAX_RES = 'ResoluÃ§Ã£o mÃ¡xima:';
-    STR_MAX_BIT = 'Taxa de bits mÃ¡xima:';
-    STR_MAX_LEVEL = 'NÃ­vel mÃ¡ximo:';
-    STR_MAX_FPS = 'Max fps por resoluÃ§Ã£o:';
-    STR_MAX_INSTANCES = 'MÃ¡ximo de instÃ¢ncias:';
-    STR_UNKNOWN = 'Desconhecido';
-    STR_USER_LIVE = 'Painel lateral ao vivo: do painel lateral direcional esquerdo ou de qualquer lugar, pressione 3';
-    STR_PP_WORKAROUND = 'SoluÃ§Ã£o alternativa modo multiplayer, PP e preview';
-    STR_PP_WORKAROUND_SUMMARY =
-        'Para alguns dispositivos que geralmente rodam versÃµes antigas do Android, Ã© necessÃ¡rio habilitÃ¡r este para que o modo com varios players funcione corretamente. Normalmente, o problema Ã© que o player (PP ou preview) nÃ£o ficarÃ¡ visÃ­vel, ou mesmo quando nÃ£o estiver em uso fica visÃ­vel como uma caixa preta sobre o player principal. NÃ£o habilite este se vocÃª nÃ£o tiver problemas, pois isso resultarÃ¡ em qualidade de imagem inferior e possÃ­vel perda de desempenho';
-    STR_HISTORY = 'HistÃ³rico';
-    STR_WATCHED = 'Assistido em';
-    STR_UNTIL = 'atÃ©';
-    STR_SORTING = 'ClassificaÃ§Ã£o';
-    STR_DELETE_HISTORY = 'Excluir este histÃ³rico';
-    STR_DELETE_UNREACHABLE = 'Apagar automaticamente conteÃºdo inacessÃ­vel';
-    STR_DELETE_UNREACHABLE_SUMMARY =
-        'Se estiver definido como SIM, o aplicativo removerÃ¡ automaticamente VODs e clipes que estÃ£o inacessÃ­veis (foram excluÃ­dos pelo streamer/criador) do histÃ³rico';
-    STR_NAME_A_Z = 'Nome A - Z';
-    STR_NAME_Z_A = 'Nome Z - A';
-    STR_GAME_A_Z = 'Jogo A - Z';
-    STR_GAME_Z_A = 'Jogo Z - A';
-    STR_VIWES_MOST = 'Mais VisualizaÃ§Ãµe';
-    STR_VIWES_LOWEST = 'Menos VisualizaÃ§Ãµes';
-    STR_CHANNELS_MOST = 'Maior quantidade de canais';
-    STR_CHANNELS_LOWEST = 'Quantidade de canais mais baixa';
-    STR_NEWEST = 'Assistido mais recente';
-    STR_OLDEST = 'Assistidos mais antigos';
-    STR_PRESS_ENTER_D = 'Pressione enter para deletar';
-    STR_LIVE_VOD = 'Esta transmissÃ£o ao vivo agora Ã© um VOD <br> abrindo o VOD de onde vocÃª parou de assistir ao vivo: <br>';
-
-    STR_DELETE_SURE = 'Tem certeza que deseja deletar tudo';
-    STR_CREATED_NEWEST = 'Criado/Desde mais recente';
-    STR_CREATED_OLDEST = 'Criado/Desde mais antigo';
-    STR_THUMB_OPTIONS = 'OpÃ§Ãµes de miniatura';
-    STR_HISTORY_LIVE_DIS = 'Habilitar histÃ³rico ao vivo';
-    STR_HISTORY_VOD_DIS = 'Habilitar histÃ³rico de VÃ­deos';
-    STR_HISTORY_CLIP_DIS = 'Habilitar histÃ³rico de clipes';
-    STR_OPEN_GAME = 'Abra o jogo';
-    STR_OPEN_CHANNEL = 'Abra o canal';
-    STR_THUMB_OPTIONS_KEY = 'Pressione enter acima de uma aÃ§Ã£o (para abri-la ou aplicÃ¡-la), retornar para sair sem aplicar';
-    STR_DELETE_FROM_HISTORY = 'Excluir este do histÃ³rico';
-    STR_CHECK_FOLLOW = 'Verificando status de seguidor...';
-    STR_REFRESH_DELETE = 'Atualize a tela apÃ³s excluir para ver a alteraÃ§Ã£o.';
-    STR_THUMB_OPTIONS_TOP = 'Segure para a esquerda para opÃ§Ãµes de miniaturas';
-    STR_REPLACE_MULTI = 'Escolher qual substituir pelo de acima?';
-    STR_REPLACE_MULTI_ENTER = 'Pressione Enter para substituir ou retornar para sair.';
-    STR_ALREDY_PLAYING = 'JÃ¡ estÃ¡ jogando';
-    STR_STREAM_ERROR = 'NÃ£o foi possÃ­vel abrir a visualizaÃ§Ã£o';
-    STR_PP_MODO = 'Modo Picture in Picture';
-    STR_4_WAY_MULTI_INSTANCES = 'Seu dispositivo suporta apenas% x instÃ¢ncias de codec (reprodutor tocando) ao mesmo tempo, nÃ£o pode usar';
-    STR_MULTI_EMPTY = 'Finalizado e/ou vazio';
-    STR_4_WAY_MULTI = 'multistream 4 vias';
-    STR_CONTROLS_MULTI_0 = 'Ajuda multistream :';
-    STR_CONTROLS_MULTI_1 =
-        'Se vocÃª estÃ¡ tendo problemas de lentidÃ£o apÃ³s habilitar o multistream, tente diminuir o valor de "Taxa de bits do player pequeno" nas configuraÃ§Ãµes, o acÃºmulo de quadros pulados ou buffer constante Ã© uma indicaÃ§Ã£o de taxa de bits muito alta ou Internet lenta';
-    STR_CONTROLS_MULTI_2 = 'Adicionar streams: abra o feed de preview e clique em um stream ao vivo';
-    STR_CONTROLS_MULTI_3 =
-        'Substituir streams: depois que o multistream estiver cheio, escolha um no feed de preview e escolha um para substituir na caixa de diÃ¡logo';
-    STR_CONTROLS_MULTI_4 =
-        'Alterar fonte de Ã¡udio: D-pad direita ou esquerda ou teclas de mÃ­dia prÃ³xima faixa de visualizaÃ§Ã£o, mantenha enter pressionado para fonte de Ã¡udio todos os vÃ­deos';
-    STR_CONTROLS_MULTI_5 = 'Sair do multistream: do controle inferior do player ou tecla de retorno duas vezes';
-    STR_CONTROLS_MULTI_6 = 'Para fechar este abra as 4 transmissÃµes ao vivo';
-    STR_PICTURE_LIVE_FEED = 'Picture in picture: Segure enter, apÃ³s use o D-Pad para mover, redimensionar ou mudar os vÃ­deos';
-    STR_MULTI_TITLE = ', Clique em uma miniatura para abrir ou substituir, use o direcional esquerdo/direito para mudar a fonte de Ã¡udio';
-    STR_FEED_END_DIALOG = ', Pressione retorno para voltar ao menu superior';
-    STR_BACK_USER_GAMES = 'Pressione a tecla de retorno para voltar a';
-    STR_SHOW_LIVE_PLAYER = 'Mostrar prÃ©-visualizaÃ§Ã£o nas telas das transmissÃµes ao vivo';
-    STR_SHOW_VOD_PLAYER_WARNING = 'Iniciando a reproduÃ§Ã£o de onde parou anteriormente:';
-    STR_SHOW_VOD_PLAYER = 'Mostrar prÃ©-visualizaÃ§Ã£o nas telas VOD';
-    STR_SHOW_CLIP_PLAYER = 'Mostrar prÃ©-visualizaÃ§Ã£o nas telas CLIP';
-    STR_PREVIEW_CLIP_NEXT = 'Quando a visualizaÃ§Ã£o de um clipe termina, troca automÃ¡tica para o prÃ³ximo clipe disponÃ­vel';
-    STR_SHOW_SIDE_PLAYER = 'Mostrar prÃ©-visualizaÃ§Ã£o no painel lateral';
-    STR_SHOW_FEED_PLAYER = 'Mostrar prÃ©-visualizaÃ§Ã£o nas miniaturas de preview do player';
-    STR_SHOW_FEED_PLAYER_SUMMARY = 'Se vocÃª nÃ£o quiser ou seu dispositivo ficar lento quando mais de um player estiver ativo, defina como NÃƒO';
-    STR_DISABLED_FEED_PLAYER_MULTI = 'Desativar visualizaÃ§Ã£o quando multistream estÃ¡ ativado';
-    STR_DISABLED_FEED_PLAYER_MULTI_SUMMARY =
-        'Por motivos de desempenho, alguns dispositivos podem ficar lentos com vÃ¡rios players, se estiver OK para multistream, mas quando o player de prÃ©-visualizaÃ§Ã£o e multistream estÃ£o ativos ficar lento configuram este para NÃƒO';
-    STR_PREVIEW_ERROR_LOAD = 'A prÃ©-visualizaÃ§Ã£o falhou ao carregar:';
-    STR_PREVIEW_ERROR_LINK = 'inacessÃ­vel';
-    STR_PREVIEW_VOD_DELETED = ', este VÃ­deo pode ter sido excluÃ­do';
-    STR_PREVIEW_END = 'A prÃ©-visualizaÃ§Ã£o do vÃ­deo terminou';
-    STR_PLAYER_LAG_ERRO = 'player incapaz de reproduzir devido a um problema de conexÃ£o de rede';
-    STR_PLAYER_ERROR = 'player incapaz de reproduzir, devido ao erro do player';
-    STR_PLAYER_ERROR_MULTI = ', tente diminuir o valor da taxa de bits do player nas configuraÃ§Ãµes';
-    STR_PREVIEW_SIZE = 'Tamanho da visualizaÃ§Ã£o do player';
-    STR_PREVIEW_SIZE_SUMMARY =
-        'Defina o tamanho do player de prÃ©-visualizaÃ§Ã£o o pequeno reprodutor de prÃ©-visualizaÃ§Ã£o exibido ao pressionar para cima quando um Live, VOD ou clipe Ã© aberto.';
-    STR_PREVIEW_SIZE_ARRAY = ['Pequeno', 'MÃ©dio', 'Grande', 'Extra grande'];
-    STR_PREVIEW_SIZE_SCREEN = 'Tamanho da prÃ©-visualizaÃ§Ã£o das telas';
-    STR_PREVIEW_SIZE_SCREEN_SUMMARY = 'Defina o tamanho do player de prÃ©-visualizaÃ§Ã£o exibido acima das telas principais do aplicativo.';
-    STR_PREVIEW_VOLUME_SCREEN = 'Volume do player de prÃ©-visualizaÃ§Ã£o de tela';
-    STR_PREVIEW_VOLUME_SCREEN_SUMMARY = 'Definir o volume do player de prÃ©-visualizaÃ§Ã£o que aparece acima das telas principais do aplicativo.';
-    STR_PREVIEW_SIZE_SCREEN_ARRAY = ['Tamanho da miniatura', 'Maior'];
-    STR_SIDE_PANEL_PLAYER_DELAY = 'Atraso na prÃ©-visualizaÃ§Ã£o';
-    STR_SIDE_PANEL_PLAYER_DELAY_SUMMARY =
-        'Defina o tempo de atraso que a prÃ©-visualizaÃ§Ã£o levarÃ¡ para comeÃ§ar a carregar depois que uma miniatura for selecionada, isso ajuda com dispositivos lentos que atrasam ao rolar';
-    STR_PREVIEW_VOLUME = 'Volume do player de prÃ©-visualizaÃ§Ã£o';
-    STR_PREVIEW_VOLUME_SUMMARY =
-        'Defina o volume do player de prÃ©-visualizaÃ§Ã£o (o pequeno player que Ã© exibido ao pressionar para cima) quando um Live, VOD ou clipe esta aberto.';
-    STR_PREVIEW_OTHERS_VOLUME = 'Volume dos players principais (Quando o player de prÃ©-visualizaÃ§Ã£o estÃ¡ sendo exibida)';
-    STR_PREVIEW_OTHERS_VOLUME_SUMMARY =
-        'O volume do player principal (todos os players picture in picture, players multistream) pode ser menor quando o player de prÃ©-visualizaÃ§Ã£o Ã© exibido';
-    STR_SIDE_PANEL_PLAYER = 'ConfiguraÃ§Ãµes de players em miniatura';
-    STR_START_AT_USER = 'Sempre inicie o aplicativo na tela do usuÃ¡rio';
-    STR_START_AT_USER_SUMMARY =
-        'Isso impedirÃ¡ restaurar o ponto onde o app esava antes de ser fechado, mas permite escolher o usuÃ¡rio ao iniciar o aplicativo';
-    STR_START_AT_FEED = 'Sempre inicie o aplicativo mostrando o feed dos canais seguidos';
-    STR_START_AT_FEED_SUMMARY = 'Esta opÃ§Ã£o abre o painel lateral com os canais seguidos ao vivo e uma prÃ©-visualizaÃ§Ã£o do stream ao iniciar o app. Desativa "Restaurar reproduÃ§Ã£o".';
-    STR_LAST_REFRESH = 'Ãºltima atualizaÃ§Ã£o:';
-    STR_PP_VOD_ERROR = 'Saia do PP ou Multistream para abrir este VÃ­deo';
-    STR_SETTINGS_ACCESSIBILITY = 'Mostrar "um serviÃ§o de acessibilidade estÃ¡ em execuÃ§Ã£o aviso"';
-    STR_SETTINGS_ACCESSIBILITY_SUMMARY =
-        'Se o dispositivo tiver um serviÃ§o de acessibilidade habilitado, o aplicativo mostrarÃ¡ um aviso, Ã© um problema conhecido do Android que o serviÃ§o de acessibilidade pode deixar lento alguns dispositivos e causar congelamentos ou lentidÃ£o neste aplicativo.';
-    STR_ACCESSIBILITY_WARN = 'ServiÃ§o (s) de acessibilidade detectado (s)';
-    STR_ACCESSIBILITY_WARN_EXTRA = 'Leia mais sobre neste link:';
-    STR_ACCESSIBILITY_WARN_EXTRA2 =
-        'Se vocÃª tiver travamentos ou problemas relacionados a lentidÃ£o, feche este aplicativo e desabilite todos os serviÃ§os de acessibilidade depois para resolver.<br>Para nÃ£o mostrar este aviso nunca mais desabilite-o nas configuraÃ§Ãµes';
-    STR_AUTO_REFRESH = 'Tempo limite de atualizaÃ§Ã£o automÃ¡tica';
-    STR_AUTO_REFRESH_SUMMARY =
-        'Quando estiver habilitado, o aplicativo irÃ¡ atualizar automaticamente as telas, a atualizaÃ§Ã£o acontece apenas quando a tela foi usada, se vocÃª quiser uma atualizaÃ§Ã£o automatica habilite este';
-    STR_AUTO_REFRESH_BACKGROUND = 'AtualizaÃ§Ã£o automÃ¡tica em segundo plano';
-    STR_AUTO_REFRESH_BACKGROUND_SUMMARY =
-        'Quando "Tempo limite de atualizaÃ§Ã£o automÃ¡tica" estÃ¡ definido e habilitado, a atualizaÃ§Ã£o automÃ¡tica acontecerÃ¡ em segundo plano (mas com o aplicativo visÃ­vel, o Android nÃ£o permite a execuÃ§Ã£o irrestrita em segundo plano para evitar lentdÃ£o em outro aplicativo), esteja ciente porque o aplicativo tem muitas telas quando esta opÃ§Ã£o estÃ¡ habilitada, a atualizaÃ§Ã£o automÃ¡tica pode causar um leve atraso aleatÃ³rio em alguns dispositivos mais lentos';
-    STR_MAIN_WINDOW = 'VÃ­deo principal';
-    STR_MULTI_MAIN_WINDOW = 'VÃ­deo principal MultiStream';
-    STR_MAIN_MULTI_BIG =
-        STR_MULTI_MAIN_WINDOW + 'maior e chat: pressione a tecla para baixo, depois use esquerda/direita para mudar com Ã© o grande vÃ­deo';
-    STR_SOURCE_CHECK = 'Alterar automaticamente a qualidade do player de Source para Auto quando o player atrasar';
-    STR_SOURCE_CHECK_SUMMARY =
-        'Quando esta opÃ§Ã£o estÃ¡ habilitada e vocÃª nÃ£o estÃ¡ usando qualidade automÃ¡tica se o player estiver lento, ele mudarÃ¡ para qualidade automÃ¡tica e avisarÃ¡ sobre isso, um atraso do player Ã©, por exemplo, quando o player nÃ£o conseguiu reproduzir por mais de 15 segundos ( o algoritmo Ã© mais complexo do que apenas o tempo, Ã© claro), apÃ³s essa mudanÃ§a, o reprodutor voltarÃ¡ automaticamente Ã  fonte quando vocÃª iniciar um novo fluxo de vod';
-    STR_PLAYER_LAG = 'player estÃ¡ lento, qualidade alterada para "Modo automÃ¡tico"';
-    STR_PLAYER_SOURCE = 'player estÃ¡ lento, qualidade diminuiu';
-    STR_TOO_ERRORS = 'ou muitos erros';
-    STR_STREAM_ERROR_SMALL = 'PrÃ©-visualizaÃ§Ã£o, stream encerrado' + STR_TOO_ERRORS;
-    STR_CONTROLS_MEDIA_FF = 'AvanÃ§ar ou retroceder (apenas para VOD e Clips): use as teclas direcional direita/esquerda ou avanÃ§ar/retroceder mÃ­dia';
-    STR_VOD_MUTED =
-        'Uma parte deste estÃ¡ silenciado porque contÃ©m conteÃºdo protegido por direitos autorais, a cor mais escura na barra de busca indica as partes';
-    STR_GIFT_SUB = 'tem de presente um sub!';
-    STR_ANONYMOUS = 'AnÃ´nimo';
-    STR_CHAT_BANNED = 'VocÃª estÃ¡ permanentemente proibido de escrever em';
-    STR_CHAT_WRITE = 'Escreva no chat';
-    STR_CHAT_EXTRA = 'ConfiguraÃ§Ãµes extras de chat';
-    STR_PLACEHOLDER_CHAT =
-        'Quando selecionado, pressione Enter para mostrar o teclado na tela. Se vocÃª tiver um teclado fÃ­sico conectado, pressione Enter ou Esc para ocultar o teclado na tela';
-    STR_CHAT_ROOMSTATE = 'chat ROOMSTATE:';
-    STR_CHAT_NO_RESTRICTIONS = 'Sem restriÃ§Ãµes';
-    STR_OPTIONS = 'OpÃ§Ãµes';
-    STR_CHAT_DELL_ALL = 'Excluir tudo';
-    STR_CHAT_AT_STREAM = '@streamer';
-    STR_CHAT_RESULT = 'Resultado esperado no chat:';
-    STR_CHAT_SEND = 'Enviar';
-    STR_CHAT_EMOTE_EMPTY = 'Esta lista de emote estÃ¡ vazia';
-    STR_CHAT_FOLLOWER_ONLY = 'chat esta no modo apenas para seguidores e vocÃª nÃ£o Ã© um seguidor de';
-    STR_CHAT_FOLLOWER_ONLY_USER_TIME = 'e vocÃª sÃ³ estÃ¡ seguindo desde';
-    STR_CHAT_EMOTE_ONLY = 'Modo somente emote de Twitch';
-    STR_CHAT_CHOOSE = 'Escolha qual chat escrever ou pressione retornar para fechar';
-    STR_CHAT_OPTIONS_TITLE = 'OpÃ§Ãµes de escrita no chat';
-    STR_CHAT_OPTIONS_KEYBOARD = 'Auto ocultar teclado virtual';
-    STR_CHAT_OPTIONS_KEYBOARD_SUMMARY =
-        'Permite controlar o comportamento do teclado virtual na tela, se vocÃª tiver um teclado fÃ­sico conectado use-o, se nÃ£o estiver configure para nunca';
-    STR_CHAT_OPTIONS_KEYBOARD_1 = 'Nunca';
-    STR_CHAT_OPTIONS_KEYBOARD_2 = 'Se teclado detectado';
-    STR_CHAT_OPTIONS_KEYBOARD_3 = 'Sempre';
-    STR_CHAT_OPTIONS_EMOTE_SORT = 'Ordem dos emoÃ§Ãµes';
-    STR_CHAT_OPTIONS_EMOTE_SORT_SUMMARY = 'Se estiver desabilitado, as listas de emotes serÃ£o mostradas conforme decebida pelo servidor';
-    STR_CHAT_OPTIONS_FORCE_SHOW = 'ForÃ§ar mostrar chat';
-    STR_CHAT_OPTIONS_FORCE_SHOW_SUMMARY = 'Se vocÃª deseja ver o chat quando escrever para chat for usado, habilite este';
-    STR_NOKEY_CHAT_WARN = 'Adicionar uma chave de autorizaÃ§Ã£o do usuÃ¡rio para poder acessar e escrever no chat';
-    STR_CHAT_NOT_READY = 'chat nÃ£o estÃ¡ pronto para enviar! Tente novamente em um ou dois segundos.';
-    STR_CHAT_REDEEMED_MESSAGE_HIGH = 'Resgate, Destacar Minha Mensagem';
-    STR_CHAT_FIRST_MESSAGE_HIGH = 'PRIMEIRA MENSAGEM';
-    STR_CHAT_REDEEMED_MESSAGE_SUB = 'Resgate, Enviar uma Mensagem no Modo Sub-Only';
-    STR_CHAT_OPTIONS = 'OpÃ§Ãµes de chat';
-    STR_CHAT_HIGHLIGHT_STREAMER_MSG = 'Destacar mensagens do streamer (fundo rosa escuro)';
-    STR_CHAT_HIGHLIGHT_MOD_MSG = 'Destacar mensagens de moderadores (fundo ciano escuro)';
-    STR_CHAT_HIGHLIGHT_REDEEMED = 'Destacar mensagens de Resgate (somente mensagem de fundo roxo)';
-    STR_CHAT_HIGHLIGHT_FIRST = 'Destacar Primeiro UsuÃ¡rio no Chat (Fundo rosa escuro)';
-    STR_CHAT_HIGHLIGHT_STREAMER = 'Destacar mensagens @streamer (fundo vermelho escuro, o @ Ã© azul)';
-    STR_CHAT_HIGHLIGHT_USER = 'Destaque suas mensagens de @username (fundo verde escuro, o @ Ã© azul)';
-    STR_CHAT_HIGHLIGHT_USER_SEND = 'Destacar suas mensagens enviadas (fundo verde escuro)';
-    STR_CHAT_SHOW_SUB = 'Mostrar sub mensagens no chat (fundo laranja escuro)';
-    STR_CHAT_HIGHLIGHT_BIT = 'Mensagem dos bits em destaque (fundo amarelo escuro)';
-    STR_CHAT_HIGHLIGHT_ACTIONS = 'Mostrar mensagens de aÃ§Ãµes (geralmente sÃ£o de Bots de fluxo)';
-    STR_CHAT_HIGHLIGHT_ACTIONS_SUMMARY =
-        'Estas mensagens sÃ£o geralmente iguais Ã s Sub mensagens, mas enviadas atravÃ©s de um stream bot, entÃ£o se vocÃª tiver "Mostrar sub ..." habilite isto Ã© redundante';
-    STR_CHAT_INDIVIDUAL_BACKGROUND = 'DiferenÃ§a de cor de fundo de mensagens individuais';
-    STR_CHAT_INDIVIDUAL_BACKGROUND_SUMMARY =
-        'Os modos sÃ£o desabilitar, habilitar (modo automÃ¡tico), claro ou mais escuro, no modo automÃ¡tico se o chat estiver acima do stream, a mensagem impares terÃ£o uma cor de destaque de fundo mais escura do que as pares, se o chat nÃ£o estiver acima (lado a lado, por exemplo) a cor ficarÃ¡ clara';
-    STR_CHAT_INDIVIDUAL_LINE = 'Insira uma linha para separar as mensagens de chat individuais';
-    STR_CHAT_LINE_ANIMATION = 'Rolagem animada ao adicionar uma nova mensagem no chat';
-    STR_CHAT_LOGGING = 'Fazendo login no chat com o usuÃ¡rio atual';
-    STR_CHAT_LOGGING_SUMMARY =
-        'O aplicativo sempre farÃ¡ login no chat usando o usuÃ¡rio atual quando uma chave de autorizaÃ§Ã£o for fornecida, a menos que o chat seja desabilitado nos controles da parte inferior do player, mas se esta opÃ§Ã£o for definida como NÃƒO, impedirÃ¡ o login usando o nome de usuÃ¡rio atual e, em vez disso, serÃ¡ registrado como anÃ´nimo , mesmo que forneÃ§a uma chave de autorizaÃ§Ã£o. Isso nÃ£o impede o envio de mensagem de chat para este usuÃ¡rio se uma chave for adicionada, mas impede o app de saber se vocÃª estÃ¡ banido do chat e impede o status do chat ROOMSTATE';
-    STR_CHAT_BOTS = 'Bloquear bots e comandos de bot (!comando) de serem exibidos no chat';
-    STR_CHAT_TIMESTAMP = 'Mostrar data e hora da mensagem';
-    STR_CHAT_USER_NOTICE = 'Exibir aviso de notificaÃ§Ã£o indireta no chat';
-    STR_CHAT_USER_NOTICE_SUMMARY =
-        'Mostrar um aviso na tela quando o chat receber uma notificaÃ§Ã£o indireta. Ex.: Chat: Esta sala agora estÃ¡ no modo somente emotes.';
-
-    STR_CHAT_NICK_COLOR = 'Cores de nick legÃ­veis';
-    STR_CHAT_NICK_COLOR_SUMMARY =
-        'Em vez de usar a cor padrÃ£o do nick que algumas vezes nÃ£o pode ser lida em um fundo escuro, use uma cor personalizada fÃ¡cil de visualizar';
-    STR_CHAT_CLEAR_MSG = 'Limpar chat, apagar mensagens do usuÃ¡rio';
-    STR_CHAT_SHOW_BADGES = 'Mostrar emblemas de usuÃ¡rios (exceto os abaixo)';
-    STR_CHAT_SHOW_BADGES_MOD = 'Mostrar emblemas de Moderador';
-    STR_CHAT_SHOW_BADGES_VIP = 'Mostrar emblemas VIP';
-    STR_CHAT_SHOW_BADGES_SHARED = 'Mostrar emblemas do chat compartilhado';
-    STR_CHAT_MESSAGE_DELETED = 'Esta unica mensagem de usuÃ¡rio foi solicitada para ser excluÃ­da';
-    STR_CHAT_MESSAGE_DELETED_ALL = 'Todas as mensagens deste usuÃ¡rio foram solicitadas para serem excluÃ­das';
-    STR_CHAT_MESSAGE_DELETED_TIMEOUT = ', o tempo esgotou para';
-    STR_CHAT_CLEAR_MSG_SUMMARY =
-        'Excluir mensagens de chat de um usuÃ¡rio especÃ­fico (normalmente apÃ³s receberem um intervalo ou banimento), as mensagens excluÃ­das sempre terÃ£o um fundo azul, a mensagem serÃ¡ excluÃ­da se este estiver definido como SIM, se NÃƒO apenas a cor de fundo irÃ¡ mudar';
-    STR_OPEN_HOST_SETTINGS = 'Sempre abra o host no final da stream, se disponÃ­vel';
-    STR_ALWAYS_STAY = 'Sempre fique com o player aberto apÃ³s o fim do Live';
-    STR_PING_WARNING = 'Mostrar "Aviso de falha de ping para Twitch"';
-    STR_PING_WARNING_SUMMARY =
-        'O aplicativo estÃ¡ constantemente verificando a conexÃ£o com o Twitch por meio de um ping, se isso falhar muitas vezes, um aviso serÃ¡ exibido, se esse aviso estiver encomodando, defina como NÃƒO';
-    STR_KEY_UP_TIMEOUT = 'Tempo limite de segurar a tecla (em milissegundos)';
-    STR_KEY_UP_TIMEOUT_SUMMARY =
-        'Quanto tempo vocÃª precisa para segurar uma tecla para que uma aÃ§Ã£o de segurar aconteÃ§a, as aÃ§Ãµes sÃ£o atualizar a tela, mostra opÃ§Ãµes de miniaturas etc.';
-    STR_CURRENT_THUMB_STYLE = 'Estilo de seleÃ§Ã£o atual';
-    STR_NEW_THUMB_STYLE = 'Novo estilo de seleÃ§Ã£o';
-    STR_COLOR_STYLE_TEXT =
-        'Use cima/baixo para selecionar uma opÃ§Ã£o, pressione retornar para sair, pressione Enter em "Aplicar alteraÃ§Ãµes" para confirmar.';
-    STR_SHADOWS = 'Sombras';
-    STR_SHADOWS_NONE = 'Nenhum';
-    STR_SHADOWS_WHITE = 'Branco';
-    STR_SHADOWS_GRAY = 'Cinza';
-    STR_SHADOWS_BLACK = 'Preto';
-    STR_COLORS = 'Cores';
-    STR_RESULT = 'Resultado';
-    STR_APPLY = 'Aplicar alteraÃ§Ãµes';
-    STR_COLOR_TYPE = 'Tipo de cor';
-    STR_STYLES = 'Estilos';
-    STR_ENTER = 'Pressione enter';
-    STR_COLOR_ARRAY = 'Plano de fundo, texto, borda, barra de progresso assistido';
-    STR_STYLES_ARRAY = 'PadrÃ£o, Personalizado, Branco, Cinza, Vermelho, Laranja, Amarelo, Verde, Azul, Roxo, Rosa';
-    STR_ENTER_RGB = STR_ENTER + 'para aceitar a mudanÃ§a RGB';
-    STR_THUMB_STYLE = 'Estilo de miniatura selecionado';
-    STR_OPEN_EXTERNAL_PLAYER = 'Abrir em um player externo';
-    STR_CHAT_SIDE_ARRAY = ['Esquerda', 'Direita'];
-    STR_CHAT_BASE_ARRAY = [
-        'Inferior direito',
-        'Centro direito',
-        'Superior direito',
-        'Centro superior',
-        'Superior esquerdo',
-        'Centro esquerdo',
-        'Inferior esquerdo',
-        'Centro inferior'
-    ];
-    STR_CHAT_100_ARRAY = ['Direita', 'Centro', 'Esquerda'];
-    STR_NOTIFICATION_POS = 'PosiÃ§Ã£o de notificaÃ§Ã£o na tela';
-    STR_NOTIFICATION_POS_ARRAY = [
-        ' Canto superior direito',
-        'Centro superior',
-        'Esquerda superior',
-        'Esquerda inferior',
-        'Centro inferior',
-        'Direita inferior'
-    ];
-    STR_LOWLATENCY_ARRAY = [STR_DISABLE, 'Modo normal, pode causar re-buffers', 'Modo mais baixo, pode causar ainda mais re-buffers'];
-    STR_LOWLATENCY_ENABLE_ARRAY = [STR_LOW_LATENCY + '-' + STR_DISABLED, STR_LOW_LATENCY + '- modo normal', STR_LOW_LATENCY + '- Modo mais baixo'];
-    STR_VOD_SEEK = 'VÃ­deos controles de retroceder/avanÃ§ar rÃ¡pido';
-    STR_VOD_SEEK_SUMMARY =
-        'Controla os passos dos retrocesso/avanÃ§o, ao clicar e segurar para a esquerda/direita o tempo do aumen depois que do tempo limite, ele aumentarÃ¡ atÃ© o tempo mÃ¡ximo do passo, apÃ³s soltar a tecla e nÃ£o clicar em um segundo, o tempo de passo serÃ¡ redefinido para o tempo mÃ­nimo.<br><br>Pressionar pra cima irÃ¡ sobrescrever o valor mim/max, permitindo que vocÃª escolha o passo<br><br> Fazer cliques Ãºnicos sem segurar a tecla nÃ£o aumentarÃ¡ o tempo <br><br> Esta opÃ§Ã£o sÃ³ funciona em vÃ­deos para Clip o passo Ã© sempre de 1 segundo';
-    STR_VOD_SEEK_MIN = 'Tempo mÃ­nimo (inicial) de passo';
-    STR_VOD_SEEK_MAX = 'Tempo mÃ¡ximo de passo';
-    STR_VOD_SEEK_TIME = 'Aumentar o tempo limite apÃ³s segurar por';
-    STR_UP_LOCKED = 'pressione para cima para bloquear o valor do passo';
-    STR_LOCKED = 'bloqueado pressione para cima para alterar';
-    STR_IN_CHAT = 'No chat';
-    STR_IN_SHARED_CHAT = 'No Chat Compartilhado';
-    STR_SHOW_IN_CHAT = 'Mostrar total de usuÃ¡rios no chat ou visualizaÃ§Ãµes';
-    STR_SHOW_IN_CHAT_SUMMARY =
-        'Isso Ã© muito Ãºtil para saber, por exemplo, se o chat offline tem algum usuÃ¡rio com quem conversar, tambÃ©m deixe o usuÃ¡rio saber a diferenÃ§a entre o visualizaÃ§Ãµes e o usuÃ¡rio no chat';
-    STR_SHOW_IN_CHAT_VIEWERS = 'Mostrar visualizaÃ§Ãµes';
-    STR_SHOW_IN_CHAT_CHATTERS = 'Mostrar chatters';
-    STR_PLAYED = 'Jogou';
-    STR_CHAPTERS = 'CapÃ­tulos';
-    STR_FROM_SIMPLE = 'de';
-    STR_HIDE_MAIN_CLOCK = 'Ocultar relÃ³gio da tela principal';
-    STR_HIDE_PLAYER_CLOCK = 'Ocultar relÃ³gio do player';
-    STR_HIDE_MAIN_SCREEN_TITLE = 'Ocultar tÃ­tulo da tela principal';
-    STR_HIDE_MAIN_SCREEN_TITLE_SUMMARY = 'O tÃ­tulo central, Ao vivo, Clip, ConfiguraÃ§Ãµes etc ...';
-    STR_HIDE_ETC_HELP_INFO = 'Ocultar dicas de navegaÃ§Ã£o na tela';
-    STR_HIDE_ETC_HELP_INFO_SUMMARY = 'Dicas de navegaÃ§Ã£o como, segure uma tecla para uma aÃ§Ã£o e relacionados';
-    STR_INACTIVE_SETTINGS = 'Minimizar automaticamente o aplicativo quando inativo por';
-    STR_INACTIVE_SETTINGS_SUMMARY =
-        'Impedir que o aplicativo fique executado quando ninguÃ©m estiver vendo, um aviso aparecerÃ¡ dando ao usuÃ¡rio 15 segundos para pressionar qualquer tecla para evitar a minimizaÃ§Ã£o';
-    STR_INACTIVE_WARNING =
-        'O aplicativo irÃ¡ minimizar automaticamente devido Ã  inatividade em <br><br>% x <br><br> Pressione qualquer tecla para prevenir';
-    STR_REMAINING = 'Restantes:';
-    STR_PLAYER_INFO_VISIBILITY = 'Visibilidade do status do player';
-    STR_PREVIEW_SET = 'ConfiguraÃ§Ãµes de prÃ©-visualizaÃ§Ã£o';
-    STR_PREVIEW_SHOW = 'Mostrar prÃ©-visualizaÃ§Ã£o';
-    STR_PREVIEW_SIZE_CONTROLS = 'Tamanho da prÃ©-visualizaÃ§Ã£o';
-    STR_OLED_BURN_IN = 'ProteÃ§Ã£o OLED';
-    STR_OLED_BURN_IN_SUMMARY =
-        'Quando ativado, a tela ficarÃ¡ totalmente preta por 50 ms a cada 20 minutos, apenas necessÃ¡rio para dispositivos com telas OLED que apresentam problemas de burn-ins';
-    STR_AS = 'como';
-    STR_MILLISECONDS = 'milissegundos';
-    STR_HOUR = 'hora';
-    STR_HOURS = 'horas';
-    STR_RIGHT = 'Direito';
-    STR_LEFT = 'Esquerda';
-    STR_BOTTOM = 'Inferior';
-    STR_TOP = 'Topo';
-    STR_AVG = 'MÃ©d';
-    STR_OFFSET = 'Offset';
-
-    STR_HISTORY_EMPTY_CONTENT = 'O histÃ³rico do aplicativo mostra o que vocÃª assistiu no aplicativo apenas, se o histÃ³rico estiver habilitada';
-    STR_PREVIEW = 'a prÃ©-visualizaÃ§Ã£o';
-
-    STR_CLICK_EXIT = 'Clique aqui para sair do player';
-    STR_GO_FULL = 'Tella cheia';
-    STR_GO_FULL_HELP = 'Clique, pressione 9 ou F11';
-    STR_NOT_SUPPORT_BROWSER = 'Isto nÃ£o Ã© suportado em um navegador';
-    STR_WARNING_BROWSER = 'Aviso navegadores';
-    STR_WARNING_BROWSER_SUMMARY =
-        'Este aplicativo foi projetado para ser usado principalmente em TVs, o suporte para outros dispositivos Ã© limitado. VocÃª pode controlar o aplicativo usando um mouse, mas funciona melhor usando as teclas do teclado para cima, para baixo, esquerda, direita, enter e retornar (ESC funciona como um retornar). ';
-    STR_THUMB_OPTIONS_CLICK = 'Clique duas vezes sobre uma aÃ§Ã£o (para abri-la ou aplicÃ¡-la), clique fora da caixa para sair sem aplicar';
-    STR_CLOSE_THIS_BROWSER = 'Pressione voltar, entrar ou clique fora para fechar';
-    STR_DISABLE_EMBED = 'Habilitar Live e Vod Twitch player';
-    STR_DISABLE_EMBED_SUMMARY =
-        'Isso sÃ³ Ã© necessÃ¡rio desativar se vocÃª quiser ver o player usado em TVs para verificar suas strings e layout por motivos de teste';
-    STR_SPECIAL_FEATURE = 'Use o teclado para este recurso';
-    STR_FAIL_VOD_INFO = 'Falha ao carregar a informaÃ§Ã£o do Video';
-    STR_NOKEY_GENERAL_WARN = ', navegue atÃ© o painel lateral (opÃ§Ã£o superior) UsuÃ¡rio: Mudar, adicionar, chave, pressionar enter no usuÃ¡rio';
-
-    PROXY_SERVICE_STATUS = 'Habilitado e funcionando';
-
-    STR_PROXY_DONATE_SUMMARY = 'Se vocÃª quiser saber mais sobre ou agradecer ao mantenedor do servidor proxy, use o link:';
-    PROXY_SERVICE_OFF = 'Desativado nas configuraÃ§Ãµes';
-    PROXY_SERVICE_FAIL = 'NÃ£o funciona, falhou %x vezes';
-
-    PROXY_SETTINGS = 'ConfiguraÃ§Ãµes de Proxy (Proxy contra censura da Internet e afins)';
-    PROXY_SETTINGS_SUMMARY =
-        'Somente um proxy pode ser habilitado por vez, Permite que o servidor proxy obtenha links de streaming de um servidor diferente, que pode permitir que vocÃª veja conteÃºdo proibido em sua regiÃ£o e evita anÃºncios, desative isso se vocÃª tiver algum problema de transmissÃ£o com Lives como buffers longos e repetidos, travamentos ou conexÃ£o lenta que faz com que a qualidade da stream seja reduzida.';
-
-    STR_PROXY_TIMEOUT = 'Tempo limite do proxy (tempo em segundos)';
-    STR_PROXY_TIMEOUT_SUMMARY =
-        'Se o servidor proxy estiver fora, este serÃ¡ o tempo que levarÃ¡ para "desistir" da conexÃ£o e retornar Ã  implementaÃ§Ã£o padrÃ£o do Twitch';
-
-    STR_CUSTOM_PROXY = 'Proxy Personalizado';
-    STR_CUSTOM_PROXY_SUMMARY = 'Usar uma URL de servidor proxy personalizada, pressione enter para editar a URL';
-    STR_CUSTOM_PROXY_URL = 'URL do Proxy Personalizado';
-    STR_CUSTOM_PROXY_URL_PROMPT = 'Digite a URL do proxy personalizado (a URL deve terminar com /):';
-    STR_CUSTOM_PROXY_HAS_TOKEN = 'Proxy personalizado tem token';
-    STR_CUSTOM_PROXY_HAS_TOKEN_SUMMARY =
-        'Se a URL do proxy jÃ¡ inclui o token, desative esta opÃ§Ã£o para que o token nÃ£o seja adicionado novamente';
-    STR_CUSTOM_PROXY_HAS_PARAMETER = 'Proxy personalizado tem parÃ¢metros';
-    STR_CUSTOM_PROXY_HAS_PARAMETER_SUMMARY =
-        'Se a URL do proxy jÃ¡ inclui os parÃ¢metros, ative esta opÃ§Ã£o para que os parÃ¢metros sejam anexados como uma query string';
-
-    SEEK_PREVIEW = 'PrÃ©-VisualizaÃ§Ã£o avanÃ§ar/retrocer';
-    SEEK_PREVIEW_SUMMARY =
-        'Permite controlar a imagem de prÃ©-visualizaÃ§Ã£o ao avanÃ§ar ou retroceder uma VOD, a vanÃ§ar/retrocer nÃ£o estÃ¡ disponÃ­vel para todos as VODs.';
-    SEEK_PREVIEW_SINGLE = 'Imagem Ãºnica';
-    SEEK_PREVIEW_CAROUSEL = 'Carrossel de imagens';
-
-    STR_CONFIRM = 'Confirmar';
-
-    STR_MATURE_NO_CHANGES = 'Sem alteraÃ§Ãµes no conteÃºdo adulto devido Ã  falta de senha';
-    STR_MATURE_PROTECT = 'Proteger alteraÃ§Ãµes maduras com uma senha';
-    STR_MATURE_HELP_SET_PASS = 'Defina uma senha e clique em Confirmar, caso sair irÃ¡ redefinir as configuraÃ§Ãµes de adulto';
-    STR_MATURE_HELP_CHECK_PASS = 'Digite a senha salva e clique em Confirmar, caso sair irÃ¡ redefinir as configuraÃ§Ãµes maduras';
-
-    STR_MATURE_DISABLED = 'ConteÃºdo adulto estÃ¡ desabilitado';
-    STR_ENABLE_MATURE = 'ConteÃºdo adulto';
-    STR_ENABLE_MATURE_SUMMARY =
-        'Quando desativado, o aplicativo bloquearÃ¡ todo o conteÃºdo marcado como conteÃºdo adulto incluÃ­do conteÃºdo de seguidores, isto inclui todas lives marcadas como adultas e todo o conteÃºdo das seÃ§Ãµes de clipes e VOD';
-
-    STR_SCREEN_OFF = 'Tela desligada (somente Ã¡udio)';
-
-    STR_UNBLOCK_CHANNEL = 'Desbloquear canal';
-    STR_UNBLOCK_GAME = 'Desbloquear jogo';
-    STR_BLOCK_CHANNEL = 'Bloquear canal';
-    STR_BLOCK_GAME = 'Bloquear jogo';
-    STR_BLOCK_NO_USER = 'Adicione um usuÃ¡rio antes de poder bloquear';
-    STR_BLOCK_NO_CHANNEL = 'NÃ£o Ã© possÃ­vel obter o canal para este';
-    STR_BLOCK_OVERWRITE = 'Mostrar bloqueados';
-    STR_BLOCK_SORT_DATE = 'Ordenado por data de bloqueio';
-    STR_BLOCK_SORT_NAME = 'Ordenado por nome de A a Z';
-    STR_BLOCK_EMPTY_CONTENT = 'NÃ£o hÃ¡ conteÃºdo bloqueado deste tipo';
-
-    STR_NO_TOKEN_WARNING =
-        'Sem adicionar um usuÃ¡rio e token de autorizaÃ§Ã£o, o aplicativo pode falhar ao carregar o conteÃºdo, esta Ã© uma limitaÃ§Ã£o da API do Twitch';
-    STR_NO_TOKEN_WARNING_429 =
-        'O aplicativo estÃ¡ falhando ao carregar o conteÃºdo devido a uma limitaÃ§Ã£o da API do Twitch, para corrigir isso, adicione um usuÃ¡rio e um token de autorizaÃ§Ã£o.';
-
-    STR_ADD_USER_TEXT = 'Visite %site em outro aparelho e digite o cÃ³digo: %code';
-    STR_ADD_USER_TEXT_COUNTER = 'Verificando confirmaÃ§Ã£o de acesso em %d...';
-    STR_ADD_USER_TEXT_COUNTER_NOW = 'Verificando agora!';
-    STR_ADD_ERROR = 'Sem acessar o serviÃ§o de adiÃ§Ã£o de usuÃ¡rio';
-    STR_USER_TOKEN_ERROR = 'Aacesso ao usuÃ¡rio atual perdido, revise a seÃ§Ã£o de usuÃ¡rios';
-
-    STR_LOAD_ALL_LANG = 'Alternar automaticamente o conteÃºdo para o idioma "Todos"';
-    STR_LOAD_ALL_LANG_SUMMARY =
-        'Alterna automaticamente para o idioma "Todos" quando o idioma atual nÃ£o possui conteÃºdo. Aplica-se apenas Ã  tela de "sem conteÃºdo" e a algumas telas especÃ­ficas (Jogos e PÃ¡gina Inicial).';
-    STR_LOAD_ALL_LANG_WARNING = STR_LOAD_ALL_LANG + ' devido ao conteÃºdo vazio';
-
-    STR_DISABLE_SHARED_CHAT = 'Desativar chat compartilhado';
-    STR_DISABLE_SHARED_CHAT_SUMMARY = 'Se definido como "sim", mostrarÃ¡ apenas as mensagens do chat da transmissÃ£o que vocÃª abriu';
-
-    STR_PLAYER_EXTRA_CODEC = 'TransmissÃ£o AvanÃ§ada: suporte a HEVC, AV1, 1440p e 4K';
-    STR_PLAYER_EXTRA_CODEC_SUMMARY =
-        'A maioria das transmissÃµes usa AVC (H.264) atÃ© 1080p60; HEVC/AV1 permite 1440p, 4K e mais de 60fps quando disponÃ­vel (Nem todas as transmissÃµes sÃ£o compatÃ­veis, depende do streamer ativar essa opÃ§Ã£o e do Twitch disponibilizÃ¡-la na sua regiÃ£o).';
-    STR_PLAYER_EXTRA_CODEC_SUMMARY1 =
-        'Este recurso funciona apenas para usuÃ¡rios conectados. Nem todas as transmissÃµes sÃ£o compatÃ­veis â€” depende do streamer ativar e do Twitch disponibilizar na sua regiÃ£o.';
-
-    STR_PLAYER_EXTRA_CODEC_SUMMARY_EXTRA = 'O app verifica se seu dispositivo suporta HEVC ou AV1 para transmissÃµes de maior qualidade.';
-
-    STR_PLAYER_EXTRA_CODEC_SUMMARY_EXTRA2 =
-        'Sem suporte do dispositivo, a reproduÃ§Ã£o serÃ¡ limitada e pode nÃ£o funcionar para transmissÃµes avanÃ§adas.';
-
-    STR_PLAYER_CODEC_AV1 = 'AV1';
-    STR_PLAYER_CODEC_HEVC = 'HEVC';
-
-    STR_PLAYER_CODEC_SUPPORTED = 'dispositivo compatÃ­vel';
-    STR_PLAYER_CODEC_NOT_SUPPORTED = 'Dispositivo nÃ£o compatÃ­vel! Ativar este codec pode causar erros na reproduÃ§Ã£o.';
-
-    STR_BACKUP_ACCOUNT_REMOVE = 'Remover conta do Google Drive';
-    STR_BACKUP_ACCOUNT_ADD = 'Adicionar conta do Google Drive para backup';
-    STR_BACKUP_ACCOUNT_ADD_SUMMARY = 'Para restaurar um backup, adicione uma conta e o app mostrarÃ¡ as opÃ§Ãµes disponÃ­veis para restauraÃ§Ã£o.';
-
-    STR_BACKUP_ACCOUNT_DIALOG_TITLE = 'Conta do Google Drive adicionada';
-    STR_BACKUP_ACCOUNT_DIALOG_BODY = 'Recuperando informaÃ§Ãµes da API, por favor, aguarde...';
-    STR_BACKUP_ACCOUNT_DIALOG_CODE_FAIL = 'Acesso negado';
-    STR_BACKUP_ACCOUNT_DIALOG_CODE_SUCCESS = 'Acesso bem-sucedido, aguarde enquanto o aplicativo verifica...';
-
-    STR_BACKUP_ACCOUNT_DIALOG_CODE_SUCCESS_END = 'O aplicativo irÃ¡ restaurar e fechar este diÃ¡logo em breve';
-    STR_BACKUP_NO_BACKUP_FOUND = 'Nenhum backup feito anteriormente encontrado, backup criado com sucesso';
-    STR_BACKUP_ACCOUNT_REFRESH_ERROR = 'Perdeu acesso Ã  conta de Backup e SincronizaÃ§Ã£o, conta de backup removida!';
-
-    STR_BACKUP_NAME = 'Nome do backup:';
-    STR_BACKUP_SIZE = 'Tamanho do backup:';
-    STR_BACKUP_SYNC = 'Sincronizar, Backup e RestauraÃ§Ã£o';
-    STR_BACKUP_SYNC_SUMMARY =
-        'O aplicativo poderÃ¡ visualizar, criar, editar e excluir apenas os arquivos especÃ­ficos do Google Drive que ele cria, NÃƒO poderÃ¡ visualizar, modificar ou excluir quaisquer outros arquivos no seu Google Drive.' +
-        '<br><br>' +
-        'TambÃ©m poderÃ¡ ler seu endereÃ§o de e-mail e imagem de perfil para exibir a conta atualmente ativa. Essas informaÃ§Ãµes serÃ£o apenas exibidas e NÃƒO serÃ£o modificadas.';
-    STR_BACKUP_USER_INFO = '(InformaÃ§Ãµes do usuÃ¡rio: UsuÃ¡rios, histÃ³rico, bloqueados e configuraÃ§Ãµes)';
-
-    STR_BACKUP_SYNC_USER = 'Sincronizar usuÃ¡rios';
-    STR_BACKUP_SYNC_HISTORY = 'Sincronizar histÃ³rico e bloqueados dos usuÃ¡rios.';
-    STR_BACKUP_SYNC_SETTINGS = 'Sincronizar configuraÃ§Ãµes';
-    STR_BACKUP_RESTORE_USER = 'Restaurar usuÃ¡rios';
-    STR_BACKUP_RESTORE_HISTORY = 'Restaurar histÃ³rico e lista de bloqueados dos usuÃ¡rios.';
-    STR_BACKUP_RESTORE_SETTINGS = 'Restaurar configuraÃ§Ãµes';
-    STR_BACKUP_RESTORE_SUMMARY = 'Se vocÃª tiver problemas apÃ³s a restauraÃ§Ã£o, tente limpar os dados do app e restaurar pulando uma das opÃ§Ãµes.';
-
-    STR_BACKUP_SYNC_SETTINGS_SUMMARY =
-        'O backup tem apenas um conjunto de configuraÃ§Ãµes unificadas para todos os seus dispositivos. Qualquer alteraÃ§Ã£o que vocÃª fizer serÃ¡ aplicada em seus outros dispositivos na prÃ³xima vez que abrir o aplicativo.';
-    STR_BACKUP_SYNC_RESTORE = 'Backup encontrado';
-    STR_BACKUP_SYNC_RESTORE_SUMMARY = 'Backup encontrado. Escolha o que restaurar agora e pressione Enter para confirmar.';
-
-    STR_BACKUP_SYNC_RESTORE_SUCCESS = 'RestauraÃ§Ã£o bem-sucedida!';
-    STR_BACKUP_RESTORE_FAIL = 'Falha ao restaurar backup';
-
-    STR_BACKUP_ENABLE = 'Habilitar backup';
-    STR_BACKUP_ENABLE_SUMMARY = 'Se definido como SIM, o aplicativo manterÃ¡ um backup de todas as informaÃ§Ãµes do usuÃ¡rio ' + STR_BACKUP_USER_INFO;
-
-    STR_BACKUP_SYNC_ENABLE = 'Habilitar sincronização';
-    STR_BACKUP_SYNC_ENABLE_SUMMARY = 'Se definido como SIM, o aplicativo sincronizará automaticamente as informações do usuário entre dispositivos';
-
-    STR_EXPORT_LOGS = 'Exportar logs do proxy';
-    STR_PROXY_LOGS_EMPTY = 'Nenhum log de proxy para exportar';
-}
-
-/*
- * Copyright (c) 2017â€“present Felipe de Leon <fglfgl27@gmail.com>
- *
- * This file is part of SmartTwitchTV <https://github.com/fgl27/SmartTwitchTV>
- *
- * SmartTwitchTV is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * SmartTwitchTV is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with SmartTwitchTV.  If not, see <https://github.com/fgl27/SmartTwitchTV/blob/master/LICENSE>.
- *
- */
-
-//Spacing for release maker not trow errors from jshint
-function ru_RULang() {
-    // This is a false/true var change if day comes first in your language eg (27/12/2010) day 27 month 12 year 2010
-    //Then copy this and set it to true, if doesn't don't copy it
-    Main_IsDayFirst = true;
-
-    // This is the size of side pannel a adjustments may be needed here so it can fit all words in the horizontal axis
-    // If it need ajustment or yours language just copy the below line and change it value until it does
-    Sidepannel_MoveldefaultMargin = 22;
-
-    //Below are variables to translate
-    STR_KEY_UP_DOWN = 'Ð’Ð²ÐµÑ€Ñ…/Ð’Ð½Ð¸Ð·';
-    STR_KEY_MEDIA_FF = 'Ð¸Ð»Ð¸ ÐºÐ½Ð¾Ð¿ÐºÑƒ Ð¿ÐµÑ€ÐµÐ¼Ð¾Ñ‚ÐºÐ¸';
-    STR_GUIDE_EXTRA = 'Ð¸Ð»Ð¸ 2';
-    STR_GUIDE_EXTRA2 = 'Ð¸Ð»Ð¸ ÐºÐ½Ð¾Ð¿ÐºÑƒ Ð¿ÐµÑ€ÐµÐ¼Ð¾Ñ‚ÐºÐ¸';
-    STR_REFRESH = 'ÐžÐ±Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ';
-    STR_SEARCH = 'ÐŸÐ¾Ð¸ÑÐº';
-    STR_SETTINGS = 'ÐÐ°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸';
-    STR_CONTROLS = 'Ð£Ð¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð¸Ðµ';
-    STR_ABOUT = 'ÐžÐ¿Ð¸ÑÐ°Ð½Ð¸Ðµ';
-    STR_HIDE = 'Ð¡ÐºÑ€Ñ‹Ñ‚ÑŒ';
-    STR_SEARCH_EMPTY = 'Ð’Ð²ÐµÐ´ÐµÐ½Ð½Ñ‹Ð¹ Ð²Ð°Ð¼Ð¸ Ñ‚ÐµÐºÑÑ‚ Ð¿ÑƒÑÑ‚.';
-    STR_SEARCH_RESULT_EMPTY = 'ÐÐ¸Ñ‡ÐµÐ³Ð¾ Ð½Ðµ Ð½Ð°Ð¹Ð´ÐµÐ½Ð¾.';
-    STR_SWITCH = 'Ð¡Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ Ñ€Ð°Ð·Ð´ÐµÐ»';
-    STR_SWITCH_USER = 'Ð¡Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ Ñ€Ð°Ð·Ð´ÐµÐ»';
-    STR_SWITCH_VOD = 'Ð¡Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ: Ð¡Ñ‚Ñ€Ð¸Ð¼Ñ‹/Ð¥Ð°Ð¹Ð»Ð°Ð¹Ñ‚Ñ‹';
-    STR_SWITCH_CLIP = 'Ð¡Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ: ÐŸÐµÑ€Ð¸Ð¾Ð´ (24Ñ‡, 7Ð´, 30Ð´, Ð²ÑÐµ)';
-    STR_GO_TO = 'ÐŸÐµÑ€ÐµÐ¹Ñ‚Ð¸ Ð² Ñ€Ð°Ð·Ð´ÐµÐ»';
-    STR_USER = 'ÐÐºÐºÐ°ÑƒÐ½Ñ‚';
-    STR_LIVE = 'Ð’ ÑÑ„Ð¸Ñ€Ðµ';
-    STR_GAMES = 'ÐšÐ°Ñ‚ÐµÐ³Ð¾Ñ€Ð¸Ð¸';
-    STR_PLAYING = 'Ð¡Ñ‚Ñ€Ð¸Ð¼ Ð¿Ð¾';
-    STR_FOR = 'Ð´Ð»Ñ';
-    STR_WATCHING = 'Ð’Ñ€ÐµÐ¼Ñ Ð¿Ñ€Ð¾ÑÐ¼Ð¾Ñ‚Ñ€Ð°';
-    STR_WAITING = 'Ð’Ñ€Ð¼ÐµÐ¼Ñ Ð¾Ð¶Ð¸Ð´Ð°Ð½Ð¸Ñ';
-    STR_SINCE = 'Ð£Ð¶Ðµ';
-    STR_AGAME = 'Ð˜Ð³Ñ€Ð°';
-    STR_PLACEHOLDER_PASS = 'Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð²Ð°Ñˆ Ð¿Ð°Ñ€Ð¾Ð»ÑŒ...';
-    STR_PLACEHOLDER_SEARCH = 'Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð²Ð°Ñˆ Ð·Ð°Ð¿Ñ€Ð¾Ñ...';
-    STR_PLACEHOLDER_OAUTH = 'Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÐºÐ»ÑŽÑ‡ Ð°Ð²Ñ‚Ð¾Ñ€Ð¸Ð·Ð°Ñ†Ð¸Ð¸...';
-    STR_PLACEHOLDER_USER = 'Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¸Ð¼Ñ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ...';
-    STR_PLACEHOLDER_PRESS = 'ÐÐ°Ð¶Ð¼Ð¸Ñ‚Ðµ ÐºÐ½Ð¾Ð¿ÐºÑƒ ÐžÐš,';
-    STR_CHANNELS = 'ÐšÐ°Ð½Ð°Ð»Ñ‹';
-    STR_CHANNEL = 'ÐšÐ°Ð½Ð°Ð»';
-    STR_GOBACK_START = 'ÐÐ° Ð¿Ñ€ÐµÐ´. ÑÐºÑ€Ð°Ð½: ÐºÐ½Ð¾Ð¿ÐºÐ° Ð½Ð°Ð·Ð°Ð´';
-    STR_IS_OFFLINE = 'Ð·Ð°ÐºÐ¾Ð½Ñ‡Ð¸Ð»ÑÑ';
-    STR_CHECK_HOST = ', Ð¿Ñ€Ð¾Ð²ÐµÑ€ÐºÐ° Ñ…Ð¾ÑÑ‚Ð°';
-    STR_IS_SUB_ONLY = 'Ð’Ð¸Ð´ÐµÐ¾ Ð´Ð¾ÑÑ‚ÑƒÐ¿Ð½Ð¾ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð´Ð»Ñ Ð¿Ð¾Ð´Ð¿Ð¸ÑÑ‡Ð¸ÐºÐ¾Ð².';
-    STR_IS_SUB_ONLY_ERROR = 'Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð´Ð»Ñ Ð¿Ð¾Ð´Ð¿Ð¸ÑÑ‡Ð¸ÐºÐ¾Ð².';
-    STR_NOKEY_GENERAL_WARN = ', Ð¿ÐµÑ€ÐµÐ¹Ð´Ð¸Ñ‚Ðµ Ð½Ð° Ð±Ð¾ÐºÐ¾Ð²ÑƒÑŽ Ð¿Ð°Ð½ÐµÐ»ÑŒ (Ð²ÐµÑ€Ñ…Ð½ÑÑ Ð¾Ð¿Ñ†Ð¸Ñ) ÐÐºÐºÐ°ÑƒÐ½Ñ‚: ÑÐ¼ÐµÐ½Ð¸Ñ‚ÑŒ, Ð´Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ, ÐºÐ»ÑŽÑ‡ Ð¸ Ð½Ð°Ð¶Ð¼Ð¸Ñ‚Ðµ ÐžÐš';
-    STR_REFRESH_PROBLEM = 'ÐžÑˆÐ¸Ð±ÐºÐ° Ð¿Ð¾Ð´ÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ñ Ð¸Ð»Ð¸ Ñ‚ÑƒÑ‚ Ð½ÐµÑ‚ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚Ð°. ÐžÐ±Ð½Ð¾Ð²Ð¸Ñ‚Ðµ, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð¿Ð¾Ð¿Ñ€Ð¾Ð±Ð¾Ð²Ð°Ñ‚ÑŒ ÐµÑ‰Ðµ Ñ€Ð°Ð·';
-    STR_REFRESH_PROBLEM_ENTER = 'ÐžÑˆÐ¸Ð±ÐºÐ° Ð¿Ð¾Ð´ÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ñ Ð¸Ð»Ð¸ Ð½ÐµÑ‚ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚Ð°. ÐÐ°Ð¶Ð¼Ð¸Ñ‚Ðµ ÐžÐš, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð¾Ð±Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ';
-    STR_REFRESH_PROBLEM_ENTER_LANG =
-        'ÐžÑˆÐ¸Ð±ÐºÐ° Ð¿Ð¾Ð´ÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ñ Ð¸Ð»Ð¸ Ð½ÐµÑ‚ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚Ð° Ð´Ð»Ñ ÑÑ‚Ð¾Ð³Ð¾ ÑÐ·Ñ‹ÐºÐ°. Ð¡Ð¼ÐµÐ½Ð¸Ñ‚Ðµ ÑÐ·Ñ‹Ðº ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚Ð° (ÑƒÐ´ÐµÑ€Ð¶Ð¸Ð²Ð°Ð¹Ñ‚Ðµ Ð²Ð»ÐµÐ²Ð¾) Ð¸Ð»Ð¸ Ð½Ð°Ð¶Ð¼Ð¸Ñ‚Ðµ Enter Ð´Ð»Ñ Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ñ';
-    STR_NO = 'ÐÐµÑ‚';
-    STR_FOR_THIS = 'Ð´Ð»Ñ';
-    STR_PLAYER_PROBLEM = 'ÐžÑˆÐ¸Ð±ÐºÐ° Ð¿Ð¾Ð´ÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ñ, Ð½ÐµÐ²Ð¾Ð·Ð¼Ð¾Ð¶Ð½Ð¾ Ð·Ð°Ð³Ñ€ÑƒÐ·Ð¸Ñ‚ÑŒ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚, Ð²Ñ‹Ñ…Ð¾Ð´...';
-    STR_VODS = 'Ð¡Ñ‚Ñ€Ð¸Ð¼Ñ‹';
-    STR_HIGHLIGHTS = 'Ð¥Ð°Ð¹Ð»Ð°Ð¹Ñ‚Ñ‹';
-    STR_CLIPS = 'ÐšÐ»Ð¸Ð¿Ñ‹';
-    STR_CONTENT = 'ÐšÐ¾Ð½Ñ‚ÐµÐ½Ñ‚';
-    STR_STREAM_ON = 'Ð¢Ñ€Ð°Ð½ÑÐ»Ð¸Ñ€Ð¾Ð²Ð°Ð»';
-    STR_DURATION = 'ÐŸÑ€Ð¾Ð´Ð¾Ð»Ð¶Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ð¾ÑÑ‚ÑŒ';
-    STR_VIEW = 'ÐŸÑ€Ð¾ÑÐ¼Ð¾Ñ‚Ñ€';
-    STR_VIEWS = 'ÐŸÑ€Ð¾ÑÐ¼Ð¾Ñ‚Ñ€Ð¾Ð²';
-    STR_VIEWER = 'Ð—Ñ€Ð¸Ñ‚ÐµÐ»ÑŒ';
-    STR_VIEWERS = 'Ð—Ñ€Ð¸Ñ‚ÐµÐ»Ð¸';
-    STR_EXIT_AGAIN = 'ÐÐ°Ð¶Ð¼Ð¸Ñ‚Ðµ ÐµÑ‰Ðµ Ñ€Ð°Ð· Ð´Ð»Ñ Ð²Ñ‹Ñ…Ð¾Ð´Ð°!';
-    STR_EXIT_AGAIN_PICTURE = 'ÐÐ°Ð¶Ð¼Ð¸Ñ‚Ðµ ÐµÑ‰Ðµ Ñ€Ð°Ð· Ð´Ð»Ñ Ð²Ñ‹Ñ…Ð¾Ð´Ð° Ð¸Ð· ÐšÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐ° Ð² ÐšÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐµ';
-    STR_EXIT_AGAIN_MULTI = 'ÐÐ°Ð¶Ð¼Ð¸Ñ‚Ðµ ÐµÑ‰Ðµ Ñ€Ð°Ð· Ð´Ð»Ñ Ð²Ñ‹Ñ…Ð¾Ð´Ð° Ð¸Ð· Ð¼ÑƒÐ»ÑŒÑ‚Ð¸ÑÑ‚Ñ€Ð¸Ð¼Ð°!';
-    STR_EXIT_MESSAGE = 'Ð’Ñ‹ Ñ…Ð¾Ñ‚Ð¸Ñ‚Ðµ Ð²Ñ‹Ð¹Ñ‚Ð¸ Ð¸Ð· SmartTV Client Ð´Ð»Ñ Twitch?';
-    STR_EXIT = 'Ð’Ñ‹Ñ…Ð¾Ð´';
-    STR_CHANGELOG = 'Ð˜Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ñ';
-    STR_FULL_CHANGELOG = 'Ð˜Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ñ';
-    STR_CHANGELOG_SUMMARY = 'Ð­Ñ‚Ð¾ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð¿Ð¾ÑÐ»ÐµÐ´Ð½Ð¸Ðµ Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ñ, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð¿Ñ€Ð¾Ñ‡Ð¸Ñ‚Ð°Ñ‚ÑŒ Ð¿Ð¾Ð»Ð½Ñ‹Ðµ, Ð¿Ñ€Ð¾Ð²ÐµÑ€ÑŒÑ‚Ðµ ÑÑÑ‹Ð»ÐºÑƒ Ð½Ð¸Ð¶Ðµ:';
-    STR_UPDATE = 'ÐžÐ±Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ';
-    STR_UPDATE_CHECK = 'ÐŸÑ€Ð¾Ð²ÐµÑ€Ð¸Ñ‚ÑŒ Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ñ';
-    STR_UPDATE_CHECKING = 'ÐŸÑ€Ð¾Ð²ÐµÑ€ÐºÐ° Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ð¹...';
-    STR_UPDATE_CHECKING_FAIL = 'ÐžÑˆÐ¸Ð±ÐºÐ° Ð¿Ñ€Ð¾Ð²ÐµÑ€ÐºÐ¸';
-    STR_NO_UPDATES = 'Ð£ Ð²Ð°Ñ Ð¿Ð¾ÑÐ»ÐµÐ´Ð½ÑÑ Ð²ÐµÑ€ÑÐ¸Ñ';
-    STR_UPDATE_CHANGELOG = 'ÐžÐ±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ñ Ð¸ Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ñ';
-    STR_UPDATE_LATEST = 'ÐŸÐ¾ÑÐ»ÐµÐ´Ð½ÐµÐµ Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ðµ:';
-    STR_UPDATE_FAIL = 'ÐžÑˆÐ¸Ð±ÐºÐ° Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ñ, Ð¿Ð¾Ð¿Ñ€Ð¾Ð±ÑƒÐ¹Ñ‚Ðµ Ð²Ñ€ÑƒÑ‡Ð½ÑƒÑŽ!';
-    STR_UPDATE_FAIL_DOWNLOAD = 'ÐÐµ ÑƒÐ´Ð°Ð»Ð¾ÑÑŒ Ð·Ð°Ð³Ñ€ÑƒÐ·Ð¸Ñ‚ÑŒ APK-Ñ„Ð°Ð¹Ð», Ð¿Ð¾Ð¿Ñ€Ð¾Ð±ÑƒÐ¹Ñ‚Ðµ Ð²Ñ€ÑƒÑ‡Ð½ÑƒÑŽ!';
-    STR_UPDATE_AVAILABLE = 'Ð”Ð¾ÑÑ‚ÑƒÐ¿Ð½Ð¾ Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ðµ APK';
-    STR_WEB_UPDATE_AVAILABLE = 'Web Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ðµ Ð´Ð¾ÑÑ‚ÑƒÐ¿Ð½Ð¾';
-    STR_UPDATE_CHECK_SIDE = ', Ð¿Ñ€Ð¾Ð²ÐµÑ€ÑŒÑ‚Ðµ Ð¿Ð°Ð½ÐµÐ»ÑŒ Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ð¹';
-    STR_UPDATE_LAST_CHECK = 'ÐŸÐ¾ÑÐ». Ð¿Ñ€Ð¾Ð²ÐµÑ€ÐºÐ°:';
-    STR_UPDATE_OPT = 'ÐžÐ±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ñ';
-    STR_UPDATE_CHECK_FOR = 'ÐŸÑ€Ð¾Ð²ÐµÑ€ÑÑ‚ÑŒ Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ñ Ð² Ñ„Ð¾Ð½Ðµ';
-    STR_UPDATE_SHOW = 'ÐŸÐ¾ÐºÐ°Ð·Ð°Ñ‚ÑŒ Ð´Ð¸Ð°Ð»Ð¾Ð³ Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ñ, ÐºÐ¾Ð³Ð´Ð° Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ðµ Ð´Ð¾ÑÑ‚ÑƒÐ¿Ð½Ð¾';
-    STR_UPDATE_SHOW_ARRAY = ['Ð”Ð°', 'Only a toast message', 'ÐÐµÑ‚'];
-    STR_UPDATE_START = 'ÐÐ°Ñ‡Ð°Ð»ÑÑ Ð¿Ñ€Ð¾Ñ†ÐµÑÑ Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ñ, ÑÑ‚Ð¾ Ð¼Ð¾Ð¶ÐµÑ‚ Ð·Ð°Ð½ÑÑ‚ÑŒ Ð½ÐµÑÐºÐ¾Ð»ÑŒÐºÐ¾ ÑÐµÐºÑƒÐ½Ð´, Ð¿Ð¾Ð´Ð¾Ð¶Ð´Ð¸Ñ‚Ðµ!';
-    STR_UPDATE_PLAY = 'Ð•ÑÐ»Ð¸ Ð² Play Store Ð½Ðµ Ð¾Ñ‚Ð¾Ð±Ñ€Ð°Ð¶Ð°ÐµÑ‚ÑÑ Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ðµ, Ð¿Ð¾Ð¿Ñ€Ð¾Ð±ÑƒÐ¹Ñ‚Ðµ ÐµÑ‰Ðµ Ñ€Ð°Ð· Ñ‡ÐµÑ€ÐµÐ· Ð½ÐµÑÐºÐ¾Ð»ÑŒÐºÐ¾ Ð¼Ð¸Ð½ÑƒÑ‚!';
-    STR_UPDATE_ERROR = 'Ð’Ð°Ð¼ Ð½ÑƒÐ¶Ð½Ð° Ð²ÐµÑ€ÑÐ¸Ñ APK 3.0.303 Ð¸Ð»Ð¸ Ð²Ñ‹ÑˆÐµ, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÑŒ ÑÑ‚Ð¾, Ð¾Ð±Ð½Ð¾Ð²Ð¸Ñ‚Ðµ';
-    STR_UPDATE_WARNING_OK = 'ÐŸÑ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¾ ÑƒÑÐ¿ÐµÑˆÐ½Ð¾';
-    STR_CLOSE = 'Ð—Ð°ÐºÑ€Ñ‹Ñ‚ÑŒ';
-    STR_MINIMIZE = 'Ð¡Ð²ÐµÑ€Ð½ÑƒÑ‚ÑŒ';
-    STR_CANCEL = 'ÐžÑ‚Ð¼ÐµÐ½Ð°';
-    STR_RERUN = 'ÐŸÐ¾Ð²Ñ‚Ð¾Ñ€';
-    STR_LIVE_CHANNELS = 'ÐšÐ°Ð½Ð°Ð»Ñ‹ Ð² ÑÑ„Ð¸Ñ€Ðµ';
-    STR_LIVE_HOSTS = 'Ð ÐµÑ‚Ñ€Ð°Ð½ÑÐ»ÑÑ†Ð¸Ð¸';
-    STR_LIVE_GAMES = 'Ð˜Ð³Ñ€Ñ‹ Ð² ÑÑ„Ð¸Ñ€Ðµ';
-    STR_USER_CHANNEL = 'ÐžÑ‚ÑÐ»ÐµÐ¶Ð¸Ð²Ð°ÐµÐ¼Ð¾Ðµ';
-    STR_USER_MY_CHANNEL = 'ÐœÐ¾Ð¹ ÐºÐ°Ð½Ð°Ð»';
-    STR_USER_ADD = 'ÐÐºÐºÐ°ÑƒÐ½Ñ‚';
-    STR_USER_REMOVE = 'Ð£Ð´Ð°Ð»Ð¸Ñ‚ÑŒ';
-    STR_USER_ERROR = 'ÐŸÐ¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑŒ Ð½Ðµ ÑÑƒÑ‰ÐµÑÑ‚Ð²ÑƒÐµÑ‚';
-    STR_USER_HOSTING = 'Ñ€ÐµÑ‚Ñ€Ð°Ð½ÑÐ»Ð¸Ñ€ÑƒÐµÑ‚';
-    STR_USER_HOSTED_BY = 'Ñ€Ð°Ð·Ð¼ÐµÑ‰ÐµÐ½Ð¾ Ð½Ð°';
-    STR_USER_SET = 'ÑƒÐ¶Ðµ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ð¾';
-    STR_USER_MAKE_ONE = 'Ð¡Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ';
-    STR_USER_NUMBER_ONE =
-        'ÐŸÐµÑ€Ð²Ñ‹Ð¹ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑŒ Ð¼Ð¾Ð¶ÐµÑ‚ Ð¾Ñ‚ÑÐ»ÐµÐ¶Ð¸Ð²Ð°Ñ‚ÑŒ (Ð¿Ñ€Ð¸ Ð´Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð¸Ð¸ ÐºÐ»ÑŽÑ‡Ð°) Ð¸ Ð²Ð¸Ð´ÐµÑ‚ÑŒ Ñ‚Ñ€Ð°Ð½ÑÐ»ÑÑ†Ð¸Ð¸ ÐºÐ°Ð½Ð°Ð»Ð¾Ð² Ð² Ñ€ÐµÐ°Ð»ÑŒÐ½Ð¾Ð¼ Ð²Ñ€ÐµÐ¼ÐµÐ½Ð¸ Ð·Ð° Ð¿Ñ€ÐµÐ´ÐµÐ»Ð°Ð¼Ð¸ ÑÐºÑ€Ð°Ð½Ð° Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ';
-    STR_ADD_USER_SH = 'Ð”Ð¾Ð±Ð°Ð²ÑŒÑ‚Ðµ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ Twitch, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð¾Ñ‚Ð¾Ð±Ñ€Ð°Ð¶Ð°Ñ‚ÑŒ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚ Ð¾Ñ‚ÑÐ»ÐµÐ¶Ð¸Ð²Ð°ÐµÐ¼Ñ‹Ñ… ÐºÐ°Ð½Ð°Ð»Ð¾Ð²';
-    STR_CLIP_DAY = '24Ñ‡';
-    STR_CLIP_WEEK = '7Ð´';
-    STR_CLIP_MONTH = '30Ð´';
-    STR_CLIP_ALL = 'Ð²ÑÐµ';
-    STR_JUMP_TIME = 'ÐŸÐµÑ€ÐµÐ¼Ð¾Ñ‚ÐºÐ°';
-    STR_JUMP_TIME_CLICK_AGAIN = 'ÐÐ°Ð¶Ð¼Ð¸Ñ‚Ðµ ÑÐ½Ð¾Ð²Ð°, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð¿ÐµÑ€ÐµÐ¹Ñ‚Ð¸';
-    STR_JUMP_T0 = 'Ð½Ð°';
-    STR_JUMP_CANCEL = 'ÐŸÐµÑ€ÐµÐ¼Ð¾Ñ‚ÐºÐ° Ð¾Ñ‚Ð¼ÐµÐ½ÐµÐ½Ð°';
-    STR_JUMP_TIME_BIG = ', Ð²Ñ€ÐµÐ¼Ñ Ð¿ÐµÑ€ÐµÐ¼Ð¾Ñ‚ÐºÐ¸ Ð±Ð¾Ð»ÑŒÑˆÐµ, Ñ‡ÐµÐ¼ Ð¿Ñ€Ð¾Ð´Ð¾Ð»Ð¶Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ð¾ÑÑ‚ÑŒ';
-    STR_SEC = 'Ð¡ÐµÐº';
-    STR_MIN = 'ÐœÐ¸Ð½';
-    STR_MS = 'ÐœÑ';
-    STR_HR = 'Ð§';
-    STR_SOURCE = 'Ð˜ÑÑ‚Ð¾Ñ‡Ð½Ð¸Ðº';
-    STR_TWITCH_TV = 'SmartTV Client Ð´Ð»Ñ Twitch';
-    STR_CLOSE_THIS = 'ÐÐ°Ð¶Ð¼Ð¸Ñ‚Ðµ ÐžÐš Ð¸Ð»Ð¸ Ð½Ð°Ð·Ð°Ð´, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð·Ð°ÐºÑ€Ñ‹Ñ‚ÑŒ ÑÑ‚Ð¾.';
-    STR_CLOSE_THIS2 = 'ÐÐ°Ð¶Ð¼Ð¸Ñ‚Ðµ Ð½Ð°Ð·Ð°Ð´, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð·Ð°ÐºÑ€Ñ‹Ñ‚ÑŒ ÑÑ‚Ð¾.';
-    STR_CLOSE_THIS3 = 'ÐÐ°Ð¶Ð¼Ð¸Ñ‚Ðµ Ð½Ð°Ð·Ð°Ð´, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð¾Ñ‚ÐºÑ€Ñ‹Ñ‚ÑŒ Ð¾ÐºÐ½Ð¾ Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ñ, Ð¸Ð»Ð¸ ÐžÐš, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð·Ð°ÐºÑ€Ñ‹Ñ‚ÑŒ ÑÑ‚Ð¾..';
-    STR_PLAYER = 'ÐŸÐ»ÐµÐµÑ€:';
-    STR_CHAT = 'Ð§Ð°Ñ‚:';
-    STR_CHAT_SHOW = 'ÐŸÐ¾ÐºÐ°Ð·Ð°Ñ‚ÑŒ Ñ‡Ð°Ñ‚';
-    STR_CURRENT_VERSION = 'Ð¢ÐµÐºÑƒÑ‰Ð°Ñ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ð½Ð°Ñ Ð²ÐµÑ€ÑÐ¸Ñ';
-    STR_LATEST_VERSION = 'Ð¿Ð¾ÑÐ»ÐµÐ´Ð½ÑÑ Ð´Ð¾ÑÑ‚ÑƒÐ¿Ð½Ð°Ñ Ð²ÐµÑ€ÑÐ¸Ñ';
-    STR_CONTROLS_MAIN_2 = 'Ð’Ð¾ÑÐ¿Ñ€Ð¾Ð¸Ð·Ð²ÐµÐ´ÐµÐ½Ð¸Ðµ Ð²Ð¸Ð´ÐµÐ¾: Ð¿ÐµÑ€ÐµÐ¼ÐµÑ‰Ð°Ð¹Ñ‚ÐµÑÑŒ Ñ Ð¿Ð¾Ð¼Ð¾Ñ‰ÑŒÑŽ Ð½Ð°Ð². Ð¿Ð°Ð½ÐµÐ»Ð¸ (Ð²Ð²ÐµÑ€Ñ…/Ð²Ð½Ð¸Ð·/Ð²Ð»ÐµÐ²Ð¾/Ð²Ð¿Ñ€Ð°Ð²Ð¾), Ð½Ð°Ð¶Ð¼Ð¸Ñ‚Ðµ ÐžÐš Ð¸Ð»Ð¸ Ð¿Ð»ÐµÐ¹/Ð¿Ð°ÑƒÐ·Ð°/ÐºÐ½Ð¾Ð¿ÐºÐ° 1';
-    STR_CONTROLS_MAIN_3 = 'ÐžÐ±Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ ÑÐ¾Ð´ÐµÑ€Ð¶Ð¸Ð¼Ð¾Ðµ ÑÐºÑ€Ð°Ð½Ð°:';
-    STR_CONTROLS_MAIN_4 = 'Ð’Ñ‹Ñ…Ð¾Ð´ Ð¸Ð· Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ñ: Ð½Ð° Ð±Ð¾ÐºÐ¾Ð²Ð¾Ð¹ Ð¿Ð°Ð½ÐµÐ»Ð¸ Ð½Ð°Ð¶Ð¼Ð¸Ñ‚Ðµ Ð’Ñ‹Ñ…Ð¾Ð´.';
-    STR_CONTROLS_MAIN_5 = 'ÐŸÑ€Ð¸Ð½ÑƒÐ´Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ð¾Ðµ Ð·Ð°ÐºÑ€Ñ‹Ñ‚Ð¸Ðµ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ñ: ÑƒÐ´ÐµÑ€Ð¶Ð¸Ð²Ð°Ð¹Ñ‚Ðµ ÐºÐ½Ð¾Ð¿ÐºÑƒ Ð½Ð°Ð·Ð°Ð´, Ð¿Ð¾ÐºÐ° Ð¾Ð½Ð¾ Ð½Ðµ Ð·Ð°ÐºÑ€Ð¾ÐµÑ‚ÑÑ Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡ÐµÑÐºÐ¸';
-    STR_CONTROLS_MAIN_6 = 'ÐŸÐµÑ€ÐµÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ ÑÐºÑ€Ð°Ð½: ÐºÐ½Ð¾Ð¿ÐºÐ° Ð½Ð°Ð·Ð°Ð´, Ð·Ð°Ñ‚ÐµÐ¼ D-Pad' + STR_KEY_UP_DOWN + STR_KEY_MEDIA_FF;
-    STR_CONTROLS_MAIN_10 =
-        'ÐÐ°Ñ‡Ð°Ñ‚ÑŒ Ð¿Ð¾Ð¸ÑÐº: Ð½Ð° Ð±Ð¾ÐºÐ¾Ð²Ð¾Ð¹ Ð¿Ð°Ð½ÐµÐ»Ð¸ Ð½Ð°Ð¶Ð¼Ð¸Ñ‚Ðµ Ð¿Ð¾Ð¸ÑÐº, Ð²Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ‚ÐµÐºÑÑ‚, Ð½Ð°Ð¶Ð¼Ð¸Ñ‚Ðµ ÐºÐ½Ð¾Ð¿ÐºÑƒ ÐžÐš Ð½Ð° Ð²Ð¸Ñ€Ñ‚ÑƒÐ°Ð»ÑŒÐ½Ð¾Ð¹ ÐºÐ»Ð°Ð²Ð¸Ð°Ñ‚ÑƒÑ€Ðµ Ð¸ Ð²Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ Ð²Ð°Ñ€Ð¸Ð°Ð½Ñ‚ Ð¿Ð¾Ð¸ÑÐºÐ°.';
-    STR_CONTROLS_MAIN_14 = 'ÐžÐ± ÑÑ‚Ð¾Ð¼ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ð¸: Ð½Ð° Ð±Ð¾ÐºÐ¾Ð²Ð¾Ð¹ Ð¿Ð°Ð½ÐµÐ»Ð¸ Ð½Ð°Ð¶Ð¼Ð¸Ñ‚Ðµ ÐžÐ¿Ð¸ÑÐ°Ð½Ð¸Ðµ';
-    STR_ABOUT_INFO_1 = 'Ð­Ñ‚Ð¾ ÐºÐ»Ð¸ÐµÐ½Ñ‚ Twitch Ð´Ð»Ñ Android TV, Ð²Ñ‹Ð¿ÑƒÑ‰ÐµÐ½Ð½Ñ‹Ð¹ Ð±ÐµÑÐ¿Ð»Ð°Ñ‚Ð½Ð¾ Ð´Ð»Ñ Ð²ÑÐµÑ…, ÐºÑ‚Ð¾ Ñ…Ð¾Ñ‡ÐµÑ‚ Ð¸Ð¼ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÑŒÑÑ.';
-    STR_ABOUT_INFO_2 =
-        'Ð­Ñ‚Ð¾ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ Ð½Ðµ ÑÐ²ÑÐ·Ð°Ð½Ð¾ Ñ Twitch. Ð­Ñ‚Ð¾ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑŒÑÐºÐ¾Ðµ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ, Ð¾Ð½Ð¾ Ñ€Ð°Ð±Ð¾Ñ‚Ð°ÐµÑ‚ Ð±Ð»Ð°Ð³Ð¾Ð´Ð°Ñ€Ñ Ñ‚Ð¾Ð¼Ñƒ, Ñ‡Ñ‚Ð¾ Twitch Ð¿Ñ€ÐµÐ´Ð¾ÑÑ‚Ð°Ð²Ð»ÑÐµÑ‚ Ð²ÐµÑÑŒ API, ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ð¹ Ð¿Ð¾Ð·Ð²Ð¾Ð»ÑÐµÑ‚ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸ÑŽ Ð¾Ñ‚Ð¾Ð±Ñ€Ð°Ð¶Ð°Ñ‚ÑŒ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚ Twitch.';
-    STR_ABOUT_INFO_2_SOURCE = 'Ð­Ñ‚Ð° Ð²ÐµÑ€ÑÐ¸Ñ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ñ Ð¿Ñ€ÐµÐ´Ð½Ð°Ð·Ð½Ð°Ñ‡ÐµÐ½Ð° Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð´Ð»Ñ Ñ‚ÐµÑÑ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ñ Ð² Ð±Ñ€Ð°ÑƒÐ·ÐµÑ€Ðµ!';
-    STR_ABOUT_INFO_3 = 'ÐšÐ¾Ð½Ñ‚Ð°ÐºÑ‚Ð½Ð°Ñ Ð¸Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸Ñ:';
-    STR_ABOUT_INFO_4 = 'Ð­Ñ‚Ð¾ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ Ñ Ð¾Ñ‚ÐºÑ€Ñ‹Ñ‚Ñ‹Ð¼ Ð¸ÑÑ…Ð¾Ð´Ð½Ñ‹Ð¼ ÐºÐ¾Ð´Ð¾Ð¼ Ð¿Ð¾Ð´ Ð»Ð¸Ñ†ÐµÐ½Ð·Ð¸ÐµÐ¹ GNU General Public License v3.0, Ð´Ð¾ÑÑ‚ÑƒÐ¿Ð½Ð¾ Ð½Ð° GitHub.';
-
-    STR_ABOUT_INFO_6 = 'Ð­Ñ‚Ð¾ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐµÑ‚ ÑÐ»ÐµÐ´ÑƒÑŽÑ‰Ð¸Ðµ Ð·Ð°Ð²Ð¸ÑÐ¸Ð¼Ð¾ÑÑ‚Ð¸:';
-    STR_ABOUT_INFO_18 = 'ÐŸÐ¾Ð´Ð´ÐµÑ€Ð¶ÐºÐ° Ñ‚ÐµÐ»ÐµÑ„Ð¾Ð½Ð¾Ð² Ð¸ Ð¿Ð»Ð°Ð½ÑˆÐµÑ‚Ð¾Ð²:';
-    STR_ABOUT_INFO_19 =
-        'Ð”Ð°, ÑÑ‚Ð¾ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ Ð¼Ð¾Ð¶Ð½Ð¾ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÑŒ Ð½Ð° Ñ‚ÐµÐ»ÐµÑ„Ð¾Ð½Ð°Ñ… Ð¸ Ð¿Ð»Ð°Ð½ÑˆÐµÑ‚Ð°Ñ…, Ð½Ð¾ Ð¾Ð½Ð¾ Ð¿Ñ€ÐµÐ´Ð½Ð°Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¾ Ð² Ð¾ÑÐ½Ð¾Ð²Ð½Ð¾Ð¼ Ð´Ð»Ñ Ñ‚ÐµÐ»ÐµÐ²Ð¸Ð·Ð¾Ñ€Ð¾Ð². ÐŸÐ¾Ð´Ð´ÐµÑ€Ð¶ÐºÐ° Ð´Ñ€ÑƒÐ³Ð¸Ñ… ÑƒÑÑ‚Ñ€Ð¾Ð¹ÑÑ‚Ð² Ð¾Ð³Ñ€Ð°Ð½Ð¸Ñ‡ÐµÐ½Ð° Ð¸Ð·-Ð·Ð° Ð¸Ñ… Ð¾Ñ‚ÑÑƒÑ‚ÑÐ²Ð¸Ñ Ð² Play Store. Ð˜ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐ¹Ñ‚Ðµ ÑÑÑ‹Ð»ÐºÑƒ Ð½Ð¸Ð¶Ðµ Ð´Ð»Ñ Ð·Ð°Ð³Ñ€ÑƒÐ·ÐºÐ¸ Ð¿Ð¾ÑÐ»ÐµÐ´Ð½ÐµÐ¹ Ð²ÐµÑ€ÑÐ¸Ð¸ APK Ð¸ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚Ðµ Ð²Ñ€ÑƒÑ‡Ð½ÑƒÑŽ Ð½Ð° Ñ‚ÐµÐ»ÐµÑ„Ð¾Ð½/Ð¿Ð»Ð°Ð½ÑˆÐµÑ‚';
-
-    STR_CONTROLS_PLAY_0 = 'Ð¸Ð»Ð¸ Ð² Ð½Ð¸Ð¶Ð½Ð¸Ñ… ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð°Ñ… ÑƒÐ¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð¸Ñ Ð¿Ð»ÐµÐµÑ€Ð¾Ð¼';
-    STR_CONTROLS_PLAY_1 = 'ÐŸÐ¾ÐºÐ°Ð·Ð°Ñ‚ÑŒ Ð¸Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸Ð¾Ð½Ð½ÑƒÑŽ Ð¿Ð°Ð½ÐµÐ»ÑŒ: Ð½Ð°Ð¶Ð¼Ð¸Ñ‚Ðµ ÐºÐ½Ð¾Ð¿ÐºÑƒ ÐžÐš Ð¸Ð»Ð¸ ÐºÐ½Ð¾Ð¿ÐºÐ¸ D-pad, ÐµÑÐ»Ð¸ Ñ‡Ð°Ñ‚ Ð¸ Ð¿Ñ€ÑÐ¼Ð¾Ð¹ ÑÑ„Ð¸Ñ€ ÐºÐ°Ð½Ð°Ð»Ð° Ð½Ðµ Ð¾Ñ‚Ð¾Ð±Ñ€Ð°Ð¶Ð°ÑŽÑ‚ÑÑ';
-    STR_CONTROLS_PLAY_2 = 'Ð—Ð°ÐºÑ€Ñ‹Ñ‚ÑŒ Ð²Ð¸Ð´ÐµÐ¾: Ð´Ð²Ð°Ð¶Ð´Ñ‹ Ð½Ð°Ð¶Ð¼Ð¸Ñ‚Ðµ ÐºÐ½Ð¾Ð¿ÐºÑƒ Ð½Ð°Ð·Ð°Ð´ Ð¸Ð»Ð¸ ÐºÐ½Ð¾Ð¿ÐºÑƒ Ð¡Ñ‚Ð¾Ð¿.';
-    STR_CONTROLS_PLAY_3 = 'ÐŸÐ»ÐµÐ¹/Ð¿Ð°ÑƒÐ·Ð° Ð²Ð¸Ð´ÐµÐ¾: Ð¾Ñ‚ÐºÑ€Ð¾Ð¹Ñ‚Ðµ Ð¸Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸Ð¾Ð½Ð½ÑƒÑŽ Ð¿Ð°Ð½ÐµÐ»ÑŒ Ð¸ Ð½Ð°Ð¶Ð¼Ð¸Ñ‚Ðµ ÑÐ¸Ð¼Ð²Ð¾Ð» Ð¿Ð°ÑƒÐ·Ñ‹';
-    STR_CONTROLS_PLAY_4 = 'ÐŸÐ¾ÐºÐ°Ð·Ð°Ñ‚ÑŒ Ð»ÐµÐ½Ñ‚Ñƒ Ð¿Ñ€ÐµÐ²ÑŒÑŽ: D-pad Ð²Ð²ÐµÑ€Ñ…';
-    STR_CONTROLS_PLAY_5 = 'Ð˜Ð·Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ ÐºÐ°Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð²Ð¸Ð´ÐµÐ¾: Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐ¹Ñ‚Ðµ Ð½Ð¸Ð¶Ð½Ð¸Ð¹ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚ ÑƒÐ¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð¸Ñ Ð¿Ð»ÐµÐµÑ€Ð¾Ð¼ (ÐšÐ°Ñ‡ÐµÑÑ‚Ð²Ð¾)';
-    STR_CONTROLS_PLAY_6 = 'ÐŸÑ€Ð¸Ð½ÑƒÐ´Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ð¾ Ð¾Ð±Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ Ð²Ð¸Ð´ÐµÐ¾ (ÐµÑÐ»Ð¸ Ð¾Ð½Ð¾ Ð·Ð°Ð²Ð¸ÑÐ°ÐµÑ‚): Ð¸Ð·Ð¼ÐµÐ½Ð¸Ñ‚Ðµ ÐºÐ°Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð²Ð¸Ð´ÐµÐ¾ Ð½Ð° Ñ‚Ð°ÐºÐ¾Ðµ Ð¶Ðµ.';
-    STR_CONTROLS_PLAY_7 = 'ÐŸÐ¾ÐºÐ°Ð·Ð°Ñ‚ÑŒ Ð¸Ð»Ð¸ ÑÐºÑ€Ñ‹Ñ‚ÑŒ Ñ‡Ð°Ñ‚: D-pad Ð²Ð½Ð¸Ð· Ð¸Ð»Ð¸ ÐºÐ½Ð¾Ð¿ÐºÐ° 3' + STR_CONTROLS_PLAY_0;
-    STR_CONTROLS_PLAY_8 = 'Ð˜Ð·Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ Ð¿Ð¾Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ Ñ‡Ð°Ñ‚Ð°: D-pad Ð²Ð»ÐµÐ²Ð¾, Ð¸Ð»Ð¸ Ð¿ÐµÑ€ÐµÐ¼Ð¾Ñ‚ÐºÐ° Ð½Ð°Ð·Ð°Ð´ (Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð²Ð¸Ð´ÐµÐ¾ Ð¸ ÐºÐ»Ð¸Ð¿Ñ‹)' + STR_CONTROLS_PLAY_0;
-    STR_CONTROLS_PLAY_9 = 'Ð˜Ð·Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ Ñ€Ð°Ð·Ð¼ÐµÑ€ Ñ‡Ð°Ñ‚Ð°: D-pad Ð²Ð¿Ñ€Ð°Ð²Ð¾' + STR_CONTROLS_PLAY_0;
-    STR_CONTROLS_PLAY_10 = 'Ð˜Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ðµ ÑÑ€ÐºÐ¾ÑÑ‚Ð¸ Ñ„Ð¾Ð½Ð° Ñ‡Ð°Ñ‚Ð°: Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ñ‚Ðµ Ð² Ð½Ð¸Ð¶Ð½Ð¸Ñ… ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð°Ñ… ÑƒÐ¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð¸Ñ Ð¿Ð»ÐµÐµÑ€Ð¾Ð¼';
-    STR_CONTROLS_PLAY_11 =
-        'ÐŸÑ€Ð¸Ð½ÑƒÐ´Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ð¾ Ð¾Ð±Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ Ñ‡Ð°Ñ‚ Ð² Ð¿Ñ€ÑÐ¼Ñ‹Ñ… Ñ‚Ñ€Ð°Ð½ÑÐ»ÑÑ†Ð¸ÑÑ… (Ð² ÑÐ»ÑƒÑ‡Ð°Ðµ, ÐµÑÐ»Ð¸ Ð¾Ð½ Ð·Ð°Ð²Ð¸ÑÐ°ÐµÑ‚ Ð¸Ð»Ð¸ Ð½Ðµ Ð·Ð°Ð³Ñ€ÑƒÐ¶Ð°ÐµÑ‚ÑÑ): Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐ¹Ñ‚Ðµ Ð½Ð¸Ð¶Ð½Ð¸Ðµ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ñ‹ ÑƒÐ¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð¸Ñ Ð¿Ð»ÐµÐµÑ€Ð°.';
-    STR_CONTROLS_PLAY_12 = 'ÐÐ°Ñ‡Ð°Ñ‚ÑŒ Ð¿Ð¾Ð¸ÑÐº: Ð¾Ñ‚ÐºÑ€Ð¾Ð¹Ñ‚Ðµ Ð¸Ð½Ñ„. Ð¿Ð°Ð½ÐµÐ»ÑŒ, Ð¿ÐµÑ€ÐµÐ¹Ð´Ð¸Ñ‚Ðµ Ñ Ð¿Ð¾Ð¼Ð¾Ñ‰ÑŒÑŽ Ð½Ð°Ð². Ð¿Ð°Ð½ÐµÐ»Ð¸ (Ð²Ð»ÐµÐ²Ð¾/Ð²Ð¿Ñ€Ð°Ð²Ð¾) Ð² ÐŸÐ¾Ð¸ÑÐº Ð¸ Ð½Ð°Ð¶Ð¼Ð¸Ñ‚Ðµ ÐžÐš.';
-    STR_CONTROLS_PLAY_13 = 'ÐŸÐ¾Ð´Ð´ÐµÑ€Ð¶Ð¸Ð²Ð°ÑŽÑ‚ÑÑ Ð²ÑÐµ Ð¼ÑƒÐ»ÑŒÑ‚Ð¸Ð¼ÐµÐ´Ð¸Ð¹Ð½Ñ‹Ðµ ÐºÐ½Ð¾Ð¿ÐºÐ¸ (Ð¿Ð»ÐµÐ¹,Ð¿Ð°ÑƒÐ·Ð°,ÑÑ‚Ð¾Ð¿,Ð¿ÐµÑ€ÐµÐ¼Ð¾Ñ‚ÐºÐ° Ð¸ Ñ‚.Ð´.).';
-    STR_CONTROLS_PLAY_14 = 'Ð§Ð°Ñ‚ Ð¸ Ð²Ð¸Ð´ÐµÐ¾: ÐºÐ½Ð¾Ð¿ÐºÐ° 2 Ð¸Ð»Ð¸ ÐºÐ½Ð¾Ð¿ÐºÐ° Ð¿ÐµÑ€ÐµÐ¼Ð¾Ñ‚ÐºÐ¸ Ð²Ð¿ÐµÑ€ÐµÐ´, Ð¿ÐµÑ€ÐµÐºÐ»ÑŽÑ‡Ð°ÐµÑ‚ Ð¼ÐµÐ¶Ð´Ñƒ Ñ€ÐµÐ¶Ð¸Ð¼Ð¾Ð¼ Â«ÐšÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐ° Ð² ÐºÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐµÂ» Ð¸ Ñ€ÐµÐ¶Ð¸Ð¼Ð¾Ð¼ 50/50';
-    STR_F_DISABLE_CHAT = 'ÐŸÑ€Ð¸Ð½ÑƒÐ´Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ð¾Ðµ Ð¾Ñ‚ÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ðµ Ñ‡Ð°Ñ‚Ð°';
-    STR_OAUTH_IN =
-        'Ð”Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð¸Ðµ ÐºÐ»ÑŽÑ‡Ð° Ð¿Ð¾Ð·Ð²Ð¾Ð»ÑÐµÑ‚ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸ÑŽ Ð¿Ð¾Ð»ÑƒÑ‡Ð°Ñ‚ÑŒ Ð´Ð¾ÑÑ‚ÑƒÐ¿ Ðº Ñ‡Ð°Ñ‚Ñƒ, Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÑ Ð²Ð°Ñˆ Ð°ÐºÐºÐ°ÑƒÐ½Ñ‚. Ð”Ð»Ñ Ð¾Ñ‚Ð¿Ñ€Ð°Ð²ÐºÐ¸ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ð¹ Ð¸ Ð¿Ð¾Ð»ÑƒÑ‡ÐµÐ½Ð¸Ñ Ð²Ð°ÑˆÐµÐ³Ð¾ ÑÐ¿Ð¸ÑÐºÐ° ÑÐ¼Ð¾Ñ†Ð¸Ð¹ (Ð¿Ð¾Ð·Ð²Ð¾Ð»ÑÐµÑ‚ Ð¿Ð¾Ð»ÑƒÑ‡Ð°Ñ‚ÑŒ Ð¿Ð¾Ð´Ð°Ñ€Ð¾Ñ‡Ð½Ñ‹Ðµ Ð¿Ð¾Ð´Ð¿Ð¸ÑÐºÐ¸ Ð² Ñ‡Ð°Ñ‚Ðµ), Ð¿Ð¾Ð´Ð¿Ð¸ÑÑ‹Ð²Ð°Ñ‚ÑŒÑÑ/Ð¾Ñ‚Ð¼ÐµÐ½ÑÑ‚ÑŒ Ð¿Ð¾Ð´Ð¿Ð¸ÑÐºÑƒ Ð½Ð° ÐºÐ°Ð½Ð°Ð»Ñ‹/Ð¸Ð³Ñ€Ñ‹ Ð¸ Ð±Ñ‹ÑÑ‚Ñ€ÐµÐµ Ð¿Ð¾Ð»ÑƒÑ‡Ð°Ñ‚ÑŒ Ð´Ð¾ÑÑ‚ÑƒÐ¿ Ðº Ð½ÐµÐºÐ¾Ñ‚Ð¾Ñ€Ð¾Ð¼Ñƒ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚Ñƒ.<br><br>Ð”Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð¸Ðµ ÐºÐ»ÑŽÑ‡Ð° Ð½Ðµ Ñ‚Ñ€ÐµÐ±ÑƒÐµÑ‚ ÑƒÑÐ¸Ð»Ð¸Ð¹ Ð¸ Ð¼Ð¾Ð¶ÐµÑ‚ Ð±Ñ‹Ñ‚ÑŒ Ð²Ñ‹Ð¿Ð¾Ð»Ð½ÐµÐ½Ð¾ Ð² Ð»ÑŽÐ±Ð¾Ð¹ Ð¼Ð¾Ð¼ÐµÐ½Ñ‚ Ð¿Ð¾Ð·Ð¶Ðµ.<br><br>Ð¡Ð¾Ð¼Ð½ÐµÐ²Ð°ÐµÑ‚ÐµÑÑŒ, Ð¿Ñ€Ð¾Ñ‡Ñ‚Ð¸Ñ‚Ðµ ÑÑ‚Ñƒ ÑÑÑ‹Ð»ÐºÑƒ:<br><br>%x<br><br>Ð”Ð»Ñ Ð½ÐµÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ñ… ÑƒÑÑ‚Ñ€Ð¾Ð¹ÑÑ‚Ð² Ð½ÐµÐ¾Ð±Ñ…Ð¾Ð´Ð¸Ð¼Ð° Ð¼Ñ‹ÑˆÑŒ Ð´Ð»Ñ Ð·Ð°Ð²ÐµÑ€ÑˆÐµÐ½Ð¸Ñ Ð´ÐµÐ¹ÑÑ‚Ð²Ð¸Ñ Ð°Ð²Ñ‚Ð¾Ñ€Ð¸Ð·Ð°Ñ†Ð¸Ð¸, Ñ‚Ð°Ðº ÐºÐ°Ðº Ð²Ð°Ð¼ Ð¼Ð¾Ð¶ÐµÑ‚ Ð¿Ð¾Ñ‚Ñ€ÐµÐ±Ð¾Ð²Ð°Ñ‚ÑŒÑÑ Ð²Ñ€ÑƒÑ‡Ð½ÑƒÑŽ Ð½Ð°Ð¶Ð°Ñ‚ÑŒ ÐºÐ½Ð¾Ð¿ÐºÑƒ Ð¿Ð¾Ð´Ñ‚Ð²ÐµÑ€Ð¶Ð´ÐµÐ½Ð¸Ñ.<br><br>Ð´Ð»Ñ Ð´Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð¸Ñ ÐºÐ»ÑŽÑ‡Ð°';
-    STR_USER_CODE = 'Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ ÐºÐ»ÑŽÑ‡';
-    STR_USER_CODE_OK = 'ÐšÐ»ÑŽÑ‡ Ð´Ð¾Ð±Ð°Ð²Ð»ÐµÐ½ ÑƒÑÐ¿ÐµÑˆÐ½Ð¾';
-    STR_KEY_BAD = 'ÐžÑˆÐ¸Ð±ÐºÐ° ÐºÐ»ÑŽÑ‡Ð°, Ð½ÑƒÐ¶Ð½Ð¾ Ð´Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ Ð½Ð¾Ð²Ñ‹Ð¹';
-    STR_OAUTH_WRONG = 'Ð’Ñ‹ Ð¿Ñ‹Ñ‚Ð°ÐµÑ‚ÐµÑÑŒ Ð´Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ ÐºÐ»ÑŽÑ‡ Ð´Ð»Ñ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ';
-    STR_OAUTH_WRONG2 = 'Ð½Ð¾ ÑÑ‚Ð¾Ñ‚ ÐºÐ»ÑŽÑ‡ Ð´Ð»Ñ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ';
-    STR_FOLLOWING = 'ÐžÑ‚ÑÐ»ÐµÐ¶Ð¸Ð²Ð°ÐµÑ‚ÑÑ';
-    STR_FOLLOW = 'ÐžÑ‚ÑÐ»ÐµÐ¶Ð¸Ð²Ð°Ñ‚ÑŒ';
-    STR_IS_SUB_NOOAUTH = 'Ð˜ Ð²Ñ‹ Ð½Ðµ Ð´Ð¾Ð±Ð°Ð²Ð¸Ð»Ð¸ ÐºÐ»ÑŽÑ‡ Ð°Ð²Ñ‚Ð¾Ñ€Ð¸Ð·Ð°Ñ†Ð¸Ð¸, Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ Ð½Ðµ Ð¼Ð¾Ð¶ÐµÑ‚ Ð¿Ñ€Ð¾Ð²ÐµÑ€Ð¸Ñ‚ÑŒ Ð²Ð°Ñˆ ÑÐ°Ð±-ÑÑ‚Ð°Ñ‚ÑƒÑ.';
-    STR_IS_SUB_NOT_SUB = 'Ð˜ Ð²Ñ‹ Ð½Ðµ ÑÐ²Ð»ÑÐµÑ‚ÐµÑÑŒ Ð¿Ð¾Ð´Ð¿Ð¸ÑÑ‡Ð¸ÐºÐ¾Ð¼ ÑÑ‚Ð¾Ð³Ð¾ ÐºÐ°Ð½Ð°Ð»Ð°';
-    STR_IS_SUB_IS_SUB = 'Ð’Ñ‹ Ð¿Ð¾Ð´Ð¿Ð¸ÑÑ‡Ð¸Ðº ÑÑ‚Ð¾Ð³Ð¾ ÐºÐ°Ð½Ð°Ð»Ð°, Ð½Ð¾ Ð½ÐµÐ¸Ð·Ð²ÐµÑÑ‚Ð½Ð°Ñ Ð¿Ñ€Ð¾Ð±Ð»ÐµÐ¼Ð° Ð¿Ð¾Ð¼ÐµÑˆÐ°Ð»Ð° ÐµÐ³Ð¾ Ð²Ð¾ÑÐ¿Ñ€Ð¾Ð¸Ð·Ð²ÐµÐ´ÐµÐ½Ð¸ÑŽ.';
-    STR_OAUTH_FAIL = 'ÐžÑˆÐ¸Ð±ÐºÐ° Ð°Ð²Ñ‚Ð¾Ñ€Ð¸Ð·Ð°Ñ†Ð¸Ð¸ ÐºÐ»ÑŽÑ‡Ð°, Ð¿Ð¾Ð¶Ð°Ð»ÑƒÐ¹ÑÑ‚Ð°, Ð¿Ñ€Ð¾Ð²ÐµÑ€ÑŒÑ‚Ðµ Ð¸ Ð¿Ð¾Ð¿Ñ€Ð¾Ð±ÑƒÐ¹Ñ‚Ðµ ÐµÑ‰Ðµ Ñ€Ð°Ð·';
-    STR_OAUTH_FAIL_USER = 'Ð”Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð½Ñ‹Ð¹ ÐºÐ»ÑŽÑ‡ Ð½Ðµ Ð¿Ñ€Ð¸Ð½Ð°Ð´Ð»ÐµÐ¶Ð¸Ñ‚ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑŽ';
-    STR_NOKEY = 'ÐÐµÑ‚ Ð°ÐºÐºÐ°ÑƒÐ½Ñ‚Ð°';
-    STR_NOKEY_WARN = 'Ð£ÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚Ðµ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ Ð¸ ÐºÐ»ÑŽÑ‡, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð¸Ð¼ÐµÑ‚ÑŒ Ð²Ð¾Ð·Ð¼Ð¾Ð¶Ð½Ð¾ÑÑ‚ÑŒ Ð¿Ð¾Ð´Ð¿Ð¸ÑÐ°Ñ‚ÑŒÑÑ/Ð¾Ñ‚Ð¿Ð¸ÑÐ°Ñ‚ÑŒÑÑ';
-    STR_FOLLOW_ISSUE =
-        'ÐŸÑ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ñ Ñ‚Ñ€ÐµÑ‚ÑŒÐ¸Ñ… ÑÑ‚Ð¾Ñ€Ð¾Ð½ Ð±Ð¾Ð»ÑŒÑˆÐµ Ð½Ðµ Ð¼Ð¾Ð³ÑƒÑ‚ Ð¿Ð¾Ð´Ð¿Ð¸ÑÑ‹Ð²Ð°Ñ‚ÑŒÑÑ/Ð¾Ñ‚Ð¿Ð¸ÑÑ‹Ð²Ð°Ñ‚ÑŒÑÑ Ð¾Ñ‚ ÐºÐ°Ð½Ð°Ð»Ð¾Ð² (ÐºÐ½Ð¾Ð¿ÐºÐ° Ð±ÑƒÐ´ÐµÑ‚ Ð¿Ð¾ÐºÐ°Ð·Ñ‹Ð²Ð°Ñ‚ÑŒÑÑ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ ÐµÑÐ»Ð¸ Ð²Ñ‹ Ð¿Ð¾Ð´Ð¿Ð¸ÑÐ°Ð½Ñ‹)';
-    STR_NOKUSER_WARN = 'Ð¡Ð½Ð°Ñ‡Ð°Ð»Ð° Ð´Ð¾Ð±Ð°Ð²ÑŒÑ‚Ðµ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ';
-    STR_RESET = 'ÐŸÐµÑ€ÐµÐ·Ð°Ð¿ÑƒÑÑ‚Ð¸Ñ‚ÑŒ';
-    STR_CLIP = 'ÐšÐ»Ð¸Ð¿';
-    STR_CHANNEL_CONT = 'ÐšÐ°Ð½Ð°Ð»';
-    STR_NET_DOWN = 'Ð¡ÐµÑ‚ÑŒ Ð¾Ñ‚ÐºÐ»ÑŽÑ‡ÐµÐ½Ð°, Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ Ð½Ðµ Ð¼Ð¾Ð¶ÐµÑ‚ Ñ€Ð°Ð±Ð¾Ñ‚Ð°Ñ‚ÑŒ Ð±ÐµÐ· Ð¸Ð½Ñ‚ÐµÑ€Ð½ÐµÑ‚Ð°';
-    STR_NET_UP = 'Ð¡ÐµÑ‚ÐµÐ²Ð¾Ðµ Ð¿Ð¾Ð´ÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ðµ Ð²Ð¾ÑÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ð¾';
-    STR_FOLLOWERS = 'Ð¤Ð¾Ð»Ð»Ð¾Ð²ÐµÑ€Ð¾Ð²';
-    STR_FOLLOWER = 'Ð¤Ð¾Ð»Ð»Ð¾Ð²ÐµÑ€';
-    STR_CANT_FOLLOW = ', Ð½ÐµÐ»ÑŒÐ·Ñ Ð¿Ð¾Ð´Ð¿Ð¸ÑÐ°Ñ‚ÑŒÑÑ Ð¸Ð»Ð¸ Ð¾Ñ‚Ð¿Ð¸ÑÐ°Ñ‚ÑŒÑÑ';
-    STR_GAME_CONT = 'Ð˜Ð³Ñ€Ð°';
-    STR_YES = 'Ð”Ð°';
-    STR_REMOVE_USER = 'Ð’Ñ‹ Ð´ÐµÐ¹ÑÑ‚Ð²Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ð¾ Ñ…Ð¾Ñ‚Ð¸Ñ‚Ðµ ÑƒÐ´Ð°Ð»Ð¸Ñ‚ÑŒ Ð°ÐºÐºÐ°ÑƒÐ½Ñ‚';
-    STR_PLACEHOLDER_PRESS_UP = 'ÐÐ°Ð¶Ð¼Ð¸Ñ‚Ðµ Ð²Ð²ÐµÑ€Ñ… Ð´Ð»Ñ';
-    STR_FOLLOW_GAMES = 'ÐžÑ‚ÑÐ»ÐµÐ¶Ð¸Ð²Ð°ÐµÐ¼Ñ‹Ðµ Ð¸Ð³Ñ€Ñ‹';
-    STR_USER_GAMES_CHANGE = 'Ð¡Ð¼ÐµÐ½Ð° Ð¼ÐµÐ¶Ð´Ñƒ';
-    STR_GUIDE = 'Ð£Ð´ÐµÑ€Ð¶. ÐžÐš';
-    STR_MONTHS = ['Ð¯Ð½Ð²', 'Ð¤ÐµÐ²', 'ÐœÐ°Ñ€', 'ÐÐ¿Ñ€', 'ÐœÐ°Ð¹', 'Ð˜ÑŽÐ½ÑŒ', 'Ð˜ÑŽÐ»ÑŒ', 'ÐÐ²Ð³', 'Ð¡ÐµÐ½', 'ÐžÐºÑ‚', 'ÐÐ¾Ñ', 'Ð”ÐµÐº'];
-    STR_DAYS = ['Ð’Ñ', 'ÐŸÐ½', 'Ð’Ñ‚', 'Ð¡Ñ€', 'Ð§Ñ‚', 'ÐŸÑ‚', 'Ð¡Ð±'];
-    STR_STARTED = 'Ð—Ð°Ð¿ÑƒÑÑ‚Ð¸Ð»';
-    STR_VIDEOS = 'Ð’Ð¸Ð´ÐµÐ¾';
-    STR_REPLAY = 'ÐŸÐ¾Ð²Ñ‚Ð¾Ñ€';
-    STR_STREAM_END = 'Ð²Ñ‹Ñ…Ð¾Ð´ Ð²';
-    STR_STREAM_END_EXIT = 'Ð½Ð°Ð¶Ð¼Ð¸Ñ‚Ðµ Ð½Ð°Ð·Ð°Ð´ Ð´Ð»Ñ Ð²Ñ‹Ñ…Ð¾Ð´Ð°';
-    STR_FEATURED = 'ÐÐ° Ð³Ð»Ð°Ð²Ð½Ð¾Ð¹ ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ†Ðµ';
-    STR_CREATED_AT = 'Ð¡Ð¾Ð·Ð´Ð°Ð½Ð¾';
-    STR_OPEN_BROADCAST = 'ÐžÑ‚ÐºÑ€Ñ‹Ñ‚ÑŒ Ñ‚Ñ€Ð°Ð½ÑÐ»ÑÑ†Ð¸ÑŽ';
-    STR_OPEN_LAST_BROADCAST = 'ÐžÑ‚ÐºÑ€Ñ‹Ñ‚ÑŒ Ð¿Ð¾ÑÐ»ÐµÐ´Ð½Ð¸Ð¹ VOD';
-    STR_IS_LIVE = 'ÐžÐ½Ð»Ð°Ð¹Ð½';
-    STR_OPEN_REWIND = 'ÐžÑ‚ÐºÑ€Ñ‹Ñ‚ÑŒ Ð¿ÐµÑ€ÐµÐ¼Ð¾Ñ‚ÐºÑƒ';
-    STR_OPEN_REWIND_SUMMARY = 'ÐžÑ‚ÐºÑ€Ñ‹Ñ‚ÑŒ VOD Ñ Ð¿Ð¾Ð»Ð½Ð¾Ð¹ Ð¿ÐµÑ€ÐµÐ¼Ð¾Ñ‚ÐºÐ¾Ð¹';
-    STR_OPEN_REWIND_FAIL = 'ÐŸÐµÑ€ÐµÐ¼Ð¾Ñ‚ÐºÐ° Ð½ÐµÐ´Ð¾ÑÑ‚ÑƒÐ¿Ð½Ð° Ð´Ð»Ñ ÑÑ‚Ð¾Ð¹ Ñ‚Ñ€Ð°Ð½ÑÐ»ÑÑ†Ð¸Ð¸';
-    STR_SHOW_ISLIVE_WARNING = 'ÐŸÐ¾ÐºÐ°Ð·Ð°Ñ‚ÑŒ "Ð¡Ñ‚Ñ€Ð¸Ð¼ÐµÑ€ ÐžÐ½Ð»Ð°Ð¹Ð½" ÐŸÑ€ÐµÐ´ÑƒÐ¿Ñ€ÐµÐ¶Ð´ÐµÐ½Ð¸Ðµ';
-    STR_SHOW_ISLIVE_WARNING_SUMMARY =
-        'ÐŸÑ€Ð¸ Ð¿Ñ€Ð¾ÑÐ¼Ð¾Ñ‚Ñ€Ðµ ÐºÐ»Ð¸Ð¿Ð° Ð¸Ð»Ð¸ Ð²Ð¸Ð´ÐµÐ¾, Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ Ð¼Ð¾Ð¶ÐµÑ‚ Ð¿Ñ€Ð¾Ð²ÐµÑ€Ð¸Ñ‚ÑŒ Ð¾Ð½Ð»Ð°Ð¹Ð½ Ð»Ð¸ ÑÑ‚Ð¾Ñ‚ ÑÑ‚Ñ€Ð¸Ð¼ÐµÑ€, ÐµÑÐ»Ð¸ Ð´Ð°, Ð¿Ð¾ÑÐ²Ð¸Ñ‚ÑÑ Ð¿Ñ€ÐµÐ´ÑƒÐ¿Ñ€ÐµÐ¶Ð´ÐµÐ½Ð¸Ðµ. Ð§Ñ‚Ð¾Ð±Ñ‹ Ð¾Ñ‚ÐºÑ€Ñ‹Ñ‚ÑŒ Ð¿Ñ€ÑÐ¼ÑƒÑŽ Ñ‚Ñ€Ð°Ð½ÑÐ»ÑÑ†Ð¸ÑŽ, Ð¿Ñ€Ð¾ÑÑ‚Ð¾ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐ¹Ñ‚Ðµ Ð¾Ð¿Ñ†Ð¸ÑŽ Ð½Ð¸Ð¶Ð½ÐµÐ³Ð¾ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð° ÑƒÐ¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð¸Ñ Ð¿Ð»ÐµÐµÑ€Ð¾Ð¼.';
-    STR_OPEN_CHAT = 'ÐÐ°Ð¶Ð¼Ð¸Ñ‚Ðµ, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð¾Ñ‚ÐºÑ€Ñ‹Ñ‚ÑŒ Ñ‡Ð°Ñ‚ Ð¸Ð»Ð¸ Ð´Ð¾Ð¶Ð´Ð¸Ñ‚ÐµÑÑŒ Ð²Ð¾Ð·Ð²Ñ€Ð°Ñ‰ÐµÐ½Ð¸Ñ Ð² Ð¿Ñ€ÑÐ¼Ð¾Ð¹ ÑÑ„Ð¸Ñ€';
-    STR_STAY_OPEN = 'ÐžÑÑ‚Ð°Ñ‚ÑŒÑÑ Ð½Ð° ÑÑ‚Ñ€Ð¸Ð¼Ðµ';
-    STR_STAY_OPEN_SUMMARY = 'ÐŸÑ€Ð¾Ð²ÐµÑ€Ð¸Ñ‚ÑŒ ÐµÑ‰Ðµ Ñ€Ð°Ð·, Ð½Ðµ Ð¾Ð½Ð»Ð°Ð¹Ð½ Ð»Ð¸ Ð¾Ð½';
-    STR_STAY_CHECK = 'ÐŸÑ€Ð¾Ð²ÐµÑ€Ð¸Ñ‚ÑŒ, Ð¸Ð´ÐµÑ‚ Ð»Ð¸ Ñ‚Ñ€Ð°Ð½ÑÐ»ÑÑ†Ð¸Ñ:';
-    STR_STAY_CHECKING = 'ÐŸÑ€Ð¾Ð²ÐµÑ€ÐºÐ°, Ð¸Ð´ÐµÑ‚ Ð»Ð¸ Ñ‚Ñ€Ð°Ð½ÑÐ»ÑÑ†Ð¸Ñ Ð² Ð¿Ñ€ÑÐ¼Ð¾Ð¼ ÑÑ„Ð¸Ñ€Ðµ...';
-    STR_STAY_CHECK_LAST = 'ÐŸÐ¾ÑÐ»ÐµÐ´Ð½ÑÑ Ð¿Ñ€Ð¾Ð²ÐµÑ€ÐºÐ°:';
-    STR_STAY_IS_OFFLINE = 'Ð¢Ñ€Ð°Ð½ÑÐ»ÑÑ†Ð¸Ñ Ð¾Ñ„Ð»Ð°Ð¹Ð½';
-    STR_NO_BROADCAST = 'ÐÐµÑ‚ Ñ‚Ñ€Ð°Ð½ÑÐ»ÑÑ†Ð¸Ð¸';
-    STR_NO_BROADCAST_WARNING = 'Ð£ ÑÑ‚Ð¾Ð³Ð¾ ÐºÐ»Ð¸Ð¿Ð° Ð½ÐµÑ‚ Ð¿Ñ€Ð¾ÑˆÐ»Ñ‹Ñ… Ñ‚Ñ€Ð°Ð½ÑÐ»ÑÑ†Ð¸Ð¹';
-    STR_NO_CHAT = 'Ð˜ Ð¸Ð·-Ð·Ð° ÑÑ‚Ð¾Ð³Ð¾ Ð½ÐµÑ‚ Ñ‡Ð°Ñ‚Ð°';
-    STR_IS_NOW = 'ÑÐµÐ¹Ñ‡Ð°Ñ';
-    STR_OPEN_HOST = 'ÐžÑ‚ÐºÑ€Ñ‹Ñ‚ÑŒ Ñ€ÐµÐ¹Ð´';
-    STR_SETTINGS_PLAYER = 'ÐŸÐ»ÐµÐµÑ€';
-    STR_SETTINGS_BUFFER_SIZE = 'Ð Ð°Ð·Ð¼ÐµÑ€ Ð½Ð°Ñ‡Ð°Ð»ÑŒÐ½Ð¾Ð³Ð¾ Ð±ÑƒÑ„ÐµÑ€Ð°:';
-    STR_SETTINGS_BUFFER_SIZE_SHORT_SUMMARY = 'Ð£Ð¿Ñ€Ð°Ð²Ð»ÑÐµÑ‚ Ð½Ð°Ñ‡Ð°Ð»ÑŒÐ½Ñ‹Ð¼ Ñ€Ð°Ð·Ð¼ÐµÑ€Ð¾Ð¼ Ð±ÑƒÑ„ÐµÑ€Ð°';
-    STR_SETTINGS_BUFFER_SIZE_SUMMARY =
-        'Ð¡ÐºÐ¾Ð»ÑŒÐºÐ¾ Ð½ÐµÐ¾Ð±Ñ…Ð¾Ð´Ð¸Ð¼Ð¾ Ð´Ð»Ñ Ð±ÑƒÑ„ÐµÑ€Ð¸Ð·Ð°Ñ†Ð¸Ð¸ Ð¿ÐµÑ€ÐµÐ´ Ð½Ð°Ñ‡Ð°Ð»Ð¾Ð¼ Ð²Ð¾ÑÐ¿Ñ€Ð¾Ð¸Ð·Ð²ÐµÐ´ÐµÐ½Ð¸Ñ. Ð­Ñ‚Ð¾ Ð½Ðµ ÑÐ²ÑÐ·Ð°Ð½Ð¾ Ñ Ð¼Ð°ÐºÑÐ¸Ð¼Ð°Ð»ÑŒÐ½Ñ‹Ð¼ Ñ€Ð°Ð·Ð¼ÐµÑ€Ð¾Ð¼, ÐºÐ¾Ñ‚Ð¾Ñ€Ð¾Ð³Ð¾ Ð¼Ð¾Ð¶ÐµÑ‚ Ð´Ð¾ÑÑ‚Ð¸Ñ‡ÑŒ Ð±ÑƒÑ„ÐµÑ€ (Ð¼Ð°ÐºÑÐ¸Ð¼Ð°Ð»ÑŒÐ½Ñ‹Ð¹ Ñ€Ð°Ð·Ð¼ÐµÑ€ Ð±ÑƒÑ„ÐµÑ€Ð° Ð·Ð°Ð²Ð¸ÑÐ¸Ñ‚ Ð¾Ñ‚ Ñ€Ð°Ð·Ð¼ÐµÑ€Ð° ÐžÐ—Ð£ ÑƒÑÑ‚Ñ€Ð¾Ð¹ÑÑ‚Ð²Ð°). Ð‘Ð¾Ð»ÐµÐµ Ð½Ð¸Ð·ÐºÐ¾Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ Ð¿Ñ€Ð¸Ð²ÐµÐ´ÐµÑ‚ Ðº Ð±Ð¾Ð»ÐµÐµ Ñ€Ð°Ð½Ð½ÐµÐ¼Ñƒ Ð½Ð°Ñ‡Ð°Ð»Ñƒ Ð²Ð¾ÑÐ¿Ñ€Ð¾Ð¸Ð·Ð²ÐµÐ´ÐµÐ½Ð¸Ñ Ð¸ ÑÑ‚Ð¾ Ñ€ÐµÐºÐ¾Ð¼ÐµÐ½Ð´ÑƒÐµÑ‚ÑÑ. Ð˜Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ðµ ÑÑ‚Ð¾Ð³Ð¾ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ñ Ð½Ð° Ð±Ð¾Ð»ÑŒÑˆÐµÐµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ Ð² Ð±Ð¾Ð»ÑŒÑˆÐ¸Ð½ÑÑ‚Ð²Ðµ ÑÐ»ÑƒÑ‡Ð°ÐµÐ² Ð½Ðµ Ð¿Ñ€Ð¸Ð²ÐµÐ´ÐµÑ‚ Ðº ÑƒÐ»ÑƒÑ‡ÑˆÐµÐ½Ð¸ÑŽ Ð¸ Ð¼Ð¾Ð³ÑƒÑ‚ Ð²Ð¾Ð·Ð½Ð¸ÐºÐ½ÑƒÑ‚ÑŒ Ð¿Ñ€Ð¾Ð±Ð»ÐµÐ¼Ñ‹.';
-    STR_SETTINGS_BUFFER_LIVE = 'ÐÐ°Ñ‡Ð°Ð»ÑŒÐ½Ñ‹Ð¹ Ð±ÑƒÑ„ÐµÑ€ ÑÑ‚Ñ€Ð¸Ð¼Ð°';
-    STR_SETTINGS_BUFFER_VOD = 'ÐÐ°Ñ‡Ð°Ð»ÑŒÐ½Ñ‹Ð¹ Ð±ÑƒÑ„ÐµÑ€ Ð²Ð¸Ð´ÐµÐ¾ (Ð’Ð¸Ð´ÐµÐ¾ Ð¸ Ð¥Ð°Ð¹Ð»Ð°Ð¹Ñ‚Ñ‹)';
-    STR_SETTINGS_BUFFER_CLIP = 'ÐÐ°Ñ‡Ð°Ð»ÑŒÐ½Ñ‹Ð¹ Ð±ÑƒÑ„ÐµÑ€ ÐºÐ»Ð¸Ð¿Ð¾Ð²';
-    STR_SETTINGS_LANG = 'Ð¯Ð·Ñ‹Ðº';
-    STR_LOADING_CHAT = 'Ð§Ð°Ñ‚: Ð¿Ð¾Ð´ÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ðµ Ðº';
-    STR_LOADING_FAIL = 'Ð¢Ð°Ð¹Ð¼-Ð°ÑƒÑ‚ Ð¿Ð¾Ð´ÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ñ, Ð¾ÑˆÐ¸Ð±ÐºÐ° Ñ€ÐµÐ³Ð¸ÑÑ‚Ñ€Ð°Ñ†Ð¸Ð¸...';
-    STR_CHAT_CONNECTED = 'Ð§Ð°Ñ‚: Ð¿Ð¾Ð´ÐºÐ»ÑŽÑ‡ÐµÐ½';
-    STR_CHAT_SEND_DELAY = 'Ð¡Ð¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ðµ Ð¾Ñ‚Ð¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð¾, Ð²ÐºÐ»ÑŽÑ‡ÐµÐ½Ð° Ð·Ð°Ð´ÐµÑ€Ð¶ÐºÐ° Ñ‡Ð°Ñ‚Ð°, ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ðµ Ð±ÑƒÐ´ÐµÑ‚ Ð¾Ñ‚Ð¾Ð±Ñ€Ð°Ð¶Ð°Ñ‚ÑŒÑÑ Ð² Ñ‡Ð°Ñ‚Ðµ Ð¿Ð¾ÑÐ»Ðµ';
-    STR_CHAT_DELAY = 'Ð§Ð°Ñ‚: Ð·Ð°Ð´ÐµÑ€Ð¶ÐºÐ°';
-    STR_VOD_HISTORY_BASE = 'Ð’Ð¾ÑÐ¿Ñ€Ð¾Ð¸Ð·Ð²ÐµÑÑ‚Ð¸ Ñ ÑÐ°Ð¼Ð¾Ð³Ð¾ Ð½Ð°Ñ‡Ð°Ð»Ð° Ð¸Ð»Ð¸ Ñ Ñ‚Ð¾Ð³Ð¾ Ð¼ÐµÑÑ‚Ð°, Ð³Ð´Ðµ Ð²Ñ‹ Ð¿ÐµÑ€ÐµÑÑ‚Ð°Ð»Ð¸ ÑÐ¼Ð¾Ñ‚Ñ€ÐµÑ‚ÑŒ';
-    STR_VOD_HISTORY = STR_VOD_HISTORY_BASE + ' Ð’Ð¸Ð´ÐµÐ¾?';
-    STR_VOD_HISTORY_FORM_LIVE = STR_VOD_HISTORY_BASE + ' ÐŸÑ€ÑÐ¼Ð¾Ð¹ ÑÑ„Ð¸Ñ€?';
-    STR_FROM = 'Ð¡:' + STR_BR;
-    STR_FROM_START = STR_FROM + 'ÐÐ°Ñ‡Ð°Ð»Ð¾';
-    STR_CHAT_END = 'Ð§Ð°Ñ‚: Ð§Ð°Ñ‚ Ð·Ð°ÐºÐ¾Ð½Ñ‡Ð¸Ð»ÑÑ!';
-    STR_RECENT = ', ÐÐµÐ´Ð°Ð²Ð½Ð¸Ðµ';
-    STR_VIWES = ', Ð¡Ð°Ð¼Ñ‹Ðµ Ð¿Ñ€Ð¾ÑÐ¼Ð°Ñ‚Ñ€Ð¸Ð²Ð°ÐµÐ¼Ñ‹Ðµ';
-    STR_NOKEY_VIDEO_WARN = 'Ð”Ð¾Ð±Ð°Ð²ÑŒÑ‚Ðµ ÐºÐ»ÑŽÑ‡ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð²Ð¸Ð´ÐµÑ‚ÑŒ Ð¾Ñ‚ÑÐ»ÐµÐ¶Ð¸Ð²Ð°ÐµÐ¼Ñ‹Ðµ Ð²Ð¸Ð´ÐµÐ¾';
-    STR_SWITCH_TYPE = 'Ð¡Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ: Ð¿Ð¾ÑÐ»ÐµÐ´Ð½Ð¸Ðµ/Ð¿Ð¾Ð¿ÑƒÐ»ÑÑ€Ð½Ñ‹Ðµ';
-    STR_ENABLE = 'Ð’ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ';
-    STR_ENABLED = 'Ð’ÐºÐ»ÑŽÑ‡ÐµÐ½Ð¾';
-    STR_DISABLE = 'ÐžÑ‚ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ';
-    STR_DISABLED = 'ÐžÑ‚ÐºÐ»ÑŽÑ‡ÐµÐ½Ð¾';
-    STR_DARK_MODE = 'Ð¢ÐµÐ¼Ð½Ñ‹Ð¹ Ñ€ÐµÐ¶Ð¸Ð¼';
-    STR_BRIGHT_MODE = 'Ð¡Ð²ÐµÑ‚Ð»Ñ‹Ð¹ Ñ€ÐµÐ¶Ð¸Ð¼';
-    STR_RESTORE_PLAYBACK_WARN = 'ÐŸÑ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ Ð±Ñ‹Ð»Ð¾ Ð·Ð°ÐºÑ€Ñ‹Ñ‚Ð¾ Ð²Ð¾ Ð²Ñ€ÐµÐ¼Ñ Ð¿Ñ€Ð¾ÑÐ¼Ð¾Ñ‚Ñ€Ð°, Ð²Ð¾ÑÐ¿Ñ€Ð¾Ð¸Ð·Ð²ÐµÐ´ÐµÐ½Ð¸Ðµ Ð²Ð¾ÑÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÐµÑ‚ÑÑ';
-    STR_RESTORE_PLAYBACK = 'Ð’Ð¾ÑÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ Ð²Ð¾ÑÐ¿Ñ€Ð¾Ð¸Ð·Ð²ÐµÐ´ÐµÐ½Ð¸Ðµ';
-    STR_RESTORE_PLAYBACK_SUMMARY =
-        'ÐŸÑ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ ÑÐ¾Ñ…Ñ€Ð°Ð½ÑÐµÑ‚ Ñ‚Ð¾, Ñ‡Ñ‚Ð¾ Ð¸Ð³Ñ€Ð°Ð»Ð¾, Ð½Ð° ÑÐ»ÑƒÑ‡Ð°Ð¹ Ð½ÐµÐ¿Ñ€ÐµÐ´Ð½Ð°Ð¼ÐµÑ€ÐµÐ½Ð½Ð¾Ð³Ð¾ Ð·Ð°ÐºÑ€Ñ‹Ñ‚Ð¸Ñ. ÐŸÑ€Ð¸ Ð½ÐµÑ…Ð²Ð°Ñ‚ÐºÐµ Ð¿Ð°Ð¼ÑÑ‚Ð¸ ÑÐ¸ÑÑ‚ÐµÐ¼Ð° Ð¼Ð¾Ð¶ÐµÑ‚ Ð·Ð°ÐºÑ€Ñ‹Ñ‚ÑŒ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ Ð¸Ð»Ð¸ Ð¿Ñ€Ð¸Ð½ÑƒÐ´Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ð¾ ÐµÐ³Ð¾ Ð¼Ð¾Ð¶ÐµÑ‚ Ð·Ð°ÐºÑ€Ñ‹Ñ‚ÑŒ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑŒ. Ð’ Ñ‚Ð°ÐºÐ¾Ð¼ ÑÐ»ÑƒÑ‡Ð°Ðµ, Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ Ð²Ð¾ÑÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚ Ñ‚Ð¾, Ñ‡Ñ‚Ð¾ Ñ€Ð°Ð½ÐµÐµ Ð²Ð¾ÑÐ¿Ñ€Ð¾Ð¸Ð·Ð²Ð¾Ð´Ð¸Ð»Ð¾ÑÑŒ, Ð¿Ñ€Ð¸ ÑÐ»ÐµÐ´ÑƒÑŽÑ‰ÐµÐ¼ Ð·Ð°Ð¿ÑƒÑÐºÐµ.';
-    STR_CHAT_FONT = 'Ð Ð°Ð·Ð¼ÐµÑ€ ÑˆÑ€Ð¸Ñ„Ñ‚Ð° Ñ‡Ð°Ñ‚Ð°';
-    STR_VIDEOS_ANIMATION = 'ÐÐ½Ð¸Ð¼Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ñ‹Ðµ Ð¿Ñ€ÐµÐ²ÑŒÑŽ Ð²Ð¸Ð´ÐµÐ¾';
-    STR_VIDEOS_ANIMATION_SUMMARY =
-        'ÐÐ½Ð¸Ð¼Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ Ð¿Ñ€ÐµÐ²ÑŒÑŽ, ÐºÐ¾Ð³Ð´Ð° Ð²Ñ‹Ð±Ñ€Ð°Ð½ Ñ…Ð°Ð¹Ð»Ð°Ð¹Ñ‚ Ð¸Ð»Ð¸ Ð²Ð¸Ð´ÐµÐ¾, ÐµÑÐ»Ð¸ Ð´Ð»Ñ ÑÑ‚Ð¾Ð³Ð¾ Ð²Ð¸Ð´ÐµÐ¾ Ð´Ð¾ÑÑ‚ÑƒÐ¿Ð½Ð¾ Ð°Ð½Ð¸Ð¼Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ð¾Ðµ Ð¿Ñ€ÐµÐ²ÑŒÑŽ (Ð½Ðµ Ð²Ð¾ Ð²ÑÐµÑ… Ð²Ð¸Ð´ÐµÐ¾ Ð¾Ð½Ð¾ ÐµÑÑ‚ÑŒ).';
-    STR_SIDE_PANEL = 'Ð‘Ð¾ÐºÐ¾Ð²Ð°Ñ Ð¿Ð°Ð½ÐµÐ»ÑŒ: D-Pad Ð²Ð»ÐµÐ²Ð¾ Ð¸Ð»Ð¸ ÐºÐ½Ð¾Ð¿ÐºÐ° Ð½Ð°Ð·Ð°Ð´';
-    STR_SIZE = 'Ð Ð°Ð·Ð¼ÐµÑ€';
-    STR_BRIGHTNESS = 'Ð¯Ñ€ÐºÐ¾ÑÑ‚ÑŒ';
-    STR_FORBIDDEN = 'Ð—Ð°Ð¿Ñ€ÐµÑ‰ÐµÐ½Ð½Ñ‹Ð¹ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚, Ð¾Ð½ Ð¾Ð³Ñ€Ð°Ð½Ð¸Ñ‡ÐµÐ½ Ð²Ð°ÑˆÐ¸Ð¼ Ñ€ÐµÐ³Ð¸Ð¾Ð½Ð¾Ð¼ Ð¸Ð»Ð¸ Ð¾Ñ„Ð¸Ñ†Ð¸Ð°Ð»ÑŒÐ½Ñ‹Ð¼ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸ÐµÐ¼ Twitch.';
-    STR_JUMPING_STEP = 'Ð¨Ð°Ð³ Ð¿ÐµÑ€ÐµÐ¼Ð¾Ñ‚ÐºÐ¸';
-    STR_SECOND = 'ÑÐµÐº.';
-    STR_SECONDS = 'ÑÐµÐº.';
-    STR_MINUTE = 'Ð¼Ð¸Ð½.';
-    STR_MINUTES = 'Ð¼Ð¸Ð½.';
-    STR_CLOCK_OFFSET = 'Ð§Ð°ÑÑ‹';
-    STR_CLOCK_OFFSET_SUMMARY = 'ÐÐ°ÑÑ‚Ñ€Ð¾Ð¹Ñ‚Ðµ Ñ€Ð°Ð·Ð½Ð¸Ñ†Ñƒ Ñ‡Ð°ÑÐ¾Ð² Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ñ Ð² ÑÐ¾Ð¾Ñ‚Ð²ÐµÑ‚ÑÑ‚Ð²Ð¸Ð¸ Ñ Ð²Ð°ÑˆÐ¸Ð¼ Ñ‡Ð°ÑÐ¾Ð²Ñ‹Ð¼ Ð¿Ð¾ÑÑÐ¾Ð¼';
-    STR_CLOCK_AM_PM = 'Ð¡Ñ‚Ð¸Ð»ÑŒ Ñ‡Ð°ÑÐ¾Ð²';
-    STR_CLOCK_AM_PM_SUMMARY = 'Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ Ð¼ÐµÐ¶Ð´Ñƒ 24-Ñ‡Ð°ÑÐ¾Ð²Ñ‹Ð¼ Ñ„Ð¾Ñ€Ð¼Ð°Ñ‚Ð¾Ð¼, 12-Ñ‡Ð°ÑÐ¾Ð²Ñ‹Ð¼ Ñ AM/PM Ð¸Ð»Ð¸ 12-Ñ‡Ð°ÑÐ¾Ð²Ñ‹Ð¼ Ð±ÐµÐ· AM/PM.';
-    STR_CONTENT_LANG = 'Ð¯Ð·Ñ‹Ðº ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚Ð°';
-    STR_CONTENT_LANG_SUMMARY = 'Ð¯Ð·Ñ‹Ðº Ð¾Ñ‚Ð¾Ð±Ñ€Ð°Ð¶Ð°ÐµÐ¼Ð¾Ð³Ð¾ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚Ð°, ÑÑ‚Ñ€Ð¸Ð¼Ñ‹, Ð²Ð¸Ð´ÐµÐ¾, ÐºÐ»Ð¸Ð¿Ñ‹';
-    STR_APP_LANG = 'Ð¯Ð·Ñ‹Ðº Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ñ';
-    STR_APP_LANG_SUMMARY = 'Ð¯Ð·Ñ‹Ðº Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ñ';
-    STR_ENTER_TO_OPEN = 'ÐÐ°Ð¶Ð¼Ð¸Ñ‚Ðµ ÐžÐš';
-    STR_LANG_ALL = 'Ð’ÑÐµ';
-    STR_NO_GAME = 'ÐÐµ ÑƒÐ´Ð°Ð»Ð¾ÑÑŒ Ð¿Ð¾Ð»ÑƒÑ‡Ð¸Ñ‚ÑŒ Ð¸Ð³Ñ€Ñƒ';
-    STR_EMPTY = 'ÐŸÑƒÑÑ‚Ð¾';
-    STR_JUMP_BUFFER_WARNING = 'ÐÐµÐ²Ð¾Ð·Ð¼Ð¾Ð¶Ð½Ð¾ Ð¿ÐµÑ€ÐµÐ¹Ñ‚Ð¸ Ð²Ð¾ Ð²Ñ€ÐµÐ¼Ñ Ð±ÑƒÑ„ÐµÑ€Ð¸Ð·Ð°Ñ†Ð¸Ð¸';
-    STR_CHAT_DISABLE = 'Ð§Ð°Ñ‚ Ð¿Ñ€Ð¸Ð½ÑƒÐ´Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ð¾ Ð¾Ñ‚ÐºÐ»ÑŽÑ‡ÐµÐ½, Ð²ÐºÐ»ÑŽÑ‡Ð¸Ñ‚Ðµ ÐµÐ³Ð¾ Ð² Ð½Ð¸Ð¶Ð½Ð¸Ñ… ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð°Ñ… ÑƒÐ¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð¸Ñ Ð¿Ð»ÐµÐµÑ€Ð°. Ð§Ð°Ñ‚ Ð¿Ñ€Ð¸Ð½ÑƒÐ´Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ð¾ Ð¾Ñ‚ÐºÐ»ÑŽÑ‡ÐµÐ½.';
-    STR_CLIP_FAIL = 'ÐÐµ ÑƒÐ´Ð°Ð»Ð¾ÑÑŒ Ð·Ð°Ð³Ñ€ÑƒÐ·Ð¸Ñ‚ÑŒ ÑÑ‚Ð¾Ñ‚ ÐºÐ»Ð¸Ð¿/Ð²Ð¸Ð´ÐµÐ¾. ÐÐµ Ð¼Ð¾Ð³Ñƒ Ð²Ð¾ÑÐ¿Ñ€Ð¾Ð¸Ð·Ð²ÐµÑÑ‚Ð¸';
-    STR_CHAT_BRIGHTNESS = 'Ð¯Ñ€ÐºÐ¾ÑÑ‚ÑŒ Ñ„Ð¾Ð½Ð° Ñ‡Ð°Ñ‚Ð°';
-    STR_PLAY_NEXT = 'Ð¡Ð»ÐµÐ´ÑƒÑŽÑ‰Ð¸Ð¹';
-    STR_PLAY_NEXT_IN = 'Ð˜Ð³Ñ€Ð°ÐµÑ‚ Ð² ÑÐ»ÐµÐ´ÑƒÑŽÑ‰Ð¸Ð¹ Ñ€Ð°Ð·';
-    STR_PLAY_ALL = 'Ð’Ð¾ÑÐ¿Ñ€Ð¾Ð¸Ð·Ð²ÐµÑÑ‚Ð¸ Ð²ÑÐµ';
-    STR_AUTO_PLAY_NEXT = 'ÐÐ²Ñ‚Ð¾Ð²Ð¾ÑÐ¿Ñ€Ð¾Ð¸Ð·Ð²ÐµÐ´ÐµÐ½Ð¸Ðµ ÑÐ»ÐµÐ´ÑƒÑŽÑ‰ÐµÐ³Ð¾ ÐºÐ»Ð¸Ð¿Ð°';
-    STR_SIDE_PANEL_BACK_MAIN_MENU = 'ÐÐ°Ð·Ð°Ð´ Ð² Ð³Ð»Ð°Ð²Ð½Ð¾Ðµ Ð¼ÐµÐ½ÑŽ';
-    STR_UP = 'ÐÐ°Ð¶Ð¼Ð¸Ñ‚Ðµ Ð²Ð²ÐµÑ€Ñ…';
-    STR_HOLD_UP = 'Ð£Ð¶ÐµÑ€Ð¶Ð¸Ð²Ð°Ð¹Ñ‚Ðµ Ð²Ð²ÐµÑ€Ñ…';
-    STR_LIVE_FEED = 'ÐÐºÑ‚. ÐºÐ°Ð½Ð°Ð»Ñ‹';
-    STR_VOD_DIALOG = 'Ð”Ð¸Ð°Ð»Ð¾Ð³ Ð·Ð°Ð¿ÑƒÑÐºÐ° Ð’Ð¸Ð´ÐµÐ¾';
-    STR_VOD_DIALOG_SUMMARY =
-        'Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ Ð¿Ð¾Ð²ÐµÐ´ÐµÐ½Ð¸Ðµ Ð¿Ð¾ ÑƒÐ¼Ð¾Ð»Ñ‡Ð°Ð½Ð¸ÑŽ, Ð¿Ñ€Ð¸ Ð²Ð¾ÑÐ¿Ñ€Ð¾Ð¸Ð·Ð²ÐµÐ´ÐµÐ½Ð¸Ð¸ Ð²Ð¸Ð´ÐµÐ¾. Ð•ÑÐ»Ð¸ Ð¸Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸Ñ Ð¾ Ð½ÐµÐ¼ Ð¿Ñ€Ð¸ÑÑƒÑ‚ÑÑ‚Ð²ÑƒÐµÑ‚ Ð² Ð¸ÑÑ‚Ð¾Ñ€Ð¸Ð¸ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ, ÐµÐ³Ð¾ Ð¼Ð¾Ð¶Ð½Ð¾ Ð²Ð¾ÑÐ¿Ñ€Ð¾Ð¸Ð·Ð²Ð¾Ð´Ð¸Ñ‚ÑŒ Ñ Ñ‚Ð¾Ð³Ð¾ Ð¼ÐµÑÑ‚Ð°, Ð³Ð´Ðµ Ð²Ñ‹ Ð¿Ð¾ÑÐ»ÐµÐ´Ð½Ð¸Ð¹ Ñ€Ð°Ð· Ð¿Ñ€ÐµÐºÑ€Ð°Ñ‰Ð°Ð»Ð¸ Ð¿Ñ€Ð¾ÑÐ¼Ð¾Ñ‚Ñ€. Ð•ÑÐ»Ð¸ Ð´Ð»Ñ ÑÑ‚Ð¾Ð³Ð¾ Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€Ð° ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ð¾ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ Â«Ð²ÑÐµÐ³Ð´Ð° Ñ Ð½Ð°Ñ‡Ð°Ð»Ð°Â», ÑÑ‚Ð¾ Ð¿Ð¾Ð²ÐµÐ´ÐµÐ½Ð¸Ðµ Ñ‚Ð°ÐºÐ¶Ðµ Ð±ÑƒÐ´ÐµÑ‚ Ð¿Ñ€Ð¸Ð¼ÐµÐ½ÑÑ‚ÑŒÑÑ Ðº Ð¿Ñ€ÐµÐ´Ð¿Ñ€Ð¾ÑÐ¼Ð¾Ñ‚Ñ€Ñƒ Ð²Ð¸Ð´ÐµÐ¾';
-    STR_VOD_DIALOG_START = 'Ð’ÑÐµÐ³Ð´Ð° Ñ ÑÐ°Ð¼Ð¾Ð³Ð¾ Ð½Ð°Ñ‡Ð°Ð»Ð°';
-    STR_VOD_DIALOG_LAST = 'Ð’ÑÐµÐ³Ð´Ð° Ñ Ð¿Ð¾ÑÐ»ÐµÐ´Ð½ÐµÐ¹ Ð¾ÑÑ‚Ð°Ð½Ð¾Ð²ÐºÐ¸';
-    STR_VOD_DIALOG_SHOW = 'Ð’ÑÐµÐ³Ð´Ð° ÑÐ¿Ñ€Ð°ÑˆÐ¸Ð²Ð°Ñ‚ÑŒ';
-    STR_END_DIALOG_OPT = 'ÐŸÐ°Ñ€Ð°Ð¼ÐµÑ‚Ñ€Ñ‹ Ð´Ð¸Ð°Ð»Ð¾Ð³Ð° Ð·Ð°Ð²ÐµÑ€ÑˆÐµÐ½Ð¸Ñ Ð¿Ñ€Ð¾Ð¸Ð³Ñ€Ñ‹Ð²Ð°Ñ‚ÐµÐ»Ñ';
-    STR_END_DIALOG_SETTINGS = 'Ð¢Ð°Ð¹Ð¼-Ð°ÑƒÑ‚ Ð¾ÐºÐ¾Ð½Ñ‡Ð°Ð½Ð¸Ñ Ð´Ð¸Ð°Ð»Ð¾Ð³Ð° Ð¿Ð»ÐµÐµÑ€Ð°';
-    STR_END_DIALOG_SETTINGS_SUMMARY =
-        'ÐšÐ¾Ð³Ð´Ð° Live/Ð’Ð¸Ð´ÐµÐ¾/ÐšÐ»Ð¸Ð¿ Ð·Ð°ÐºÐ°Ð½Ñ‡Ð¸Ð²Ð°ÑŽÑ‚ÑÑ, Ð¿Ð¾ÑÐ²Ð»ÑÐµÑ‚ÑÑ Ð´Ð¸Ð°Ð»Ð¾Ð³Ð¾Ð²Ð¾Ðµ Ð¾ÐºÐ½Ð¾ Ñ Ð¾Ð¿Ñ†Ð¸ÐµÐ¹, Ñ‡Ñ‚Ð¾ Ð´ÐµÐ»Ð°Ñ‚ÑŒ Ð´Ð°Ð»ÑŒÑˆÐµ, ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚Ðµ Ð²Ñ€ÐµÐ¼Ñ (Ð² ÑÐµÐºÑƒÐ½Ð´Ð°Ñ…), ÐºÐ¾Ñ‚Ð¾Ñ€Ð¾Ðµ Ð¿Ð¾Ñ‚Ñ€ÐµÐ±ÑƒÐµÑ‚ÑÑ Ð´Ð»Ñ Ð´ÐµÐ¹ÑÑ‚Ð²Ð¸Ñ Ð¿Ð¾ ÑƒÐ¼Ð¾Ð»Ñ‡Ð°Ð½Ð¸ÑŽ.';
-    STR_END_DIALOG_DISABLE = 'ÐžÑ‚ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ Ñ‚Ð°Ð¹Ð¼ÐµÑ€';
-    STR_CHAT_SIZE = 'Ð Ð°Ð·Ð¼ÐµÑ€ Ñ‡Ð°Ñ‚Ð°';
-    STR_CHAT_POS = 'ÐŸÐ¾Ð·Ð¸Ñ†Ð¸Ñ Ñ‡Ð°Ñ‚Ð°';
-    STR_CHAT_VIDEO_MODE = 'Ð ÐµÐ¶Ð¸Ð¼ Ð²Ð¸Ð´ÐµÐ¾';
-    STR_CHAT_SIDE_FULL = 'ÐŸÐ¾Ð»Ð½Ñ‹Ð¹ ÑÐºÑ€Ð°Ð½';
-    STR_CHAT_PP_SIDE_FULL = 'Ð‘Ð¾Ð»ÑŒÑˆÐ¾Ð¹+Ð¼Ð°Ð»ÐµÐ½ÑŒÐºÐ¸Ð¹ ÑÐºÑ€Ð°Ð½';
-    STR_CHAT_SIDE = 'Ð’Ð¸Ð´ÐµÐ¾ Ð¸ Ñ‡Ð°Ñ‚';
-    STR_CHAT_5050 = '50/50 Ð¸ Ñ‡Ð°Ñ‚Ñ‹';
-    STR_SPEED = 'Ð¡ÐºÐ¾Ñ€Ð¾ÑÑ‚ÑŒ';
-    STR_QUALITY = 'ÐšÐ°Ñ‡ÐµÑÑ‚Ð²Ð¾';
-    STR_NORMAL = 'ÐÐ¾Ñ€Ð¼Ð°Ð»ÑŒÐ½Ð¾';
-    STR_AUTO = 'ÐÐ²Ñ‚Ð¾';
-    STR_VERY_LOW = 'ÐžÑ‡ÐµÐ½ÑŒ Ð½Ð¸Ð·ÐºÐ¾Ðµ';
-    STR_LOW = 'ÐÐ¸Ð·ÐºÐ¾Ðµ';
-    STR_HIGH = 'Ð’Ñ‹ÑÐ¾ÐºÐ¾Ðµ';
-    STR_VERY_HIGH = 'ÐžÑ‡ÐµÐ½ÑŒ Ð²Ñ‹ÑÐ¾ÐºÐ¾Ðµ';
-    STR_THUMB_RESOLUTION = 'ÐšÐ°Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð¿Ñ€ÐµÐ²ÑŒÑŽ';
-    STR_THUMB_RESOLUTION_SUMMARY =
-        'Ð Ð°Ð·Ñ€ÐµÑˆÐµÐ½Ð¸Ðµ Ð¿Ñ€ÐµÐ²ÑŒÑŽ Ð¿Ð¾ ÑƒÐ¼Ð¾Ð»Ñ‡Ð°Ð½Ð¸ÑŽ Ð´Ð»Ñ Ð¿Ñ€ÑÐ¼Ñ‹Ñ… Ñ‚Ñ€Ð°Ð½ÑÐ»ÑÑ†Ð¸Ð¹, Ð²Ð¸Ð´ÐµÐ¾ Ð¸ Ð¸Ð³Ñ€ (Ð½Ðµ Ð¿Ñ€Ð¸Ð¼ÐµÐ½Ð¸Ð¼Ð¾ Ð´Ð»Ñ ÐºÐ»Ð¸Ð¿Ð¾Ð²). ÐÐ¸Ð·ÐºÐ¾Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ Ð¿Ð¾Ð¼Ð¾Ð¶ÐµÑ‚ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸ÑŽ Ð·Ð°Ð³Ñ€ÑƒÐ¶Ð°Ñ‚ÑŒÑÑ Ð±Ñ‹ÑÑ‚Ñ€ÐµÐµ, Ð½Ð¾ Ð¿Ñ€ÐµÐ²ÑŒÑŽ Ð¼Ð¾Ð¶ÐµÑ‚ Ð²Ñ‹Ð³Ð»ÑÐ´ÐµÑ‚ÑŒ Ñ€Ð°Ð·Ð¼Ñ‹Ñ‚Ñ‹Ð¼.';
-    STR_PAYPAL_SUMMARY = 'Ð”Ð»Ñ Ð¿Ð¾Ð¶ÐµÑ€Ñ‚Ð²Ð¾Ð²Ð°Ð½Ð¸Ð¹ Paypal Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐ¹Ñ‚Ðµ ÑÑÑ‹Ð»ÐºÑƒ Ð½Ð¸Ð¶Ðµ:';
-    STR_BITCOIN_SUMMARY = 'Ð”Ð»Ñ Ð¿Ð¾Ð¶ÐµÑ€Ñ‚Ð²Ð¾Ð²Ð°Ð½Ð¸Ð¹ Ð² Ð±Ð¸Ñ‚ÐºÐ¾Ð¹Ð½Ð°Ñ…, Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐ¹Ñ‚Ðµ Ð°Ð´Ñ€ÐµÑ ÐºÐ¾ÑˆÐµÐ»ÑŒÐºÐ° Ð¸Ð»Ð¸ QR-ÐºÐ¾Ð´:';
-    STR_PLAYER_PROBLEM_2 = 'ÐžÑˆÐ¸Ð±ÐºÐ° Ð¿Ð¾Ð´ÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ñ, Ð½ÐµÐ²Ð¾Ð·Ð¼Ð¾Ð¶Ð½Ð¾ Ð·Ð°Ð³Ñ€ÑƒÐ·Ð¸Ñ‚ÑŒ Ð¸Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸ÑŽ Ð¾ Ð¿Ð¾Ñ‚Ð¾ÐºÐµ';
-    STR_PLAYER_RESYNC = 'Ð ÐµÑÑ‚Ð°Ñ€Ñ‚ Ð¿Ð»ÐµÐµÑ€Ð°';
-    STR_PLAYER_MULTI_ALL = 'Ð’ÑÐµ';
-    STR_QUALITY_PP = ['ÐœÐ°Ð»ÐµÐ½ÑŒÐºÐ¸Ð¹', 'Ð‘Ð¾Ð»ÑŒÑˆÐ¾Ð¹', STR_PLAYER_MULTI_ALL];
-    STR_QUALITY_MULTI = [STR_PLAYER_MULTI_ALL, 'Ð¡Ð²ÐµÑ€Ñ…Ñƒ ÑÐ»ÐµÐ²Ð°', 'Ð¡Ð²ÐµÑ€Ñ…Ñƒ ÑÐ¿Ñ€Ð°Ð²Ð°', 'Ð¡Ð½Ð¸Ð·Ñƒ ÑÐ»ÐµÐ²Ð°', 'Ð¡Ð½Ð¸Ð·Ñƒ ÑÐ¿Ñ€Ð°Ð²Ð°'];
-    STR_QUALITY_MULTI_BIG = [STR_PLAYER_MULTI_ALL, 'Ð¡Ð²ÐµÑ€Ñ…Ñƒ', 'Ð¡Ð½Ð¸Ð·Ñƒ ÑÐ»ÐµÐ²Ð°', 'Ð¡Ð½Ð¸Ð·Ñƒ Ñ†ÐµÐ½Ñ‚Ñ€', 'Ð¡Ð½Ð¸Ð·Ñƒ ÑÐ¿Ñ€Ð°Ð²Ð°'];
-    STR_PLAYER_BITRATE_UNLIMITED = 'ÐÐµ Ð¾Ð³Ñ€Ð°Ð½Ð¸Ñ‡ÐµÐ½';
-    STR_PLAYER_BITRATE = 'ÐœÐ°ÐºÑÐ¸Ð¼Ð°Ð»ÑŒÐ½Ð¾ Ð´Ð¾Ð¿ÑƒÑÑ‚Ð¸Ð¼Ð¾Ðµ Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡ÐµÑÐºÐ¾Ðµ ÐºÐ°Ñ‡ÐµÑÑ‚Ð²Ð¾ (Ñ€Ð°Ð·Ñ€ÐµÑˆÐµÐ½Ð¸Ðµ/Ð±Ð¸Ñ‚Ñ€ÐµÐ¹Ñ‚)';
-    STR_PLAYER_BITRATE_SHORT_SUMMARY = 'ÐŸÐ¾Ð·Ð²Ð¾Ð»ÑÐµÑ‚ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ Ð¼Ð°ÐºÑÐ¸Ð¼Ð°Ð»ÑŒÐ½Ð¾Ðµ Ñ€Ð°Ð·Ñ€ÐµÑˆÐµÐ½Ð¸Ðµ/Ð±Ð¸Ñ‚Ñ€ÐµÐ¹Ñ‚ Ð´Ð»Ñ Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡ÐµÑÐºÐ¾Ð³Ð¾ ÐºÐ°Ñ‡ÐµÑÑ‚Ð²Ð° Ð²Ð¾ÑÐ¿Ñ€Ð¾Ð¸Ð·Ð²ÐµÐ´ÐµÐ½Ð¸Ñ';
-    STR_PLAYER_BITRATE_SUMMARY =
-        'Ð­Ñ‚Ð¾ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐµÑ‚ÑÑ Ð´Ð»Ñ Ð¿Ñ€ÐµÐ´Ð¾Ñ‚Ð²Ñ€Ð°Ñ‰ÐµÐ½Ð¸Ñ Ð·Ð°Ð´ÐµÑ€Ð¶ÐµÐº Ð½Ð° ÑÐ»Ð°Ð±Ñ‹Ñ… ÑƒÑÑ‚Ñ€Ð¾Ð¹ÑÑ‚Ð²Ð°Ñ… Ð¿Ñ€Ð¸ Ð¾Ð´Ð½Ð¾Ð²Ñ€ÐµÐ¼ÐµÐ½Ð½Ð¾Ð¼ Ð²Ð¾ÑÐ¿Ñ€Ð¾Ð¸Ð·Ð²ÐµÐ´ÐµÐ½Ð¸Ð¸ Ð½ÐµÑÐºÐ¾Ð»ÑŒÐºÐ¸Ñ… Ð²Ð¸Ð´ÐµÐ¾ (Ð±Ð¾Ð»ÑŒÑˆÐ¸Ð½ÑÑ‚Ð²Ð¾ ÑƒÑÑ‚Ñ€Ð¾Ð¹ÑÑ‚Ð² Ð±ÑƒÐ´ÑƒÑ‚ Ð¾Ñ‚ÑÑ‚Ð°Ð²Ð°Ñ‚ÑŒ, Ð¿Ñ€Ð¾Ð¿ÑƒÑÐºÐ°Ñ ÐºÐ°Ð´Ñ€Ñ‹ Ð² ÑÑ‚Ð¾Ð¹ ÑÐ¸Ñ‚ÑƒÐ°Ñ†Ð¸Ð¸, Ð¿Ð¾ÑÐºÐ¾Ð»ÑŒÐºÑƒ Ð¾Ð½Ð¸ ÑÐ¾Ð·Ð´Ð°Ð½Ñ‹ Ð´Ð»Ñ Ð²Ð¾ÑÐ¿Ñ€Ð¾Ð¸Ð·Ð²ÐµÐ´ÐµÐ½Ð¸Ñ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð¾Ð´Ð½Ð¾Ð³Ð¾ Ð²Ð¸Ð´ÐµÐ¾), Ð° Ñ‚Ð°ÐºÐ¶Ðµ Ð¿Ð¾Ð¼Ð¾Ð³Ð°ÐµÑ‚ Ð¾Ð³Ñ€Ð°Ð½Ð¸Ñ‡Ð¸Ñ‚ÑŒ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ð½Ð¸Ðµ Ð¿Ñ€Ð¾Ð¿ÑƒÑÐºÐ½Ð¾Ð¹ Ð¿Ð¾Ð»Ð¾ÑÑ‹ Ð˜Ð½Ñ‚ÐµÑ€Ð½ÐµÑ‚Ð°. Ð’ ÑÐ»ÑƒÑ‡Ð°Ðµ, ÐµÑÐ»Ð¸ Ð²Ð°Ð¼ Ð½ÑƒÐ¶Ð½Ð¾ Ð¾Ð³Ñ€Ð°Ð½Ð¸Ñ‡ÐµÐ½Ð¸Ðµ, ÐºÐ¾Ñ‚Ð¾Ñ€Ð¾Ðµ Ñ‚Ð°ÐºÐ¶Ðµ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚ Ð´Ð»Ñ Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€Ð° Â«ÐšÐ°Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð¿Ñ€Ð¾Ð¸Ð³Ñ€Ñ‹Ð²Ð°Ñ‚ÐµÐ»Ñ Ð¿Ð¾ ÑƒÐ¼Ð¾Ð»Ñ‡Ð°Ð½Ð¸ÑŽÂ» Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ Â«ÐÐ²Ñ‚Ð¾Â». Ð ÐµÐºÐ¾Ð¼ÐµÐ½Ð´ÑƒÐµÐ¼Ð¾Ðµ Ñ€Ð°Ð·Ñ€ÐµÑˆÐµÐ½Ð¸Ðµ/Ð±Ð¸Ñ‚Ñ€ÐµÐ¹Ñ‚ Ð´Ð»Ñ Ð²ÑÐµÑ… Ð¼Ð°Ð»Ñ‹Ñ… Ð¿Ñ€Ð¾Ð¸Ð³Ñ€Ñ‹Ð²Ð°Ñ‚ÐµÐ»ÐµÐ¹ ÑÐ¾ÑÑ‚Ð°Ð²Ð»ÑÐµÑ‚ 720p/3 Mbps Ð¸ Ð½ÐµÐ¾Ð³Ñ€Ð°Ð½Ð¸Ñ‡ÐµÐ½Ð¾ Ð´Ð»Ñ Ð¾ÑÐ½Ð¾Ð²Ð½Ð¾Ð³Ð¾ Ð¸Ð»Ð¸ Ð±Ð¾Ð»ÑŒÑˆÐ¾Ð³Ð¾ Ð¿Ñ€Ð¾Ð¸Ð³Ñ€Ñ‹Ð²Ð°Ñ‚ÐµÐ»Ñ Ð´Ð»Ñ Ð±Ð¾Ð»ÑŒÑˆÐ¸Ð½ÑÑ‚Ð²Ð° ÑÐ»Ð°Ð±Ñ‹Ñ… ÑƒÑÑ‚Ñ€Ð¾Ð¹ÑÑ‚Ð².';
-    STR_PLAYER_BITRATE_SUMMARY_ETC =
-        'Ð Ð°Ð·Ð»Ð¸Ñ‡Ð½Ñ‹Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ñ Ñ€Ð°Ð·Ñ€ÐµÑˆÐµÐ½Ð¸Ñ Ð¸Ð»Ð¸ Ð±Ð¸Ñ‚Ñ€ÐµÐ¹Ñ‚Ð° Ð´Ð»Ñ Ð¾ÑÐ½Ð¾Ð²Ð½Ð¾Ð³Ð¾ Ð¸ Ð¼Ð°Ð»Ð¾Ð³Ð¾ Ð¿Ð»ÐµÐµÑ€Ð° Ð¼Ð¾Ð³ÑƒÑ‚ Ð²Ñ‹Ð·Ð²Ð°Ñ‚ÑŒ ÐºÐ¾Ñ€Ð¾Ñ‚ÐºÑƒÑŽ Ð±ÑƒÑ„ÐµÑ€Ð¸Ð·Ð°Ñ†Ð¸ÑŽ/Ð·Ð°Ð³Ñ€ÑƒÐ·ÐºÑƒ Ð¿Ñ€Ð¸ Ð¿ÐµÑ€ÐµÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ð¸ Ñ Ð¾ÑÐ½Ð¾Ð²Ð½Ñ‹Ð¼ Ð¿Ñ€Ð¾Ð¸Ð³Ñ€Ñ‹Ð²Ð°Ñ‚ÐµÐ»ÐµÐ¼ Ð² Ñ€ÐµÐ¶Ð¸Ð¼Ðµ ÐšÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐ° Ð² ÐšÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐµ (Ð½Ð°Ð¶Ð°Ñ‚Ð¸Ðµ Ð²Ð½Ð¸Ð· Ð¸Ð·Ð¼ÐµÐ½Ð¸Ñ‚ Ð¿Ð»ÐµÐµÑ€Ñ‹), Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð¿Ñ€ÐµÐ´Ð¾Ñ‚Ð²Ñ€Ð°Ñ‚Ð¸Ñ‚ÑŒ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚Ðµ Ñƒ Ð½Ð¸Ñ… Ð¾Ð´Ð¸Ð½Ð°ÐºÐ¾Ð²Ñ‹Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ñ. ÐŸÐ¾ÐºÐ°Ð·Ð°Ñ‚ÐµÐ»ÐµÐ¼ ÑÐ»Ð¸ÑˆÐºÐ¾Ð¼ Ð²Ñ‹ÑÐ¾ÐºÐ¾Ð³Ð¾ Ð±Ð¸Ñ‚Ñ€ÐµÐ¹Ñ‚Ð° ÑÐ²Ð»ÑÐµÑ‚ÑÑ Ð¿Ð¾ÑÑ‚Ð¾ÑÐ½Ð½Ð¾Ðµ Ð½Ð°ÐºÐ¾Ð¿Ð»ÐµÐ½Ð¸Ðµ Ð¿Ñ€Ð¾Ð¿ÑƒÑ‰ÐµÐ½Ð½Ñ‹Ñ… ÐºÐ°Ð´Ñ€Ð¾Ð² Ð¸Ð»Ð¸ Ð¿Ð¾ÑÑ‚Ð¾ÑÐ½Ð½Ð°Ñ Ð±ÑƒÑ„ÐµÑ€Ð¸Ð·Ð°Ñ†Ð¸Ñ Ð¿Ð¾Ñ‚Ð¾ÐºÐ°.';
-    STR_PLAYER_MAIN = 'Ð“Ð»Ð°Ð²Ð½Ñ‹Ð¹ Ð¿Ð»ÐµÐµÑ€, Ð´Ð»Ñ Ð±Ð¾Ð»ÑŒÑˆÐ¾Ð³Ð¾ Ð¿Ð»ÐµÐµÑ€Ð° ÐºÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐ° Ð² ÐºÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐµ Ð¸Ð»Ð¸ Ð²ÐµÑ€Ñ…Ð½ÐµÐ³Ð¾ Ð¿Ð»ÐµÐµÑ€Ð° 50/50';
-    STR_PLAYER_RES_SMALL = 'ÐœÐ°Ð»ÐµÐ½ÑŒÐºÐ¸Ðµ Ð¿Ð»ÐµÐµÑ€Ñ‹, Ð´Ð»Ñ Ð¼Ð°Ð»Ð¾Ð³Ð¾ Ð² Ñ€ÐµÐ¶Ð¸Ð¼Ðµ Â«ÐšÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐ° Ð² ÐºÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐµÂ» Ð¸ Ð²ÑÐµÑ… Ð¼ÑƒÐ»ÑŒÑ‚Ð¸ÑÑ‚Ñ€Ð¸Ð¼ Ð¿Ð»ÐµÐµÑ€Ð¾Ð².';
-    STR_PLAYER_BITRATE_MAIN = 'Ð‘Ð¸Ñ‚Ñ€ÐµÐ¹Ñ‚ - ' + STR_PLAYER_MAIN;
-    STR_PLAYER_BITRATE_SMALL = 'Ð‘Ð¸Ñ‚Ñ€ÐµÐ¹Ñ‚ - ' + STR_PLAYER_RES_SMALL;
-    STR_PLAYER_RES_MAIN = 'Ð Ð°Ð·Ñ€ÐµÑˆÐµÐ½Ð¸Ðµ - ' + STR_PLAYER_MAIN;
-    STR_PLAYER_RES_SMALL = 'Ð Ð°Ð·Ñ€ÐµÑˆÐµÐ½Ð¸Ðµ - ' + STR_PLAYER_RES_SMALL;
-    STR_BLOCK_RES = 'Ð—Ð°Ð±Ð»Ð¾ÐºÐ¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ñ‹Ðµ Ñ€Ð°Ð·Ñ€ÐµÑˆÐµÐ½Ð¸Ñ';
-    STR_BLOCK_RES_SHORT_SUMMARY = 'ÐŸÐ¾Ð·Ð²Ð¾Ð»ÑÐµÑ‚ Ð±Ð»Ð¾ÐºÐ¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ Ð¾Ð´Ð½Ð¾ Ð¸Ð»Ð¸ Ð½ÐµÑÐºÐ¾Ð»ÑŒÐºÐ¾ Ñ€Ð°Ð·Ñ€ÐµÑˆÐµÐ½Ð¸Ð¹ Ð¾Ñ‚ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ð½Ð¸Ñ';
-    STR_BLOCK_RES_SUMMARY =
-        'ÐŸÑ€Ð¸ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ð½Ð¸Ð¸ Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡ÐµÑÐºÐ¾Ð³Ð¾ ÐºÐ°Ñ‡ÐµÑÑ‚Ð²Ð° Ð¼Ð¾Ð¶Ð½Ð¾ Ð·Ð°Ð±Ð»Ð¾ÐºÐ¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ Ð¾Ð´Ð½Ð¾ Ð¸Ð»Ð¸ Ð½ÐµÑÐºÐ¾Ð»ÑŒÐºÐ¾ Ñ€Ð°Ð·Ñ€ÐµÑˆÐµÐ½Ð¸Ð¹, ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ðµ ÐºÐ¾Ð³Ð´Ð°-Ð»Ð¸Ð±Ð¾ Ð±ÑƒÐ´ÑƒÑ‚ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÑŒÑÑ, ÑÑ‚Ð¾ Ð¼Ð¾Ð¶Ð½Ð¾ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÑŒ Ð´Ð»Ñ ÑƒÑÑ‚Ñ€Ð¾Ð¹ÑÑ‚Ð², ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ðµ Ð¾Ñ‚ÑÑ‚Ð°ÑŽÑ‚ Ð¿Ñ€Ð¸ Ð²Ð¾ÑÐ¿Ñ€Ð¾Ð¸Ð·Ð²ÐµÐ´ÐµÐ½Ð¸Ð¸ Ð¾Ð¿Ñ€ÐµÐ´ÐµÐ»ÐµÐ½Ð½Ð¾Ð³Ð¾ Ñ€Ð°Ð·Ñ€ÐµÑˆÐµÐ½Ð¸Ñ, Ð¿Ð¾ÑÐºÐ¾Ð»ÑŒÐºÑƒ ÐºÐ»Ð¸Ð¿Ñ‹ Ð½Ðµ Ð¼Ð¾Ð³ÑƒÑ‚ Ð²Ð¾ÑÐ¿Ñ€Ð¾Ð¸Ð·Ð²Ð¾Ð´Ð¸Ñ‚ÑŒÑÑ Ð² Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡ÐµÑÐºÐ¾Ð¼ Ñ€ÐµÐ¶Ð¸Ð¼Ðµ, ÑÑ‚Ð¾ Ñ‚Ð°ÐºÐ¶Ðµ Ð·Ð°Ð±Ð»Ð¾ÐºÐ¸Ñ€ÑƒÐµÑ‚ Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡ÐµÑÐºÐ¸Ð¹ Ñ€ÐµÐ¶Ð¸Ð¼ ÑÑ‚Ð¾Ð³Ð¾ Ñ€Ð°Ð·Ñ€ÐµÑˆÐµÐ½Ð¸Ñ Ð² ÐºÐ»Ð¸Ð¿Ð°Ñ….';
-    STR_BLOCK_RES_SUMMARY_EXTRA =
-        'ÐŸÐ¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑŒ Ð¼Ð¾Ð¶ÐµÑ‚ Ð¿ÐµÑ€ÐµÐ·Ð°Ð¿Ð¸ÑÐ°Ñ‚ÑŒ Ð²Ñ‹Ð´ÐµÐ»ÐµÐ½Ð½Ð¾Ðµ Ð²Ñ€ÑƒÑ‡Ð½ÑƒÑŽ Ð²Ð¾ Ð²Ñ€ÐµÐ¼Ñ Ð²Ð¾ÑÐ¿Ñ€Ð¾Ð¸Ð·Ð²ÐµÐ´ÐµÐ½Ð¸Ñ.<br><br>XX Ð¾Ð·Ð½Ð°Ñ‡Ð°ÐµÑ‚, Ñ‡Ñ‚Ð¾ Ð²ÑÐµ Ñ€Ð°Ð·Ñ€ÐµÑˆÐµÐ½Ð¸Ñ, ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ðµ Ð½Ð°Ñ‡Ð¸Ð½Ð°ÑŽÑ‚ÑÑ Ñ ÑÑ‚Ð¾Ð³Ð¾ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ñ Ð´Ð¾ XX, Ð±ÑƒÐ´ÑƒÑ‚ Ð·Ð°Ð¿Ñ€ÐµÑ‰ÐµÐ½Ñ‹ Ðº Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ð½Ð¸ÑŽ, ÐµÑÐ»Ð¸ Ñ€Ð°Ð·Ñ€ÐµÑˆÐµÐ½Ð¸Ðµ Ð¿Ð¾Ð¼ÐµÑ‡ÐµÐ½Ð¾ ÐºÐ°Ðº Ð·Ð°Ð±Ð»Ð¾ÐºÐ¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ð¾Ðµ.';
-    STR_BLOCKED = 'Ð—Ð°Ð±Ð»Ð¾ÐºÐ¸Ñ€Ð¾Ð²Ð°Ð½Ð¾';
-    STR_BLOCKED_NOT = 'ÐÐµ Ð·Ð°Ð±Ð»Ð¾ÐºÐ¸Ñ€Ð¾Ð²Ð°Ð½Ð¾';
-    STR_AUDIO_SOURCE = 'Ð˜ÑÑ‚Ð¾Ñ‡Ð½Ð¸Ðº Ð·Ð²ÑƒÐºÐ°';
-    STR_VOLUME_CONTROLS = 'ÐÑƒÐ´Ð¸Ð¾ Ð¸ Ð³Ñ€Ð¾Ð¼ÐºÐ¾ÑÑ‚ÑŒ';
-    STR_AUDIO_ALL = 'ÐÑƒÐ´Ð¸Ð¾ Ð²ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ Ð²ÑÐµ';
-    STR_AUDIO_ALL_ENA = 'Ð’ÑÐµ Ð¸ÑÑ‚Ð¾Ñ‡Ð½Ð¸ÐºÐ¸ Ð·Ð²ÑƒÐºÐ° Ð²ÐºÐ»ÑŽÑ‡ÐµÐ½Ñ‹';
-    STR_AUDIO_ALL_100 = 'Ð“Ñ€Ð¾Ð¼ÐºÐ¾ÑÑ‚ÑŒ Ð²ÑÐµ Ð´Ð¾ 100%';
-    STR_AUDIO_ALL_100_SET = 'Ð’ÑÑ Ð³Ñ€Ð¾Ð¼ÐºÐ¾ÑÑ‚ÑŒ Ð¿Ð»ÐµÐµÑ€Ð° ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ð° Ð½Ð° 100%';
-    STR_VOLUME = 'Ð“Ñ€Ð¾Ð¼ÐºÐ¾ÑÑ‚ÑŒ -';
-    STR_AUDIO = 'ÐÑƒÐ´Ð¸Ð¾ -';
-    STR_DEF_QUALITY = 'ÐšÐ°Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð¿Ð»ÐµÐµÑ€Ð° Ð¿Ð¾ ÑƒÐ¼Ð¾Ð»Ñ‡Ð°Ð½Ð¸ÑŽ';
-    STR_DEF_QUALITY_SUMMARY =
-        'Ð­Ñ‚Ð¾Ñ‚ Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€ Ð²ÑÐµÐ³Ð´Ð° Ð±ÑƒÐ´ÐµÑ‚ ÑƒÑ‡Ð¸Ñ‚Ñ‹Ð²Ð°Ñ‚ÑŒÑÑ Ð¿Ñ€Ð¸ Ð²Ð¾ÑÐ¿Ñ€Ð¾Ð¸Ð·Ð²ÐµÐ´ÐµÐ½Ð¸Ð¸ Ð¾Ð´Ð½Ð¾Ð³Ð¾ Ð²Ð¸Ð´ÐµÐ¾. Ð”Ð»Ñ Ð²Ð¾ÑÐ¿Ñ€Ð¾Ð¸Ð·Ð²ÐµÐ´ÐµÐ½Ð¸Ñ Ñ€ÐµÐ¶Ð¸Ð¼Ð° ÐšÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐ° Ð² ÐšÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐµ Ð¸Ð»Ð¸ ÐœÑƒÐ»ÑŒÑ‚Ð¸ÑÑ‚Ñ€Ð¸Ð¼Ð° Ð½ÐµÐ¾Ð±Ñ…Ð¾Ð´Ð¸Ð¼Ð¾ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÑŒ ÐºÐ°Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð°Ð²Ñ‚Ð¾, Ð¿Ð¾ÑÑ‚Ð¾Ð¼Ñƒ Ð¿Ñ€Ð¾Ð²ÐµÑ€ÑŒÑ‚Ðµ Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€ Ð½Ð°ÑÑ‚Ñ€Ð¾ÐµÐº "' +
-        STR_PLAYER_BITRATE +
-        '"';
-    STR_PICTURE_PICTURE = 'ÐšÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐ° Ð² ÐšÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐµ, 50/50 Ð¸Ð»Ð¸ ÐœÑƒÐ»ÑŒÑ‚Ð¸ÑÑ‚Ñ€Ð¸Ð¼ (Ð¢Ð¾Ð»ÑŒÐºÐ¾ Ð´Ð»Ñ Ð¿Ñ€ÑÐ¼Ñ‹Ñ… Ñ‚Ñ€Ð°Ð½ÑÐ»ÑÑ†Ð¸Ð¹):';
-    STR_PICTURE_CONTROLS1 =
-        'Ð’ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ Ñ€ÐµÐ¶Ð¸Ð¼ Â«ÐšÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐ° Ð² ÐºÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐµÂ»: Ð¿Ñ€Ð¸ Ð²Ð¾ÑÐ¿Ñ€. Ð²Ð¸Ð´ÐµÐ¾ Ð½Ð°Ð¶Ð¼Ð¸Ñ‚Ðµ Ð²Ð²ÐµÑ€Ñ…, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð¾Ñ‚Ð¾Ð±Ñ€Ð°Ð·Ð¸Ñ‚ÑŒ Ð¿Ñ€ÐµÐ´Ð¿Ñ€Ð¾ÑÐ¼Ð¾Ñ‚Ñ€. Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ Ð¿Ð¾Ñ‚Ð¾Ðº, Ð·Ð°Ñ‚ÐµÐ¼ ÑƒÐ´ÐµÑ€Ð¶Ð¸Ð²Ð°Ð¹Ñ‚Ðµ Â«ÐžÐšÂ» Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð½Ð°Ñ‡Ð°Ñ‚ÑŒ.';
-    STR_PICTURE_CONTROLS2 =
-        'Ð˜Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ðµ Ð²Ð¸Ð´ÐµÐ¾ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚Ð°: Ð¸Ð· Ð¿Ñ€ÐµÐ´Ð¿Ñ€Ð¾ÑÐ¼Ð¾Ñ‚Ñ€Ð° Ð¿Ð»ÐµÐµÑ€Ð°, ÐµÑÐ»Ð¸ Ð² Ñ€ÐµÐ¶Ð¸Ð¼Ðµ Ð¼ÑƒÐ»ÑŒÑ‚Ð¸ÑÑ‚Ñ€Ð¸Ð¼Ð° Ð²ÑÐµÐ³Ð´Ð° Ð¾Ð´Ð½Ð¾ Ð½Ð°Ð¶Ð°Ñ‚Ð¸Ðµ. Ð•ÑÐ»Ð¸ Ð½Ð° ÐšÐ²Ðš Ð¸Ð»Ð¸ 50/50 Ð¾Ð´Ð½Ð¸Ð¼ Ð½Ð°Ð¶Ð°Ñ‚Ð¸ÐµÐ¼ Ð¾Ð±Ð½Ð¾Ð²Ð»ÑÐµÑ‚ÑÑ Ð±Ð¾Ð»ÑŒÑˆÐ¾Ðµ Ð¸Ð»Ð¸ Ð²ÐµÑ€Ñ…Ð½ÐµÐµ Ð²Ð¸Ð´ÐµÐ¾. Ð£Ð´ÐµÑ€Ð¶Ð¸Ð²Ð°Ð¹Ñ‚Ðµ ÐºÐ½Ð¾Ð¿ÐºÑƒ ÐžÐš Ð¸Ð»Ð¸ Ð½Ð°Ð¶Ð¼Ð¸Ñ‚Ðµ 1, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð¾Ð±Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ Ð¼Ð°Ð»ÐµÐ½ÑŒÐºÐ¾Ðµ Ð¸Ð»Ð¸ Ð½Ð¸Ð¶Ð½ÐµÐµ Ð²Ð¸Ð´ÐµÐ¾';
-    STR_PICTURE_CONTROLS3 = 'Ð¡Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ Ð°ÑƒÐ´Ð¸Ð¾ Ð¸ÑÑ‚Ð¾Ñ‡Ð½Ð¸Ðº Ð´Ð»Ñ Ð²ÑÐµÑ… Ð²Ð¸Ð´ÐµÐ¾: Ð·Ð°Ð¶Ð°Ñ‚ÑŒ D-pad Ð²Ð½Ð¸Ð·';
-    STR_PICTURE_CONTROLS4 = 'Ð˜Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ðµ ÑÐ¾Ð´ÐµÑ€Ð¶Ð¸Ð¼Ð¾Ð³Ð¾ Ð¼ÐµÐ¶Ð´Ñƒ Ð²Ð¸Ð´ÐµÐ¾ (Ñ‚Ð¾Ð»ÑŒÐºÐ¾ ÐºÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐ° Ð² ÐºÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐµ): D-pad Ð²Ð½Ð¸Ð· (Ð±Ð¾Ð»ÑŒÑˆÐ¾Ð¹ ÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚ÑÑ Ð¼Ð°Ð»ÐµÐ½ÑŒÐºÐ¸Ð¼ Ð¸ Ð½Ð°Ð¾Ð±Ð¾Ñ€Ð¾Ñ‚)';
-    STR_PICTURE_CONTROLS5 = 'Ð˜Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ðµ Ð¿Ð¾Ð»Ð¾Ð¶ÐµÐ½Ð¸Ñ Ð¼Ð°Ð»Ð¾Ð³Ð¾ Ð²Ð¸Ð´ÐµÐ¾ (Ñ‚Ð¾Ð»ÑŒÐºÐ¾ ÐºÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐ° Ð² ÐºÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐµ): D-pad Ð²Ð»ÐµÐ²Ð¾';
-    STR_PICTURE_CONTROLS6 = 'Ð˜Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ðµ Ñ€Ð°Ð·Ð¼ÐµÑ€Ð° Ð¼Ð°Ð»Ð¾Ð³Ð¾ Ð²Ð¸Ð´ÐµÐ¾ (Ñ‚Ð¾Ð»ÑŒÐºÐ¾ ÐºÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐ° Ð² ÐºÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐµ): D-pad Ð²Ð¿Ñ€Ð°Ð²Ð¾';
-    STR_PICTURE_CONTROLS7 =
-        'Ð˜Ð·Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ Ð¸ÑÑ‚Ð¾Ñ‡Ð½Ð¸Ðº Ð·Ð²ÑƒÐºÐ°: Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐ¹Ñ‚Ðµ Ð½Ð¸Ð¶Ð½Ð¸Ð¹ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚ (Ð˜ÑÑ‚Ð¾Ñ‡Ð½Ð¸Ðº Ð·Ð²ÑƒÐºÐ°). Ð•ÑÐ»Ð¸ Ð² Ñ€ÐµÐ¶Ð¸Ð¼Ðµ 50/50 Ð¸Ð»Ð¸ Ð¼ÑƒÐ»ÑŒÑ‚Ð¸ÑÑ‚Ñ€Ð¸Ð¼Ðµ, Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐ¹Ñ‚Ðµ Ð»ÐµÐ²ÑƒÑŽ/Ð¿Ñ€Ð°Ð²ÑƒÑŽ ÐºÐ½Ð¾Ð¿ÐºÐ¸. Ð•ÑÐ»Ð¸ Ð½Ð° ÐšÐ²Ðš, Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐ¹Ñ‚Ðµ ÐºÐ½Ð¾Ð¿ÐºÐ¸ Ð¼ÑƒÐ»ÑŒÑ‚Ð¸Ð¼ÐµÐ´Ð¸Ð° ÑÐ»ÐµÐ´ÑƒÑŽÑ‰ÐµÐ¹/Ð¿Ñ€ÐµÐ´Ñ‹Ð´ÑƒÑ‰ÐµÐ¹ Ð´Ð¾Ñ€Ð¾Ð¶ÐºÐ¸.';
-    STR_PICTURE_CONTROLS8 =
-        'ÐŸÐµÑ€ÐµÐ·Ð°Ð¿ÑƒÑÐº Ð¿Ð»ÐµÐµÑ€Ð°: Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐ¹Ñ‚Ðµ Ð½Ð¸Ð¶Ð½Ð¸Ð¹ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚ ÑƒÐ¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð¸Ñ (ÐŸÐµÑ€ÐµÐ·Ð°Ð¿ÑƒÑÐº Ð¿Ñ€Ð¾Ð¸Ð³Ñ€Ñ‹Ð²Ð°Ñ‚ÐµÐ»Ñ), ÑÑ‚Ð¾ Ð¿ÐµÑ€ÐµÐ·Ð°Ð¿ÑƒÑÑ‚Ð¸Ñ‚ Ð¿Ð»ÐµÐµÑ€Ñ‹. Ð­Ñ‚Ð¾ Ð½Ðµ ÑÐ¸Ð½Ñ…Ñ€Ð¾Ð½Ð¸Ð·Ð¸Ñ€ÑƒÐµÑ‚ ÑÐ¾Ð´ÐµÑ€Ð¶Ð¸Ð¼Ð¾Ðµ Ð¿Ð»ÐµÐµÑ€Ð° Ñ Ð´Ñ€ÑƒÐ³Ð¸Ð¼';
-    STR_PICTURE_CONTROLS9 =
-        'Ð ÑƒÑ‡Ð½Ð°Ñ ÑÐ¸Ð½Ñ…Ñ€Ð¾Ð½Ð¸Ð·Ð°Ñ†Ð¸Ñ Ð¿Ð»ÐµÐµÑ€Ð¾Ð²: Ð˜ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐ¹Ñ‚Ðµ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚ ÑƒÐ¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð¸Ñ (Ð¡ÐºÐ¾Ñ€Ð¾ÑÑ‚ÑŒ) Ð´Ð»Ñ Ð·Ð°Ð¼ÐµÐ´Ð»ÐµÐ½Ð¸Ñ Ð¿Ð¾Ñ‚Ð¾ÐºÐ°, ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ð¹ ÑÐ¿ÐµÑˆÐ¸Ñ‚, Ð¸Ð»Ð¸ Ð½Ð°Ð¾Ð±Ð¾Ñ€Ð¾Ñ‚. Ð Ð°Ð±Ð¾Ñ‚Ð°ÐµÑ‚ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð² Ñ€ÐµÐ¶Ð¸Ð¼Ðµ ÐšÐ²Ðš';
-    STR_PICTURE_CONTROLS10 = 'ÐšÐ°Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð²Ð¸Ð´ÐµÐ¾ "ÐšÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐ° Ð² ÐºÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐµ": Ð¿Ñ€Ð¾Ð²ÐµÑ€ÑŒÑ‚Ðµ Ð² Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ°Ñ… Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ñ "' + STR_PLAYER_BITRATE + '"';
-    STR_PICTURE_CONTROLS11 =
-        'Ð—Ð°ÐºÑ€Ñ‹Ñ‚ÑŒ Ð¼Ð°Ð»ÐµÐ½ÑŒÐºÐ¾Ðµ Ð¸Ð»Ð¸ Ð½Ð¸Ð¶Ð½ÐµÐµ Ð²Ð¸Ð´ÐµÐ¾ (Ñ‚Ð¾Ð»ÑŒÐºÐ¾ ÐºÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐ° Ð² ÐºÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐµ): Ð´Ð²Ð°Ð¶Ð´Ñ‹ Ð½Ð°Ð¶Ð¼Ð¸Ñ‚Ðµ ÐºÐ½Ð¾Ð¿ÐºÑƒ Ð½Ð°Ð·Ð°Ð´, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð²Ñ‹Ð¹Ñ‚Ð¸ Ð¸Ð· Ñ€ÐµÐ¶Ð¸Ð¼Ð° ÐšÐ²Ðš Ð¸Ð»Ð¸ 50/50';
-    STR_PICTURE_CONTROLS12 =
-        'Ð’ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ Ñ€ÐµÐ¶Ð¸Ð¼ 50/50 (Ð´Ð²Ð° Ð¿Ð¾Ñ‚Ð¾ÐºÐ°, Ð´Ð²Ð° Ñ‡Ð°Ñ‚Ð°): ÐµÑÐ»Ð¸ ÐºÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐ° Ð² ÐºÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐµ Ð²ÐºÐ»ÑŽÑ‡ÐµÐ½Ð°, Ð½Ð°Ð¶Ð¼Ð¸Ñ‚Ðµ 2 Ð¸Ð»Ð¸ ÐºÐ½Ð¾Ð¿ÐºÑƒ Ð´Ð»Ñ Ð±Ñ‹ÑÑ‚Ñ€Ð¾Ð¹ Ð¿ÐµÑ€ÐµÐ¼Ð¾Ñ‚ÐºÐ¸ Ð²Ð¿ÐµÑ€ÐµÐ´ Ð¸Ð»Ð¸ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐ¹Ñ‚Ðµ Ð½Ð¸Ð¶Ð½Ð¸Ðµ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ñ‹ ÑƒÐ¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð¸Ñ Â«Ð ÐµÐ¶Ð¸Ð¼ Ð²Ð¸Ð´ÐµÐ¾Â»';
-    STR_PICTURE_CONTROLS13 = 'Ð’ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ Ð¼ÑƒÐ»ÑŒÑ‚Ð¸ÑÑ‚Ñ€Ð¸Ð¼: Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐ¹Ñ‚Ðµ Ð½Ð¸Ð¶Ð½Ð¸Ðµ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ñ‹ ÑƒÐ¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð¸Ñ Ð¸Ð»Ð¸ Ð¼ÐµÐ´Ð¸Ð°-ÐºÐ½Ð¾Ð¿ÐºÑƒ Ð¿ÐµÑ€ÐµÐ¼Ð¾Ñ‚ÐºÐ¸';
-    STR_PLAYER_INFO_VISIBILITY_ARRAY = ['ÐšÐ¾Ð³Ð´Ð° Ð¾Ñ‚Ð¾Ð±Ñ€Ð°Ð¶Ð°ÐµÑ‚ÑÑ Ð¸Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸Ñ Ð¾ Ð¿Ð»ÐµÐµÑ€Ðµ', 'ÐŸÐ¾ÐºÐ°Ð·Ñ‹Ð²Ð°Ñ‚ÑŒ Ð²ÑÐµÐ³Ð´Ð°', 'ÐÐµ Ð¿Ð¾ÐºÐ°Ð·Ñ‹Ð²Ð°Ñ‚ÑŒ'];
-    STR_SINGLE_EXIT = 'ÐžÐ´Ð½Ð¾ÐºÑ€Ð°Ñ‚Ð½Ð¾Ðµ Ð½Ð°Ð¶Ð°Ñ‚Ð¸Ðµ ÐºÐ½Ð¾Ð¿ÐºÐ¸ Ð½Ð°Ð·Ð°Ð´';
-    STR_SINGLE_EXIT_SUMMARY = 'Ð—Ð°ÐºÑ€Ñ‹Ñ‚ÑŒ Ð¿Ð»ÐµÐµÑ€, ÐºÐ°Ñ€Ñ‚Ð¸Ð½ÐºÑƒ Ð² ÐºÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐµ, 50/50 Ð¸Ð»Ð¸ Ð¼ÑƒÐ»ÑŒÑ‚Ð¸ÑÑ‚Ñ€Ð¸Ð¼, Ð½Ð°Ð¶Ð°Ð² Ð¾Ð´Ð¸Ð½ Ñ€Ð°Ð· Ð½Ð°Ð·Ð°Ð´.';
-    STR_NOTIFICATION_OPT = 'Ð£Ð²ÐµÐ´Ð¾Ð¼Ð»ÐµÐ½Ð¸Ñ';
-    STR_NOW_LIVE_SHOW = 'ÐŸÐ¾ÐºÐ°Ð·Ð°Ñ‚ÑŒ "Ð¡Ñ‚Ñ€Ð¸Ð¼ÐµÑ€ Ð² Ð¿Ñ€ÑÐ¼Ð¾Ð¼ ÑÑ„Ð¸Ñ€Ðµ" Ð´Ð»Ñ Ð¾Ñ‚ÑÐ»ÐµÐ¶Ð¸Ð²Ð°ÐµÐ¼Ñ‹Ñ… ÐºÐ°Ð½Ð°Ð»Ð¾Ð²';
-    STR_TITLE_CHANGE_SHOW = 'ÐŸÐ¾ÐºÐ°Ð·Ð°Ñ‚ÑŒ "Ð¡Ñ‚Ñ€Ð¸Ð¼ÐµÑ€ Ð¸Ð·Ð¼ÐµÐ½Ð¸Ð» Ð·Ð°Ð³Ð¾Ð»Ð¾Ð²Ð¾Ðº" Ð´Ð»Ñ Ð¾Ñ‚ÑÐ»ÐµÐ¶Ð¸Ð²Ð°ÐµÐ¼Ñ‹Ñ… ÐºÐ°Ð½Ð°Ð»Ð¾Ð²';
-    STR_GAME_CHANGE_SHOW = 'ÐŸÐ¾ÐºÐ°Ð·Ð°Ñ‚ÑŒ "Ð¡Ñ‚Ñ€Ð¸Ð¼ÐµÑ€ Ð¸Ð·Ð¼ÐµÐ½Ð¸Ð» Ð¸Ð³Ñ€Ñƒ" Ð´Ð»Ñ Ð¾Ñ‚ÑÐ»ÐµÐ¶Ð¸Ð²Ð°ÐµÐ¼Ñ‹Ñ… ÐºÐ°Ð½Ð°Ð»Ð¾Ð²';
-    STR_NOW_LIVE_GAME_SHOW = 'ÐŸÐ¾ÐºÐ°Ð·Ð°Ñ‚ÑŒ "Ð˜Ð³Ñ€Ð° Ð·Ð°Ð¿ÑƒÑ‰ÐµÐ½Ð°" Ð´Ð»Ñ Ð¸Ð³Ñ€, Ð·Ð° ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ðµ Ð¾Ñ‚ÑÐ»ÐµÐ¶Ð¸Ð²Ð°ÑŽÑ‚ÑÑ';
-    STR_NOTIFICATION_BACKGROUND = 'Ð£Ð²ÐµÐ´Ð¾Ð¼Ð»ÐµÐ½Ð¸Ðµ Ð½Ð°Ð´ Ð´Ñ€ÑƒÐ³Ð¸Ð¼Ð¸ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸ÑÐ¼Ð¸, ÐºÐ¾Ð³Ð´Ð° Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ Ñ€Ð°Ð±Ð¾Ñ‚Ð°ÐµÑ‚ Ð² Ñ„Ð¾Ð½Ð¾Ð²Ð¾Ð¼ Ñ€ÐµÐ¶Ð¸Ð¼Ðµ';
-    STR_NOTIFICATION_BACKGROUND_SUMMARY =
-        'Ð§Ñ‚Ð¾Ð±Ñ‹ Ð²ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ ÑÑ‚Ñƒ Ñ„ÑƒÐ½ÐºÑ†Ð¸ÑŽ, ÑƒÐ±ÐµÐ´Ð¸Ñ‚ÐµÑÑŒ, Ñ‡Ñ‚Ð¾ Ñƒ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ñ ÐµÑÑ‚ÑŒ Ñ€Ð°Ð·Ñ€ÐµÑˆÐµÐ½Ð¸Ðµ Ð½Ð° ÑƒÐ²ÐµÐ´Ð¾Ð¼Ð»ÐµÐ½Ð¸Ñ Ð² Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ°Ñ… Android. ÐÐ° ÑƒÑÑ‚Ñ€Ð¾Ð¹ÑÑ‚Ð²Ð°Ñ… Ñ Android 11 Ð¸Ð»Ð¸ Ð½Ð¾Ð²ÐµÐµ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ Ð±ÑƒÐ´ÐµÑ‚ Ð¿Ð¾ÐºÐ°Ð·Ñ‹Ð²Ð°Ñ‚ÑŒ Ð¿Ñ€Ð¾ÑÑ‚Ð¾Ðµ Ð¾Ð´Ð½Ð¾ÑÑ‚Ñ€Ð¾Ñ‡Ð½Ð¾Ðµ ÑƒÐ²ÐµÐ´Ð¾Ð¼Ð»ÐµÐ½Ð¸Ðµ Ð¿Ñ€Ð¸ Ñ€Ð°Ð±Ð¾Ñ‚Ðµ Ð² Ñ„Ð¾Ð½Ð¾Ð²Ð¾Ð¼ Ñ€ÐµÐ¶Ð¸Ð¼Ðµ.';
-    STR_NOTIFICATION_BACKGROUND_WARNING = 'ÐžÑ‚ÑÑƒÑ‚ÑÑ‚Ð²ÑƒÐµÑ‚ Ñ€Ð°Ð·Ñ€ÐµÑˆÐµÐ½Ð¸Ðµ Ð½Ð° ÑƒÐ²ÐµÐ´Ð¾Ð¼Ð»ÐµÐ½Ð¸Ñ Ð² ÑÐ¸ÑÑ‚ÐµÐ¼Ðµ Android!';
-    STR_NOTIFICATION_REPEAT = 'Ð¡ÐºÐ¾Ð»ÑŒÐºÐ¾ Ñ€Ð°Ð· Ð¿Ð¾ÐºÐ°Ð·Ñ‹Ð²Ð°Ñ‚ÑŒ ÑƒÐ²ÐµÐ´Ð¾Ð¼Ð»ÐµÐ½Ð¸Ðµ';
-    STR_NOTIFICATION_REPEAT_SUMMARY =
-        'Ð¢Ð°Ð¹Ð¼-Ð°ÑƒÑ‚ Ð¾Ñ‚Ð´ÐµÐ»ÑŒÐ½Ð¾Ð³Ð¾ ÑƒÐ²ÐµÐ´Ð¾Ð¼Ð»ÐµÐ½Ð¸Ñ ÑÐ¾ÑÑ‚Ð°Ð²Ð»ÑÐµÑ‚ Ð¾ÐºÐ¾Ð»Ð¾ 3 ÑÐµÐºÑƒÐ½Ð´ Ð¸ Ð½Ðµ Ð¼Ð¾Ð¶ÐµÑ‚ Ð±Ñ‹Ñ‚ÑŒ Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½, Ð¿Ð¾Ñ‚Ð¾Ð¼Ñƒ Ñ‡Ñ‚Ð¾ ÑÑ‚Ð¾Ñ‚ Ñ‚Ð°Ð¹Ð¼-Ð°ÑƒÑ‚ ÐºÐ¾Ð½Ñ‚Ñ€Ð¾Ð»Ð¸Ñ€ÑƒÐµÑ‚ÑÑ ÑÐ¸ÑÑ‚ÐµÐ¼Ð¾Ð¹, Ð½Ð¾ Ð²Ñ‹ Ð¼Ð¾Ð¶ÐµÑ‚Ðµ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ, ÑÐºÐ¾Ð»ÑŒÐºÐ¾ Ñ€Ð°Ð· Ð±ÑƒÐ´ÐµÑ‚ Ð¾Ñ‚Ð¾Ð±Ñ€Ð°Ð¶Ð°Ñ‚ÑŒÑÑ Ð¾Ð´Ð½Ð¾ Ð¸ Ñ‚Ð¾ Ð¶Ðµ ÑƒÐ²ÐµÐ´Ð¾Ð¼Ð»ÐµÐ½Ð¸Ðµ.';
-    STR_NOTIFICATION_SINCE = 'Ð—Ð°Ð¿Ñ€ÐµÑ‚Ð¸Ñ‚ÑŒ Ð¿Ð¾ÐºÐ°Ð·Ñ‹Ð²Ð°Ñ‚ÑŒ "Ð¡Ñ‚Ñ€Ð¸Ð¼ÐµÑ€ Ð² ÑÑ„Ð¸Ñ€Ðµ" Ð´Ð»Ñ Ð¿Ð¾Ñ‚Ð¾ÐºÐ¾Ð², ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ðµ Ñ‚Ñ€Ð°Ð½ÑÐ»Ð¸Ñ€ÑƒÑŽÑ‚ÑÑ';
-    STR_NOTIFICATION_SINCE_SUMMARY =
-        'Ð­Ñ‚Ð¾ Ð¿Ð¾Ð»ÐµÐ·Ð½Ð¾, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ Ð½Ðµ Ð¿Ð¾ÐºÐ°Ð·Ñ‹Ð²Ð°Ð»Ð¾ Ð´Ð»Ð¸Ð½Ð½Ñ‹Ð¹ ÑÐ¿Ð¸ÑÐ¾Ðº ÑƒÐ²ÐµÐ´Ð¾Ð¼Ð»ÐµÐ½Ð¸Ð¹, ÐºÐ¾Ð³Ð´Ð° Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ Ð½Ðµ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐµÑ‚ÑÑ Ð² Ñ‚ÐµÑ‡ÐµÐ½Ð¸Ðµ Ð½ÐµÐºÐ¾Ñ‚Ð¾Ñ€Ð¾Ð³Ð¾ Ð²Ñ€ÐµÐ¼ÐµÐ½Ð¸, Ð½Ð°Ð¿Ñ€Ð¸Ð¼ÐµÑ€, ÐºÐ¾Ð³Ð´Ð° Ð²Ñ‹ Ð²Ñ‹ÐºÐ»ÑŽÑ‡Ð°ÐµÑ‚Ðµ ÑƒÑÑ‚Ñ€Ð¾Ð¹ÑÑ‚Ð²Ð¾ Ð¸Ð»Ð¸ ÑÐºÑ€Ð°Ð½ Ð²Ñ‹ÐºÐ»ÑŽÑ‡ÐµÐ½ (Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ Ð½Ðµ Ð±ÑƒÐ´ÐµÑ‚ Ð¾Ñ‚Ð¾Ð±Ñ€Ð°Ð¶Ð°Ñ‚ÑŒ ÑƒÐ²ÐµÐ´Ð¾Ð¼Ð»ÐµÐ½Ð¸Ðµ, ÐºÐ¾Ð³Ð´Ð° ÑƒÑÑ‚Ñ€Ð¾Ð¹ÑÑ‚Ð²Ð¾ Ð²ÐºÐ»ÑŽÑ‡ÐµÐ½Ð¾, Ð½Ð¾ ÑÐºÑ€Ð°Ð½ Ð²Ñ‹ÐºÐ»ÑŽÑ‡ÐµÐ½Ð½Ñ‹Ð¹)';
-    STR_GLOBAL_FONT = 'Ð Ð°Ð·Ð¼ÐµÑ€ ÑˆÑ€Ð¸Ñ„Ñ‚Ð° Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ñ';
-    STR_GLOBAL_FONT_SUMMARY =
-        'Ð­Ñ‚Ð¾ Ð¸Ð·Ð¼ÐµÐ½Ð¸Ñ‚ Ñ€Ð°Ð·Ð¼ÐµÑ€ Ð²ÑÐµÐ³Ð¾ Ñ‚ÐµÐºÑÑ‚Ð° Ð¸ Ð±Ð¾Ð»ÑŒÑˆÐ¸Ð½ÑÑ‚Ð²Ð° Ð·Ð½Ð°Ñ‡ÐºÐ¾Ð² Ð² Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ð¸ (Ð·Ð° Ð²Ñ‹Ñ‡ÐµÑ‚Ð¾Ð¼ Ñ€Ð°Ð·Ð¼ÐµÑ€Ð° ÑˆÑ€Ð¸Ñ„Ñ‚Ð° Ñ‡Ð°Ñ‚Ð°, Ð¿Ð¾Ñ‚Ð¾Ð¼Ñƒ Ñ‡Ñ‚Ð¾ Ñƒ Ð½ÐµÐ³Ð¾ ÐµÑÑ‚ÑŒ ÑÐ¾Ð±ÑÑ‚Ð²ÐµÐ½Ð½Ð°Ñ Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ°). Ð¡Ð»Ð¸ÑˆÐºÐ¾Ð¼ Ð¼Ð°Ð»ÐµÐ½ÑŒÐºÐ¾Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ Ð¼Ð¾Ð¶ÐµÑ‚ Ð½Ðµ Ð¾Ñ‚Ð¾Ð±Ñ€Ð°Ð¶Ð°Ñ‚ÑŒÑÑ, ÑÐ»Ð¸ÑˆÐºÐ¾Ð¼ Ð±Ð¾Ð»ÑŒÑˆÐ¾Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ Ð²Ñ‹Ð²Ð¾Ð´Ð¸Ñ‚ Ñ‚ÐµÐºÑÑ‚ Ð·Ð° Ð³Ñ€Ð°Ð½Ð¸Ñ†Ñ‹, Ñ‚Ð¾ ÐµÑÑ‚ÑŒ ÑÑ‚Ð¾ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ Ð¾Ð³Ñ€Ð°Ð½Ð¸Ñ‡ÐµÐ½Ð¾.';
-    STR_MAIN_MENU = 'Ð“Ð». Ð¼ÐµÐ½ÑŽ';
-    STR_USER_MENU = 'ÐœÐ¾Ð¹ ÐºÐ°Ð½Ð°Ð»';
-    STR_CH_IS_OFFLINE = 'ÐÐµ Ð² ÑÐµÑ‚Ð¸';
-    STR_ROUND_IMAGES = 'Ð˜ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÑŒ Ð·Ð°ÐºÑ€ÑƒÐ³Ð»ÐµÐ½Ð½Ñ‹Ðµ Ð°Ð²Ð°Ñ‚Ð°Ñ€Ñ‹ ÐºÐ°Ð½Ð°Ð»Ð¾Ð²';
-    STR_ROUND_IMAGES_SUMMARY = 'ÐŸÐ¾ÑÐºÐ¾Ð»ÑŒÐºÑƒ Ð±Ð¾Ð»ÑŒÑˆÐ¸Ð½ÑÑ‚Ð²Ð¾ Ð°Ð²Ð°Ñ‚Ð°Ñ€Ð¾Ð² ÐºÐ°Ð½Ð°Ð»Ð¾Ð² Ð¸Ð¼ÐµÑŽÑ‚ ÐºÐ²Ð°Ð´Ñ€Ð°Ñ‚Ð½ÑƒÑŽ Ñ„Ð¾Ñ€Ð¼Ñƒ, Ð½ÐµÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ðµ Ð°Ð²Ð°Ñ‚Ð°Ñ€Ñ‹ Ð¼Ð¾Ð³ÑƒÑ‚ Ð²Ñ‹Ð³Ð»ÑÐ´ÐµÑ‚ÑŒ Ð½ÐµÐºÐ¾Ñ€Ñ€ÐµÐºÑ‚Ð½Ð¾.';
-    STR_SCREEN_COUNTER = 'Ð¡ÐºÑ€Ñ‹Ñ‚ÑŒ ÑÑ‡ÐµÑ‚Ñ‡Ð¸Ðº Ð¿Ð¾Ð·Ð¸Ñ†Ð¸Ð¸/Ð¾Ð±Ñ‰ÐµÐ³Ð¾ ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð°';
-    STR_SCREEN_COUNTER_SUMMARY =
-        'Ð•ÑÑ‚ÑŒ ÑÑ‡ÐµÑ‚Ñ‡Ð¸Ðº Ð¿Ð¾Ð·Ð¸Ñ†Ð¸Ð¸, ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ð¹ Ð¸Ð½Ñ„Ð¾Ñ€Ð¼Ð¸Ñ€ÑƒÐµÑ‚ Ð¾ Ñ‚ÐµÐºÑƒÑ‰ÐµÐ¹ Ð¿Ð¾Ð·Ð¸Ñ†Ð¸Ð¸ Ð¸ Ð¾Ð±Ñ‰ÐµÐ¼ Ð·Ð°Ð³Ñ€ÑƒÐ¶ÐµÐ½Ð½Ð¾Ð¼ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚Ðµ Ð½Ð° ÑÐºÑ€Ð°Ð½Ð°Ñ…, Ð½Ð° ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ñ… ÐµÑÑ‚ÑŒ Ð²Ð¾ÑÐ¿Ñ€Ð¾Ð¸Ð·Ð²Ð¾Ð´Ð¸Ð¼Ñ‹Ð¹ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚.';
-    STR_SWITCH_POS = 'Ð¡Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ: Ð¡Ð¼ÐµÑ‰ÐµÐ½Ð¸Ðµ Ð½Ð°Ñ‡Ð°Ð»ÑŒÐ½Ð¾Ð¹ Ð¿Ð¾Ð·Ð¸Ñ†Ð¸Ð¸';
-    STR_SWITCH_POS_SUMMARY =
-        'Ð’Ð¼ÐµÑÑ‚Ð¾ Ñ‚Ð¾Ð³Ð¾, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð½Ð°Ñ‡Ð¸Ð½Ð°Ñ‚ÑŒ Ñ Ð¿ÐµÑ€Ð²Ð¾Ð³Ð¾ Ð²Ð¾Ð·Ð¼Ð¾Ð¶Ð½Ð¾Ð³Ð¾ Ð²Ð¸Ð´ÐµÐ¾, Ð½Ð°Ñ‡Ð½Ð¸Ñ‚Ðµ Ñ Ð±Ð¾Ð»ÐµÐµ Ð½Ð¸Ð·ÐºÐ¾Ð¹ Ð¿Ð¾Ð·Ð¸Ñ†Ð¸Ð¸ Ð² ÑÐ¿Ð¸ÑÐºÐµ, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð¸Ð·Ð±ÐµÐ¶Ð°Ñ‚ÑŒ Ð½ÐµÐ¾Ð±Ñ…Ð¾Ð´Ð¸Ð¼Ð¾ÑÑ‚Ð¸ ÑÐ¿ÑƒÑÐºÐ°Ñ‚ÑŒÑÑ Ð²Ð½Ð¸Ð· Ð¸ Ð²Ð½Ð¸Ð·, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð½Ð°Ð¹Ñ‚Ð¸ Ð±Ð¾Ð»ÐµÐµ ÑÑ‚Ð°Ñ€Ð¾Ðµ Ð²Ð¸Ð´ÐµÐ¾.';
-    STR_USER_OPTION = 'Ð’Ñ‹Ð±ÐµÑ€ÐµÑ‚Ðµ Ð´ÐµÐ¹ÑÑ‚Ð²Ð¸Ðµ Ð´Ð»Ñ Ð°ÐºÐºÐ°ÑƒÐ½Ñ‚Ð°';
-    STR_MAIN_USER = 'ÐŸÐ¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑŒ';
-    STR_USER_TOP_LABEL = 'ÐÐ°Ð¶Ð¼Ð¸Ñ‚Ðµ Ð½Ð° Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð¿Ñ€Ð¾ÑÐ¼Ð¾Ñ‚Ñ€ÐµÑ‚ÑŒ Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€Ñ‹';
-    STR_USER_EXTRAS = 'Ð¡Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ, Ð´Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ, ÐºÐ»ÑŽÑ‡';
-    STR_LOW_LATENCY = 'ÐÐ¸Ð·ÐºÐ°Ñ Ð·Ð°Ð´ÐµÑ€Ð¶ÐºÐ°';
-    STR_LOW_LATENCY_SUMMARY =
-        'Ð•ÑÐ»Ð¸ ÐµÑÑ‚ÑŒ Ð¿Ð¾Ð»ÑƒÑ‡Ð°Ñ‚ÑŒ Ð¿Ñ€Ð¾Ð±Ð»ÐµÐ¼Ñ‹ Ñ Ð±ÑƒÑ„ÐµÑ€Ð°Ð¼Ð¸, Ð¾Ñ‚ÐºÐ»ÑŽÑ‡Ð¸Ñ‚Ðµ ' +
-        STR_LOW_LATENCY +
-        '<br>Ð˜ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐ¹Ñ‚Ðµ ' +
-        STR_SETTINGS_BUFFER_LIVE +
-        ' Ñ€Ð°Ð²Ð½Ð¾Ðµ Ð¸Ð»Ð¸ Ð¼ÐµÐ½ÑŒÑˆÐµ 1, Ñ‡Ñ‚Ð¾Ð±Ñ‹ ÑÑ‚Ð¾ Ð¸Ð¼ÐµÐ»Ð¾ ÑÑ„Ñ„ÐµÐºÑ‚';
-    STR_GAME_SORT = 'Ð¡Ð¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²ÐºÐ° Ð¿Ñ€ÐµÐ²ÑŒÑŽ Ð¸Ð³Ñ€';
-    STR_LIVE_FEED_SORT = 'Ð‘Ð¾ÐºÐ¾Ð²Ð°Ñ Ð¿Ð°Ð½ÐµÐ»ÑŒ Ð¸Ð»Ð¸ ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²ÐºÐ° Ð¿Ñ€ÐµÐ²ÑŒÑŽ Ð¿Ð»ÐµÐµÑ€Ð°';
-    STR_LIVE_FEED_SORT_SUMMARY =
-        'Ð¡Ð¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²ÐºÐ° Ð¿Ñ€ÑÐ¼Ñ‹Ñ… Ñ‚Ñ€Ð°Ð½ÑÐ»ÑÑ†Ð¸Ð¹ Ð½Ð° Ð±Ð¾ÐºÐ¾Ð²Ð¾Ð¹ Ð¿Ð°Ð½ÐµÐ»Ð¸ Ð¸ Ð¿Ñ€ÐµÐ²ÑŒÑŽ Ð¿Ð»ÐµÐµÑ€Ð°, Ð¿Ñ€Ð¸ Ð¿Ñ€ÐµÐ´Ð¿Ñ€Ð¾ÑÐ¼Ð¾Ñ‚Ñ€Ðµ ÑÑ‚Ð¾ Ð¿Ñ€Ð¸Ð¼ÐµÐ½Ð¸Ð¼Ð¾ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ðº Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑÐ¼ Ð² ÑÑ„Ð¸Ñ€Ðµ Ð¸ Ð¸Ð·Ð±Ñ€Ð°Ð½Ð½Ñ‹Ð¼ (Ð²ÑÑ Ð¸ÑÑ‚Ð¾Ñ€Ð¸Ñ Ð±ÐµÐ· Ð±Ð°Ð·Ñ‹ Ð¿Ñ€Ð¾ÑÐ¼Ð¾Ñ‚Ñ€Ð°, Ð¸ÑÑ‚Ð¾Ñ€Ð¸Ñ Ð¿Ñ€Ð¾ÑÐ¼Ð°Ñ‚Ñ€Ð¸Ð²Ð°ÐµÑ‚ÑÑ Ð² Ð¿ÐµÑ€Ð²ÑƒÑŽ Ð¾Ñ‡ÐµÑ€ÐµÐ´ÑŒ, Ð° Ð²Ð¸Ð´ÐµÐ¾ - ÑÐ°Ð¼Ñ‹Ðµ Ð¿Ð¾ÑÐ»ÐµÐ´Ð½Ð¸Ðµ)';
-    STR_A_Z = 'ÐÐ»Ñ„Ð°Ð²Ð¸Ñ‚ A - Z';
-    STR_Z_A = 'ÐÐ»Ñ„Ð°Ð²Ð¸Ñ‚ Z - A';
-    STR_APP_ANIMATIONS = 'Ð’ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ Ð°Ð½Ð¸Ð¼Ð°Ñ†Ð¸Ð¸';
-    STR_APP_ANIMATIONS_SUMMARY = 'Ð£Ð¿Ñ€Ð°Ð²Ð»ÑÐµÑ‚ Ð±Ð¾ÐºÐ¾Ð²Ð¾Ð¹ Ð¿Ð°Ð½ÐµÐ»ÑŒÑŽ, Ð¿Ñ€Ð¾ÐºÑ€ÑƒÑ‚ÐºÐ¾Ð¹, ÑƒÐ²ÐµÐ´Ð¾Ð¼Ð»ÐµÐ½Ð¸ÑÐ¼Ð¸ Ð¸ ÑÐ²ÑÐ·Ð°Ð½Ð½Ñ‹Ð¼Ð¸ Ð°Ð½Ð¸Ð¼Ð°Ñ†Ð¸ÑÐ¼Ð¸';
-    STR_UI_SETTINGS = 'ÐÐ°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ° Ð¸Ð½Ñ‚ÐµÑ€Ñ„ÐµÐ¹ÑÐ°,Ñ†Ð²ÐµÑ‚Ð¾Ð²Ð¾Ð¹ ÑÑ‚Ð¸Ð»ÑŒ,Ð°Ð½Ð¸Ð¼Ð°Ñ†Ð¸Ñ Ð¸ Ñ‚.Ð¿.';
-    STR_GENERAL_CUSTOM = 'ÐÐ°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ° ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚Ð°,ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²ÐºÐ°,Ð°Ð²Ñ‚Ð¾Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ðµ,Ñ‚Ð°Ð¹Ð¼-Ð°ÑƒÑ‚Ñ‹ Ð¸ Ñ‚.Ð¿.';
-    STR_RUNNINGTIME = 'ÐŸÑ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ Ñ€Ð°Ð±Ð¾Ñ‚Ð°ÐµÑ‚:';
-    STR_410_ERROR = 'ÐÐµÐ²Ð¾Ð·Ð¼Ð¾Ð¶Ð½Ð¾ Ð¿Ð¾Ð»ÑƒÑ‡Ð¸Ñ‚ÑŒ ÑÑÑ‹Ð»ÐºÑƒ Ð½Ð° Ð²Ð¸Ð´ÐµÐ¾';
-    STR_PRESS_ENTER_TO_CHANGE = 'ÐÐ°Ð¶Ð¼Ð¸Ñ‚Ðµ ÐžÐš, Ñ‡Ñ‚Ð¾Ð±Ñ‹ ÑÐ¼ÐµÐ½Ð¸Ñ‚ÑŒ Ð½Ð° -';
-    STR_CLICK_UNFOLLOW = '(ÐÐ°Ð¶Ð¼Ð¸Ñ‚Ðµ ÐžÐš Ð´Ð»Ñ Ð¾Ñ‚Ð¿Ð¸ÑÐºÐ¸)';
-    STR_CLICK_FOLLOW = '(ÐÐ°Ð¶Ð¼Ð¸Ñ‚Ðµ ÐžÐš Ð´Ð»Ñ Ð¿Ð¾Ð´Ð¿Ð¸ÑÐºÐ¸)';
-    STR_TODAY = 'Ð¡ÐµÐ³Ð¾Ð´Ð½Ñ';
-    STR_DROOPED_FRAMES = 'ÐŸÑ€Ð¾Ð¿. ÐºÐ°Ð´Ñ€Ñ‹:';
-    STR_BUFFER_HEALT = 'Ð Ð°Ð·Ð¼ÐµÑ€ Ð±ÑƒÑ„ÐµÑ€Ð° (ÑÐµÐº): ';
-    STR_NET_ACT = 'Ð¡ÐµÑ‚. Ð°ÐºÑ‚. (Ð¼Ð±): ';
-    STR_NET_SPEED = 'Ð¡Ðº. ÑÐµÑ‚Ð¸ (Ð¼Ð±):';
-    STR_LATENCY_TO_BROADCASTER = 'Ð—Ð°Ð´ÐµÑ€Ð¶ÐºÐ° Ð´Ð¾ ÑÑ‚Ñ€Ð¸Ð¼ÐµÑ€Ð°';
-    STR_LATENCY = 'Ð—Ð°Ð´ÐµÑ€Ð¶ÐºÐ° Ð´Ð¾ ÑÑ‚Ñ€Ð¸Ð¼ÐµÑ€Ð° (ÑÐµÐº): ';
-    STR_CHAT_DELAY_LATENCY_TO_BROADCASTER = 'Ð˜ÑÑ…Ð¾Ð´Ñ Ð¸Ð· ' + STR_LATENCY_TO_BROADCASTER;
-    STR_PING = 'ÐŸÐ¸Ð½Ð³ Ð´Ð¾ Twitch (Ð¼Ñ): ';
-    STR_WARNINGS = 'ÐŸÑ€ÐµÐ´ÑƒÐ¿Ñ€ÐµÐ¶Ð´ÐµÐ½Ð¸Ñ';
-    STR_WELCOME = 'Ð”Ð¾Ð±Ñ€Ð¾ Ð¿Ð¾Ð¶Ð°Ð»Ð¾Ð²Ð°Ñ‚ÑŒ Ð²';
-    STR_WELCOME_SUMMARY =
-        'Ð­Ñ‚Ð¾ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ Ð¸Ð¼ÐµÐµÑ‚ Ð¼Ð½Ð¾Ð¶ÐµÑÑ‚Ð²Ð¾ Ñ„ÑƒÐ½ÐºÑ†Ð¸Ð¹ Ð¸ Ð±Ñ‹Ð»Ð¾ Ñ€Ð°Ð·Ñ€Ð°Ð±Ð¾Ñ‚Ð°Ð½Ð¾ Ð´Ð»Ñ Ð¿Ñ€ÐµÐ´Ð¾ÑÑ‚Ð°Ð²Ð»ÐµÐ½Ð¸Ñ Ð¿Ð¾Ð»Ð½Ð¾Ð³Ð¾ ÐºÐ¾Ð½Ñ‚Ñ€Ð¾Ð»Ñ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑŽ, Ð¿Ð¾ÑÑ‚Ð¾Ð¼Ñƒ Ð¾Ð½Ð¾ Ð¸Ð¼ÐµÐµÑ‚ Ð¼Ð½Ð¾Ð³Ð¾ Ð¾Ð¿Ñ†Ð¸Ð¹, Ð½Ð°ÑÑ‚Ñ€Ð¾ÐµÐº Ð¸ ÐºÐ°ÑÑ‚Ð¾Ð¼Ð¸Ð·Ð°Ñ†Ð¸Ð¹. ÐžÐ·Ð½Ð°ÐºÐ¾Ð¼ÑŒÑ‚ÐµÑÑŒ Ñ Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ°Ð¼Ð¸ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ñ Ð¸ ÑƒÐ¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð¸ÐµÐ¼, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð¿Ð¾Ð½ÑÑ‚ÑŒ, ÐºÐ°Ðº ÐµÐ³Ð¾ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÑŒ. Ð’ ÑÐ»ÑƒÑ‡Ð°Ðµ ÑÐ¾Ð¼Ð½ÐµÐ½Ð¸Ð¹ Ð¿Ð¾ÑÐ¼Ð¾Ñ‚Ñ€Ð¸Ñ‚Ðµ Ð´ÐµÐ¼Ð¾Ð½ÑÑ‚Ñ€Ð°Ñ†Ð¸Ð¾Ð½Ð½Ð¾Ðµ Ð²Ð¸Ð´ÐµÐ¾ Ð² Play Store, ÐµÑÐ»Ð¸ Ð²ÑÑ‘ ÐµÑ‰Ñ‘ Ð½Ðµ ÑƒÐ²ÐµÑ€ÐµÐ½Ñ‹, Ð²Ð¾ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐ¹Ñ‚ÐµÑÑŒ ÐºÐ¾Ð½Ñ‚Ð°ÐºÑ‚Ð½Ð¾Ð¹ Ð¸Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸ÐµÐ¹.';
-    STR_WARNING_PHONE = 'Ð£Ð²ÐµÐ´Ð¾Ð¼Ð»ÐµÐ½Ð¸Ðµ Ð´Ð»Ñ Ñ‚ÐµÐ»ÐµÑ„Ð¾Ð½Ð¾Ð²';
-    STR_WARNING_PHONE_SUMMARY =
-        'Ð­Ñ‚Ð¾ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ Ð¿Ñ€ÐµÐ´Ð½Ð°Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¾ Ð´Ð»Ñ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ð½Ð¸Ñ Ð² Ð¾ÑÐ½Ð¾Ð²Ð½Ð¾Ð¼ Ð½Ð° Ñ‚ÐµÐ»ÐµÐ²Ð¸Ð·Ð¾Ñ€Ð°Ñ…, Ð¿Ð¾Ð´Ð´ÐµÑ€Ð¶ÐºÐ° Ð´Ñ€ÑƒÐ³Ð¸Ñ… ÑƒÑÑ‚Ñ€Ð¾Ð¹ÑÑ‚Ð² Ð½Ðµ Ð³Ð°Ñ€Ð°Ð½Ñ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð°. Ð•ÑÐ»Ð¸ Ñƒ Ð²Ð°Ñ Ð½ÐµÑ‚ ÐºÐ»Ð°Ð²Ð¸Ð°Ñ‚ÑƒÑ€Ñ‹ Ð¸Ð»Ð¸ D-pad Ñ ÐºÐ½Ð¾Ð¿ÐºÐ°Ð¼Ð¸ ÐžÐš Ð¸ Ð½Ð°Ð·Ð°Ð´ (ESC Ñ€Ð°Ð±Ð¾Ñ‚Ð°ÐµÑ‚ Ð´Ð»Ñ Ð²Ð¾Ð·Ð²Ñ€Ð°Ñ‚Ð° Ð½Ð° ÐºÐ¾Ð¼Ð¿ÑŒÑŽÑ‚ÐµÑ€Ðµ) Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐ¹Ñ‚Ðµ ÑÐºÑ€Ð°Ð½Ð½Ñ‹Ðµ Ð²Ð¸Ñ€Ñ‚ÑƒÐ°Ð»ÑŒÐ½Ñ‹Ðµ ÑÐºÑ€Ð°Ð½Ð½Ñ‹Ðµ ÐºÐ½Ð¾Ð¿ÐºÐ¸ Ð´Ð»Ñ Ð½Ð°Ð²Ð¸Ð³Ð°Ñ†Ð¸Ð¸ (Ð²Ð¸Ð´Ð¸Ð¼Ñ‹Ðµ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð½Ð° Ñ‚ÐµÐ»ÐµÑ„Ð¾Ð½Ð°Ñ…/Ð¿Ð»Ð°Ð½ÑˆÐµÑ‚Ð°Ñ…), Ð² Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ°Ñ… Ð²Ñ‹ Ð¼Ð¾Ð¶ÐµÑ‚Ðµ Ð¸Ð·Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ Ð¿Ð¾Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ Ð¸ Ð½ÐµÐ¿Ñ€Ð¾Ð·Ñ€Ð°Ñ‡Ð½Ð¾ÑÑ‚ÑŒ Ð²Ð¸Ñ€Ñ‚ÑƒÐ°Ð»ÑŒÐ½Ð¾Ð³Ð¾ D-Pad. ÐÐ°Ð¶Ð¼Ð¸Ñ‚Ðµ Ð² Ð»ÑŽÐ±Ð¾Ð¼ Ð¼ÐµÑÑ‚Ðµ ÑÐºÑ€Ð°Ð½Ð°, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð¾Ñ‚Ð¾Ð±Ñ€Ð°Ð·Ð¸Ñ‚ÑŒ Ð²Ð¸Ñ€Ñ‚ÑƒÐ°Ð»ÑŒÐ½Ñ‹Ð¹ D-Pad, ÐºÐ¾Ð³Ð´Ð° Ð¾Ð½ ÑÐºÑ€Ñ‹Ñ‚.';
-    STR_DPAD_POSTION = 'ÐŸÐ¾Ð·Ð¸Ñ†Ð¸Ñ D-pad';
-    STR_DPAD_OPACITY = 'ÐŸÑ€Ð¾Ð·Ñ€Ð°Ñ‡Ð½Ð¾ÑÑ‚ÑŒ D-pad';
-    STR_DPAD_OPT = 'ÐÐ°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸ D-Pad';
-
-    STR_MAX_RES = 'ÐœÐ°ÐºÑ. Ñ€Ð°Ð·Ñ€ÐµÑˆÐµÐ½Ð¸Ðµ:';
-    STR_MAX_BIT = 'ÐœÐ°ÐºÑ. Ð±Ð¸Ñ‚Ñ€ÐµÐ¹Ñ‚:';
-    STR_MAX_LEVEL = 'ÐœÐ°ÐºÑ. ÑƒÑ€Ð¾Ð²ÐµÐ½ÑŒ:';
-    STR_MAX_FPS = 'ÐœÐ°ÐºÑ. FPS:';
-    STR_MAX_INSTANCES = 'ÐœÐ°ÐºÑ. ÑÐºÐ·ÐµÐ¼Ð¿Ð»ÑÑ€Ñ‹:';
-    STR_UNKNOWN = 'ÐÐµÐ¸Ð·Ð²ÐµÑÑ‚Ð½Ð¾';
-    STR_USER_LIVE = 'Ð‘Ð¾ÐºÐ¾Ð²Ð°Ñ Ð¿Ð°Ð½ÐµÐ»ÑŒ ÐÐºÑ‚.ÐºÐ°Ð½Ð°Ð»Ñ‹: Ð½Ð° Ð±Ð¾ÐºÐ¾Ð²Ð¾Ð¹ Ð¿Ð°Ð½ÐµÐ»Ð¸ D-pad Ð²Ð»ÐµÐ²Ð¾ Ð¸Ð»Ð¸ Ð¸Ð· Ð»ÑŽÐ±Ð¾Ð³Ð¾ Ð¼ÐµÑÑ‚Ð° ÐºÐ½Ð¾Ð¿ÐºÐ° 3';
-    STR_PP_WORKAROUND = 'ÐžÐ±Ñ…Ð¾Ð´Ð½Ð¾Ð¹ Ð¿ÑƒÑ‚ÑŒ Ð´Ð»Ñ Ð¼Ð½Ð¾Ð³Ð¾Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑŒÑÐºÐ¾Ð³Ð¾ Ñ€ÐµÐ¶Ð¸Ð¼Ð°, PP Ð¸ Ñ€ÐµÐ¶Ð¸Ð¼Ð° Ð¿Ñ€ÐµÐ´Ð²Ð°Ñ€Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ð¾Ð³Ð¾ Ð¿Ñ€Ð¾ÑÐ¼Ð¾Ñ‚Ñ€Ð°';
-    STR_PP_WORKAROUND_SUMMARY =
-        'Ð”Ð»Ñ Ð½ÐµÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ñ… ÑƒÑÑ‚Ñ€Ð¾Ð¹ÑÑ‚Ð² Ð½ÐµÐ¾Ð±Ñ…Ð¾Ð´Ð¸Ð¼Ð¾ Ð²ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ ÑÑ‚Ñƒ Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÑƒ, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð¼Ð½Ð¾Ð³Ð¾Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑŒÑÐºÐ¸Ð¹ Ñ€ÐµÐ¶Ð¸Ð¼ Ñ€Ð°Ð±Ð¾Ñ‚Ð°Ð» ÐºÐ¾Ñ€Ñ€ÐµÐºÑ‚Ð½Ð¾. ÐžÐ±Ñ‹Ñ‡Ð½Ð¾ Ð¿Ñ€Ð¾Ð±Ð»ÐµÐ¼Ð° Ð·Ð°ÐºÐ»ÑŽÑ‡Ð°ÐµÑ‚ÑÑ Ð² Ñ‚Ð¾Ð¼, Ñ‡Ñ‚Ð¾ Ð¾Ð´Ð¸Ð½ Ð¸Ð· Ð¿Ð»ÐµÐµÑ€Ð¾Ð² Ð¾Ñ‚Ð¾Ð±Ñ€Ð°Ð¶Ð°ÐµÑ‚ Ñ‡Ñ‘Ñ€Ð½Ñ‹Ð¹ ÑÐºÑ€Ð°Ð½. ÐÐµ Ð²ÐºÐ»ÑŽÑ‡Ð°Ð¹Ñ‚Ðµ ÑÑ‚Ñƒ Ð¾Ð¿Ñ†Ð¸ÑŽ, ÐµÑÐ»Ð¸ Ð½ÐµÑ‚ Ð¿Ñ€Ð¾Ð±Ð»ÐµÐ¼, Ñ‚Ð°Ðº ÐºÐ°Ðº Ð¾Ð½Ð° Ð¼Ð¾Ð¶ÐµÑ‚ ÑÐ½Ð¸Ð·Ð¸Ñ‚ÑŒ ÐºÐ°Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ñ Ð¸ Ð¿Ñ€Ð¾Ð¸Ð·Ð²Ð¾Ð´Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ð¾ÑÑ‚ÑŒ.';
-
-    STR_HISTORY = 'Ð˜ÑÑ‚Ð¾Ñ€Ð¸Ñ';
-    STR_WATCHED = 'Ð¡Ð¼Ð¾Ñ‚Ñ€ÐµÐ» Ð½Ð°';
-    STR_UNTIL = 'Ð´Ð¾';
-    STR_SORTING = 'Ð¡Ð¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²ÐºÐ°';
-    STR_DELETE_HISTORY = 'Ð£Ð´Ð°Ð»Ð¸Ñ‚ÑŒ ÑÑ‚Ñƒ Ð¸ÑÑ‚Ð¾Ñ€Ð¸ÑŽ';
-    STR_DELETE_UNREACHABLE = 'ÐÐ²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡ÐµÑÐºÐ¾Ðµ ÑƒÐ´Ð°Ð»ÐµÐ½Ð¸Ðµ Ð½ÐµÐ´Ð¾ÑÑ‚ÑƒÐ¿Ð½Ð¾Ð³Ð¾ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚Ð°';
-    STR_DELETE_UNREACHABLE_SUMMARY =
-        'Ð•ÑÐ»Ð¸ Ð´Ð»Ñ ÑÑ‚Ð¾Ð³Ð¾ Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€Ð° ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ð¾ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ Ð”Ð, Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡ÐµÑÐºÐ¸ ÑƒÐ´Ð°Ð»Ð¸Ñ‚ Ð²Ð¸Ð´ÐµÐ¾ Ð¸ ÐºÐ»Ð¸Ð¿Ñ‹, ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ðµ Ð½ÐµÐ´Ð¾ÑÑ‚ÑƒÐ¿Ð½Ñ‹ (Ð±Ñ‹Ð»Ð¸ ÑƒÐ´Ð°Ð»ÐµÐ½Ñ‹ ÑÑ‚Ñ€Ð¸Ð¼ÐµÑ€Ð¾Ð¼/ÑÐ¾Ð·Ð´Ð°Ñ‚ÐµÐ»ÐµÐ¼) Ð¸Ð· Ð¸ÑÑ‚Ð¾Ñ€Ð¸Ð¸.';
-    STR_NAME_A_Z = 'Ð˜Ð¼Ñ A - Z';
-    STR_NAME_Z_A = 'Ð˜Ð¼Ñ Z - A';
-    STR_GAME_A_Z = 'Ð˜Ð³Ñ€Ð° A - Z';
-    STR_GAME_Z_A = 'Ð˜Ð³Ñ€Ð° Z - A';
-    STR_VIWES_MOST = 'ÐŸÑ€Ð¾ÑÐ¼Ð¾Ñ‚Ñ€Ñ‹ ÑÐ°Ð¼Ñ‹Ðµ Ð²Ñ‹ÑÐ¾ÐºÐ¸Ðµ';
-    STR_VIWES_LOWEST = 'ÐŸÑ€Ð¾ÑÐ¼Ð¾Ñ‚Ñ€Ñ‹ ÑÐ°Ð¼Ñ‹Ðµ Ð½Ð¸Ð·ÐºÐ¸Ðµ';
-    STR_CHANNELS_MOST = 'ÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ ÐºÐ°Ð½Ð°Ð»Ð¾Ð² Ð½Ð°Ð¸Ð²Ñ‹ÑÑˆÐµÐµ';
-    STR_CHANNELS_LOWEST = 'ÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ ÐºÐ°Ð½Ð°Ð»Ð¾Ð² Ð½Ð°Ð¸Ð¼ÐµÐ½ÑŒÑˆÐµÐµ';
-    STR_NEWEST = 'ÐŸÑ€Ð¾ÑÐ¼Ð¾Ñ‚Ñ€ÐµÐ½Ð½Ñ‹Ðµ Ð½Ð¾Ð²ÐµÐ¹ÑˆÐ¸Ðµ';
-    STR_OLDEST = 'ÐŸÑ€Ð¾ÑÐ¼Ð¾Ñ‚Ñ€ÐµÐ½Ð½Ñ‹Ðµ ÑÑ‚Ð°Ñ€ÐµÐ¹ÑˆÐ¸Ðµ';
-    STR_PRESS_ENTER_D = 'ÐÐ°Ð¶Ð¼Ð¸Ñ‚Ðµ ÐžÐš, Ñ‡Ñ‚Ð¾Ð±Ñ‹ ÑƒÐ´Ð°Ð»Ð¸Ñ‚ÑŒ';
-    STR_LIVE_VOD =
-        'Ð­Ñ‚Ð° Ð¿Ñ€ÑÐ¼Ð°Ñ Ñ‚Ñ€Ð°Ð½ÑÐ»ÑÑ†Ð¸Ñ Ñ‚ÐµÐ¿ÐµÑ€ÑŒ Ð²Ð¸Ð´ÐµÐ¾<br>Ð¾Ñ‚ÐºÑ€Ñ‹Ñ‚ÑŒ Ð²Ð¸Ð´ÐµÐ¾ Ñ Ñ‚Ð¾Ð³Ð¾ Ð¼ÐµÑÑ‚Ð°, Ð³Ð´Ðµ Ð²Ñ‹ Ð² Ð¿Ð¾ÑÐ»ÐµÐ´Ð½Ð¸Ð¹ Ñ€Ð°Ð· Ð¿Ñ€ÐµÐºÑ€Ð°Ñ‚Ð¸Ð»Ð¸ ÑÐ¼Ð¾Ñ‚Ñ€ÐµÑ‚ÑŒ Ð¿Ñ€ÑÐ¼ÑƒÑŽ Ñ‚Ñ€Ð°Ð½ÑÐ»ÑÑ†Ð¸ÑŽ:<br>';
-    STR_DELETE_SURE = 'Ð’Ñ‹ ÑƒÐ²ÐµÑ€ÐµÐ½Ñ‹, Ñ‡Ñ‚Ð¾ Ñ…Ð¾Ñ‚Ð¸Ñ‚Ðµ ÑƒÐ´Ð°Ð»Ð¸Ñ‚ÑŒ Ð²ÑÐµ';
-    STR_CREATED_NEWEST = 'Ð¡Ð¾Ð·Ð´Ð°Ð½Ð¾ / ÐÐ¾Ð²ÐµÐ¹ÑˆÐµÐµ';
-    STR_CREATED_OLDEST = 'Ð¡Ð¾Ð·Ð´Ð°Ð½Ð¾ / Ð¡Ñ‚Ð°Ñ€Ð¾Ðµ';
-    STR_THUMB_OPTIONS = 'Ð”Ð¾Ð¿Ð¾Ð»Ð½Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ñ‹Ðµ Ð¾Ð¿Ñ†Ð¸Ð¸';
-    STR_HISTORY_LIVE_DIS = 'Ð’ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ Ð¸ÑÑ‚Ð¾Ñ€Ð¸ÑŽ';
-    STR_HISTORY_VOD_DIS = 'Ð’ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ Ð¸ÑÑ‚Ð¾Ñ€Ð¸ÑŽ Ð²Ð¸Ð´ÐµÐ¾';
-    STR_HISTORY_CLIP_DIS = 'Ð’ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ Ð¸ÑÑ‚Ð¾Ñ€Ð¸ÑŽ ÐºÐ»Ð¸Ð¿Ð¾Ð²';
-    STR_OPEN_GAME = 'ÐžÑ‚ÐºÑ€Ñ‹Ñ‚ÑŒ ÐºÐ°Ñ‚ÐµÐ³Ð¾Ñ€Ð¸ÑŽ';
-    STR_OPEN_CHANNEL = 'ÐžÑ‚ÐºÑ€Ñ‹Ñ‚ÑŒ ÐºÐ°Ð½Ð°Ð»';
-    STR_THUMB_OPTIONS_KEY = 'ÐÐ°Ð¶Ð¼Ð¸Ñ‚Ðµ ÐžÐš (Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð¾Ñ‚ÐºÑ€Ñ‹Ñ‚ÑŒ Ð¸Ð»Ð¸ Ð¿Ñ€Ð¸Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ). ÐÐ°Ð·Ð°Ð´, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð²Ñ‹Ð¹Ñ‚Ð¸ Ð±ÐµÐ· Ð¿Ñ€Ð¸Ð¼ÐµÐ½ÐµÐ½Ð¸Ñ';
-    STR_DELETE_FROM_HISTORY = 'Ð£Ð´Ð°Ð»Ð¸Ñ‚ÑŒ ÑÑ‚Ð¾ Ð¸Ð· Ð¸ÑÑ‚Ð¾Ñ€Ð¸Ð¸';
-    STR_CHECK_FOLLOW = 'ÐŸÑ€Ð¾Ð²ÐµÑ€ÐºÐ° ÑÑ‚Ð°Ñ‚ÑƒÑÐ° Ð¿Ð¾Ð´Ð¿Ð¸ÑÐºÐ¸ ...';
-    STR_REFRESH_DELETE = 'ÐžÐ±Ð½Ð¾Ð²Ð¸Ñ‚Ðµ ÑÐºÑ€Ð°Ð½ Ð¿Ð¾ÑÐ»Ðµ ÑƒÐ´Ð°Ð»ÐµÐ½Ð¸Ñ, Ñ‡Ñ‚Ð¾Ð±Ñ‹ ÑƒÐ²Ð¸Ð´ÐµÑ‚ÑŒ Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ñ.';
-    STR_THUMB_OPTIONS_TOP = 'Ð£Ð´ÐµÑ€Ð¶. Ð²Ð»ÐµÐ²Ð¾ Ð´Ð»Ñ Ð´Ð¾Ð¿. Ð¾Ð¿Ñ†Ð¸Ð¹';
-    STR_REPLACE_MULTI = 'Ð’Ñ‹Ð±Ñ€Ð°Ñ‚ÑŒ Ð´Ð»Ñ Ð·Ð°Ð¼ÐµÐ½Ñ‹ Ð½Ð° ÑƒÐºÐ°Ð·Ð°Ð½Ð½Ð¾Ðµ Ð²Ñ‹ÑˆÐµ?';
-    STR_REPLACE_MULTI_ENTER = 'ÐÐ°Ð¶Ð¼Ð¸Ñ‚Ðµ ÐžÐš, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð·Ð°Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ. ÐÐ°Ð·Ð°Ð´, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð²Ñ‹Ð¹Ñ‚Ð¸ Ð±ÐµÐ· Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ñ.';
-    STR_ALREDY_PLAYING = 'Ð£Ð¶Ðµ Ð²Ð¾ÑÐ¿Ñ€Ð¾Ð¸Ð·Ð²Ð¾Ð´Ð¸Ñ‚ÑÑ';
-    STR_STREAM_ERROR = 'ÐÐµÐ²Ð¾Ð·Ð¼Ð¾Ð¶Ð½Ð¾ Ð¾Ñ‚ÐºÑ€Ñ‹Ñ‚ÑŒ Ð¿Ñ€ÐµÐ´Ð¿Ñ€Ð¾ÑÐ¼Ð¾Ñ‚Ñ€';
-    STR_PP_MODO = 'ÐšÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐ° Ð² ÐšÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐµ';
-    STR_4_WAY_MULTI_INSTANCES = 'Ð’Ð°ÑˆÐµ ÑƒÑÑ‚Ñ€Ð¾Ð¹ÑÑ‚Ð²Ð¾ Ð¿Ð¾Ð´Ð´ÐµÑ€Ð¶Ð¸Ð²Ð°ÐµÑ‚ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ %x ÑÐºÐ·ÐµÐ¼Ð¿Ð»ÑÑ€Ñ‹ ÐºÐ¾Ð´ÐµÐºÐ° (Ð¿Ð»ÐµÐµÑ€ Ð²Ð¾ÑÐ¿Ñ€Ð¾Ð¸Ð·Ð²Ð¾Ð´Ð¸Ñ‚) Ð¾Ð´Ð½Ð¾Ð²Ñ€ÐµÐ¼ÐµÐ½Ð½Ð¾, Ð½ÐµÐ»ÑŒÐ·Ñ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÑŒ';
-    STR_MULTI_EMPTY = 'Ð—Ð°Ð²ÐµÑ€ÑˆÐµÐ½Ð¾ Ð¸Ð»Ð¸ Ð¿ÑƒÑÑ‚Ð¾';
-    STR_4_WAY_MULTI = 'ÐœÑƒÐ»ÑŒÑ‚Ð¸ÑÑ‚Ñ€Ð¸Ð¼';
-    STR_CONTROLS_MULTI_0 = 'ÐœÑƒÐ»ÑŒÑ‚Ð¸ÑÑ‚Ñ€Ð¸Ð¼ Ð¿Ð¾Ð´ÑÐºÐ°Ð·ÐºÐ¸';
-    STR_CONTROLS_MULTI_1 =
-        'Ð•ÑÐ»Ð¸ Ð·Ð°Ð²Ð¸ÑÐ°ÐµÑ‚ Ð¼ÑƒÐ»ÑŒÑ‚Ð¸ÑÑ‚Ñ€Ð¸Ð¼, ÑÐ½Ð¸Ð·ÑŒÑ‚Ðµ Â«Ð±Ð¸Ñ‚Ñ€ÐµÐ¹Ñ‚ Ð¼Ð°Ð»Ð¾Ð³Ð¾ Ð¿Ð»ÐµÐµÑ€Ð°Â» Ð² Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ°Ñ…. ÐŸÑ€Ð¾Ð¿ÑƒÑ‰ÐµÐ½Ð½Ñ‹Ðµ ÐºÐ°Ð´Ñ€Ñ‹ Ð¸Ð»Ð¸ Ð¿Ð¾ÑÑ‚Ð¾ÑÐ½Ð½Ð°Ñ Ð±ÑƒÑ„ÐµÑ€Ð¸Ð·Ð°Ñ†Ð¸Ñ ÑƒÐºÐ°Ð·Ñ‹Ð²Ð°ÑŽÑ‚ Ð½Ð° ÑÐ»Ð¸ÑˆÐºÐ¾Ð¼ Ð²Ñ‹ÑÐ¾ÐºÐ¸Ð¹ Ð±Ð¸Ñ‚Ñ€ÐµÐ¹Ñ‚ Ð¸Ð»Ð¸ Ð¼ÐµÐ´Ð»ÐµÐ½Ð½Ñ‹Ð¹ Ð¸Ð½Ñ‚ÐµÑ€Ð½ÐµÑ‚.';
-    STR_CONTROLS_MULTI_2 = 'Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ ÑÑ‚Ñ€Ð¸Ð¼: Ð²Ð²ÐµÑ€Ñ… Ð¸ Ð²Ñ‹Ð±ÐµÑ€ÐµÑ‚Ðµ ÑÑ‚Ñ€Ð¸Ð¼.';
-    STR_CONTROLS_MULTI_3 = 'Ð—Ð°Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ ÑÑ‚Ñ€Ð¸Ð¼: Ð²Ð²ÐµÑ€Ñ…, Ð²Ñ‹Ð±ÐµÑ€ÐµÑ‚Ðµ ÑÑ‚Ñ€Ð¸Ð¼ Ð¸ Ð²Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ Ð¾Ð´Ð¸Ð½ Ð´Ð»Ñ Ð·Ð°Ð¼ÐµÐ½Ñ‹ Ð² Ð´Ð¸Ð°Ð»Ð¾Ð³Ð¾Ð²Ð¾Ð¼ Ð¾ÐºÐ½Ðµ.';
-    STR_CONTROLS_MULTI_4 = 'Ð˜Ð·Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ Ð¸ÑÑ‚Ð¾Ñ‡Ð½Ð¸Ðº Ð·Ð²ÑƒÐºÐ°: D-pad Ð²Ð¿Ñ€Ð°Ð²Ð¾/Ð²Ð»ÐµÐ²Ð¾, ÑƒÐ´ÐµÑ€Ð¶Ð¸Ð²Ð°Ð¹Ñ‚Ðµ Ð²Ð½Ð¸Ð· Ð´Ð»Ñ Ð²ÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ñ Ð·Ð²ÑƒÐºÐ° Ð²ÑÐµÑ… ÑÑ‚Ñ€Ð¸Ð¼Ð¾Ð².';
-    STR_CONTROLS_MULTI_5 = 'Ð’Ñ‹Ñ…Ð¾Ð´ Ð¸Ð· Ð¼ÑƒÐ»ÑŒÑ‚Ð¸ÑÑ‚Ñ€Ð¸Ð¼Ð°: Ð´Ð²Ð°Ð¶Ð´Ñ‹ Ð½Ð° ÐºÐ½Ð¾Ð¿ÐºÑƒ Ð½Ð°Ð·Ð°Ð´.';
-    STR_CONTROLS_MULTI_6 = 'Ð§Ñ‚Ð¾Ð±Ñ‹ ÑÐºÑ€Ñ‹Ñ‚ÑŒ ÑÑ‚Ð¾, Ð¾Ñ‚ÐºÑ€Ð¾Ð¹Ñ‚Ðµ 4 ÑÑ‚Ñ€Ð¸Ð¼Ð°';
-    STR_PICTURE_LIVE_FEED = 'ÐšÐ²Ðš: Ð£Ð´ÐµÑ€Ð¶Ð¸Ð²Ð°Ð¹Ñ‚Ðµ ÐžÐš. (Ð’Ð»ÐµÐ²Ð¾ Ð´Ð»Ñ Ð¿ÐµÑ€ÐµÐ¼ÐµÑ‰ÐµÐ½Ð¸Ñ, Ð’Ð¿Ñ€Ð°Ð²Ð¾ Ð´Ð»Ñ Ð¸Ð·Ð¼. Ñ€Ð°Ð·Ð¼ÐµÑ€Ð° Ð¸Ð»Ð¸ Ð’Ð½Ð¸Ð· Ð´Ð»Ñ Ð¸Ð·Ð¼. Ð²Ð¸Ð´ÐµÐ¾)';
-    STR_MULTI_TITLE = ', ÐÐ°Ð¶Ð¼Ð¸Ñ‚Ðµ Ð½Ð° Ð¿Ñ€ÐµÐ²ÑŒÑŽ, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð¾Ñ‚ÐºÑ€Ñ‹Ñ‚ÑŒ Ð¸Ð»Ð¸ Ð·Ð°Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ Ð¿Ð¾Ñ‚Ð¾Ðº, Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐ¹Ñ‚Ðµ D-pad Ð²Ð»ÐµÐ²Ð¾/Ð²Ð¿Ñ€Ð°Ð²Ð¾, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð¸Ð·Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ Ð¸ÑÑ‚Ð¾Ñ‡Ð½Ð¸Ðº Ð·Ð²ÑƒÐºÐ°.';
-    STR_FEED_END_DIALOG = ', ÐÐ°Ð¶Ð¼Ð¸Ñ‚Ðµ ÐÐ°Ð·Ð°Ð´, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð²ÐµÑ€Ð½ÑƒÑ‚ÑŒÑÑ Ð² Ð³Ð»Ð°Ð²Ð½Ð¾Ðµ Ð¼ÐµÐ½ÑŽ';
-    STR_BACK_USER_GAMES = 'ÐÐ°Ð¶Ð¼Ð¸Ñ‚Ðµ Ð½Ð°Ð·Ð°Ð´, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð²ÐµÑ€Ð½ÑƒÑ‚ÑŒÑÑ Ðº';
-    STR_SHOW_LIVE_PLAYER = 'ÐŸÐ¾ÐºÐ°Ð·Ð°Ñ‚ÑŒ Ð¿Ñ€ÐµÐ²ÑŒÑŽ Ð½Ð° ÑÐºÑ€Ð°Ð½Ð°Ñ… Ð¿Ñ€ÑÐ¼Ñ‹Ñ… Ñ‚Ñ€Ð°Ð½ÑÐ»ÑÑ†Ð¸Ð¹';
-    STR_SHOW_VOD_PLAYER_WARNING = 'ÐÐ°Ñ‡Ð°Ð»Ð¾ Ð²Ð¾ÑÐ¿Ñ€Ð¾Ð¸Ð·Ð²ÐµÐ´ÐµÐ½Ð¸Ñ Ñ Ð¼ÐµÑÑ‚Ð° Ð¿Ð¾ÑÐ»ÐµÐ´Ð½ÐµÐ¹ Ð¾ÑÑ‚Ð°Ð½Ð¾Ð²ÐºÐ¸:';
-    STR_SHOW_VOD_PLAYER = 'ÐŸÑ€ÐµÐ´Ð²Ð°Ñ€Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ñ‹Ð¹ Ð¿Ñ€Ð¾ÑÐ¼Ð¾Ñ‚Ñ€ Ð½Ð° ÑÐºÑ€Ð°Ð½Ð°Ñ… Ð’Ð¸Ð´ÐµÐ¾';
-    STR_SHOW_CLIP_PLAYER = 'ÐŸÑ€ÐµÐ´Ð²Ð°Ñ€Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ñ‹Ð¹ Ð¿Ñ€Ð¾ÑÐ¼Ð¾Ñ‚Ñ€ Ð½Ð° ÑÐºÑ€Ð°Ð½Ð°Ñ… ÐšÐ»Ð¸Ð¿';
-    STR_PREVIEW_CLIP_NEXT = 'ÐšÐ¾Ð³Ð´Ð° Ð¿Ñ€ÐµÐ´Ð²Ð°Ñ€Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ñ‹Ð¹ Ð¿Ñ€Ð¾ÑÐ¼Ð¾Ñ‚Ñ€ ÐºÐ»Ð¸Ð¿Ð° Ð·Ð°ÐºÐ°Ð½Ñ‡Ð¸Ð²Ð°ÐµÑ‚ÑÑ, Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡ÐµÑÐºÐ¸Ð¹ Ð¿ÐµÑ€ÐµÑ…Ð¾Ð´ Ðº ÑÐ»ÐµÐ´ÑƒÑŽÑ‰ÐµÐ¼Ñƒ Ð´Ð¾ÑÑ‚ÑƒÐ¿Ð½Ð¾Ð¼Ñƒ ÐºÐ»Ð¸Ð¿Ñƒ';
-    STR_SHOW_SIDE_PLAYER = 'ÐŸÑ€ÐµÐ´Ð²Ð°Ñ€Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ñ‹Ð¹ Ð¿Ñ€Ð¾ÑÐ¼Ð¾Ñ‚Ñ€ Ð½Ð° Ð±Ð¾ÐºÐ¾Ð²Ð¾Ð¹ Ð¿Ð°Ð½ÐµÐ»Ð¸';
-    STR_SHOW_FEED_PLAYER = 'ÐŸÑ€ÐµÐ´Ð²Ð°Ñ€Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ñ‹Ð¹ Ð¿Ñ€Ð¾ÑÐ¼Ð¾Ñ‚Ñ€ Ð½Ð° ÑÑÐºÐ¸Ð·Ð°Ñ… Ð¿Ñ€ÐµÐ²ÑŒÑŽ Ð¿Ñ€Ð¾Ð¸Ð³Ñ€Ñ‹Ð²Ð°Ñ‚ÐµÐ»Ñ';
-    STR_SHOW_FEED_PLAYER_SUMMARY =
-        'Ð•ÑÐ»Ð¸ Ð²Ð°Ð¼ Ð½Ðµ Ð½ÑƒÐ¶Ð½Ð¾ Ð¸Ð»Ð¸ Ð²Ð°ÑˆÐµ ÑƒÑÑ‚Ñ€Ð¾Ð¹ÑÑ‚Ð²Ð¾ Ñ‚Ð¾Ñ€Ð¼Ð¾Ð·Ð¸Ñ‚, ÐºÐ¾Ð³Ð´Ð° Ð°ÐºÑ‚Ð¸Ð²Ð½Ð¾ Ð±Ð¾Ð»ÐµÐµ Ð¾Ð´Ð½Ð¾Ð³Ð¾ Ð¿Ð»ÐµÐµÑ€Ð°, ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚Ðµ Ð´Ð»Ñ ÑÑ‚Ð¾Ð³Ð¾ Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€Ð° Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ ÐÐ•Ð¢.';
-    STR_DISABLED_FEED_PLAYER_MULTI = 'ÐžÑ‚ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ Ð¿Ñ€ÐµÐ²ÑŒÑŽ Ð¿Ñ€Ð¸ Ð²ÐºÐ»ÑŽÑ‡ÐµÐ½Ð½Ð¾Ð¼ Ð¼ÑƒÐ»ÑŒÑ‚Ð¸ÑÑ‚Ñ€Ð¸Ð¼Ðµ';
-    STR_DISABLED_FEED_PLAYER_MULTI_SUMMARY =
-        'ÐŸÐ¾ ÑÐ¾Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸ÑÐ¼ Ð¿Ñ€Ð¾Ð¸Ð·Ð²Ð¾Ð´Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ð¾ÑÑ‚Ð¸ Ð½ÐµÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ðµ ÑƒÑÑ‚Ñ€Ð¾Ð¹ÑÑ‚Ð²Ð° Ð¼Ð¾Ð³ÑƒÑ‚ Ð¾Ñ‚ÑÑ‚Ð°Ð²Ð°Ñ‚ÑŒ Ð¾Ñ‚ Ð½ÐµÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ñ… Ð¿Ð»ÐµÐµÑ€Ð¾Ð². Ð•ÑÐ»Ð¸ Ñƒ Ð²Ð°Ñ Ð²ÑÐµ Ð² Ð¿Ð¾Ñ€ÑÐ´ÐºÐµ Ð½Ð° Ð¼ÑƒÐ»ÑŒÑ‚Ð¸ÑÑ‚Ñ€Ð¸Ð¼Ðµ, Ð½Ð¾ ÐºÐ¾Ð³Ð´Ð° Ð°ÐºÑ‚Ð¸Ð²Ð½Ñ‹ Ð¿Ð»ÐµÐµÑ€ Ð¿Ñ€ÐµÐ²ÑŒÑŽ Ð¸ Ð¼ÑƒÐ»ÑŒÑ‚Ð¸ÑÑ‚Ñ€Ð¸Ð¼, ÑƒÑÑ‚Ñ€Ð¾Ð¹ÑÑ‚Ð²Ð¾ Ð»Ð°Ð³Ð°ÐµÑ‚, ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚Ðµ Ð´Ð»Ñ ÑÑ‚Ð¾Ð³Ð¾ Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€Ð° Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ ÐÐ•Ð¢';
-    STR_PREVIEW_ERROR_LOAD = 'ÐŸÑ€ÐµÐ²ÑŒÑŽ Ð½Ðµ Ð·Ð°Ð³Ñ€ÑƒÐ¶Ð°ÐµÑ‚ÑÑ:';
-    STR_PREVIEW_ERROR_LINK = 'Ð½ÐµÐ´Ð¾ÑÑ‚ÑƒÐ¿Ð½Ð¾';
-    STR_PREVIEW_VOD_DELETED = ', ÑÑ‚Ð¾ Ð²Ð¸Ð´ÐµÐ¾ Ð¼Ð¾Ð³Ð»Ð¾ Ð±Ñ‹Ñ‚ÑŒ ÑƒÐ´Ð°Ð»ÐµÐ½Ð¾';
-    STR_PREVIEW_END = 'ÐŸÑ€ÐµÐ´Ð¿Ñ€Ð¾ÑÐ¼Ð¾Ñ‚Ñ€ Ð²Ð¸Ð´ÐµÐ¾ Ð·Ð°ÐºÐ¾Ð½Ñ‡Ð¸Ð»ÑÑ';
-    STR_PLAYER_LAG_ERRO = 'ÐŸÐ»ÐµÐµÑ€ Ð½Ðµ Ð¼Ð¾Ð¶ÐµÑ‚ Ð²Ð¾ÑÐ¿Ñ€Ð¾Ð¸Ð·Ð²ÐµÑÑ‚Ð¸ Ð¸Ð·-Ð·Ð° Ð¿Ñ€Ð¾Ð±Ð»ÐµÐ¼Ñ‹ Ñ Ð¿Ð¾Ð´ÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸ÐµÐ¼';
-    STR_PLAYER_ERROR = 'ÐŸÐ»ÐµÐµÑ€ Ð½Ðµ Ð¼Ð¾Ð¶ÐµÑ‚ Ð²Ð¾ÑÐ¿Ñ€Ð¾Ð¸Ð·Ð²ÐµÑÑ‚Ð¸ Ð¸Ð·-Ð·Ð° Ð¾ÑˆÐ¸Ð±ÐºÐ¸ Ð¿Ð»ÐµÐµÑ€Ð°';
-    STR_PLAYER_ERROR_MULTI = ', Ð¿Ð¾Ð¿Ñ€Ð¾Ð±ÑƒÐ¹Ñ‚Ðµ ÑÐ½Ð¸Ð·Ð¸Ñ‚ÑŒ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ Ð±Ð¸Ñ‚Ñ€ÐµÐ¹Ñ‚Ð° Ð¼Ð°Ð»ÐµÐ½ÑŒÐºÐ¾Ð³Ð¾ Ð¿Ð»ÐµÐµÑ€Ð° Ð² Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ°Ñ…';
-    STR_PREVIEW_SIZE = 'Ð Ð°Ð·Ð¼ÐµÑ€ Ð¿Ñ€ÐµÐ²ÑŒÑŽ Ð¿Ð»ÐµÐµÑ€Ð°';
-    STR_PREVIEW_SIZE_SUMMARY = 'Ð£ÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ Ñ€Ð°Ð·Ð¼ÐµÑ€ Ð¿Ñ€ÐµÐ²ÑŒÑŽ Ð¿Ð»ÐµÐµÑ€Ð° Ð´Ð»Ñ Ð¿Ñ€ÐµÐ²ÑŒÑŽ Ð¼Ð¸Ð½Ð¸Ð°Ñ‚ÑŽÑ€';
-    STR_PREVIEW_SIZE_ARRAY = ['ÐœÐ°Ð»ÐµÐ½ÑŒÐºÐ¸Ð¹', 'Ð¡Ñ€ÐµÐ´Ð½Ð¸Ð¹', 'Ð‘Ð¾Ð»ÑŒÑˆÐ¾Ð¹', 'ÐžÐ³Ñ€Ð¾Ð¼Ð½Ñ‹Ð¹'];
-    STR_PREVIEW_SIZE_SCREEN = 'Ð Ð°Ð·Ð¼ÐµÑ€ ÑÐºÑ€Ð°Ð½Ð° Ð¿Ñ€ÐµÐ²ÑŒÑŽ';
-    STR_PREVIEW_SIZE_SCREEN_SUMMARY = 'Ð£ÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ Ñ€Ð°Ð·Ð¼ÐµÑ€ Ð¿Ñ€ÐµÐ²ÑŒÑŽ';
-    STR_PREVIEW_VOLUME_SCREEN = 'Ð“Ñ€Ð¾Ð¼ÐºÐ¾ÑÑ‚ÑŒ Ð¿Ñ€ÐµÐ´Ð²Ð°Ñ€Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ð¾Ð³Ð¾ Ð¿Ñ€Ð¾ÑÐ¼Ð¾Ñ‚Ñ€Ð° ÑÐºÑ€Ð°Ð½Ð°';
-    STR_PREVIEW_VOLUME_SCREEN_SUMMARY =
-        'Ð£ÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚Ðµ Ð³Ñ€Ð¾Ð¼ÐºÐ¾ÑÑ‚ÑŒ Ð¿Ñ€ÐµÐ´Ð²Ð°Ñ€Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ð¾Ð³Ð¾ Ð¿Ð»ÐµÐµÑ€Ð°, ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ð¹ Ð¾Ñ‚Ð¾Ð±Ñ€Ð°Ð¶Ð°ÐµÑ‚ÑÑ Ð¿Ð¾Ð²ÐµÑ€Ñ… Ð¾ÑÐ½Ð¾Ð²Ð½Ñ‹Ñ… ÑÐºÑ€Ð°Ð½Ð¾Ð² Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ñ Ð¸ Ð±Ð¾ÐºÐ¾Ð²Ð¾Ð¹ Ð¿Ð°Ð½ÐµÐ»Ð¸.';
-    STR_PREVIEW_SIZE_SCREEN_ARRAY = ['ÐœÐ°Ð»ÐµÐ½ÑŒÐºÐ¸Ð¹', 'Ð‘Ð¾Ð»ÑŒÑˆÐ¾Ð¹'];
-    STR_SIDE_PANEL_PLAYER_DELAY = 'Ð—Ð°Ð´ÐµÑ€Ð¶ÐºÐ° Ð¿Ñ€ÐµÐ²ÑŒÑŽ';
-    STR_SIDE_PANEL_PLAYER_DELAY_SUMMARY =
-        'Ð£ÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚Ðµ Ð²Ñ€ÐµÐ¼Ñ Ð·Ð°Ð´ÐµÑ€Ð¶ÐºÐ¸, ÐºÐ¾Ñ‚Ð¾Ñ€Ð¾Ðµ Ð·Ð°Ð¹Ð¼ÐµÑ‚ Ð¿Ñ€ÐµÐ²ÑŒÑŽ, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð½Ð°Ñ‡Ð°Ñ‚ÑŒ Ð·Ð°Ð³Ñ€ÑƒÐ·ÐºÑƒ Ð¿Ð¾ÑÐ»Ðµ Ð²Ñ‹Ð±Ð¾Ñ€Ð° Ð¼Ð¸Ð½Ð¸Ð°Ñ‚ÑŽÑ€Ñ‹. Ð­Ñ‚Ð¾ Ð¿Ð¾Ð¼Ð¾Ð³Ð°ÐµÑ‚ Ð¼ÐµÐ´Ð»ÐµÐ½Ð½Ñ‹Ð¼ ÑƒÑÑ‚Ñ€Ð¾Ð¹ÑÑ‚Ð²Ð°Ð¼Ð¸, ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ðµ Ñ‚Ð¾Ñ€Ð¼Ð¾Ð·ÑÑ‚ Ð¿Ñ€Ð¸ Ð¿Ñ€Ð¾ÐºÑ€ÑƒÑ‚ÐºÐµ';
-    STR_PREVIEW_VOLUME = 'Ð“Ñ€Ð¾Ð¼ÐºÐ¾ÑÑ‚ÑŒ Ð¿Ñ€ÐµÐ²ÑŒÑŽ';
-    STR_PREVIEW_VOLUME_SUMMARY = 'Ð£ÑÑ‚Ð°Ð½Ð¾Ð²ÐºÐ¸, ÐºÐ°ÐºÐ°Ñ Ð±ÑƒÐ´ÐµÑ‚ Ð³Ñ€Ð¾Ð¼ÐºÐ¾ÑÑ‚ÑŒ Ð¿Ñ€ÐµÐ²ÑŒÑŽ Ð»ÐµÐ½Ñ‚Ñ‹';
-    STR_PREVIEW_OTHERS_VOLUME = 'Ð“Ð»Ð°Ð²Ð½Ð°Ñ Ð³Ñ€Ð¾Ð¼ÐºÐ¾ÑÑ‚ÑŒ Ð¿Ð»ÐµÐµÑ€Ð¾Ð²';
-    STR_PREVIEW_OTHERS_VOLUME_SUMMARY =
-        'Ð“Ñ€Ð¾Ð¼ÐºÐ¾ÑÑ‚ÑŒ Ð¾ÑÐ½Ð¾Ð²Ð½Ð¾Ð³Ð¾ Ð¿Ð»ÐµÐµÑ€Ð° (Ð²ÑÐµ Ð¿Ð»ÐµÐµÑ€Ñ‹ - ÐºÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐ° Ð² ÐºÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐµ, Ð¼ÑƒÐ»ÑŒÑ‚Ð¸ÑÑ‚Ñ€Ð¸Ð¼ Ð¿Ð»ÐµÐµÑ€Ñ‹) Ð¼Ð¾Ð¶ÐµÑ‚ Ð±Ñ‹Ñ‚ÑŒ Ð¼ÐµÐ½ÑŒÑˆÐµ, ÐºÐ¾Ð³Ð´Ð° Ð¾Ñ‚Ð¾Ð±Ñ€Ð°Ð¶Ð°ÐµÑ‚ÑÑ Ð¿Ñ€Ð¾Ð¸Ð³Ñ€Ñ‹Ð²Ð°Ñ‚ÐµÐ»ÑŒ Ð¿Ñ€ÐµÐ²ÑŒÑŽ';
-    STR_SIDE_PANEL_PLAYER = 'ÐÐ°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸ Ð¿Ð»ÐµÐµÑ€Ð° Ð¿Ñ€ÐµÐ²ÑŒÑŽ';
-    STR_START_AT_USER = 'Ð’ÑÐµÐ³Ð´Ð° Ð·Ð°Ð¿ÑƒÑÐºÐ°Ñ‚ÑŒ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ Ð½Ð° ÑÐºÑ€Ð°Ð½Ðµ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ';
-    STR_START_AT_USER_SUMMARY = 'Ð­Ñ‚Ð¾ Ð¿Ñ€ÐµÐ´Ð¾Ñ‚Ð²Ñ€Ð°Ñ‚Ð¸Ñ‚ Ñ€Ð°Ð±Ð¾Ñ‚Ñƒ Ð²Ð¾ÑÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ñ Ð²Ð¾ÑÐ¿Ñ€Ð¾Ð¸Ð·Ð²ÐµÐ´ÐµÐ½Ð¸Ñ, Ð½Ð¾ Ð¿Ð¾Ð·Ð²Ð¾Ð»Ð¸Ñ‚ Ð²Ñ‹Ð±Ñ€Ð°Ñ‚ÑŒ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ Ð¿Ñ€Ð¸ Ð·Ð°Ð¿ÑƒÑÐºÐµ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ñ.';
-    STR_START_AT_FEED = 'Ð’ÑÐµÐ³Ð´Ð° Ð·Ð°Ð¿ÑƒÑÐºÐ°Ñ‚ÑŒ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ Ñ Ð»ÐµÐ½Ñ‚Ð¾Ð¹ Ð¿Ð¾Ð´Ð¿Ð¸ÑÐ°Ð½Ð½Ñ‹Ñ… ÐºÐ°Ð½Ð°Ð»Ð¾Ð²';
-    STR_START_AT_FEED_SUMMARY = 'Ð­Ñ‚Ð° Ð¾Ð¿Ñ†Ð¸Ñ Ð¾Ñ‚ÐºÑ€Ñ‹Ð²Ð°ÐµÑ‚ Ð±Ð¾ÐºÐ¾Ð²ÑƒÑŽ Ð¿Ð°Ð½ÐµÐ»ÑŒ Ñ Ð¿Ð¾Ð´Ð¿Ð¸ÑÐ°Ð½Ð½Ñ‹Ð¼Ð¸ ÐºÐ°Ð½Ð°Ð»Ð°Ð¼Ð¸ Ð¸ Ð¿Ñ€ÐµÐ²ÑŒÑŽ ÑÑ‚Ñ€Ð¸Ð¼Ð° Ð¿Ñ€Ð¸ Ð·Ð°Ð¿ÑƒÑÐºÐµ. ÐžÑ‚ÐºÐ»ÑŽÑ‡Ð°ÐµÑ‚ "Ð’Ð¾ÑÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ðµ Ð²Ð¾ÑÐ¿Ñ€Ð¾Ð¸Ð·Ð²ÐµÐ´ÐµÐ½Ð¸Ñ".';
-    STR_LAST_REFRESH = 'Ð¿Ð¾ÑÐ». Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ðµ:';
-    STR_PP_VOD_ERROR = 'Ð’Ñ‹Ð¹Ð´Ð¸Ñ‚Ðµ Ð¸Ð· ÐšÐ²Ðš Ð¸Ð»Ð¸ ÐœÑƒÐ»ÑŒÑ‚Ð¸ÑÑ‚Ñ€Ð¸Ð¼Ð°, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð¾Ñ‚ÐºÑ€Ñ‹Ñ‚ÑŒ ÑÑ‚Ð¾ Ð²Ð¸Ð´ÐµÐ¾';
-    STR_SETTINGS_ACCESSIBILITY = 'ÐŸÐ¾ÐºÐ°Ð·Ð°Ñ‚ÑŒ "ÑÐ»ÑƒÐ¶Ð±Ð° ÑÐ¿ÐµÑ†. Ð²Ð¾Ð·Ð¼Ð¾Ð¶Ð½Ð¾ÑÑ‚ÐµÐ¹ Ñ€Ð°Ð±Ð¾Ñ‚Ð°ÐµÑ‚ Ñ Ð¿Ñ€ÐµÐ´ÑƒÐ¿Ñ€ÐµÐ¶Ð´ÐµÐ½Ð¸ÐµÐ¼"';
-    STR_SETTINGS_ACCESSIBILITY_SUMMARY =
-        'Ð•ÑÐ»Ð¸ Ð½Ð° ÑƒÑÑ‚Ñ€Ð¾Ð¹ÑÑ‚Ð²Ðµ Ð²ÐºÐ»ÑŽÑ‡ÐµÐ½Ð° ÑÐ»ÑƒÐ¶Ð±Ð° ÑÐ¿ÐµÑ†. Ð²Ð¾Ð·Ð¼Ð¾Ð¶Ð½Ð¾ÑÑ‚ÐµÐ¹, Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ Ð¿Ð¾ÐºÐ°Ð¶ÐµÑ‚ Ð¿Ñ€ÐµÐ´ÑƒÐ¿Ñ€ÐµÐ¶Ð´ÐµÐ½Ð¸Ðµ, ÑÑ‚Ð¾ Ð¸Ð·Ð²ÐµÑÑ‚Ð½Ð°Ñ Ð¿Ñ€Ð¾Ð±Ð»ÐµÐ¼Ð° Android, Ñ‡Ñ‚Ð¾ ÑÐ»ÑƒÐ¶Ð±Ð° ÑÐ¿ÐµÑ†. Ð²Ð¾Ð·Ð¼Ð¾Ð¶Ð½Ð¾ÑÑ‚ÐµÐ¹ Ð¼Ð¾Ð¶ÐµÑ‚ Ñ‚Ð¾Ñ€Ð¼Ð¾Ð·Ð¸Ñ‚ÑŒ Ð½ÐµÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ðµ ÑƒÑÑ‚Ñ€Ð¾Ð¹ÑÑ‚Ð²Ð° Ð¸ Ð²Ñ‹Ð·Ñ‹Ð²Ð°Ñ‚ÑŒ Ð·Ð°Ð²Ð¸ÑÐ°Ð½Ð¸Ñ Ð¸Ð»Ð¸ Ð·Ð°Ð´ÐµÑ€Ð¶ÐºÐ¸ Ð² ÑÑ‚Ð¾Ð¼ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ð¸..';
-    STR_ACCESSIBILITY_WARN = 'CÐ»ÑƒÐ¶Ð±Ð°(Ñ‹) ÑÐ¿ÐµÑ†. Ð²Ð¾Ð·Ð¼Ð¾Ð¶Ð½Ð¾ÑÑ‚ÐµÐ¹ Ð¾Ð±Ð½Ð°Ñ€ÑƒÐ¶ÐµÐ½Ñ‹';
-    STR_ACCESSIBILITY_WARN_EXTRA = 'ÐŸÐ¾Ð´Ñ€Ð¾Ð±Ð½ÐµÐµ Ñ‡Ð¸Ñ‚Ð°Ð¹Ñ‚Ðµ Ð¿Ð¾ ÑÑ‚Ð¾Ð¹ ÑÑÑ‹Ð»ÐºÐµ:';
-    STR_ACCESSIBILITY_WARN_EXTRA2 =
-        'Ð•ÑÐ»Ð¸ Ñƒ Ð²Ð°Ñ ÐµÑÑ‚ÑŒ Ð¿Ñ€Ð¾Ð±Ð»ÐµÐ¼Ñ‹ Ñ Ð·Ð°Ð²Ð¸ÑÐ°Ð½Ð¸ÐµÐ¼ Ð¸Ð»Ð¸ Ð·Ð°Ð´ÐµÑ€Ð¶ÐºÐ¾Ð¹, Ð·Ð°ÐºÑ€Ð¾Ð¹Ñ‚Ðµ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ Ð¸ Ð¾Ñ‚ÐºÐ»ÑŽÑ‡Ð¸Ñ‚Ðµ Ð²ÑÐµ ÑÐ»ÑƒÐ¶Ð±Ñ‹ ÑÐ¿ÐµÑ†. Ð²Ð¾Ð·Ð¼Ð¾Ð¶Ð½Ð¾ÑÑ‚ÐµÐ¹, ÑÑ‚Ð¾ Ð´Ð¾Ð»Ð¶Ð½Ð¾ Ð¿Ð¾Ð¼Ð¾Ñ‡ÑŒ.<br>Ð§Ñ‚Ð¾Ð±Ñ‹ Ð±Ð¾Ð»ÑŒÑˆÐµ Ð½Ð¸ÐºÐ¾Ð³Ð´Ð° Ð½Ðµ Ð¾Ñ‚Ð¾Ð±Ñ€Ð°Ð¶Ð°Ñ‚ÑŒ ÑÑ‚Ð¾ Ð¿Ñ€ÐµÐ´ÑƒÐ¿Ñ€ÐµÐ¶Ð´ÐµÐ½Ð¸Ðµ, Ð¾Ñ‚ÐºÐ»ÑŽÑ‡Ð¸Ñ‚Ðµ ÐµÐ³Ð¾ Ð² Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ°Ñ…';
-    STR_AUTO_REFRESH = 'Ð¢Ð°Ð¹Ð¼-Ð°ÑƒÑ‚ Ð°Ð²Ñ‚Ð¾Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ñ';
-    STR_AUTO_REFRESH_SUMMARY =
-        'ÐšÐ¾Ð³Ð´Ð° ÑÑ‚Ð¾Ñ‚ Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€ Ð²ÐºÐ»ÑŽÑ‡ÐµÐ½, Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ Ð±ÑƒÐ´ÐµÑ‚ Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡ÐµÑÐºÐ¸ Ð¾Ð±Ð½Ð¾Ð²Ð»ÑÑ‚ÑŒ Ñ€Ð°Ð·Ð´ÐµÐ» Ð¸Ð»Ð¸ ÑÑÐºÐ¸Ð·Ñ‹ Ð¿Ñ€ÐµÐ²ÑŒÑŽ, Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ðµ Ð¿Ñ€Ð¾Ð¸ÑÑ…Ð¾Ð´Ð¸Ñ‚ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ñ‚Ð¾Ð³Ð´Ð°, ÐºÐ¾Ð³Ð´Ð° Ð²Ñ‹Ð±Ñ€Ð°Ð½ Ñ€Ð°Ð·Ð´ÐµÐ», ÐµÑÐ»Ð¸ Ð²Ñ‹ Ñ…Ð¾Ñ‚Ð¸Ñ‚Ðµ Ð¾Ð±Ð½Ð¾Ð²Ð»ÑÑ‚ÑŒ Ð² Ñ„Ð¾Ð½Ð¾Ð²Ð¾Ð¼ Ñ€ÐµÐ¶Ð¸Ð¼Ðµ, Ð²ÐºÐ»ÑŽÑ‡Ð¸Ñ‚Ðµ';
-    STR_AUTO_REFRESH_BACKGROUND = 'ÐÐ²Ñ‚Ð¾Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ðµ Ð² Ñ„Ð¾Ð½Ð¾Ð²Ð¾Ð¼ Ñ€ÐµÐ¶Ð¸Ð¼Ðµ';
-    STR_AUTO_REFRESH_BACKGROUND_SUMMARY =
-        'ÐšÐ¾Ð³Ð´Ð° ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½ Ð¸ Ð²ÐºÐ»ÑŽÑ‡ÐµÐ½ Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€ Â«Ñ‚Ð°Ð¹Ð¼-Ð°ÑƒÑ‚ Ð°Ð²Ñ‚Ð¾Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸ÑÂ», Ð°Ð²Ñ‚Ð¾Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ðµ Ð±ÑƒÐ´ÐµÑ‚ Ð¿Ñ€Ð¾Ð¸ÑÑ…Ð¾Ð´Ð¸Ñ‚ÑŒ Ð² Ñ„Ð¾Ð½Ð¾Ð²Ð¾Ð¼ Ñ€ÐµÐ¶Ð¸Ð¼Ðµ (Ð½Ð¾ ÐºÐ¾Ð³Ð´Ð° Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ Ð¾Ñ‚Ð¾Ð±Ñ€Ð°Ð¶Ð°ÐµÑ‚ÑÑ, Android Ð½Ðµ Ð¿Ð¾Ð·Ð²Ð¾Ð»ÑÐµÑ‚ Ð½ÐµÐ¾Ð³Ñ€Ð°Ð½Ð¸Ñ‡ÐµÐ½Ð½Ð¾ Ð·Ð°Ð¿ÑƒÑÐºÐ°Ñ‚ÑŒ Ð² Ñ„Ð¾Ð½Ð¾Ð²Ð¾Ð¼ Ñ€ÐµÐ¶Ð¸Ð¼Ðµ, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð¸Ð·Ð±ÐµÐ¶Ð°Ñ‚ÑŒ Ð¿Ñ€Ð¾Ð±Ð»ÐµÐ¼ Ñ Ð´Ñ€ÑƒÐ³Ð¸Ð¼Ð¸ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸ÑÐ¼Ð¸). ÐšÐ¾Ð³Ð´Ð° Ð²Ñ‹ Ð²ÐµÑ€Ð½ÐµÑ‚ÐµÑÑŒ Ðº ÑÐºÑ€Ð°Ð½Ñƒ, Ð½Ð° ÐºÐ¾Ñ‚Ð¾Ñ€Ð¾Ð¼ Ñ€Ð°Ð½ÑŒÑˆÐµ Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ðµ Ð½Ðµ Ð·Ð°Ð¿ÑƒÑÐºÐ°Ð»Ð¾ÑÑŒ, Ð¸Ð¼ÐµÐ¹Ñ‚Ðµ Ð² Ð²Ð¸Ð´Ñƒ, Ñ‡Ñ‚Ð¾ Ð² Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ð¸ ÑÐ»Ð¸ÑˆÐºÐ¾Ð¼ Ð¼Ð½Ð¾Ð³Ð¾ ÑÐºÑ€Ð°Ð½Ð¾Ð². ÐšÐ¾Ð³Ð´Ð° ÑÑ‚Ð¾Ñ‚ Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€ Ð²ÐºÐ»ÑŽÑ‡ÐµÐ½, Ð°Ð²Ñ‚Ð¾Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ðµ Ð¼Ð¾Ð¶ÐµÑ‚ Ð²Ñ‹Ð·Ð²Ð°Ñ‚ÑŒ ÑÐ»ÑƒÑ‡Ð°Ð¹Ð½Ñ‹Ðµ Ð»Ð°Ð³Ð¸ Ð½Ð° Ð½ÐµÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ñ… ÑÐ»Ð°Ð±Ñ‹Ñ… ÑƒÑÑ‚Ñ€Ð¾Ð¹ÑÑ‚Ð²Ð°Ñ….';
-    STR_MAIN_WINDOW = 'ÐžÑÐ½Ð¾Ð²Ð½Ð¾Ðµ Ð²Ð¸Ð´ÐµÐ¾';
-    STR_MULTI_MAIN_WINDOW = 'ÐžÑÐ½Ð¾Ð²Ð½Ð¾Ðµ Ð²Ð¸Ð´ÐµÐ¾ Ð¼ÑƒÐ»ÑŒÑ‚Ð¸ÑÑ‚Ñ€Ð¸Ð¼Ð°';
-    STR_MAIN_MULTI_BIG = STR_MULTI_MAIN_WINDOW + ' Ð¸ Ñ‡Ð°Ñ‚: Ð½Ð°Ð¶Ð¼Ð¸Ñ‚Ðµ Ð²Ð½Ð¸Ð·, Ð·Ð°Ñ‚ÐµÐ¼ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐ¹Ñ‚Ðµ Ð²Ð»ÐµÐ²Ð¾/Ð²Ð¿Ñ€Ð°Ð²Ð¾, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð¸Ð·Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ.';
-    STR_SOURCE_CHECK = 'ÐÐ²Ñ‚Ð¾ Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ðµ ÐºÐ°Ñ‡ÐµÑÑ‚Ð²Ð° Ð¿Ð»ÐµÐµÑ€Ð° Ñ Ð¸ÑÑ‚Ð¾Ñ‡Ð½Ð¸ÐºÐ° Ð½Ð° Ð°Ð²Ñ‚Ð¾, ÐºÐ¾Ð³Ð´Ð° Ð¿Ñ€Ð¾Ð¸Ð³Ñ€Ñ‹Ð²Ð°Ñ‚ÐµÐ»ÑŒ Ð¾Ñ‚ÑÑ‚Ð°ÐµÑ‚';
-    STR_SOURCE_CHECK_SUMMARY =
-        'ÐšÐ¾Ð³Ð´Ð° ÑÑ‚Ð° Ð¾Ð¿Ñ†Ð¸Ñ Ð²ÐºÐ»ÑŽÑ‡ÐµÐ½Ð°, Ð¸ Ð²Ñ‹ Ð½Ðµ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐµÑ‚Ðµ Ð°Ð²Ñ‚Ð¾ ÐºÐ°Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð¿Ð»ÐµÐµÑ€Ð°, ÐµÑÐ»Ð¸ Ð¿Ð»ÐµÐµÑ€ Ð½Ðµ Ð¼Ð¾Ð¶ÐµÑ‚ Ð²Ð¾ÑÐ¿Ñ€Ð¾Ð¸Ð·Ð²ÐµÑÑ‚Ð¸ Ð±Ð¾Ð»ÐµÐµ 15 ÑÐµÐºÑƒÐ½Ð´ Ð¾Ð½ Ð¿ÐµÑ€ÐµÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑÑ Ð½Ð° Ð°Ð²Ñ‚Ð¾ ÐºÐ°Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð¸ Ð¿Ñ€ÐµÐ´ÑƒÐ¿Ñ€ÐµÐ´Ð¸Ñ‚ Ð¾Ð± ÑÑ‚Ð¾Ð¼. ÐŸÐ¾ÑÐ»Ðµ ÑÑ‚Ð¾Ð³Ð¾ Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ñ Ð¿Ð»ÐµÐµÑ€ Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡ÐµÑÐºÐ¸ Ð²ÐµÑ€Ð½ÐµÑ‚ÑÑ Ðº Ð¸ÑÑ‚Ð¾Ñ‡Ð½Ð¸ÐºÑƒ, ÐºÐ¾Ð³Ð´Ð° Ð²Ñ‹ Ð²ÐºÐ»ÑŽÑ‡Ð¸Ñ‚Ðµ Ð½Ð¾Ð²Ñ‹Ð¹ ÑÑ‚Ñ€Ð¸Ð¼ Ð¸Ð»Ð¸ Ð²Ð¸Ð´ÐµÐ¾';
-    STR_PLAYER_LAG = 'ÐŸÐ»ÐµÐµÑ€ Ñ‚Ð¾Ñ€Ð¼Ð¾Ð·Ð¸Ñ‚, ÐºÐ°Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð¾ Ð½Ð°"ÐÐ²Ñ‚Ð¾ Ñ€ÐµÐ¶Ð¸Ð¼"';
-    STR_PLAYER_SOURCE = 'ÐŸÐ»ÐµÐµÑ€ Ñ‚Ð¾Ñ€Ð¼Ð¾Ð·Ð¸Ñ‚, ÐºÐ°Ñ‡ÐµÑÑ‚Ð²Ð¾ ÑÐ½Ð¸Ð¶ÐµÐ½Ð¾';
-    STR_TOO_ERRORS = 'Ð¸Ð»Ð¸ ÑÐ»Ð¸ÑˆÐºÐ¾Ð¼ Ð¼Ð½Ð¾Ð³Ð¾ Ð¾ÑˆÐ¸Ð±Ð¾Ðº';
-    STR_STREAM_ERROR_SMALL = 'ÐŸÑ€ÐµÐ²ÑŒÑŽ, Ñ‚Ñ€Ð°Ð½ÑÐ»ÑÑ†Ð¸Ñ Ð·Ð°Ð²ÐµÑ€ÑˆÐµÐ½Ð°' + STR_TOO_ERRORS;
-    STR_CONTROLS_MEDIA_FF = 'ÐŸÐµÑ€ÐµÐ¼Ð¾Ñ‚ÐºÐ° (Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð´Ð»Ñ Ð²Ð¸Ð´ÐµÐ¾ Ð¸ ÐºÐ»Ð¸Ð¿Ð¾Ð²): Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐ¹Ñ‚Ðµ D-pad Ð²Ð¿Ñ€Ð°Ð²Ð¾/Ð²Ð»ÐµÐ²Ð¾ Ð¸Ð»Ð¸ ÐºÐ½Ð¾Ð¿ÐºÐ¸ Ð´Ð»Ñ Ð±Ñ‹ÑÑ‚Ñ€Ð¾Ð¹ Ð¿ÐµÑ€ÐµÐ¼Ð¾Ñ‚ÐºÐ¸ Ð²Ð¿ÐµÑ€ÐµÐ´/Ð½Ð°Ð·Ð°Ð´';
-    STR_VOD_MUTED =
-        'Ð§Ð°ÑÑ‚ÑŒ Ð·Ð²ÑƒÐºÐ° Ð¾Ñ‚ÐºÐ»ÑŽÑ‡ÐµÐ½Ð°, Ð¿Ð¾ÑÐºÐ¾Ð»ÑŒÐºÑƒ ÑÐ¾Ð´ÐµÑ€Ð¶Ð¸Ñ‚ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚, Ð·Ð°Ñ‰Ð¸Ñ‰ÐµÐ½Ð½Ñ‹Ð¹ Ð°Ð²Ñ‚Ð¾Ñ€ÑÐºÐ¸Ð¼ Ð¿Ñ€Ð°Ð²Ð¾Ð¼, Ð±Ð¾Ð»ÐµÐµ Ñ‚ÐµÐ¼Ð½Ñ‹Ð¹ Ñ†Ð²ÐµÑ‚ Ð½Ð° Ð¿Ð°Ð½ÐµÐ»Ð¸ Ð¿Ð¾Ð¸ÑÐºÐ° ÑƒÐºÐ°Ð·Ñ‹Ð²Ð°ÐµÑ‚ ÑÑ‚Ð¸ Ð½Ð° Ñ‡Ð°ÑÑ‚Ð¸';
-    STR_GIFT_SUB = 'Ð¿Ð¾Ð´Ð°Ñ€Ð¸Ð» Ð²Ð°Ð¼ Ð¿Ð¾Ð´Ð¿Ð¸ÑÐºÑƒ!';
-    STR_ANONYMOUS = 'Ð°Ð½Ð¾Ð½Ð¸Ð¼Ð½Ñ‹Ð¹';
-    STR_CHAT_BANNED = 'Ð’Ñ‹ Ð·Ð°Ð±Ð°Ð½ÐµÐ½Ñ‹ Ð½Ð° ÑÑ‚Ð¾Ð¼ ÐºÐ°Ð½Ð°Ð»Ðµ';
-    STR_CHAT_WRITE = 'ÐÐ°Ð¿Ð¸ÑÐ°Ñ‚ÑŒ Ð² Ñ‡Ð°Ñ‚';
-    STR_CHAT_EXTRA = 'Ð”Ð¾Ð¿. Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸ Ñ‡Ð°Ñ‚Ð°';
-    STR_PLACEHOLDER_CHAT =
-        'ÐšÐ¾Ð³Ð´Ð° ÑÑ‚Ð¾Ñ‚ Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€ Ð²Ñ‹Ð±Ñ€Ð°Ð½, Ð½Ð°Ð¶Ð¼Ð¸Ñ‚Ðµ ÐžÐš, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð¾Ñ‚Ð¾Ð±Ñ€Ð°Ð·Ð¸Ñ‚ÑŒ ÑÐºÑ€Ð°Ð½Ð½ÑƒÑŽ ÐºÐ»Ð°Ð²Ð¸Ð°Ñ‚ÑƒÑ€Ñƒ. Ð•ÑÐ»Ð¸ Ñƒ Ð²Ð°Ñ Ð¿Ð¾Ð´ÐºÐ»ÑŽÑ‡ÐµÐ½Ð° Ñ„Ð¸Ð·Ð¸Ñ‡ÐµÑÐºÐ°Ñ ÐºÐ»Ð°Ð²Ð¸Ð°Ñ‚ÑƒÑ€Ð°, Ð½Ð°Ð¶Ð¼Ð¸Ñ‚Ðµ Ð½Ð°Ð·Ð°Ð´ Ð¸Ð»Ð¸ esc, Ñ‡Ñ‚Ð¾Ð±Ñ‹ ÑÐºÑ€Ñ‹Ñ‚ÑŒ ÑÐºÑ€Ð°Ð½Ð½ÑƒÑŽ ÐºÐ»Ð°Ð²Ð¸Ð°Ñ‚ÑƒÑ€Ñƒ.';
-    STR_CHAT_ROOMSTATE = 'Ð§Ð°Ñ‚ ÐºÐ°Ð½Ð°Ð»Ð°:';
-    STR_CHAT_NO_RESTRICTIONS = 'ÐÐµÑ‚ Ð¾Ð³Ñ€Ð°Ð½Ð¸Ñ‡ÐµÐ½Ð¸Ð¹';
-    STR_OPTIONS = 'ÐžÐ¿Ñ†Ð¸Ð¸';
-    STR_CHAT_DELL_ALL = 'Ð£Ð´Ð°Ð»Ð¸Ñ‚ÑŒ Ð²ÑÐµ';
-    STR_CHAT_UNICODE_EMOJI = 'Unicode Ð­Ð¼Ð¾Ð´Ð·Ð¸';
-    STR_CHAT_TW_EMOTES = 'Ð¡Ð¼Ð°Ð¹Ð»Ñ‹ Twitch';
-    STR_CHAT_BTTV_GLOBAL = 'BTTV Ð³Ð»Ð¾Ð±Ð°Ð»ÑŒÐ½Ñ‹Ðµ';
-    STR_CHAT_BTTV_STREAM = 'BTTV ÑÑ‚Ñ€Ð¸Ð¼ÐµÑ€Ð°';
-    STR_CHAT_FFZ_GLOBAL = 'FFZ Ð³Ð»Ð¾Ð±Ð°Ð»ÑŒÐ½Ñ‹Ðµ';
-    STR_CHAT_FFZ_STREAM = 'FFZ ÑÑ‚Ñ€Ð¸Ð¼ÐµÑ€Ð°';
-    STR_CHAT_SEVENTV_GLOBAL = '7TV Ð³Ð»Ð¾Ð±Ð°Ð»ÑŒÐ½Ñ‹Ðµ';
-    STR_CHAT_SEVENTV_STREAM = '7TV ÑÑ‚Ñ€Ð¸Ð¼ÐµÑ€Ð°';
-    STR_CHAT_AT_STREAM = '@ÑÑ‚Ñ€Ð¸Ð¼ÐµÑ€';
-    STR_CHAT_RESULT = 'Ð’ Ñ‡Ð°Ñ‚Ðµ Ð¾Ð¶Ð¸Ð´Ð°ÐµÐ¼Ñ‹Ð¹ Ñ€ÐµÐ·ÑƒÐ»ÑŒÑ‚Ð°Ñ‚:';
-    STR_CHAT_SEND = 'ÐžÑ‚Ð¿Ñ€Ð°Ð²Ð¸Ñ‚ÑŒ';
-    STR_CHAT_EMOTE_EMPTY = 'Ð­Ñ‚Ð¾Ñ‚ ÑÐ¿Ð¸ÑÐ¾Ðº ÑÐ¼Ð¾Ñ†Ð¸Ð¹ Ð¿ÑƒÑÑ‚';
-    STR_CHAT_FOLLOWER_ONLY = 'Ð§Ð°Ñ‚ Ð´Ð¾ÑÑ‚ÑƒÐ¿ÐµÐ½ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð´Ð»Ñ Ð¿Ð¾Ð´Ð¿Ð¸ÑÑ‡Ð¸ÐºÐ¾Ð², Ð¸ Ð²Ñ‹ Ð½Ðµ ÑÐ²Ð»ÑÐµÑ‚ÐµÑÑŒ Ð¿Ð¾Ð´Ð¿Ð¸ÑÑ‡Ð¸ÐºÐ¾Ð¼';
-    STR_CHAT_FOLLOWER_ONLY_USER_TIME = 'Ð²Ñ‹ Ð¿Ð¾Ð´Ð¿Ð¸ÑÐ°Ð½Ñ‹ Ñ‚Ð¾Ð»ÑŒÐºÐ¾';
-    STR_CHAT_EMOTE_ONLY = 'Ð ÐµÐ¶Ð¸Ð¼ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ ÑÐ¼Ð°Ð¹Ð»Ð¸ÐºÐ¸';
-    STR_CHAT_CHOOSE = 'Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ Ñ‡Ð°Ñ‚, Ð² ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ð¹ Ñ…Ð¾Ñ‚Ð¸Ñ‚Ðµ Ð½Ð°Ð¿Ð¸ÑÐ°Ñ‚ÑŒ, Ð¸Ð»Ð¸ Ð½Ð°Ð¶Ð¼Ð¸Ñ‚Ðµ ÐºÐ½Ð¾Ð¿ÐºÑƒ Ð½Ð°Ð·Ð°Ð´, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð·Ð°ÐºÑ€Ñ‹Ñ‚ÑŒ ÑÑ‚Ð¾';
-    STR_CHAT_OPTIONS_TITLE = 'ÐÐ°Ð¿Ð¸ÑÐ°Ñ‚ÑŒ Ð´Ð»Ñ Ð¾Ð¿Ñ†Ð¸Ð¹ Ñ‡Ð°Ñ‚Ð°';
-    STR_CHAT_OPTIONS_KEYBOARD = 'ÐÐ²Ñ‚Ð¾ ÑÐºÑ€Ñ‹Ñ‚Ð¸Ðµ ÐºÐ»Ð°Ð²Ð¸Ð°Ñ‚ÑƒÑ€Ñ‹';
-    STR_CHAT_OPTIONS_KEYBOARD_SUMMARY =
-        'ÐŸÐ¾Ð·Ð²Ð¾Ð»ÑÐµÑ‚ ÑƒÐ¿Ñ€Ð°Ð²Ð»ÑÑ‚ÑŒ Ð¿Ð¾Ð²ÐµÐ´ÐµÐ½Ð¸ÐµÐ¼ ÑÐºÑ€Ð°Ð½Ð½Ð¾Ð¹ ÐºÐ»Ð°Ð²Ð¸Ð°Ñ‚ÑƒÑ€Ñ‹, ÐµÑÐ»Ð¸ Ñƒ Ð²Ð°Ñ Ð¿Ð¾Ð´ÐºÐ»ÑŽÑ‡ÐµÐ½Ð° Ñ„Ð¸Ð·Ð¸Ñ‡ÐµÑÐºÐ°Ñ ÐºÐ»Ð°Ð²Ð¸Ð°Ñ‚ÑƒÑ€Ð°, Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐ¹Ñ‚Ðµ ÐµÐµ, ÐµÑÐ»Ð¸ Ð½Ðµ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ð¾ ÐÐ¸ÐºÐ¾Ð³Ð´Ð°';
-    STR_CHAT_OPTIONS_KEYBOARD_1 = 'ÐÐ¸ÐºÐ¾Ð³Ð´Ð°';
-    STR_CHAT_OPTIONS_KEYBOARD_2 = 'Ð•ÑÐ»Ð¸ ÐºÐ»Ð°Ð²Ð¸Ð°Ñ‚ÑƒÑ€Ð° Ð¾Ð±Ð½Ð°Ñ€ÑƒÐ¶ÐµÐ½Ð°';
-    STR_CHAT_OPTIONS_KEYBOARD_3 = 'Ð’ÑÐµÐ³Ð´Ð°';
-    STR_CHAT_OPTIONS_EMOTE_SORT = 'Ð¡Ð¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²ÐºÐ° ÑÐ¼Ð°Ð¹Ð»Ð¾Ð²';
-    STR_CHAT_OPTIONS_EMOTE_SORT_SUMMARY = 'Ð•ÑÐ»Ð¸ ÑÑ‚Ð¾ Ð¾Ñ‚ÐºÐ»ÑŽÑ‡ÐµÐ½Ð¾, ÑÐ¿Ð¸ÑÐºÐ¸ ÑÐ¼Ð°Ð¹Ð»Ð¾Ð² Ð±ÑƒÐ´ÑƒÑ‚ Ð¾Ñ‚Ð¾Ð±Ñ€Ð°Ð¶Ð°Ñ‚ÑŒÑÑ Ð¿Ð¾ ÑƒÐ¼Ð¾Ð»Ñ‡Ð°Ð½Ð¸ÑŽ.';
-    STR_CHAT_OPTIONS_FORCE_SHOW = 'ÐŸÑ€Ð¸Ð½ÑƒÐ´Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ð¾ Ð¿Ð¾ÐºÐ°Ð·Ð°Ñ‚ÑŒ Ñ‡Ð°Ñ‚';
-    STR_CHAT_OPTIONS_FORCE_SHOW_SUMMARY = 'Ð•ÑÐ»Ð¸ Ð²Ñ‹ Ñ…Ð¾Ñ‚Ð¸Ñ‚Ðµ Ð²Ð¸Ð´ÐµÑ‚ÑŒ Ñ‡Ð°Ñ‚, ÐºÐ¾Ð³Ð´Ð° Ð¿Ð¸ÑˆÐ¸Ñ‚Ðµ Ð² Ñ‡Ð°Ñ‚, Ð²ÐºÐ»ÑŽÑ‡Ð¸Ñ‚Ðµ ÑÑ‚Ð¾';
-    STR_NOKEY_CHAT_WARN = 'Ð”Ð¾Ð±Ð°Ð²ÑŒÑ‚Ðµ ÐºÐ»ÑŽÑ‡ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð¸Ð¼ÐµÑ‚ÑŒ Ð²Ð¾Ð·Ð¼Ð¾Ð¶Ð½Ð¾ÑÑ‚ÑŒ Ð²Ñ…Ð¾Ð´Ð¸Ñ‚ÑŒ Ð¸ Ð¿Ð¸ÑÐ°Ñ‚ÑŒ Ð² Ñ‡Ð°Ñ‚';
-    STR_CHAT_NOT_READY = 'Ð§Ð°Ñ‚ Ð½Ðµ Ð³Ð¾Ñ‚Ð¾Ð²! ÐŸÐ¾Ð¿Ñ€Ð¾Ð±ÑƒÐ¹Ñ‚Ðµ ÐµÑ‰Ðµ Ñ€Ð°Ð· Ñ‡ÐµÑ€ÐµÐ· Ð½ÐµÑÐºÐ¾Ð»ÑŒÐºÐ¾ ÑÐµÐºÑƒÐ½Ð´.';
-    STR_CHAT_REDEEMED_MESSAGE_HIGH = 'ÐÐºÑ‚Ð¸Ð²Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¾ Ð’Ñ‹Ð´ÐµÐ»Ð¸Ñ‚Ðµ Ð¼Ð¾Ðµ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ðµ';
-    STR_CHAT_FIRST_MESSAGE_HIGH = 'ÐŸÐ•Ð Ð’ÐžÐ• Ð¡ÐžÐžÐ‘Ð©Ð•ÐÐ˜Ð•';
-    STR_CHAT_REDEEMED_MESSAGE_SUB = 'ÐÐºÑ‚Ð¸Ð²Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¾ ÐžÑ‚Ð¿Ñ€Ð°Ð²Ð¸Ñ‚ÑŒ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ðµ Ð² Ñ€ÐµÐ¶Ð¸Ð¼Ðµ Ð´Ð»Ñ Ð¿Ð¾Ð´Ð¿Ð¸ÑÑ‡Ð¸ÐºÐ¾Ð²';
-    STR_CHAT_OPTIONS = 'ÐÐ°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸ Ñ‡Ð°Ñ‚Ð°';
-    STR_CHAT_HIGHLIGHT_STREAMER_MSG = 'Ð’Ñ‹Ð´ÐµÐ»Ð¸Ñ‚ÑŒ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ñ Ð¾Ñ‚ ÑÑ‚Ñ€Ð¸Ð¼ÐµÑ€Ð° (Ñ‚ÐµÐ¼Ð½Ð¾-Ñ€Ð¾Ð·Ð¾Ð²Ñ‹Ð¹ Ñ„Ð¾Ð½)';
-    STR_CHAT_HIGHLIGHT_MOD_MSG = 'Ð’Ñ‹Ð´ÐµÐ»Ð¸Ñ‚ÑŒ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ñ Ð¾Ñ‚ Ð¼Ð¾Ð´ÐµÑ€Ð°Ñ‚Ð¾Ñ€Ð° (Ñ‚ÐµÐ¼Ð½Ð¾-Ð³Ð¾Ð»ÑƒÐ±Ð¾Ð¹ Ñ„Ð¾Ð½)';
-    STR_CHAT_HIGHLIGHT_REDEEMED = 'Ð’Ñ‹Ð´ÐµÐ»Ð¸Ñ‚ÑŒ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ñ Ð¾ Ð½Ð°Ð³Ñ€Ð°Ð´Ð°Ñ… (Ñ‚Ð¾Ð»ÑŒÐºÐ¾ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ðµ Ñ Ñ„Ð¸Ð¾Ð»ÐµÑ‚Ð¾Ð²Ñ‹Ð¼ Ñ„Ð¾Ð½Ð¾Ð¼)';
-    STR_CHAT_HIGHLIGHT_FIRST = 'Ð’Ñ‹Ð´ÐµÐ»Ð¸Ñ‚ÑŒ ÐÐ¾Ð²Ð¾Ð³Ð¾ Ð£Ñ‡Ð°ÑÑ‚Ð½Ð¸ÐºÐ° Ð§Ð°Ñ‚Ð° (Ð¢Ñ‘Ð¼Ð½Ð¾-Ñ€Ð¾Ð·Ð¾Ð²Ñ‹Ð¹ Ñ„Ð¾Ð½)';
-    STR_CHAT_HIGHLIGHT_STREAMER = 'Ð’Ñ‹Ð´ÐµÐ»Ð¸Ñ‚ÑŒ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ñ @streamer (Ñ‚ÐµÐ¼Ð½Ð¾-ÐºÑ€Ð°ÑÐ½Ñ‹Ð¹ Ñ„Ð¾Ð½, @ÑÐ¸Ð½Ð¸Ð¹)';
-    STR_CHAT_HIGHLIGHT_USER = 'Ð’Ñ‹Ð´ÐµÐ»Ð¸Ñ‚ÑŒ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ñ Ð²Ð°Ð¼ @username (Ñ‚ÐµÐ¼Ð½Ð¾-Ð·ÐµÐ»ÐµÐ½Ñ‹Ð¹ Ñ„Ð¾Ð½, @ÑÐ¸Ð½Ð¸Ð¹)';
-    STR_CHAT_HIGHLIGHT_USER_SEND = 'Ð’Ñ‹Ð´ÐµÐ»Ð¸Ñ‚ÑŒ ÑÐ²Ð¾Ð¸ Ð¾Ñ‚Ð¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð½Ñ‹Ðµ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ñ (Ñ‚ÐµÐ¼Ð½Ð¾-Ð·ÐµÐ»ÐµÐ½Ñ‹Ð¹ Ñ„Ð¾Ð½)';
-    STR_CHAT_SHOW_SUB = 'Ð’Ñ‹Ð´ÐµÐ»Ð¸Ñ‚ÑŒ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ñ Ð¿Ð¾Ð´Ð¿Ð¸ÑÑ‡Ð¸ÐºÐ¾Ð² Ð² Ñ‡Ð°Ñ‚Ðµ (Ñ‚ÐµÐ¼Ð½Ð¾-Ð¾Ñ€Ð°Ð½Ð¶ÐµÐ²Ñ‹Ð¹ Ñ„Ð¾Ð½)';
-    STR_CHAT_HIGHLIGHT_BIT = 'Ð’Ñ‹Ð´ÐµÐ»Ð¸Ñ‚ÑŒ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ñ Bits (Ñ‚ÐµÐ¼Ð½Ð¾-Ð¶ÐµÐ»Ñ‚Ñ‹Ð¹ Ñ„Ð¾Ð½)';
-    STR_CHAT_HIGHLIGHT_ACTIONS = 'Ð¡Ð¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ñ Ð´ÐµÐ¹ÑÑ‚Ð²Ð¸Ð¹ (Ð¾Ð±Ñ‹Ñ‡Ð½Ð¾ ÑÑ‚Ð¾ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ñ Ð±Ð¾Ñ‚Ð¾Ð² ÑÑ‚Ñ€Ð¸Ð¼Ð°)';
-    STR_CHAT_HIGHLIGHT_ACTIONS_SUMMARY =
-        'Ð­Ñ‚Ð¸ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ñ Ð¾Ð±Ñ‹Ñ‡Ð½Ð¾ Ð°Ð½Ð°Ð»Ð¾Ð³Ð¸Ñ‡Ð½Ñ‹ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸ÑÐ¼ Ð¿Ð¾Ð´Ð¿Ð¸ÑÑ‡Ð¸ÐºÐ¾Ð², Ð½Ð¾ Ð¾Ñ‚Ð¿Ñ€Ð°Ð²Ð»ÑÑŽÑ‚ÑÑ Ñ‡ÐµÑ€ÐµÐ· ÑÑ‚Ñ€Ð¸Ð¼ Ð±Ð¾Ñ‚Ð°, Ð¿Ð¾ÑÑ‚Ð¾Ð¼Ñƒ, ÐµÑÐ»Ð¸ Ñƒ Ð²Ð°Ñ Ð²ÐºÐ»ÑŽÑ‡ÐµÐ½ Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€ Â«Ð’Ñ‹Ð´ÐµÐ»Ð¸Ñ‚ÑŒ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ñ Ð¿Ð¾Ð´Ð¿Ð¸ÑÑ‡Ð¸ÐºÐ¾Ð²...Â», ÑÑ‚Ð¾ Ð½Ðµ Ð½ÑƒÐ¶Ð½Ð¾.';
-    STR_CHAT_INDIVIDUAL_BACKGROUND = 'Ð Ð°Ð·Ð½Ð¸Ñ†Ð° Ð² Ñ†Ð²ÐµÑ‚Ðµ Ñ„Ð¾Ð½Ð° Ð¾Ñ‚Ð´ÐµÐ»ÑŒÐ½Ñ‹Ñ… ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ð¹';
-    STR_CHAT_INDIVIDUAL_BACKGROUND_SUMMARY =
-        'ÐžÑ‚ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ, Ð’ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ (Ð°Ð²Ñ‚Ð¾), Ð¡Ð²ÐµÑ‚Ð»Ñ‹Ð¹ Ð¸Ð»Ð¸ Ð¢ÐµÐ¼Ð½Ñ‹Ð¹, Ð’ Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡ÐµÑÐºÐ¾Ð¼ Ñ€ÐµÐ¶Ð¸Ð¼Ðµ, ÐµÑÐ»Ð¸ Ñ‡Ð°Ñ‚ Ð½Ð°Ñ…Ð¾Ð´Ð¸Ñ‚ÑÑ Ð½Ð°Ð´ ÑÑ‚Ñ€Ð¸Ð¼Ð¾Ð¼, Ñƒ Ð½ÐµÑ‡ÐµÑ‚Ð½Ð¾Ð³Ð¾ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ñ Ð±ÑƒÐ´ÐµÑ‚ Ð±Ð¾Ð»ÐµÐµ Ñ‚ÐµÐ¼Ð½Ñ‹Ð¹ Ñ„Ð¾Ð½Ð¾Ð²Ñ‹Ð¹ Ñ†Ð²ÐµÑ‚ Ð¿Ð¾ ÑÑ€Ð°Ð²Ð½ÐµÐ½Ð¸ÑŽ Ñ Ñ‡ÐµÑ‚Ð½Ñ‹Ð¼, ÐµÑÐ»Ð¸ Ñ‡Ð°Ñ‚ Ð½Ðµ Ð²Ñ‹ÑˆÐµ (Ð½Ð°Ð¿Ñ€Ð¸Ð¼ÐµÑ€, Ñ€ÑÐ´Ð¾Ð¼) Ñ†Ð²ÐµÑ‚ Ð±ÑƒÐ´ÐµÑ‚ ÑÑ€ÐºÐ¸Ð¼';
-    STR_CHAT_INDIVIDUAL_LINE = 'Ð’ÑÑ‚Ð°Ð²Ð¸Ñ‚ÑŒ ÑÑ‚Ñ€Ð¾ÐºÑƒ, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ñ€Ð°Ð·Ð´ÐµÐ»Ð¸Ñ‚ÑŒ Ð¾Ñ‚Ð´ÐµÐ»ÑŒÐ½Ñ‹Ðµ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ñ Ñ‡Ð°Ñ‚Ð°';
-    STR_CHAT_LINE_ANIMATION = 'ÐÐ½Ð¸Ð¼Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ð°Ñ Ð¿Ñ€Ð¾ÐºÑ€ÑƒÑ‚ÐºÐ° Ð¿Ñ€Ð¸ Ð´Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð¸Ð¸ Ð½Ð¾Ð²Ð¾Ð³Ð¾ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ñ Ð² Ñ‡Ð°Ñ‚';
-    STR_CHAT_LOGGING = 'Ð’Ñ…Ð¾Ð´ Ð² Ñ‡Ð°Ñ‚ Ñ Ñ‚ÐµÐºÑƒÑ‰Ð¸Ð¼ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÐµÐ¼';
-    STR_CHAT_LOGGING_SUMMARY =
-        'ÐŸÑ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ Ð²ÑÐµÐ³Ð´Ð° Ð±ÑƒÐ´ÐµÑ‚ Ð²Ñ…Ð¾Ð´Ð¸Ñ‚ÑŒ Ð² Ñ‡Ð°Ñ‚ Ñ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ð½Ð¸ÐµÐ¼ Ñ‚ÐµÐºÑƒÑ‰ÐµÐ³Ð¾ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ, ÐµÑÐ»Ð¸ Ð¿Ñ€ÐµÐ´Ð¾ÑÑ‚Ð°Ð²Ð»ÐµÐ½ ÐºÐ»ÑŽÑ‡ Ð°Ð²Ñ‚Ð¾Ñ€Ð¸Ð·Ð°Ñ†Ð¸Ð¸ (ÐµÑÐ»Ð¸ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ñ‡Ð°Ñ‚ Ð½Ðµ Ð¾Ñ‚ÐºÐ»ÑŽÑ‡ÐµÐ½ Ð½Ð° Ð½Ð¸Ð¶Ð½Ð¸Ñ… ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð°Ñ… ÑƒÐ¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð¸Ñ Ð¿Ð»ÐµÐµÑ€Ð°). ÐÐ¾ ÐµÑÐ»Ð¸ Ð´Ð»Ñ ÑÑ‚Ð¾Ð³Ð¾ Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€Ð° ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ð¾ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ ÐÐ•Ð¢, ÑÑ‚Ð¾ Ð¿Ñ€ÐµÐ´Ð¾Ñ‚Ð²Ñ€Ð°Ñ‚Ð¸Ñ‚ Ð²Ñ…Ð¾Ð´ Ñ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ð½Ð¸ÐµÐ¼ Ñ‚ÐµÐºÑƒÑ‰ÐµÐ³Ð¾ Ð¸Ð¼ÐµÐ½Ð¸ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ Ð¸ Ð²Ð¼ÐµÑÑ‚Ð¾ ÑÑ‚Ð¾Ð³Ð¾ Ð±ÑƒÐ´ÐµÑ‚ Ð²Ñ…Ð¾Ð´Ð¸Ñ‚ÑŒ ÐºÐ°Ðº Ð°Ð½Ð¾Ð½Ð¸Ð¼Ð½Ñ‹Ð¹, Ð´Ð°Ð¶Ðµ ÐµÑÐ»Ð¸ Ð¿Ñ€ÐµÐ´Ð¾ÑÑ‚Ð°Ð²Ð»ÐµÐ½ ÐºÐ»ÑŽÑ‡ Ð°Ð²Ñ‚Ð¾Ñ€Ð¸Ð·Ð°Ñ†Ð¸Ð¸. Ð­Ñ‚Ð¾ Ð½Ðµ Ð¿Ñ€ÐµÐ¿ÑÑ‚ÑÑ‚Ð²ÑƒÐµÑ‚ Ð¾Ñ‚Ð¿Ñ€Ð°Ð²ÐºÐµ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ð¹ Ð² Ñ‡Ð°Ñ‚ (ÐµÑÐ»Ð¸ Ð´Ð¾Ð±Ð°Ð²Ð»ÐµÐ½ ÐºÐ»ÑŽÑ‡), Ð½Ð¾ Ð½Ðµ Ð¿Ð¾Ð·Ð²Ð¾Ð»ÑÐµÑ‚ ÑƒÐ·Ð½Ð°Ñ‚ÑŒ Twitch, Ð·Ð°Ð±Ð»Ð¾ÐºÐ¸Ñ€Ð¾Ð²Ð°Ð½Ñ‹ Ð»Ð¸ Ð²Ñ‹ Ð² Ñ‡Ð°Ñ‚Ðµ, Ð¸ Ð½Ðµ Ð¿Ð¾Ð·Ð²Ð¾Ð»ÑÐµÑ‚ ÑƒÐ·Ð½Ð°Ñ‚ÑŒ Ð½Ð°Ñ…Ð¾Ð¶Ð´ÐµÐ½Ð¸Ðµ Ð² Ñ‡Ð°Ñ‚Ðµ';
-    STR_CHAT_BOTS = 'Ð‘Ð»Ð¾ÐºÐ¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ Ð¾Ñ‚Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ðµ Ð±Ð¾Ñ‚Ð¾Ð² Ð¸ ÐºÐ¾Ð¼Ð°Ð½Ð´Ñ‹ Ð±Ð¾Ñ‚Ð¾Ð² (!ÐºÐ¾Ð¼Ð°Ð½Ð´Ð°) Ð² Ñ‡Ð°Ñ‚Ðµ';
-    STR_CHAT_TIMESTAMP = 'ÐŸÐ¾ÐºÐ°Ð·Ð°Ñ‚ÑŒ Ð²Ñ€ÐµÐ¼Ñ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ñ';
-    STR_CHAT_USER_NOTICE = 'ÐŸÐ¾ÐºÐ°Ð·Ð°Ñ‚ÑŒ Ð¿Ñ€ÐµÐ´ÑƒÐ¿Ñ€ÐµÐ¶Ð´ÐµÐ½Ð¸Ðµ Ð¾ Ð½ÐµÐ¿Ñ€ÑÐ¼Ð¾Ð¼ ÑƒÐ²ÐµÐ´Ð¾Ð¼Ð»ÐµÐ½Ð¸Ð¸ Ð² Ñ‡Ð°Ñ‚Ðµ';
-    STR_CHAT_USER_NOTICE_SUMMARY =
-        'ÐŸÐ¾ÐºÐ°Ð·Ð°Ñ‚ÑŒ Ð¿Ñ€ÐµÐ´ÑƒÐ¿Ñ€ÐµÐ¶Ð´ÐµÐ½Ð¸Ðµ Ð½Ð° ÑÐºÑ€Ð°Ð½Ðµ, ÐºÐ¾Ð³Ð´Ð° Ñ‡Ð°Ñ‚ Ð¿Ð¾Ð»ÑƒÑ‡Ð°ÐµÑ‚ Ð½ÐµÐ¿Ñ€ÑÐ¼Ð¾Ðµ ÑƒÐ²ÐµÐ´Ð¾Ð¼Ð»ÐµÐ½Ð¸Ðµ. ÐÐ°Ð¿Ñ€Ð¸Ð¼ÐµÑ€: Ð§Ð°Ñ‚: Ð­Ñ‚Ð¾Ñ‚ ÐºÐ°Ð½Ð°Ð» Ñ‚ÐµÐ¿ÐµÑ€ÑŒ Ð² Ñ€ÐµÐ¶Ð¸Ð¼Ðµ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ ÑÐ¼Ð¾Ð´Ð·Ð¸.';
-    STR_CHAT_NICK_COLOR = 'Ð§Ð¸Ñ‚Ð°ÐµÐ¼Ñ‹Ðµ Ñ†Ð²ÐµÑ‚Ð° Ð½Ð¸ÐºÐ¾Ð²';
-    STR_CHAT_NICK_COLOR_SUMMARY =
-        'Ð’Ð¼ÐµÑÑ‚Ð¾ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ð½Ð¸Ñ Ñ†Ð²ÐµÑ‚Ð° Ð½Ð¸ÐºÐ¾Ð² Ð¿Ð¾ ÑƒÐ¼Ð¾Ð»Ñ‡Ð°Ð½Ð¸ÑŽ, ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ð¹ Ð¸Ð½Ð¾Ð³Ð´Ð° Ð½Ðµ Ñ‡Ð¸Ñ‚Ð°ÐµÑ‚ÑÑ Ð½Ð° Ñ‚ÐµÐ¼Ð½Ð¾Ð¼ Ñ„Ð¾Ð½Ðµ, Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÑŒ Ð½Ð°ÑÑ‚Ñ€Ð°Ð¸Ð²Ð°ÐµÐ¼Ñ‹Ð¹, ÑƒÐ´Ð¾Ð±Ð½Ñ‹Ð¹ Ð´Ð»Ñ Ñ‡Ñ‚ÐµÐ½Ð¸Ñ Ñ†Ð²ÐµÑ‚.';
-    STR_CHAT_CLEAR_MSG = 'ÐžÑ‡Ð¸ÑÑ‚ÐºÐ° Ñ‡Ð°Ñ‚Ð°, ÑƒÐ´Ð°Ð»ÐµÐ½Ð¸Ðµ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ð¹ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÐµÐ¹';
-    STR_CHAT_SHOW_BADGES = 'ÐŸÐ¾ÐºÐ°Ð·Ñ‹Ð²Ð°Ñ‚ÑŒ Ð·Ð½Ð°Ñ‡ÐºÐ¸ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÐµÐ¹ (Ð·Ð° Ð¸ÑÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸ÐµÐ¼ ÑƒÐºÐ°Ð·Ð°Ð½Ð½Ñ‹Ñ… Ð½Ð¸Ð¶Ðµ)';
-    STR_CHAT_SHOW_BADGES_MOD = 'ÐŸÐ¾ÐºÐ°Ð·Ñ‹Ð²Ð°Ñ‚ÑŒ Ð·Ð½Ð°Ñ‡ÐºÐ¸ Ð¼Ð¾Ð´ÐµÑ€Ð°Ñ‚Ð¾Ñ€Ð¾Ð²';
-    STR_CHAT_SHOW_BADGES_VIP = 'ÐŸÐ¾ÐºÐ°Ð·Ñ‹Ð²Ð°Ñ‚ÑŒ Ð·Ð½Ð°Ñ‡ÐºÐ¸ VIP';
-    STR_CHAT_SHOW_BADGES_SHARED = 'ÐŸÐ¾ÐºÐ°Ð·Ñ‹Ð²Ð°Ñ‚ÑŒ Ð·Ð½Ð°Ñ‡ÐºÐ¸ Ð¾Ð±Ñ‰ÐµÐ³Ð¾ Ñ‡Ð°Ñ‚Ð°';
-    STR_CHAT_MESSAGE_DELETED = 'Ð­Ñ‚Ð¾ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ðµ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ Ð±Ñ‹Ð»Ð¾ Ð·Ð°Ð¿Ñ€Ð¾ÑˆÐµÐ½Ð¾ Ð½Ð° ÑƒÐ´Ð°Ð»ÐµÐ½Ð¸Ðµ';
-    STR_CHAT_MESSAGE_DELETED_ALL = 'Ð’ÑÐµ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ñ Ð¾Ñ‚ ÑÑ‚Ð¾Ð³Ð¾ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ Ð±Ñ‹Ð»Ð¸ Ð·Ð°Ð¿Ñ€Ð¾ÑˆÐµÐ½Ñ‹ Ð½Ð° ÑƒÐ´Ð°Ð»ÐµÐ½Ð¸Ðµ';
-    STR_CHAT_MESSAGE_DELETED_TIMEOUT = ', Ñ‚Ð°Ð¹Ð¼-Ð°ÑƒÑ‚ Ð½Ð°';
-    STR_CHAT_CLEAR_MSG_SUMMARY =
-        'Ð£Ð´Ð°Ð»ÑÑ‚ÑŒ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ñ Ð¾Ñ‚ Ð¾Ð¿Ñ€ÐµÐ´ÐµÐ»ÐµÐ½Ð½Ð¾Ð³Ð¾ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ (Ð¾Ð±Ñ‹Ñ‡Ð½Ð¾ Ð¿Ð¾ÑÐ»Ðµ Ñ‚Ð¾Ð³Ð¾, ÐºÐ°Ðº Ð¾Ð½ Ð¿Ð¾Ð»ÑƒÑ‡Ð¸Ð» Ñ‚Ð°Ð¹Ð¼-Ð°ÑƒÑ‚ Ð¸Ð»Ð¸ Ð±Ð°Ð½). Ð£Ð´Ð°Ð»ÐµÐ½Ð½Ñ‹Ðµ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ñ Ð±ÑƒÐ´ÑƒÑ‚ Ð¸Ð¼ÐµÑ‚ÑŒ ÑÐ¸Ð½Ð¸Ð¹ Ñ„Ð¾Ð½ (ÐµÑÐ»Ð¸ Ð½Ðµ Ð¸Ð·Ð¼ÐµÐ½ÑÐ»ÑÑ Ñ†Ð²ÐµÑ‚ Ñ„Ð¾Ð½Ð°). Ð¡Ð¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ðµ Ð±ÑƒÐ´ÐµÑ‚ ÑƒÐ´Ð°Ð»ÐµÐ½Ð¾, ÐµÑÐ»Ð¸ ÑÑ‚Ð¾Ð¸Ñ‚ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ Â«Ð”Ð°Â»';
-    STR_OPEN_HOST_SETTINGS = 'Ð’ÑÐµÐ³Ð´Ð° Ð¾Ñ‚ÐºÑ€Ñ‹Ð²Ð°Ñ‚ÑŒ Ñ€ÐµÐ¹Ð´ Ð² ÐºÐ¾Ð½Ñ†Ðµ ÑÑ‚Ñ€Ð¸Ð¼Ð°, ÐµÑÐ»Ð¸ Ð¾Ð½ Ð´Ð¾ÑÑ‚ÑƒÐ¿ÐµÐ½';
-    STR_ALWAYS_STAY = 'Ð’ÑÐµÐ³Ð´Ð° Ð¾ÑÑ‚Ð°Ð²Ð»ÑÑ‚ÑŒ Ð¿Ð»ÐµÐµÑ€ Ð¾Ñ‚ÐºÑ€Ñ‹Ñ‚Ñ‹Ð¼ Ð¿Ð¾ÑÐ»Ðµ Ð¾ÐºÐ¾Ð½Ñ‡Ð°Ð½Ð¸Ñ ÑÑ‚Ñ€Ð¸Ð¼Ð°';
-    STR_PING_WARNING = 'ÐŸÐ¾ÐºÐ°Ð·Ð°Ñ‚ÑŒ "ÐŸÑ€ÐµÐ´ÑƒÐ¿Ñ€ÐµÐ¶Ð´ÐµÐ½Ð¸Ðµ Ð¾Ð± Ð¾ÑˆÐ¸Ð±ÐºÐµ Ping to Twitch"';
-    STR_PING_WARNING_SUMMARY =
-        'ÐŸÑ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ Ð¿Ð¾ÑÑ‚Ð¾ÑÐ½Ð½Ð¾ Ð¿Ñ€Ð¾Ð²ÐµÑ€ÑÐµÑ‚ ÑÐ¾ÐµÐ´Ð¸Ð½ÐµÐ½Ð¸Ðµ Ñ Twitch Ñ Ð¿Ð¾Ð¼Ð¾Ñ‰ÑŒÑŽ Ð¿Ð¸Ð½Ð³Ð°. Ð•ÑÐ»Ð¸ ÑÑ‚Ð¾ Ð½Ðµ ÑƒÐ´Ð°ÐµÑ‚ÑÑ, Ð±ÑƒÐ´ÐµÑ‚ Ð¾Ñ‚Ð¾Ð±Ñ€Ð°Ð¶Ð°Ñ‚ÑŒÑÑ Ð¿Ñ€ÐµÐ´ÑƒÐ¿Ñ€ÐµÐ¶Ð´ÐµÐ½Ð¸Ðµ, ÐµÑÐ»Ð¸ ÑÑ‚Ð¾ Ð¿Ñ€ÐµÐ´ÑƒÐ¿Ñ€ÐµÐ¶Ð´ÐµÐ½Ð¸Ðµ Ð¾Ñ‚Ð¾Ð±Ñ€Ð°Ð¶Ð°ÐµÑ‚ÑÑ Ð½ÐµÐ¿Ñ€ÐµÐ´Ð½Ð°Ð¼ÐµÑ€ÐµÐ½Ð½Ð¾, ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚Ðµ Ð´Ð»Ñ ÑÑ‚Ð¾Ð³Ð¾ Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€Ð° Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ ÐÐ•Ð¢';
-    STR_KEY_UP_TIMEOUT = 'Ð¢Ð°Ð¹Ð¼-Ð°ÑƒÑ‚ ÑƒÐ´ÐµÑ€Ð¶Ð°Ð½Ð¸Ñ ÐºÐ½Ð¾Ð¿ÐºÐ¸ (Ð² Ð¼Ð¸Ð»Ð»Ð¸ÑÐµÐºÑƒÐ½Ð´Ð°Ñ…)';
-    STR_KEY_UP_TIMEOUT_SUMMARY =
-        'ÐšÐ°Ðº Ð´Ð¾Ð»Ð³Ð¾ Ð²Ð°Ð¼ Ð½ÑƒÐ¶Ð½Ð¾ ÑƒÐ´ÐµÑ€Ð¶Ð¸Ð²Ð°Ñ‚ÑŒ ÐºÐ½Ð¾Ð¿ÐºÑƒ Ð´Ð»Ñ Ð´ÐµÐ¹ÑÑ‚Ð²Ð¸Ñ ÑƒÐ´ÐµÑ€Ð¶Ð°Ð½Ð¸Ñ, Ð´ÐµÐ¹ÑÑ‚Ð²Ð¸Ñ Ð¾Ð±Ð½Ð¾Ð²Ð»ÑÑŽÑ‚ ÑÐºÑ€Ð°Ð½, Ð¿Ð¾ÐºÐ°Ð·Ñ‹Ð²Ð°ÑŽÑ‚ Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€Ñ‹ ÑÑÐºÐ¸Ð·Ð¾Ð² Ð¸ Ñ‚.Ð´.';
-    STR_CURRENT_THUMB_STYLE = 'Ð¢ÐµÐºÑƒÑ‰Ð¸Ð¹ ÑÑ‚Ð¸Ð»ÑŒ';
-    STR_NEW_THUMB_STYLE = 'ÐÐ¾Ð²Ñ‹Ð¹ ÑÑ‚Ð¸Ð»ÑŒ';
-    STR_COLOR_STYLE_TEXT = 'ÐÐ°Ð¶Ð¼Ð¸Ñ‚Ðµ Ð²Ð²ÐµÑ€Ñ…/Ð²Ð½Ð¸Ð·, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð²Ñ‹Ð±Ñ€Ð°Ñ‚ÑŒ. ÐÐ°Ð¶Ð¼Ð¸Ñ‚Ðµ Ð½Ð°Ð·Ð°Ð´, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð²Ñ‹Ð¹Ñ‚Ð¸.';
-    STR_SHADOWS = 'ÐžÑ‚Ñ‚ÐµÐ½Ð¾Ðº';
-    STR_SHADOWS_NONE = 'Ð‘ÐµÐ· Ñ†Ð²ÐµÑ‚Ð°';
-    STR_SHADOWS_WHITE = 'Ð‘ÐµÐ»Ñ‹Ð¹';
-    STR_SHADOWS_GRAY = 'Ð¡ÐµÑ€Ñ‹Ð¹';
-    STR_SHADOWS_BLACK = 'Ð§ÐµÑ€Ð½Ñ‹Ð¹';
-    STR_COLORS = 'Ð¦Ð²ÐµÑ‚Ð°';
-    STR_RESULT = 'Ð ÐµÐ·ÑƒÐ»ÑŒÑ‚Ð°Ñ‚';
-    STR_APPLY = 'ÐŸÑ€Ð¸Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ñ';
-    STR_COLOR_TYPE = 'Ð¢Ð¸Ð¿ Ñ†Ð²ÐµÑ‚Ð°';
-    STR_STYLES = 'Ð¡Ñ‚Ð¸Ð»Ð¸';
-    STR_ENTER = 'ÐÐ°Ð¶Ð¼Ð¸Ñ‚Ðµ ÐžÐš';
-    STR_COLOR_ARRAY = 'Ð¤Ð¾Ð½,Ð¢ÐµÐºÑÑ‚,Ð“Ñ€Ð°Ð½Ð¸Ñ†Ð°,Ð˜Ð½Ð´Ð¸ÐºÐ°Ñ‚Ð¾Ñ€ Ð¿Ñ€Ð¾ÑÐ¼Ð¾Ñ‚Ñ€Ð°';
-    STR_STYLES_ARRAY = 'ÐŸÐ¾ ÑƒÐ¼Ð¾Ð»Ñ‡Ð°Ð½Ð¸ÑŽ,ÐŸÐ¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑŒÑÐºÐ¸Ð¹,Ð‘ÐµÐ»Ñ‹Ð¹,Ð¡ÐµÑ€Ñ‹Ð¹,ÐšÑ€Ð°ÑÐ½Ñ‹Ð¹,ÐžÑ€Ð°Ð½Ð¶ÐµÐ²Ñ‹Ð¹,Ð–ÐµÐ»Ñ‚Ñ‹Ð¹,Ð—ÐµÐ»ÐµÐ½Ñ‹Ð¹,Ð¡Ð¸Ð½Ð¸Ð¹,Ð¤Ð¸Ð¾Ð»ÐµÑ‚Ð¾Ð²Ñ‹Ð¹,Ð Ð¾Ð·Ð¾Ð²Ñ‹Ð¹';
-    STR_ENTER_RGB = STR_ENTER + ' Ð¿Ñ€Ð¸Ð½ÑÑ‚ÑŒ Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ðµ RGB';
-    STR_THUMB_STYLE = 'Ð’Ñ‹Ð±Ñ€Ð°Ð½Ð½Ñ‹Ð¹ ÑÑ‚Ð¸Ð»ÑŒ Ð¿Ñ€ÐµÐ²ÑŒÑŽ';
-    STR_OPEN_EXTERNAL_PLAYER = 'ÐžÑ‚ÐºÑ€Ñ‹Ñ‚ÑŒ Ð²Ð¾ Ð²Ð½ÐµÑˆÐ½ÐµÐ¼ Ð¿Ð»ÐµÐµÑ€Ðµ';
-    STR_CHAT_SIDE_ARRAY = ['Ð¡Ð»ÐµÐ²Ð°', 'Ð¡Ð¿Ñ€Ð°Ð²Ð°'];
-    STR_CHAT_BASE_ARRAY = [
-        'Ð’Ð½Ð¸Ð·Ñƒ ÑÐ¿Ñ€Ð°Ð²Ð°',
-        'Ð¦ÐµÐ½Ñ‚Ñ€ ÑÐ¿Ñ€Ð°Ð²Ð°',
-        'Ð¡Ð²ÐµÑ€Ñ…Ñƒ ÑÐ¿Ñ€Ð°Ð²Ð°',
-        'Ð¦ÐµÐ½Ñ‚Ñ€ ÑÐ²ÐµÑ€Ñ…Ñƒ',
-        'Ð¡Ð²ÐµÑ€Ñ…Ñƒ ÑÐ»ÐµÐ²Ð°',
-        'Ð¦ÐµÐ½Ñ‚Ñ€ ÑÐ»ÐµÐ²Ð°',
-        'Ð¡Ð½Ð¸Ð·Ñƒ ÑÐ»ÐµÐ²Ð°',
-        'Ð¦ÐµÐ½Ñ‚Ñ€ ÑÐ½Ð¸Ð·Ñƒ'
-    ];
-    STR_CHAT_100_ARRAY = ['Ð¡Ð¿Ñ€Ð°Ð²Ð°', 'Ð¦ÐµÐ½Ñ‚Ñ€', 'Ð¡Ð»ÐµÐ²Ð°'];
-    STR_NOTIFICATION_POS = 'ÐŸÐ¾Ð·Ð¸Ñ†Ð¸Ñ ÑƒÐ²ÐµÐ´Ð¾Ð¼Ð»ÐµÐ½Ð¸Ñ';
-    STR_NOTIFICATION_POS_ARRAY = ['ÐŸÑ€Ð°Ð²Ñ‹Ð¹ Ð²ÐµÑ€Ñ…', 'Ð¦ÐµÐ½Ñ‚Ñ€ Ð²ÐµÑ€Ñ…', 'Ð›ÐµÐ²Ñ‹Ð¹ Ð²ÐµÑ€Ñ…', 'Ð›ÐµÐ²Ñ‹Ð¹ Ð½Ð¸Ð·', 'Ð¦ÐµÐ½Ñ‚Ñ€ ÑÐ½Ð¸Ð·Ñƒ', 'ÐŸÑ€Ð°Ð²Ñ‹Ð¹ Ð½Ð¸Ð·'];
-    STR_LOWLATENCY_ARRAY = [
-        STR_DISABLE,
-        'ÐÐ¾Ñ€Ð¼Ð°Ð»ÑŒÐ½Ñ‹Ð¹ Ñ€ÐµÐ¶Ð¸Ð¼, Ð¼Ð¾Ð¶ÐµÑ‚ Ð²Ñ‹Ð·Ð²Ð°Ñ‚ÑŒ Ð¿Ð¾Ð²Ñ‚Ð¾Ñ€Ð½ÑƒÑŽ Ð±ÑƒÑ„ÐµÑ€Ð¸Ð·Ð°Ñ†Ð¸ÑŽ',
-        'ÐœÐ¸Ð½Ð¸Ð¼Ð°Ð»ÑŒÐ½Ñ‹Ð¹ Ñ€ÐµÐ¶Ð¸Ð¼, Ð¼Ð¾Ð¶ÐµÑ‚ Ð²Ñ‹Ð·Ð²Ð°Ñ‚ÑŒ ÐµÑ‰Ðµ Ð±Ð¾Ð»ÑŒÑˆÐµÐµ ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð¿Ð¾Ð²Ñ‚Ð¾Ñ€Ð½Ñ‹Ñ… Ð±ÑƒÑ„ÐµÑ€Ð¸Ð·Ð°Ñ†Ð¸Ð¹'
-    ];
-    STR_LOWLATENCY_ENABLE_ARRAY = [
-        STR_LOW_LATENCY + ' - ' + STR_DISABLED,
-        STR_LOW_LATENCY + ' - ÐÐ¾Ñ€Ð¼Ð°Ð»ÑŒÐ½Ñ‹Ð¹ Ñ€ÐµÐ¶Ð¸Ð¼',
-        STR_LOW_LATENCY + ' - ÐœÐ¸Ð½Ð¸Ð¼Ð°Ð»ÑŒÐ½Ñ‹Ð¹ Ñ€ÐµÐ¶Ð¸Ð¼'
-    ];
-    STR_VOD_SEEK = 'Ð’Ð¸Ð´ÐµÐ¾ Ð±Ñ‹ÑÑ‚Ñ€Ð°Ñ Ð¿ÐµÑ€ÐµÐ¼Ð¾Ñ‚ÐºÐ° Ð½Ð°Ð·Ð°Ð´/Ð²Ð¿ÐµÑ€ÐµÐ´';
-    STR_VOD_SEEK_SUMMARY =
-        'Ð£Ð¿Ñ€Ð°Ð²Ð»ÑÐµÑ‚ Ñ‚ÐµÐ¼, Ð½Ð°ÑÐºÐ¾Ð»ÑŒÐºÐ¾ Ð±Ñ‹ÑÑ‚Ñ€Ð¾ Ð±ÑƒÐ´ÐµÑ‚ Ð²Ñ‹Ð¿Ð¾Ð»Ð½ÑÑ‚ÑŒÑÑ Ð¿ÐµÑ€ÐµÑ…Ð¾Ð´ Ð½Ð°Ð·Ð°Ð´/Ð²Ð¿ÐµÑ€ÐµÐ´. ÐŸÑ€Ð¸ Ð½Ð°Ð¶Ð°Ñ‚Ð¸Ð¸ Ð¸ ÑƒÐ´ÐµÑ€Ð¶Ð¸Ð²Ð°Ð½Ð¸Ð¸ Ð²Ð»ÐµÐ²Ð¾/Ð²Ð¿Ñ€Ð°Ð²Ð¾ Ð²Ñ€ÐµÐ¼Ñ ÑˆÐ°Ð³Ð° ÑƒÐ²ÐµÐ»Ð¸Ñ‡Ð¸Ñ‚ÑÑ. ÐŸÐ¾ÑÐ»Ðµ Ð¸ÑÑ‚ÐµÑ‡ÐµÐ½Ð¸Ñ Ñ‚Ð°Ð¹Ð¼-Ð°ÑƒÑ‚Ð° ÑƒÐ²ÐµÐ»Ð¸Ñ‡ÐµÐ½Ð¸Ñ, Ð¾Ð½Ð¾ ÑƒÐ²ÐµÐ»Ð¸Ñ‡Ð¸Ñ‚ÑÑ Ð´Ð¾ Ð¼Ð°ÐºÑÐ¸Ð¼Ð°Ð»ÑŒÐ½Ð¾Ð³Ð¾ Ð²Ñ€ÐµÐ¼ÐµÐ½Ð¸ ÑˆÐ°Ð³Ð°. ÐŸÐ¾ÑÐ»Ðµ Ð¾Ñ‚Ð¿ÑƒÑÐºÐ°Ð½Ð¸Ñ ÐºÐ½Ð¾Ð¿ÐºÐ¸ Ð¸ Ð¾Ñ‚ÑÑƒÑ‚ÑÑ‚Ð²Ð¸Ñ Ð½Ð°Ð¶Ð°Ñ‚Ð¸Ñ Ð² Ñ‚ÐµÑ‡ÐµÐ½Ð¸Ðµ Ð¾Ð´Ð½Ð¾Ð¹ ÑÐµÐºÑƒÐ½Ð´Ñ‹ Ð²Ñ€ÐµÐ¼Ñ ÑˆÐ°Ð³Ð° Ð±ÑƒÐ´ÐµÑ‚ ÑÐ±Ñ€Ð¾ÑˆÐµÐ½Ð¾ Ð¾Ð±Ñ€Ð°Ñ‚Ð½Ð¾ Ð½Ð° Ð¼Ð¸Ð½Ð¸Ð¼Ð°Ð»ÑŒÐ½Ð¾Ðµ Ð²Ñ€ÐµÐ¼Ñ ÑˆÐ°Ð³Ð°.<br><br>ÐÐ°Ð¶Ð°Ñ‚Ð¸Ðµ Ð²Ð²ÐµÑ€Ñ… Ð¿ÐµÑ€ÐµÐ·Ð°Ð¿Ð¸ÑˆÐµÑ‚ Ð¼Ð¸Ð½Ð¸Ð¼Ð°Ð»ÑŒÐ½Ð¾Ðµ/Ð¼Ð°ÐºÑÐ¸Ð¼Ð°Ð»ÑŒÐ½Ð¾Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ, Ð¿Ð¾Ð·Ð²Ð¾Ð»ÑÑ Ð²Ð°Ð¼ Ð¿Ñ€Ð¾Ð¹Ñ‚Ð¸ Ñ‡ÐµÑ€ÐµÐ· Ð²ÑÐµ Ð²Ð¾Ð·Ð¼Ð¾Ð¶Ð½Ñ‹Ðµ ÑˆÐ°Ð³Ð¸, Ð¸ Ð·Ð°Ð±Ð»Ð¾ÐºÐ¸Ñ€ÑƒÐµÑ‚ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ, Ð¿Ð¾ÐºÐ° Ð¸Ð½Ð´Ð¸ÐºÐ°Ñ‚Ð¾Ñ€ Ð²Ñ‹Ð¿Ð¾Ð»Ð½ÐµÐ½Ð¸Ñ Ð½Ðµ Ð¸ÑÑ‡ÐµÐ·Ð½ÐµÑ‚<br><br>Ð’Ñ‹Ð¿Ð¾Ð»Ð½ÐµÐ½Ð¸Ðµ Ð¾Ð´Ð¸Ð½Ð¾Ñ‡Ð½Ñ‹Ñ… Ð½Ð°Ð¶Ð°Ñ‚Ð¸Ð¹ Ð±ÐµÐ· ÑƒÐ´ÐµÑ€Ð¶Ð°Ð½Ð¸Ñ ÐºÐ½Ð¾Ð¿ÐºÐ¸ Ð½Ðµ ÑƒÐ²ÐµÐ»Ð¸Ñ‡Ð¸Ñ‚ Ð²Ñ€ÐµÐ¼Ñ<br><br>Ð­Ñ‚Ð¸ Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€Ñ‹ Ñ€Ð°Ð±Ð¾Ñ‚Ð°ÑŽÑ‚ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ñ Ð²Ð¸Ð´ÐµÐ¾. Ð”Ð»Ñ ÐºÐ»Ð¸Ð¿Ð°, ÑˆÐ°Ð³ Ð²ÑÐµÐ³Ð´Ð° ÑÐ¾ÑÑ‚Ð°Ð²Ð»ÑÐµÑ‚ 1 ÑÐµÐºÑƒÐ½Ð´Ñƒ';
-    STR_VOD_SEEK_MIN = 'ÐœÐ¸Ð½Ð¸Ð¼Ð°Ð»ÑŒÐ½Ð¾Ðµ (ÑÑ‚Ð°Ñ€Ñ‚Ð¾Ð²Ð¾Ðµ) Ð²Ñ€ÐµÐ¼Ñ ÑˆÐ°Ð³Ð°';
-    STR_VOD_SEEK_MAX = 'ÐœÐ°ÐºÑÐ¸Ð¼Ð°Ð»ÑŒÐ½Ð¾Ðµ Ð²Ñ€ÐµÐ¼Ñ ÑˆÐ°Ð³Ð°';
-    STR_VOD_SEEK_TIME = 'Ð£Ð²ÐµÐ»Ð¸Ñ‡Ð¸Ñ‚ÑŒ Ñ‚Ð°Ð¹Ð¼-Ð°ÑƒÑ‚ Ð¿Ð¾ÑÐ»Ðµ ÑƒÐ´ÐµÑ€Ð¶Ð°Ð½Ð¸Ñ Ð² Ñ‚ÐµÑ‡ÐµÐ½Ð¸Ðµ';
-    STR_UP_LOCKED = 'Ð½Ð°Ð¶Ð¼Ð¸Ñ‚Ðµ Ð²Ð²ÐµÑ€Ñ…, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð·Ð°Ñ„Ð¸ÐºÑÐ¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ ÑˆÐ°Ð³Ð°';
-    STR_LOCKED = 'Ð·Ð°Ð±Ð»Ð¾ÐºÐ¸Ñ€Ð¾Ð²Ð°Ð½Ð¾ Ð½Ð°Ð¶Ð¼Ð¸Ñ‚Ðµ Ð²Ð²ÐµÑ€Ñ…, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð¸Ð·Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ';
-    STR_IN_CHAT = 'Ð’ Ñ‡Ð°Ñ‚Ðµ';
-    STR_IN_SHARED_CHAT = 'Ð’ Ð¾Ð±Ñ‰ÐµÐ¼ Ñ‡Ð°Ñ‚Ðµ';
-    STR_SHOW_IN_CHAT = 'ÐŸÐ¾ÐºÐ°Ð·Ñ‹Ð²Ð°Ñ‚ÑŒ Ð¾Ð±Ñ‰ÐµÐµ ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÐµÐ¹ Ð¸Ð»Ð¸ Ð·Ñ€Ð¸Ñ‚ÐµÐ»ÐµÐ¹ Ð¿Ð¾Ð²ÐµÑ€Ñ… Ñ‡Ð°Ñ‚Ð°';
-    STR_SHOW_IN_CHAT_SUMMARY =
-        'Ð­Ñ‚Ð¾ Ð¾Ñ‡ÐµÐ½ÑŒ Ð¿Ð¾Ð»ÐµÐ·Ð½Ð¾, Ð½Ð°Ð¿Ñ€Ð¸Ð¼ÐµÑ€, ÑƒÐ·Ð½Ð°Ñ‚ÑŒ, ÐµÑÑ‚ÑŒ Ð»Ð¸ Ð² Ñ‡Ð°Ñ‚Ðµ ÐºÐ°ÐºÐ¾Ð¹-Ð»Ð¸Ð±Ð¾ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑŒ, Ñ ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ð¼ Ð¼Ð¾Ð¶Ð½Ð¾ Ð¿Ð¾Ð³Ð¾Ð²Ð¾Ñ€Ð¸Ñ‚ÑŒ, Ð° Ñ‚Ð°ÐºÐ¶Ðµ ÑƒÐ·Ð½Ð°Ñ‚ÑŒ Ñ€Ð°Ð·Ð½Ð¸Ñ†Ñƒ Ð·Ñ€Ð¸Ñ‚ÐµÐ»Ð¸/Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ð¸ Ñ‡Ð°Ñ‚Ð°.';
-    STR_SHOW_IN_CHAT_VIEWERS = 'ÐŸÐ¾ÐºÐ°Ð·Ð°Ñ‚ÑŒ Ð·Ñ€Ð¸Ñ‚ÐµÐ»ÐµÐ¹';
-    STR_SHOW_IN_CHAT_CHATTERS = 'ÐŸÐ¾ÐºÐ°Ð·Ð°Ñ‚ÑŒ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÐµÐ¹';
-    STR_PLAYED = 'Ð’Ð¾Ð¸ÑÐ¿Ñ€Ð¾Ð¸Ð·Ð²ÐµÐ´ÐµÐ½Ð¾';
-    STR_CHAPTERS = 'Ð§Ð°ÑÑ‚Ð¸';
-    STR_FROM_SIMPLE = 'Ñ';
-    STR_HIDE_MAIN_CLOCK = 'Ð¡ÐºÑ€Ñ‹Ñ‚ÑŒ Ñ‡Ð°ÑÑ‹ Ð½Ð° Ð³Ð»Ð°Ð²Ð½Ð¾Ð¼ ÑÐºÑ€Ð°Ð½Ðµ';
-    STR_HIDE_PLAYER_CLOCK = 'Ð¡ÐºÑ€Ñ‹Ñ‚ÑŒ Ñ‡Ð°ÑÑ‹ Ð² Ð¿Ð»ÐµÐµÑ€Ðµ';
-    STR_HIDE_MAIN_SCREEN_TITLE = 'Ð¡ÐºÑ€Ñ‹Ñ‚ÑŒ Ð·Ð°Ð³Ð¾Ð»Ð¾Ð²Ð¾Ðº Ñ‚ÐµÐºÑƒÑ‰ÐµÐ³Ð¾ ÑÐºÑ€Ð°Ð½Ð°';
-    STR_HIDE_MAIN_SCREEN_TITLE_SUMMARY = 'Ð¦ÐµÐ½Ñ‚Ñ€Ð°Ð»ÑŒÐ½Ñ‹Ð¹ Ð·Ð°Ð³Ð¾Ð»Ð¾Ð²Ð¾Ðº,ÐŸÑ€ÑÐ¼Ð°Ñ Ñ‚Ñ€Ð°Ð½ÑÐ»ÑÑ†Ð¸Ñ,ÐšÐ»Ð¸Ð¿,ÐÐ°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸ Ð¸ Ñ‚.Ð´.';
-    STR_HIDE_ETC_HELP_INFO = 'Ð¡ÐºÑ€Ñ‹Ñ‚ÑŒ Ð¿Ð¾Ð´ÑÐºÐ°Ð·ÐºÐ¸ Ð¿Ð¾ ÑÐºÑ€Ð°Ð½Ð½Ð¾Ð¹ Ð½Ð°Ð²Ð¸Ð³Ð°Ñ†Ð¸Ð¸';
-    STR_HIDE_ETC_HELP_INFO_SUMMARY = 'Ð¡Ð¾Ð²ÐµÑ‚Ñ‹ Ð¿Ð¾ Ð½Ð°Ð²Ð¸Ð³Ð°Ñ†Ð¸Ð¸: ÑƒÐ´ÐµÑ€Ð¶Ð°Ð½Ð¸Ðµ ÐºÐ½Ð¾Ð¿Ð¾Ðº Ð´Ð»Ñ Ð´ÐµÐ¹ÑÑ‚Ð²Ð¸Ð¹ Ð¸ Ð´Ñ€ÑƒÐ³Ð¸Ðµ';
-    STR_INACTIVE_SETTINGS = 'ÐÐ²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡ÐµÑÐºÐ¸ ÑÐ²Ð¾Ñ€Ð°Ñ‡Ð¸Ð²Ð°Ñ‚ÑŒ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ, ÐºÐ¾Ð³Ð´Ð° Ð¾Ð½Ð¾ Ð½ÐµÐ°ÐºÑ‚Ð¸Ð²Ð½Ð¾';
-    STR_INACTIVE_SETTINGS_SUMMARY =
-        'Ð—Ð°ÐºÑ€Ñ‹Ð²Ð°Ñ‚ÑŒ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ, ÐºÐ¾Ð³Ð´Ð° ÐµÐ³Ð¾ Ð½Ð¸ÐºÑ‚Ð¾ Ð½Ðµ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐµÑ‚. ÐŸÐ¾ÑÐ²Ð¸Ñ‚ÑÑ Ð¿Ñ€ÐµÐ´ÑƒÐ¿Ñ€ÐµÐ¶Ð´ÐµÐ½Ð¸Ðµ, Ð´Ð°ÑŽÑ‰ÐµÐµ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑŽ 15 ÑÐµÐºÑƒÐ½Ð´, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð½Ð°Ð¶Ð°Ñ‚ÑŒ Ð»ÑŽÐ±ÑƒÑŽ ÐºÐ½Ð¾Ð¿ÐºÑƒ, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð¿Ñ€ÐµÐ´Ð¾Ñ‚Ð²Ñ€Ð°Ñ‚Ð¸Ñ‚ÑŒ Ð·Ð°ÐºÑ€Ñ‹Ñ‚Ð¸Ðµ';
-    STR_INACTIVE_WARNING = 'ÐŸÑ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡ÐµÑÐºÐ¸ Ð·Ð°ÐºÑ€Ð¾ÐµÑ‚ÑÑ<br><br>%x<br><br>ÐÐ°Ð¶Ð¼Ð¸Ñ‚Ðµ Ð»ÑŽÐ±ÑƒÑŽ ÐºÐ½Ð¾Ð¿ÐºÑƒ, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð¾Ñ‚Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ';
-    STR_REMAINING = 'ÐžÑÑ‚Ð°Ð»Ð¾ÑÑŒ:';
-    STR_PLAYER_INFO_VISIBILITY = 'ÐžÐºÐ½Ð¾ Ð´Ð¸Ð°Ð³Ð½Ð¾ÑÑ‚Ð¸ÐºÐ¸';
-    STR_PREVIEW_SET = 'ÐÐ°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸ Ð¿Ñ€ÐµÐ´Ð¿Ñ€Ð¾ÑÐ¼Ð¾Ñ‚Ñ€Ð°';
-    STR_PREVIEW_SHOW = 'ÐŸÐ¾ÐºÐ°Ð·Ð°Ñ‚ÑŒ Ð¿Ñ€ÐµÐ´Ð¿Ñ€Ð¾ÑÐ¼Ð¾Ñ‚Ñ€';
-    STR_PREVIEW_SIZE_CONTROLS = 'Ð Ð°Ð·Ð¼ÐµÑ€ Ð¿Ñ€ÐµÐ²ÑŒÑŽ';
-    STR_OLED_BURN_IN = 'OLED Ð—Ð°Ñ‰Ð¸Ñ‚Ð° Ð¾Ñ‚ Ð²Ñ‹Ð³Ð¾Ñ€Ð°Ð½Ð¸Ñ';
-    STR_OLED_BURN_IN_SUMMARY =
-        'ÐšÐ¾Ð³Ð´Ð° ÑÑ‚Ð¾Ñ‚ Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€ Ð²ÐºÐ»ÑŽÑ‡ÐµÐ½, ÑÐºÑ€Ð°Ð½ ÑÑ‚Ð°Ð½ÐµÑ‚ Ð¿Ð¾Ð»Ð½Ð¾ÑÑ‚ÑŒÑŽ Ñ‡ÐµÑ€Ð½Ñ‹Ð¼ Ð½Ð° 50 Ð¼Ñ ÐºÐ°Ð¶Ð´Ñ‹Ðµ 20 Ð¼Ð¸Ð½ÑƒÑ‚, Ñ‚Ñ€ÐµÐ±ÑƒÐµÑ‚ÑÑ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð´Ð»Ñ ÑƒÑÑ‚Ñ€Ð¾Ð¹ÑÑ‚Ð² Ñ OLED-Ð´Ð¸ÑÐ¿Ð»ÐµÑÐ¼Ð¸, Ñƒ ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ñ… ÐµÑÑ‚ÑŒ Ð¿Ñ€Ð¾Ð±Ð»ÐµÐ¼Ñ‹ Ñ Ð²Ñ‹Ð³Ð¾Ñ€Ð°Ð½Ð¸ÐµÐ¼.';
-    STR_AS = 'ÐºÐ°Ðº';
-    STR_MILLISECONDS = 'Ð¼c';
-    STR_HOUR = 'Ñ‡.';
-    STR_HOURS = 'Ñ‡.';
-    STR_RIGHT = 'Ð¡Ð¿Ñ€Ð°Ð²Ð°';
-    STR_LEFT = 'Ð¡Ð»ÐµÐ²Ð°';
-    STR_BOTTOM = 'Ð¡Ð½Ð¸Ð·Ñƒ';
-    STR_TOP = 'Ð¡Ð²ÐµÑ€Ñ…Ñƒ';
-    STR_AVG = 'ÑÑ€.';
-    STR_OFFSET = 'Ð¡Ð¼ÐµÑ‰ÐµÐ½Ð¸Ðµ';
-    STR_HISTORY_EMPTY_CONTENT = 'Ð˜ÑÑ‚Ð¾Ñ€Ð¸Ñ Ð¿Ð¾ÐºÐ°Ð·Ñ‹Ð²Ð°ÐµÑ‚ Ñ‡Ñ‚Ð¾ Ð²Ñ‹ ÑÐ¼Ð¾Ñ‚Ñ€ÐµÐ»Ð¸ Ð² Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ð¸ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ ÐµÑÐ»Ð¸ Ð¾Ð½Ð° Ð²ÐºÐ»ÑŽÑ‡ÐµÐ½Ð°';
-    STR_PREVIEW = 'Ð¿Ñ€ÐµÐ²ÑŒÑŽ';
-    STR_EMBED = 'Ð’ÑÑ‚Ñ€Ð¾Ð¸Ñ‚ÑŒ Ð¿Ð»ÐµÐµÑ€ ';
-    STR_CLICK_EXIT = 'ÐÐ°Ð¶Ð¼Ð¸Ñ‚Ðµ, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð²Ñ‹Ð¹Ñ‚Ð¸ Ð¸Ð· Ð¿Ð»ÐµÐµÑ€Ð°';
-    STR_GO_FULL = 'ÐŸÐ¾Ð»Ð½Ñ‹Ð¹ ÑÐºÑ€Ð°Ð½';
-    STR_GO_FULL_HELP = 'ÐšÐ»Ð¸ÐºÐ½Ð¸Ñ‚Ðµ, Ð½Ð°Ð¶Ð¼Ð¸Ñ‚Ðµ 9 Ð¸Ð»Ð¸ F11';
-    STR_NOT_SUPPORT_BROWSER = 'Ð­Ñ‚Ð¾ Ð½Ðµ Ð¿Ð¾Ð´Ð´ÐµÑ€Ð¶Ð¸Ð²Ð°ÐµÑ‚ÑÑ Ð±Ñ€Ð°ÑƒÐ·ÐµÑ€Ð¾Ð¼';
-    STR_WARNING_BROWSER = 'ÐŸÑ€ÐµÐ´ÑƒÐ¿Ñ€ÐµÐ¶Ð´ÐµÐ½Ð¸Ðµ Ð±Ñ€Ð°ÑƒÐ·ÐµÑ€Ð°';
-    STR_WARNING_BROWSER_SUMMARY =
-        'Ð­Ñ‚Ð¾ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ Ð¿Ñ€ÐµÐ´Ð½Ð°Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¾ Ð´Ð»Ñ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ð½Ð¸Ñ Ð½Ð° Ð¢Ð’, Ð¿Ð¾Ð´Ð´ÐµÑ€Ð¶ÐºÐ° Ð´Ñ€ÑƒÐ³Ð¸Ñ… ÑƒÑÑ‚Ñ€Ð¾Ð¹ÑÑ‚Ð² Ð¾Ð³Ñ€Ð°Ð½Ð¸Ñ‡ÐµÐ½Ð°. Ð’Ñ‹ Ð¼Ð¾Ð¶ÐµÑ‚Ðµ ÑƒÐ¿Ñ€Ð°Ð²Ð»ÑÑ‚ÑŒ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸ÐµÐ¼ Ñ Ð¿Ð¾Ð¼Ð¾Ñ‰ÑŒÑŽ Ð¼Ñ‹ÑˆÐ¸, Ð½Ð¾ Ð»ÑƒÑ‡ÑˆÐµ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÑŒ ÐºÐ»Ð°Ð²Ð¸ÑˆÐ¸ Ð²Ð²ÐµÑ€Ñ…, Ð²Ð½Ð¸Ð·, Ð²Ð»ÐµÐ²Ð¾, Ð²Ð¿Ñ€Ð°Ð²Ð¾, Ð²Ð²Ð¾Ð´ Ð¸ Ð²Ð¾Ð·Ð²Ñ€Ð°Ñ‚ (ESC Ñ€Ð°Ð±Ð¾Ñ‚Ð°ÐµÑ‚ ÐºÐ°Ðº Ð²Ð¾Ð·Ð²Ñ€Ð°Ñ‚).';
-    STR_THUMB_OPTIONS_CLICK =
-        'ÐÐ°Ð¶Ð¼Ð¸Ñ‚Ðµ Ð´Ð²Ð°Ð¶Ð´Ñ‹ Ð½Ð°Ð´ Ð´ÐµÐ¹ÑÑ‚Ð²Ð¸ÐµÐ¼ (Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð¾Ñ‚ÐºÑ€Ñ‹Ñ‚ÑŒ Ð¸Ð»Ð¸ Ð¿Ñ€Ð¸Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ), Ñ‰ÐµÐ»ÐºÐ½Ð¸Ñ‚Ðµ Ð·Ð° Ð¿Ñ€ÐµÐ´ÐµÐ»Ð°Ð¼Ð¸ Ð´Ð¸Ð°Ð»Ð¾Ð³Ð¾Ð²Ð¾Ð³Ð¾ Ð¾ÐºÐ½Ð°, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð²Ñ‹Ð¹Ñ‚Ð¸ Ð±ÐµÐ· Ð¿Ñ€Ð¸Ð¼ÐµÐ½ÐµÐ½Ð¸Ñ';
-    STR_CLOSE_THIS_BROWSER = 'ÐÐ°Ð¶Ð¼Ð¸Ñ‚Ðµ Ð½Ð°Ð·Ð°Ð´, ÐžÐš Ð¸Ð»Ð¸ Ñ‰ÐµÐ»ÐºÐ½Ð¸Ñ‚Ðµ Ð·Ð° Ð¿Ñ€ÐµÐ´ÐµÐ»Ð°Ð¼Ð¸, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð·Ð°ÐºÑ€Ñ‹Ñ‚ÑŒ ÑÑ‚Ð¾';
-    STR_DISABLE_EMBED = 'Ð’ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ Live Ð¸ Vod Twitch Ð¿Ð»ÐµÐµÑ€';
-    STR_DISABLE_EMBED_SUMMARY = 'Ð­Ñ‚Ð¾ Ð½ÑƒÐ¶Ð½Ð¾ Ð¾Ñ‚ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ Ñ‚Ð¾Ð»ÑŒÐºÐ¾, ÐµÑÐ»Ð¸ Ð²Ñ‹ Ñ…Ð¾Ñ‚Ð¸Ñ‚Ðµ ÑƒÐ²Ð¸Ð´ÐµÑ‚ÑŒ Ð¢Ð’-Ð¿Ð»ÐµÐµÑ€, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð¿Ñ€Ð¾Ð²ÐµÑ€Ð¸Ñ‚ÑŒ ÐµÐ³Ð¾ ÑÑ‚Ñ€Ð¾ÐºÐ¸ Ð¸ Ð¿Ñ€Ð¾Ñ‚ÐµÑÑ‚Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ.';
-    STR_SPECIAL_FEATURE = 'Ð˜ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐ¹Ñ‚Ðµ ÐºÐ»Ð°Ð²Ð¸Ð°Ñ‚ÑƒÑ€Ñƒ Ð´Ð»Ñ ÑÑ‚Ð¾Ð¹ Ñ„ÑƒÐ½ÐºÑ†Ð¸Ð¸';
-    STR_FAIL_VOD_INFO = 'ÐžÑˆÐ¸Ð±ÐºÐ° Ð·Ð°Ð³Ñ€ÑƒÐ·ÐºÐ¸ Ð¸Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸Ð¸ Ð¾ VOD';
-
-    STR_PROXY_DONATE_SUMMARY = 'Ð•ÑÐ»Ð¸ Ñ…Ð¾Ñ‚Ð¸Ñ‚Ðµ ÑƒÐ·Ð½Ð°Ñ‚ÑŒ Ð±Ð¾Ð»ÑŒÑˆÐµ Ð¸Ð»Ð¸ Ð¿Ð¾Ð±Ð»Ð°Ð³Ð¾Ð´Ð°Ñ€Ð¸Ñ‚ÑŒ ÑÐ¾Ð·Ð´Ð°Ñ‚ÐµÐ»Ñ Ð¿Ñ€Ð¾ÐºÑÐ¸-ÑÐµÑ€Ð²ÐµÑ€Ð°, Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐ¹Ñ‚Ðµ ÑÑ‚Ñƒ ÑÑÑ‹Ð»ÐºÑƒ:';
-
-    STR_TTV_LOL = 'TTV LOL';
-    STR_K_TWITCH = 'K-Twitch-Bypass';
-    STR_T1080 = 'T1080';
-
-    STR_PROXY_TIMEOUT = 'Ð¢Ð°Ð¹Ð¼Ð°ÑƒÑ‚ Ð¿Ñ€Ð¾ÐºÑÐ¸ (Ð²Ñ€ÐµÐ¼Ñ Ð² ÑÐµÐºÑƒÐ½Ð´Ð°Ñ…)';
-    STR_PROXY_TIMEOUT_SUMMARY =
-        'Ð•ÑÐ»Ð¸ Ð¿Ñ€Ð¾ÐºÑÐ¸-ÑÐµÑ€Ð²ÐµÑ€ Ð½ÐµÐ´Ð¾ÑÑ‚ÑƒÐ¿ÐµÐ½, ÑÑ‚Ð¾ Ð±ÑƒÐ´ÐµÑ‚ Ð²Ñ€ÐµÐ¼Ñ, ÐºÐ¾Ñ‚Ð¾Ñ€Ð¾Ðµ Ð¿Ð¾Ñ‚Ñ€ÐµÐ±ÑƒÐµÑ‚ÑÑ Ð´Ð»Ñ "Ð¾Ñ‚ÐºÐ°Ð·Ð°" Ð¾Ñ‚ Ð¿Ð¾Ð´ÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ñ Ð¸ Ð²Ð¾Ð·Ð²Ñ€Ð°Ñ‚Ð° Ðº ÑÑ‚Ð°Ð½Ð´Ð°Ñ€Ñ‚Ð½Ð¾Ð¹ Ñ€ÐµÐ°Ð»Ð¸Ð·Ð°Ñ†Ð¸Ð¸ Twitch';
-
-    STR_CUSTOM_PROXY = 'ÐŸÐ¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑŒÑÐºÐ¸Ð¹ Ð¿Ñ€Ð¾ÐºÑÐ¸';
-    STR_CUSTOM_PROXY_SUMMARY = 'Ð˜ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÑŒ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑŒÑÐºÐ¸Ð¹ URL Ð¿Ñ€Ð¾ÐºÑÐ¸-ÑÐµÑ€Ð²ÐµÑ€Ð°, Ð½Ð°Ð¶Ð¼Ð¸Ñ‚Ðµ enter Ð´Ð»Ñ Ñ€ÐµÐ´Ð°ÐºÑ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ñ URL';
-    STR_CUSTOM_PROXY_URL = 'URL Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑŒÑÐºÐ¾Ð³Ð¾ Ð¿Ñ€Ð¾ÐºÑÐ¸';
-    STR_CUSTOM_PROXY_URL_PROMPT = 'Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ URL Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑŒÑÐºÐ¾Ð³Ð¾ Ð¿Ñ€Ð¾ÐºÑÐ¸ (URL Ð´Ð¾Ð»Ð¶ÐµÐ½ Ð·Ð°ÐºÐ°Ð½Ñ‡Ð¸Ð²Ð°Ñ‚ÑŒÑÑ Ð½Ð° /):';
-    STR_CUSTOM_PROXY_HAS_TOKEN = 'ÐŸÐ¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑŒÑÐºÐ¸Ð¹ Ð¿Ñ€Ð¾ÐºÑÐ¸ Ð¸Ð¼ÐµÐµÑ‚ Ñ‚Ð¾ÐºÐµÐ½';
-    STR_CUSTOM_PROXY_HAS_TOKEN_SUMMARY =
-        'Ð•ÑÐ»Ð¸ URL Ð¿Ñ€Ð¾ÐºÑÐ¸ ÑƒÐ¶Ðµ ÑÐ¾Ð´ÐµÑ€Ð¶Ð¸Ñ‚ Ñ‚Ð¾ÐºÐµÐ½, Ð¾Ñ‚ÐºÐ»ÑŽÑ‡Ð¸Ñ‚Ðµ ÑÑ‚Ñƒ Ð¾Ð¿Ñ†Ð¸ÑŽ, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ñ‚Ð¾ÐºÐµÐ½ Ð½Ðµ Ð´Ð¾Ð±Ð°Ð²Ð»ÑÐ»ÑÑ Ð¿Ð¾Ð²Ñ‚Ð¾Ñ€Ð½Ð¾';
-    STR_CUSTOM_PROXY_HAS_PARAMETER = 'ÐŸÐ¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑŒÑÐºÐ¸Ð¹ Ð¿Ñ€Ð¾ÐºÑÐ¸ Ð¸Ð¼ÐµÐµÑ‚ Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€Ñ‹';
-    STR_CUSTOM_PROXY_HAS_PARAMETER_SUMMARY =
-        'Ð•ÑÐ»Ð¸ URL Ð¿Ñ€Ð¾ÐºÑÐ¸ ÑƒÐ¶Ðµ ÑÐ¾Ð´ÐµÑ€Ð¶Ð¸Ñ‚ Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€Ñ‹, Ð²ÐºÐ»ÑŽÑ‡Ð¸Ñ‚Ðµ ÑÑ‚Ñƒ Ð¾Ð¿Ñ†Ð¸ÑŽ, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€Ñ‹ Ð´Ð¾Ð±Ð°Ð²Ð»ÑÐ»Ð¸ÑÑŒ ÐºÐ°Ðº ÑÑ‚Ñ€Ð¾ÐºÐ° Ð·Ð°Ð¿Ñ€Ð¾ÑÐ°';
-
-    PROXY_SERVICE = 'ÐŸÑ€Ð¾ÐºÑÐ¸: ';
-    PROXY_SERVICE_STATUS = 'Ð’ÐºÐ»ÑŽÑ‡ÐµÐ½Ð¾ Ð¸ Ñ€Ð°Ð±Ð¾Ñ‚Ð°ÐµÑ‚';
-    PROXY_SERVICE_OFF = 'ÐžÑ‚ÐºÐ»ÑŽÑ‡ÐµÐ½Ð¾ Ð² Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ°Ñ…';
-    PROXY_SERVICE_FAIL = 'ÐÐµ Ñ€Ð°Ð±Ð¾Ñ‚Ð°ÐµÑ‚, Ð¾ÑˆÐ¸Ð±ÐºÐ° %x Ñ€Ð°Ð·';
-
-    PROXY_SETTINGS = 'ÐÐ°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸ Ð¿Ñ€Ð¾ÐºÑÐ¸ (Ñ†ÐµÐ½Ð·ÑƒÑ€Ð° Ð¸Ð½Ñ‚ÐµÑ€Ð½ÐµÑ‚Ð° Ð¸ ÑÐ²ÑÐ·Ð°Ð½Ð½Ñ‹Ðµ Ð¿Ñ€Ð¾ÐºÑÐ¸)';
-    PROXY_SETTINGS_SUMMARY =
-        'ÐœÐ¾Ð¶Ð½Ð¾ Ð²ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð¾Ð´Ð¸Ð½ Ð¿Ñ€Ð¾ÐºÑÐ¸, Ð²ÐºÐ»ÑŽÑ‡Ð°ÐµÑ‚ Ð¿Ñ€Ð¾ÐºÑÐ¸-ÑÐµÑ€Ð²ÐµÑ€ Ð´Ð»Ñ Ð¿Ð¾Ð»ÑƒÑ‡ÐµÐ½Ð¸Ñ ÑÑÑ‹Ð»Ð¾Ðº Ð½Ð° ÑÑ‚Ñ€Ð¸Ð¼Ñ‹ Ñ Ð´Ñ€ÑƒÐ³Ð¾Ð³Ð¾ ÑÐµÑ€Ð²ÐµÑ€Ð°, Ñ‡Ñ‚Ð¾ Ð¼Ð¾Ð¶ÐµÑ‚ Ð¿Ð¾Ð·Ð²Ð¾Ð»Ð¸Ñ‚ÑŒ Ð²Ð°Ð¼ ÑƒÐ²Ð¸Ð´ÐµÑ‚ÑŒ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚, Ð·Ð°Ð¿Ñ€ÐµÑ‰Ñ‘Ð½Ð½Ñ‹Ð¹ Ð² Ð²Ð°ÑˆÐµÐ¼ Ñ€ÐµÐ³Ð¸Ð¾Ð½Ðµ, Ð¸ Ð¸Ð·Ð±ÐµÐ¶Ð°Ñ‚ÑŒ Ñ€ÐµÐºÐ»Ð°Ð¼Ñ‹. ÐžÑ‚ÐºÐ»ÑŽÑ‡Ð¸Ñ‚Ðµ ÑÑ‚Ð¾, ÐµÑÐ»Ð¸ Ñƒ Ð²Ð°Ñ Ð²Ð¾Ð·Ð½Ð¸ÐºÐ°ÑŽÑ‚ Ð¿Ñ€Ð¾Ð±Ð»ÐµÐ¼Ñ‹ Ñ Ð¿Ð¾Ñ‚Ð¾ÐºÐ¾Ð²Ñ‹Ð¼Ð¸ Ñ‚Ñ€Ð°Ð½ÑÐ»ÑÑ†Ð¸ÑÐ¼Ð¸, Ñ‚Ð°ÐºÐ¸Ð¼Ð¸ ÐºÐ°Ðº ÑÐ»Ð¸ÑˆÐºÐ¾Ð¼ Ð¼Ð½Ð¾Ð³Ð¾ Ð¸Ð»Ð¸ Ð´Ð¾Ð»Ð³Ð¸Ðµ Ð±ÑƒÑ„ÐµÑ€Ñ‹, Ð·Ð°Ð²Ð¸ÑÐ°Ð½Ð¸Ñ Ð¸Ð»Ð¸ Ð¼ÐµÐ´Ð»ÐµÐ½Ð½Ð¾Ðµ ÑÐ¾ÐµÐ´Ð¸Ð½ÐµÐ½Ð¸Ðµ, Ñ‡Ñ‚Ð¾ Ð¼Ð¾Ð¶ÐµÑ‚ Ð¿Ñ€Ð¸Ð²ÐµÑÑ‚Ð¸ Ðº ÑÐ½Ð¸Ð¶ÐµÐ½Ð¸ÑŽ ÐºÐ°Ñ‡ÐµÑÑ‚Ð²Ð° Ñ‚Ñ€Ð°Ð½ÑÐ»ÑÑ†Ð¸Ð¸.';
-    SEEK_PREVIEW = 'ÐŸÑ€ÐµÐ´Ð¿Ñ€Ð¾ÑÐ¼Ð¾Ñ‚Ñ€ Ð¿Ñ€Ð¸ Ð¿ÐµÑ€ÐµÐ¼Ð¾Ñ‚ÐºÐµ';
-    SEEK_PREVIEW_SUMMARY = 'ÐŸÐ¾Ð·Ð²Ð¾Ð»ÑÐµÑ‚ ÑƒÐ¿Ñ€Ð°Ð²Ð»ÑÑ‚ÑŒ Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸ÐµÐ¼ Ð¿Ñ€ÐµÐ´Ð¿Ñ€Ð¾ÑÐ¼Ð¾Ñ‚Ñ€Ð° Ð¿Ñ€Ð¸ Ð¿ÐµÑ€ÐµÐ¼Ð¾Ñ‚ÐºÐµ VOD, Ð¿Ñ€ÐµÐ´Ð¿Ñ€Ð¾ÑÐ¼Ð¾Ñ‚Ñ€ Ð¿ÐµÑ€ÐµÐ¼Ð¾Ñ‚ÐºÐ¸ Ð´Ð¾ÑÑ‚ÑƒÐ¿ÐµÐ½ Ð½Ðµ Ð´Ð»Ñ Ð²ÑÐµÑ… VOD.';
-    SEEK_PREVIEW_SINGLE = 'ÐžÐ´Ð½Ð¾ Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ðµ';
-    SEEK_PREVIEW_CAROUSEL = 'ÐšÐ°Ñ€ÑƒÑÐµÐ»ÑŒ Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ð¹';
-
-    OPEN_NEW_ISSUE = '(ÐÐ°Ð¶Ð¼Ð¸Ñ‚Ðµ Ð´Ð»Ñ Ð½Ð¾Ð²Ð¾Ð³Ð¾ Ð²Ð¾Ð¿Ñ€Ð¾ÑÐ°)';
-
-    STR_CONFIRM = 'ÐŸÐ¾Ð´Ñ‚Ð²ÐµÑ€Ð´Ð¸Ñ‚ÑŒ';
-
-    STR_MATURE_NO_CHANGES = 'ÐÐµÑ‚ Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ð¹ Ð² Ð·Ñ€ÐµÐ»Ð¾Ð¼ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚Ðµ Ð¸Ð·-Ð·Ð° Ð¾Ñ‚ÑÑƒÑ‚ÑÑ‚Ð²ÑƒÑŽÑ‰ÐµÐ³Ð¾ Ð¿Ð°Ñ€Ð¾Ð»Ñ';
-    STR_MATURE_PROTECT = 'Ð—Ð°Ñ‰Ð¸Ñ‚Ð¸Ñ‚ÑŒ Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ñ Ð·Ñ€ÐµÐ»Ð¾Ð³Ð¾ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚Ð° Ð¿Ð°Ñ€Ð¾Ð»ÐµÐ¼';
-    STR_MATURE_HELP_SET_PASS = 'Ð£ÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚Ðµ Ð¿Ð°Ñ€Ð¾Ð»ÑŒ Ð¸ Ð½Ð°Ð¶Ð¼Ð¸Ñ‚Ðµ ÐŸÐ¾Ð´Ñ‚Ð²ÐµÑ€Ð´Ð¸Ñ‚ÑŒ, Ð²Ñ‹Ñ…Ð¾Ð´ ÑÐ±Ñ€Ð¾ÑÐ¸Ñ‚ Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸ Ð·Ñ€ÐµÐ»Ð¾Ð³Ð¾ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚Ð°';
-    STR_MATURE_HELP_CHECK_PASS = 'Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÑÐ¾Ñ…Ñ€Ð°Ð½Ñ‘Ð½Ð½Ñ‹Ð¹ Ð¿Ð°Ñ€Ð¾Ð»ÑŒ Ð¸ Ð½Ð°Ð¶Ð¼Ð¸Ñ‚Ðµ ÐŸÐ¾Ð´Ñ‚Ð²ÐµÑ€Ð´Ð¸Ñ‚ÑŒ, Ð²Ñ‹Ñ…Ð¾Ð´ ÑÐ±Ñ€Ð¾ÑÐ¸Ñ‚ Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸ Ð·Ñ€ÐµÐ»Ð¾Ð³Ð¾ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚Ð°';
-
-    STR_MATURE_DISABLED = 'Ð—Ñ€ÐµÐ»Ñ‹Ð¹ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚ Ð¾Ñ‚ÐºÐ»ÑŽÑ‡Ñ‘Ð½';
-    STR_ENABLE_MATURE = 'Ð—Ñ€ÐµÐ»Ñ‹Ð¹ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚';
-    STR_ENABLE_MATURE_SUMMARY =
-        'ÐšÐ¾Ð³Ð´Ð° Ð¾Ñ‚ÐºÐ»ÑŽÑ‡ÐµÐ½Ð¾, Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ Ð±ÑƒÐ´ÐµÑ‚ Ð±Ð»Ð¾ÐºÐ¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ Ð²ÐµÑÑŒ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚, Ð¿Ð¾Ð¼ÐµÑ‡ÐµÐ½Ð½Ñ‹Ð¹ ÐºÐ°Ðº Ð·Ñ€ÐµÐ»Ñ‹Ð¹, Ð²ÐºÐ»ÑŽÑ‡Ð°Ñ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚ Ð¸Ð· Ð¿Ð¾Ð´Ð¿Ð¸ÑÐ¾Ðº, Ð¿Ñ€ÑÐ¼Ñ‹Ðµ Ñ‚Ñ€Ð°Ð½ÑÐ»ÑÑ†Ð¸Ð¸, Ð¿Ð¾Ð¼ÐµÑ‡Ñ‘Ð½Ð½Ñ‹Ðµ ÐºÐ°Ðº Ð·Ñ€ÐµÐ»Ñ‹Ðµ, Ð¸ Ð²ÐµÑÑŒ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚ Ð¸Ð· Ñ€Ð°Ð·Ð´ÐµÐ»Ð¾Ð² ÐºÐ»Ð¸Ð¿Ð¾Ð² Ð¸ VOD';
-
-    STR_SCREEN_OFF = 'Ð­ÐºÑ€Ð°Ð½ Ð²Ñ‹ÐºÐ»ÑŽÑ‡ÐµÐ½ (Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð°ÑƒÐ´Ð¸Ð¾)';
-
-    STR_UNBLOCK_CHANNEL = 'Ð Ð°Ð·Ð±Ð»Ð¾ÐºÐ¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ ÐºÐ°Ð½Ð°Ð»';
-    STR_UNBLOCK_GAME = 'Ð Ð°Ð·Ð±Ð»Ð¾ÐºÐ¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ Ð¸Ð³Ñ€Ñƒ';
-    STR_BLOCK_CHANNEL = 'Ð—Ð°Ð±Ð»Ð¾ÐºÐ¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ ÐºÐ°Ð½Ð°Ð»';
-    STR_BLOCK_GAME = 'Ð—Ð°Ð±Ð»Ð¾ÐºÐ¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ Ð¸Ð³Ñ€Ñƒ';
-    STR_BLOCK_NO_USER = 'Ð”Ð¾Ð±Ð°Ð²ÑŒÑ‚Ðµ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ, Ð¿Ñ€ÐµÐ¶Ð´Ðµ Ñ‡ÐµÐ¼ Ð·Ð°Ð±Ð»Ð¾ÐºÐ¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ';
-    STR_BLOCK_NO_CHANNEL = 'ÐÐµ ÑƒÐ´Ð°Ð»Ð¾ÑÑŒ Ð¿Ð¾Ð»ÑƒÑ‡Ð¸Ñ‚ÑŒ ÐºÐ°Ð½Ð°Ð» Ð´Ð»Ñ ÑÑ‚Ð¾Ð³Ð¾';
-    STR_BLOCK_OVERWRITE = 'ÐŸÐ¾ÐºÐ°Ð·Ð°Ñ‚ÑŒ Ð·Ð°Ð±Ð»Ð¾ÐºÐ¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ñ‹Ðµ';
-    STR_BLOCK_SORT_DATE = 'Ð¡Ð¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ Ð¿Ð¾ Ð´Ð°Ñ‚Ðµ Ð±Ð»Ð¾ÐºÐ¸Ñ€Ð¾Ð²ÐºÐ¸';
-    STR_BLOCK_SORT_NAME = 'Ð¡Ð¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ Ð¿Ð¾ Ð¸Ð¼ÐµÐ½Ð¸ Ð¾Ñ‚ Ð Ð´Ð¾ Ð¯';
-    STR_BLOCK_EMPTY_CONTENT = 'ÐÐµÑ‚ Ð·Ð°Ð±Ð»Ð¾ÐºÐ¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ð¾Ð³Ð¾ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚Ð° ÑÑ‚Ð¾Ð³Ð¾ Ñ‚Ð¸Ð¿Ð°';
-
-    STR_NO_TOKEN_WARNING = 'Ð‘ÐµÐ· Ð´Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð¸Ñ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ Ð¼Ð¾Ð¶ÐµÑ‚ Ð½Ðµ Ð·Ð°Ð³Ñ€ÑƒÐ·Ð¸Ñ‚ÑŒ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚, ÑÑ‚Ð¾ Ð¾Ð³Ñ€Ð°Ð½Ð¸Ñ‡ÐµÐ½Ð¸Ðµ API Twitch';
-    STR_NO_TOKEN_WARNING_429 = 'ÐŸÑ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ Ð½Ðµ Ð¼Ð¾Ð¶ÐµÑ‚ Ð·Ð°Ð³Ñ€ÑƒÐ·Ð¸Ñ‚ÑŒ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚ Ð¸Ð·-Ð·Ð° Ð¾Ð³Ñ€Ð°Ð½Ð¸Ñ‡ÐµÐ½Ð¸Ñ API Twitch, Ð´Ð»Ñ Ð¸ÑÐ¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð¸Ñ Ð´Ð¾Ð±Ð°Ð²ÑŒÑ‚Ðµ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ.';
-
-    STR_ADD_USER_TEXT = 'ÐŸÐµÑ€ÐµÐ¹Ð´Ð¸Ñ‚Ðµ Ð½Ð° %site Ð½Ð° Ð´Ñ€ÑƒÐ³Ð¾Ð¼ ÑƒÑÑ‚Ñ€Ð¾Ð¹ÑÑ‚Ð²Ðµ Ð¸ Ð²Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÐºÐ¾Ð´: %code';
-    STR_ADD_USER_TEXT_COUNTER = 'ÐŸÑ€Ð¾Ð²ÐµÑ€ÐºÐ° Ð¿Ð¾Ð´Ñ‚Ð²ÐµÑ€Ð¶Ð´ÐµÐ½Ð¸Ñ Ð´Ð¾ÑÑ‚ÑƒÐ¿Ð° Ñ‡ÐµÑ€ÐµÐ· %d...';
-    STR_ADD_USER_TEXT_COUNTER_NOW = 'ÐŸÑ€Ð¾Ð²ÐµÑ€ÑÑŽ ÑÐµÐ¹Ñ‡Ð°Ñ!';
-    STR_ADD_ERROR = 'ÐÐµ ÑƒÐ´Ð°Ñ‘Ñ‚ÑÑ Ð¿Ð¾Ð»ÑƒÑ‡Ð¸Ñ‚ÑŒ Ð´Ð¾ÑÑ‚ÑƒÐ¿ Ðº ÑÐµÑ€Ð²Ð¸ÑÑƒ Ð´Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð¸Ñ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ';
-    STR_USER_TOKEN_ERROR = 'ÐŸÐ¾Ñ‚ÐµÑ€ÑÐ½Ð° ÑÐ²ÑÐ·ÑŒ Ñ Ñ‚ÐµÐºÑƒÑ‰Ð¸Ð¼ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÐµÐ¼, Ð¿Ð¾Ð¶Ð°Ð»ÑƒÐ¹ÑÑ‚Ð°, Ð¿Ñ€Ð¾Ð²ÐµÑ€ÑŒÑ‚Ðµ Ñ€Ð°Ð·Ð´ÐµÐ» Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÐµÐ¹';
-
-    STR_WRONG_PASS = 'ÐÐµÐ¿Ñ€Ð°Ð²Ð¸Ð»ÑŒÐ½Ñ‹Ð¹ Ð¿Ð°Ñ€Ð¾Ð»ÑŒ!';
-    STR_PASS_MATURE_ENABLED = 'Ð—Ñ€ÐµÐ»Ñ‹Ð¹ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚ Ð²ÐºÐ»ÑŽÑ‡Ñ‘Ð½, ÑÑ‚Ð°Ñ€Ñ‹Ð¹ Ð¿Ð°Ñ€Ð¾Ð»ÑŒ ÑƒÐ´Ð°Ð»Ñ‘Ð½';
-
-    STR_PLAYER_EXTRA_CODEC = 'Ð Ð°ÑÑˆÐ¸Ñ€ÐµÐ½Ð½Ð°Ñ Ñ‚Ñ€Ð°Ð½ÑÐ»ÑÑ†Ð¸Ñ: Ð¿Ð¾Ð´Ð´ÐµÑ€Ð¶ÐºÐ° HEVC, AV1, 1440p Ð¸ 4K';
-    STR_PLAYER_EXTRA_CODEC_SUMMARY =
-        'Ð‘Ð¾Ð»ÑŒÑˆÐ¸Ð½ÑÑ‚Ð²Ð¾ Ð¿Ð¾Ñ‚Ð¾ÐºÐ¾Ð² Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÑŽÑ‚ AVC (H.264) Ð´Ð¾ 1080p60; HEVC/AV1 Ð¿Ð¾Ð·Ð²Ð¾Ð»ÑÐµÑ‚ 1440p, 4K Ð¸ Ð±Ð¾Ð»ÐµÐµ 60 ÐºÐ°Ð´Ñ€Ð¾Ð²/Ñ, ÐµÑÐ»Ð¸ Ð´Ð¾ÑÑ‚ÑƒÐ¿Ð½Ð¾ (ÐŸÐ¾Ð´Ð´ÐµÑ€Ð¶Ð¸Ð²Ð°ÑŽÑ‚ÑÑ Ð½Ðµ Ð²ÑÐµ Ð¿Ð¾Ñ‚Ð¾ÐºÐ¸ â€” ÑÑ‚Ð¾ Ð·Ð°Ð²Ð¸ÑÐ¸Ñ‚ Ð¾Ñ‚ Ñ‚Ð¾Ð³Ð¾, Ð²ÐºÐ»ÑŽÑ‡Ð¸Ð» Ð»Ð¸ ÑÑ‚Ñ€Ð¸Ð¼ÐµÑ€ ÑÑ‚Ñƒ Ñ„ÑƒÐ½ÐºÑ†Ð¸ÑŽ Ð¸ Ð¿Ñ€ÐµÐ´Ð¾ÑÑ‚Ð°Ð²Ð»ÑÐµÑ‚ Ð»Ð¸ Twitch ÐµÑ‘ Ð² Ð²Ð°ÑˆÐµÐ¼ Ñ€ÐµÐ³Ð¸Ð¾Ð½Ðµ).';
-    STR_PLAYER_EXTRA_CODEC_SUMMARY1 =
-        'Ð­Ñ‚Ð° Ñ„ÑƒÐ½ÐºÑ†Ð¸Ñ Ñ€Ð°Ð±Ð¾Ñ‚Ð°ÐµÑ‚ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð´Ð»Ñ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÐµÐ¹, Ð²Ð¾ÑˆÐµÐ´ÑˆÐ¸Ñ… Ð² Ð°ÐºÐºÐ°ÑƒÐ½Ñ‚. ÐŸÐ¾Ð´Ð´ÐµÑ€Ð¶Ð¸Ð²Ð°ÑŽÑ‚ÑÑ Ð½Ðµ Ð²ÑÐµ Ð¿Ð¾Ñ‚Ð¾ÐºÐ¸ â€” ÑÑ‚Ð¾ Ð·Ð°Ð²Ð¸ÑÐ¸Ñ‚ Ð¾Ñ‚ Ñ‚Ð¾Ð³Ð¾, Ð²ÐºÐ»ÑŽÑ‡Ð¸Ð» Ð»Ð¸ ÑÑ‚Ñ€Ð¸Ð¼ÐµÑ€ ÑÑ‚Ñƒ Ñ„ÑƒÐ½ÐºÑ†Ð¸ÑŽ Ð¸ Ð¿Ñ€ÐµÐ´Ð¾ÑÑ‚Ð°Ð²Ð»ÑÐµÑ‚ Ð»Ð¸ Twitch ÐµÑ‘ Ð² Ð²Ð°ÑˆÐµÐ¼ Ñ€ÐµÐ³Ð¸Ð¾Ð½Ðµ.';
-
-    STR_PLAYER_EXTRA_CODEC_SUMMARY_EXTRA = 'ÐŸÑ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ Ð¿Ñ€Ð¾Ð²ÐµÑ€ÑÐµÑ‚, Ð¿Ð¾Ð´Ð´ÐµÑ€Ð¶Ð¸Ð²Ð°ÐµÑ‚ Ð»Ð¸ Ð²Ð°ÑˆÐµ ÑƒÑÑ‚Ñ€Ð¾Ð¹ÑÑ‚Ð²Ð¾ HEVC Ð¸Ð»Ð¸ AV1 Ð´Ð»Ñ Ñ‚Ñ€Ð°Ð½ÑÐ»ÑÑ†Ð¸Ð¹ Ð²Ñ‹ÑÐ¾ÐºÐ¾Ð³Ð¾ ÐºÐ°Ñ‡ÐµÑÑ‚Ð²Ð°.';
-
-    STR_PLAYER_EXTRA_CODEC_SUMMARY_EXTRA2 =
-        'Ð‘ÐµÐ· Ð¿Ð¾Ð´Ð´ÐµÑ€Ð¶ÐºÐ¸ ÑƒÑÑ‚Ñ€Ð¾Ð¹ÑÑ‚Ð²Ð° Ð²Ð¾ÑÐ¿Ñ€Ð¾Ð¸Ð·Ð²ÐµÐ´ÐµÐ½Ð¸Ðµ Ð±ÑƒÐ´ÐµÑ‚ Ð¾Ð³Ñ€Ð°Ð½Ð¸Ñ‡ÐµÐ½Ð¾ Ð¸ Ð¼Ð¾Ð¶ÐµÑ‚ Ð½Ðµ Ñ€Ð°Ð±Ð¾Ñ‚Ð°Ñ‚ÑŒ Ð´Ð»Ñ Ñ€Ð°ÑÑˆÐ¸Ñ€ÐµÐ½Ð½Ñ‹Ñ… Ñ‚Ñ€Ð°Ð½ÑÐ»ÑÑ†Ð¸Ð¹.';
-
-    STR_PLAYER_CODEC_AV1 = 'AV1';
-    STR_PLAYER_CODEC_HEVC = 'HEVC';
-
-    STR_PLAYER_CODEC_SUPPORTED = 'ÑƒÑÑ‚Ñ€Ð¾Ð¹ÑÑ‚Ð²Ð¾ Ð¿Ð¾Ð´Ð´ÐµÑ€Ð¶Ð¸Ð²Ð°ÐµÑ‚ÑÑ';
-    STR_PLAYER_CODEC_NOT_SUPPORTED = 'Ð£ÑÑ‚Ñ€Ð¾Ð¹ÑÑ‚Ð²Ð¾ Ð½Ðµ Ð¿Ð¾Ð´Ð´ÐµÑ€Ð¶Ð¸Ð²Ð°ÐµÑ‚ÑÑ! Ð’ÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ðµ ÑÑ‚Ð¾Ð³Ð¾ ÐºÐ¾Ð´ÐµÐºÐ° Ð¼Ð¾Ð¶ÐµÑ‚ Ð²Ñ‹Ð·Ð²Ð°Ñ‚ÑŒ Ð¾ÑˆÐ¸Ð±ÐºÐ¸ Ð²Ð¾ÑÐ¿Ñ€Ð¾Ð¸Ð·Ð²ÐµÐ´ÐµÐ½Ð¸Ñ.';
-
-    STR_PLAYER_EXTRA_CODEC_SUMMARY_EXTRA3 = 'Ð§Ñ‚Ð¾Ð±Ñ‹ Ð»ÑƒÑ‡ÑˆÐµ Ð¿Ð¾Ð½ÑÑ‚ÑŒ Ð²Ð¾Ð·Ð¼Ð¾Ð¶Ð½Ð¾ÑÑ‚Ð¸ ÑƒÑÑ‚Ñ€Ð¾Ð¹ÑÑ‚Ð²Ð°, Ð¿Ñ€Ð¾Ð²ÐµÑ€ÑŒÑ‚Ðµ Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€ Ð² Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ°Ñ…: ';
-
-    STR_BLOCKED_CODEC = 'Ð’Ð¾Ð·Ð¼Ð¾Ð¶Ð½Ð¾ÑÑ‚Ð¸ ÐºÐ¾Ð´ÐµÐºÐ° Ð¸ Ð·Ð°Ð±Ð»Ð¾ÐºÐ¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ñ‹Ðµ ÐºÐ¾Ð´ÐµÐºÐ¸';
-    STR_BLOCKED_CODEC_SUMMARY =
-        'Ð¡Ð¿Ð¸ÑÐ¾Ðº Ð¿Ð¾Ð´Ð´ÐµÑ€Ð¶Ð¸Ð²Ð°ÐµÐ¼Ñ‹Ñ… Ñ‚Ð¸Ð¿Ð¾Ð² ÐºÐ¾Ð´ÐµÐºÐ¾Ð² AVC H.264, HEVC H.265 Ð¸ AV1, Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐµÐ¼Ñ‹Ñ… ÑÑ‚Ð¸Ð¼ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸ÐµÐ¼, Ð¸ Ð²Ð¾Ð·Ð¼Ð¾Ð¶Ð½Ð¾ÑÑ‚ÑŒ Ð±Ð»Ð¾ÐºÐ¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ ÐºÐ¾Ð´ÐµÐºÐ¸';
-
-    STR_CODEC_DIALOG_SUMMARY_1 =
-        'Ð­Ñ‚Ð¾Ñ‚ Ñ€Ð°Ð·Ð´ÐµÐ» Ð¿ÐµÑ€ÐµÑ‡Ð¸ÑÐ»ÑÐµÑ‚ Ð²ÑÐµ Ð¿Ð¾Ð´Ð´ÐµÑ€Ð¶Ð¸Ð²Ð°ÐµÐ¼Ñ‹Ðµ ÑƒÑÑ‚Ñ€Ð¾Ð¹ÑÑ‚Ð²Ð¾Ð¼ Ñ‚Ð¸Ð¿Ñ‹ ÐºÐ¾Ð´ÐµÐºÐ¾Ð² AVC H.264, HEVC H.265 Ð¸ AV1, Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐµÐ¼Ñ‹Ðµ ÑÑ‚Ð¸Ð¼ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸ÐµÐ¼';
-
-    STR_CODEC_DIALOG_SUMMARY_2 =
-        'ÐŸÑ€Ð¾Ð³Ñ€Ð°Ð¼Ð¼Ð½Ñ‹Ðµ ÐºÐ¾Ð´ÐµÐºÐ¸ (OMX.google) Ð¾Ñ‚ÐºÐ»ÑŽÑ‡ÐµÐ½Ñ‹ Ð¿Ð¾ ÑƒÐ¼Ð¾Ð»Ñ‡Ð°Ð½Ð¸ÑŽ, ÐµÑÐ»Ð¸ Ð´Ð¾ÑÑ‚ÑƒÐ¿ÐµÐ½ Ð°Ð¿Ð¿Ð°Ñ€Ð°Ñ‚Ð½Ñ‹Ð¹ ÐºÐ¾Ð´ÐµÐº. Ð•ÑÐ»Ð¸ Ð²Ð¾Ð·Ð½Ð¸ÐºÐ»Ð¸ Ð¿Ñ€Ð¾Ð±Ð»ÐµÐ¼Ñ‹ Ñ Ð²Ð¾ÑÐ¿Ñ€Ð¾Ð¸Ð·Ð²ÐµÐ´ÐµÐ½Ð¸ÐµÐ¼, Ð¿Ð¾Ð¿Ñ€Ð¾Ð±ÑƒÐ¹Ñ‚Ðµ Ð¾Ñ‚ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼Ð¼Ð½Ñ‹Ð¹ ÐºÐ¾Ð´ÐµÐº Ð¸ Ð²ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ Ð°Ð¿Ð¿Ð°Ñ€Ð°Ñ‚Ð½Ñ‹Ð¹ Ð¸Ð»Ð¸ Ð½Ð°Ð¾Ð±Ð¾Ñ€Ð¾Ñ‚ (Ð¿Ð¾ÑÑ‚Ð¾ÑÐ½Ð½Ð¾Ðµ Ð½Ð°ÐºÐ¾Ð¿Ð»ÐµÐ½Ð¸Ðµ Ð¿Ñ€Ð¾Ð¿ÑƒÑ‰ÐµÐ½Ð½Ñ‹Ñ… ÐºÐ°Ð´Ñ€Ð¾Ð² ÑƒÐºÐ°Ð·Ñ‹Ð²Ð°ÐµÑ‚ Ð½Ð° Ð¿Ñ€Ð¾Ð±Ð»ÐµÐ¼Ñƒ Ñ ÐºÐ¾Ð´ÐµÐºÐ¾Ð¼)';
-
-    STR_CODEC_DIALOG_SUMMARY_3 = 'Ð¥Ð¾Ñ‚Ñ Ð±Ñ‹ Ð¾Ð´Ð¸Ð½ ÐºÐ¾Ð´ÐµÐº ÐºÐ°Ð¶Ð´Ð¾Ð³Ð¾ Ñ‚Ð¸Ð¿Ð° Ð´Ð¾Ð»Ð¶ÐµÐ½ Ð±Ñ‹Ñ‚ÑŒ Ð²ÐºÐ»ÑŽÑ‡Ñ‘Ð½ Ð² Ð»ÑŽÐ±Ð¾Ðµ Ð²Ñ€ÐµÐ¼Ñ';
-
-    STR_SPEED_ADJUST = 'Ð”Ð¾Ð³Ð½Ð°Ñ‚ÑŒ Ñ Ð½Ð¸Ð·ÐºÐ¾Ð¹ Ð·Ð°Ð´ÐµÑ€Ð¶ÐºÐ¾Ð¹';
-    STR_SPEED_ADJUST_SUMMARY =
-        'ÐšÐ¾Ð³Ð´Ð° Ð²ÐºÐ»ÑŽÑ‡ÐµÐ½Ð° Ð½Ð¸Ð·ÐºÐ°Ñ Ð·Ð°Ð´ÐµÑ€Ð¶ÐºÐ°, Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡ÐµÑÐºÐ¸ Ñ€ÐµÐ³ÑƒÐ»Ð¸Ñ€ÑƒÐµÑ‚ÑÑ Ð·Ð°Ð´ÐµÑ€Ð¶ÐºÐ°, ÐµÑÐ»Ð¸ Ð¾Ð½Ð° Ð¾Ñ‚ÐºÐ»Ð¾Ð½ÑÐµÑ‚ÑÑ Ð¾Ñ‚ Ð¾Ð¶Ð¸Ð´Ð°ÐµÐ¼Ð¾Ð³Ð¾ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ñ, Ð·Ð°Ð¼ÐµÐ´Ð»ÑÑ Ð¸Ð»Ð¸ ÑƒÑÐºÐ¾Ñ€ÑÑ Ð¿Ð¾Ñ‚Ð¾Ðº Ð½Ð° 1%. Ð˜Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ðµ ÑÐºÐ¾Ñ€Ð¾ÑÑ‚Ð¸ Ð¼Ð¾Ð¶ÐµÑ‚ Ð²Ñ‹Ð·Ð²Ð°Ñ‚ÑŒ Ð½ÐµÐ·Ð½Ð°Ñ‡Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ñ‹Ð¹ ÑˆÑƒÐ¼ Ð² Ð°ÑƒÐ´Ð¸Ð¾ Ð¿Ñ€Ð¸ Ñ€ÐµÐ³ÑƒÐ»Ð¸Ñ€Ð¾Ð²ÐºÐµ Ð·Ð°Ð´ÐµÑ€Ð¶ÐºÐ¸';
-
-    STR_SW_CODEC = 'ÐŸÑ€Ð¾Ð³Ñ€Ð°Ð¼Ð¼Ð½Ñ‹Ð¹ ÐºÐ¾Ð´ÐµÐº';
-    STR_HW_CODEC = 'ÐÐ¿Ð¿Ð°Ñ€Ð°Ñ‚Ð½Ñ‹Ð¹ ÐºÐ¾Ð´ÐµÐº';
-
-    STR_LOAD_ALL_LANG = 'ÐÐ²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡ÐµÑÐºÐ¸ Ð¿ÐµÑ€ÐµÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ ÑÐ¾Ð´ÐµÑ€Ð¶Ð¸Ð¼Ð¾Ðµ Ð½Ð° ÑÐ·Ñ‹Ðº "Ð’ÑÐµ"';
-    STR_LOAD_ALL_LANG_SUMMARY =
-        'ÐÐ²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡ÐµÑÐºÐ¸ Ð¿ÐµÑ€ÐµÐºÐ»ÑŽÑ‡Ð°Ñ‚ÑŒÑÑ Ð½Ð° ÑÐ·Ñ‹Ðº "Ð’ÑÐµ", ÐºÐ¾Ð³Ð´Ð° Ð½Ð° Ñ‚ÐµÐºÑƒÑ‰ÐµÐ¼ ÑÐ·Ñ‹ÐºÐµ Ð½ÐµÑ‚ ÑÐ¾Ð´ÐµÑ€Ð¶Ð¸Ð¼Ð¾Ð³Ð¾. ÐŸÑ€Ð¸Ð¼ÐµÐ½ÑÐµÑ‚ÑÑ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ðº ÑÐºÑ€Ð°Ð½Ñƒ "Ð½ÐµÑ‚ ÑÐ¾Ð´ÐµÑ€Ð¶Ð¸Ð¼Ð¾Ð³Ð¾" Ð¸ Ðº Ð½ÐµÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ð¼ ÑÐºÑ€Ð°Ð½Ð°Ð¼ (Ð˜Ð³Ñ€Ñ‹ Ð¸ Ð“Ð»Ð°Ð²Ð½Ð°Ñ ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ†Ð°).';
-    STR_LOAD_ALL_LANG_WARNING = STR_LOAD_ALL_LANG + ' Ð¸Ð·-Ð·Ð° Ð¾Ñ‚ÑÑƒÑ‚ÑÑ‚Ð²Ð¸Ñ ÑÐ¾Ð´ÐµÑ€Ð¶Ð¸Ð¼Ð¾Ð³Ð¾';
-
-    STR_DISABLE_SHARED_CHAT = 'ÐžÑ‚ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ Ð¾Ð±Ñ‰Ð¸Ð¹ Ñ‡Ð°Ñ‚';
-    STR_DISABLE_SHARED_CHAT_SUMMARY = 'Ð•ÑÐ»Ð¸ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ð¾ "Ð´Ð°", Ð±ÑƒÐ´ÑƒÑ‚ Ð¾Ñ‚Ð¾Ð±Ñ€Ð°Ð¶Ð°Ñ‚ÑŒÑÑ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ñ Ð¸Ð· Ñ‡Ð°Ñ‚Ð° Ð¾Ñ‚ÐºÑ€Ñ‹Ñ‚Ð¾Ð³Ð¾ Ð²Ð°Ð¼Ð¸ ÑÑ‚Ñ€Ð¸Ð¼Ð°';
-
-    STR_BACKUP_ACCOUNT_REMOVE = 'Ð£Ð´Ð°Ð»Ð¸Ñ‚ÑŒ Ð°ÐºÐºÐ°ÑƒÐ½Ñ‚ Google Drive';
-    STR_BACKUP_ACCOUNT_ADD = 'Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ Ð°ÐºÐºÐ°ÑƒÐ½Ñ‚ Google Drive Ð´Ð»Ñ Ñ€ÐµÐ·ÐµÑ€Ð²Ð½Ð¾Ð³Ð¾ ÐºÐ¾Ð¿Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ñ';
-    STR_BACKUP_ACCOUNT_ADD_SUMMARY = 'Ð§Ñ‚Ð¾Ð±Ñ‹ Ð²Ð¾ÑÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ Ñ€ÐµÐ·ÐµÑ€Ð²Ð½ÑƒÑŽ ÐºÐ¾Ð¿Ð¸ÑŽ, Ð´Ð¾Ð±Ð°Ð²ÑŒÑ‚Ðµ Ð°ÐºÐºÐ°ÑƒÐ½Ñ‚, Ð¸ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ Ð¿Ð¾ÐºÐ°Ð¶ÐµÑ‚ Ð´Ð¾ÑÑ‚ÑƒÐ¿Ð½Ñ‹Ðµ Ð²Ð°Ñ€Ð¸Ð°Ð½Ñ‚Ñ‹ Ð²Ð¾ÑÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ñ.';
-
-    STR_BACKUP_ACCOUNT_DIALOG_TITLE = 'ÐÐºÐºÐ°ÑƒÐ½Ñ‚ Google Drive Ð´Ð¾Ð±Ð°Ð²Ð»ÐµÐ½';
-    STR_BACKUP_ACCOUNT_DIALOG_BODY = 'ÐŸÐ¾Ð»ÑƒÑ‡ÐµÐ½Ð¸Ðµ Ð¸Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸Ð¸ Ð¾Ñ‚ API, Ð¿Ð¾Ð¶Ð°Ð»ÑƒÐ¹ÑÑ‚Ð°, Ð¿Ð¾Ð´Ð¾Ð¶Ð´Ð¸Ñ‚Ðµ...';
-    STR_BACKUP_ACCOUNT_DIALOG_CODE_FAIL = 'Ð”Ð¾ÑÑ‚ÑƒÐ¿ Ð·Ð°Ð¿Ñ€ÐµÑ‰ÐµÐ½';
-    STR_BACKUP_ACCOUNT_DIALOG_CODE_SUCCESS = 'Ð”Ð¾ÑÑ‚ÑƒÐ¿ ÑƒÑÐ¿ÐµÑˆÐ½Ð¾ Ð¿Ð¾Ð»ÑƒÑ‡ÐµÐ½, Ð¿Ð¾Ð´Ð¾Ð¶Ð´Ð¸Ñ‚Ðµ, Ð¿Ð¾ÐºÐ° Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ Ð¿Ñ€Ð¾Ð²ÐµÑ€ÑÐµÑ‚...';
-
-    STR_BACKUP_ACCOUNT_DIALOG_CODE_SUCCESS_END = 'ÐŸÑ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ Ð²Ð¾ÑÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚ Ð¸ Ð·Ð°ÐºÑ€Ð¾ÐµÑ‚ ÑÑ‚Ð¾Ñ‚ Ð´Ð¸Ð°Ð»Ð¾Ð³ Ð² Ð±Ð»Ð¸Ð¶Ð°Ð¹ÑˆÐµÐµ Ð²Ñ€ÐµÐ¼Ñ';
-    STR_BACKUP_NO_BACKUP_FOUND = 'Ð Ð°Ð½ÐµÐµ ÑÐ¾Ð·Ð´Ð°Ð½Ð½Ð°Ñ Ñ€ÐµÐ·ÐµÑ€Ð²Ð½Ð°Ñ ÐºÐ¾Ð¿Ð¸Ñ Ð½Ðµ Ð½Ð°Ð¹Ð´ÐµÐ½Ð°, Ñ€ÐµÐ·ÐµÑ€Ð²Ð½Ð°Ñ ÐºÐ¾Ð¿Ð¸Ñ ÑƒÑÐ¿ÐµÑˆÐ½Ð¾ ÑÐ¾Ð·Ð´Ð°Ð½Ð°';
-    STR_BACKUP_ACCOUNT_REFRESH_ERROR = 'ÐŸÐ¾Ñ‚ÐµÑ€ÑÐ½ Ð´Ð¾ÑÑ‚ÑƒÐ¿ Ðº Ð°ÐºÐºÐ°ÑƒÐ½Ñ‚Ñƒ Ð ÐµÐ·ÐµÑ€Ð²Ð½Ð¾Ð³Ð¾ ÐºÐ¾Ð¿Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ñ Ð¸ Ð¡Ð¸Ð½Ñ…Ñ€Ð¾Ð½Ð¸Ð·Ð°Ñ†Ð¸Ð¸, Ð°ÐºÐºÐ°ÑƒÐ½Ñ‚ Ñ€ÐµÐ·ÐµÑ€Ð²Ð½Ð¾Ð³Ð¾ ÐºÐ¾Ð¿Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ñ ÑƒÐ´Ð°Ð»ÐµÐ½!';
-
-    STR_BACKUP_NAME = 'Ð˜Ð¼Ñ Ñ€ÐµÐ·ÐµÑ€Ð²Ð½Ð¾Ð¹ ÐºÐ¾Ð¿Ð¸Ð¸:';
-    STR_BACKUP_SIZE = 'Ð Ð°Ð·Ð¼ÐµÑ€ Ñ€ÐµÐ·ÐµÑ€Ð²Ð½Ð¾Ð¹ ÐºÐ¾Ð¿Ð¸Ð¸:';
-    STR_BACKUP_SYNC = 'Ð¡Ð¸Ð½Ñ…Ñ€Ð¾Ð½Ð¸Ð·Ð°Ñ†Ð¸Ñ, Ð ÐµÐ·ÐµÑ€Ð²Ð½Ð¾Ðµ ÐºÐ¾Ð¿Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ðµ Ð¸ Ð’Ð¾ÑÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ðµ';
-    STR_BACKUP_SYNC_SUMMARY =
-        'ÐŸÑ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ ÑÐ¼Ð¾Ð¶ÐµÑ‚ Ð¿Ñ€Ð¾ÑÐ¼Ð°Ñ‚Ñ€Ð¸Ð²Ð°Ñ‚ÑŒ, ÑÐ¾Ð·Ð´Ð°Ð²Ð°Ñ‚ÑŒ, Ñ€ÐµÐ´Ð°ÐºÑ‚Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ Ð¸ ÑƒÐ´Ð°Ð»ÑÑ‚ÑŒ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ñ‚Ðµ Ñ„Ð°Ð¹Ð»Ñ‹ Google Drive, ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ðµ Ð¾Ð½Ð¾ ÑÐ¾Ð·Ð´Ð°ÐµÑ‚, Ð¾Ð½Ð¾ ÐÐ• ÑÐ¼Ð¾Ð¶ÐµÑ‚ Ð¿Ñ€Ð¾ÑÐ¼Ð°Ñ‚Ñ€Ð¸Ð²Ð°Ñ‚ÑŒ, Ð¸Ð·Ð¼ÐµÐ½ÑÑ‚ÑŒ Ð¸Ð»Ð¸ ÑƒÐ´Ð°Ð»ÑÑ‚ÑŒ Ð»ÑŽÐ±Ñ‹Ðµ Ð´Ñ€ÑƒÐ³Ð¸Ðµ Ñ„Ð°Ð¹Ð»Ñ‹ Ð² Ð²Ð°ÑˆÐµÐ¼ Google Drive.' +
-        '<br><br>' +
-        'ÐžÐ½Ð¾ Ñ‚Ð°ÐºÐ¶Ðµ ÑÐ¼Ð¾Ð¶ÐµÑ‚ Ð¿Ñ€Ð¾Ñ‡Ð¸Ñ‚Ð°Ñ‚ÑŒ Ð²Ð°Ñˆ Ð°Ð´Ñ€ÐµÑ ÑÐ»ÐµÐºÑ‚Ñ€Ð¾Ð½Ð½Ð¾Ð¹ Ð¿Ð¾Ñ‡Ñ‚Ñ‹ Ð¸ Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ðµ Ð¿Ñ€Ð¾Ñ„Ð¸Ð»Ñ Ð´Ð»Ñ Ð¾Ñ‚Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ñ Ñ‚ÐµÐºÑƒÑ‰ÐµÐ¹ Ð°ÐºÑ‚Ð¸Ð²Ð½Ð¾Ð¹ ÑƒÑ‡ÐµÑ‚Ð½Ð¾Ð¹ Ð·Ð°Ð¿Ð¸ÑÐ¸. Ð­Ñ‚Ð° Ð¸Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸Ñ Ð±ÑƒÐ´ÐµÑ‚ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð¾Ñ‚Ð¾Ð±Ñ€Ð°Ð¶Ð°Ñ‚ÑŒÑÑ Ð¸ ÐÐ• Ð±ÑƒÐ´ÐµÑ‚ Ð¸Ð·Ð¼ÐµÐ½ÑÑ‚ÑŒÑÑ.';
-    STR_BACKUP_USER_INFO = '(Ð˜Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸Ñ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ: ÐŸÐ¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ð¸, Ð¸ÑÑ‚Ð¾Ñ€Ð¸Ñ, Ð·Ð°Ð±Ð»Ð¾ÐºÐ¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ñ‹Ðµ Ð¸ Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸)';
-
-    STR_BACKUP_SYNC_USER = 'Ð¡Ð¸Ð½Ñ…Ñ€Ð¾Ð½Ð¸Ð·Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÐµÐ¹';
-    STR_BACKUP_SYNC_HISTORY = 'Ð¡Ð¸Ð½Ñ…Ñ€Ð¾Ð½Ð¸Ð·Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ Ð¸ÑÑ‚Ð¾Ñ€Ð¸ÑŽ Ð¸ ÑÐ¿Ð¸ÑÐ¾Ðº Ð·Ð°Ð±Ð»Ð¾ÐºÐ¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ñ‹Ñ… Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÐµÐ¹.';
-    STR_BACKUP_SYNC_SETTINGS = 'Ð¡Ð¸Ð½Ñ…Ñ€Ð¾Ð½Ð¸Ð·Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸';
-    STR_BACKUP_RESTORE_USER = 'Ð’Ð¾ÑÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÐµÐ¹';
-    STR_BACKUP_RESTORE_HISTORY = 'Ð’Ð¾ÑÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ Ð¸ÑÑ‚Ð¾Ñ€Ð¸ÑŽ Ð¸ ÑÐ¿Ð¸ÑÐ¾Ðº Ð·Ð°Ð±Ð»Ð¾ÐºÐ¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ñ‹Ñ… Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÐµÐ¹.';
-    STR_BACKUP_RESTORE_SETTINGS = 'Ð’Ð¾ÑÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸';
-    STR_BACKUP_RESTORE_SUMMARY =
-        'Ð•ÑÐ»Ð¸ Ð¿Ð¾ÑÐ»Ðµ Ð²Ð¾ÑÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ñ Ð²Ð¾Ð·Ð½Ð¸ÐºÐ»Ð¸ Ð¿Ñ€Ð¾Ð±Ð»ÐµÐ¼Ñ‹, Ð¿Ð¾Ð¿Ñ€Ð¾Ð±ÑƒÐ¹Ñ‚Ðµ Ð¾Ñ‡Ð¸ÑÑ‚Ð¸Ñ‚ÑŒ Ð´Ð°Ð½Ð½Ñ‹Ðµ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ñ Ð¸ Ð²Ñ‹Ð¿Ð¾Ð»Ð½Ð¸Ñ‚ÑŒ Ð²Ð¾ÑÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ðµ, Ð¿Ñ€Ð¾Ð¿ÑƒÑÑ‚Ð¸Ð² Ð¾Ð´Ð¸Ð½ Ð¸Ð· Ð¿ÑƒÐ½ÐºÑ‚Ð¾Ð².';
-
-    STR_BACKUP_SYNC_SETTINGS_SUMMARY =
-        'Ð ÐµÐ·ÐµÑ€Ð²Ð½Ð°Ñ ÐºÐ¾Ð¿Ð¸Ñ Ð¸Ð¼ÐµÐµÑ‚ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð¾Ð´Ð¸Ð½ Ð½Ð°Ð±Ð¾Ñ€ ÑƒÐ½Ð¸Ñ„Ð¸Ñ†Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ñ‹Ñ… Ð½Ð°ÑÑ‚Ñ€Ð¾ÐµÐº Ð´Ð»Ñ Ð²ÑÐµÑ… Ð²Ð°ÑˆÐ¸Ñ… ÑƒÑÑ‚Ñ€Ð¾Ð¹ÑÑ‚Ð². Ð›ÑŽÐ±Ñ‹Ðµ Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ñ, ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ðµ Ð²Ñ‹ Ð²Ð½Ð¾ÑÐ¸Ñ‚Ðµ, Ð±ÑƒÐ´ÑƒÑ‚ Ð¿Ñ€Ð¸Ð¼ÐµÐ½ÐµÐ½Ñ‹ Ð½Ð° Ð´Ñ€ÑƒÐ³Ð¸Ñ… ÑƒÑÑ‚Ñ€Ð¾Ð¹ÑÑ‚Ð²Ð°Ñ… Ð¿Ñ€Ð¸ ÑÐ»ÐµÐ´ÑƒÑŽÑ‰ÐµÐ¼ Ð¾Ñ‚ÐºÑ€Ñ‹Ñ‚Ð¸Ð¸ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ñ.';
-    STR_BACKUP_SYNC_RESTORE = 'ÐÐ°Ð¹Ð´ÐµÐ½Ð° Ñ€ÐµÐ·ÐµÑ€Ð²Ð½Ð°Ñ ÐºÐ¾Ð¿Ð¸Ñ';
-    STR_BACKUP_SYNC_RESTORE_SUMMARY = 'ÐÐ°Ð¹Ð´ÐµÐ½Ð° Ñ€ÐµÐ·ÐµÑ€Ð²Ð½Ð°Ñ ÐºÐ¾Ð¿Ð¸Ñ. Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ, Ñ‡Ñ‚Ð¾ Ð²Ð¾ÑÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ, Ð¸ Ð½Ð°Ð¶Ð¼Ð¸Ñ‚Ðµ Enter Ð´Ð»Ñ Ð¿Ð¾Ð´Ñ‚Ð²ÐµÑ€Ð¶Ð´ÐµÐ½Ð¸Ñ.';
-    STR_BACKUP_SYNC_RESTORE_SUCCESS = 'Ð’Ð¾ÑÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ðµ ÑƒÑÐ¿ÐµÑˆÐ½Ð¾!';
-    STR_BACKUP_RESTORE_FAIL = 'ÐÐµ ÑƒÐ´Ð°Ð»Ð¾ÑÑŒ Ð²Ð¾ÑÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ Ñ€ÐµÐ·ÐµÑ€Ð²Ð½ÑƒÑŽ ÐºÐ¾Ð¿Ð¸ÑŽ';
-
-    STR_BACKUP_ENABLE = 'Ð’ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ Ñ€ÐµÐ·ÐµÑ€Ð²Ð½Ð¾Ðµ ÐºÐ¾Ð¿Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ðµ';
-    STR_BACKUP_ENABLE_SUMMARY = 'Ð•ÑÐ»Ð¸ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ð¾ Ð”Ð, Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ Ð±ÑƒÐ´ÐµÑ‚ Ñ…Ñ€Ð°Ð½Ð¸Ñ‚ÑŒ Ñ€ÐµÐ·ÐµÑ€Ð²Ð½ÑƒÑŽ ÐºÐ¾Ð¿Ð¸ÑŽ Ð²ÑÐµÐ¹ Ð¸Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸Ð¸ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ ' + STR_BACKUP_USER_INFO;
-
-    STR_BACKUP_SYNC_ENABLE = 'Ð’ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ ÑÐ¸Ð½Ñ…Ñ€Ð¾Ð½Ð¸Ð·Ð°Ñ†Ð¸ÑŽ';
-    STR_BACKUP_SYNC_ENABLE_SUMMARY =
-        'Если установлено ДА, приложение будет автоматически синхронизировать информацию пользователя между устройствами';
-
-    STR_EXPORT_LOGS = 'Экспорт логов прокси';
-    STR_PROXY_LOGS_EMPTY = 'Нет логов прокси для экспорта';
-	STR_EXPORT_LOGS = 'Ð­ÐºÑÐ¿Ð¾Ñ€Ñ‚ Ð»Ð¾Ð³Ð¾Ð² Ð¿Ñ€Ð¾ÐºÑÐ¸';
-    STR_PROXY_LOGS_EMPTY = 'ÐÐµÑ‚ Ð»Ð¾Ð³Ð¾Ð² Ð¿Ñ€Ð¾ÐºÑÐ¸ Ð´Ð»Ñ ÑÐºÑÐ¿Ð¾Ñ€Ñ‚Ð°';
-}
-
-/*
- * Copyright (c) 2017â€“present Felipe de Leon <fglfgl27@gmail.com>
- *
- * Bu dosya SmartTwitchTV projesinin bir parÃ§asÄ±dÄ±r <https://github.com/fgl27/SmartTwitchTV>
- *
- * SmartTwitchTV Ã¶zgÃ¼r bir yazÄ±lÄ±mdÄ±r: Free Software Foundation tarafÄ±ndan yayÄ±nlanan
- * GNU Genel Kamu LisansÄ±'nÄ±n 3. sÃ¼rÃ¼mÃ¼ veya (isteÄŸe baÄŸlÄ± olarak) daha sonraki
- * herhangi bir sÃ¼rÃ¼mÃ¼nÃ¼n koÅŸullarÄ± altÄ±nda yeniden daÄŸÄ±tabilir ve/veya deÄŸiÅŸtirebilirsiniz.
- *
- * SmartTwitchTV, yararlÄ± olmasÄ± umuduyla daÄŸÄ±tÄ±lmaktadÄ±r,
- * ancak HÄ°Ã‡BÄ°R GARANTÄ° OLMAKSIZIN; hatta SATILABÄ°LÄ°RLÄ°K veya BELÄ°RLÄ° BÄ°R AMACA
- * UYGUNLUK zÄ±mni garantisi bile olmadan. Daha fazla ayrÄ±ntÄ± iÃ§in
- * GNU Genel Kamu LisansÄ±'na bakÄ±n.
- *
- * SmartTwitchTV ile birlikte GNU Genel Kamu LisansÄ±'nÄ±n bir kopyasÄ±nÄ±
- * almÄ±ÅŸ olmanÄ±z gerekir. AlmadÄ±ysanÄ±z, bkz <https://github.com/fgl27/SmartTwitchTV/blob/master/LICENSE>.
- *
- */
-
-//SÃ¼rÃ¼m oluÅŸturucunun jshint'ten hata vermemesi iÃ§in boÅŸluk bÄ±rakÄ±lmÄ±ÅŸtÄ±r
-function tr_TRLang() {
-    // Bu, dilinizde gÃ¼nÃ¼n Ã¶nce gelip gelmediÄŸini belirten bir true/false deÄŸiÅŸkenidir (Ã¶rn. 27/12/2010)
-    // EÄŸer Ã¶yleyse, bunu kopyalayÄ±p true olarak ayarlayÄ±n, deÄŸilse kopyalamayÄ±n
-    Main_IsDayFirst = true;
-
-    // Bu, yan panelin boyutudur. TÃ¼m kelimelerin yatay eksene sÄ±ÄŸabilmesi iÃ§in burada ayarlamalar gerekebilir.
-    // EÄŸer diliniz iÃ§in ayarlama gerekiyorsa, aÅŸaÄŸÄ±daki satÄ±rÄ± kopyalayÄ±n ve sÄ±ÄŸana kadar deÄŸerini deÄŸiÅŸtirin.
-    Sidepannel_MoveldefaultMargin = 14.5;
-
-    //AÅŸaÄŸÄ±daki deÄŸiÅŸkenler Ã§eviri iÃ§indir
-    STR_KEY_UP_DOWN = 'PG yukarÄ±/aÅŸaÄŸÄ±';
-    STR_KEY_MEDIA_FF = 'veya medya tuÅŸu ileri/geri sarma';
-    STR_GUIDE_EXTRA = 'veya 2 tuÅŸuna basÄ±n';
-    STR_GUIDE_EXTRA2 = 'veya medya tuÅŸu sonraki parÃ§a';
-    STR_REFRESH = 'Yenile';
-    STR_SEARCH = 'Ara';
-    STR_SETTINGS = 'Ayarlar';
-    STR_CONTROLS = 'Kontroller';
-    STR_ABOUT = 'HakkÄ±nda';
-    STR_HIDE = 'Gizle';
-    STR_SEARCH_EMPTY = 'BoÅŸ bir arama terimi girdiniz';
-    STR_SEARCH_RESULT_EMPTY = 'Arama sonucu bulunamadÄ±';
-    STR_SWITCH = 'EkranÄ± deÄŸiÅŸtir';
-    STR_SWITCH_USER = 'KullanÄ±cÄ± ekranÄ±nÄ± deÄŸiÅŸtir';
-    STR_SWITCH_VOD = 'DeÄŸiÅŸtir: VODlar veya Ã¶ne Ã§Ä±kanlar';
-    STR_SWITCH_CLIP = 'DeÄŸiÅŸtir: Periyot (24s, 7g, 30g, tÃ¼mÃ¼)';
-    STR_GO_TO = 'Ekrana git';
-    STR_USER = 'KullanÄ±cÄ±';
-    STR_LIVE = 'CanlÄ±';
-    STR_GAMES = 'Oyunlar';
-    STR_PLAYING = 'Oynuyor';
-    STR_FOR = 'iÃ§in';
-    STR_WATCHING = 'Ä°zlenme sÃ¼resi';
-    STR_WAITING = 'Bekleme sÃ¼resi';
-    STR_SINCE = 'BaÅŸlangÄ±Ã§';
-    STR_AGAME = 'Bir Oyun';
-    STR_PLACEHOLDER_PASS = 'Åžifrenizi girin...';
-    STR_PLACEHOLDER_SEARCH = 'AramanÄ±zÄ± girin...';
-    STR_PLACEHOLDER_OAUTH = 'Yetkilendirme anahtarÄ±nÄ±zÄ± girin...';
-    STR_PLACEHOLDER_USER = 'KullanÄ±cÄ± adÄ±nÄ±zÄ± girin ve Enter tuÅŸuna basÄ±n...';
-    STR_PLACEHOLDER_PRESS = 'Åžunun iÃ§in Enter veya SeÃ§ tuÅŸuna basÄ±n,';
-    STR_CHANNELS = 'Kanallar';
-    STR_CHANNEL = 'Kanal';
-    STR_GOBACK_START = 'Ã–nceki ekrana dÃ¶n: Geri tuÅŸuna bas';
-    STR_IS_OFFLINE = 'sona erdi';
-    STR_CHECK_HOST = ', host kontrol ediliyor';
-    STR_IS_SUB_ONLY = 'Bu video yalnÄ±zca abonelere aÃ§Ä±ktÄ±r';
-    STR_IS_SUB_ONLY_ERROR = 'sadece abonelere Ã¶zel iÃ§eriktir.';
-    STR_NOKEY_GENERAL_WARN =
-        ", yan panele gidin (Ãœst seÃ§enek) KullanÄ±cÄ± Ekle veya KullanÄ±cÄ±: DeÄŸiÅŸtir, ekle, anahtar, kullanÄ±cÄ± Ã¼zerinde enter'a basÄ±n";
-    STR_REFRESH_PROBLEM = 'BaÄŸlantÄ± baÅŸarÄ±sÄ±z veya iÃ§erik yok. Yenilemeyi deneyin';
-    STR_REFRESH_PROBLEM_ENTER = 'BaÄŸlanÄ±lamadÄ± veya iÃ§erik yok. Yenilemeyi deneyin.';
-    STR_REFRESH_PROBLEM_ENTER_LANG =
-        "BaÄŸlantÄ± baÅŸarÄ±sÄ±z veya bu dil iÃ§in iÃ§erik yok. Ä°Ã§erik dilini deÄŸiÅŸtirin (sol tuÅŸa basÄ±lÄ± tutun) veya Yenilemek iÃ§in enter'a basÄ±n";
-    STR_NO = 'HayÄ±r';
-    STR_FOR_THIS = 'bunun iÃ§in';
-    STR_PLAYER_PROBLEM = 'BaÄŸlantÄ± baÅŸarÄ±sÄ±z, video iÃ§eriÄŸi yÃ¼klenemiyor, Ã§Ä±kÄ±lÄ±yor...';
-    STR_VODS = 'VODlar';
-    STR_HIGHLIGHTS = 'Ã–ne Ã‡Ä±kanlar';
-    STR_CLIPS = 'Klipler';
-    STR_CONTENT = 'Ä°Ã§erik';
-    STR_STREAM_ON = 'YayÄ±nlandÄ±';
-    STR_DURATION = 'SÃ¼re';
-    STR_VIEW = 'GÃ¶rÃ¼ntÃ¼leme';
-    STR_VIEWS = 'GÃ¶rÃ¼ntÃ¼leme';
-    STR_VIEWER = 'Ä°zleyici';
-    STR_VIEWERS = 'Ä°zleyici';
-    STR_EXIT_AGAIN = 'Ã‡Ä±kmak iÃ§in tekrar tÄ±klayÄ±n';
-    STR_EXIT_AGAIN_PICTURE = 'Resim iÃ§inde resim modundan Ã§Ä±kmak iÃ§in tekrar tÄ±klayÄ±n';
-    STR_EXIT_AGAIN_MULTI = 'Ã‡oklu yayÄ±n modundan Ã§Ä±kmak iÃ§in tekrar tÄ±klayÄ±n';
-    STR_EXIT_MESSAGE = 'Twitch iÃ§in SmartTV Ä°stemcisinden Ã§Ä±kmak istediÄŸinizden emin misiniz?';
-    STR_EXIT = 'Ã‡Ä±kÄ±ÅŸ';
-    STR_CHANGELOG = 'DeÄŸiÅŸiklik GÃ¼nlÃ¼ÄŸÃ¼';
-    STR_FULL_CHANGELOG = 'TÃ¼m DeÄŸiÅŸiklik GÃ¼nlÃ¼ÄŸÃ¼';
-    STR_CHANGELOG_SUMMARY = 'Bunlar en son deÄŸiÅŸikliklerdir. Tam liste iÃ§in aÅŸaÄŸÄ±daki baÄŸlantÄ±yÄ± kontrol edin:';
-    STR_UPDATE = 'GÃ¼ncellemek iÃ§in TÄ±klayÄ±n';
-    STR_UPDATE_CHECK = 'GÃ¼ncellemeleri Kontrol Et';
-    STR_UPDATE_CHECKING = 'GÃ¼ncellemeler kontrol ediliyor...';
-    STR_UPDATE_CHECKING_FAIL = 'GÃ¼ncelleme kontrolÃ¼ baÅŸarÄ±sÄ±z oldu';
-    STR_NO_UPDATES = 'Uygulama gÃ¼ncel';
-    STR_UPDATE_CHANGELOG = 'GÃ¼ncellemeler & DeÄŸiÅŸiklik GÃ¼nlÃ¼ÄŸÃ¼';
-    STR_UPDATE_LATEST = 'Son deÄŸiÅŸiklik:';
-    STR_UPDATE_FAIL = 'GÃ¼ncelleme iÅŸlemi baÅŸarÄ±sÄ±z oldu, lÃ¼tfen manuel olarak deneyin!';
-    STR_UPDATE_FAIL_DOWNLOAD = 'GÃ¼ncelleme indirilemedi. LÃ¼tfen manuel olarak deneyin';
-    STR_UPDATE_AVAILABLE = 'APK GÃ¼ncellemesi mevcut';
-    STR_WEB_UPDATE_AVAILABLE = 'Web GÃ¼ncellemesi mevcut';
-    STR_UPDATE_CHECK_SIDE = ', gÃ¼ncellemeler iÃ§in yan paneli kontrol edin';
-    STR_UPDATE_LAST_CHECK = 'Son kontrol:';
-    STR_UPDATE_OPT = 'GÃ¼ncelleme seÃ§enekleri';
-    STR_UPDATE_CHECK_FOR = 'Arka planda gÃ¼ncellemeleri kontrol et';
-    STR_UPDATE_SHOW = 'GÃ¼ncellemeler mevcut olduÄŸunda gÃ¼ncelleme penceresini gÃ¶ster';
-    STR_UPDATE_SHOW_ARRAY = ['Evet', 'Sadece bir bildirim mesajÄ±', 'HayÄ±r'];
-    STR_UPDATE_START = 'GÃ¼ncelleme iÅŸlemi baÅŸladÄ±. Bu birkaÃ§ saniye sÃ¼rebilir, lÃ¼tfen bekleyin!';
-    STR_UPDATE_PLAY = 'Play Store gÃ¼ncellemeyi gÃ¶stermiyorsa, birkaÃ§ dakika sonra tekrar deneyin!';
-    STR_UPDATE_ERROR = 'Bunu kullanabilmek iÃ§in APK sÃ¼rÃ¼m 3.0.303 veya daha yenisine ihtiyacÄ±nÄ±z var, lÃ¼tfen eski yÃ¶ntemle gÃ¼ncelleyin!';
-    STR_UPDATE_WARNING_OK = 'Uygulama baÅŸarÄ±yla gÃ¼ncellendi';
-    STR_CLOSE = 'Kapat';
-    STR_MINIMIZE = 'Simge Durumuna KÃ¼Ã§Ã¼lt';
-    STR_CANCEL = 'Ä°ptal';
-    STR_RERUN = 'Yeniden Ã‡alÄ±ÅŸtÄ±r';
-    STR_LIVE_CHANNELS = 'CanlÄ± kanallar';
-    STR_LIVE_HOSTS = 'Hostlar';
-    STR_LIVE_GAMES = 'CanlÄ± oyunlar';
-    STR_USER_CHANNEL = 'Takip Edilen Kanallar';
-    STR_USER_MY_CHANNEL = 'KanalÄ±m';
-    STR_USER_ADD = 'KullanÄ±cÄ± Ekle';
-    STR_USER_REMOVE = 'KullanÄ±cÄ±yÄ± KaldÄ±r';
-    STR_USER_ERROR = 'KullanÄ±cÄ± mevcut deÄŸil';
-    STR_USER_HOSTING = 'hostluyor';
-    STR_USER_HOSTED_BY = 'hostlayan';
-    STR_USER_SET = 'zaten ayarlÄ±';
-    STR_USER_MAKE_ONE = 'Åžuna geÃ§';
-    STR_USER_NUMBER_ONE = 'Ä°lk kullanÄ±cÄ± canlÄ± kanal akÄ±ÅŸÄ±nÄ± gÃ¶rebilir ve takip edebilir/takipten Ã§Ä±kabilir';
-    STR_ADD_USER_SH = 'Takip ettiÄŸi iÃ§erikleri burada gÃ¶rÃ¼ntÃ¼lemek iÃ§in bir Twitch kullanÄ±cÄ±sÄ± ekleyin';
-    STR_CLIP_DAY = '24s';
-    STR_CLIP_WEEK = '7g';
-    STR_CLIP_MONTH = '30g';
-    STR_CLIP_ALL = 'tÃ¼mÃ¼';
-    STR_JUMP_TIME = 'AtlanÄ±yor';
-    STR_JUMP_TIME_CLICK_AGAIN = 'Atlamak iÃ§in tekrar tÄ±klayÄ±n';
-    STR_JUMP_T0 = 'konumuna';
-    STR_JUMP_CANCEL = 'Atlama Ä°ptal Edildi';
-    STR_JUMP_TIME_BIG = ', atlama sÃ¼resi toplam sÃ¼reden daha bÃ¼yÃ¼k';
-    STR_SEC = 'Sn';
-    STR_MIN = 'Dk';
-    STR_MS = 'Ms';
-    STR_HR = 'Sa';
-    STR_SOURCE = 'Kaynak';
-    STR_TWITCH_TV = 'Twitch iÃ§in SmartTV Ä°stemcisi';
-    STR_CLOSE_THIS = 'Kapatmak iÃ§in geri veya enter tuÅŸuna basÄ±n';
-    STR_CLOSE_THIS2 = 'Kapatmak iÃ§in geri tuÅŸuna basÄ±n';
-    STR_CLOSE_THIS3 = 'GÃ¼ncelleme penceresini gÃ¶stermek iÃ§in geri tuÅŸuna veya kapatmak iÃ§in enter tuÅŸuna basÄ±n';
-    STR_PLAYER = 'OynatÄ±cÄ± ile ilgili:';
-    STR_CHAT = 'Sohbet ile ilgili:';
-    STR_CHAT_SHOW = 'Sohbeti gÃ¶ster';
-    STR_CURRENT_VERSION = 'Mevcut yÃ¼klÃ¼ sÃ¼rÃ¼m';
-    STR_LATEST_VERSION = 'mevcut en son sÃ¼rÃ¼m';
-    STR_CONTROLS_MAIN_2 =
-        'Bir video oynat: (yukarÄ±/aÅŸaÄŸÄ±/sol/saÄŸ) D-pad kullanarak gezinin, enter, oynat/duraklat, Ã¶nizleme medya tuÅŸlarÄ± veya 1 tuÅŸuna basÄ±n';
-    STR_CONTROLS_MAIN_3 = 'Ekran iÃ§eriÄŸini yenile:';
-    STR_CONTROLS_MAIN_4 = 'Uygulamadan Ã§Ä±k: Yan paneldeki Ã§Ä±kÄ±ÅŸa tÄ±klayÄ±n';
-    STR_CONTROLS_MAIN_5 = 'UygulamayÄ± kapanmaya zorla: Otomatik olarak kapanana kadar geri tuÅŸunu basÄ±lÄ± tutun';
-    STR_CONTROLS_MAIN_6 = 'EkranlarÄ± deÄŸiÅŸtir: Geri tuÅŸuna, ardÄ±ndan yukarÄ±/aÅŸaÄŸÄ± D-Pad veya ' + STR_KEY_UP_DOWN + ' ' + STR_KEY_MEDIA_FF;
-    STR_CONTROLS_MAIN_10 =
-        "Arama baÅŸlat: Yan panelde ara'ya tÄ±klayÄ±n, sorgunuzu yazÄ±n ve sanal klavyede enter'a basÄ±n, ardÄ±ndan arama seÃ§eneklerinden birini seÃ§in";
-    STR_CONTROLS_MAIN_14 = "Bu uygulama hakkÄ±nda: Yan paneldeki hakkÄ±nda'ya tÄ±klayÄ±n";
-    STR_ABOUT_INFO_1 = 'Bu, kullanmak isteyen herkes iÃ§in Ã¼cretsiz olarak yayÄ±nlanan bir Android TV Twitch Ä°stemcisidir.';
-    STR_ABOUT_INFO_2 =
-        "Bu uygulamanÄ±n Twitch ile bir baÄŸlantÄ±sÄ± yoktur; bu kullanÄ±cÄ± tarafÄ±ndan yapÄ±lmÄ±ÅŸ bir uygulamadÄ±r. Ancak bu, yalnÄ±zca Twitch'in, uygulamanÄ±n iÃ§eriÄŸini gÃ¶stermesine olanak tanÄ±yan API'leri saÄŸlamasÄ± sayesinde mÃ¼mkÃ¼n olmuÅŸtur.";
-    STR_ABOUT_INFO_2_SOURCE = 'UygulamanÄ±n bu sÃ¼rÃ¼mÃ¼ yalnÄ±zca tarayÄ±cÄ±da test amaÃ§lÄ±dÄ±r!';
-    STR_ABOUT_INFO_3 = 'Ä°letiÅŸim bilgileri:';
-    STR_ABOUT_INFO_4 = "Bu, GNU Genel Kamu LisansÄ± v3.0 altÄ±nda lisanslanmÄ±ÅŸ aÃ§Ä±k kaynaklÄ± bir uygulamadÄ±r, GitHub'da gÃ¶z atÄ±n:";
-
-    STR_ABOUT_INFO_6 = 'Uygulama baÄŸÄ±mlÄ±lÄ±klarÄ±nÄ± gÃ¶rmek iÃ§in baÄŸlantÄ±yÄ± kullanÄ±n:';
-    STR_ABOUT_INFO_18 = 'Telefon ve tablet desteÄŸi:';
-    STR_ABOUT_INFO_19 =
-        "Bu uygulamayÄ± telefonlarda ve tabletlerde kullanmak mÃ¼mkÃ¼ndÃ¼r, ancak uygulama esas olarak TV'lerde kullanÄ±lmak Ã¼zere tasarlanmÄ±ÅŸtÄ±r. DiÄŸer cihazlar iÃ§in destek sÄ±nÄ±rlÄ±dÄ±r ve bu nedenle Play Store'da yayÄ±nlanmamÄ±ÅŸtÄ±r. En son APK'yÄ± indirmek ve uygulamayÄ± bir telefona veya tablete manuel olarak yÃ¼klemek iÃ§in aÅŸaÄŸÄ±daki baÄŸlantÄ±yÄ± kullanÄ±n:";
-
-    STR_CONTROLS_PLAY_0 = 'veya oynatÄ±cÄ±nÄ±n altÄ±ndaki kontrollerde';
-    STR_CONTROLS_PLAY_1 = 'Bilgi panelini gÃ¶ster: Sohbet ve canlÄ± kanal akÄ±ÅŸÄ± gÃ¶rÃ¼nmÃ¼yorsa enter veya D-pad tuÅŸlarÄ±na basÄ±n';
-    STR_CONTROLS_PLAY_2 = 'Videoyu kapat: Ä°ki kez geri tuÅŸuna veya durdurma medya tuÅŸuna basÄ±n';
-    STR_CONTROLS_PLAY_3 = 'Bir videoyu duraklat/oynat: Bilgi panelini aÃ§Ä±n ve duraklatma simgesine tÄ±klayÄ±n';
-    STR_CONTROLS_PLAY_4 = 'Ã–nizleme akÄ±ÅŸÄ±nÄ± gÃ¶ster: YukarÄ± D-pad';
-    STR_CONTROLS_PLAY_5 = "Video kalitesini deÄŸiÅŸtir: OynatÄ±cÄ±nÄ±n altÄ±ndaki 'Kalite' seÃ§eneÄŸini seÃ§in";
-    STR_CONTROLS_PLAY_6 = 'Bir videoyu yenilemeye zorla (donmasÄ± durumunda): Video kalitesini aynÄ± deÄŸere deÄŸiÅŸtirin';
-    STR_CONTROLS_PLAY_7 = 'Sohbeti gÃ¶ster veya gizle: AÅŸaÄŸÄ± D-pad veya 3 tuÅŸu ' + STR_CONTROLS_PLAY_0;
-    STR_CONTROLS_PLAY_8 =
-        'Sohbet konumunu deÄŸiÅŸtir: Sol D-pad, PG yukarÄ± veya geri sarma tuÅŸlarÄ± (yalnÄ±zca VODlar ve klipler) ' + STR_CONTROLS_PLAY_0;
-    STR_CONTROLS_PLAY_9 = 'Sohbet boyutunu deÄŸiÅŸtir: SaÄŸ D-pad, PG aÅŸaÄŸÄ± ' + STR_CONTROLS_PLAY_0;
-    STR_CONTROLS_PLAY_10 = 'Sohbet arka plan parlaklÄ±ÄŸÄ±nÄ± deÄŸiÅŸtir: OynatÄ±cÄ±nÄ±n altÄ±ndaki kontrollerden deÄŸiÅŸtirin';
-    STR_CONTROLS_PLAY_11 =
-        "CanlÄ± yayÄ±nda sohbeti yenilemeye zorla (donmasÄ± veya yÃ¼klenmemesi durumunda): OynatÄ±cÄ±nÄ±n altÄ±ndaki 'Sohbeti zorla devre dÄ±ÅŸÄ± bÄ±rak' seÃ§eneÄŸini seÃ§in (iki kez tÄ±klayÄ±n)";
-    STR_CONTROLS_PLAY_12 = "Arama baÅŸlat: Bilgi panelini aÃ§Ä±n, YÃ¶n tuÅŸlarÄ±nÄ± (sol/saÄŸ) kullanarak 'Ara'ya gidin ve enter'a basÄ±n";
-    STR_CONTROLS_PLAY_13 =
-        'TÃ¼m medya tuÅŸlarÄ± desteklenir (oynat, duraklat, durdur, sonraki parÃ§a, hÄ±zlÄ± ileri vb.), bazÄ±larÄ± ses ve video modu deÄŸiÅŸiklikleri iÃ§in kÄ±sayol olarak kullanÄ±lÄ±r';
-    STR_CONTROLS_PLAY_14 =
-        'Sohbet ve video (yan yana): 2 tuÅŸu veya hÄ±zlÄ± ileri medya tuÅŸu. AyrÄ±ca resim iÃ§inde resim ve 50/50 modu arasÄ±nda geÃ§iÅŸ yapar';
-    STR_F_DISABLE_CHAT = 'Sohbeti zorla devre dÄ±ÅŸÄ± bÄ±rak';
-    STR_OAUTH_IN =
-        'Bir anahtar eklemek, uygulamanÄ±n mesaj gÃ¶ndermek ve ifade listenizi almak iÃ§in kullanÄ±cÄ±nÄ±zÄ± kullanarak sohbete eriÅŸmesine olanak tanÄ±r (sohbette verilen hediye abonelikleri almanÄ±zÄ± saÄŸlar), kanallarÄ± takip etmenize/takibi bÄ±rakmanÄ±za ve bazÄ± kullanÄ±cÄ± iÃ§eriklerine daha hÄ±zlÄ± eriÅŸmenize olanak tanÄ±r.<br><br>Anahtar eklemek zorunlu deÄŸildir ve daha sonra herhangi bir noktada yapÄ±labilir.<br><br>ÅžÃ¼pheniz varsa bu baÄŸlantÄ±nÄ±n iÃ§eriÄŸini okuyun:<br><br>%x<br><br>BazÄ± cihazlarda, belirli eylemleri onaylamak iÃ§in bir dÃ¼ÄŸmeye manuel olarak tÄ±klamanÄ±z gerekebileceÄŸinden, yetkilendirme iÅŸlemini tamamlamak iÃ§in bir fare gerekebilir.<br><br>Åžunun iÃ§in bir anahtar ekle';
-    STR_USER_CODE = 'Bir yetkilendirme anahtarÄ± ekle';
-    STR_USER_CODE_OK = 'Anahtar baÅŸarÄ±yla eklendi';
-    STR_KEY_BAD = 'Anahtar testi baÅŸarÄ±sÄ±z oldu, yenisi eklenmeli';
-    STR_OAUTH_WRONG = 'Åžu kullanÄ±cÄ± iÃ§in bir anahtar eklemeye Ã§alÄ±ÅŸÄ±yorsunuz';
-    STR_OAUTH_WRONG2 = 'ancak bu anahtar ÅŸu kullanÄ±cÄ±ya ait';
-    STR_FOLLOWING = 'Takip Ediliyor';
-    STR_FOLLOW = 'Takip Edilmiyor';
-    STR_IS_SUB_NOOAUTH = 've bir yetkilendirme anahtarÄ± eklemediniz, bu yÃ¼zden uygulama abonelik durumunuzu kontrol edemiyor.';
-    STR_IS_SUB_NOT_SUB = 've bu kanalÄ±n abonesi deÄŸilsiniz';
-    STR_IS_SUB_IS_SUB = 'Bu kanalÄ±n bir abonesisiniz, ancak bilinmeyen bir sorun videonun oynatÄ±lmasÄ±nÄ± engelledi.';
-    STR_OAUTH_FAIL = 'SaÄŸlanan anahtarla yetkilendirme kontrolÃ¼ baÅŸarÄ±sÄ±z oldu, lÃ¼tfen kontrol edip tekrar deneyin';
-    STR_OAUTH_FAIL_USER = 'Eklenen anahtar bu kullanÄ±cÄ±ya ait deÄŸil';
-    STR_NOKEY = 'KullanÄ±cÄ± yok';
-    STR_NOKEY_WARN = 'KanallarÄ± takip etmek veya takibi bÄ±rakmak iÃ§in bir kullanÄ±cÄ± ayarlamalÄ±sÄ±nÄ±z.';
-    STR_FOLLOW_ISSUE =
-        'ÃœÃ§Ã¼ncÃ¼ taraf uygulamalar artÄ±k kanallarÄ± takip edemez veya takibi bÄ±rakamaz. DÃ¼ÄŸme yalnÄ±zca zaten bir kanalÄ± takip ediyorsanÄ±z gÃ¶rÃ¼necektir.';
-    STR_NOKUSER_WARN = 'Takip edilen iÃ§eriÄŸi gÃ¶rÃ¼ntÃ¼lemek iÃ§in bir kullanÄ±cÄ± ayarlamanÄ±z gerekir.';
-    STR_RESET = 'Yeniden baÅŸlat';
-    STR_CLIP = 'Klip';
-    STR_CHANNEL_CONT = 'Kanal iÃ§eriÄŸi';
-    STR_NET_DOWN = 'AÄŸ baÄŸlantÄ±sÄ± yok. UygulamanÄ±n Ã§alÄ±ÅŸmasÄ± iÃ§in internet baÄŸlantÄ±sÄ± gereklidir.';
-    STR_NET_UP = 'AÄŸ baÄŸlantÄ±sÄ± geri yÃ¼klendi';
-    STR_FOLLOWERS = 'TakipÃ§iler';
-    STR_FOLLOWER = 'TakipÃ§i';
-    STR_CANT_FOLLOW = ', Takip edilemiyor veya takipten Ã§Ä±kÄ±lamÄ±yor';
-    STR_GAME_CONT = 'Oyun iÃ§eriÄŸi';
-    STR_YES = 'Evet';
-    STR_REMOVE_USER = 'KullanÄ±cÄ±yÄ± kaldÄ±rmak istediÄŸinizden emin misiniz';
-    STR_PLACEHOLDER_PRESS_UP = 'Åžunun iÃ§in YukarÄ± tuÅŸuna basÄ±n';
-    STR_FOLLOW_GAMES = 'Takip Edilen CanlÄ± Oyunlar';
-    STR_USER_GAMES_CHANGE = 'ArasÄ±nda geÃ§iÅŸ yap';
-    STR_GUIDE = 'Enter tuÅŸuna basÄ±lÄ± tut';
-    STR_MONTHS = ['Oca', 'Åžub', 'Mar', 'Nis', 'May', 'Haz', 'Tem', 'AÄŸu', 'Eyl', 'Eki', 'Kas', 'Ara'];
-    STR_DAYS = ['Paz', 'Pzt', 'Sal', 'Ã‡ar', 'Per', 'Cum', 'Cmt'];
-    STR_STARTED = 'BaÅŸladÄ±';
-    STR_VIDEOS = 'Videolar';
-    STR_REPLAY = 'Tekrar Oynat';
-    STR_STREAM_END = 'iÃ§inde Ã§Ä±kÄ±lÄ±yor';
-    STR_STREAM_END_EXIT = "Ã‡Ä±kmak iÃ§in 'Geri' tuÅŸuna basÄ±n";
-    STR_FEATURED = 'Ana Sayfa';
-    STR_CREATED_AT = 'OluÅŸturuldu';
-    STR_OPEN_BROADCAST = "VOD'u AÃ§";
-    STR_OPEN_LAST_BROADCAST = "Son VOD'u AÃ§";
-    STR_IS_LIVE = 'Åžimdi canlÄ± yayÄ±nda';
-    STR_OPEN_REWIND = 'Geri sarmayÄ± aÃ§';
-    STR_OPEN_REWIND_SUMMARY = "Tam geri sarma VOD'unu aÃ§";
-    STR_OPEN_REWIND_FAIL = 'Bu canlÄ± yayÄ±n iÃ§in geri sarma yok';
-    STR_SHOW_ISLIVE_WARNING = "'YayÄ±ncÄ± canlÄ± yayÄ±nda' uyarÄ±sÄ±nÄ± gÃ¶ster";
-    STR_SHOW_ISLIVE_WARNING_SUMMARY =
-        'Bir klip veya VOD izlerken, uygulama yayÄ±ncÄ±nÄ±n canlÄ± yayÄ±nda olup olmadÄ±ÄŸÄ±nÄ± kontrol edebilir. EtkinleÅŸtirilirse bir uyarÄ± gÃ¶rÃ¼necektir. CanlÄ± yayÄ±nÄ± izlemek iÃ§in oynatÄ±cÄ±nÄ±n altÄ±ndaki kontrolleri kullanÄ±n.';
-    STR_OPEN_CHAT = 'Sohbeti aÃ§mak iÃ§in tÄ±klayÄ±n veya yayÄ±nÄ±n canlÄ±ya dÃ¶nmesini bekleyin.';
-    STR_STAY_OPEN = 'YayÄ±nda kal';
-    STR_STAY_OPEN_SUMMARY = 'YayÄ±nda kalÄ±n ve uygulama periyodik olarak canlÄ± yayÄ±na dÃ¶nÃ¼p dÃ¶nmediÄŸini kontrol edecektir.';
-    STR_STAY_CHECK = 'YayÄ±n canlÄ± mÄ± diye kontrol edilecek sÃ¼re:';
-    STR_STAY_CHECKING = 'YayÄ±n canlÄ± mÄ± diye kontrol ediliyor ...';
-    STR_STAY_CHECK_LAST = 'Son sonuÃ§:';
-    STR_STAY_IS_OFFLINE = 'YayÄ±n Ã§evrimdÄ±ÅŸÄ±ydÄ±';
-    STR_NO_BROADCAST = 'VOD yok';
-    STR_NO_BROADCAST_WARNING = 'Bu klip iÃ§in VOD bulunmuyor';
-    STR_NO_CHAT = 've bu yÃ¼zden sohbet de yok';
-    STR_IS_NOW = 'ÅŸimdi';
-    STR_OPEN_HOST = 'Hostu AÃ§';
-    STR_SETTINGS_PLAYER = 'OynatÄ±cÄ± ile ilgili';
-    STR_SETTINGS_BUFFER_SIZE = 'BaÅŸlangÄ±Ã§ arabellek boyutu:';
-    STR_SETTINGS_BUFFER_SIZE_SHORT_SUMMARY = 'BaÅŸlangÄ±Ã§ arabellek boyutunu kontrol eder';
-    STR_SETTINGS_BUFFER_SIZE_SUMMARY =
-        "Oynatmaya baÅŸlamadan Ã¶nce arabelleÄŸe alÄ±nmasÄ± gereken veri miktarÄ±nÄ± belirtir. Bu deÄŸer, cihazÄ±n kullanÄ±labilir RAM'ine baÄŸlÄ± olan maksimum arabellek boyutuyla iliÅŸkili deÄŸildir. Daha dÃ¼ÅŸÃ¼k bir ayar oynatmayÄ± daha erken baÅŸlatÄ±r ki bu genellikle tavsiye edilir. Bu deÄŸeri artÄ±rmak performansÄ± nadiren iyileÅŸtirir ve gecikmelere neden olabilir.";
-    STR_SETTINGS_BUFFER_LIVE = 'CanlÄ± yayÄ±nlar baÅŸlangÄ±Ã§ arabelleÄŸi';
-    STR_SETTINGS_BUFFER_VOD = 'Videolar (geÃ§miÅŸ yayÄ±nlar ve Ã¶ne Ã§Ä±kanlar) baÅŸlangÄ±Ã§ arabelleÄŸi';
-    STR_SETTINGS_BUFFER_CLIP = 'Klipler baÅŸlangÄ±Ã§ arabelleÄŸi';
-    STR_SETTINGS_LANG = 'Dil';
-    STR_LOADING_CHAT = 'Sohbet: Åžuraya baÄŸlanÄ±lÄ±yor';
-    STR_LOADING_FAIL = 'BaÄŸlantÄ± zaman aÅŸÄ±mÄ±na uÄŸradÄ±, giriÅŸ yapÄ±lamadÄ± ...';
-    STR_CHAT_CONNECTED = 'Sohbet: BaÄŸlandÄ±';
-    STR_CHAT_SEND_DELAY = 'Mesaj gÃ¶nderildi. Sohbet gecikme ayarlarÄ± nedeniyle kÄ±sa sÃ¼re iÃ§inde sohbette gÃ¶rÃ¼necektir.';
-    STR_CHAT_DELAY = 'Sohbet: gecikme';
-    STR_VOD_HISTORY_BASE = 'OynatmayÄ± baÅŸtan baÅŸlatÄ±n veya en son izlemeyi bÄ±raktÄ±ÄŸÄ±nÄ±z yerden devam edin.';
-    STR_VOD_HISTORY = STR_VOD_HISTORY_BASE + " VOD'u?";
-    STR_VOD_HISTORY_FORM_LIVE = STR_VOD_HISTORY_BASE + ' CANLI YAYINI?';
-    STR_FROM = 'Kimden:' + STR_BR;
-    STR_FROM_START = STR_FROM + 'BaÅŸlangÄ±Ã§';
-    STR_CHAT_END = 'Sohbet: Sohbet sona erdi!';
-    STR_RECENT = ', En yeni';
-    STR_VIWES = ', En Ã§ok izlenenler';
-    STR_NOKEY_VIDEO_WARN = 'Takip edilen videolara eriÅŸmek iÃ§in bir kullanÄ±cÄ± ekleyin.';
-    STR_SWITCH_TYPE = 'DeÄŸiÅŸtir: En yeni veya en Ã§ok izlenenler';
-    STR_ENABLE = 'EtkinleÅŸtir';
-    STR_ENABLED = 'Etkin';
-    STR_DISABLE = 'Devre DÄ±ÅŸÄ± BÄ±rak';
-    STR_DISABLED = 'Devre DÄ±ÅŸÄ±';
-    STR_DARK_MODE = 'KaranlÄ±k mod';
-    STR_BRIGHT_MODE = 'AydÄ±nlÄ±k mod';
-    STR_RESTORE_PLAYBACK_WARN = 'Uygulama oynatma sÄ±rasÄ±nda kapatÄ±ldÄ±. Ã–nceki oturum geri yÃ¼kleniyor...';
-    STR_RESTORE_PLAYBACK = 'Ã–nceki OynatmayÄ± Geri YÃ¼kle';
-    STR_RESTORE_PLAYBACK_SUMMARY =
-        'Uygulama, istemeden kapatÄ±lmasÄ± durumunda oynatma ilerlemesini kaydeder. Uygulamalar arasÄ±nda geÃ§iÅŸ yapmak, sistemin bellek yetersizliÄŸi nedeniyle uygulamanÄ±n kapanmasÄ±na neden olabilir. Yeniden aÃ§Ä±ldÄ±ÄŸÄ±nda, Ã¶nceki oynatmaya devam edecektir.';
-    STR_CHAT_FONT = 'Sohbet YazÄ± Tipi Boyutu';
-    STR_VIDEOS_ANIMATION = 'Animasyonlu Video KÃ¼Ã§Ã¼k Resimleri';
-    STR_VIDEOS_ANIMATION_SUMMARY =
-        'Bir VOD veya Ã¶ne Ã§Ä±kan seÃ§ildiÄŸinde, animasyonlu bir sÃ¼rÃ¼m mevcutsa kÃ¼Ã§Ã¼k resmi canlandÄ±rÄ±n (not: tÃ¼m videolarda yoktur).';
-    STR_SIDE_PANEL = 'Yan panel: Sol D-pad veya geri tuÅŸuna basÄ±n';
-    STR_SIZE = 'Boyut';
-    STR_BRIGHTNESS = 'ParlaklÄ±k';
-    STR_FORBIDDEN = 'Bu iÃ§erik bÃ¶lgenizde kÄ±sÄ±tlanmÄ±ÅŸtÄ±r veya yalnÄ±zca resmi Twitch uygulamasÄ± aracÄ±lÄ±ÄŸÄ±yla eriÅŸilebilir.';
-    STR_JUMPING_STEP = 'Atlama adÄ±mÄ±';
-    STR_SECOND = 'saniye';
-    STR_SECONDS = 'saniye';
-    STR_MINUTE = 'dakika';
-    STR_MINUTES = 'dakika';
-    STR_CLOCK_OFFSET = 'Saat FarkÄ±';
-    STR_CLOCK_OFFSET_SUMMARY = 'UygulamanÄ±n ana saatini tercih ettiÄŸiniz saat farkÄ±na gÃ¶re ayarlayÄ±n.';
-    STR_CLOCK_AM_PM = 'Saat Stili';
-    STR_CLOCK_AM_PM_SUMMARY = '24S, 12S (Ã–Ã–/Ã–S) veya 12S olarak ayarlayÄ±n.';
-    STR_CONTENT_LANG = 'Ä°Ã§erik Dili';
-    STR_CONTENT_LANG_SUMMARY = "Ekrandaki iÃ§eriÄŸin, canlÄ± yayÄ±nlarÄ±n, VOD'larÄ±n ve kliplerin dili.";
-    STR_APP_LANG = 'Uygulama Dili';
-    STR_APP_LANG_SUMMARY = 'UygulamanÄ±n metinlerinin dili.';
-    STR_ENTER_TO_OPEN = "EriÅŸmek iÃ§in enter'a basÄ±n";
-    STR_LANG_ALL = 'TÃ¼mÃ¼';
-    STR_NO_GAME = 'Bundan oyun bilgisi alÄ±namÄ±yor';
-    STR_EMPTY = 'BoÅŸ';
-    STR_JUMP_BUFFER_WARNING = 'ArabelleÄŸe alma sÄ±rasÄ±nda atlamak mÃ¼mkÃ¼n deÄŸil';
-    STR_CHAT_DISABLE = "Sohbet ÅŸu anda devre dÄ±ÅŸÄ±. OynatÄ±cÄ±nÄ±n altÄ±ndaki 'Sohbeti zorla devre dÄ±ÅŸÄ± bÄ±rak' seÃ§eneÄŸiyle etkinleÅŸtirebilirsiniz.";
-    STR_CLIP_FAIL = 'Bu klip/video yÃ¼klenemedi. Tekrar oynatÄ±lamÄ±yor';
-    STR_CHAT_BRIGHTNESS = 'Sohbet arka plan parlaklÄ±ÄŸÄ±';
-    STR_PLAY_NEXT = 'SÄ±radakini Oynat';
-    STR_PLAY_NEXT_IN = 'SÄ±radaki oynatÄ±lÄ±yor';
-    STR_PLAY_ALL = 'TÃ¼mÃ¼nÃ¼ Oynat';
-    STR_AUTO_PLAY_NEXT = 'SÄ±radaki klibi otomatik oynat';
-    STR_SIDE_PANEL_BACK_MAIN_MENU = 'Ana menÃ¼ye geri dÃ¶n';
-    STR_UP = 'YukarÄ± tuÅŸuna bas';
-    STR_HOLD_UP = 'YUKARI tuÅŸunu veya 2 tuÅŸunu basÄ±lÄ± tut';
-    STR_LIVE_FEED = 'CanlÄ± AkÄ±ÅŸ';
-    STR_VOD_DIALOG = 'VOD baÅŸlangÄ±Ã§ penceresi';
-    STR_VOD_DIALOG_SUMMARY =
-        "GeÃ§miÅŸinize kaydedilen VOD'larÄ± oynatmak iÃ§in varsayÄ±lan davranÄ±ÅŸÄ± ayarlayÄ±n. 'Her zaman baÅŸtan' seÃ§eneÄŸini seÃ§mek, VOD Ã¶nizlemeleri iÃ§in de geÃ§erli olacaktÄ±r.";
-    STR_VOD_DIALOG_START = 'Her zaman baÅŸtan';
-    STR_VOD_DIALOG_LAST = 'Her zaman son durulan yerden';
-    STR_VOD_DIALOG_SHOW = 'Her zaman sor';
-    STR_END_DIALOG_OPT = 'OynatÄ±cÄ± bitiÅŸ penceresi seÃ§enekleri';
-    STR_END_DIALOG_SETTINGS = 'OynatÄ±cÄ± bitiÅŸ penceresi zaman aÅŸÄ±mÄ±';
-    STR_END_DIALOG_SETTINGS_SUMMARY =
-        'Bir canlÄ± yayÄ±n, VOD veya klip bittiÄŸinde, sonra ne yapÄ±lacaÄŸÄ±na dair seÃ§enekler iÃ§eren bir pencere gÃ¶rÃ¼nÃ¼r. VarsayÄ±lan seÃ§eneÄŸin eyleme geÃ§mesi iÃ§in sÃ¼reyi (saniye olarak) ayarlayÄ±n.';
-    STR_END_DIALOG_DISABLE = 'ZamanlayÄ±cÄ±yÄ± devre dÄ±ÅŸÄ± bÄ±rak';
-    STR_CHAT_SIZE = 'Sohbet boyutu';
-    STR_CHAT_POS = 'Sohbet konumu';
-    STR_CHAT_VIDEO_MODE = 'Video modu';
-    STR_CHAT_SIDE_FULL = 'Tam ekran';
-    STR_CHAT_PP_SIDE_FULL = 'BÃ¼yÃ¼k ve kÃ¼Ã§Ã¼k ekran';
-    STR_CHAT_SIDE = 'Yan yana, video ve sohbet';
-    STR_CHAT_5050 = '50/50 ve sohbetler';
-    STR_SPEED = 'HÄ±z';
-    STR_QUALITY = 'Kalite';
-    STR_NORMAL = 'Normal';
-    STR_AUTO = 'Otomatik';
-    STR_VERY_LOW = 'Ã‡ok dÃ¼ÅŸÃ¼k';
-    STR_LOW = 'DÃ¼ÅŸÃ¼k';
-    STR_HIGH = 'YÃ¼ksek';
-    STR_VERY_HIGH = 'Ã‡ok yÃ¼ksek';
-    STR_THUMB_RESOLUTION = 'KÃ¼Ã§Ã¼k resim kalitesi';
-    STR_THUMB_RESOLUTION_SUMMARY =
-        'CanlÄ± yayÄ±nlar, videolar ve oyunlar iÃ§in varsayÄ±lan kÃ¼Ã§Ã¼k resim Ã§Ã¶zÃ¼nÃ¼rlÃ¼ÄŸÃ¼ (klipler iÃ§in uygulanamaz). DÃ¼ÅŸÃ¼k bir deÄŸer uygulamanÄ±n daha hÄ±zlÄ± yÃ¼klenmesine yardÄ±mcÄ± olur, ancak kÃ¼Ã§Ã¼k resim bulanÄ±k gÃ¶rÃ¼nebilir.';
-    STR_PAYPAL_SUMMARY = 'Paypal baÄŸÄ±ÅŸlarÄ± iÃ§in baÄŸlantÄ±yÄ± veya QR kodunu kullanÄ±n:';
-    STR_BITCOIN_SUMMARY = 'Bitcoin baÄŸÄ±ÅŸlarÄ± iÃ§in cÃ¼zdan adresini kullanÄ±n veya QR Kodunu okutun:';
-    STR_PLAYER_PROBLEM_2 = 'BaÄŸlantÄ± baÅŸarÄ±sÄ±z, yayÄ±n bilgisi yÃ¼klenemiyor';
-    STR_PLAYER_RESYNC = 'OynatÄ±cÄ±yÄ± yeniden baÅŸlat';
-    STR_PLAYER_MULTI_ALL = 'TÃ¼mÃ¼';
-    STR_QUALITY_PP = ['KÃ¼Ã§Ã¼k', 'BÃ¼yÃ¼k', STR_PLAYER_MULTI_ALL];
-    STR_QUALITY_MULTI = [STR_PLAYER_MULTI_ALL, 'Sol Ã¼st', 'SaÄŸ Ã¼st', 'Sol alt', 'SaÄŸ alt'];
-    STR_QUALITY_MULTI_BIG = [STR_PLAYER_MULTI_ALL, 'Ãœst', 'Sol alt', 'Orta alt', 'SaÄŸ alt'];
-    STR_PLAYER_BITRATE_UNLIMITED = 'SÄ±nÄ±rsÄ±z';
-    STR_PLAYER_BITRATE = 'Otomatik kalite iÃ§in izin verilen maksimum Ã‡Ã¶zÃ¼nÃ¼rlÃ¼k/Bit HÄ±zÄ±';
-    STR_PLAYER_BITRATE_SHORT_SUMMARY = 'Otomatik kalite oynatÄ±mÄ±nda kullanÄ±lan maksimum Ã‡Ã¶zÃ¼nÃ¼rlÃ¼k/Bit HÄ±zÄ±nÄ± ayarlamaya izin verir';
-    STR_PLAYER_BITRATE_SUMMARY =
-        "Bu, aynÄ± anda birden fazla video oynatÄ±lÄ±rken dÃ¼ÅŸÃ¼k Ã¶zellikli cihazlarda gecikmeyi Ã¶nlemek iÃ§in kullanÄ±lÄ±r (Ã§oÄŸu cihaz bu durumda kare atlayarak gecikme yaÅŸar, Ã§Ã¼nkÃ¼ yalnÄ±zca tek bir video oynatmak iÃ§in yapÄ±lmÄ±ÅŸtÄ±r). AyrÄ±ca, 'VarsayÄ±lan oynatÄ±cÄ± kalitesini' otomatik kaliteye ayarlayan bir sÄ±nÄ±ra ihtiyacÄ±nÄ±z olmasÄ± durumunda internet bant geniÅŸliÄŸi kullanÄ±mÄ±nÄ± sÄ±nÄ±rlamaya da yardÄ±mcÄ± olur. Ã‡oÄŸu dÃ¼ÅŸÃ¼k Ã¶zellikli cihaz iÃ§in tÃ¼m kÃ¼Ã§Ã¼k oynatÄ±cÄ±larda Ã¶nerilen Ã§Ã¶zÃ¼nÃ¼rlÃ¼k/bit hÄ±zÄ± 720p/3 Mbps ve ana veya bÃ¼yÃ¼k oynatÄ±cÄ±lar iÃ§in sÄ±nÄ±rsÄ±zdÄ±r.";
-    STR_PLAYER_BITRATE_SUMMARY_ETC =
-        'Ana ve kÃ¼Ã§Ã¼k oynatÄ±cÄ± Ã§Ã¶zÃ¼nÃ¼rlÃ¼ÄŸÃ¼ ve/veya bit hÄ±zÄ± iÃ§in farklÄ± deÄŸerler, resim iÃ§inde resim modunda ana oynatÄ±cÄ±yla deÄŸiÅŸtirilirken kÄ±sa bir arabelleÄŸe alma/yÃ¼klemeye neden olabilir (aÅŸaÄŸÄ± basmak oynatÄ±cÄ±larÄ± deÄŸiÅŸtirir). Bunu Ã¶nlemek iÃ§in, olasÄ± gecikme pahasÄ±na her iki deÄŸeri de aynÄ± ayarlayÄ±n. Ã‡ok yÃ¼ksek bir bit hÄ±zÄ±nÄ±n en iyi gÃ¶stergesi, sÃ¼rekli olarak atlanan karelerin birikmesi veya yayÄ±nÄ±n sÃ¼rekli arabelleÄŸe alÄ±nmasÄ±dÄ±r.';
-    STR_PLAYER_MAIN = 'Ana oynatÄ±cÄ± (resim iÃ§inde resim modundaki bÃ¼yÃ¼k oynatÄ±cÄ± veya 50/50 modundaki Ã¼st oynatÄ±cÄ± iÃ§in)';
-    STR_PLAYER_RES_SMALL = 'KÃ¼Ã§Ã¼k oynatÄ±cÄ±lar (resim iÃ§inde resim modundaki kÃ¼Ã§Ã¼k oynatÄ±cÄ± ve tÃ¼m Ã§oklu yayÄ±n oynatÄ±cÄ±larÄ± iÃ§in)';
-    STR_PLAYER_BITRATE_MAIN = 'Bit HÄ±zÄ± - ' + STR_PLAYER_MAIN;
-    STR_PLAYER_BITRATE_SMALL = 'Bit HÄ±zÄ± - ' + STR_PLAYER_RES_SMALL;
-    STR_PLAYER_RES_MAIN = 'Ã‡Ã¶zÃ¼nÃ¼rlÃ¼k - ' + STR_PLAYER_MAIN;
-    STR_PLAYER_RES_SMALL = 'Ã‡Ã¶zÃ¼nÃ¼rlÃ¼k - ' + STR_PLAYER_RES_SMALL;
-    STR_BLOCK_RES = 'Engellenen Ã§Ã¶zÃ¼nÃ¼rlÃ¼kler';
-    STR_BLOCK_RES_SHORT_SUMMARY = 'Bir veya daha fazla Ã§Ã¶zÃ¼nÃ¼rlÃ¼ÄŸÃ¼n kullanÄ±lmasÄ±nÄ± engellemeye izin verir';
-    STR_BLOCK_RES_SUMMARY =
-        'Otomatik kalite kullanÄ±rken, bir veya daha fazla Ã§Ã¶zÃ¼nÃ¼rlÃ¼ÄŸÃ¼n kullanÄ±lmasÄ±nÄ± engellemek mÃ¼mkÃ¼ndÃ¼r. Bu, belirli bir Ã§Ã¶zÃ¼nÃ¼rlÃ¼kte oynatÄ±rken gecikme yaÅŸayan cihazlar iÃ§in kullanÄ±ÅŸlÄ±dÄ±r. Klipler otomatik modda oynatÄ±lamadÄ±ÄŸÄ±ndan, bu aynÄ± zamanda bir klipteki bu Ã§Ã¶zÃ¼nÃ¼rlÃ¼ÄŸÃ¼n otomatik kÄ±smÄ±nÄ± da engelleyecektir.';
-    STR_BLOCK_RES_SUMMARY_EXTRA =
-        "KullanÄ±cÄ±, oynatma sÄ±rasÄ±nda seÃ§imi manuel olarak geÃ§ersiz kÄ±labilir.<br><br>XX, o Ã§Ã¶zÃ¼nÃ¼rlÃ¼k engellenmiÅŸ olarak iÅŸaretlenirse, XX'ten Ã¶nce aynÄ± deÄŸerle baÅŸlayan tÃ¼m Ã§Ã¶zÃ¼nÃ¼rlÃ¼klerin kullanÄ±lmasÄ±nÄ±n reddedileceÄŸi anlamÄ±na gelir.";
-    STR_BLOCKED = 'Engellendi';
-    STR_BLOCKED_NOT = 'Engellenmedi';
-    STR_AUDIO_SOURCE = 'Ses kaynaÄŸÄ±';
-    STR_VOLUME_CONTROLS = 'Ses ve Ses Seviyesi kontrolleri';
-    STR_AUDIO_ALL = 'TÃ¼m sesleri etkinleÅŸtir';
-    STR_AUDIO_ALL_ENA = 'TÃ¼m ses kaynaklarÄ± etkinleÅŸtirildi';
-    STR_AUDIO_ALL_100 = 'TÃ¼m ses seviyelerini %100 yap';
-    STR_AUDIO_ALL_100_SET = 'TÃ¼m oynatÄ±cÄ±larÄ±n ses seviyesi %100 olarak ayarlandÄ±';
-    STR_VOLUME = 'Ses Seviyesi -';
-    STR_AUDIO = 'Ses -';
-    STR_DEF_QUALITY = 'VarsayÄ±lan oynatÄ±cÄ± kalitesi';
-    STR_DEF_QUALITY_SUMMARY =
-        "Bu seÃ§enek, tek bir video oynatÄ±rken diÄŸer tÃ¼m seÃ§enekleri geÃ§ersiz kÄ±lacaktÄ±r. Ã‡oklu oynatÄ±cÄ± modlarÄ±nda, oynatÄ±mÄ±n otomatik kalite kullanmasÄ± gerekir. Bunun nedeni, ayarlar seÃ§eneÄŸi altÄ±ndaki '" +
-        STR_PLAYER_BITRATE +
-        "' bÃ¶lÃ¼mÃ¼nde bulunabilir.";
-    STR_PICTURE_PICTURE = 'Resim iÃ§inde resim, 50/50 veya Ã§oklu yayÄ±n (sadece canlÄ± yayÄ±nlar iÃ§in):';
-    STR_PICTURE_CONTROLS1 =
-        'Resim iÃ§inde resim modunu etkinleÅŸtir: Bir video oynatÄ±rken yukarÄ± tuÅŸuna basÄ±n. Ã–nizleme akÄ±ÅŸÄ±nÄ± gÃ¶stermek iÃ§in bir yayÄ±n seÃ§in, ardÄ±ndan baÅŸlatmak iÃ§in enter tuÅŸunu basÄ±lÄ± tutun veya 1 tuÅŸuna basÄ±n';
-    STR_PICTURE_CONTROLS2 =
-        'Video iÃ§eriÄŸini deÄŸiÅŸtir: Ã‡ok oyunculu moddaysa, her zaman oynatÄ±cÄ± Ã¶nizlemesinden tek tÄ±klayÄ±n. Resim iÃ§inde resim veya 50/50 modundaysa, tek bir tÄ±klama bÃ¼yÃ¼k veya Ã¼st videoyu gÃ¼nceller; enter tuÅŸunu basÄ±lÄ± tutmak veya 1 tuÅŸuna basmak ise kÃ¼Ã§Ã¼k veya alt videoyu gÃ¼nceller';
-    STR_PICTURE_CONTROLS4 = 'Videolar arasÄ±nda iÃ§eriÄŸi deÄŸiÅŸtir (sadece resim iÃ§inde resim): AÅŸaÄŸÄ± D-pad. BÃ¼yÃ¼k kÃ¼Ã§Ã¼k olur ve tam tersi';
-    STR_PICTURE_CONTROLS5 = 'KÃ¼Ã§Ã¼k video konumunu deÄŸiÅŸtir (sadece resim iÃ§inde resim): Sol D-pad';
-    STR_PICTURE_CONTROLS6 = 'KÃ¼Ã§Ã¼k video boyutunu deÄŸiÅŸtir (sadece resim iÃ§inde resim): SaÄŸ D-pad';
-    STR_PICTURE_CONTROLS7 =
-        "Ses kaynaÄŸÄ±nÄ± deÄŸiÅŸtir: OynatÄ±cÄ±nÄ±n altÄ±ndaki 'Ses kaynaÄŸÄ±' seÃ§eneÄŸini seÃ§in. 50/50 veya Ã§oklu yayÄ±n modundaysa, sol/saÄŸ D-pad'i kullanÄ±n. Resim iÃ§inde resim modundaysa, Ã¶nceki/sonraki parÃ§a medya tuÅŸlarÄ±nÄ± kullanÄ±n";
-    STR_PICTURE_CONTROLS3 = 'TÃ¼m videolar iÃ§in ses kaynaÄŸÄ±nÄ± deÄŸiÅŸtir: AÅŸaÄŸÄ± D-pad tuÅŸunu basÄ±lÄ± tutun.';
-    STR_PICTURE_CONTROLS8 =
-        "OynatÄ±cÄ±yÄ± yeniden baÅŸlat: OynatÄ±cÄ±nÄ±n altÄ±ndaki 'OynatÄ±cÄ±yÄ± yeniden baÅŸlat' seÃ§eneÄŸini seÃ§in. Bu yalnÄ±zca oynatÄ±cÄ±larÄ± yeniden baÅŸlatÄ±r, bu da oynatÄ±cÄ±yÄ± ve sohbeti senkronize etmek iÃ§in kullanÄ±ÅŸlÄ±dÄ±r. Bu, bir oynatÄ±cÄ±nÄ±n iÃ§eriÄŸini diÄŸeriyle senkronize etmez";
-    STR_PICTURE_CONTROLS9 =
-        "OynatÄ±cÄ±larÄ± manuel olarak senkronize et: Ã‡Ã¶zÃ¼m, Ã¶nde olan akÄ±ÅŸÄ± yavaÅŸlatmak iÃ§in oynatÄ±cÄ±nÄ±n altÄ±ndaki 'HÄ±z' seÃ§eneÄŸini seÃ§mek veya tam tersidir. YalnÄ±zca resim iÃ§inde resim modu iÃ§in Ã§alÄ±ÅŸÄ±r";
-    STR_PICTURE_CONTROLS10 = "Resim iÃ§inde resim video kalitesi: Uygulama iÃ§i '" + STR_PLAYER_BITRATE + "' ayarlarÄ±nÄ± kontrol edin";
-    STR_PICTURE_CONTROLS11 =
-        'KÃ¼Ã§Ã¼k veya alt videoyu kapat (sadece resim iÃ§inde resim): Geri tuÅŸuna iki kez basmak resim iÃ§inde resim veya 50/50 modundan Ã§Ä±kar';
-    STR_PICTURE_CONTROLS12 =
-        "50/50 modunu etkinleÅŸtir (iki yayÄ±n ve iki sohbet): Resim iÃ§inde resim etkinse, 2 tuÅŸuna, hÄ±zlÄ± ileri medya tuÅŸuna basÄ±n veya oynatÄ±cÄ±nÄ±n altÄ±ndaki 'Video modu' seÃ§eneÄŸini kullanÄ±n. EÄŸer zaten 'Yan yana' modundaysa, Ã¶nizleme akÄ±ÅŸÄ±ndaki bir Ã¶ÄŸe Ã¼zerinde enter tuÅŸunu basÄ±lÄ± tutun";
-    STR_PICTURE_CONTROLS13 = 'Ã‡oklu yayÄ±nÄ± etkinleÅŸtir: OynatÄ±cÄ±nÄ±n altÄ±ndaki kontrolleri veya geri sarma medya tuÅŸunu kullanÄ±n';
-    STR_PLAYER_INFO_VISIBILITY_ARRAY = ['OynatÄ±cÄ± bilgisi gÃ¶rÃ¼nÃ¼rken', 'Her zaman gÃ¶rÃ¼nÃ¼r', 'Asla gÃ¶rÃ¼nmez'];
-    STR_SINGLE_EXIT = 'Tek geri tuÅŸuyla Ã§Ä±kÄ±ÅŸ';
-    STR_SINGLE_EXIT_SUMMARY = 'Tek bir geri tuÅŸu tÄ±klamasÄ±yla oynatÄ±cÄ±dan, resim iÃ§inde resim, 50/50 veya Ã§oklu yayÄ±n modundan Ã§Ä±kÄ±n.';
-    STR_NOTIFICATION_OPT = 'Bildirim seÃ§enekleri';
-    STR_NOW_LIVE_SHOW = "Takip edilen kanallar iÃ§in 'YayÄ±ncÄ± canlÄ± yayÄ±nda' bildirimini gÃ¶ster";
-    STR_TITLE_CHANGE_SHOW = "Takip edilen kanallar iÃ§in 'YayÄ±ncÄ± baÅŸlÄ±ÄŸÄ± deÄŸiÅŸtirdi' bildirimini gÃ¶ster";
-    STR_GAME_CHANGE_SHOW = "Takip edilen kanallar iÃ§in 'YayÄ±ncÄ± oyunu deÄŸiÅŸtirdi' bildirimini gÃ¶ster";
-    STR_NOW_LIVE_GAME_SHOW = "Takip edilen oyunlar iÃ§in 'Oyun canlÄ± yayÄ±nda' bildirimini gÃ¶ster";
-    STR_NOTIFICATION_BACKGROUND = 'Uygulama arka planda Ã§alÄ±ÅŸÄ±rken diÄŸer uygulamalarÄ±n Ã¼zerinde bildirim gÃ¶ster';
-    STR_NOTIFICATION_BACKGROUND_SUMMARY =
-        "Bu Ã¶zelliÄŸi etkinleÅŸtirmek iÃ§in, uygulamanÄ±n Android AyarlarÄ±'nda Bildirim iznine sahip olduÄŸundan emin olun. Android 11 veya daha yeni sÃ¼rÃ¼m Ã§alÄ±ÅŸtÄ±ran cihazlarda, uygulama arka planda Ã§alÄ±ÅŸÄ±rken basit, tek satÄ±rlÄ±k bir bildirim gÃ¶sterecektir.";
-    STR_NOTIFICATION_BACKGROUND_WARNING = 'Android sistem Bildirim izni eksik!';
-    STR_NOTIFICATION_REPEAT = 'Bireysel bir bildirimin gÃ¶sterilme sayÄ±sÄ±';
-    STR_NOTIFICATION_REPEAT_SUMMARY =
-        'Bireysel bildirim zaman aÅŸÄ±mÄ± yaklaÅŸÄ±k 3 saniyedir ve deÄŸiÅŸtirilemez, Ã§Ã¼nkÃ¼ bu zaman aÅŸÄ±mÄ± sistem tarafÄ±ndan kontrol edilir, ancak aynÄ± bildirimin kaÃ§ kez gÃ¶sterileceÄŸini bu seÃ§enekle ayarlayabilirsiniz.';
-    STR_NOTIFICATION_SINCE = "Åžu sÃ¼reden daha uzun sÃ¼redir canlÄ± olan yayÄ±nlar iÃ§in 'YayÄ±ncÄ± canlÄ± yayÄ±nda' bildirimini gÃ¶stermeyi engelle:";
-    STR_NOTIFICATION_SINCE_SUMMARY =
-        'Bu, uygulama bir sÃ¼re kullanÄ±lmadÄ±ÄŸÄ±nda (Ã¶rneÄŸin cihazÄ± kapattÄ±ÄŸÄ±nÄ±zda) veya ekran kapalÄ±yken (cihaz aÃ§Ä±k ama ekran kapalÄ±ysa uygulama bildirim gÃ¶stermez) uygulamanÄ±n uzun bir bildirim listesi gÃ¶stermesini Ã¶nlemek iÃ§in kullanÄ±ÅŸlÄ±dÄ±r.';
-    STR_GLOBAL_FONT = 'Genel uygulama yazÄ± tipi boyutu farkÄ±';
-    STR_GLOBAL_FONT_SUMMARY =
-        'Bu, uygulamadaki tÃ¼m metinlerin ve Ã§oÄŸu simgenin boyutunu deÄŸiÅŸtirecektir (sohbet yazÄ± tipi boyutu hariÃ§, Ã§Ã¼nkÃ¼ kendi kontrolÃ¼ vardÄ±r). Ã‡ok kÃ¼Ã§Ã¼k bir deÄŸer gÃ¶rÃ¼nmeyebilir, Ã§ok bÃ¼yÃ¼k bir deÄŸer metin kutusunu taÅŸÄ±rabilir, bu yÃ¼zden bu deÄŸer sÄ±nÄ±rlÄ±dÄ±r. Bunu deÄŸiÅŸtirmek tÃ¼m ekranlarÄ± yenileyecektir.';
-    STR_MAIN_MENU = 'Ana MenÃ¼';
-    STR_USER_MENU = 'KullanÄ±cÄ± MenÃ¼sÃ¼';
-    STR_CH_IS_OFFLINE = 'Ã‡evrimdÄ±ÅŸÄ±';
-    STR_ROUND_IMAGES = 'Yuvarlak kanal resimleri';
-    STR_ROUND_IMAGES_SUMMARY = 'Ã‡oÄŸu kanal resmi kare olduÄŸundan, bazÄ± resimler harika gÃ¶rÃ¼nmeyebilir.';
-    STR_SCREEN_COUNTER = 'Konum/Toplam sayacÄ±nÄ± gizle';
-    STR_SCREEN_COUNTER_SUMMARY =
-        'OynatÄ±labilir iÃ§eriÄŸe sahip ekranlarda mevcut konumu ve toplam yÃ¼klenen iÃ§eriÄŸi bildiren bir konum sayacÄ± vardÄ±r. Siz kaydÄ±rdÄ±kÃ§a daha fazla iÃ§erik yÃ¼klenir ve toplam gÃ¼ncellenir.';
-    STR_SWITCH_POS = 'DeÄŸiÅŸtir: BaÅŸlangÄ±Ã§ Pozisyonu FarkÄ±';
-    STR_SWITCH_POS_SUMMARY =
-        'MÃ¼mkÃ¼n olan ilk videodan baÅŸlamak yerine, listede daha alt bir konumdan baÅŸlayÄ±n, bÃ¶ylece daha eski bir video bulmak iÃ§in aÅŸaÄŸÄ± inmeye gerek kalmaz.';
-    STR_USER_OPTION = 'KullanÄ±cÄ± iÃ§in bir seÃ§enek seÃ§in';
-    STR_MAIN_USER = 'Ana KullanÄ±cÄ±';
-    STR_USER_TOP_LABEL = 'SeÃ§enekleri gÃ¶rmek iÃ§in bir kullanÄ±cÄ±ya tÄ±klayÄ±n';
-    STR_USER_EXTRAS = 'KullanÄ±cÄ±: DeÄŸiÅŸtir, ekle, anahtar';
-    STR_LOW_LATENCY = 'DÃ¼ÅŸÃ¼k gecikme';
-    STR_LOW_LATENCY_SUMMARY =
-        'EÄŸer arabellek sorunu yaÅŸamaya baÅŸlarsanÄ±z, ' +
-        STR_LOW_LATENCY +
-        ' Ã¶zelliÄŸini devre dÄ±ÅŸÄ± bÄ±rakÄ±n.<br>Bunun etkili olmasÄ± iÃ§in ' +
-        STR_SETTINGS_BUFFER_LIVE +
-        ' ayarÄ±nÄ± 1 veya daha dÃ¼ÅŸÃ¼k bir deÄŸere ayarlayÄ±n';
-    STR_GAME_SORT = 'Oyun Ã–nizleme sÄ±ralamasÄ±';
-    STR_LIVE_FEED_SORT = 'Yan panel veya oynatÄ±cÄ± Ã¶nizleme sÄ±ralamasÄ±';
-    STR_LIVE_FEED_SORT_SUMMARY =
-        "Yan paneldeki canlÄ± akÄ±ÅŸÄ± ve oynatÄ±cÄ± Ã¶nizlemesini sÄ±ralar. Ã–nizlemede bu sadece kullanÄ±cÄ±nÄ±n canlÄ± yayÄ±nlarÄ± ve ana sayfasÄ± iÃ§in geÃ§erlidir (geÃ§miÅŸ dÄ±ÅŸÄ±ndaki her ÅŸey izlenme sayÄ±sÄ±na, geÃ§miÅŸ en son izlenene ve VOD'lar en yeniye gÃ¶re sÄ±ralanÄ±r).";
-    STR_A_Z = 'Alfabetik A - Z';
-    STR_Z_A = 'Alfabetik Z - A';
-    STR_APP_ANIMATIONS = 'Uygulama animasyonlarÄ±nÄ± etkinleÅŸtir';
-    STR_APP_ANIMATIONS_SUMMARY = 'Yan panel, kaydÄ±rma ve ilgili animasyonlarÄ± etkinleÅŸtirir.';
-    STR_UI_SETTINGS = 'ArayÃ¼zÃ¼, renk stilini, animasyonlarÄ± ve ilgili ayarlarÄ± Ã¶zelleÅŸtirin';
-    STR_GENERAL_CUSTOM = 'Ä°Ã§eriÄŸi, sÄ±ralamayÄ±, otomatik yenilemeyi, zaman aÅŸÄ±mlarÄ±nÄ± ve ilgili ayarlarÄ± Ã¶zelleÅŸtirin';
-    STR_RUNNINGTIME = 'UygulamanÄ±n Ã§alÄ±ÅŸma sÃ¼resi:';
-    STR_410_ERROR = 'Video baÄŸlantÄ±sÄ± alÄ±namadÄ±';
-    STR_PRESS_ENTER_TO_CHANGE = "Åžuna deÄŸiÅŸtirmek iÃ§in enter'a basÄ±n -";
-    STR_CLICK_UNFOLLOW = "(Takipten Ã§Ä±kmak iÃ§in enter'a basÄ±n)";
-    STR_CLICK_FOLLOW = "(Takip etmek iÃ§in enter'a basÄ±n)";
-    STR_TODAY = 'BugÃ¼n';
-    STR_DROOPED_FRAMES = 'Atlanan Kareler:';
-    STR_BUFFER_HEALT = 'Arabellek Boyutu (Sn):';
-    STR_NET_ACT = 'AÄŸ EtkinliÄŸi (Mb):';
-    STR_NET_SPEED = 'AÄŸ HÄ±zÄ± (Mb):';
-    STR_LATENCY_TO_BROADCASTER = 'YayÄ±ncÄ±ya Gecikme';
-    STR_LATENCY = 'YayÄ±ncÄ±ya Gecikme (Sn):';
-    STR_CHAT_DELAY_LATENCY_TO_BROADCASTER = STR_LATENCY_TO_BROADCASTER + ' temel alÄ±narak';
-    STR_PING = "Twitch'e Ping (Ms):";
-    STR_WARNINGS = 'UyarÄ±lar';
-    STR_WELCOME = 'HoÅŸ geldiniz:';
-    STR_WELCOME_SUMMARY =
-        'Bu uygulamanÄ±n Ã§ok sayÄ±da Ã¶zelliÄŸi var. NasÄ±l kullanÄ±lacaÄŸÄ±nÄ± anlamak iÃ§in uygulama ayarlarÄ±nÄ± ve kontrollerini inceleyin. ÅžÃ¼pheniz varsa, Play Store tanÄ±tÄ±m videosunu izleyin; hala emin deÄŸilseniz iletiÅŸim bilgilerini kullanÄ±n.';
-    STR_WARNING_PHONE = 'Cep telefonlarÄ± uyarÄ±sÄ±';
-    STR_WARNING_PHONE_SUMMARY =
-        "Bu uygulama temel olarak TV'lerde kullanÄ±lmak Ã¼zere tasarlanmÄ±ÅŸtÄ±r, diÄŸer cihazlar iÃ§in destek sÄ±nÄ±rlÄ±dÄ±r ve daha iyi bir destek almayabilir. Bir klavyeniz veya D-pad + enter ve geri tuÅŸu olan bir kontrolcÃ¼nÃ¼z yoksa (bilgisayarda ESC geri tuÅŸu olarak Ã§alÄ±ÅŸÄ±r), gezinmek iÃ§in ekrandaki sanal tuÅŸlarÄ± kullanÄ±n (yalnÄ±zca telefon/tablet cihazlarÄ±nda gÃ¶rÃ¼nÃ¼r). Ayarlarda sanal D-pad'in konumunu ve opaklÄ±ÄŸÄ±nÄ± deÄŸiÅŸtirebilirsiniz, sanal D-pad'i gÃ¶stermek iÃ§in ekranÄ±n herhangi bir yerine tÄ±klayÄ±n. Gizliyken Ã§alÄ±ÅŸmaz.";
-    STR_DPAD_POSTION = 'D-pad ekran konumu';
-    STR_DPAD_OPACITY = 'D-pad opaklÄ±ÄŸÄ±';
-    STR_DPAD_OPT = 'D-pad seÃ§enekleri';
-
-    STR_MAX_RES = 'Maks Ã§Ã¶zÃ¼nÃ¼rlÃ¼k:';
-    STR_MAX_BIT = 'Maks bit hÄ±zÄ±:';
-    STR_MAX_LEVEL = 'Maks seviye:';
-    STR_MAX_FPS = 'Ã‡Ã¶zÃ¼nÃ¼rlÃ¼k baÅŸÄ±na maks fps:';
-    STR_MAX_INSTANCES = 'Maks Ã¶rnek sayÄ±sÄ±:';
-    STR_UNKNOWN = 'Bilinmiyor';
-    STR_USER_LIVE = 'KullanÄ±cÄ± canlÄ± yan paneli: Yan panelden Sol D-pad veya herhangi bir yerden 3 tuÅŸu';
-    STR_PP_WORKAROUND = 'Ã‡oklu oyuncu, RÄ°R ve Ã¶nizleme modu geÃ§ici Ã§Ã¶zÃ¼mÃ¼';
-    STR_PP_WORKAROUND_SUMMARY =
-        'BazÄ± cihazlarda, Ã§oklu oyuncu modunun dÃ¼zgÃ¼n Ã§alÄ±ÅŸmasÄ± iÃ§in bunu etkinleÅŸtirmek gerekir. Sorun genellikle iki oynatÄ±cÄ±dan birinin siyah ekran olmasÄ±dÄ±r. Sorun yaÅŸamÄ±yorsanÄ±z etkinleÅŸtirmeyin, Ã§Ã¼nkÃ¼ bu daha dÃ¼ÅŸÃ¼k gÃ¶rÃ¼ntÃ¼ kalitesine ve zayÄ±f performansa neden olur.';
-    STR_HISTORY = 'GeÃ§miÅŸ';
-    STR_WATCHED = 'Ä°zlenme tarihi';
-    STR_UNTIL = 'kadar';
-    STR_SORTING = 'SÄ±ralama';
-    STR_DELETE_HISTORY = 'Bu geÃ§miÅŸi sil';
-    STR_DELETE_UNREACHABLE = 'EriÅŸilemeyen iÃ§eriÄŸi otomatik olarak sil';
-    STR_DELETE_UNREACHABLE_SUMMARY =
-        "Bu EVET olarak ayarlanÄ±rsa, uygulama eriÅŸilemeyen (yayÄ±ncÄ±/iÃ§erik oluÅŸturucu tarafÄ±ndan silinmiÅŸ) VOD'larÄ± ve klipleri geÃ§miÅŸten otomatik olarak kaldÄ±rÄ±r";
-    STR_NAME_A_Z = 'Ä°sim A - Z';
-    STR_NAME_Z_A = 'Ä°sim Z - A';
-    STR_GAME_A_Z = 'Oyun A - Z';
-    STR_GAME_Z_A = 'Oyun Z - A';
-    STR_VIWES_MOST = 'En Ã§ok izlenenler';
-    STR_VIWES_LOWEST = 'En az izlenenler';
-    STR_CHANNELS_MOST = 'En yÃ¼ksek kanal miktarÄ±';
-    STR_CHANNELS_LOWEST = 'En dÃ¼ÅŸÃ¼k kanal miktarÄ±';
-    STR_NEWEST = 'En son izlenen';
-    STR_OLDEST = 'En eski izlenen';
-    STR_PRESS_ENTER_D = "Silmek iÃ§in enter'a basÄ±n";
-    STR_LIVE_VOD = 'Bu canlÄ± yayÄ±n artÄ±k bir VOD<br>VOD, canlÄ± yayÄ±nÄ± en son izlemeyi bÄ±raktÄ±ÄŸÄ±nÄ±z yerden aÃ§Ä±lÄ±yor:<br>';
-
-    STR_DELETE_SURE = 'TÃ¼mÃ¼nÃ¼ silmek istediÄŸinizden emin misiniz';
-    STR_CREATED_NEWEST = 'OluÅŸturma / Ã‡alÄ±ÅŸma sÃ¼resi en yeni';
-    STR_CREATED_OLDEST = 'OluÅŸturma / Ã‡alÄ±ÅŸma sÃ¼resi en eski';
-    STR_THUMB_OPTIONS = 'KÃ¼Ã§Ã¼k Resim SeÃ§enekleri';
-    STR_HISTORY_LIVE_DIS = 'CanlÄ± yayÄ±n geÃ§miÅŸini etkinleÅŸtir';
-    STR_HISTORY_VOD_DIS = 'VOD geÃ§miÅŸini etkinleÅŸtir';
-    STR_HISTORY_CLIP_DIS = 'Klip geÃ§miÅŸini etkinleÅŸtir';
-    STR_OPEN_GAME = 'Oyunu aÃ§';
-    STR_OPEN_CHANNEL = 'KanalÄ± aÃ§';
-    STR_THUMB_OPTIONS_KEY = "Bir eylemin Ã¼zerinde enter'a basÄ±n (aÃ§mak veya uygulamak iÃ§in), uygulamadan Ã§Ä±kmak iÃ§in geri tuÅŸuna basÄ±n";
-    STR_DELETE_FROM_HISTORY = 'Bunu geÃ§miÅŸten sil';
-    STR_CHECK_FOLLOW = 'Takip durumu kontrol ediliyor ...';
-    STR_REFRESH_DELETE = 'DeÄŸiÅŸikliÄŸi gÃ¶rmek iÃ§in sildikten sonra ekranÄ± yenileyin.';
-    STR_THUMB_OPTIONS_TOP = 'KÃ¼Ã§Ã¼k resim seÃ§enekleri iÃ§in solu basÄ±lÄ± tutun';
-    STR_REPLACE_MULTI = 'YukarÄ±daki ile deÄŸiÅŸtirmek iÃ§in hangisini seÃ§ersiniz?';
-    STR_REPLACE_MULTI_ENTER = "DeÄŸiÅŸtirmek iÃ§in enter'a basÄ±n veya Ã§Ä±kmak iÃ§in geri tuÅŸuna basÄ±n.";
-    STR_ALREDY_PLAYING = 'Bu zaten oynatÄ±lÄ±yor';
-    STR_STREAM_ERROR = 'Ã–nizleme aÃ§Ä±lamadÄ±';
-    STR_PP_MODO = 'Resim iÃ§inde resim modu';
-    STR_4_WAY_MULTI_INSTANCES = 'CihazÄ±nÄ±z aynÄ± anda sadece %x codec Ã¶rneÄŸi (oynatÄ±cÄ±) destekliyor, kullanÄ±lamÄ±yor';
-    STR_MULTI_EMPTY = 'Bitti ve/veya boÅŸ';
-    STR_4_WAY_MULTI = "4'lÃ¼ Ã§oklu yayÄ±n";
-    STR_CONTROLS_MULTI_0 = 'Ã‡oklu yayÄ±n yardÄ±mÄ±:';
-    STR_CONTROLS_MULTI_1 =
-        "Ã‡oklu yayÄ±nÄ± etkinleÅŸtirdikten sonra gecikme sorunlarÄ± yaÅŸÄ±yorsanÄ±z, ayarlarda 'KÃ¼Ã§Ã¼k oynatÄ±cÄ± bit hÄ±zÄ±' deÄŸerini dÃ¼ÅŸÃ¼rmeyi deneyin; atlanan karelerin birikmesi veya sÃ¼rekli arabelleÄŸe alma, Ã§ok yÃ¼ksek bit hÄ±zÄ±nÄ±n veya Ã§ok yavaÅŸ internetin bir gÃ¶stergesidir";
-    STR_CONTROLS_MULTI_2 = 'YayÄ±n ekle: Ã¶nizleme akÄ±ÅŸÄ±nÄ± yukarÄ± tuÅŸuyla aÃ§Ä±n ve bir canlÄ± yayÄ±na tÄ±klayÄ±n';
-    STR_CONTROLS_MULTI_3 =
-        'YayÄ±nlarÄ± deÄŸiÅŸtir: Ã§oklu yayÄ±n dolduktan sonra, Ã¶nizleme akÄ±ÅŸÄ±ndan birini seÃ§in ve iletiÅŸim kutusundan deÄŸiÅŸtirmek iÃ§in birini seÃ§in';
-    STR_CONTROLS_MULTI_4 =
-        'Ses kaynaÄŸÄ±nÄ± deÄŸiÅŸtir: D-pad saÄŸ veya sol veya medya tuÅŸlarÄ± sonraki/Ã¶nceki parÃ§a, tÃ¼m videolarÄ±n ses kaynaÄŸÄ± iÃ§in aÅŸaÄŸÄ± tuÅŸunu basÄ±lÄ± tutun';
-    STR_CONTROLS_MULTI_5 = 'Ã‡oklu yayÄ±ndan Ã§Ä±k: Ä°ki kez geri tuÅŸuna basÄ±n veya oynatÄ±cÄ±nÄ±n altÄ±ndaki seÃ§enekten Ã§Ä±kÄ±n.';
-    STR_CONTROLS_MULTI_6 = 'Bunu kapatmak iÃ§in 4 canlÄ± yayÄ±n aÃ§Ä±n';
-    STR_PICTURE_LIVE_FEED =
-        "Resim iÃ§inde resim: Enter'Ä± basÄ±lÄ± tutun veya 1 tuÅŸuna basÄ±n, ardÄ±ndan taÅŸÄ±mak iÃ§in D-Pad sol, yeniden boyutlandÄ±rmak iÃ§in saÄŸ veya videolarÄ± deÄŸiÅŸtirmek iÃ§in aÅŸaÄŸÄ± tuÅŸunu kullanÄ±n";
-    STR_MULTI_TITLE = ', Bir yayÄ±nÄ± aÃ§mak veya deÄŸiÅŸtirmek iÃ§in bir kÃ¼Ã§Ã¼k resme tÄ±klayÄ±n, ses kaynaÄŸÄ±nÄ± deÄŸiÅŸtirmek iÃ§in D-pad sol/saÄŸ kullanÄ±n';
-    STR_FEED_END_DIALOG = ', Ãœst menÃ¼ye geri dÃ¶nmek iÃ§in geri tuÅŸuna basÄ±n';
-    STR_BACK_USER_GAMES = 'Geri dÃ¶nmek iÃ§in geri tuÅŸuna basÄ±n:';
-    STR_SHOW_LIVE_PLAYER = 'CanlÄ± ekranlarda Ã¶nizlemeyi gÃ¶ster';
-    STR_SHOW_VOD_PLAYER_WARNING = 'Oynatma en son durduÄŸu yerden baÅŸlÄ±yor:';
-    STR_SHOW_VOD_PLAYER = 'VOD ekranlarÄ±nda Ã¶nizlemeyi gÃ¶ster';
-    STR_SHOW_CLIP_PLAYER = 'Klip ekranlarÄ±nda Ã¶nizlemeyi gÃ¶ster';
-    STR_PREVIEW_CLIP_NEXT = 'Bir klip Ã¶nizlemesi bittiÄŸinde, otomatik olarak bir sonraki mevcut klibe geÃ§in.';
-    STR_SHOW_SIDE_PLAYER = 'Yan panelde Ã¶nizlemeyi gÃ¶ster';
-    STR_SHOW_FEED_PLAYER = 'OynatÄ±cÄ± Ã¶nizleme kÃ¼Ã§Ã¼k resimlerinde Ã¶nizlemeyi gÃ¶ster';
-    STR_SHOW_FEED_PLAYER_SUMMARY = 'Ä°stemiyorsanÄ±z veya birden fazla oynatÄ±cÄ± etkin olduÄŸunda cihazÄ±nÄ±z gecikiyorsa, bunu HAYIR olarak ayarlayÄ±n.';
-    STR_DISABLED_FEED_PLAYER_MULTI = 'Ã‡oklu yayÄ±n etkinken Ã¶nizlemeyi devre dÄ±ÅŸÄ± bÄ±rak';
-    STR_DISABLED_FEED_PLAYER_MULTI_SUMMARY =
-        'Performans nedenleriyle, bazÄ± cihazlar birden fazla oynatÄ±cÄ±yla gecikebilir. CihazÄ±nÄ±z Ã§oklu yayÄ±n iÃ§in uygunsa ancak Ã¶nizleme oynatÄ±cÄ± ve bir Ã§oklu yayÄ±n etkin olduÄŸunda gecikiyorsa, bu seÃ§eneÄŸi HAYIR olarak ayarlayÄ±n.';
-    STR_PREVIEW_ERROR_LOAD = 'Ã–nizleme yÃ¼klenemedi:';
-    STR_PREVIEW_ERROR_LINK = 'ulaÅŸÄ±lamÄ±yor';
-    STR_PREVIEW_VOD_DELETED = ', bu VOD silinmiÅŸ olabilir';
-    STR_PREVIEW_END = 'Ã–nizleme videosu sona erdi';
-    STR_PLAYER_LAG_ERRO = 'AÄŸ baÄŸlantÄ±sÄ± sorunu nedeniyle oynatÄ±cÄ± oynatÄ±lamÄ±yor';
-    STR_PLAYER_ERROR = 'OynatÄ±cÄ± hatasÄ± nedeniyle oynatÄ±lamÄ±yor';
-    STR_PLAYER_ERROR_MULTI = ', ayarlarda kÃ¼Ã§Ã¼k oynatÄ±cÄ± bit hÄ±zÄ± deÄŸerini dÃ¼ÅŸÃ¼rmeyi deneyin';
-    STR_PREVIEW_SIZE = 'OynatÄ±cÄ± Ã¶nizleme boyutu';
-    STR_PREVIEW_SIZE_SUMMARY = 'Bir CanlÄ±, VOD veya klip aÃ§Ä±kken yukarÄ± basÄ±ldÄ±ÄŸÄ±nda gÃ¶sterilen kÃ¼Ã§Ã¼k Ã¶nizleme oynatÄ±cÄ±sÄ±nÄ±n boyutunu ayarlayÄ±n.';
-    STR_PREVIEW_SIZE_ARRAY = ['KÃ¼Ã§Ã¼k', 'Orta', 'BÃ¼yÃ¼k', 'Ekstra BÃ¼yÃ¼k'];
-    STR_PREVIEW_SIZE_SCREEN = 'Ekran Ã¶nizleme boyutu';
-    STR_PREVIEW_SIZE_SCREEN_SUMMARY = 'Ana uygulama ekranlarÄ±nÄ±n Ã¼zerinde gÃ¶sterilen Ã¶nizleme oynatÄ±cÄ±sÄ±nÄ±n boyutunu ayarlayÄ±n.';
-    STR_PREVIEW_VOLUME_SCREEN = 'Ekran Ã¶nizleme ses seviyesi';
-    STR_PREVIEW_VOLUME_SCREEN_SUMMARY =
-        'Ana uygulama ekranlarÄ±nÄ±n ve yan panelin Ã¼zerinde gÃ¶sterilen Ã¶nizleme oynatÄ±cÄ±sÄ±nÄ±n ses seviyesini ayarlayÄ±n.';
-    STR_PREVIEW_SIZE_SCREEN_ARRAY = ['KÃ¼Ã§Ã¼k Resim Boyutu', 'Daha BÃ¼yÃ¼k'];
-    STR_SIDE_PANEL_PLAYER_DELAY = 'Ã–nizleme gecikmesi';
-    STR_SIDE_PANEL_PLAYER_DELAY_SUMMARY =
-        'Bir kÃ¼Ã§Ã¼k resim seÃ§ildikten sonra Ã¶nizlemenin yÃ¼klenmeye baÅŸlamasÄ± iÃ§in gecikme sÃ¼resini ayarlayÄ±n. Bu, kaydÄ±rma sÄ±rasÄ±nda geciken yavaÅŸ cihazlara yardÄ±mcÄ± olur.';
-    STR_PREVIEW_VOLUME = 'OynatÄ±cÄ± Ã–nizleme ses seviyesi';
-    STR_PREVIEW_VOLUME_SUMMARY =
-        'Bir CanlÄ±, VOD veya klip aÃ§Ä±kken yukarÄ± basÄ±ldÄ±ÄŸÄ±nda gÃ¶sterilen kÃ¼Ã§Ã¼k Ã¶nizleme oynatÄ±cÄ±sÄ±nÄ±n ses seviyesini ayarlayÄ±n.';
-    STR_PREVIEW_OTHERS_VOLUME = 'Ana oynatÄ±cÄ± ses seviyesi (Ã–nizleme gÃ¶sterilirken)';
-    STR_PREVIEW_OTHERS_VOLUME_SUMMARY =
-        'Ana oynatÄ±cÄ±nÄ±n (tÃ¼m resim iÃ§inde resim oynatÄ±cÄ±larÄ±, Ã§oklu yayÄ±n oynatÄ±cÄ±larÄ±) ses seviyesi, Ã¶nizleme oynatÄ±cÄ±sÄ± gÃ¶sterilirken dÃ¼ÅŸÃ¼rÃ¼lebilir.';
-    STR_SIDE_PANEL_PLAYER = 'Ã–nizleme kÃ¼Ã§Ã¼k resim oynatÄ±cÄ±sÄ± ayarlarÄ±';
-    STR_START_AT_USER = 'UygulamayÄ± her zaman kullanÄ±cÄ± ekranÄ±nda baÅŸlat';
-    STR_START_AT_USER_SUMMARY =
-        "Bu seÃ§enek 'OynatmayÄ± geri yÃ¼kle' seÃ§eneÄŸini devre dÄ±ÅŸÄ± bÄ±rakÄ±r, ancak uygulamayÄ± aÃ§tÄ±ÄŸÄ±nÄ±zda kullanÄ±cÄ±yÄ± seÃ§menize olanak tanÄ±r.";
-    STR_START_AT_FEED = 'UygulamayÄ± her zaman takip edilen kanallar feedi ile baÅŸlat';
-    STR_START_AT_FEED_SUMMARY = 'Bu seÃ§enek baÅŸlatma takip edilen canlÄ± kanallarÄ± ve yayÄ±n Ã¶nizlemesini gÃ¶steren yan paneli aÃ§ar. OynatmayÄ± geri yÃ¼klemeyi devre dÄ±ÅŸÄ± bÄ±rakÄ±r.';
-    STR_LAST_REFRESH = 'Son yenileme:';
-    STR_PP_VOD_ERROR = "Bu VOD'u aÃ§mak iÃ§in resim iÃ§inde resim veya Ã§oklu yayÄ±ndan Ã§Ä±kÄ±n";
-    STR_SETTINGS_ACCESSIBILITY = "'Bir eriÅŸilebilirlik hizmeti Ã§alÄ±ÅŸÄ±yor' uyarÄ±sÄ±nÄ± gÃ¶ster";
-    STR_SETTINGS_ACCESSIBILITY_SUMMARY =
-        'Cihazda bir eriÅŸilebilirlik hizmeti etkinse, uygulama bir uyarÄ± gÃ¶sterecektir. EriÅŸilebilirlik hizmetinin bazÄ± cihazlarÄ± yavaÅŸlatabildiÄŸi ve bu uygulamada donmalara veya gecikmelere neden olabildiÄŸi bilinen bir android sorunudur.';
-    STR_ACCESSIBILITY_WARN = 'EriÅŸilebilirlik hizmeti/hizmetleri algÄ±landÄ±';
-    STR_ACCESSIBILITY_WARN_EXTRA = 'Bu baÄŸlantÄ±dan daha fazlasÄ±nÄ± okuyun:';
-    STR_ACCESSIBILITY_WARN_EXTRA2 =
-        'Donma veya gecikme ile ilgili sorunlar yaÅŸÄ±yorsanÄ±z, bu uygulamayÄ± kapatÄ±n ve tÃ¼m eriÅŸilebilirlik hizmetlerini devre dÄ±ÅŸÄ± bÄ±rakÄ±n, bundan sonra tÃ¼m sorunlar ortadan kalkacaktÄ±r.<br>Bu uyarÄ±yÄ± bir daha asla gÃ¶stermemek iÃ§in ayarlardan devre dÄ±ÅŸÄ± bÄ±rakÄ±n.';
-    STR_AUTO_REFRESH = 'Otomatik yenileme zaman aÅŸÄ±mÄ±';
-    STR_AUTO_REFRESH_SUMMARY = 'Bu etkinleÅŸtirildiÄŸinde, uygulama iÃ§eriÄŸi arka planda otomatik olarak yeniler.';
-    STR_AUTO_REFRESH_BACKGROUND = 'Arka planda otomatik yenileme';
-    STR_AUTO_REFRESH_BACKGROUND_SUMMARY =
-        "'Otomatik yenileme zaman aÅŸÄ±mÄ±' ayarlandÄ±ÄŸÄ±nda ve bu etkinleÅŸtirildiÄŸinde, otomatik yenileme arka planda gerÃ§ekleÅŸir (ancak uygulama gÃ¶rÃ¼nÃ¼r durumdayken; android diÄŸer uygulamalarÄ±n gecikmesini Ã¶nlemek iÃ§in arka planda kÄ±sÄ±tlamasÄ±z Ã§alÄ±ÅŸmaya izin vermez). Ekran gÃ¶rÃ¼nÃ¼r olmadÄ±ÄŸÄ±nda veya daha Ã¶nce yenilemenin Ã§alÄ±ÅŸmadÄ±ÄŸÄ± bir ekrana geri dÃ¶ndÃ¼ÄŸÃ¼nÃ¼zde dikkatli olun, Ã§Ã¼nkÃ¼ bu seÃ§enek etkinken uygulamanÄ±n Ã§ok fazla ekranÄ± varsa, otomatik yenileme bazÄ± dÃ¼ÅŸÃ¼k Ã¶zellikli cihazlarda rastgele gecikmelere neden olabilir.";
-    STR_MAIN_WINDOW = 'Ana video';
-    STR_MULTI_MAIN_WINDOW = 'Ã‡oklu yayÄ±n ana videosu';
-    STR_MAIN_MULTI_BIG =
-        STR_MULTI_MAIN_WINDOW + ' daha bÃ¼yÃ¼k ve sohbet: AÅŸaÄŸÄ± tuÅŸuna basÄ±n ve ardÄ±ndan bÃ¼yÃ¼k videoyu deÄŸiÅŸtirmek iÃ§in sol/saÄŸ tuÅŸlarÄ±nÄ± kullanÄ±n';
-    STR_SOURCE_CHECK = "OynatÄ±cÄ± geciktiÄŸinde oynatÄ±cÄ± kalitesini otomatik olarak Kaynak'tan Otomatik'e deÄŸiÅŸtirin";
-    STR_SOURCE_CHECK_SUMMARY =
-        'EtkinleÅŸtirildiÄŸinde ve otomatik kalite kullanÄ±lmadÄ±ÄŸÄ±nda, oynatÄ±cÄ± gecikiyorsa otomatik kaliteye geÃ§er ve bu konuda uyarÄ±r. OynatÄ±cÄ± gecikmesi, oynatÄ±cÄ±nÄ±n birkaÃ§ saniye oynatÄ±lamamasÄ±dÄ±r (algoritma sadece zamandan daha karmaÅŸÄ±ktÄ±r), baÅŸka bir ÅŸey oynatÄ±rsanÄ±z orijinal kaliteye geri dÃ¶ner.';
-    STR_PLAYER_LAG = "OynatÄ±cÄ± gecikiyor, kalite 'Otomatik mod' olarak deÄŸiÅŸtirildi";
-    STR_PLAYER_SOURCE = 'OynatÄ±cÄ± gecikiyor, kalite dÃ¼ÅŸÃ¼rÃ¼ldÃ¼';
-    STR_TOO_ERRORS = 'veya Ã§ok fazla hata';
-    STR_STREAM_ERROR_SMALL = 'Ã–nizleme, yayÄ±n sona erdi' + STR_TOO_ERRORS;
-    STR_CONTROLS_MEDIA_FF =
-        'Ä°leri veya geri sarma (yalnÄ±zca VODlar ve klipler iÃ§in): Sol/saÄŸ D-pad veya hÄ±zlÄ± ileri/geri sarma medya tuÅŸlarÄ±nÄ± kullanÄ±n';
-    STR_VOD_MUTED =
-        'Telif hakkÄ±yla korunan iÃ§erik barÄ±ndÄ±rdÄ±ÄŸÄ± iÃ§in bu bÃ¶lÃ¼mÃ¼n bir kÄ±smÄ± sessize alÄ±nmÄ±ÅŸtÄ±r ve oynatma Ã§ubuÄŸundaki daha koyu renkli kÄ±sÄ±mlarla belirtilmiÅŸtir';
-    STR_GIFT_SUB = 'size bir abonelik hediye etti!';
-    STR_ANONYMOUS = 'Anonim';
-    STR_CHAT_BANNED = 'Åžurada konuÅŸmaktan kalÄ±cÄ± olarak yasaklandÄ±nÄ±z:';
-    STR_CHAT_WRITE = 'Sohbete yaz';
-    STR_CHAT_EXTRA = 'Sohbet ekstra ayarlarÄ±';
-    STR_PLACEHOLDER_CHAT =
-        "Bu seÃ§iliyken, ekran klavyesini gÃ¶stermek iÃ§in enter'a basÄ±n. Fiziksel bir klavyeniz baÄŸlÄ±ysa, ekran klavyesini gizlemek iÃ§in geri veya esc tuÅŸuna basÄ±n";
-    STR_CHAT_ROOMSTATE = 'Sohbet ROOMSTATE:';
-    STR_CHAT_NO_RESTRICTIONS = 'KÄ±sÄ±tlama yok';
-    STR_OPTIONS = 'SeÃ§enekler';
-    STR_CHAT_DELL_ALL = 'TÃ¼mÃ¼nÃ¼ sil';
-    STR_CHAT_UNICODE_EMOJI = 'Unicode Emoji';
-    STR_CHAT_TW_EMOTES = 'Twitch ifadeleri';
-    STR_CHAT_BTTV_GLOBAL = 'BTTV genel';
-    STR_CHAT_BTTV_STREAM = 'BTTV yayÄ±ncÄ±';
-    STR_CHAT_FFZ_GLOBAL = 'FFZ genel';
-    STR_CHAT_FFZ_STREAM = 'FFZ yayÄ±ncÄ±';
-    STR_CHAT_SEVENTV_GLOBAL = '7TV genel';
-    STR_CHAT_SEVENTV_STREAM = '7TV yayÄ±ncÄ±';
-    STR_CHAT_AT_STREAM = '@yayÄ±ncÄ±';
-    STR_CHAT_RESULT = 'Sohbette beklenen sonuÃ§:';
-    STR_CHAT_SEND = 'GÃ¶nder';
-    STR_CHAT_EMOTE_EMPTY = 'Bu ifade listesi boÅŸ';
-    STR_CHAT_FOLLOWER_ONLY = 'Sohbet yalnÄ±zca takipÃ§i modunda ve siz ÅŸunun takipÃ§isi deÄŸilsiniz:';
-    STR_CHAT_FOLLOWER_ONLY_USER_TIME = 've sadece ÅŸu kadar sÃ¼redir takip ediyorsunuz:';
-    STR_CHAT_EMOTE_ONLY = 'YalnÄ±zca Twitch Ä°fadesi modu';
-    STR_CHAT_CHOOSE = 'Hangi sohbete yazacaÄŸÄ±nÄ±zÄ± seÃ§in veya kapatmak iÃ§in geri tuÅŸuna basÄ±n';
-    STR_CHAT_OPTIONS_TITLE = 'Sohbete yazma seÃ§enekleri';
-    STR_CHAT_OPTIONS_KEYBOARD = 'YazÄ±lÄ±m Klavyesini otomatik gizle';
-    STR_CHAT_OPTIONS_KEYBOARD_SUMMARY =
-        'Ekrandaki yazÄ±lÄ±m klavyesinin davranÄ±ÅŸÄ±nÄ± kontrol etmenizi saÄŸlar. Fiziksel bir klavyeniz baÄŸlÄ±ysa onu kullanÄ±n, deÄŸilse asla olarak ayarlayÄ±n';
-    STR_CHAT_OPTIONS_KEYBOARD_1 = 'Asla';
-    STR_CHAT_OPTIONS_KEYBOARD_2 = 'Klavye algÄ±lanÄ±rsa';
-    STR_CHAT_OPTIONS_KEYBOARD_3 = 'Her zaman';
-    STR_CHAT_OPTIONS_EMOTE_SORT = 'Ä°fade sÄ±ralamasÄ±';
-    STR_CHAT_OPTIONS_EMOTE_SORT_SUMMARY = 'Bu devre dÄ±ÅŸÄ± bÄ±rakÄ±lÄ±rsa, ifade listeleri sunucu tarafÄ±ndan saÄŸlanan sÄ±rayla gÃ¶sterilir.';
-    STR_CHAT_OPTIONS_FORCE_SHOW = 'Sohbeti zorla gÃ¶ster';
-    STR_CHAT_OPTIONS_FORCE_SHOW_SUMMARY = 'Sohbete yazma kullanÄ±ldÄ±ÄŸÄ±nda sohbeti gÃ¶rmek istiyorsanÄ±z bunu etkinleÅŸtirin';
-    STR_NOKEY_CHAT_WARN = 'Sohbete giriÅŸ yapmak ve yazmak iÃ§in bir kullanÄ±cÄ± yetkilendirme anahtarÄ± ekleyin';
-    STR_CHAT_NOT_READY = 'Sohbet gÃ¶ndermeye hazÄ±r deÄŸil! Bir iki saniye iÃ§inde tekrar deneyin.';
-    STR_CHAT_REDEEMED_MESSAGE_HIGH = 'Ã–dÃ¼lle Ã–ne Ã‡Ä±karÄ±lan MesajÄ±m';
-    STR_CHAT_FIRST_MESSAGE_HIGH = 'Ä°LK MESAJ';
-    STR_CHAT_REDEEMED_MESSAGE_SUB = 'YalnÄ±zca abone modunda bir mesaj gÃ¶nderme Ã¶dÃ¼lÃ¼ kullanÄ±ldÄ±';
-    STR_CHAT_OPTIONS = 'Sohbet seÃ§enekleri';
-    STR_CHAT_HIGHLIGHT_STREAMER_MSG = 'YayÄ±ncÄ±dan gelen mesajlarÄ± vurgula (Koyu pembe arka plan)';
-    STR_CHAT_HIGHLIGHT_MOD_MSG = 'ModeratÃ¶rlerden gelen mesajlarÄ± vurgula (Koyu camgÃ¶beÄŸi arka plan)';
-    STR_CHAT_HIGHLIGHT_REDEEMED = 'Ã–dÃ¼l mesajlarÄ±nÄ± vurgula (Sadece mor arka planlÄ± mesaj)';
-    STR_CHAT_HIGHLIGHT_FIRST = 'Ä°lk Kez Sohbet Edeni Vurgula (Koyu pembe arka plan)';
-    STR_CHAT_HIGHLIGHT_STREAMER = "@yayÄ±ncÄ± mesajlarÄ±nÄ± vurgula (Koyu kÄ±rmÄ±zÄ± arka plan, '@' mavi)";
-    STR_CHAT_HIGHLIGHT_USER = "Kendi @kullanÄ±cÄ±adÄ± mesajlarÄ±nÄ±zÄ± vurgulayÄ±n (Koyu YeÅŸil arka plan, '@' mavi)";
-    STR_CHAT_HIGHLIGHT_USER_SEND = 'GÃ¶nderdiÄŸiniz mesajlarÄ± vurgulayÄ±n (Koyu YeÅŸil arka plan)';
-    STR_CHAT_SHOW_SUB = 'Abonelik mesajlarÄ±nÄ± sohbette gÃ¶ster (Koyu turuncu arka plan)';
-    STR_CHAT_HIGHLIGHT_BIT = 'Bit mesajlarÄ±nÄ± vurgula (Koyu SarÄ± arka plan)';
-    STR_CHAT_HIGHLIGHT_ACTIONS = 'Eylem mesajlarÄ±nÄ± gÃ¶ster (genellikle yayÄ±n botlarÄ±ndan)';
-    STR_CHAT_HIGHLIGHT_ACTIONS_SUMMARY =
-        "Bu mesajlar genellikle abonelik mesajlarÄ±na eÅŸittir, ancak bir yayÄ±n botu aracÄ±lÄ±ÄŸÄ±yla gÃ¶nderilir, bu nedenle 'Abonelikleri gÃ¶ster ...' etkinse, bu gereksizdir.";
-    STR_CHAT_INDIVIDUAL_BACKGROUND = 'Bireysel mesajlar arasÄ±nda arka plan rengi farkÄ±';
-    STR_CHAT_INDIVIDUAL_BACKGROUND_SUMMARY =
-        "Modlar 'devre dÄ±ÅŸÄ±', 'etkin' (otomatik), Parlak veya Daha Koyu'dur. Otomatik modda, sohbet yayÄ±nÄ±n Ã¼zerindeyse mesajlar daha koyu ve daha aÃ§Ä±k tonlar arasÄ±nda deÄŸiÅŸir; aksi takdirde arka plan parlaktÄ±r.";
-    STR_CHAT_INDIVIDUAL_LINE = 'Bireysel sohbet mesajlarÄ±nÄ± ayÄ±rmak iÃ§in bir Ã§izgi ekle';
-    STR_CHAT_LINE_ANIMATION = 'Yeni bir sohbet mesajÄ± eklerken animasyonlu kaydÄ±rma';
-    STR_CHAT_LOGGING = 'Mevcut kullanÄ±cÄ±yla sohbete giriÅŸ yapÄ±lÄ±yor';
-    STR_CHAT_LOGGING_SUMMARY =
-        "Bir yetkilendirme anahtarÄ± saÄŸlandÄ±ÄŸÄ±nda, uygulama mevcut kullanÄ±cÄ± olarak sohbete giriÅŸ yapar (oynatÄ±cÄ± kontrollerinde sohbet devre dÄ±ÅŸÄ± bÄ±rakÄ±lmadÄ±kÃ§a). Bu HAYIR olarak ayarlanÄ±rsa, anonim olarak giriÅŸ yapar, mesajlara izin verir ancak yasaklamalarÄ± ve ROOMSTATE'i gizler.";
-    STR_CHAT_BOTS = 'BotlarÄ± ve bot komutlarÄ±nÄ± (!komut) sohbette gÃ¶stermeyi engelle';
-    STR_CHAT_TIMESTAMP = 'Mesaj zaman damgasÄ±nÄ± gÃ¶ster';
-    STR_CHAT_NICK_COLOR = 'Okunabilir takma ad renkleri';
-    STR_CHAT_NICK_COLOR_SUMMARY =
-        'Bazen koyu bir arka planda okunamayan varsayÄ±lan takma ad rengini kullanmak yerine, Ã¶zel, kolayca gÃ¶rÃ¼lebilen bir renk kullanÄ±n.';
-    STR_CHAT_CLEAR_MSG = 'Sohbeti temizle, kullanÄ±cÄ± mesajlarÄ±nÄ± sil';
-    STR_CHAT_SHOW_BADGES = 'KullanÄ±cÄ± rozetlerini gÃ¶ster (aÅŸaÄŸÄ±dakiler hariÃ§)';
-    STR_CHAT_SHOW_BADGES_MOD = 'ModeratÃ¶r rozetlerini gÃ¶ster';
-    STR_CHAT_SHOW_BADGES_VIP = 'VIP rozetlerini gÃ¶ster';
-    STR_CHAT_SHOW_BADGES_SHARED = 'PaylaÅŸÄ±lan sohbet rozetlerini gÃ¶ster';
-    STR_CHAT_MESSAGE_DELETED = 'Bu tek kullanÄ±cÄ± mesajÄ±nÄ±n silinmesi istendi';
-    STR_CHAT_MESSAGE_DELETED_ALL = 'Bu kullanÄ±cÄ±nÄ±n tÃ¼m mesajlarÄ±nÄ±n silinmesi istendi';
-    STR_CHAT_MESSAGE_DELETED_TIMEOUT = ', ÅŸu sÃ¼reyle zaman aÅŸÄ±mÄ±na uÄŸratÄ±ldÄ±lar:';
-    STR_CHAT_CLEAR_MSG_SUMMARY =
-        'Belirli kullanÄ±cÄ±lardan gelen mesajlarÄ± silin (Ã¶r. bir zaman aÅŸÄ±mÄ± veya yasaklamadan sonra). EtkinleÅŸtirilirse mesajlar kaldÄ±rÄ±lÄ±r; aksi takdirde sadece arka plan maviye dÃ¶ner.';
-    STR_OPEN_HOST_SETTINGS = 'MÃ¼mkÃ¼nse, yayÄ±nÄ±n sonunda her zaman hostlanan canlÄ± yayÄ±nÄ± aÃ§';
-    STR_ALWAYS_STAY = 'Bir canlÄ± yayÄ±n bittikten sonra her zaman oynatÄ±cÄ± aÃ§Ä±k kalsÄ±n';
-    STR_PING_WARNING = "'Twitch'e ping baÅŸarÄ±sÄ±z' uyarÄ±sÄ±nÄ± gÃ¶ster";
-    STR_PING_WARNING_SUMMARY =
-        'Uygulama, bir ping aracÄ±lÄ±ÄŸÄ±yla Twitch ile baÄŸlantÄ±yÄ± sÃ¼rekli kontrol eder. Ã‡ok fazla kez baÅŸarÄ±sÄ±z olursa bir uyarÄ± gÃ¶sterilir. Bu uyarÄ±nÄ±n istemeden gÃ¶sterildiÄŸine inanÄ±yorsanÄ±z, bu seÃ§eneÄŸi HAYIR olarak ayarlayÄ±n.';
-    STR_KEY_UP_TIMEOUT = 'TuÅŸ basÄ±lÄ± tutma zaman aÅŸÄ±mÄ± (milisaniye cinsinden)';
-    STR_KEY_UP_TIMEOUT_SUMMARY =
-        'Bir basÄ±lÄ± tutma eyleminin gerÃ§ekleÅŸmesi iÃ§in bir tuÅŸu ne kadar sÃ¼reyle basÄ±lÄ± tutmanÄ±z gerektiÄŸini belirler. EkranÄ± yenileme, kÃ¼Ã§Ã¼k resim seÃ§eneklerini gÃ¶sterme vb. eylemler.';
-    STR_CURRENT_THUMB_STYLE = 'Mevcut odak stili';
-    STR_NEW_THUMB_STYLE = 'Yeni odak stili';
-    STR_COLOR_STYLE_TEXT =
-        "Bir seÃ§enek belirlemek iÃ§in yukarÄ±/aÅŸaÄŸÄ± tuÅŸlarÄ±na, buradan Ã§Ä±kmak iÃ§in geri tuÅŸuna, Ã§Ä±kmadan Ã¶nce onaylamak iÃ§in 'DeÄŸiÅŸiklikleri uygula' Ã¼zerinde enter'a basÄ±n.";
-    STR_SHADOWS = 'GÃ¶lgeler';
-    STR_SHADOWS_NONE = 'HiÃ§biri';
-    STR_SHADOWS_WHITE = 'Beyaz';
-    STR_SHADOWS_GRAY = 'Gri';
-    STR_SHADOWS_BLACK = 'Siyah';
-    STR_COLORS = 'Renkler';
-    STR_RESULT = 'SonuÃ§';
-    STR_APPLY = 'DeÄŸiÅŸiklikleri uygula';
-    STR_COLOR_TYPE = 'Renk tÃ¼rÃ¼';
-    STR_STYLES = 'Stiller';
-    STR_ENTER = "Enter'a basÄ±n";
-    STR_COLOR_ARRAY = 'Arka Plan,Metin,KenarlÄ±k,Ä°zlenen ilerleme Ã§ubuÄŸu';
-    STR_STYLES_ARRAY = 'VarsayÄ±lan,Ã–zel,Beyaz,Gri,KÄ±rmÄ±zÄ±,Turuncu,SarÄ±,YeÅŸil,Mavi,Mor,Pembe';
-    STR_ENTER_RGB = 'RGB deÄŸiÅŸikliÄŸini kabul etmek iÃ§in ' + STR_ENTER;
-    STR_THUMB_STYLE = 'SeÃ§ilen kÃ¼Ã§Ã¼k resim stili';
-    STR_OPEN_EXTERNAL_PLAYER = 'Harici bir oynatÄ±cÄ±da aÃ§';
-    STR_CHAT_SIDE_ARRAY = ['Sol', 'SaÄŸ'];
-    STR_CHAT_BASE_ARRAY = ['SaÄŸ alt', 'Orta saÄŸ', 'SaÄŸ Ã¼st', 'Orta Ã¼st', 'Sol Ã¼st', 'Orta sol', 'Sol alt', 'Orta alt'];
-    STR_CHAT_100_ARRAY = ['SaÄŸ', 'Orta', 'Sol'];
-    STR_NOTIFICATION_POS = 'Ekrandaki bildirim konumu';
-    STR_NOTIFICATION_POS_ARRAY = ['SaÄŸ Ã¼st', 'Orta Ã¼st', 'Sol Ã¼st', 'Sol alt', 'Orta alt', 'SaÄŸ alt'];
-    STR_LOWLATENCY_ARRAY = [
-        STR_DISABLE,
-        'Normal mod, yeniden arabelleÄŸe almaya neden olabilir',
-        'En dÃ¼ÅŸÃ¼k mod, daha da fazla yeniden arabelleÄŸe almaya neden olabilir'
-    ];
-    STR_LOWLATENCY_ENABLE_ARRAY = [STR_LOW_LATENCY + ' - ' + STR_DISABLED, STR_LOW_LATENCY + ' - Normal mod', STR_LOW_LATENCY + ' - En dÃ¼ÅŸÃ¼k mod'];
-    STR_VOD_SEEK = 'VOD hÄ±zlÄ± geri/ileri sarma kontrolleri';
-    STR_VOD_SEEK_SUMMARY =
-        "Geri/ileri adÄ±mlarÄ±n ne kadar hÄ±zlÄ± Ã§alÄ±ÅŸacaÄŸÄ±nÄ± kontrol eder. Sol/saÄŸ tuÅŸlarÄ±na tÄ±klayÄ±p basÄ±lÄ± tuttuÄŸunuzda, adÄ±m sÃ¼resi artar. ArtÄ±ÅŸ zaman aÅŸÄ±mÄ± geÃ§tikten sonra, maksimum adÄ±m sÃ¼resine kadar artar. ArdÄ±ndan, tuÅŸu bÄ±raktÄ±ktan ve bir saniye tÄ±klamadÄ±ktan sonra, adÄ±m sÃ¼resi minimum adÄ±m sÃ¼resine geri dÃ¶ner.<br><br>YukarÄ± tuÅŸuna basmak min/maks deÄŸerini geÃ§ersiz kÄ±lar, tÃ¼m olasÄ± adÄ±mlardan geÃ§menize ve ilerleme Ã§ubuÄŸu kapanana kadar deÄŸeri kilitlemenize olanak tanÄ±r.<br><br>TuÅŸu basÄ±lÄ± tutmadan tek tÄ±klamalar yapmak sÃ¼reyi artÄ±rmaz.<br><br>Bu seÃ§enekler yalnÄ±zca VOD'larla Ã§alÄ±ÅŸÄ±r. Klipler iÃ§in adÄ±m her zaman 1 saniyedir.";
-    STR_VOD_SEEK_MIN = 'Minimum (baÅŸlangÄ±Ã§) adÄ±m sÃ¼resi';
-    STR_VOD_SEEK_MAX = 'Maksimum adÄ±m sÃ¼resi';
-    STR_VOD_SEEK_TIME = 'Åžu sÃ¼reyle basÄ±lÄ± tuttuktan sonra artÄ±ÅŸ zaman aÅŸÄ±mÄ±';
-    STR_UP_LOCKED = 'adÄ±m deÄŸerini kilitlemek iÃ§in yukarÄ± basÄ±n';
-    STR_LOCKED = 'kilitlendi, deÄŸiÅŸtirmek iÃ§in yukarÄ± basÄ±n';
-    STR_IN_CHAT = 'Sohbette';
-    STR_IN_SHARED_CHAT = 'PaylaÅŸÄ±lan Sohbette';
-    STR_SHOW_IN_CHAT = 'Sohbetin veya izleyicilerin Ã¼stÃ¼nde toplam giriÅŸ yapmÄ±ÅŸ kullanÄ±cÄ± sayÄ±sÄ±nÄ± gÃ¶ster';
-    STR_SHOW_IN_CHAT_SUMMARY =
-        'Bu, Ã§evrimdÄ±ÅŸÄ± sohbetin aktif kullanÄ±cÄ±larÄ± olup olmadÄ±ÄŸÄ±nÄ± belirlemeye ve toplam izleyiciler ile sohbet kullanÄ±cÄ±larÄ± arasÄ±ndaki farkÄ± gÃ¶stermeye yardÄ±mcÄ± olur.';
-    STR_SHOW_IN_CHAT_VIEWERS = 'Ä°zleyicileri gÃ¶ster';
-    STR_SHOW_IN_CHAT_CHATTERS = 'SohbetÃ§ileri gÃ¶ster';
-    STR_PLAYED = 'OynatÄ±ldÄ±';
-    STR_CHAPTERS = 'BÃ¶lÃ¼mler';
-    STR_FROM_SIMPLE = 'konumundan';
-    STR_HIDE_MAIN_CLOCK = 'Ana ekran saatini gizle';
-    STR_HIDE_PLAYER_CLOCK = 'OynatÄ±cÄ± saatini gizle';
-    STR_HIDE_MAIN_SCREEN_TITLE = 'Ana ekran baÅŸlÄ±ÄŸÄ±nÄ± gizle';
-    STR_HIDE_MAIN_SCREEN_TITLE_SUMMARY = 'Orta baÅŸlÄ±k, canlÄ± yayÄ±nlar, klipler, ayarlar vb...';
-    STR_HIDE_ETC_HELP_INFO = 'Ekrandaki gezinme ipuÃ§larÄ±nÄ± gizle';
-    STR_HIDE_ETC_HELP_INFO_SUMMARY = "'Bir eylem iÃ§in bir tuÅŸu basÄ±lÄ± tutun' gibi gezinme ipuÃ§larÄ± ve ilgili diÄŸerleri.";
-    STR_INACTIVE_SETTINGS = 'Åžu sÃ¼re boyunca etkileÅŸim olmadÄ±ÄŸÄ±nda uygulamayÄ± otomatik olarak simge durumuna kÃ¼Ã§Ã¼lt:';
-    STR_INACTIVE_SETTINGS_SUMMARY =
-        'Kimse izlemiyorken uygulamanÄ±n Ã§alÄ±ÅŸmaya devam etmesini Ã¶nler. Bir uyarÄ± belirir ve kullanÄ±cÄ±ya simge durumuna kÃ¼Ã§Ã¼ltmeyi Ã¶nlemek iÃ§in herhangi bir tuÅŸa basmasÄ± iÃ§in 15 saniye verir.';
-    STR_INACTIVE_WARNING =
-        'Uygulama, etkileÅŸimsizlik nedeniyle ÅŸu sÃ¼rede otomatik olarak simge durumuna kÃ¼Ã§Ã¼lecek:<br><br>%x<br><br>Ä°ptal etmek iÃ§in herhangi bir tuÅŸa basÄ±n';
-    STR_REMAINING = 'Kalan:';
-    STR_PLAYER_INFO_VISIBILITY = 'OynatÄ±cÄ± durumu gÃ¶rÃ¼nÃ¼rlÃ¼ÄŸÃ¼';
-    STR_PREVIEW_SET = 'Ã–nizleme ayarlarÄ±';
-    STR_PREVIEW_SHOW = 'Ã–nizlemeyi gÃ¶ster';
-    STR_PREVIEW_SIZE_CONTROLS = 'Ã–nizleme boyutu';
-    STR_OLED_BURN_IN = 'OLED Yanma korumasÄ±';
-    STR_OLED_BURN_IN_SUMMARY =
-        'Bu etkinleÅŸtirildiÄŸinde, ekran her 20 dakikada bir 50 ms boyunca tamamen kararÄ±r. YalnÄ±zca ekran yanmasÄ± sorunu olan OLED ekranlÄ± cihazlar iÃ§in gereklidir.';
-    STR_AS = 'olarak';
-    STR_MILLISECONDS = 'milisaniye';
-    STR_HOUR = 'saat';
-    STR_HOURS = 'saat';
-    STR_RIGHT = 'SaÄŸ';
-    STR_LEFT = 'Sol';
-    STR_BOTTOM = 'Alt';
-    STR_TOP = 'Ãœst';
-    STR_AVG = 'Ort';
-    STR_OFFSET = 'Fark';
-
-    STR_HISTORY_EMPTY_CONTENT = 'Uygulama geÃ§miÅŸi, yalnÄ±zca geÃ§miÅŸ etkinse uygulamada ne izlediÄŸinizi gÃ¶sterir';
-    STR_PREVIEW = 'Ã¶nizleme';
-
-    STR_EMBED = 'GÃ¶mÃ¼lÃ¼ oynatÄ±cÄ± ';
-    STR_CLICK_EXIT = 'OynatÄ±cÄ±dan Ã§Ä±kmak iÃ§in buraya tÄ±klayÄ±n';
-    STR_GO_FULL = 'Tam ekran';
-    STR_GO_FULL_HELP = "TÄ±klayÄ±n, 9 veya F11'e basÄ±n";
-    STR_NOT_SUPPORT_BROWSER = 'Bu, bir tarayÄ±cÄ±da desteklenmiyor';
-
-    STR_WARNING_BROWSER = 'TarayÄ±cÄ± uyarÄ±sÄ±';
-    STR_WARNING_BROWSER_SUMMARY =
-        "Bu uygulama esas olarak TV'lerde kullanÄ±lmak Ã¼zere tasarlanmÄ±ÅŸtÄ±r, diÄŸer cihazlar iÃ§in destek sÄ±nÄ±rlÄ±dÄ±r. UygulamayÄ± bir fare kullanarak kontrol edebilirsiniz ancak klavye tuÅŸlarÄ± olan yukarÄ±, aÅŸaÄŸÄ±, sol, saÄŸ, enter ve geri tuÅŸu (ESC geri tuÅŸu olarak Ã§alÄ±ÅŸÄ±r) ile daha iyi Ã§alÄ±ÅŸÄ±r.";
-    STR_THUMB_OPTIONS_CLICK = 'Bir eylemin Ã¼zerinde iki kez tÄ±klayÄ±n (aÃ§mak veya uygulamak iÃ§in), uygulamadan Ã§Ä±kmak iÃ§in pencerenin dÄ±ÅŸÄ±na tÄ±klayÄ±n';
-    STR_CLOSE_THIS_BROWSER = 'Bunu kapatmak iÃ§in geri, enter tuÅŸuna basÄ±n veya dÄ±ÅŸarÄ±ya fare ile tÄ±klayÄ±n';
-
-    STR_DISABLE_EMBED = 'CanlÄ± ve Vod Twitch oynatÄ±cÄ±sÄ±nÄ± etkinleÅŸtir';
-    STR_DISABLE_EMBED_SUMMARY =
-        'Bu, yalnÄ±zca test amacÄ±yla metin dizelerini ve dÃ¼zenini kontrol etmek iÃ§in Android oynatÄ±cÄ±yÄ± gÃ¶rmek istiyorsanÄ±z devre dÄ±ÅŸÄ± bÄ±rakÄ±lmalÄ±dÄ±r';
-
-    STR_SPECIAL_FEATURE = 'Bu Ã¶zellik iÃ§in klavyeyi kullanÄ±n';
-    STR_FAIL_VOD_INFO = 'VOD bilgisi yÃ¼klenemedi';
-
-    STR_PROXY_DONATE_SUMMARY = 'Daha fazla bilgi edinmek veya proxy sunucusu bakÄ±mcÄ±sÄ±na teÅŸekkÃ¼r etmek isterseniz ÅŸu baÄŸlantÄ±yÄ± kullanÄ±n:';
-
-    STR_TTV_LOL = 'TTV LOL';
-    STR_K_TWITCH = 'K-Twitch-Bypass';
-    STR_T1080 = 'T1080';
-
-    STR_PROXY_TIMEOUT = 'Proxy zaman aÅŸÄ±mÄ± (saniye cinsinden)';
-    STR_PROXY_TIMEOUT_SUMMARY =
-        'Proxy sunucusu kapalÄ±ysa, baÄŸlantÄ±dan "vazgeÃ§mek" ve varsayÄ±lan Twitch uygulamasÄ±na geri dÃ¶nmek iÃ§in geÃ§en sÃ¼re bu olacaktÄ±r';
-
-    STR_CUSTOM_PROXY = 'Ã–zel Proxy';
-    STR_CUSTOM_PROXY_SUMMARY = 'Ã–zel bir proxy sunucu URL\'si kullanÄ±n, URL\'yi dÃ¼zenlemek iÃ§in enter\'a basÄ±n';
-    STR_CUSTOM_PROXY_URL = 'Ã–zel Proxy URL\'si';
-    STR_CUSTOM_PROXY_URL_PROMPT = 'Ã–zel proxy URL\'sini girin (URL / ile bitmelidir):';
-    STR_CUSTOM_PROXY_HAS_TOKEN = 'Ã–zel proxy token iÃ§eriyor';
-    STR_CUSTOM_PROXY_HAS_TOKEN_SUMMARY =
-        'Proxy URL\'si zaten token iÃ§eriyorsa, token\'Ä±n tekrar eklenmemesi iÃ§in bu seÃ§eneÄŸi devre dÄ±ÅŸÄ± bÄ±rakÄ±n';
-    STR_CUSTOM_PROXY_HAS_PARAMETER = 'Ã–zel proxy parametre iÃ§eriyor';
-    STR_CUSTOM_PROXY_HAS_PARAMETER_SUMMARY =
-        'Proxy URL\'si zaten parametreler iÃ§eriyorsa, parametrelerin sorgu dizgesi olarak eklenmesi iÃ§in bu seÃ§eneÄŸi etkinleÅŸtirin';
-
-    PROXY_SERVICE = 'Proxy: ';
-    PROXY_SERVICE_STATUS = 'Etkin ve Ã§alÄ±ÅŸÄ±yor';
-    PROXY_SERVICE_OFF = 'Ayarlarda devre dÄ±ÅŸÄ±';
-    PROXY_SERVICE_FAIL = 'Ã‡alÄ±ÅŸmÄ±yor, %x kez baÅŸarÄ±sÄ±z oldu';
-
-    PROXY_SETTINGS = 'Proxy AyarlarÄ± (Ä°nternet sansÃ¼rÃ¼ ve ilgili proxy)';
-    PROXY_SETTINGS_SUMMARY =
-        'YalnÄ±zca bir proxy etkinleÅŸtirilebilir. YayÄ±n baÄŸlantÄ±larÄ±nÄ± farklÄ± bir sunucudan almak iÃ§in proxy sunucusunu etkinleÅŸtirir, bu da bÃ¶lgenizde yasaklanmÄ±ÅŸ iÃ§eriÄŸi gÃ¶rmenizi ve reklamlarÄ± Ã¶nlemenizi saÄŸlayabilir. Ã‡ok fazla veya uzun sÃ¼ren arabelleÄŸe alma, donma veya yayÄ±n kalitesinin dÃ¼ÅŸmesine neden olabilecek yavaÅŸ baÄŸlantÄ± gibi herhangi bir canlÄ± yayÄ±n sorununuz varsa bunu devre dÄ±ÅŸÄ± bÄ±rakÄ±n.';
-    SEEK_PREVIEW = 'Atlama Ã–nizlemesi';
-    SEEK_PREVIEW_SUMMARY =
-        "Geri veya hÄ±zlÄ± ileri sarma sÄ±rasÄ±nda gÃ¶sterilen VOD atlama Ã¶nizleme resmini kontrol etmenizi saÄŸlar. Atlama Ã¶nizlemesi tÃ¼m VOD'lar iÃ§in mevcut deÄŸildir.";
-    SEEK_PREVIEW_SINGLE = 'Tek resim';
-    SEEK_PREVIEW_CAROUSEL = 'Resim dÃ¶ngÃ¼sÃ¼';
-
-    OPEN_NEW_ISSUE = "(Yeni sorun'a tÄ±klayÄ±n)";
-
-    STR_CONFIRM = 'Onayla';
-
-    STR_MATURE_NO_CHANGES = 'Eksik ÅŸifre nedeniyle yetiÅŸkin iÃ§eriÄŸinde deÄŸiÅŸiklik yapÄ±lmadÄ±';
-    STR_MATURE_PROTECT = 'YetiÅŸkin iÃ§eriÄŸi deÄŸiÅŸikliklerini bir ÅŸifreyle koru';
-    STR_MATURE_HELP_SET_PASS = "Bir ÅŸifre belirleyin ve Onayla'ya tÄ±klayÄ±n, Ã§Ä±kÄ±ÅŸ yapmak yetiÅŸkin ayarlarÄ±nÄ± sÄ±fÄ±rlayacaktÄ±r";
-    STR_MATURE_HELP_CHECK_PASS = "KaydedilmiÅŸ ÅŸifreyi girin ve Onayla'ya tÄ±klayÄ±n, Ã§Ä±kÄ±ÅŸ yapmak yetiÅŸkin ayarlarÄ±nÄ± sÄ±fÄ±rlayacaktÄ±r";
-
-    STR_MATURE_DISABLED = 'YetiÅŸkin iÃ§eriÄŸi devre dÄ±ÅŸÄ±';
-    STR_ENABLE_MATURE = 'YetiÅŸkin iÃ§eriÄŸi';
-    STR_ENABLE_MATURE_SUMMARY =
-        'Devre dÄ±ÅŸÄ± bÄ±rakÄ±ldÄ±ÄŸÄ±nda uygulama, takip edilen iÃ§erikler de dahil olmak Ã¼zere yetiÅŸkin olarak iÅŸaretlenmiÅŸ tÃ¼m iÃ§eriÄŸi engeller. Buna yetiÅŸkin olarak iÅŸaretlenmiÅŸ canlÄ± yayÄ±nlar ve klip ve VOD bÃ¶lÃ¼mlerindeki tÃ¼m iÃ§erikler dahildir';
-
-    STR_SCREEN_OFF = 'Ekran kapalÄ± (Sadece ses)';
-
-    STR_UNBLOCK_CHANNEL = 'KanalÄ±n engelini kaldÄ±r';
-    STR_UNBLOCK_GAME = 'Oyunun engelini kaldÄ±r';
-    STR_BLOCK_CHANNEL = 'KanalÄ± engelle';
-    STR_BLOCK_GAME = 'Oyunu engelle';
-    STR_BLOCK_NO_USER = 'Engelleyebilmek iÃ§in Ã¶nce bir kullanÄ±cÄ± ekleyin';
-    STR_BLOCK_NO_CHANNEL = 'Bunun iÃ§in kanal bilgisi alÄ±namÄ±yor';
-    STR_BLOCK_OVERWRITE = 'Engellenenleri gÃ¶ster';
-    STR_BLOCK_SORT_DATE = 'Engellenme tarihine gÃ¶re sÄ±ralandÄ±';
-    STR_BLOCK_SORT_NAME = "Ä°sme gÃ¶re A'dan Z'ye sÄ±ralandÄ±";
-    STR_BLOCK_EMPTY_CONTENT = 'Bu tÃ¼rde engellenmiÅŸ iÃ§erik yok';
-
-    STR_NO_TOKEN_WARNING = 'Bir kullanÄ±cÄ± eklemeden uygulama iÃ§eriÄŸi yÃ¼kleyemeyebilir, bu bir Twitch API sÄ±nÄ±rlamasÄ±dÄ±r';
-    STR_NO_TOKEN_WARNING_429 = 'Uygulama bir Twitch API sÄ±nÄ±rlamasÄ± nedeniyle iÃ§eriÄŸi yÃ¼kleyemiyor, bunu dÃ¼zeltmek iÃ§in bir kullanÄ±cÄ± ekleyin.';
-
-    STR_ADD_USER_TEXT = 'BaÅŸka bir cihazdan %site adresini ziyaret edin ve ÅŸu kodu girin: %code';
-    STR_ADD_USER_TEXT_COUNTER = 'EriÅŸim onayÄ± %d iÃ§inde kontrol ediliyor...';
-    STR_ADD_USER_TEXT_COUNTER_NOW = 'Åžimdi kontrol ediliyor!';
-    STR_ADD_ERROR = 'KullanÄ±cÄ± ekleme hizmetine eriÅŸilemiyor';
-    STR_USER_TOKEN_ERROR = 'Mevcut kullanÄ±cÄ±ya eriÅŸim kaybedildi, lÃ¼tfen kullanÄ±cÄ± bÃ¶lÃ¼mÃ¼nÃ¼ gÃ¶zden geÃ§irin';
-
-    STR_WRONG_PASS = 'YanlÄ±ÅŸ ÅŸifre!';
-    STR_PASS_MATURE_ENABLED = 'YetiÅŸkin iÃ§eriÄŸi etkinleÅŸtirildi, eski ÅŸifre silindi';
-
-    STR_PLAYER_EXTRA_CODEC = 'GeliÅŸmiÅŸ YayÄ±n HEVC, AV1, 1440p 4k desteÄŸi';
-    STR_PLAYER_EXTRA_CODEC_SUMMARY =
-        "Ã‡oÄŸu yayÄ±n 1080p60'a kadar AVC (H.264) kullanÄ±r; HEVC/AV1, mevcut olduÄŸunda 1440p, 4K ve 60+fps'yi etkinleÅŸtirir.";
-
-    STR_PLAYER_EXTRA_CODEC_SUMMARY1 =
-        "Bu Ã¶zellik yalnÄ±zca oturum aÃ§mÄ±ÅŸ kullanÄ±cÄ±lar iÃ§in Ã§alÄ±ÅŸÄ±r. TÃ¼m yayÄ±nlar desteklenmez â€” bu, yayÄ±ncÄ±nÄ±n etkinleÅŸtirmesine ve Twitch'in bÃ¶lgenizde bunu saÄŸlayÄ±p saÄŸlamadÄ±ÄŸÄ±na baÄŸlÄ±dÄ±r.";
-
-    STR_PLAYER_EXTRA_CODEC_SUMMARY_EXTRA =
-        "Uygulama, daha yÃ¼ksek kaliteli yayÄ±nlar iÃ§in cihazÄ±nÄ±zÄ±n HEVC veya AV1'i destekleyip desteklemediÄŸini kontrol eder.";
-
-    STR_PLAYER_EXTRA_CODEC_SUMMARY_EXTRA2 = 'Cihaz desteÄŸi olmadan, oynatma sÄ±nÄ±rlÄ± olacak ve geliÅŸmiÅŸ yayÄ±nlar iÃ§in Ã§alÄ±ÅŸmayabilir.';
-
-    STR_PLAYER_CODEC_AV1 = 'AV1';
-    STR_PLAYER_CODEC_HEVC = 'HEVC';
-    STR_PLAYER_CODEC_SUPPORTED = 'cihaz tarafÄ±ndan destekleniyor';
-    STR_PLAYER_CODEC_NOT_SUPPORTED = "Cihaz desteklemiyor! Bu codec'i etkinleÅŸtirmek oynatma hatalarÄ±na neden olabilir.";
-
-    STR_PLAYER_EXTRA_CODEC_SUMMARY_EXTRA3 = 'CihazÄ±n yeteneklerini daha iyi anlamak iÃ§in ayarlar seÃ§eneÄŸini kontrol edin: ';
-
-    STR_BLOCKED_CODEC = 'Codec yeteneÄŸi ve Engellenen kodekler';
-    STR_BLOCKED_CODEC_SUMMARY = 'KullanÄ±lan codec yeteneklerini listeler ve kodeklerin kullanÄ±lmasÄ±nÄ± engellemeye izin verir.';
-
-    STR_CODEC_DIALOG_SUMMARY_1 =
-        'Bu bÃ¶lÃ¼m, bu uygulama tarafÄ±ndan kullanÄ±lan tÃ¼m cihaz destekli codec tÃ¼rlerini (AVC H.264, HEVC H.265 ve AV1) listeler.';
-
-    STR_CODEC_DIALOG_SUMMARY_2 =
-        'YazÄ±lÄ±m kodekleri (OMX.google), bir donanÄ±m kodeÄŸi mevcutsa varsayÄ±lan olarak devre dÄ±ÅŸÄ± bÄ±rakÄ±lÄ±r. Bir oynatma sorununuz varsa, yazÄ±lÄ±m kodeÄŸini devre dÄ±ÅŸÄ± bÄ±rakmayÄ± ve donanÄ±mÄ± etkinleÅŸtirmeyi veya tam tersini deneyin (SÃ¼rekli atlanan karelerin birikmesi bir codec sorununun gÃ¶stergesidir).';
-
-    STR_CODEC_DIALOG_SUMMARY_3 = 'Her tÃ¼rden en az bir codec her zaman etkin olmalÄ±dÄ±r.';
-
-    STR_SPEED_ADJUST = 'DÃ¼ÅŸÃ¼k gecikme ile yakala';
-    STR_SPEED_ADJUST_SUMMARY =
-        'DÃ¼ÅŸÃ¼k gecikme etkinleÅŸtirildiÄŸinde, beklenen hedeften saptÄ±ÄŸÄ±nda gecikmeyi otomatik olarak ayarlar, yayÄ±nÄ± %1 yavaÅŸlatarak veya hÄ±zlandÄ±rarak. HÄ±z deÄŸiÅŸikliÄŸi, gecikme ayarlanÄ±rken kÃ¼Ã§Ã¼k ses parazitlerine neden olabilir.';
-
-    STR_SW_CODEC = 'YazÄ±lÄ±m kodeÄŸi';
-    STR_HW_CODEC = 'DonanÄ±m kodeÄŸi';
-
-    STR_LOAD_ALL_LANG = 'Ä°Ã§eriÄŸi Otomatik Olarak "TÃ¼m" Dile GeÃ§ir';
-    STR_LOAD_ALL_LANG_SUMMARY =
-        'Mevcut dilde iÃ§erik olmadÄ±ÄŸÄ±nda otomatik olarak TÃ¼m dile geÃ§er, yalnÄ±zca iÃ§erik yok ekranÄ± ve bazÄ± ekranlar iÃ§in geÃ§erlidir (Oyunlar ve Ana Sayfa)';
-    STR_LOAD_ALL_LANG_WARNING = 'iÃ§erik boÅŸ olduÄŸu iÃ§in ' + STR_LOAD_ALL_LANG;
-
-    STR_DISABLE_SHARED_CHAT = 'PaylaÅŸÄ±lan sohbeti devre dÄ±ÅŸÄ± bÄ±rak';
-    STR_DISABLE_SHARED_CHAT_SUMMARY = 'Evet olarak ayarlanÄ±rsa, yalnÄ±zca aÃ§tÄ±ÄŸÄ±nÄ±z yayÄ±ndan gelen sohbet mesajlarÄ±nÄ± gÃ¶sterir';
-
-    STR_BACKUP_ACCOUNT_REMOVE = 'Google Drive hesabÄ±nÄ± kaldÄ±r';
-    STR_BACKUP_ACCOUNT_ADD = 'Yedekleme iÃ§in Google Drive hesabÄ± ekle';
-    STR_BACKUP_ACCOUNT_ADD_SUMMARY =
-        'Bir yedeÄŸi geri yÃ¼klemek iÃ§in bir hesap ekleyin; uygulama size mevcut geri yÃ¼kleme seÃ§eneklerini gÃ¶sterecektir.';
-    STR_BACKUP_ACCOUNT_DIALOG_TITLE = 'Google Drive hesabÄ± ekle';
-
-    STR_BACKUP_ACCOUNT_DIALOG_BODY = 'API bilgileri alÄ±nÄ±yor, lÃ¼tfen bekleyin...';
-    STR_BACKUP_ACCOUNT_DIALOG_CODE_FAIL = 'EriÅŸim reddedildi';
-    STR_BACKUP_ACCOUNT_DIALOG_CODE_SUCCESS = 'EriÅŸim baÅŸarÄ±lÄ±, uygulama doÄŸrularken lÃ¼tfen bekleyin...';
-
-    STR_BACKUP_ACCOUNT_DIALOG_CODE_SUCCESS_END = 'Uygulama birkaÃ§ saniye iÃ§inde geri yÃ¼kleme yapÄ±p bu pencereyi kapatacak';
-    STR_BACKUP_NO_BACKUP_FOUND = 'Daha Ã¶nce yapÄ±lmÄ±ÅŸ yedek bulunamadÄ±, yedek baÅŸarÄ±yla oluÅŸturuldu';
-    STR_BACKUP_ACCOUNT_REFRESH_ERROR = 'Yedekleme ve Senkronizasyon hesabÄ±na eriÅŸim kaybedildi, yedekleme hesabÄ± kaldÄ±rÄ±ldÄ±!';
-
-    STR_BACKUP_SIZE = 'Yedek boyutu:';
-    STR_BACKUP_NAME = 'Yedek adÄ±:';
-    STR_BACKUP_SYNC = 'Senkronizasyon, Yedekleme ve Geri YÃ¼kleme';
-    STR_BACKUP_SYNC_SUMMARY =
-        "Uygulama, yalnÄ±zca oluÅŸturduÄŸu belirli Google Drive dosyalarÄ±nÄ± gÃ¶rÃ¼ntÃ¼leyebilir, oluÅŸturabilir, dÃ¼zenleyebilir ve silebilir; Google Drive'Ä±nÄ±zdaki diÄŸer dosyalarÄ± gÃ¶rÃ¼ntÃ¼leyemez, deÄŸiÅŸtiremez veya silemez." +
-        '<br><br>' +
-        'AyrÄ±ca, mevcut aktif hesabÄ± gÃ¶rÃ¼ntÃ¼lemek iÃ§in e-posta adresinizi ve profil resminizi okuyabilir. Bu bilgiler yalnÄ±zca gÃ¶rÃ¼ntÃ¼lenecek ve DEÄžÄ°ÅžTÄ°RÄ°LMEYECEKTÄ°R.';
-
-    STR_BACKUP_USER_INFO = '(KullanÄ±cÄ± bilgisi: KullanÄ±cÄ±lar, geÃ§miÅŸ, engellenenler ve ayarlar)';
-
-    STR_BACKUP_SYNC_USER = 'KullanÄ±cÄ±larÄ± senkronize et';
-    STR_BACKUP_SYNC_HISTORY = 'KullanÄ±cÄ±larÄ±n geÃ§miÅŸini ve engellenenler listesini senkronize et.';
-    STR_BACKUP_SYNC_SETTINGS = 'AyarlarÄ± senkronize et';
-    STR_BACKUP_RESTORE_USER = 'KullanÄ±cÄ±larÄ± geri yÃ¼kle';
-    STR_BACKUP_RESTORE_HISTORY = 'KullanÄ±cÄ±larÄ±n geÃ§miÅŸini ve engellenenler listesini geri yÃ¼kle.';
-    STR_BACKUP_RESTORE_SETTINGS = 'AyarlarÄ± geri yÃ¼kle';
-    STR_BACKUP_RESTORE_SUMMARY =
-        'Geri yÃ¼klemeden sonra sorun yaÅŸarsanÄ±z, uygulama verilerini temizlemeyi ve bir seÃ§eneÄŸi atlayarak geri yÃ¼klemeyi deneyin.';
-
-    STR_BACKUP_SYNC_SETTINGS_SUMMARY =
-        'Yedek, tÃ¼m cihazlarÄ±nÄ±z iÃ§in yalnÄ±zca bir birleÅŸik ayar setine sahiptir. YaptÄ±ÄŸÄ±nÄ±z herhangi bir deÄŸiÅŸiklik, uygulamayÄ± bir sonraki aÃ§Ä±ÅŸÄ±nÄ±zda diÄŸer cihazlarÄ±nÄ±za uygulanacaktÄ±r.';
-    STR_BACKUP_SYNC_RESTORE = 'Yedek bulundu';
-    STR_BACKUP_SYNC_RESTORE_SUMMARY = 'Yedek bulundu. Geri yÃ¼klenecek Ã¶ÄŸeleri seÃ§in, ardÄ±ndan onaylamak iÃ§in Geri veya Enter tuÅŸuna basÄ±n.';
-    STR_BACKUP_SYNC_RESTORE_SUCCESS = 'Geri yÃ¼kleme baÅŸarÄ±lÄ±!';
-    STR_BACKUP_RESTORE_FAIL = 'Yedek geri yÃ¼klenemedi';
-
-    STR_BACKUP_ENABLE = 'Yedeklemeyi etkinleÅŸtir';
-    STR_BACKUP_ENABLE_SUMMARY = 'EVET olarak ayarlanÄ±rsa, uygulama tÃ¼m kullanÄ±cÄ± bilgilerinin bir yedeÄŸini tutacaktÄ±r ' + STR_BACKUP_USER_INFO;
-
-    STR_BACKUP_SYNC_ENABLE = 'Cihazlar arasÄ±nda senkronize et';
-    STR_BACKUP_SYNC_ENABLE_SUMMARY =
-        'Bunu etkinleştirmek, uygulamanın başlangıç sürecine hafif bir gecikme ekleyecektir ve uygulamayı tek bir cihazda kullanıyorsanız gereksizdir. Uygulama, aşağıdaki tüm etkin seçenekleri bu cihaz ile aynı Google Drive hesabını kullanan diğer cihazlar arasında senkronize edecektir. Cihazları değiştirmek ve sorunsuz bir şekilde izlemeye devam etmek için, mevcut cihazda Ana Ekran tuşuna basarak uygulamayı simge durumuna küçültün. Ardından, uygulamayı açmadan önce diğer cihazda tamamen kapalı olduğundan emin olun.';
-
-    STR_EXPORT_LOGS = 'Proxy loglarını dışa aktar';
-    STR_PROXY_LOGS_EMPTY = 'Dışa aktarılacak proxy logu yok';
-}
-
-/*
- * Copyright (c) 2017â€“present Felipe de Leon <fglfgl27@gmail.com>
- *
- * This file is part of SmartTwitchTV <https://github.com/fgl27/SmartTwitchTV>
- *
- * SmartTwitchTV is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * SmartTwitchTV is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with SmartTwitchTV.  If not, see <https://github.com/fgl27/SmartTwitchTV/blob/master/LICENSE>.
- *
- */
-
-//Spacing for release maker not trow errors from jshint
-function uk_UALang() {
-    // This is a false/true var change if day comes first in your language eg (27/12/2010) day 27 month 12 year 2010
-    //Then copy this and set it to true, if doesn't don't copy it
-    Main_IsDayFirst = true;
-
-    // This is the size of side pannel a adjustments may be needed here so it can fit all words in the horizontal axis
-    // If it need ajustment or yours language just copy the below line and change it value until it does
-    Sidepannel_MoveldefaultMargin = 17;
-
-    //Below are variables to translate
-    STR_KEY_UP_DOWN = 'Ð’Ð³Ð¾Ñ€Ñƒ/Ð²Ð½Ð¸Ð·';
-    STR_KEY_MEDIA_FF = 'Ð°Ð±Ð¾ Ð¼ÐµÐ´Ñ–Ð°ÐºÐ»Ð°Ð²Ñ–ÑˆÑ– Ð¿ÐµÑ€ÐµÐ¼Ð¾Ñ‚ÐºÐ¸ Ð²Ð¿ÐµÑ€ÐµÐ´/Ð½Ð°Ð·Ð°Ð´';
-    STR_GUIDE_EXTRA = 'Ð°Ð±Ð¾ Ð½Ð°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ ÐºÐ»Ð°Ð²Ñ–ÑˆÑƒ 2';
-    STR_GUIDE_EXTRA2 = 'Ð°Ð±Ð¾ Ð¼ÐµÐ´Ñ–Ð°ÐºÐ»Ð°Ð²Ñ–ÑˆÐ° Ð½Ð°ÑÑ‚ÑƒÐ¿Ð½Ð¸Ð¹ Ñ‚Ñ€ÐµÐº';
-    STR_REFRESH = 'ÐžÐ½Ð¾Ð²Ð¸Ñ‚Ð¸';
-    STR_SEARCH = 'ÐŸÐ¾ÑˆÑƒÐº';
-    STR_SETTINGS = 'ÐÐ°Ð»Ð°ÑˆÑ‚ÑƒÐ²Ð°Ð½Ð½Ñ';
-    STR_CONTROLS = 'Ð¡Ð¿Ñ€Ð°Ð²ÐºÐ°';
-    STR_ABOUT = 'ÐŸÑ€Ð¾ Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼Ñƒ';
-    STR_HIDE = 'ÐŸÑ€Ð¸Ñ…Ð¾Ð²Ð°Ñ‚Ð¸';
-    STR_SEARCH_EMPTY = 'Ð’Ð¸ Ð½Ñ–Ñ‡Ð¾Ð³Ð¾ Ð½Ðµ Ð²Ð²ÐµÐ»Ð¸';
-    STR_SEARCH_RESULT_EMPTY = 'Ð ÐµÐ·ÑƒÐ»ÑŒÑ‚Ð°Ñ‚Ð¸ Ð²Ñ–Ð´ÑÑƒÑ‚Ð½Ñ–';
-    STR_SWITCH = 'ÐŸÐµÑ€ÐµÐ¼ÐºÐ½ÑƒÑ‚Ð¸ Ñ€Ð¾Ð·Ð´Ñ–Ð»';
-    STR_SWITCH_USER = 'ÐŸÐµÑ€ÐµÐ¼ÐºÐ½ÑƒÑ‚Ð¸ ÐºÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ‡Ð°';
-    STR_SWITCH_VOD = 'ÐŸÐµÑ€ÐµÐ¼ÐºÐ½ÑƒÑ‚Ð¸ Ð½Ð° VOD Ð°Ð±Ð¾ Ñ…Ð°Ð¹Ð»Ð°Ð¹Ñ‚Ð¸';
-    STR_SWITCH_CLIP = 'ÐžÐ±Ñ€Ð°Ñ‚Ð¸ Ð¿ÐµÑ€Ñ–Ð¾Ð´';
-    STR_GO_TO = 'ÐŸÐµÑ€ÐµÐ¹Ñ‚Ð¸ Ð´Ð¾ Ñ€Ð¾Ð·Ð´Ñ–Ð»Ñƒ ';
-    STR_USER = 'ÐšÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ‡';
-    STR_LIVE = 'Ð’ ÐµÑ„Ñ–Ñ€Ñ–';
-    STR_GAMES = 'Ð†Ð³Ñ€Ð¸';
-    STR_PLAYING = 'Ð“Ñ€Ð°Ñ” Ð² ';
-    STR_FOR = 'Ð´Ð»Ñ';
-    STR_WATCHING = 'Ð”Ð¸Ð²Ð¸Ñ‚ÑŒÑÑ';
-    STR_WAITING = 'Ð§ÐµÐºÐ°Ñ”';
-    STR_SINCE = 'Ð’Ð¶Ðµ ';
-    STR_AGAME = 'Ð“Ñ€Ð°';
-    STR_PLACEHOLDER_PASS = 'ÐŸÐ¾Ñ‚Ñ€Ñ–Ð±ÐµÐ½ Ð²Ð°Ñˆ Ð¿Ð°Ñ€Ð¾Ð»ÑŒ';
-    STR_PLACEHOLDER_SEARCH = 'Ð©Ð¾ Ð±ÑƒÐ´ÐµÐ¼Ð¾ ÑˆÑƒÐºÐ°Ñ‚Ð¸?';
-    STR_PLACEHOLDER_OAUTH = 'ÐŸÐ¾Ñ‚Ñ€Ñ–Ð±ÐµÐ½ Ð°Ð²Ñ‚Ð¾Ñ€Ð¸Ð·Ð°Ñ†Ñ–Ð¹Ð½Ð¸Ð¹ ÐºÐ»ÑŽÑ‡';
-    STR_PLACEHOLDER_USER = 'Ð’Ð²ÐµÐ´Ñ–Ñ‚ÑŒ Ñ–Ð¼â€™Ñ ÐºÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ‡Ð°';
-    STR_PLACEHOLDER_PRESS = 'ÐÐ°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ ÐžÐº Ð°Ð±Ð¾ ÐºÐ»Ð°Ð²Ñ–ÑˆÑƒ Ð’Ð¸Ð±Ð¾Ñ€Ñƒ, Ñ‰Ð¾Ð± ';
-    STR_CHANNELS = 'ÐšÐ°Ð½Ð°Ð»Ð¸';
-    STR_CHANNEL = 'ÐšÐ°Ð½Ð°Ð»';
-    STR_GOBACK_START = 'ÐÐ°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ Ð½Ð°Ð·Ð°Ð´ Ð´Ð»Ñ Ð¿Ð¾Ð²ÐµÑ€Ð½ÐµÐ½Ð½Ñ Ð´Ð¾ Ð¿ÐµÐ¿ÐµÑ€ÐµÐ´Ð½ÑŒÐ¾Ð³Ð¾ Ñ€Ð¾Ð·Ð´Ñ–Ð»Ñƒ';
-    STR_IS_OFFLINE = 'Ð·Ð°Ð²ÐµÑ€ÑˆÐ¸Ð² Ñ‚Ñ€Ð°Ð½ÑÐ»ÑÑ†Ñ–ÑŽ';
-    STR_CHECK_HOST = ', Ð¿ÐµÑ€ÐµÐ²Ñ–Ñ€ÐºÐ° Ñ…Ð¾ÑÑ‚Ð°';
-    STR_IS_SUB_ONLY = 'Ð’Ñ–Ð´ÐµÐ¾ Ð´Ð¾ÑÑ‚ÑƒÐ¿Ð½Ðµ Ð»Ð¸ÑˆÐµ Ð´Ð»Ñ Ð¿Ñ–Ð´Ð¿Ð¸ÑÐ½Ð¸ÐºÑ–Ð²';
-    STR_IS_SUB_ONLY_ERROR = 'Ñ” ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚Ð¾Ð¼ Ð»Ð¸ÑˆÐµ Ð´Ð»Ñ Ð¿Ñ–Ð´Ð¿Ð¸ÑÐ½Ð¸ÐºÑ–Ð².';
-    STR_NOKEY_GENERAL_WARN = ', Ð¿ÐµÑ€ÐµÐ¹Ð´Ñ–Ñ‚ÑŒ Ð´Ð¾ Ð±Ñ–Ñ‡Ð½Ð¾Ñ— Ð¿Ð°Ð½ÐµÐ»Ñ–, Ñ‰Ð¾Ð± Ð´Ð¾Ð´Ð°Ñ‚Ð¸ ÐºÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ‡Ð°';
-    STR_REFRESH_PROBLEM = 'ÐŸÐ¾Ð¼Ð¸Ð»ÐºÐ° Ð¿Ñ–Ð´ÐºÐ»ÑŽÑ‡ÐµÐ½Ð½Ñ Ð°Ð±Ð¾ Ð½ÐµÐ¼Ð°Ñ” ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚Ñƒ. Ð¡Ð¿Ñ€Ð¾Ð±ÑƒÐ¹Ñ‚Ðµ Ð¾Ð½Ð¾Ð²Ð¸Ñ‚Ð¸';
-    STR_REFRESH_PROBLEM_ENTER = 'ÐŸÐ¾Ð¼Ð¸Ð»ÐºÐ° Ð¿Ñ–Ð´ÐºÐ»ÑŽÑ‡ÐµÐ½Ð½Ñ Ð°Ð±Ð¾ Ð½ÐµÐ¼Ð°Ñ” ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚Ñƒ. ÐÐ°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ ÐžÐš Ð´Ð»Ñ Ð¾Ð½Ð¾Ð²Ð»ÐµÐ½Ð½Ñ.';
-    STR_REFRESH_PROBLEM_ENTER_LANG =
-        'ÐŸÐ¾Ð¼Ð¸Ð»ÐºÐ° Ð¿Ñ–Ð´ÐºÐ»ÑŽÑ‡ÐµÐ½Ð½Ñ Ð°Ð±Ð¾ Ð½ÐµÐ¼Ð°Ñ” ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚Ñƒ Ñ†Ñ–Ñ”ÑŽ Ð¼Ð¾Ð²Ð¾ÑŽ. Ð—Ð¼Ñ–Ð½Ñ–Ñ‚ÑŒ Ð¼Ð¾Ð²Ñƒ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚Ñƒ (ÑƒÑ‚Ñ€Ð¸Ð¼ÑƒÐ¹Ñ‚Ðµ Ð²Ð»Ñ–Ð²Ð¾) Ð°Ð±Ð¾ Ð½Ð°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ ÐžÐš Ð´Ð»Ñ Ð¾Ð½Ð¾Ð²Ð»ÐµÐ½Ð½Ñ';
-    STR_NO = 'ÐÑ–';
-    STR_FOR_THIS = 'Ð´Ð»Ñ Ñ†ÑŒÐ¾Ð³Ð¾';
-    STR_PLAYER_PROBLEM = 'ÐŸÐ¾Ð¼Ð¸Ð»ÐºÐ° Ð¿Ñ–Ð´ÐºÐ»ÑŽÑ‡ÐµÐ½Ð½Ñ, Ð½ÐµÐ¼Ð¾Ð¶Ð»Ð¸Ð²Ð¾ Ð·Ð°Ð²Ð°Ð½Ñ‚Ð°Ð¶Ð¸Ñ‚Ð¸ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚, Ð²Ð¸Ñ…Ñ–Ð´ ...';
-    STR_VODS = 'VOD-Ð·Ð°Ð¿Ð¸ÑÐ¸';
-    STR_HIGHLIGHTS = 'Ñ…Ð°Ð¹Ð»Ð°Ð¹Ñ‚Ð¸';
-    STR_CLIPS = 'ÐšÐ»Ñ–Ð¿Ð¸';
-    STR_CONTENT = 'ÐšÐ¾Ð½Ñ‚ÐµÐ½Ñ‚';
-    STR_STREAM_ON = 'Ð¢Ñ€Ð°Ð½ÑÐ»ÑÑ†Ñ–Ñ';
-    STR_DURATION = 'Ð¢Ñ€Ð¸Ð²Ð°Ð»Ñ–ÑÑ‚ÑŒ';
-    STR_VIEW = 'ÐŸÐµÑ€ÐµÐ³Ð»ÑÐ´';
-    STR_VIEWS = 'ÐŸÐµÑ€ÐµÐ³Ð»ÑÐ´Ð¸';
-    STR_VIEWER = 'Ð³Ð»ÑÐ´Ð°Ñ‡';
-    STR_VIEWERS = 'Ð³Ð»ÑÐ´Ð°Ñ‡Ñ–Ð²';
-    STR_EXIT_AGAIN = 'ÐÐ°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ Ñ‰Ðµ Ñ€Ð°Ð· Ð´Ð»Ñ Ð²Ð¸Ñ…Ð¾Ð´Ñƒ';
-    STR_EXIT_AGAIN_PICTURE = 'ÐÐ°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ Ñ‰Ðµ Ñ€Ð°Ð·, Ñ‰Ð¾Ð± Ð²Ð¸Ð¹Ñ‚Ð¸ Ð· Ñ€ÐµÐ¶Ð¸Ð¼Ñƒ "ÐºÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐ° Ð² ÐºÐ°Ñ€Ñ‚Ð¸Ð½Ñ†Ñ–"';
-    STR_EXIT_AGAIN_MULTI = 'ÐÐ°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ Ñ‰Ðµ Ñ€Ð°Ð·, Ñ‰Ð¾Ð± Ð²Ð¸Ð¹Ñ‚Ð¸ Ð· Ð¼ÑƒÐ»ÑŒÑ‚Ð¸ÑÑ‚Ñ€Ñ–Ð¼Ñƒ';
-    STR_EXIT_MESSAGE = 'Ð’Ð¸ Ð²Ð¿ÐµÐ²Ð½ÐµÐ½Ñ–, Ñ‰Ð¾ Ñ…Ð¾Ñ‡ÐµÑ‚Ðµ Ð²Ð¸Ð¹Ñ‚Ð¸';
-    STR_EXIT = 'Ð’Ð¸Ñ…Ñ–Ð´';
-    STR_CHANGELOG = 'Ð–ÑƒÑ€Ð½Ð°Ð» Ð·Ð¼Ñ–Ð½';
-    STR_FULL_CHANGELOG = 'ÐŸÐ¾Ð²Ð½Ð¸Ð¹ Ð¶ÑƒÑ€Ð½Ð°Ð» Ð·Ð¼Ñ–Ð½';
-    STR_CHANGELOG_SUMMARY = 'Ð—Ð°Ð²Ð¶Ð´Ð¸ Ð°ÐºÑ‚ÑƒÐ°Ð»ÑŒÐ½Ñ– Ð·Ð¼Ñ–Ð½Ð¸. Ð”ÐµÑ‚Ð°Ð»ÑŒÐ½Ñ–ÑˆÐµ Ð·Ð° Ð¿Ð¾ÑÐ¸Ð»Ð°Ð½Ð½ÑÐ¼ Ð½Ð¸Ð¶Ñ‡Ðµ:';
-    STR_UPDATE = 'ÐÐ°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ ÐžÐš, Ñ‰Ð¾Ð± Ð¾Ð½Ð¾Ð²Ð¸Ñ‚Ð¸';
-    STR_UPDATE_CHECK = 'ÐŸÐµÑ€ÐµÐ²Ñ–Ñ€Ð¸Ñ‚Ð¸ Ð¾Ð½Ð¾Ð²Ð»ÐµÐ½Ð½Ñ';
-    STR_UPDATE_CHECKING = 'ÐŸÐµÑ€ÐµÐ²Ñ–Ñ€ÑÑ”Ð¼Ð¾';
-    STR_UPDATE_CHECKING_FAIL = 'ÐÐµ Ð²Ð´Ð°Ð»Ð¾ÑÑ Ð¿ÐµÑ€ÐµÐ²Ñ–Ñ€Ð¸Ñ‚Ð¸';
-    STR_NO_UPDATES = 'Ð”Ð¾Ð´Ð°Ñ‚Ð¾Ðº Ð¾Ð½Ð¾Ð²Ð»ÐµÐ½Ð¾ Ð´Ð¾ Ð¾ÑÑ‚Ð°Ð½Ð½ÑŒÐ¾Ñ— Ð²ÐµÑ€ÑÑ–Ñ—';
-    STR_UPDATE_CHANGELOG = 'ÐžÐ½Ð¾Ð²Ð»ÐµÐ½Ð½Ñ Ñ‚Ð° Ð·Ð¼Ñ–Ð½Ð¸';
-    STR_UPDATE_LATEST = 'ÐžÑÑ‚Ð°Ð½Ð½Ñ– Ð·Ð¼Ñ–Ð½Ð¸';
-    STR_UPDATE_FAIL = 'ÐÐµ Ð²Ð´Ð°Ð»Ð¾ÑÑ Ð¾Ð½Ð¾Ð²Ð¸Ñ‚Ð¸, ÑÐ¿Ñ€Ð¾Ð±ÑƒÐ¹Ñ‚Ðµ Ð²Ñ€ÑƒÑ‡Ð½Ñƒ!';
-    STR_UPDATE_FAIL_DOWNLOAD = 'ÐÐµ Ð²Ð´Ð°Ð»Ð¾ÑÑ Ð·Ð°Ð²Ð°Ð½Ñ‚Ð°Ð¶Ð¸Ñ‚Ð¸ Ð¾Ð½Ð¾Ð²Ð»ÐµÐ½Ð½Ñ. Ð¡Ð¿Ñ€Ð¾Ð±ÑƒÐ¹Ñ‚Ðµ Ð²Ñ€ÑƒÑ‡Ð½Ñƒ';
-    STR_UPDATE_AVAILABLE = 'Ð”Ð¾ÑÑ‚ÑƒÐ¿Ð½Ðµ Ð¾Ð½Ð¾Ð²Ð»ÐµÐ½Ð½Ñ';
-    STR_WEB_UPDATE_AVAILABLE = 'Ð”Ð¾ÑÑ‚ÑƒÐ¿Ð½Ðµ Ð¾Ð½Ð¾Ð²Ð»ÐµÐ½Ð½Ñ';
-    STR_UPDATE_CHECK_SIDE = ', Ð¿ÐµÑ€ÐµÐ²Ñ–Ñ€Ñ‚Ðµ Ð±Ñ–Ñ‡Ð½Ñƒ Ð¿Ð°Ð½ÐµÐ»ÑŒ Ð´Ð»Ñ Ð¾Ð½Ð¾Ð²Ð»ÐµÐ½ÑŒ';
-    STR_UPDATE_LAST_CHECK = 'ÐžÑÑ‚Ð°Ð½Ð½Ñ Ð¿ÐµÑ€ÐµÐ²Ñ–Ñ€ÐºÐ°: ';
-    STR_UPDATE_OPT = 'ÐŸÐ°Ñ€Ð°Ð¼ÐµÑ‚Ñ€Ð¸ Ð¾Ð½Ð¾Ð²Ð»ÐµÐ½ÑŒ';
-    STR_UPDATE_CHECK_FOR = 'ÐŸÐµÑ€ÐµÐ²Ñ–Ñ€ÑÑ‚Ð¸ Ð¾Ð½Ð¾Ð²Ð»ÐµÐ½Ð½Ñ Ñƒ Ñ„Ð¾Ð½Ñ–';
-    STR_UPDATE_SHOW = 'ÐŸÐ¾ÐºÐ°Ð·ÑƒÐ²Ð°Ñ‚Ð¸ Ð²Ñ–ÐºÐ½Ð¾, ÐºÐ¾Ð»Ð¸ Ñ” Ð½Ð¾Ð²Ñ– Ð¾Ð½Ð¾Ð²Ð»ÐµÐ½Ð½Ñ';
-    STR_UPDATE_SHOW_ARRAY = ['Ð¢Ð°Ðº', 'Ð¢Ñ–Ð»ÑŒÐºÐ¸ ÑÐ¿Ð¾Ð²Ñ–Ñ‰ÐµÐ½Ð½Ñ', 'ÐÑ–'];
-    STR_UPDATE_START = 'Ð¢Ñ€Ð¸Ð²Ð°Ñ” Ð¾Ð½Ð¾Ð²Ð»ÐµÐ½Ð½Ñ. Ð¦Ðµ Ð¼Ð¾Ð¶Ðµ Ð·Ð°Ð¹Ð½ÑÑ‚Ð¸ ÐºÑ–Ð»ÑŒÐºÐ° ÑÐµÐºÑƒÐ½Ð´, Ð·Ð°Ñ‡ÐµÐºÐ°Ð¹Ñ‚Ðµ!';
-    STR_UPDATE_PLAY = 'Ð¯ÐºÑ‰Ð¾ Google Play Store Ð½Ðµ Ð¿Ð¾ÐºÐ°Ð·ÑƒÑ” Ð¾Ð½Ð¾Ð²Ð»ÐµÐ½Ð½Ñ, ÑÐ¿Ñ€Ð¾Ð±ÑƒÐ¹Ñ‚Ðµ Ð¿Ñ–Ð·Ð½Ñ–ÑˆÐµ!';
-    STR_UPDATE_ERROR = 'ÐŸÐ¾Ñ‚Ñ€Ñ–Ð±Ð½Ð° Ð²ÐµÑ€ÑÑ–Ñ APK 3.0.303 Ð°Ð±Ð¾ Ð½Ð¾Ð²Ñ–ÑˆÐ°. ÐžÐ½Ð¾Ð²Ñ–Ñ‚ÑŒ Ð·Ñ€ÑƒÑ‡Ð½Ð¸Ð¼ ÑÐ¿Ð¾ÑÐ¾Ð±Ð¾Ð¼!';
-    STR_UPDATE_WARNING_OK = 'Ð£ÑÐ¿Ñ–ÑˆÐ½Ð¾ Ð¾Ð½Ð¾Ð²Ð»ÐµÐ½Ð¾';
-    STR_CLOSE = 'Ð—Ð°ÐºÑ€Ð¸Ñ‚Ð¸';
-    STR_MINIMIZE = 'Ð—Ð³Ð¾Ñ€Ð½ÑƒÑ‚Ð¸';
-    STR_CANCEL = 'ÐÐ°Ð·Ð°Ð´';
-    STR_RERUN = 'Ð—Ð°Ð¿ÑƒÑÑ‚Ð¸Ñ‚Ð¸ Ð·Ð½Ð¾Ð²Ñƒ';
-    STR_LIVE_CHANNELS = 'ÐšÐ°Ð½Ð°Ð»Ð¸ Ð² ÐµÑ„Ñ–Ñ€Ñ–';
-    STR_LIVE_HOSTS = 'Ð¥Ð¾ÑÑ‚Ð¸';
-    STR_LIVE_GAMES = 'Ð†Ð³Ñ€Ð¸ Ð² ÐµÑ„Ñ–Ñ€Ñ–';
-    STR_USER_CHANNEL = 'Ð£Ð»ÑŽÐ±Ð»ÐµÐ½Ñ– ÐºÐ°Ð½Ð°Ð»Ð¸';
-    STR_USER_MY_CHANNEL = 'ÐœÑ–Ð¹ ÐºÐ°Ð½Ð°Ð»';
-    STR_USER_ADD = 'Ð”Ð¾Ð´Ð°Ñ‚Ð¸ ÐºÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ‡Ð°';
-    STR_USER_REMOVE = 'Ð’Ð¸Ð´Ð°Ð»Ð¸Ñ‚Ð¸ ÐºÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ‡Ð°';
-    STR_USER_ERROR = 'ÐšÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ‡Ð° Ð½Ðµ Ñ–ÑÐ½ÑƒÑ”';
-    STR_USER_HOSTING = 'Ñ…Ð¾ÑÑ‚Ð¸Ñ‚ÑŒ';
-    STR_USER_HOSTED_BY = 'Ñ…Ð¾ÑÑ‚Ð¸Ñ‚ÑŒÑÑ Ñƒ';
-    STR_USER_SET = 'Ð²Ð¶Ðµ Ð²ÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ð¾';
-    STR_USER_MAKE_ONE = 'Ð—Ð°Ð¼Ñ–Ð½Ð°';
-    STR_USER_NUMBER_ONE = 'ÐŸÐµÑ€ÑˆÐ¸Ð¹ ÐºÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ‡ Ð¼Ð¾Ð¶Ðµ Ð±Ð°Ñ‡Ð¸Ñ‚Ð¸ Ð²ÑÑ– ÐµÑ„Ñ–Ñ€Ð¸ Ñ‚Ð° ÑÑ‚ÐµÐ¶Ð¸Ñ‚Ð¸/Ð²Ñ–Ð´Ð¿Ð¸ÑÑƒÐ²Ð°Ñ‚Ð¸ÑÑ';
-    STR_ADD_USER_SH = 'Ð”Ð¾Ð´Ð°Ð¹Ñ‚Ðµ ÐºÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ‡Ð° Twitch, Ñ‰Ð¾Ð± Ñ‚ÑƒÑ‚ Ð²Ñ–Ð´Ð¾Ð±Ñ€Ð°Ð¶Ð°Ð°ÑÑ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚ Ð²Ð°ÑˆÐ¸Ñ… ÐºÐ°Ð½Ð°Ð»Ñ–Ð²';
-    STR_CLIP_DAY = 'Ð·Ð° 24 Ð³Ð¾Ð´Ð¸Ð½Ð¸';
-    STR_CLIP_WEEK = 'Ð·Ð° 7 Ð´Ð½Ñ–Ð²';
-    STR_CLIP_MONTH = 'Ð·Ð° 30 Ð´Ð½Ñ–Ð²';
-    STR_CLIP_ALL = 'Ð·Ð° Ð²ÐµÑÑŒ Ñ‡Ð°Ñ';
-    STR_JUMP_TIME = 'ÐŸÐµÑ€ÐµÐ¼Ð¾Ñ‚ÐºÐ°';
-    STR_JUMP_TIME_CLICK_AGAIN = 'ÐÐ°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ Ñ‰Ðµ Ñ€Ð°Ð· Ð´Ð»Ñ Ð¿ÐµÑ€ÐµÐ¼Ð¾Ñ‚ÐºÐ¸';
-    STR_JUMP_T0 = 'Ð´Ð¾';
-    STR_JUMP_CANCEL = 'ÐŸÐµÑ€ÐµÐ¼Ð¾Ñ‚ÐºÑƒ ÑÐºÐ°ÑÐ¾Ð²Ð°Ð½Ð¾';
-    STR_JUMP_TIME_BIG = ', Ñ‡Ð°Ñ Ð¿ÐµÑ€ÐµÐ¼Ð¾Ñ‚ÐºÐ¸ Ð¿ÐµÑ€ÐµÐ²Ð¸Ñ‰ÑƒÑ” Ñ‚Ñ€Ð¸Ð²Ð°Ð»Ñ–ÑÑ‚ÑŒ';
-    STR_SEC = 'ÑÐµÐº';
-    STR_MIN = 'Ñ…Ð²';
-    STR_MS = 'Ð¼Ñ';
-    STR_HR = 'Ð³Ð¾Ð´';
-    STR_SOURCE = 'Ð”Ð¶ÐµÑ€ÐµÐ»Ð¾';
-    STR_TWITCH_TV = 'SmartTV Client Ð´Ð»Ñ Twitch';
-    STR_CLOSE_THIS = 'ÐÐ°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ ÐžÐš Ð°Ð±Ð¾ Ð½Ð°Ð·Ð°Ð´, Ñ‰Ð¾Ð± Ð·Ð°ÐºÑ€Ð¸Ñ‚Ð¸';
-    STR_CLOSE_THIS2 = 'ÐÐ°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ Ð½Ð°Ð·Ð°Ð´, Ñ‰Ð¾Ð± Ð·Ð°ÐºÑ€Ð¸Ñ‚Ð¸';
-    STR_CLOSE_THIS3 = 'ÐÐ°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ Ð½Ð°Ð·Ð°Ð´, Ñ‰Ð¾Ð± Ð¿Ð¾ÐºÐ°Ð·Ð°Ñ‚Ð¸ Ð²Ñ–ÐºÐ½Ð¾ Ð¾Ð½Ð¾Ð²Ð»ÐµÐ½Ð½Ñ Ð°Ð±Ð¾ ÐžÐš, Ñ‰Ð¾Ð± Ð·Ð°ÐºÑ€Ð¸Ñ‚Ð¸';
-    STR_PLAYER = 'Ð©Ð¾ ÑÑ‚Ð¾ÑÑƒÑ”Ñ‚ÑŒÑÑ Ð¿Ð»Ð½Ñ”Ñ€Ñƒ:';
-    STR_CHAT = 'Ð©Ð¾ ÑÑ‚Ð¾ÑÑƒÑ”Ñ‚ÑŒÑÑ Ñ‡Ð°Ñ‚Ñƒ:';
-    STR_CHAT_SHOW = 'ÐŸÐ¾ÐºÐ°Ð·Ð°Ñ‚Ð¸ Ñ‡Ð°Ñ‚';
-    STR_CURRENT_VERSION = 'ÐŸÐ¾Ñ‚Ð¾Ñ‡Ð½Ð° Ð²ÐµÑ€ÑÑ–Ñ';
-    STR_LATEST_VERSION = 'Ð¾ÑÑ‚Ð°Ð½Ð½Ñ Ð´Ð¾ÑÑ‚ÑƒÐ¿Ð½Ð° Ð²ÐµÑ€ÑÑ–Ñ';
-    STR_CONTROLS_MAIN_2 = 'ÐŸÑ€Ð¾Ð³Ñ€Ð°Ð²Ð°Ð½Ð½Ñ Ð²Ñ–Ð´ÐµÐ¾: Ð½Ð°Ð²Ñ–Ð³Ð°Ñ†Ñ–Ñ D-pad (Ð²Ð³Ð¾Ñ€Ñƒ/Ð²Ð½Ð¸Ð·/Ð²Ð»Ñ–Ð²Ð¾/Ð²Ð¿Ñ€Ð°Ð²Ð¾), ÐžÐš, Ð¿Ð»ÐµÐ¹/Ð¿Ð°ÑƒÐ·Ð°, Ð¼ÐµÐ´Ñ–Ð°ÐºÐ»Ð°Ð²Ñ–ÑˆÑ– Ð°Ð±Ð¾ ÐºÐ»Ð°Ð²Ñ–ÑˆÐ° 1';
-    STR_CONTROLS_MAIN_3 = 'ÐžÐ½Ð¾Ð²Ð»ÐµÐ½Ð½Ñ Ð²Ð¼Ñ–ÑÑ‚Ñƒ ÐµÐºÑ€Ð°Ð½Ð°:';
-    STR_CONTROLS_MAIN_4 = 'Ð’Ð¸Ñ…Ñ–Ð´ Ð· Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼Ð¸: Ð½Ð°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ "Ð’Ð¸Ñ…Ñ–Ð´" Ñƒ Ð±Ñ–Ñ‡Ð½Ñ–Ð¹ Ð¿Ð°Ð½ÐµÐ»Ñ–';
-    STR_CONTROLS_MAIN_5 = 'ÐŸÑ€Ð¸Ð¼ÑƒÑÐ¾Ð²Ðµ Ð·Ð°Ð²ÐµÑ€ÑˆÐµÐ½Ð½Ñ Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼Ð¸: ÑƒÑ‚Ñ€Ð¸Ð¼ÑƒÐ¹Ñ‚Ðµ Ð½Ð°Ð·Ð°Ð´, Ð¿Ð¾ÐºÐ¸ Ð½Ðµ Ð·Ð°ÐºÑ€Ð¸Ñ”Ñ‚ÑŒÑÑ';
-    STR_CONTROLS_MAIN_6 = 'ÐŸÐµÑ€ÐµÐ¼Ð¸ÐºÐ°Ð½Ð½Ñ Ñ€Ð¾Ð·Ð´Ñ–Ð»Ñ–Ð²: Ð½Ð°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ Ð½Ð°Ð·Ð°Ð´, Ð¿Ð¾Ñ‚Ñ–Ð¼ D-Pad Ð²Ð³Ð¾Ñ€Ñƒ/Ð²Ð½Ð¸Ð· Ð°Ð±Ð¾ ' + STR_KEY_UP_DOWN + ' ' + STR_KEY_MEDIA_FF;
-    STR_CONTROLS_MAIN_10 = 'ÐŸÐ¾ÑˆÑƒÐº: Ñƒ Ð±Ñ–Ñ‡Ð½Ñ–Ð¹ Ð¿Ð°Ð½ÐµÐ»Ñ– Ð½Ð°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ "ÐŸÐ¾ÑˆÑƒÐº", Ð²Ð²ÐµÐ´Ñ–Ñ‚ÑŒ Ð·Ð°Ð¿Ð¸Ñ‚ Ñ– Ð½Ð°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ ÐžÐš Ð½Ð° ÐºÐ»Ð°Ð²Ñ–Ð°Ñ‚ÑƒÑ€Ñ–';
-    STR_CONTROLS_MAIN_14 = 'ÐŸÑ€Ð¾ Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼Ñƒ: Ð½Ð°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ "ÐŸÑ€Ð¾ Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼Ñƒ" Ð² Ð±Ñ–Ñ‡Ð½Ñ–Ð¹ Ð¿Ð°Ð½ÐµÐ»Ñ–';
-    STR_ABOUT_INFO_1 = 'Ð¦Ðµ Ð½ÐµÐ¾Ñ„Ñ–Ñ†Ñ–Ð¹Ð½Ð¸Ð¹ ÐºÐ»Ñ–Ñ”Ð½Ñ‚ Twitch Ð´Ð»Ñ Android TV, Ð±ÐµÐ·ÐºÐ¾ÑˆÑ‚Ð¾Ð²Ð½Ð¸Ð¹ Ð´Ð»Ñ Ð²ÑÑ–Ñ….';
-    STR_ABOUT_INFO_2 = 'Ð¦Ðµ Ð½ÐµÐ¾Ñ„Ñ–Ñ†Ñ–Ð¹Ð½Ð¸Ð¹ Ð´Ð¾Ð´Ð°Ñ‚Ð¾Ðº Twitch, ÑÑ‚Ð²Ð¾Ñ€ÐµÐ½Ð¸Ð¹ Ð·Ð°Ð²Ð´ÑÐºÐ¸ Ð²Ñ–Ð´ÐºÑ€Ð¸Ñ‚Ð¾Ð¼Ñƒ Twitch API.';
-    STR_ABOUT_INFO_2_SOURCE = 'Ð¦Ñ Ð²ÐµÑ€ÑÑ–Ñ Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼Ð¸ Ð¿Ñ€Ð¸Ð·Ð½Ð°Ñ‡ÐµÐ½Ð° Ð»Ð¸ÑˆÐµ Ð´Ð»Ñ Ñ‚ÐµÑÑ‚ÑƒÐ²Ð°Ð½Ð½Ñ Ð² Ð±Ñ€Ð°ÑƒÐ·ÐµÑ€Ñ–!';
-    STR_ABOUT_INFO_3 = 'ÐšÐ¾Ð½Ñ‚Ð°ÐºÑ‚Ð½Ð° Ñ–Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ñ–Ñ:';
-    STR_ABOUT_INFO_4 = 'Ð¦Ðµ Ð¿Ñ€Ð¾Ñ”ÐºÑ‚ Ð· Ð²Ñ–Ð´ÐºÑ€Ð¸Ñ‚Ð¸Ð¼ ÐºÐ¾Ð´Ð¾Ð¼, Ð»Ñ–Ñ†ÐµÐ½Ð·Ð¾Ð²Ð°Ð½Ð¸Ð¹ GNU GPL v3.0, Ð´Ð¸Ð²Ñ–Ñ‚ÑŒÑÑ Ð½Ð° GitHub:';
-
-    STR_ABOUT_INFO_6 = 'Ð©Ð¾Ð± Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ½ÑƒÑ‚Ð¸ Ð·Ð°Ð»ÐµÐ¶Ð½Ð¾ÑÑ‚Ñ– Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼Ð¸, ÑÐºÐ¾Ñ€Ð¸ÑÑ‚Ð°Ð¹Ñ‚ÐµÑÑ Ð¿Ð¾ÑÐ¸Ð»Ð°Ð½Ð½ÑÐ¼:';
-    STR_ABOUT_INFO_18 = 'ÐŸÑ–Ð´Ñ‚Ñ€Ð¸Ð¼ÐºÐ° Ñ‚ÐµÐ»ÐµÑ„Ð¾Ð½Ñ–Ð² Ñ– Ð¿Ð»Ð°Ð½ÑˆÐµÑ‚Ñ–Ð²:';
-    STR_ABOUT_INFO_19 =
-        'ÐœÐ¾Ð¶Ð½Ð° Ð²Ð¸ÐºÐ¾Ñ€Ð¸ÑÑ‚Ð¾Ð²ÑƒÐ²Ð°Ñ‚Ð¸ Ð½Ð° Ñ‚ÐµÐ»ÐµÑ„Ð¾Ð½Ð°Ñ… Ñ– Ð¿Ð»Ð°Ð½ÑˆÐµÑ‚Ð°Ñ…, Ð°Ð»Ðµ Ð´Ð¾Ð´Ð°Ñ‚Ð¾Ðº ÑÑ‚Ð²Ð¾Ñ€ÐµÐ½Ð¾ Ð² Ð¿ÐµÑ€ÑˆÑƒ Ñ‡ÐµÑ€Ð³Ñƒ Ð´Ð»Ñ Ð¢Ð’. Ð§ÐµÑ€ÐµÐ· Ð¾Ð±Ð¼ÐµÐ¶ÐµÐ½Ñƒ Ð¿Ñ–Ð´Ñ‚Ñ€Ð¸Ð¼ÐºÑƒ Ð²Ñ–Ð½ Ð½Ðµ Ð¿ÑƒÐ±Ð»Ñ–ÐºÑƒÑ”Ñ‚ÑŒÑÑ Ð² Play Store. Ð—Ð°Ð²Ð°Ð½Ñ‚Ð°Ð¶Ñ‚Ðµ APK Ð·Ð° Ð¿Ð¾ÑÐ¸Ð»Ð°Ð½Ð½ÑÐ¼ Ð½Ð¸Ð¶Ñ‡Ðµ Ð´Ð»Ñ Ñ€ÑƒÑ‡Ð½Ð¾Ð³Ð¾ Ð²ÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ð½Ñ.';
-
-    STR_CONTROLS_PLAY_0 = 'Ð°Ð±Ð¾ Ð²Ð½Ð¸Ð·Ñƒ Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð²Ð°Ñ‡Ð° Ð² ÐµÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð°Ñ… ÐºÐµÑ€ÑƒÐ²Ð°Ð½Ð½Ñ';
-    STR_CONTROLS_PLAY_1 = 'ÐŸÐ¾ÐºÐ°Ð·Ð°Ñ‚Ð¸ Ñ–Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ñ–Ð¹Ð½Ñƒ Ð¿Ð°Ð½ÐµÐ»ÑŒ: Ð½Ð°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ ÐžÐš Ð°Ð±Ð¾ D-pad, ÑÐºÑ‰Ð¾ Ñ‡Ð°Ñ‚ Ð°Ð±Ð¾ ÑÑ‚Ñ€Ñ–Ñ‡ÐºÐ° Ð½Ðµ Ð²Ñ–Ð´Ð¾Ð±Ñ€Ð°Ð¶Ð°Ñ”Ñ‚ÑŒÑÑ';
-    STR_CONTROLS_PLAY_2 = 'Ð—Ð°ÐºÑ€Ð¸Ñ‚Ð¸ Ð²Ñ–Ð´ÐµÐ¾: Ð´Ð²Ñ–Ñ‡Ñ– Ð½Ð°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ Ð½Ð°Ð·Ð°Ð´ Ð°Ð±Ð¾ ÐºÐ»Ð°Ð²Ñ–ÑˆÑƒ Ð·ÑƒÐ¿Ð¸Ð½ÐºÐ¸';
-    STR_CONTROLS_PLAY_3 = 'ÐŸÐ°ÑƒÐ·Ð°/Ð²Ñ–Ð´Ñ‚Ð²Ð¾Ñ€ÐµÐ½Ð½Ñ Ð²Ñ–Ð´ÐµÐ¾: Ð²Ñ–Ð´ÐºÑ€Ð¸Ð¹Ñ‚Ðµ Ñ–Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ñ–Ð¹Ð½Ñƒ Ð¿Ð°Ð½ÐµÐ»ÑŒ Ñ– Ð½Ð°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ Ñ–ÐºÐ¾Ð½ÐºÑƒ Ð¿Ð°ÑƒÐ·Ð¸';
-    STR_CONTROLS_PLAY_4 = 'ÐŸÐ¾ÐºÐ°Ð·Ð°Ñ‚Ð¸ ÑÑ‚Ñ€Ñ–Ñ‡ÐºÑƒ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´Ñƒ: D-pad Ð²Ð³Ð¾Ñ€Ñƒ';
-    STR_CONTROLS_PLAY_5 = "Ð—Ð¼Ñ–Ð½Ð¸Ñ‚Ð¸ ÑÐºÑ–ÑÑ‚ÑŒ Ð²Ñ–Ð´ÐµÐ¾: Ð¾Ð±ÐµÑ€Ñ–Ñ‚ÑŒ 'Ð¯ÐºÑ–ÑÑ‚ÑŒ' Ð²Ð½Ð¸Ð·Ñƒ Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð²Ð°Ñ‡Ð°";
-    STR_CONTROLS_PLAY_6 = 'ÐŸÑ€Ð¸Ð¼ÑƒÑÐ¾Ð²Ð¾ Ð¾Ð½Ð¾Ð²Ð¸Ñ‚Ð¸ Ð²Ñ–Ð´ÐµÐ¾ (ÑÐºÑ‰Ð¾ Ð·Ð°Ð²Ð¸ÑÐ»Ð¾): Ð·Ð¼Ñ–Ð½Ñ–Ñ‚ÑŒ ÑÐºÑ–ÑÑ‚ÑŒ Ð½Ð° Ñ‚Ñƒ Ð¶ ÑÐ°Ð¼Ñƒ';
-    STR_CONTROLS_PLAY_7 = 'ÐŸÐ¾ÐºÐ°Ð·Ð°Ñ‚Ð¸ Ð°Ð±Ð¾ Ð¿Ñ€Ð¸Ñ…Ð¾Ð²Ð°Ñ‚Ð¸ Ñ‡Ð°Ñ‚: D-pad Ð²Ð½Ð¸Ð· Ð°Ð±Ð¾ ÐºÐ»Ð°Ð²Ñ–ÑˆÐ° 3 ' + STR_CONTROLS_PLAY_0;
-    STR_CONTROLS_PLAY_8 = 'Ð—Ð¼Ñ–Ð½Ð¸Ñ‚Ð¸ Ð¿Ð¾Ð·Ð¸Ñ†Ñ–ÑŽ Ñ‡Ð°Ñ‚Ñƒ: D-pad Ð²Ð»Ñ–Ð²Ð¾, Page Up Ð°Ð±Ð¾ ÐºÐ»Ð°Ð²Ñ–ÑˆÑ– Ð¿ÐµÑ€ÐµÐ¼Ð¾Ñ‚ÐºÐ¸ Ð½Ð°Ð·Ð°Ð´ (Ñ‚Ñ–Ð»ÑŒÐºÐ¸ Ð´Ð»Ñ VOD/ÐºÐ»Ñ–Ð¿Ñ–Ð²) ' + STR_CONTROLS_PLAY_0;
-    STR_CONTROLS_PLAY_9 = 'Ð—Ð¼Ñ–Ð½Ð¸Ñ‚Ð¸ Ñ€Ð¾Ð·Ð¼Ñ–Ñ€ Ñ‡Ð°Ñ‚Ñƒ: D-pad Ð²Ð¿Ñ€Ð°Ð²Ð¾, Page Down ' + STR_CONTROLS_PLAY_0;
-    STR_CONTROLS_PLAY_10 = 'Ð—Ð¼Ñ–Ð½Ð¸Ñ‚Ð¸ ÑÑÐºÑ€Ð°Ð²Ñ–ÑÑ‚ÑŒ Ñ„Ð¾Ð½Ñƒ Ñ‡Ð°Ñ‚Ñƒ: Ð²Ð½Ð¸Ð·Ñƒ Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð²Ð°Ñ‡Ð° Ð² ÐµÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð°Ñ… ÐºÐµÑ€ÑƒÐ²Ð°Ð½Ð½Ñ';
-    STR_CONTROLS_PLAY_11 = "ÐŸÑ€Ð¸Ð¼ÑƒÑÐ¾Ð²Ð¾ Ð¾Ð½Ð¾Ð²Ð¸Ñ‚Ð¸ Ñ‡Ð°Ñ‚ Ñƒ Ñ‚Ñ€Ð°Ð½ÑÐ»ÑÑ†Ñ–Ñ— (ÑÐºÑ‰Ð¾ Ð½Ðµ Ð·Ð°Ð²Ð°Ð½Ñ‚Ð°Ð¶ÑƒÑ”Ñ‚ÑŒÑÑ): Ð´Ð²Ñ–Ñ‡Ñ– Ð½Ð°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ 'ÐŸÑ€Ð¸Ð¼ÑƒÑÐ¾Ð²Ð¾ Ð²Ð¸Ð¼ÐºÐ½ÑƒÑ‚Ð¸ Ñ‡Ð°Ñ‚'";
-    STR_CONTROLS_PLAY_12 = "ÐŸÐ¾Ñ‡Ð°Ñ‚Ð¸ Ð¿Ð¾ÑˆÑƒÐº: Ð²Ñ–Ð´ÐºÑ€Ð¸Ð¹Ñ‚Ðµ Ñ–Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ñ–Ð¹Ð½Ñƒ Ð¿Ð°Ð½ÐµÐ»ÑŒ, Ð½Ð°Ð²Ñ–Ð³Ð°Ñ†Ñ–Ñ D-pad Ð»Ñ–Ð²Ð¾Ñ€ÑƒÑ‡/Ð¿Ñ€Ð°Ð²Ð¾Ñ€ÑƒÑ‡ Ð´Ð¾ 'ÐŸÐ¾ÑˆÑƒÐºÑƒ' Ñ– Ð½Ð°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ ÐžÐš";
-    STR_CONTROLS_PLAY_13 = 'ÐŸÑ–Ð´Ñ‚Ñ€Ð¸Ð¼ÑƒÑŽÑ‚ÑŒÑÑ Ð²ÑÑ– Ð¼ÐµÐ´Ñ–Ð°ÐºÐ»Ð°Ð²Ñ–ÑˆÑ– (Ð²Ñ–Ð´Ñ‚Ð²Ð¾Ñ€ÐµÐ½Ð½Ñ, Ð¿Ð°ÑƒÐ·Ð°, Ð·ÑƒÐ¿Ð¸Ð½ÐºÐ°, Ð½Ð°ÑÑ‚ÑƒÐ¿Ð½Ð¸Ð¹ Ñ‚Ñ€ÐµÐº Ñ‚Ð¾Ñ‰Ð¾), Ð´ÐµÑÐºÑ– Ð²Ð¸ÐºÐ¾Ñ€Ð¸ÑÑ‚Ð¾Ð²ÑƒÑŽÑ‚ÑŒÑÑ ÑÐº ÑÑ€Ð»Ð¸ÐºÐ¸';
-    STR_CONTROLS_PLAY_14 =
-        'Ð§Ð°Ñ‚ Ñ– Ð²Ñ–Ð´ÐµÐ¾ Ð¿Ð¾Ñ€ÑÐ´: ÐºÐ»Ð°Ð²Ñ–ÑˆÐ° 2 Ð°Ð±Ð¾ Ð¼ÐµÐ´Ñ–Ð°ÐºÐ»Ð°Ð²Ñ–ÑˆÐ° Ð¿ÐµÑ€ÐµÐ¼Ð¾Ñ‚ÐºÐ¸ Ð²Ð¿ÐµÑ€ÐµÐ´. Ð¢Ð°ÐºÐ¾Ð¶ Ð¿ÐµÑ€ÐµÐ¼Ð¸ÐºÐ°Ñ” Ð¼Ñ–Ð¶ "ÐºÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐ° Ð² ÐºÐ°Ñ€Ñ‚Ð¸Ð½Ñ†Ñ–" Ñ– Ñ€ÐµÐ¶Ð¸Ð¼Ð¾Ð¼ 50/50';
-    STR_F_DISABLE_CHAT = 'ÐŸÑ€Ð¸Ð¼ÑƒÑÐ¾Ð²Ð¾ Ð²Ð¸Ð¼ÐºÐ½ÑƒÑ‚Ð¸ Ñ‡Ð°Ñ‚';
-    STR_OAUTH_IN =
-        'Ð”Ð¾Ð´Ð°Ð²Ð°Ð½Ð½Ñ ÐºÐ»ÑŽÑ‡Ð° Ð´Ð¾Ð·Ð²Ð¾Ð»ÑÑ” Ð´Ð¾Ð´Ð°Ñ‚ÐºÑƒ Ð¾Ñ‚Ñ€Ð¸Ð¼Ð°Ñ‚Ð¸ Ð´Ð¾ÑÑ‚ÑƒÐ¿ Ð´Ð¾ Ñ‡Ð°Ñ‚Ñƒ, Ð½Ð°Ð´ÑÐ¸Ð»Ð°Ñ‚Ð¸ Ð¿Ð¾Ð²Ñ–Ð´Ð¾Ð¼Ð»ÐµÐ½Ð½Ñ Ð²Ñ–Ð´ Ð²Ð°ÑˆÐ¾Ð³Ð¾ Ñ–Ð¼ÐµÐ½Ñ–, Ð±Ð°Ñ‡Ð¸Ñ‚Ð¸ Ð²Ð°ÑˆÑ– ÐµÐ¼Ð¾Ð´Ð·Ñ–, Ð¿Ñ–Ð´Ð¿Ð¸ÑÑƒÐ²Ð°Ñ‚Ð¸ÑÑ/Ð²Ñ–Ð´Ð¿Ð¸ÑÑƒÐ²Ð°Ñ‚Ð¸ÑÑ Ð²Ñ–Ð´ ÐºÐ°Ð½Ð°Ð»Ñ–Ð² Ñ– ÑˆÐ²Ð¸Ð´ÑˆÐµ Ð¾Ñ‚Ñ€Ð¸Ð¼ÑƒÐ²Ð°Ñ‚Ð¸ Ð´ÐµÑÐºÐ¸Ð¹ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚.<br><br>Ð”Ð¾Ð´Ð°Ð²Ð°Ð½Ð½Ñ ÐºÐ»ÑŽÑ‡Ð° Ð½Ðµ Ð¾Ð±Ð¾Ð²â€™ÑÐ·ÐºÐ¾Ð²Ðµ Ð¹ Ð¼Ð¾Ð¶Ðµ Ð±ÑƒÑ‚Ð¸ Ð·Ð´Ñ–Ð¹ÑÐ½ÐµÐ½Ðµ Ð¿Ñ–Ð·Ð½Ñ–ÑˆÐµ.<br><br>ÐŸÑ€Ð¸ ÑÑƒÐ¼Ð½Ñ–Ð²Ð°Ñ… Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ½ÑŒÑ‚Ðµ Ð²Ð¼Ñ–ÑÑ‚ Ð·Ð° Ð¿Ð¾ÑÐ¸Ð»Ð°Ð½Ð½ÑÐ¼:<br><br>%x<br><br>Ð”Ð»Ñ Ð´ÐµÑÐºÐ¸Ñ… Ð¿Ñ€Ð¸ÑÑ‚Ñ€Ð¾Ñ—Ð² Ð½ÐµÐ¾Ð±Ñ…Ñ–Ð´Ð½Ð¾ Ð²Ð¸ÐºÐ¾Ñ€Ð¸ÑÑ‚Ð¾Ð²ÑƒÐ²Ð°Ñ‚Ð¸ Ð¼Ð¸ÑˆÑƒ, Ñ‰Ð¾Ð± Ð²Ñ€ÑƒÑ‡Ð½Ñƒ Ð¿Ñ–Ð´Ñ‚Ð²ÐµÑ€Ð´Ð¸Ñ‚Ð¸ Ð¿ÐµÐ²Ð½Ñ– Ð´Ñ–Ñ—.<br><br>Ð”Ð¾Ð´Ð°Ñ‚Ð¸ ÐºÐ»ÑŽÑ‡ Ð´Ð»Ñ';
-    STR_USER_CODE = 'Ð”Ð¾Ð´Ð°Ñ‚Ð¸ Ð°Ð²Ñ‚Ð¾Ñ€Ð¸Ð·Ð°Ñ†Ñ–Ð¹Ð½Ð¸Ð¹ ÐºÐ»ÑŽÑ‡';
-    STR_USER_CODE_OK = 'ÐšÐ»ÑŽÑ‡ ÑƒÑÐ¿Ñ–ÑˆÐ½Ð¾ Ð´Ð¾Ð´Ð°Ð½Ð¾';
-    STR_KEY_BAD = 'ÐŸÐµÑ€ÐµÐ²Ñ–Ñ€ÐºÐ° ÐºÐ»ÑŽÑ‡Ð° Ð½Ðµ Ð²Ð´Ð°Ð»Ð°ÑÑ, Ð¿Ð¾Ñ‚Ñ€Ñ–Ð±Ð½Ð¾ Ð´Ð¾Ð´Ð°Ñ‚Ð¸ Ð½Ð¾Ð²Ð¸Ð¹';
-    STR_OAUTH_WRONG = 'Ð’Ð¸ Ð½Ð°Ð¼Ð°Ð³Ð°Ñ”Ñ‚ÐµÑÑ Ð´Ð¾Ð´Ð°Ñ‚Ð¸ ÐºÐ»ÑŽÑ‡ Ð´Ð»Ñ ';
-    STR_OAUTH_WRONG2 = 'Ð°Ð»Ðµ Ñ†ÐµÐ¹ ÐºÐ»ÑŽÑ‡ Ð½Ð°Ð»ÐµÐ¶Ð¸Ñ‚ÑŒ ';
-    STR_FOLLOWING = 'Ð¡Ñ‚ÐµÐ¶Ð¸Ñ‚Ðµ';
-    STR_FOLLOW = 'ÐÐµ ÑÑ‚ÐµÐ¶Ð¸Ñ‚Ðµ';
-    STR_IS_SUB_NOOAUTH = 'Ñ– Ð²Ð¸ Ð½Ðµ Ð´Ð¾Ð´Ð°Ð»Ð¸ Ð°Ð²Ñ‚Ð¾Ñ€Ð¸Ð·Ð°Ñ†Ñ–Ð¹Ð½Ð¸Ð¹ ÐºÐ»ÑŽÑ‡, Ñ‚Ð¾Ð¼Ñƒ Ð´Ð¾Ð´Ð°Ñ‚Ð¾Ðº Ð½Ðµ Ð¼Ð¾Ð¶Ðµ Ð¿ÐµÑ€ÐµÐ²Ñ–Ñ€Ð¸Ñ‚Ð¸ Ð²Ð°Ñˆ ÑÑ‚Ð°Ñ‚ÑƒÑ Ð¿Ñ–Ð´Ð¿Ð¸ÑÐºÐ¸.';
-    STR_IS_SUB_NOT_SUB = 'Ñ– Ð²Ð¸ Ð½Ðµ Ð¿Ñ–Ð´Ð¿Ð¸ÑÐ°Ð½Ñ– Ð½Ð° Ñ†ÐµÐ¹ ÐºÐ°Ð½Ð°Ð»';
-    STR_IS_SUB_IS_SUB = 'Ð’Ð¸ Ð¿Ñ–Ð´Ð¿Ð¸ÑÐ°Ð½Ñ– Ð½Ð° Ñ†ÐµÐ¹ ÐºÐ°Ð½Ð°Ð», Ð°Ð»Ðµ ÑÑ‚Ð°Ð»Ð°ÑÑ Ð½ÐµÐ²Ñ–Ð´Ð¾Ð¼Ð° Ð¿Ð¾Ð¼Ð¸Ð»ÐºÐ°, Ñ‰Ð¾ Ð·Ð°Ð²Ð°Ð¶Ð°Ñ” Ð²Ñ–Ð´Ñ‚Ð²Ð¾Ñ€ÐµÐ½Ð½ÑŽ.';
-    STR_OAUTH_FAIL = 'ÐÐµ Ð²Ð´Ð°Ð»Ð¾ÑÑ Ð¿ÐµÑ€ÐµÐ²Ñ–Ñ€Ð¸Ñ‚Ð¸ Ð°Ð²Ñ‚Ð¾Ñ€Ð¸Ð·Ð°Ñ†Ñ–ÑŽ Ð·Ð° ÐºÐ»ÑŽÑ‡ÐµÐ¼, Ð¿ÐµÑ€ÐµÐ²Ñ–Ñ€Ñ‚Ðµ Ñ– ÑÐ¿Ñ€Ð¾Ð±ÑƒÐ¹Ñ‚Ðµ Ð·Ð½Ð¾Ð²Ñƒ';
-    STR_OAUTH_FAIL_USER = 'Ð”Ð¾Ð´Ð°Ð½Ð¸Ð¹ ÐºÐ»ÑŽÑ‡ Ð½Ðµ Ð½Ð°Ð»ÐµÐ¶Ð¸Ñ‚ÑŒ Ñ†ÑŒÐ¾Ð¼Ñƒ ÐºÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ‡Ñƒ';
-    STR_NOKEY = 'ÐÐµÐ¼Ð°Ñ” ÐºÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ‡Ð°';
-    STR_NOKEY_WARN = 'ÐÐµÐ¾Ð±Ñ…Ñ–Ð´Ð½Ð¾ Ð²Ð¸Ð±Ñ€Ð°Ñ‚Ð¸ ÐºÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ‡Ð°, Ñ‰Ð¾Ð± ÑÑ‚ÐµÐ¶Ð¸Ñ‚Ð¸ Ð°Ð±Ð¾ Ð²Ñ–Ð´Ð¿Ð¸ÑÑƒÐ²Ð°Ñ‚Ð¸ÑÑ Ð²Ñ–Ð´ ÐºÐ°Ð½Ð°Ð»Ñ–Ð².';
-    STR_FOLLOW_ISSUE = 'Ð¡Ñ‚Ð¾Ñ€Ð¾Ð½Ð½Ñ– Ð´Ð¾Ð´Ð°Ñ‚ÐºÐ¸ Ð±Ñ–Ð»ÑŒÑˆÐµ Ð½Ðµ Ð¼Ð¾Ð¶ÑƒÑ‚ÑŒ Ð¿Ñ–Ð´Ð¿Ð¸ÑÑƒÐ²Ð°Ñ‚Ð¸ÑÑ Ð°Ð±Ð¾ Ð²Ñ–Ð´Ð¿Ð¸ÑÑƒÐ²Ð°Ñ‚Ð¸ÑÑ. ÐšÐ½Ð¾Ð¿ÐºÐ° Ð·Ê¼ÑÐ²Ð¸Ñ‚ÑŒÑÑ Ñ‚Ñ–Ð»ÑŒÐºÐ¸ ÑÐºÑ‰Ð¾ Ð²Ð¸ Ð²Ð¶Ðµ ÑÑ‚ÐµÐ¶Ð¸Ñ‚Ðµ Ð·Ð° ÐºÐ°Ð½Ð°Ð»Ð¾Ð¼.';
-    STR_NOKUSER_WARN = 'Ð’Ð¸Ð±ÐµÑ€Ñ–Ñ‚ÑŒ ÐºÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ‡Ð°, Ñ‰Ð¾Ð± Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´Ð°Ñ‚Ð¸ ÑƒÐ»ÑŽÐ±Ð»ÐµÐ½Ð¸Ð¹ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚.';
-    STR_RESET = 'ÐŸÐµÑ€ÐµÐ·Ð°Ð¿ÑƒÑÑ‚Ð¸Ñ‚Ð¸';
-    STR_CLIP = 'ÐšÐ»Ñ–Ð¿';
-    STR_CHANNEL_CONT = 'Ð’Ð¼Ñ–ÑÑ‚ ÐºÐ°Ð½Ð°Ð»Ñƒ';
-    STR_NET_DOWN = 'ÐÐµÐ¼Ð°Ñ” Ð·â€™Ñ”Ð´Ð½Ð°Ð½Ð½Ñ Ð· Ñ–Ð½Ñ‚ÐµÑ€Ð½ÐµÑ‚Ð¾Ð¼. Ð”Ð»Ñ Ñ€Ð¾Ð±Ð¾Ñ‚Ð¸ Ð´Ð¾Ð´Ð°Ñ‚ÐºÑƒ Ð¿Ð¾Ñ‚Ñ€Ñ–Ð±ÐµÐ½ Ñ–Ð½Ñ‚ÐµÑ€Ð½ÐµÑ‚.';
-    STR_NET_UP = 'Ð—â€™Ñ”Ð´Ð½Ð°Ð½Ð½Ñ Ð· Ð¼ÐµÑ€ÐµÐ¶ÐµÑŽ Ð²Ñ–Ð´Ð½Ð¾Ð²Ð»ÐµÐ½Ð¾';
-    STR_FOLLOWERS = 'ÐŸÑ–Ð´Ð¿Ð¸ÑÐ½Ð¸ÐºÐ¸';
-    STR_FOLLOWER = 'ÐŸÑ–Ð´Ð¿Ð¸ÑÐ½Ð¸Ðº';
-    STR_CANT_FOLLOW = ', Ð½ÐµÐ¼Ð¾Ð¶Ð»Ð¸Ð²Ð¾ Ð¿Ñ–Ð´Ð¿Ð¸ÑÐ°Ñ‚Ð¸ÑÑ Ð°Ð±Ð¾ Ð²Ñ–Ð´Ð¿Ð¸ÑÐ°Ñ‚Ð¸ÑÑ';
-    STR_GAME_CONT = 'Ð’Ð¼Ñ–ÑÑ‚ Ð³Ñ€Ð¸';
-    STR_YES = 'Ð¢Ð°Ðº';
-    STR_REMOVE_USER = 'Ð’Ð¸ Ð²Ð¿ÐµÐ²Ð½ÐµÐ½Ñ–, Ñ‰Ð¾ Ñ…Ð¾Ñ‡ÐµÑ‚Ðµ Ð²Ð¸Ð´Ð°Ð»Ð¸Ñ‚Ð¸ ÐºÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ‡Ð°';
-    STR_PLACEHOLDER_PRESS_UP = 'ÐÐ°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ Ð²Ð³Ð¾Ñ€Ñƒ, Ñ‰Ð¾Ð±';
-    STR_FOLLOW_GAMES = 'Ð£Ð»ÑŽÐ±Ð»ÐµÐ½Ñ– Ñ‚Ñ€Ð°Ð½ÑÐ»ÑÑ†Ñ–Ñ— Ñ–Ð³Ð¾Ñ€';
-    STR_USER_GAMES_CHANGE = 'ÐŸÐµÑ€ÐµÐ¼Ð¸ÐºÐ°Ð½Ð½Ñ Ð¼Ñ–Ð¶';
-    STR_GUIDE = ' ÑƒÑ‚Ñ€Ð¸Ð¼ÑƒÐ¹Ñ‚Ðµ OK';
-    STR_MONTHS = ['Ð¡Ñ–Ñ‡', 'Ð›ÑŽÑ‚', 'Ð‘ÐµÑ€', 'ÐšÐ²Ñ–Ñ‚', 'Ð¢Ñ€Ð°Ð²', 'Ð§ÐµÑ€Ð²', 'Ð›Ð¸Ð¿', 'Ð¡ÐµÑ€Ð¿', 'Ð’ÐµÑ€', 'Ð–Ð¾Ð²Ñ‚', 'Ð›Ð¸ÑÑ‚', 'Ð“Ñ€ÑƒÐ´'];
-    STR_DAYS = ['ÐÐ´', 'ÐŸÐ½', 'Ð’Ñ‚', 'Ð¡Ñ€', 'Ð§Ñ‚', 'ÐŸÑ‚', 'Ð¡Ð±'];
-    STR_STARTED = 'Ð Ð¾Ð·Ð¿Ð¾Ñ‡Ð°Ñ‚Ð¾';
-    STR_VIDEOS = 'Ð’Ñ–Ð´ÐµÐ¾';
-    STR_REPLAY = 'ÐŸÐ¾Ð²Ñ‚Ð¾Ñ€';
-    STR_STREAM_END = 'Ð²Ð¸Ñ…Ñ–Ð´ Ñ‡ÐµÑ€ÐµÐ·';
-    STR_STREAM_END_EXIT = "ÐÐ°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ 'ÐŸÐ¾Ð²ÐµÑ€Ð½ÐµÐ½Ð½Ñ' Ð´Ð»Ñ Ð²Ð¸Ñ…Ð¾Ð´Ñƒ";
-    STR_FEATURED = 'Ð“Ð¾Ð»Ð¾Ð²Ð½Ð°';
-    STR_CREATED_AT = 'Ð¡Ñ‚Ð²Ð¾Ñ€ÐµÐ½Ð¾';
-    STR_OPEN_BROADCAST = 'Ð’Ñ–Ð´ÐºÑ€Ð¸Ñ‚Ð¸ VOD';
-    STR_OPEN_LAST_BROADCAST = 'Ð’Ñ–Ð´ÐºÑ€Ð¸Ñ‚Ð¸ Ð¾ÑÑ‚Ð°Ð½Ð½Ñ–Ð¹ VOD';
-    STR_IS_LIVE = 'Ð—Ð°Ñ€Ð°Ð· Ð² ÐµÑ„Ñ–Ñ€Ñ–';
-    STR_SHOW_ISLIVE_WARNING = "ÐŸÐ¾ÐºÐ°Ð·ÑƒÐ²Ð°Ñ‚Ð¸ Ð¿Ð¾Ð¿ÐµÑ€ÐµÐ´Ð¶ÐµÐ½Ð½Ñ 'Ð¡Ñ‚Ñ€Ñ–Ð¼ÐµÑ€ Ñƒ Ð¿Ñ€ÑÐ¼Ð¾Ð¼Ñƒ ÐµÑ„Ñ–Ñ€Ñ–'";
-    STR_SHOW_ISLIVE_WARNING_SUMMARY =
-        'ÐŸÑ–Ð´ Ñ‡Ð°Ñ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´Ñƒ ÐºÐ»Ñ–Ð¿Ñƒ Ð°Ð±Ð¾ VOD, Ð´Ð¾Ð´Ð°Ñ‚Ð¾Ðº Ð¼Ð¾Ð¶Ðµ Ð¿ÐµÑ€ÐµÐ²Ñ–Ñ€Ð¸Ñ‚Ð¸, Ñ‡Ð¸ ÑÑ‚Ñ€Ñ–Ð¼ÐµÑ€ Ñƒ Ð¿Ñ€ÑÐ¼Ð¾Ð¼Ñƒ ÐµÑ„Ñ–Ñ€Ñ–. Ð¯ÐºÑ‰Ð¾ Ð²Ð²Ñ–Ð¼ÐºÐ½ÐµÐ½Ð¾, Ð·â€™ÑÐ²Ð¸Ñ‚ÑŒÑÑ Ð¿Ð¾Ð¿ÐµÑ€ÐµÐ´Ð¶ÐµÐ½Ð½Ñ. Ð”Ð»Ñ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´Ñƒ ÐµÑ„Ñ–Ñ€Ñƒ Ð²Ð¸ÐºÐ¾Ñ€Ð¸ÑÑ‚Ð¾Ð²ÑƒÐ¹Ñ‚Ðµ Ð¿Ð°Ð½ÐµÐ»ÑŒ ÐºÐµÑ€ÑƒÐ²Ð°Ð½Ð½Ñ Ð²Ð½Ð¸Ð·Ñƒ Ð¿Ð»ÐµÑ”Ñ€Ð°.';
-    STR_OPEN_CHAT = 'ÐÐ°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ, Ñ‰Ð¾Ð± Ð²Ñ–Ð´ÐºÑ€Ð¸Ñ‚Ð¸ Ñ‡Ð°Ñ‚ Ð°Ð±Ð¾ Ð·Ð°Ñ‡ÐµÐºÐ°Ð¹Ñ‚Ðµ, Ð¿Ð¾ÐºÐ¸ Ñ‚Ñ€Ð°Ð½ÑÐ»ÑÑ†Ñ–Ñ Ð¿Ð¾Ð²ÐµÑ€Ð½ÐµÑ‚ÑŒÑÑ Ð² ÐµÑ„Ñ–Ñ€.';
-    STR_STAY_OPEN = 'Ð—Ð°Ð»Ð¸ÑˆÐ¸Ñ‚Ð¸ÑÑ Ð½Ð° Ñ‚Ñ€Ð°Ð½ÑÐ»ÑÑ†Ñ–Ñ—';
-    STR_STAY_OPEN_SUMMARY = 'Ð—Ð°Ð»Ð¸ÑˆÐ°Ð¹Ñ‚ÐµÑÑ Ð½Ð° Ñ‚Ñ€Ð°Ð½ÑÐ»ÑÑ†Ñ–Ñ—, Ñ– Ð´Ð¾Ð´Ð°Ñ‚Ð¾Ðº Ð¿ÐµÑ€Ñ–Ð¾Ð´Ð¸Ñ‡Ð½Ð¾ Ð¿ÐµÑ€ÐµÐ²Ñ–Ñ€ÑÑ‚Ð¸Ð¼Ðµ, Ñ‡Ð¸ Ð¿Ð¾Ð²ÐµÑ€Ð½ÑƒÐ²ÑÑ ÐµÑ„Ñ–Ñ€.';
-    STR_STAY_CHECK = 'ÐŸÐµÑ€ÐµÐ²Ñ–Ñ€Ð¸Ñ‚Ð¸, Ñ‡Ð¸ ÐµÑ„Ñ–Ñ€ Ð°ÐºÑ‚Ð¸Ð²Ð½Ð¸Ð¹ Ñ‡ÐµÑ€ÐµÐ·:';
-    STR_STAY_CHECKING = 'ÐŸÐµÑ€ÐµÐ²Ñ–Ñ€ÐºÐ°, Ñ‡Ð¸ Ñ‚Ñ€Ð°Ð½ÑÐ»ÑÑ†Ñ–Ñ Ð² ÐµÑ„Ñ–Ñ€Ñ– ...';
-    STR_STAY_CHECK_LAST = 'ÐžÑÑ‚Ð°Ð½Ð½Ñ–Ð¹ Ñ€ÐµÐ·ÑƒÐ»ÑŒÑ‚Ð°Ñ‚:';
-    STR_STAY_IS_OFFLINE = 'Ð¢Ñ€Ð°Ð½ÑÐ»ÑÑ†Ñ–Ñ Ð±ÑƒÐ»Ð° Ð¾Ñ„Ð»Ð°Ð¹Ð½';
-    STR_NO_BROADCAST = 'ÐÐµÐ¼Ð°Ñ” VOD';
-    STR_NO_BROADCAST_WARNING = 'ÐÐµÐ¼Ð°Ñ” VOD Ð´Ð»Ñ Ñ†ÑŒÐ¾Ð³Ð¾ ÐºÐ»Ñ–Ð¿Ñƒ';
-    STR_NO_CHAT = 'Ñ‚Ð¾Ð¼Ñƒ Ñ‡Ð°Ñ‚ Ð½ÐµÐ´Ð¾ÑÑ‚ÑƒÐ¿Ð½Ð¸Ð¹';
-    STR_IS_NOW = 'Ð·Ð°Ñ€Ð°Ð·';
-    STR_OPEN_HOST = 'Ð’Ñ–Ð´ÐºÑ€Ð¸Ñ‚Ð¸ Ñ…Ð¾ÑÑ‚Ð¸Ð½Ð³';
-    STR_SETTINGS_PLAYER = 'ÐÐ°Ð»Ð°ÑˆÑ‚ÑƒÐ²Ð°Ð½Ð½Ñ Ð¿Ð»ÐµÑ”Ñ€Ð°';
-    STR_SETTINGS_BUFFER_SIZE = 'ÐŸÐ¾Ñ‡Ð°Ñ‚ÐºÐ¾Ð²Ð¸Ð¹ Ð±ÑƒÑ„ÐµÑ€:';
-    STR_SETTINGS_BUFFER_SIZE_SHORT_SUMMARY = 'ÐšÐµÑ€ÑƒÑ” Ñ€Ð¾Ð·Ð¼Ñ–Ñ€Ð¾Ð¼ ÑÑ‚Ð°Ñ€Ñ‚Ð¾Ð²Ð¾Ð³Ð¾ Ð±ÑƒÑ„ÐµÑ€Ð°';
-    STR_SETTINGS_BUFFER_SIZE_SUMMARY =
-        'Ð’Ð¸Ð·Ð½Ð°Ñ‡Ð°Ñ” Ð¾Ð±ÑÑÐ³ Ð´Ð°Ð½Ð¸Ñ… Ð´Ð»Ñ Ð±ÑƒÑ„ÐµÑ€Ð¸Ð·Ð°Ñ†Ñ–Ñ— Ð¿ÐµÑ€ÐµÐ´ Ð¿Ð¾Ñ‡Ð°Ñ‚ÐºÐ¾Ð¼ Ð²Ñ–Ð´Ñ‚Ð²Ð¾Ñ€ÐµÐ½Ð½Ñ. Ð¦Ðµ Ð½Ðµ ÑÑ‚Ð¾ÑÑƒÑ”Ñ‚ÑŒÑÑ Ð¼Ð°ÐºÑÐ¸Ð¼Ð°Ð»ÑŒÐ½Ð¾Ð³Ð¾ Ð±ÑƒÑ„ÐµÑ€Ð°, ÑÐºÐ¸Ð¹ Ð·Ð°Ð»ÐµÐ¶Ð¸Ñ‚ÑŒ Ð²Ñ–Ð´ Ð¾Ð¿ÐµÑ€Ð°Ñ‚Ð¸Ð²Ð½Ð¾Ñ— Ð¿Ð°Ð¼â€™ÑÑ‚Ñ–. ÐÐ¸Ð¶Ñ‡Ñ– Ð·Ð½Ð°Ñ‡ÐµÐ½Ð½Ñ Ð´Ð°ÑŽÑ‚ÑŒ ÑˆÐ²Ð¸Ð´ÑˆÐ¸Ð¹ ÑÑ‚Ð°Ñ€Ñ‚, Ñ€ÐµÐºÐ¾Ð¼ÐµÐ½Ð´ÑƒÑ”Ñ‚ÑŒÑÑ. Ð—Ð±Ñ–Ð»ÑŒÑˆÐµÐ½Ð½Ñ Ñ€Ñ–Ð´ÐºÐ¾ Ð¿Ð¾ÐºÑ€Ð°Ñ‰ÑƒÑ” ÑÐºÑ–ÑÑ‚ÑŒ Ñ– Ð¼Ð¾Ð¶Ðµ Ð·Ð°Ñ‚Ñ€Ð¸Ð¼ÑƒÐ²Ð°Ñ‚Ð¸ ÑÑ‚Ð°Ñ€Ñ‚.';
-    STR_SETTINGS_BUFFER_LIVE = 'ÐŸÐ¾Ñ‡Ð°Ñ‚ÐºÐ¾Ð²Ð¸Ð¹ Ð±ÑƒÑ„ÐµÑ€ Ñ‚Ñ€Ð°Ð½ÑÐ»ÑÑ†Ñ–Ð¹';
-    STR_SETTINGS_BUFFER_VOD = 'ÐŸÐ¾Ñ‡Ð°Ñ‚ÐºÐ¾Ð²Ð¸Ð¹ Ð±ÑƒÑ„ÐµÑ€ Ð´Ð»Ñ Ð²Ñ–Ð´ÐµÐ¾ (Ð°Ñ€Ñ…Ñ–Ð²Ð¸ Ñ‚Ð° Ð·Ð°Ð¿Ð¸ÑÐ¸)';
-    STR_SETTINGS_BUFFER_CLIP = 'ÐŸÐ¾Ñ‡Ð°Ñ‚ÐºÐ¾Ð²Ð¸Ð¹ Ð±ÑƒÑ„ÐµÑ€ Ð´Ð»Ñ ÐºÐ»Ñ–Ð¿Ñ–Ð²';
-    STR_SETTINGS_LANG = 'ÐœÐ¾Ð²Ð°';
-    STR_LOADING_CHAT = 'Ð§Ð°Ñ‚: Ð·â€™Ñ”Ð´Ð½Ð°Ð½Ð½Ñ Ð·';
-    STR_LOADING_FAIL = 'Ð§Ð°Ñ Ð¾Ñ‡Ñ–ÐºÑƒÐ²Ð°Ð½Ð½Ñ Ð·â€™Ñ”Ð´Ð½Ð°Ð½Ð½Ñ Ð²Ð¸Ñ‡ÐµÑ€Ð¿Ð°Ð½Ð¾, Ð½Ðµ Ð²Ð´Ð°Ð»Ð¾ÑÑ ÑƒÐ²Ñ–Ð¹Ñ‚Ð¸ ...';
-    STR_CHAT_CONNECTED = 'Ð§Ð°Ñ‚: Ð·â€™Ñ”Ð´Ð½Ð°Ð½Ð¾';
-    STR_CHAT_SEND_DELAY = 'ÐŸÐ¾Ð²Ñ–Ð´Ð¾Ð¼Ð»ÐµÐ½Ð½Ñ Ð½Ð°Ð´Ñ–ÑÐ»Ð°Ð½Ð¾. Ð§ÐµÑ€ÐµÐ· Ð·Ð°Ñ‚Ñ€Ð¸Ð¼ÐºÑƒ Ñ‡Ð°Ñ‚Ñƒ Ð²Ð¾Ð½Ð¾ Ð·â€™ÑÐ²Ð¸Ñ‚ÑŒÑÑ Ð·Ð³Ð¾Ð´Ð¾Ð¼.';
-    STR_CHAT_DELAY = 'Ð§Ð°Ñ‚: Ð·Ð°Ñ‚Ñ€Ð¸Ð¼ÐºÐ°';
-    STR_VOD_HISTORY_BASE = 'ÐŸÐ¾Ñ‡Ð°Ñ‚Ð¸ Ð· Ð¿Ð¾Ñ‡Ð°Ñ‚ÐºÑƒ Ð°Ð±Ð¾ Ð¿Ñ€Ð¾Ð´Ð¾Ð²Ð¶Ð¸Ñ‚Ð¸ Ð· Ð¼Ñ–ÑÑ†Ñ Ð·ÑƒÐ¿Ð¸Ð½ÐºÐ¸.';
-    STR_VOD_HISTORY = STR_VOD_HISTORY_BASE + ' VOD?';
-    STR_VOD_HISTORY_FORM_LIVE = STR_VOD_HISTORY_BASE + ' ÐŸÑ€ÑÐ¼Ð° Ñ‚Ñ€Ð°Ð½ÑÐ»ÑÑ†Ñ–Ñ?';
-    STR_FROM = 'Ð—:' + STR_BR;
-    STR_FROM_START = STR_FROM + 'ÐŸÐ¾Ñ‡Ð°Ñ‚Ð¾Ðº';
-    STR_CHAT_END = 'Ð§Ð°Ñ‚: Ð·Ð°Ð²ÐµÑ€ÑˆÐµÐ½Ð¾!';
-    STR_RECENT = ', ÐÐ°Ð¹Ð½Ð¾Ð²Ñ–ÑˆÑ–';
-    STR_VIWES = ', ÐÐ°Ð¹Ð±Ñ–Ð»ÑŒÑˆÐµ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´Ñ–Ð²';
-    STR_NOKEY_VIDEO_WARN = 'Ð”Ð¾Ð´Ð°Ð¹Ñ‚Ðµ ÐºÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ‡Ð° Ð´Ð»Ñ Ð´Ð¾ÑÑ‚ÑƒÐ¿Ñƒ Ð´Ð¾ ÑƒÐ»ÑŽÐ±Ð»ÐµÐ½Ð¸Ñ… Ð²Ñ–Ð´ÐµÐ¾.';
-    STR_SWITCH_TYPE = 'ÐŸÐµÑ€ÐµÐ¼Ð¸ÐºÐ°Ñ‡: Ð½Ð°Ð¹Ð½Ð¾Ð²Ñ–ÑˆÑ– Ð°Ð±Ð¾ Ð¿Ð¾Ð¿ÑƒÐ»ÑÑ€Ð½Ñ–';
-    STR_ENABLE = 'Ð£Ð²Ñ–Ð¼ÐºÐ½ÑƒÑ‚Ð¸';
-    STR_ENABLED = 'Ð£Ð²Ñ–Ð¼ÐºÐ½ÐµÐ½Ð¾';
-    STR_DISABLE = 'Ð’Ð¸Ð¼ÐºÐ½ÑƒÑ‚Ð¸';
-    STR_DISABLED = 'Ð’Ð¸Ð¼ÐºÐ½ÐµÐ½Ð¾';
-    STR_DARK_MODE = 'Ð¢ÐµÐ¼Ð½Ð° Ñ‚ÐµÐ¼Ð°';
-    STR_BRIGHT_MODE = 'Ð¡Ð²Ñ–Ñ‚Ð»Ð° Ñ‚ÐµÐ¼Ð°';
-    STR_RESTORE_PLAYBACK_WARN = 'ÐŸÑ€Ð¾Ð³Ñ€Ð°Ð²Ð°Ñ‡ Ð±ÑƒÐ»Ð¾ Ð·Ð°ÐºÑ€Ð¸Ñ‚Ð¾ Ð¿Ñ–Ð´ Ñ‡Ð°Ñ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´Ñƒ. Ð’Ñ–Ð´Ð½Ð¾Ð²Ð»ÐµÐ½Ð½Ñ Ð¿Ð¾Ð¿ÐµÑ€ÐµÐ´Ð½ÑŒÐ¾Ñ— ÑÐµÑÑ–Ñ—...';
-    STR_RESTORE_PLAYBACK = 'Ð’Ñ–Ð´Ð½Ð¾Ð²Ð¸Ñ‚Ð¸ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´';
-    STR_RESTORE_PLAYBACK_SUMMARY =
-        'Ð”Ð¾Ð´Ð°Ñ‚Ð¾Ðº Ð·Ð±ÐµÑ€Ñ–Ð³Ð°Ñ” Ð¿Ñ€Ð¾Ð³Ñ€ÐµÑ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´Ñƒ Ð½Ð° Ð²Ð¸Ð¿Ð°Ð´Ð¾Ðº Ð½ÐµÐ¾Ñ‡Ñ–ÐºÑƒÐ²Ð°Ð½Ð¾Ð³Ð¾ Ð·Ð°ÐºÑ€Ð¸Ñ‚Ñ‚Ñ. ÐŸÐµÑ€ÐµÐ¼Ð¸ÐºÐ°Ð½Ð½Ñ Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼ Ð¼Ð¾Ð¶Ðµ Ð¿Ñ€Ð¸Ð·Ð²ÐµÑÑ‚Ð¸ Ð´Ð¾ Ð²Ð¸Ð²Ñ–Ð»ÑŒÐ½ÐµÐ½Ð½Ñ Ð¿Ð°Ð¼â€™ÑÑ‚Ñ–, Ñ‰Ð¾ Ð·Ð°ÐºÑ€Ð¸Ð²Ð°Ñ” Ð´Ð¾Ð´Ð°Ñ‚Ð¾Ðº. ÐŸÑ–ÑÐ»Ñ Ð²Ñ–Ð´ÐºÑ€Ð¸Ñ‚Ñ‚Ñ â€” Ð¿Ñ€Ð¾Ð´Ð¾Ð²Ð¶Ð¸Ñ‚ÑŒ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´.';
-    STR_CHAT_FONT = 'Ð Ð¾Ð·Ð¼Ñ–Ñ€ ÑˆÑ€Ð¸Ñ„Ñ‚Ñƒ Ñ‡Ð°Ñ‚Ñƒ';
-    STR_VIDEOS_ANIMATION = 'ÐÐ½Ñ–Ð¼Ð¾Ð²Ð°Ð½Ñ– Ð¼Ñ–Ð½Ñ–Ð°Ñ‚ÑŽÑ€Ð¸ Ð²Ñ–Ð´ÐµÐ¾';
-    STR_VIDEOS_ANIMATION_SUMMARY =
-        'Ð¯ÐºÑ‰Ð¾ Ð´Ð»Ñ VOD Ð°Ð±Ð¾ Ð·Ð°Ð¿Ð¸ÑÑƒ Ð´Ð¾ÑÑ‚ÑƒÐ¿Ð½Ð° Ð°Ð½Ñ–Ð¼Ð¾Ð²Ð°Ð½Ð° Ð¼Ñ–Ð½Ñ–Ð°Ñ‚ÑŽÑ€Ð° â€” Ð²Ð¾Ð½Ð° Ð±ÑƒÐ´Ðµ Ð¿Ð¾ÐºÐ°Ð·Ð°Ð½Ð°. Ð—Ð²ÐµÑ€Ð½Ñ–Ñ‚ÑŒ ÑƒÐ²Ð°Ð³Ñƒ, Ñ‰Ð¾ Ð½Ðµ Ð²ÑÑ– Ð²Ñ–Ð´ÐµÐ¾ Ð¼Ð°ÑŽÑ‚ÑŒ Ð°Ð½Ñ–Ð¼Ð°Ñ†Ñ–ÑŽ.';
-    STR_SIDE_PANEL = 'Ð‘Ñ–Ñ‡Ð½Ð° Ð¿Ð°Ð½ÐµÐ»ÑŒ: Ð½Ð°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ D-pad Ð²Ð»Ñ–Ð²Ð¾ Ð°Ð±Ð¾ Ð½Ð°Ð·Ð°Ð´';
-    STR_SIZE = 'Ð Ð¾Ð·Ð¼Ñ–Ñ€';
-    STR_BRIGHTNESS = 'Ð¯ÑÐºÑ€Ð°Ð²Ñ–ÑÑ‚ÑŒ';
-    STR_FORBIDDEN = 'Ð¦ÐµÐ¹ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚ Ð¾Ð±Ð¼ÐµÐ¶ÐµÐ½Ð¸Ð¹ Ñƒ Ð²Ð°ÑˆÐ¾Ð¼Ñƒ Ñ€ÐµÐ³Ñ–Ð¾Ð½Ñ– Ð°Ð±Ð¾ Ð´Ð¾ÑÑ‚ÑƒÐ¿Ð½Ð¸Ð¹ Ð»Ð¸ÑˆÐµ Ñ‡ÐµÑ€ÐµÐ· Ð¾Ñ„Ñ–Ñ†Ñ–Ð¹Ð½Ð¸Ð¹ Ð´Ð¾Ð´Ð°Ñ‚Ð¾Ðº Twitch.';
-    STR_JUMPING_STEP = 'ÐšÑ€Ð¾Ðº Ð¿ÐµÑ€ÐµÐ¼Ð¾Ñ‚ÐºÐ¸';
-    STR_SECOND = 'ÑÐµÐºÑƒÐ½Ð´Ð°';
-    STR_SECONDS = 'ÑÐµÐºÑƒÐ½Ð´Ð¸';
-    STR_MINUTE = 'Ñ…Ð²Ð¸Ð»Ð¸Ð½Ð°';
-    STR_MINUTES = 'Ñ…Ð²Ð¸Ð»Ð¸Ð½Ð¸';
-    STR_CLOCK_OFFSET = 'Ð—Ð¼Ñ–Ñ‰ÐµÐ½Ð½Ñ Ð³Ð¾Ð´Ð¸Ð½Ð½Ð¸ÐºÐ°';
-    STR_CLOCK_OFFSET_SUMMARY = 'ÐÐ°Ð»Ð°ÑˆÑ‚ÑƒÐ¹Ñ‚Ðµ Ð¾ÑÐ½Ð¾Ð²Ð½Ð¸Ð¹ Ð³Ð¾Ð´Ð¸Ð½Ð½Ð¸Ðº Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼Ð¸, Ð·Ð°Ð´Ð°Ð²ÑˆÐ¸ Ð·Ð¼Ñ–Ñ‰ÐµÐ½Ð½Ñ Ñ‡Ð°ÑÑƒ.';
-    STR_CLOCK_AM_PM = 'Ð¤Ð¾Ñ€Ð¼Ð°Ñ‚ Ñ‡Ð°ÑÑƒ';
-    STR_CLOCK_AM_PM_SUMMARY = 'ÐžÐ±Ñ€Ð°Ñ‚Ð¸ Ñ„Ð¾Ñ€Ð¼Ð°Ñ‚ 24 Ð³Ð¾Ð´ Ð°Ð±Ð¾ 12 Ð³Ð¾Ð´ (AM/PM).';
-    STR_CONTENT_LANG = 'ÐœÐ¾Ð²Ð° ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚Ñƒ';
-    STR_CONTENT_LANG_SUMMARY = 'ÐœÐ¾Ð²Ð° Ð´Ð»Ñ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚Ñƒ Ð½Ð° ÐµÐºÑ€Ð°Ð½Ñ–: ÐµÑ„Ñ–Ñ€Ð¸, VOD, ÐºÐ»Ñ–Ð¿Ð¸.';
-    STR_APP_LANG = 'ÐœÐ¾Ð²Ð° Ð´Ð¾Ð´Ð°Ñ‚ÐºÑƒ';
-    STR_APP_LANG_SUMMARY = 'ÐœÐ¾Ð²Ð° Ñ–Ð½Ñ‚ÐµÑ€Ñ„ÐµÐ¹ÑÑƒ Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼Ð¸.';
-    STR_ENTER_TO_OPEN = 'ÐÐ°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ ÐžÐš Ð´Ð»Ñ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´Ñƒ';
-    STR_LANG_ALL = 'Ð£ÑÑ–';
-    STR_NO_GAME = 'ÐÐµÐ¼Ð¾Ð¶Ð»Ð¸Ð²Ð¾ Ð¾Ñ‚Ñ€Ð¸Ð¼Ð°Ñ‚Ð¸ Ð³Ñ€Ñƒ Ð· Ñ†ÑŒÐ¾Ð³Ð¾';
-    STR_EMPTY = 'ÐŸÐ¾Ñ€Ð¾Ð¶Ð½ÑŒÐ¾';
-    STR_JUMP_BUFFER_WARNING = 'ÐŸÐµÑ€ÐµÐ¼Ð¾Ñ‚ÐºÐ° Ð½ÐµÐ¼Ð¾Ð¶Ð»Ð¸Ð²Ð° Ð¿Ñ–Ð´ Ñ‡Ð°Ñ Ð±ÑƒÑ„ÐµÑ€Ð¸Ð·Ð°Ñ†Ñ–Ñ—';
-    STR_CHAT_DISABLE = "Ð§Ð°Ñ‚ Ð½Ð°Ñ€Ð°Ð·Ñ– Ð²Ð¸Ð¼ÐºÐ½ÐµÐ½Ð¾. Ð’Ð¸ Ð¼Ð¾Ð¶ÐµÑ‚Ðµ ÑƒÐ²Ñ–Ð¼ÐºÐ½ÑƒÑ‚Ð¸ Ð¹Ð¾Ð³Ð¾ Ñ‡ÐµÑ€ÐµÐ· Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€ 'ÐŸÑ€Ð¸Ð¼ÑƒÑÐ¾Ð²Ð¾ Ð²Ð¸Ð¼ÐºÐ½ÑƒÑ‚Ð¸ Ñ‡Ð°Ñ‚' Ð²Ð½Ð¸Ð·Ñƒ Ð¿Ð»ÐµÑ”Ñ€Ð°.";
-    STR_CLIP_FAIL = 'ÐÐµ Ð²Ð´Ð°Ð»Ð¾ÑÑ Ð·Ð°Ð²Ð°Ð½Ñ‚Ð°Ð¶Ð¸Ñ‚Ð¸ ÐºÐ»Ñ–Ð¿/Ð²Ñ–Ð´ÐµÐ¾. ÐŸÐ¾Ð²Ñ‚Ð¾Ñ€ Ð½Ðµ Ð¼Ð¾Ð¶Ð»Ð¸Ð²Ð¸Ð¹';
-    STR_CHAT_BRIGHTNESS = 'Ð¯ÑÐºÑ€Ð°Ð²Ñ–ÑÑ‚ÑŒ Ñ„Ð¾Ð½Ñƒ Ñ‡Ð°Ñ‚Ñƒ';
-    STR_PLAY_NEXT = 'Ð’Ñ–Ð´Ñ‚Ð²Ð¾Ñ€Ð¸Ñ‚Ð¸ Ð½Ð°ÑÑ‚ÑƒÐ¿Ð½Ðµ';
-    STR_PLAY_NEXT_IN = 'ÐÐ°ÑÑ‚ÑƒÐ¿Ð½Ðµ Ñ‡ÐµÑ€ÐµÐ·';
-    STR_PLAY_ALL = 'Ð’Ñ–Ð´Ñ‚Ð²Ð¾Ñ€Ð¸Ñ‚Ð¸ Ð²ÑÐµ';
-    STR_AUTO_PLAY_NEXT = 'ÐÐ²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡Ð½Ð¾ Ð²Ñ–Ð´Ñ‚Ð²Ð¾Ñ€ÑŽÐ²Ð°Ñ‚Ð¸ Ð½Ð°ÑÑ‚ÑƒÐ¿Ð½Ð¸Ð¹ ÐºÐ»Ñ–Ð¿';
-    STR_SIDE_PANEL_BACK_MAIN_MENU = 'ÐÐ°Ð·Ð°Ð´ Ð½Ð° Ð³Ð¾Ð»Ð¾Ð²Ð½Ñƒ';
-    STR_UP = 'ÐÐ°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ Ð²Ð³Ð¾Ñ€Ñƒ';
-    STR_HOLD_UP = 'Ð£Ñ‚Ñ€Ð¸Ð¼ÑƒÐ¹Ñ‚Ðµ Ð²Ð³Ð¾Ñ€Ñƒ Ð°Ð±Ð¾ ÐºÐ»Ð°Ð²Ñ–ÑˆÑƒ 2';
-    STR_LIVE_FEED = 'Ð—Ð°Ñ€Ð°Ð· Ð² ÐµÑ„Ñ–Ñ€Ñ–';
-    STR_VOD_DIALOG = 'Ð”Ñ–Ð°Ð»Ð¾Ð³ ÑÑ‚Ð°Ñ€Ñ‚Ñƒ VOD';
-    STR_VOD_DIALOG_SUMMARY = 'Ð’ÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚Ð¸ Ñ‚Ð¸Ð¿Ð¾Ð²Ñƒ Ð¿Ð¾Ð²ÐµÐ´Ñ–Ð½ÐºÑƒ Ð¿Ñ€Ð¸ Ð·Ð°Ð¿ÑƒÑÐºÑƒ VOD Ð· Ñ–ÑÑ‚Ð¾Ñ€Ñ–Ñ—. Ð’Ð¸Ð±Ñ–Ñ€ "Ð—Ð°Ð²Ð¶Ð´Ð¸ Ð· Ð¿Ð¾Ñ‡Ð°Ñ‚ÐºÑƒ" Ñ‚Ð°ÐºÐ¾Ð¶ Ð´Ñ–Ñ” Ð´Ð»Ñ Ð¿Ð¾Ð¿ÐµÑ€ÐµÐ´Ð½ÑŒÐ¾Ð³Ð¾ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´Ñƒ.';
-    STR_VOD_DIALOG_START = 'Ð—Ð°Ð²Ð¶Ð´Ð¸ Ð· Ð¿Ð¾Ñ‡Ð°Ñ‚ÐºÑƒ';
-    STR_VOD_DIALOG_LAST = 'Ð—Ð°Ð²Ð¶Ð´Ð¸ Ð· Ð¾ÑÑ‚Ð°Ð½Ð½ÑŒÐ¾Ð³Ð¾ Ð¼Ñ–ÑÑ†Ñ';
-    STR_VOD_DIALOG_SHOW = 'Ð—Ð°Ð²Ð¶Ð´Ð¸ Ð·Ð°Ð¿Ð¸Ñ‚ÑƒÐ²Ð°Ñ‚Ð¸';
-    STR_END_DIALOG_OPT = 'ÐžÐ¿Ñ†Ñ–Ñ— Ð´Ñ–Ð°Ð»Ð¾Ð³Ñƒ Ð¿Ñ–ÑÐ»Ñ Ð·Ð°Ð²ÐµÑ€ÑˆÐµÐ½Ð½Ñ Ð¿Ð»ÐµÑ”Ñ€Ð°';
-    STR_END_DIALOG_SETTINGS = 'Ð§Ð°Ñ Ð·Ð°Ñ‚Ñ€Ð¸Ð¼ÐºÐ¸ Ð´Ñ–Ð°Ð»Ð¾Ð³Ñƒ Ð¿Ñ–ÑÐ»Ñ Ð·Ð°Ð²ÐµÑ€ÑˆÐµÐ½Ð½Ñ';
-    STR_END_DIALOG_SETTINGS_SUMMARY =
-        'ÐšÐ¾Ð»Ð¸ Ñ‚Ñ€Ð°Ð½ÑÐ»ÑÑ†Ñ–Ñ, VOD Ð°Ð±Ð¾ ÐºÐ»Ñ–Ð¿ Ð·Ð°ÐºÑ–Ð½Ñ‡ÑƒÑ”Ñ‚ÑŒÑÑ, Ð·â€™ÑÐ²Ð»ÑÑ”Ñ‚ÑŒÑÑ Ð´Ñ–Ð°Ð»Ð¾Ð³ Ð· Ð¾Ð¿Ñ†Ñ–ÑÐ¼Ð¸. Ð’ÑÑ‚Ð°Ð½Ð¾Ð²Ñ–Ñ‚ÑŒ Ñ‡Ð°Ñ (Ñƒ ÑÐµÐºÑƒÐ½Ð´Ð°Ñ…), Ð¿Ñ–ÑÐ»Ñ ÑÐºÐ¾Ð³Ð¾ Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡Ð½Ð¾ Ð·Ð°ÑÑ‚Ð¾ÑÑƒÑ”Ñ‚ÑŒÑÑ Ð²Ð¸Ð±Ñ€Ð°Ð½Ð¸Ð¹ Ð²Ð°Ñ€Ñ–Ð°Ð½Ñ‚.';
-    STR_END_DIALOG_DISABLE = 'Ð’Ð¸Ð¼ÐºÐ½ÑƒÑ‚Ð¸ Ñ‚Ð°Ð¹Ð¼ÐµÑ€';
-    //TODO improve more after this
-    STR_CHAT_SIZE = 'Ð Ð¾Ð·Ð¼Ñ–Ñ€ Ñ‡Ð°Ñ‚Ñƒ';
-    STR_CHAT_POS = 'ÐŸÐ¾Ð»Ð¾Ð¶ÐµÐ½Ð½Ñ Ñ‡Ð°Ñ‚Ñƒ';
-    STR_CHAT_VIDEO_MODE = 'Ð ÐµÐ¶Ð¸Ð¼ Ð²Ñ–Ð´ÐµÐ¾';
-    STR_CHAT_SIDE_FULL = 'ÐÐ° Ð²ÐµÑÑŒ ÐµÐºÑ€Ð°Ð½';
-    STR_CHAT_PP_SIDE_FULL = 'Ð’ÐµÐ»Ð¸ÐºÐ¸Ð¹ + Ð¼Ð°Ð»Ð¸Ð¹ ÐµÐºÑ€Ð°Ð½';
-    STR_CHAT_SIDE = 'ÐŸÐ»Ñ–Ñ‡-Ð¾-Ð¿Ð»Ñ–Ñ‡: Ð²Ñ–Ð´ÐµÐ¾ Ñ– Ñ‡Ð°Ñ‚';
-    STR_CHAT_5050 = '50/50 Ñ– Ñ‡Ð°Ñ‚Ð¸';
-    STR_SPEED = 'Ð¨Ð²Ð¸Ð´ÐºÑ–ÑÑ‚ÑŒ';
-    STR_QUALITY = 'Ð¯ÐºÑ–ÑÑ‚ÑŒ';
-    STR_NORMAL = 'ÐÐ¾Ñ€Ð¼Ð°Ð»ÑŒÐ½Ð°';
-    STR_AUTO = 'ÐÐ²Ñ‚Ð¾';
-    STR_VERY_LOW = 'Ð”ÑƒÐ¶Ðµ Ð½Ð¸Ð·ÑŒÐºÐ°';
-    STR_LOW = 'ÐÐ¸Ð·ÑŒÐºÐ°';
-    STR_HIGH = 'Ð’Ð¸ÑÐ¾ÐºÐ°';
-    STR_VERY_HIGH = 'Ð”ÑƒÐ¶Ðµ Ð²Ð¸ÑÐ¾ÐºÐ°';
-    STR_THUMB_RESOLUTION = 'Ð¯ÐºÑ–ÑÑ‚ÑŒ Ð¼Ñ–Ð½Ñ–Ð°Ñ‚ÑŽÑ€';
-    STR_THUMB_RESOLUTION_SUMMARY =
-        'Ð¢Ð¸Ð¿Ð¾Ð²Ð° ÑÐºÑ–ÑÑ‚ÑŒ Ð¼Ñ–Ð½Ñ–Ð°Ñ‚ÑŽÑ€ Ð´Ð»Ñ ÐµÑ„Ñ–Ñ€Ñ–Ð², Ð²Ñ–Ð´ÐµÐ¾ Ñ‚Ð° Ñ–Ð³Ð¾Ñ€ (Ð½Ðµ Ð´Ñ–Ñ” Ð´Ð»Ñ ÐºÐ»Ñ–Ð¿Ñ–Ð²). ÐÐ¸Ð¶Ñ‡Ð° ÑÐºÑ–ÑÑ‚ÑŒ ÑˆÐ²Ð¸Ð´ÑˆÐµ Ð·Ð°Ð²Ð°Ð½Ñ‚Ð°Ð¶ÑƒÑ”Ñ‚ÑŒÑÑ, Ð°Ð»Ðµ Ð¼Ð¾Ð¶Ðµ Ð±ÑƒÑ‚Ð¸ Ñ€Ð¾Ð·Ð¼Ð¸Ñ‚Ð¾ÑŽ.';
-    STR_PAYPAL_SUMMARY = 'ÐŸÐ¾Ð¶ÐµÑ€Ñ‚Ð²Ð¸ Ñ‡ÐµÑ€ÐµÐ· Paypal, ÑÐºÐ¾Ñ€Ð¸ÑÑ‚Ð°Ð¹Ñ‚ÐµÑÑ Ð¿Ð¾ÑÐ¸Ð»Ð°Ð½Ð½ÑÐ¼ Ð°Ð±Ð¾ QR-ÐºÐ¾Ð´Ð¾Ð¼:';
-    STR_BITCOIN_SUMMARY = 'ÐŸÐ¾Ð¶ÐµÑ€Ñ‚Ð²Ð¸ Ñ‡ÐµÑ€ÐµÐ· Bitcoin, ÑÐºÐ¾Ñ€Ð¸ÑÑ‚Ð°Ð¹Ñ‚ÐµÑÑ Ð°Ð´Ñ€ÐµÑÐ¾ÑŽ Ð³Ð°Ð¼Ð°Ð½Ñ†Ñ Ð°Ð±Ð¾ Ð²Ñ–Ð´ÑÐºÐ°Ð½ÑƒÐ¹Ñ‚Ðµ QR-ÐºÐ¾Ð´:';
-    STR_PLAYER_PROBLEM_2 = 'ÐŸÐ¾Ð¼Ð¸Ð»ÐºÐ° Ð·â€™Ñ”Ð´Ð½Ð°Ð½Ð½Ñ, Ð½Ðµ Ð²Ð´Ð°Ð»Ð¾ÑÑ Ð·Ð°Ð²Ð°Ð½Ñ‚Ð°Ð¶Ð¸Ñ‚Ð¸ Ñ–Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ñ–ÑŽ Ð¿Ñ€Ð¾ ÑÑ‚Ñ€Ñ–Ð¼';
-    STR_PLAYER_RESYNC = 'ÐŸÐµÑ€ÐµÐ·Ð°Ð¿ÑƒÑÐº Ð¿Ð»ÐµÑ”Ñ€Ð°';
-    STR_PLAYER_MULTI_ALL = 'Ð£ÑÑ–';
-    STR_QUALITY_PP = ['ÐœÐ°Ð»Ð¸Ð¹', 'Ð’ÐµÐ»Ð¸ÐºÐ¸Ð¹', STR_PLAYER_MULTI_ALL];
-    STR_QUALITY_MULTI = [STR_PLAYER_MULTI_ALL, 'Ð’ÐµÑ€Ñ… Ð»Ñ–Ð²Ð¾Ñ€ÑƒÑ‡', 'Ð’ÐµÑ€Ñ… Ð¿Ñ€Ð°Ð²Ð¾Ñ€ÑƒÑ‡', 'ÐÐ¸Ð· Ð»Ñ–Ð²Ð¾Ñ€ÑƒÑ‡', 'ÐÐ¸Ð· Ð¿Ñ€Ð°Ð²Ð¾Ñ€ÑƒÑ‡'];
-    STR_QUALITY_MULTI_BIG = [STR_PLAYER_MULTI_ALL, 'Ð’ÐµÑ€Ñ…', 'ÐÐ¸Ð· Ð»Ñ–Ð²Ð¾Ñ€ÑƒÑ‡', 'ÐÐ¸Ð· Ð¿Ð¾ Ñ†ÐµÐ½Ñ‚Ñ€Ñƒ', 'ÐÐ¸Ð· Ð¿Ñ€Ð°Ð²Ð¾Ñ€ÑƒÑ‡'];
-    STR_PLAYER_BITRATE_UNLIMITED = 'ÐÐµÐ¾Ð±Ð¼ÐµÐ¶ÐµÐ½Ð¾';
-    STR_PLAYER_BITRATE = 'ÐœÐ°ÐºÑ. Ñ€Ð¾Ð·Ð´Ñ–Ð»ÑŒÐ½Ð° Ð·Ð´Ð°Ñ‚Ð½Ñ–ÑÑ‚ÑŒ/Ð±Ñ–Ñ‚Ñ€ÐµÐ¹Ñ‚ Ð´Ð»Ñ Auto-ÑÐºÐ¾ÑÑ‚Ñ–';
-    STR_PLAYER_BITRATE_SHORT_SUMMARY = 'ÐžÐ±Ð¼ÐµÐ¶ÑƒÑ” Ð¼Ð°ÐºÑ. ÑÐºÑ–ÑÑ‚ÑŒ (Ñ€Ð¾Ð·Ð´Ñ–Ð»ÑŒÐ½Ð° Ð·Ð´Ð°Ñ‚Ð½Ñ–ÑÑ‚ÑŒ/Ð±Ñ–Ñ‚Ñ€ÐµÐ¹Ñ‚) Ð´Ð»Ñ Auto-Ð²Ñ–Ð´Ñ‚Ð²Ð¾Ñ€ÐµÐ½Ð½Ñ';
-    STR_PLAYER_BITRATE_SUMMARY =
-        'Ð’Ð¸ÐºÐ¾Ñ€Ð¸ÑÑ‚Ð¾Ð²ÑƒÑ”Ñ‚ÑŒÑÑ Ð´Ð»Ñ ÑƒÐ½Ð¸ÐºÐ½ÐµÐ½Ð½Ñ Ð·Ð°Ð²Ð¸ÑÐ°Ð½ÑŒ Ð½Ð° ÑÐ»Ð°Ð±ÐºÐ¸Ñ… Ð¿Ñ€Ð¸ÑÑ‚Ñ€Ð¾ÑÑ… Ð¿Ñ€Ð¸ Ð¾Ð´Ð½Ð¾Ñ‡Ð°ÑÐ½Ð¾Ð¼Ñƒ Ð²Ñ–Ð´Ñ‚Ð²Ð¾Ñ€ÐµÐ½Ð½Ñ– Ð´ÐµÐºÑ–Ð»ÑŒÐºÐ¾Ñ… Ð²Ñ–Ð´ÐµÐ¾. Ð¢Ð°ÐºÐ¾Ð¶ Ð´Ð¾Ð·Ð²Ð¾Ð»ÑÑ” Ð¾Ð±Ð¼ÐµÐ¶Ð¸Ñ‚Ð¸ ÑÐ¿Ð¾Ð¶Ð¸Ð²Ð°Ð½Ð½Ñ Ñ–Ð½Ñ‚ÐµÑ€Ð½ÐµÑ‚Ñƒ. Ð ÐµÐºÐ¾Ð¼ÐµÐ½Ð´Ð¾Ð²Ð°Ð½Ð¾ 720p/3 ÐœÐ±Ñ–Ñ‚/Ñ Ð´Ð»Ñ Ð¼Ð°Ð»Ð¸Ñ… Ð¿Ð»ÐµÑ”Ñ€Ñ–Ð², Ð° Ð´Ð»Ñ Ð¾ÑÐ½Ð¾Ð²Ð½Ð¸Ñ… â€” Ð½ÐµÐ¾Ð±Ð¼ÐµÐ¶ÐµÐ½Ð¾.';
-    STR_PLAYER_BITRATE_SUMMARY_ETC =
-        'Ð¯ÐºÑ‰Ð¾ Ð´Ð»Ñ Ð¾ÑÐ½Ð¾Ð²Ð½Ð¾Ð³Ð¾ Ñ– Ð¼Ð°Ð»Ð¾Ð³Ð¾ Ð¿Ð»ÐµÑ”Ñ€Ð° Ð·Ð°Ð´Ð°Ð½Ñ– Ñ€Ñ–Ð·Ð½Ñ– Ð·Ð½Ð°Ñ‡ÐµÐ½Ð½Ñ, Ð¼Ð¾Ð¶Ð»Ð¸Ð²Ñ– ÐºÐ¾Ñ€Ð¾Ñ‚ÐºÑ– Ð·Ð°Ñ‚Ñ€Ð¸Ð¼ÐºÐ¸ Ð°Ð±Ð¾ Ð±ÑƒÑ„ÐµÑ€Ð¸Ð·Ð°Ñ†Ñ–Ñ Ð¿Ñ€Ð¸ Ð¿ÐµÑ€ÐµÐ¼Ð¸ÐºÐ°Ð½Ð½Ñ–. Ð©Ð¾Ð± ÑƒÐ½Ð¸ÐºÐ½ÑƒÑ‚Ð¸ Ñ†ÑŒÐ¾Ð³Ð¾, Ð²ÑÑ‚Ð°Ð½Ð¾Ð²Ñ–Ñ‚ÑŒ Ð¾Ð´Ð½Ð°ÐºÐ¾Ð²Ñ– Ð·Ð½Ð°Ñ‡ÐµÐ½Ð½Ñ, Ð°Ð»Ðµ Ñ†Ðµ Ð¼Ð¾Ð¶Ðµ Ð²Ð¸ÐºÐ»Ð¸ÐºÐ°Ñ‚Ð¸ Ð·Ð°Ñ‚Ñ€Ð¸Ð¼ÐºÐ¸. ÐžÐ·Ð½Ð°ÐºÐ¾ÑŽ Ð½Ð°Ð´Ñ‚Ð¾ Ð²ÐµÐ»Ð¸ÐºÐ¾Ð³Ð¾ Ð±Ñ–Ñ‚Ñ€ÐµÐ¹Ñ‚Ñƒ Ñ” Ð¿Ð¾ÑÑ‚Ñ–Ð¹Ð½Ð° Ð±ÑƒÑ„ÐµÑ€Ð¸Ð·Ð°Ñ†Ñ–Ñ Ð°Ð±Ð¾ Ð¿Ñ€Ð¾Ð¿ÑƒÑÐº ÐºÐ°Ð´Ñ€Ñ–Ð².';
-    STR_PLAYER_MAIN = 'ÐžÑÐ½Ð¾Ð²Ð½Ð¸Ð¹ Ð¿Ð»ÐµÑ”Ñ€ (Ð²ÐµÐ»Ð¸ÐºÐ¸Ð¹ Ð°Ð±Ð¾ Ñƒ Ñ€ÐµÐ¶Ð¸Ð¼Ñ– ÐºÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐ°-Ð²-ÐºÐ°Ñ€Ñ‚Ð¸Ð½Ñ†Ñ–, Ð°Ð±Ð¾ Ð²ÐµÑ€Ñ…Ð½Ñ–Ð¹ Ñƒ 50/50)';
-    STR_PLAYER_RES_SMALL = 'ÐœÐ°Ð»Ñ– Ð¿Ð»ÐµÑ”Ñ€Ð¸ (Ñƒ Ñ€ÐµÐ¶Ð¸Ð¼Ñ– ÐºÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐ°-Ð²-ÐºÐ°Ñ€Ñ‚Ð¸Ð½Ñ†Ñ– Ð°Ð±Ð¾ Ð¼ÑƒÐ»ÑŒÑ‚Ð¸ÑÑ‚Ñ€Ñ–Ð¼)';
-    STR_PLAYER_BITRATE_MAIN = 'Ð‘Ñ–Ñ‚Ñ€ÐµÐ¹Ñ‚ â€” ' + STR_PLAYER_MAIN;
-    STR_PLAYER_BITRATE_SMALL = 'Ð‘Ñ–Ñ‚Ñ€ÐµÐ¹Ñ‚ â€” ' + STR_PLAYER_RES_SMALL;
-    STR_PLAYER_RES_MAIN = 'Ð Ð¾Ð·Ð´Ñ–Ð»ÑŒÐ½Ð° Ð·Ð´Ð°Ñ‚Ð½Ñ–ÑÑ‚ÑŒ â€” ' + STR_PLAYER_MAIN;
-    STR_PLAYER_RES_SMALL = 'Ð Ð¾Ð·Ð´Ñ–Ð»ÑŒÐ½Ð° Ð·Ð´Ð°Ñ‚Ð½Ñ–ÑÑ‚ÑŒ â€” ' + STR_PLAYER_RES_SMALL;
-    STR_BLOCK_RES = 'Ð—Ð°Ð±Ð»Ð¾ÐºÐ¾Ð²Ð°Ð½Ñ– Ñ€Ð¾Ð·Ð´Ñ–Ð»ÑŒÐ½Ñ– Ð·Ð´Ð°Ñ‚Ð½Ð¾ÑÑ‚Ñ–';
-    STR_BLOCK_RES_SHORT_SUMMARY = 'Ð”Ð¾Ð·Ð²Ð¾Ð»ÑÑ” Ð·Ð°Ð±Ð¾Ñ€Ð¾Ð½Ð¸Ñ‚Ð¸ Ð²Ð¸ÐºÐ¾Ñ€Ð¸ÑÑ‚Ð°Ð½Ð½Ñ Ð¿ÐµÐ²Ð½Ð¸Ñ… Ñ€Ð¾Ð·Ð´Ñ–Ð»ÑŒÐ½Ð¸Ñ… Ð·Ð´Ð°Ñ‚Ð½Ð¾ÑÑ‚ÐµÐ¹';
-    STR_BLOCK_RES_SUMMARY =
-        'ÐŸÑ€Ð¸ Ð²Ð¸ÐºÐ¾Ñ€Ð¸ÑÑ‚Ð°Ð½Ð½Ñ– Ð°Ð²Ñ‚Ð¾-ÑÐºÐ¾ÑÑ‚Ñ– Ð¼Ð¾Ð¶Ð½Ð° Ð·Ð°Ð±Ð¾Ñ€Ð¾Ð½Ð¸Ñ‚Ð¸ Ð¿ÐµÐ²Ð½Ñ– Ñ€Ð¾Ð·Ð´Ñ–Ð»ÑŒÐ½Ñ– Ð·Ð´Ð°Ñ‚Ð½Ð¾ÑÑ‚Ñ–, ÑÐºÑ– Ð²Ð¸ÐºÐ»Ð¸ÐºÐ°ÑŽÑ‚ÑŒ Ð·Ð°Ð²Ð¸ÑÐ°Ð½Ð½Ñ Ð½Ð° Ð¿Ñ€Ð¸ÑÑ‚Ñ€Ð¾Ñ—. Ð¦Ðµ Ñ‚Ð°ÐºÐ¾Ð¶ Ð²Ð¿Ð»Ð¸Ð²Ð°Ñ” Ð½Ð° ÐºÐ»Ñ–Ð¿Ð¸.';
-    STR_BLOCK_RES_SUMMARY_EXTRA =
-        'ÐšÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ‡ Ð¼Ð¾Ð¶Ðµ Ð²Ñ€ÑƒÑ‡Ð½Ñƒ Ð·Ð¼Ñ–Ð½Ð¸Ñ‚Ð¸ Ð²Ð¸Ð±Ñ–Ñ€ Ð¿Ñ–Ð´ Ñ‡Ð°Ñ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´Ñƒ.<br><br>XX Ð¾Ð·Ð½Ð°Ñ‡Ð°Ñ”, Ñ‰Ð¾ Ð²ÑÑ– Ñ€Ð¾Ð·Ð´Ñ–Ð»ÑŒÐ½Ñ– Ð·Ð´Ð°Ñ‚Ð½Ð¾ÑÑ‚Ñ–, ÑÐºÑ– Ð¿Ð¾Ñ‡Ð¸Ð½Ð°ÑŽÑ‚ÑŒÑÑ Ð· Ñ†ÑŒÐ¾Ð³Ð¾ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð½Ñ, Ð±ÑƒÐ´ÑƒÑ‚ÑŒ Ð·Ð°Ð±Ð»Ð¾ÐºÐ¾Ð²Ð°Ð½Ñ–, ÑÐºÑ‰Ð¾ Ð²Ñ–Ð´Ð¼Ñ–Ñ‡ÐµÐ½Ñ–.';
-    STR_BLOCKED = 'Ð—Ð°Ð±Ð»Ð¾ÐºÐ¾Ð²Ð°Ð½Ð¾';
-    STR_BLOCKED_NOT = 'ÐÐµ Ð·Ð°Ð±Ð»Ð¾ÐºÐ¾Ð²Ð°Ð½Ð¾';
-    STR_AUDIO_SOURCE = 'Ð”Ð¶ÐµÑ€ÐµÐ»Ð¾ Ð·Ð²ÑƒÐºÑƒ';
-    STR_VOLUME_CONTROLS = 'ÐšÐµÑ€ÑƒÐ²Ð°Ð½Ð½Ñ Ð·Ð²ÑƒÐºÐ¾Ð¼';
-    STR_AUDIO_ALL = 'Ð£Ð²Ñ–Ð¼ÐºÐ½ÑƒÑ‚Ð¸ Ð²ÐµÑÑŒ Ð·Ð²ÑƒÐº';
-    STR_AUDIO_ALL_ENA = 'Ð£ÑÑ– Ð´Ð¶ÐµÑ€ÐµÐ»Ð° Ð·Ð²ÑƒÐºÑƒ ÑƒÐ²Ñ–Ð¼ÐºÐ½ÐµÐ½Ð¾';
-    STR_AUDIO_ALL_100 = 'Ð—Ð²ÑƒÐº ÑƒÑÑ–Ñ… Ð½Ð° 100%';
-    STR_AUDIO_ALL_100_SET = 'Ð“ÑƒÑ‡Ð½Ñ–ÑÑ‚ÑŒ ÑƒÑÑ–Ñ… Ð¿Ð»ÐµÑ”Ñ€Ñ–Ð² Ð²ÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ð¾ Ð½Ð° 100%';
-    STR_VOLUME = 'Ð“ÑƒÑ‡Ð½Ñ–ÑÑ‚ÑŒ â€”';
-    STR_AUDIO = 'Ð—Ð²ÑƒÐº â€”';
-    STR_DEF_QUALITY = 'Ð¢Ð¸Ð¿Ð¾Ð²Ð° ÑÐºÑ–ÑÑ‚ÑŒ Ð¿Ð»ÐµÑ”Ñ€Ð°';
-    STR_DEF_QUALITY_SUMMARY =
-        "Ð¦ÐµÐ¹ Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€ Ð·Ð°Ð¼Ñ–Ð½ÑŽÑ” Ð²ÑÑ– Ñ–Ð½ÑˆÑ– Ð¿Ñ€Ð¸ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´Ñ– Ð¾Ð´Ð½Ð¾Ð³Ð¾ Ð²Ñ–Ð´ÐµÐ¾. Ð£ Ð±Ð°Ð³Ð°Ñ‚Ð¾Ð¿Ð»ÐµÑ”Ñ€Ð½Ð¸Ñ… Ñ€ÐµÐ¶Ð¸Ð¼Ð°Ñ… Ð²Ð¸ÐºÐ¾Ñ€Ð¸ÑÑ‚Ð¾Ð²ÑƒÑ”Ñ‚ÑŒÑÑ Ð°Ð²Ñ‚Ð¾-ÑÐºÑ–ÑÑ‚ÑŒ. ÐŸÑ€Ð¸Ñ‡Ð¸Ð½Ð° Ð¿Ð¾ÑÑÐ½ÐµÐ½Ð° Ñƒ '" +
-        STR_PLAYER_BITRATE +
-        "'.";
-    STR_PICTURE_PICTURE = 'Ð ÐµÐ¶Ð¸Ð¼ ÐºÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐ°-Ð²-ÐºÐ°Ñ€Ñ‚Ð¸Ð½Ñ†Ñ–, 50/50 Ð°Ð±Ð¾ Ð¼ÑƒÐ»ÑŒÑ‚Ð¸ÑÑ‚Ñ€Ñ–Ð¼ (Ñ‚Ñ–Ð»ÑŒÐºÐ¸ Ð´Ð»Ñ Ñ‚Ñ€Ð°Ð½ÑÐ»ÑÑ†Ñ–Ð¹):';
-    STR_PICTURE_CONTROLS1 =
-        'Ð£Ð²Ñ–Ð¼ÐºÐ½ÑƒÑ‚Ð¸ Ñ€ÐµÐ¶Ð¸Ð¼ ÐºÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐ°-Ð²-ÐºÐ°Ñ€Ñ‚Ð¸Ð½Ñ†Ñ–: Ð½Ð°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ Ð²Ð³Ð¾Ñ€Ñƒ Ð¿Ñ–Ð´ Ñ‡Ð°Ñ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´Ñƒ Ð²Ñ–Ð´ÐµÐ¾. Ð©Ð¾Ð± Ð¿Ð¾ÐºÐ°Ð·Ð°Ñ‚Ð¸ ÑÑ‚Ñ€Ñ–Ñ‡ÐºÑƒ Ð¿Ð¾Ð¿ÐµÑ€ÐµÐ´Ð½ÑŒÐ¾Ð³Ð¾ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´Ñƒ, Ð¾Ð±ÐµÑ€Ñ–Ñ‚ÑŒ ÑÑ‚Ñ€Ñ–Ð¼, Ð¿Ð¾Ñ‚Ñ–Ð¼ ÑƒÑ‚Ñ€Ð¸Ð¼ÑƒÐ¹Ñ‚Ðµ ÐžÐš Ð°Ð±Ð¾ Ð½Ð°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ ÐºÐ»Ð°Ð²Ñ–ÑˆÑƒ 1 Ð´Ð»Ñ Ð·Ð°Ð¿ÑƒÑÐºÑƒ';
-    STR_PICTURE_CONTROLS2 =
-        'Ð—Ð¼Ñ–Ð½Ð¸Ñ‚Ð¸ Ð²Ñ–Ð´ÐµÐ¾: Ñƒ Ð¼ÑƒÐ»ÑŒÑ‚Ð¸Ð¿Ð»ÐµÑ”Ñ€Ñ– ÐºÐ»Ð°Ñ†Ð°Ð¹Ñ‚Ðµ Ð»Ð¸ÑˆÐµ Ð¾Ð´Ð¸Ð½ Ñ€Ð°Ð· Ð½Ð° Ð¿Ð¾Ð¿ÐµÑ€ÐµÐ´Ð½ÑŒÐ¾Ð¼Ñƒ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´Ñ–. Ð£ Ñ€ÐµÐ¶Ð¸Ð¼Ñ– ÐºÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐ°-Ð²-ÐºÐ°Ñ€Ñ‚Ð¸Ð½Ñ†Ñ– Ð°Ð±Ð¾ 50/50 Ð¾Ð´Ð¸Ð½ ÐºÐ»Ñ–Ðº Ð·Ð¼Ñ–Ð½ÑŽÑ” Ð²ÐµÐ»Ð¸ÐºÐµ Ð°Ð±Ð¾ Ð²ÐµÑ€Ñ…Ð½Ñ” Ð²Ñ–Ð´ÐµÐ¾, ÑƒÑ‚Ñ€Ð¸Ð¼Ð°Ð½Ð½Ñ ÐžÐš Ð°Ð±Ð¾ ÐºÐ»Ð°Ð²Ñ–ÑˆÐ° 1 Ð·Ð¼Ñ–Ð½ÑŽÑ” Ð¼Ð°Ð»Ðµ Ð°Ð±Ð¾ Ð½Ð¸Ð¶Ð½Ñ”';
-    STR_PICTURE_CONTROLS4 = 'ÐŸÐ¾Ð¼Ñ–Ð½ÑÑ‚Ð¸ Ð²Ñ–Ð´ÐµÐ¾ Ð¼Ñ–ÑÑ†ÑÐ¼Ð¸ (Ñ‚Ñ–Ð»ÑŒÐºÐ¸ ÐºÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐ°-Ð²-ÐºÐ°Ñ€Ñ‚Ð¸Ð½Ñ†Ñ–): D-pad Ð²Ð½Ð¸Ð·. Ð’ÐµÐ»Ð¸ÐºÐµ ÑÑ‚Ð°Ñ” Ð¼Ð°Ð»Ð¸Ð¼ Ñ– Ð½Ð°Ð²Ð¿Ð°ÐºÐ¸';
-    STR_PICTURE_CONTROLS5 = 'Ð—Ð¼Ñ–Ð½Ð¸Ñ‚Ð¸ Ð¿Ð¾Ð·Ð¸Ñ†Ñ–ÑŽ Ð¼Ð°Ð»Ð¾Ð³Ð¾ Ð²Ñ–Ð´ÐµÐ¾ (Ñ‚Ñ–Ð»ÑŒÐºÐ¸ ÐºÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐ°-Ð²-ÐºÐ°Ñ€Ñ‚Ð¸Ð½Ñ†Ñ–): D-pad Ð²Ð»Ñ–Ð²Ð¾';
-    STR_PICTURE_CONTROLS6 = 'Ð—Ð¼Ñ–Ð½Ð¸Ñ‚Ð¸ Ñ€Ð¾Ð·Ð¼Ñ–Ñ€ Ð¼Ð°Ð»Ð¾Ð³Ð¾ Ð²Ñ–Ð´ÐµÐ¾ (Ñ‚Ñ–Ð»ÑŒÐºÐ¸ ÐºÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐ°-Ð²-ÐºÐ°Ñ€Ñ‚Ð¸Ð½Ñ†Ñ–): D-pad Ð²Ð¿Ñ€Ð°Ð²Ð¾';
-    STR_PICTURE_CONTROLS7 =
-        "Ð—Ð¼Ñ–Ð½Ð¸Ñ‚Ð¸ Ð´Ð¶ÐµÑ€ÐµÐ»Ð¾ Ð·Ð²ÑƒÐºÑƒ: Ð²Ð½Ð¸Ð·Ñƒ Ð¿Ð»ÐµÑ”Ñ€Ð° Ð²Ð¸Ð±ÐµÑ€Ñ–Ñ‚ÑŒ 'Ð”Ð¶ÐµÑ€ÐµÐ»Ð¾ Ð·Ð²ÑƒÐºÑƒ'. Ð£ 50/50 Ð°Ð±Ð¾ Ð¼ÑƒÐ»ÑŒÑ‚Ð¸ÑÑ‚Ñ€Ñ–Ð¼Ñ– â€” D-pad Ð²Ð»Ñ–Ð²Ð¾/Ð²Ð¿Ñ€Ð°Ð²Ð¾. Ð£ ÐºÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐ°-Ð²-ÐºÐ°Ñ€Ñ‚Ð¸Ð½Ñ†Ñ– â€” ÐºÐ»Ð°Ð²Ñ–ÑˆÑ– Ð½Ð°ÑÑ‚ÑƒÐ¿Ð½Ð¸Ð¹/Ð¿Ð¾Ð¿ÐµÑ€ÐµÐ´Ð½Ñ–Ð¹ Ñ‚Ñ€ÐµÐº";
-    STR_PICTURE_CONTROLS3 = 'Ð—Ð¼Ñ–Ð½Ð¸Ñ‚Ð¸ Ð´Ð¶ÐµÑ€ÐµÐ»Ð¾ Ð·Ð²ÑƒÐºÑƒ Ð´Ð»Ñ Ð²ÑÑ–Ñ… Ð²Ñ–Ð´ÐµÐ¾: ÑƒÑ‚Ñ€Ð¸Ð¼ÑƒÐ¹Ñ‚Ðµ D-pad Ð²Ð½Ð¸Ð·';
-    STR_PICTURE_CONTROLS8 = "ÐŸÐµÑ€ÐµÐ·Ð°Ð¿ÑƒÑÐº Ð¿Ð»ÐµÑ”Ñ€Ð°: Ð²Ð¸Ð±ÐµÑ€Ñ–Ñ‚ÑŒ Ð¾Ð¿Ñ†Ñ–ÑŽ 'ÐŸÐµÑ€ÐµÐ·Ð°Ð¿ÑƒÑÑ‚Ð¸Ñ‚Ð¸ Ð¿Ð»ÐµÑ”Ñ€' Ð²Ð½Ð¸Ð·Ñƒ. Ð¦Ðµ ÑÐ¸Ð½Ñ…Ñ€Ð¾Ð½Ñ–Ð·ÑƒÑ” Ð¿Ð»ÐµÑ”Ñ€ Ñ– Ñ‡Ð°Ñ‚, Ð°Ð»Ðµ Ð½Ðµ Ð²Ð¼Ñ–ÑÑ‚ Ð¼Ñ–Ð¶ Ð¿Ð»ÐµÑ”Ñ€Ð°Ð¼Ð¸";
-    STR_PICTURE_CONTROLS9 =
-        "Ð¡Ð¸Ð½Ñ…Ñ€Ð¾Ð½Ñ–Ð·Ð°Ñ†Ñ–Ñ Ð²Ñ€ÑƒÑ‡Ð½Ñƒ: Ð²Ð¸ÐºÐ¾Ñ€Ð¸ÑÑ‚Ð°Ð¹Ñ‚Ðµ Ð¾Ð¿Ñ†Ñ–ÑŽ 'Ð¨Ð²Ð¸Ð´ÐºÑ–ÑÑ‚ÑŒ' Ð²Ð½Ð¸Ð·Ñƒ Ð¿Ð»ÐµÑ”Ñ€Ð° Ð´Ð»Ñ ÑƒÐ¿Ð¾Ð²Ñ–Ð»ÑŒÐ½ÐµÐ½Ð½Ñ Ñ‚Ð¾Ð³Ð¾, Ñ‰Ð¾ Ð¿Ð¾Ð¿ÐµÑ€ÐµÐ´Ñƒ. ÐŸÑ€Ð°Ñ†ÑŽÑ” Ð»Ð¸ÑˆÐµ Ð² Ñ€ÐµÐ¶Ð¸Ð¼Ñ– ÐºÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐ°-Ð²-ÐºÐ°Ñ€Ñ‚Ð¸Ð½Ñ†Ñ–";
-    STR_PICTURE_CONTROLS10 = "Ð¯ÐºÑ–ÑÑ‚ÑŒ Ñƒ Ñ€ÐµÐ¶Ð¸Ð¼Ñ– ÐºÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐ°-Ð²-ÐºÐ°Ñ€Ñ‚Ð¸Ð½Ñ†Ñ–: Ð´Ð¸Ð²Ñ–Ñ‚ÑŒÑÑ Ð½Ð°Ð»Ð°ÑˆÑ‚ÑƒÐ²Ð°Ð½Ð½Ñ '" + STR_PLAYER_BITRATE + "'";
-    STR_PICTURE_CONTROLS11 = 'Ð—Ð°ÐºÑ€Ð¸Ñ‚Ð¸ Ð¼Ð°Ð»Ðµ Ð°Ð±Ð¾ Ð½Ð¸Ð¶Ð½Ñ” Ð²Ñ–Ð´ÐµÐ¾ (Ñ‚Ñ–Ð»ÑŒÐºÐ¸ ÐºÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐ°-Ð²-ÐºÐ°Ñ€Ñ‚Ð¸Ð½Ñ†Ñ–): Ð´Ð²Ñ–Ñ‡Ñ– Ð½Ð°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ Ð½Ð°Ð·Ð°Ð´';
-    STR_PICTURE_CONTROLS12 =
-        "Ð£Ð²Ñ–Ð¼ÐºÐ½ÑƒÑ‚Ð¸ Ñ€ÐµÐ¶Ð¸Ð¼ 50/50 (2 Ð²Ñ–Ð´ÐµÐ¾ + 2 Ñ‡Ð°Ñ‚Ð¸): ÑÐºÑ‰Ð¾ ÐºÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐ°-Ð²-ÐºÐ°Ñ€Ñ‚Ð¸Ð½Ñ†Ñ– Ð°ÐºÑ‚Ð¸Ð²Ð½Ð°, Ð½Ð°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ ÐºÐ»Ð°Ð²Ñ–ÑˆÑƒ 2 Ð°Ð±Ð¾ ÐºÐ»Ð°Ð²Ñ–ÑˆÑƒ Ð¿ÐµÑ€ÐµÐ¼Ð¾Ñ‚ÐºÐ¸ Ð²Ð¿ÐµÑ€ÐµÐ´, Ð°Ð±Ð¾ Ð²Ð¸Ð±ÐµÑ€Ñ–Ñ‚ÑŒ 'Ð ÐµÐ¶Ð¸Ð¼ Ð²Ñ–Ð´ÐµÐ¾' Ð²Ð½Ð¸Ð·Ñƒ Ð¿Ð»ÐµÑ”Ñ€Ð°, Ð°Ð±Ð¾ ÑƒÑ‚Ñ€Ð¸Ð¼ÑƒÐ¹Ñ‚Ðµ ÐžÐš Ð½Ð° ÑÑ‚Ñ€Ñ–Ñ‡Ñ†Ñ– Ð¿Ð¾Ð¿ÐµÑ€ÐµÐ´Ð½ÑŒÐ¾Ð³Ð¾ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´Ñƒ";
-    STR_PICTURE_CONTROLS13 = 'Ð£Ð²Ñ–Ð¼ÐºÐ½ÑƒÑ‚Ð¸ Ð¼ÑƒÐ»ÑŒÑ‚Ð¸ÑÑ‚Ñ€Ñ–Ð¼: ÑÐºÐ¾Ñ€Ð¸ÑÑ‚Ð°Ð¹Ñ‚ÐµÑÑŒ ÐµÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð°Ð¼Ð¸ ÐºÐµÑ€ÑƒÐ²Ð°Ð½Ð½Ñ Ð²Ð½Ð¸Ð·Ñƒ Ð¿Ð»ÐµÑ”Ñ€Ð° Ð°Ð±Ð¾ ÐºÐ»Ð°Ð²Ñ–ÑˆÐµÑŽ Ð¿ÐµÑ€ÐµÐ¼Ð¾Ñ‚ÐºÐ¸ Ð½Ð°Ð·Ð°Ð´';
-    STR_PLAYER_INFO_VISIBILITY_ARRAY = ['ÐšÐ¾Ð»Ð¸ Ñ–Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ñ–Ñ Ð¿Ð»ÐµÑ”Ñ€Ð° Ð²Ð¸Ð´Ð¸Ð¼Ð°', 'Ð—Ð°Ð²Ð¶Ð´Ð¸ Ð²Ð¸Ð´Ð¸Ð¼Ð°', 'ÐÑ–ÐºÐ¾Ð»Ð¸ Ð½Ðµ Ð¿Ð¾ÐºÐ°Ð·ÑƒÐ²Ð°Ñ‚Ð¸'];
-    STR_SINGLE_EXIT = 'ÐžÐ´Ð¸Ð½Ð°Ñ€Ð½Ðµ Ð½Ð°Ñ‚Ð¸ÑÐºÐ°Ð½Ð½Ñ Ð½Ð°Ð·Ð°Ð´';
-    STR_SINGLE_EXIT_SUMMARY = 'Ð’Ð¸Ñ…Ñ–Ð´ Ð· Ð¿Ð»ÐµÑ”Ñ€Ð°, Ñ€ÐµÐ¶Ð¸Ð¼Ñƒ ÐºÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐ°-Ð²-ÐºÐ°Ñ€Ñ‚Ð¸Ð½Ñ†Ñ–, 50/50 Ð°Ð±Ð¾ Ð¼ÑƒÐ»ÑŒÑ‚Ð¸ÑÑ‚Ñ€Ñ–Ð¼Ñƒ Ð¾Ð´Ð½Ð¸Ð¼ Ð½Ð°Ñ‚Ð¸ÑÐºÐ°Ð½Ð½ÑÐ¼ Ð½Ð°Ð·Ð°Ð´';
-    STR_NOTIFICATION_OPT = 'ÐÐ°Ð»Ð°ÑˆÑ‚ÑƒÐ²Ð°Ð½Ð½Ñ ÑÐ¿Ð¾Ð²Ñ–Ñ‰ÐµÐ½ÑŒ';
-    STR_NOW_LIVE_SHOW = "ÐŸÐ¾ÐºÐ°Ð·ÑƒÐ²Ð°Ñ‚Ð¸ ÑÐ¿Ð¾Ð²Ñ–Ñ‰ÐµÐ½Ð½Ñ 'Ð¡Ñ‚Ñ€Ñ–Ð¼ÐµÑ€ Ñƒ Ð¿Ñ€ÑÐ¼Ð¾Ð¼Ñƒ ÐµÑ„Ñ–Ñ€Ñ–' Ð´Ð»Ñ Ð¿Ñ–Ð´Ð¿Ð¸ÑÐ°Ð½Ð¸Ñ… ÐºÐ°Ð½Ð°Ð»Ñ–Ð²";
-    STR_TITLE_CHANGE_SHOW = "ÐŸÐ¾ÐºÐ°Ð·ÑƒÐ²Ð°Ñ‚Ð¸ ÑÐ¿Ð¾Ð²Ñ–Ñ‰ÐµÐ½Ð½Ñ 'Ð—Ð¼Ñ–Ð½Ð° Ð·Ð°Ð³Ð¾Ð»Ð¾Ð²ÐºÐ°' Ð´Ð»Ñ Ð¿Ñ–Ð´Ð¿Ð¸ÑÐ°Ð½Ð¸Ñ… ÐºÐ°Ð½Ð°Ð»Ñ–Ð²";
-    STR_GAME_CHANGE_SHOW = "ÐŸÐ¾ÐºÐ°Ð·ÑƒÐ²Ð°Ñ‚Ð¸ ÑÐ¿Ð¾Ð²Ñ–Ñ‰ÐµÐ½Ð½Ñ 'Ð—Ð¼Ñ–Ð½Ð° Ð³Ñ€Ð¸' Ð´Ð»Ñ Ð¿Ñ–Ð´Ð¿Ð¸ÑÐ°Ð½Ð¸Ñ… ÐºÐ°Ð½Ð°Ð»Ñ–Ð²";
-    STR_NOW_LIVE_GAME_SHOW = "ÐŸÐ¾ÐºÐ°Ð·ÑƒÐ²Ð°Ñ‚Ð¸ ÑÐ¿Ð¾Ð²Ñ–Ñ‰ÐµÐ½Ð½Ñ 'Ð“Ñ€Ð° Ð² ÐµÑ„Ñ–Ñ€Ñ–' Ð´Ð»Ñ ÑƒÐ»ÑŽÐ±Ð»ÐµÐ½Ð¸Ñ… Ñ–Ð³Ð¾Ñ€";
-    STR_NOTIFICATION_BACKGROUND = 'ÐŸÐ¾ÐºÐ°Ð·ÑƒÐ²Ð°Ñ‚Ð¸ ÑÐ¿Ð¾Ð²Ñ–Ñ‰ÐµÐ½Ð½Ñ Ð¿Ð¾Ð²ÐµÑ€Ñ… Ñ–Ð½ÑˆÐ¸Ñ… Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼ Ñƒ Ñ„Ð¾Ð½Ñ–';
-    STR_NOTIFICATION_BACKGROUND_SUMMARY =
-        'Ð¯ÐºÑ‰Ð¾ Ð²Ð¸ Ð²Ð¸Ð¼ÐºÐ½ÑƒÐ»Ð¸ ÑÐ¿Ð¾Ð²Ñ–Ñ‰ÐµÐ½Ð½Ñ Ð² ÑÐ¸ÑÑ‚ÐµÐ¼Ð½Ð¸Ñ… Ð½Ð°Ð»Ð°ÑˆÑ‚ÑƒÐ²Ð°Ð½Ð½ÑÑ…, Ñ†Ñ Ð¾Ð¿Ñ†Ñ–Ñ Ð½Ðµ Ð¿Ñ€Ð°Ñ†ÑŽÐ²Ð°Ñ‚Ð¸Ð¼Ðµ. Ð¯ÐºÑ‰Ð¾ ÑÐ¿Ð¾Ð²Ñ–Ñ‰ÐµÐ½Ð½Ñ ÑƒÐ²Ñ–Ð¼ÐºÐ½ÐµÐ½Ð¾ Ñ– Ð´Ð¾Ð´Ð°Ñ‚Ð¾Ðº Ð·Ð³Ð¾Ñ€Ð½ÑƒÑ‚Ð¾, ÑÐ¿Ð¾Ð²Ñ–Ñ‰ÐµÐ½Ð½Ñ Ð±ÑƒÐ´Ðµ Ð²Ð¸Ð´Ð½Ð¾ Ð¿Ð¾Ð²ÐµÑ€Ñ… Ñ–Ð½ÑˆÐ¸Ñ… Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼ Ð½Ð°Ð²Ñ–Ñ‚ÑŒ Ð¿Ñ€Ð¸ Ð²Ð¸Ð¼ÐºÐ½ÐµÐ½Ñ–Ð¹ Ñ†Ñ–Ð¹ Ð¾Ð¿Ñ†Ñ–Ñ—.';
-    STR_NOTIFICATION_REPEAT = 'ÐšÑ–Ð»ÑŒÐºÑ–ÑÑ‚ÑŒ Ð¿Ð¾Ð²Ñ‚Ð¾Ñ€Ñ–Ð² Ð¾Ð´Ð½Ð¾Ð³Ð¾ ÑÐ¿Ð¾Ð²Ñ–Ñ‰ÐµÐ½Ð½Ñ';
-    STR_NOTIFICATION_REPEAT_SUMMARY = 'Ð¢Ñ€Ð¸Ð²Ð°Ð»Ñ–ÑÑ‚ÑŒ ÑÐ¿Ð¾Ð²Ñ–Ñ‰ÐµÐ½Ð½Ñ â€” Ð¿Ñ€Ð¸Ð±Ð»Ð¸Ð·Ð½Ð¾ 3 ÑÐµÐºÑƒÐ½Ð´Ð¸ (Ð½Ðµ Ð·Ð¼Ñ–Ð½ÑŽÑ”Ñ‚ÑŒÑÑ), Ð°Ð»Ðµ Ð¼Ð¾Ð¶Ð½Ð° Ð²ÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚Ð¸ ÐºÑ–Ð»ÑŒÐºÑ–ÑÑ‚ÑŒ Ð¿Ð¾Ð²Ñ‚Ð¾Ñ€ÐµÐ½ÑŒ.';
-    STR_NOTIFICATION_SINCE = "ÐÐµ Ð¿Ð¾ÐºÐ°Ð·ÑƒÐ²Ð°Ñ‚Ð¸ 'Ð¡Ñ‚Ñ€Ñ–Ð¼ÐµÑ€ Ñƒ Ð¿Ñ€ÑÐ¼Ð¾Ð¼Ñƒ ÐµÑ„Ñ–Ñ€Ñ–' ÑÐºÑ‰Ð¾ ÐµÑ„Ñ–Ñ€ Ñ‚Ñ€Ð¸Ð²Ð°Ñ” Ð±Ñ–Ð»ÑŒÑˆÐµ Ð½Ñ–Ð¶";
-    STR_NOTIFICATION_SINCE_SUMMARY =
-        'Ð¦Ðµ Ð´Ð¾Ð¿Ð¾Ð¼Ð¾Ð¶Ðµ ÑƒÐ½Ð¸ÐºÐ½ÑƒÑ‚Ð¸ Ð´Ð¾Ð²Ð³Ð¾Ð³Ð¾ ÑÐ¿Ð¸ÑÐºÑƒ ÑÐ¿Ð¾Ð²Ñ–Ñ‰ÐµÐ½ÑŒ, ÑÐºÑ‰Ð¾ Ð´Ð¾Ð´Ð°Ñ‚ÐºÐ¾Ð¼ Ð½Ðµ ÐºÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ð»Ð¸ÑÑŒ Ð¿ÐµÐ²Ð½Ð¸Ð¹ Ñ‡Ð°Ñ Ð°Ð±Ð¾ ÐºÐ¾Ð»Ð¸ ÐµÐºÑ€Ð°Ð½ Ð²Ð¸Ð¼ÐºÐ½ÐµÐ½Ð¾.';
-    STR_GLOBAL_FONT = 'Ð“Ð»Ð¾Ð±Ð°Ð»ÑŒÐ½Ðµ Ð¼Ð°ÑÑˆÑ‚Ð°Ð±ÑƒÐ²Ð°Ð½Ð½Ñ ÑˆÑ€Ð¸Ñ„Ñ‚Ñƒ';
-    STR_GLOBAL_FONT_SUMMARY =
-        'Ð—Ð¼Ñ–Ð½ÑŽÑ” Ñ€Ð¾Ð·Ð¼Ñ–Ñ€ ÑƒÑÑ–Ñ… Ñ‚ÐµÐºÑÑ‚Ñ–Ð² Ñ– Ð·Ð½Ð°Ñ‡ÐºÑ–Ð² (Ð¾ÐºÑ€Ñ–Ð¼ ÑˆÑ€Ð¸Ñ„Ñ‚Ñƒ Ñ‡Ð°Ñ‚Ñƒ). ÐÐ°Ð´Ñ‚Ð¾ Ð¼Ð°Ð»Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð½Ñ â€” Ñ‚ÐµÐºÑÑ‚ Ð½Ðµ Ð²Ð¸Ð´Ð½Ð¾, Ð½Ð°Ð´Ñ‚Ð¾ Ð²ÐµÐ»Ð¸ÐºÐµ â€” Ñ‚ÐµÐºÑÑ‚ Ð²Ð¸Ñ…Ð¾Ð´Ð¸Ñ‚ÑŒ Ð·Ð° Ð¼ÐµÐ¶Ñ–. Ð—Ð½Ð°Ñ‡ÐµÐ½Ð½Ñ Ð¾Ð±Ð¼ÐµÐ¶ÐµÐ½Ðµ. ÐŸÑ–ÑÐ»Ñ Ð·Ð¼Ñ–Ð½Ð¸ Ð²ÑÑ– ÐµÐºÑ€Ð°Ð½Ð¸ Ð¾Ð½Ð¾Ð²Ð»ÑÑ‚ÑŒÑÑ.';
-    STR_MAIN_MENU = 'Ð“Ð¾Ð»Ð¾Ð²Ð½Ð°';
-    STR_USER_MENU = 'ÐœÐ¾Ñ” Ð¼ÐµÐ½ÑŽ';
-    STR_CH_IS_OFFLINE = 'ÐžÑ„Ð»Ð°Ð¹Ð½';
-    STR_ROUND_IMAGES = 'ÐžÐºÑ€ÑƒÐ³Ð»ÐµÐ½Ñ– Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð½Ñ ÐºÐ°Ð½Ð°Ð»Ñ–Ð²';
-    STR_ROUND_IMAGES_SUMMARY = 'Ð‘Ñ–Ð»ÑŒÑˆÑ–ÑÑ‚ÑŒ Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½ÑŒ ÐºÐ°Ð½Ð°Ð»Ñ–Ð² ÐºÐ²Ð°Ð´Ñ€Ð°Ñ‚Ð½Ñ–, Ñ‚Ð¾Ð¼Ñƒ Ð¾ÐºÑ€ÑƒÐ³Ð»ÐµÐ½Ð½Ñ Ð¼Ð¾Ð¶Ðµ ÑÐ¿Ð¾Ñ‚Ð²Ð¾Ñ€Ð¸Ñ‚Ð¸ Ñ—Ñ… Ð²Ð¸Ð³Ð»ÑÐ´';
-    STR_SCREEN_COUNTER = 'ÐŸÑ€Ð¸Ñ…Ð¾Ð²Ð°Ñ‚Ð¸ Ð»Ñ–Ñ‡Ð¸Ð»ÑŒÐ½Ð¸Ðº Ð¿Ð¾Ð·Ð¸Ñ†Ñ–Ð¹/Ð·Ð°Ð³Ð°Ð»ÑŒÐ½Ð¾Ñ— ÐºÑ–Ð»ÑŒÐºÐ¾ÑÑ‚Ñ–';
-    STR_SCREEN_COUNTER_SUMMARY =
-        'Ð›Ñ–Ñ‡Ð¸Ð»ÑŒÐ½Ð¸Ðº Ð¿Ð¾ÐºÐ°Ð·ÑƒÑ” Ð¿Ð¾Ð·Ð¸Ñ†Ñ–ÑŽ Ñ‚Ð° Ð·Ð°Ð³Ð°Ð»ÑŒÐ½Ñƒ ÐºÑ–Ð»ÑŒÐºÑ–ÑÑ‚ÑŒ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚Ñƒ. ÐŸÑ€Ð¸ Ð¿Ñ€Ð¾ÐºÑ€ÑƒÑ‚Ñ†Ñ– Ð´Ð¾Ð´Ð°Ñ”Ñ‚ÑŒÑÑ Ð½Ð¾Ð²Ð¸Ð¹ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚, Ñ– Ð·Ð°Ð³Ð°Ð»ÑŒÐ½Ð° ÐºÑ–Ð»ÑŒÐºÑ–ÑÑ‚ÑŒ Ð·Ð¼Ñ–Ð½ÑŽÑ”Ñ‚ÑŒÑÑ.';
-    STR_SWITCH_POS = 'ÐŸÐµÑ€ÐµÐ¼Ð¸ÐºÐ°Ñ‡: Ð¿Ð¾Ñ‡Ð°Ñ‚ÐºÐ¾Ð²Ð° Ð¿Ð¾Ð·Ð¸Ñ†Ñ–Ñ';
-    STR_SWITCH_POS_SUMMARY = 'Ð—Ð°Ð¼Ñ–ÑÑ‚ÑŒ Ð¿Ð¾Ñ‡Ð°Ñ‚ÐºÑƒ Ð· Ð¿ÐµÑ€ÑˆÐ¾Ð³Ð¾ Ð²Ñ–Ð´ÐµÐ¾, Ð¿Ð¾Ñ‡Ð¸Ð½Ð°Ñ‚Ð¸ Ð³Ð»Ð¸Ð±ÑˆÐµ Ñƒ ÑÐ¿Ð¸ÑÐºÑƒ â€” Ñ‚Ð°Ðº Ð»ÐµÐ³ÑˆÐµ Ð·Ð½Ð°Ñ…Ð¾Ð´Ð¸Ñ‚Ð¸ ÑÑ‚Ð°Ñ€Ñ–ÑˆÑ– Ð²Ñ–Ð´ÐµÐ¾';
-    STR_USER_OPTION = 'ÐžÐ±ÐµÑ€Ñ–Ñ‚ÑŒ Ð´Ñ–ÑŽ Ð´Ð»Ñ ÐºÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ‡Ð°';
-    STR_MAIN_USER = 'ÐžÑÐ½Ð¾Ð²Ð½Ð¸Ð¹ ÐºÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ‡';
-    STR_USER_TOP_LABEL = 'ÐÐ°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ Ð½Ð° ÐºÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ‡Ð°, Ñ‰Ð¾Ð± Ð¿Ð¾Ð±Ð°Ñ‡Ð¸Ñ‚Ð¸ Ð¾Ð¿Ñ†Ñ–Ñ—';
-    STR_USER_EXTRAS = 'Ð—Ð¼Ñ–Ð½Ð¸Ñ‚Ð¸/Ð´Ð¾Ð´Ð°Ñ‚Ð¸ ÐºÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ‡Ð°';
-    STR_LOW_LATENCY = 'ÐÐ¸Ð·ÑŒÐºÐ° Ð·Ð°Ñ‚Ñ€Ð¸Ð¼ÐºÐ°';
-    STR_LOW_LATENCY_SUMMARY =
-        'Ð¯ÐºÑ‰Ð¾ Ð²Ð¸Ð½Ð¸ÐºÐ°ÑŽÑ‚ÑŒ Ð±ÑƒÑ„ÐµÑ€Ð¸Ð·Ð°Ñ†Ñ–Ñ— â€” Ð²Ð¸Ð¼ÐºÐ½Ñ–Ñ‚ÑŒ ' +
-        STR_LOW_LATENCY +
-        '<br>Ð’Ð¸ÐºÐ¾Ñ€Ð¸ÑÑ‚Ð¾Ð²ÑƒÐ¹Ñ‚Ðµ ' +
-        STR_SETTINGS_BUFFER_LIVE +
-        ' Ð·Ð½Ð°Ñ‡ÐµÐ½Ð½Ñ Ð½Ðµ Ð±Ñ–Ð»ÑŒÑˆÐµ 1 Ð´Ð»Ñ ÐµÑ„ÐµÐºÑ‚Ñƒ';
-    STR_GAME_SORT = 'Ð¡Ð¾Ñ€Ñ‚ÑƒÐ²Ð°Ð½Ð½Ñ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´Ñƒ Ñ–Ð³Ð¾Ñ€';
-    STR_LIVE_FEED_SORT = 'Ð¡Ð¾Ñ€Ñ‚ÑƒÐ²Ð°Ð½Ð½Ñ ÑÑ‚Ñ€Ñ–Ñ‡ÐºÐ¸ Ñ‚Ð° Ð¿Ð¾Ð¿ÐµÑ€ÐµÐ´Ð½ÑŒÐ¾Ð³Ð¾ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´Ñƒ';
-    STR_LIVE_FEED_SORT_SUMMARY =
-        'Ð¡Ð¾Ñ€Ñ‚ÑƒÐ²Ð°Ð½Ð½Ñ ÑÑ‚Ñ€Ñ–Ñ‡ÐºÐ¸ Ñƒ Ð±Ñ–Ñ‡Ð½Ñ–Ð¹ Ð¿Ð°Ð½ÐµÐ»Ñ– Ñ‚Ð° Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´Ñƒ Ñƒ Ð¿Ð»ÐµÑ”Ñ€Ñ–. Ð”Ð»Ñ Ð¿Ð¾Ð¿ÐµÑ€ÐµÐ´Ð½ÑŒÐ¾Ð³Ð¾ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´Ñƒ Ð·Ð°ÑÑ‚Ð¾ÑÐ¾Ð²ÑƒÑ”Ñ‚ÑŒÑÑ Ð»Ð¸ÑˆÐµ Ð´Ð¾ ÐµÑ„Ñ–Ñ€Ñ–Ð² Ñ– Ð³Ð¾Ð»Ð¾Ð²Ð½Ð¾Ñ— ÑÑ‚Ð¾Ñ€Ñ–Ð½ÐºÐ¸.';
-    STR_A_Z = 'Ð—Ð° Ð°Ð»Ñ„Ð°Ð²Ñ–Ñ‚Ð¾Ð¼ Ð â€“ Ð¯';
-    STR_Z_A = 'Ð—Ð° Ð°Ð»Ñ„Ð°Ð²Ñ–Ñ‚Ð¾Ð¼ Ð¯ â€“ Ð';
-    STR_APP_ANIMATIONS = 'Ð£Ð²Ñ–Ð¼ÐºÐ½ÑƒÑ‚Ð¸ Ð°Ð½Ñ–Ð¼Ð°Ñ†Ñ–Ñ— Ð´Ð¾Ð´Ð°Ñ‚ÐºÑƒ';
-    STR_APP_ANIMATIONS_SUMMARY = 'Ð£Ð²Ñ–Ð¼ÐºÐ½ÑƒÑ‚Ð¸ Ð°Ð½Ñ–Ð¼Ð°Ñ†Ñ–Ñ— Ð±Ñ–Ñ‡Ð½Ð¾Ñ— Ð¿Ð°Ð½ÐµÐ»Ñ–, Ð¿Ñ€Ð¾ÐºÑ€ÑƒÑ‚ÐºÐ¸ Ñ‚Ð¾Ñ‰Ð¾';
-    STR_UI_SETTINGS = 'ÐÐ°Ð»Ð°ÑˆÑ‚ÑƒÐ²Ð°Ð½Ð½Ñ Ñ–Ð½Ñ‚ÐµÑ€Ñ„ÐµÐ¹ÑÑƒ: ÐºÐ¾Ð»ÑŒÐ¾Ñ€Ð¸, Ð°Ð½Ñ–Ð¼Ð°Ñ†Ñ–Ñ— Ñ‚Ð¾Ñ‰Ð¾';
-    STR_GENERAL_CUSTOM = 'ÐÐ°Ð»Ð°ÑˆÑ‚ÑƒÐ²Ð°Ð½Ð½Ñ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚Ñƒ, ÑÐ¾Ñ€Ñ‚ÑƒÐ²Ð°Ð½Ð½Ñ, Ð°Ð²Ñ‚Ð¾Ð¾Ð½Ð¾Ð²Ð»ÐµÐ½Ð½Ñ, Ñ‚Ð°Ð¹Ð¼ÐµÑ€Ð¸ Ñ‚Ð¾Ñ‰Ð¾';
-    STR_RUNNINGTIME = 'Ð”Ð¾Ð´Ð°Ñ‚Ð¾Ðº Ð¿Ñ€Ð°Ñ†ÑŽÑ”:';
-    STR_410_ERROR = 'ÐÐµ Ð²Ð´Ð°Ð»Ð¾ÑÑ Ð¾Ñ‚Ñ€Ð¸Ð¼Ð°Ñ‚Ð¸ Ð¿Ð¾ÑÐ¸Ð»Ð°Ð½Ð½Ñ Ð½Ð° Ð²Ñ–Ð´ÐµÐ¾';
-    STR_PRESS_ENTER_TO_CHANGE = 'ÐÐ°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ ÐžÐš, Ñ‰Ð¾Ð± Ð·Ð¼Ñ–Ð½Ð¸Ñ‚Ð¸ Ð½Ð° â€”';
-    STR_CLICK_UNFOLLOW = '(ÐÐ°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ ÐžÐš, Ñ‰Ð¾Ð± Ð²Ñ–Ð´Ð¿Ð¸ÑÐ°Ñ‚Ð¸ÑÑ)';
-    STR_CLICK_FOLLOW = '(ÐÐ°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ ÐžÐš, Ñ‰Ð¾Ð± Ð¿Ñ–Ð´Ð¿Ð¸ÑÐ°Ñ‚Ð¸ÑÑ)';
-    STR_TODAY = 'Ð¡ÑŒÐ¾Ð³Ð¾Ð´Ð½Ñ–';
-    STR_DROOPED_FRAMES = 'ÐŸÑ€Ð¾Ð¿ÑƒÑ‰ÐµÐ½Ð¾ ÐºÐ°Ð´Ñ€Ñ–Ð²:';
-    STR_BUFFER_HEALT = 'Ð‘ÑƒÑ„ÐµÑ€ (ÑÐµÐº):';
-    STR_NET_ACT = 'Ð†Ð½Ñ‚ÐµÑ€Ð½ÐµÑ‚-Ð°ÐºÑ‚Ð¸Ð²Ð½Ñ–ÑÑ‚ÑŒ (ÐœÐ±):';
-    STR_NET_SPEED = 'Ð¨Ð²Ð¸Ð´ÐºÑ–ÑÑ‚ÑŒ Ñ–Ð½Ñ‚ÐµÑ€Ð½ÐµÑ‚Ñƒ (ÐœÐ±Ñ–Ñ‚):';
-    STR_LATENCY_TO_BROADCASTER = 'Ð—Ð°Ñ‚Ñ€Ð¸Ð¼ÐºÐ° Ð´Ð¾ ÑÑ‚Ñ€Ñ–Ð¼ÐµÑ€Ð°';
-    STR_LATENCY = 'Ð—Ð°Ñ‚Ñ€Ð¸Ð¼ÐºÐ° Ð´Ð¾ ÑÑ‚Ñ€Ñ–Ð¼ÐµÑ€Ð° (ÑÐµÐº):';
-    STR_CHAT_DELAY_LATENCY_TO_BROADCASTER = 'ÐÐ° Ð¾ÑÐ½Ð¾Ð²Ñ– ' + STR_LATENCY_TO_BROADCASTER;
-    STR_PING = 'ÐŸÑ–Ð½Ð³ Ð´Ð¾ Twitch (Ð¼Ñ):';
-    STR_WARNINGS = 'ÐŸÐ¾Ð¿ÐµÑ€ÐµÐ´Ð¶ÐµÐ½Ð½Ñ';
-    STR_WELCOME = 'Ð›Ð°ÑÐºÐ°Ð²Ð¾ Ð¿Ñ€Ð¾ÑÐ¸Ð¼Ð¾ Ð´Ð¾';
-    STR_WELCOME_SUMMARY =
-        'Ð¦ÐµÐ¹ Ð´Ð¾Ð´Ð°Ñ‚Ð¾Ðº Ð¼Ð°Ñ” Ð±Ð°Ð³Ð°Ñ‚Ð¾ Ñ„ÑƒÐ½ÐºÑ†Ñ–Ð¹ Ñ– ÑÑ‚Ð²Ð¾Ñ€ÐµÐ½Ð¸Ð¹ Ð· Ñ€Ð¾Ð·Ñ€Ð°Ñ…ÑƒÐ½ÐºÐ¾Ð¼ Ð½Ð° Ð¿Ð¾Ð²Ð½Ð¸Ð¹ ÐºÐ¾Ð½Ñ‚Ñ€Ð¾Ð»ÑŒ ÐºÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ‡Ð°. Ð§ÐµÑ€ÐµÐ· Ñ†Ðµ Ð²Ñ–Ð½ Ð¼Ð°Ñ” Ð±ÐµÐ·Ð»Ñ–Ñ‡ Ð½Ð°Ð»Ð°ÑˆÑ‚ÑƒÐ²Ð°Ð½ÑŒ. ÐŸÐµÑ€ÐµÐ³Ð»ÑÐ½ÑŒÑ‚Ðµ Ð½Ð°Ð»Ð°ÑˆÑ‚ÑƒÐ²Ð°Ð½Ð½Ñ Ñ‚Ð° ÐµÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¸ ÐºÐµÑ€ÑƒÐ²Ð°Ð½Ð½Ñ. Ð¯ÐºÑ‰Ð¾ Ð²Ð¸Ð½Ð¸ÐºÐ°ÑŽÑ‚ÑŒ Ð¿Ð¸Ñ‚Ð°Ð½Ð½Ñ â€” Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ½ÑŒÑ‚Ðµ Ð²Ñ–Ð´ÐµÐ¾ Ñƒ Play Store Ð°Ð±Ð¾ ÑÐºÐ¾Ñ€Ð¸ÑÑ‚Ð°Ð¹Ñ‚ÐµÑÑŒ ÐºÐ¾Ð½Ñ‚Ð°ÐºÑ‚Ð°Ð¼Ð¸.';
-    STR_WARNING_PHONE = 'ÐŸÐ¾Ð¿ÐµÑ€ÐµÐ´Ð¶ÐµÐ½Ð½Ñ Ñ‰Ð¾Ð´Ð¾ Ñ‚ÐµÐ»ÐµÑ„Ð¾Ð½Ñ–Ð²';
-    STR_WARNING_PHONE_SUMMARY =
-        'Ð¦ÐµÐ¹ Ð´Ð¾Ð´Ð°Ñ‚Ð¾Ðº ÑÑ‚Ð²Ð¾Ñ€ÐµÐ½Ð¾ Ð² Ð¿ÐµÑ€ÑˆÑƒ Ñ‡ÐµÑ€Ð³Ñƒ Ð´Ð»Ñ Ð¢Ð’. ÐŸÑ–Ð´Ñ‚Ñ€Ð¸Ð¼ÐºÐ° Ñ–Ð½ÑˆÐ¸Ñ… Ð¿Ñ€Ð¸ÑÑ‚Ñ€Ð¾Ñ—Ð² Ð¾Ð±Ð¼ÐµÐ¶ÐµÐ½Ð°. Ð¯ÐºÑ‰Ð¾ Ñƒ Ð²Ð°Ñ Ð½ÐµÐ¼Ð°Ñ” ÐºÐ»Ð°Ð²Ñ–Ð°Ñ‚ÑƒÑ€Ð¸ Ð°Ð±Ð¾ Ð¿ÑƒÐ»ÑŒÑ‚Ð° Ð· D-pad Ñ– ÐžÐš, Ð²Ð¸ÐºÐ¾Ñ€Ð¸ÑÑ‚Ð¾Ð²ÑƒÐ¹Ñ‚Ðµ Ð²Ñ–Ñ€Ñ‚ÑƒÐ°Ð»ÑŒÐ½Ñ– ÐºÐ½Ð¾Ð¿ÐºÐ¸ (Ð²Ð¸Ð´Ð¸Ð¼Ñ– Ð»Ð¸ÑˆÐµ Ð½Ð° Ñ‚ÐµÐ»ÐµÑ„Ð¾Ð½Ð°Ñ…/Ð¿Ð»Ð°Ð½ÑˆÐµÑ‚Ð°Ñ…). Ð£ Ð½Ð°Ð»Ð°ÑˆÑ‚ÑƒÐ²Ð°Ð½Ð½ÑÑ… Ð¼Ð¾Ð¶Ð½Ð° Ð·Ð¼Ñ–Ð½Ð¸Ñ‚Ð¸ Ñ—Ñ… Ð¿Ð¾Ð»Ð¾Ð¶ÐµÐ½Ð½Ñ Ð¹ Ð¿Ñ€Ð¾Ð·Ð¾Ñ€Ñ–ÑÑ‚ÑŒ. ÐŸÑ€Ð¸Ñ…Ð¾Ð²Ð°Ð½Ñ– ÐºÐ½Ð¾Ð¿ÐºÐ¸ â€” Ð½Ðµ Ð¿Ñ€Ð°Ñ†ÑŽÑŽÑ‚ÑŒ.';
-    STR_DPAD_POSTION = 'ÐŸÐ¾Ð·Ð¸Ñ†Ñ–Ñ D-pad Ð½Ð° ÐµÐºÑ€Ð°Ð½Ñ–';
-    STR_DPAD_OPACITY = 'ÐŸÑ€Ð¾Ð·Ð¾Ñ€Ñ–ÑÑ‚ÑŒ D-pad';
-    STR_DPAD_OPT = 'ÐÐ°Ð»Ð°ÑˆÑ‚ÑƒÐ²Ð°Ð½Ð½Ñ D-pad';
-
-    STR_MAX_RES = 'ÐœÐ°ÐºÑ. Ñ€Ð¾Ð·Ð´Ñ–Ð»ÑŒÐ½Ð° Ð·Ð´Ð°Ñ‚Ð½Ñ–ÑÑ‚ÑŒ:';
-    STR_MAX_BIT = 'ÐœÐ°ÐºÑ. Ð±Ñ–Ñ‚Ñ€ÐµÐ¹Ñ‚:';
-    STR_MAX_LEVEL = 'ÐœÐ°ÐºÑ. Ñ€Ñ–Ð²ÐµÐ½ÑŒ:';
-    STR_MAX_FPS = 'ÐœÐ°ÐºÑ. FPS Ð½Ð° Ñ€Ð¾Ð·Ð´Ñ–Ð»ÑŒÐ½Ñƒ Ð·Ð´Ð°Ñ‚Ð½Ñ–ÑÑ‚ÑŒ:';
-    STR_MAX_INSTANCES = 'ÐœÐ°ÐºÑ. ÐºÑ–Ð»ÑŒÐºÑ–ÑÑ‚ÑŒ Ñ–Ð½ÑÑ‚Ð°Ð½ÑÑ–Ð²:';
-    STR_UNKNOWN = 'ÐÐµÐ²Ñ–Ð´Ð¾Ð¼Ð¾';
-    STR_USER_LIVE = 'ÐšÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ‡ Ð² ÐµÑ„Ñ–Ñ€Ñ–: D-pad Ð²Ð»Ñ–Ð²Ð¾ Ð· Ð±Ñ–Ñ‡Ð½Ð¾Ñ— Ð¿Ð°Ð½ÐµÐ»Ñ– Ð°Ð±Ð¾ ÐºÐ»Ð°Ð²Ñ–ÑˆÐ° 3 Ð· Ð±ÑƒÐ´ÑŒ-ÑÐºÐ¾Ð³Ð¾ Ð¼Ñ–ÑÑ†Ñ';
-    STR_PP_WORKAROUND = 'ÐžÐ±Ñ…Ñ–Ð´ Ð´Ð»Ñ Ð¼ÑƒÐ»ÑŒÑ‚Ð¸Ð¿Ð»ÐµÑ”Ñ€Ð°, ÐºÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐ°-Ð²-ÐºÐ°Ñ€Ñ‚Ð¸Ð½Ñ†Ñ– Ñ‚Ð° Ñ€ÐµÐ¶Ð¸Ð¼Ñƒ Ð¿Ð¾Ð¿ÐµÑ€ÐµÐ´Ð½ÑŒÐ¾Ð³Ð¾ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´Ñƒ';
-    STR_PP_WORKAROUND_SUMMARY =
-        'Ð”Ð»Ñ Ð´ÐµÑÐºÐ¸Ñ… Ð¿Ñ€Ð¸ÑÑ‚Ñ€Ð¾Ñ—Ð² Ñ†Ðµ Ð½ÐµÐ¾Ð±Ñ…Ñ–Ð´Ð½Ð¾ Ð´Ð»Ñ Ð¿Ñ€Ð°Ð²Ð¸Ð»ÑŒÐ½Ð¾Ñ— Ñ€Ð¾Ð±Ð¾Ñ‚Ð¸ Ð¼ÑƒÐ»ÑŒÑ‚Ð¸Ð¿Ð»ÐµÑ”Ñ€Ð°. Ð†Ð½Ð°ÐºÑˆÐµ Ð¾Ð´Ð¸Ð½ Ñ–Ð· Ð¿Ð»ÐµÑ”Ñ€Ñ–Ð² Ð¼Ð¾Ð¶Ðµ Ð±ÑƒÑ‚Ð¸ Ñ‡Ð¾Ñ€Ð½Ð¸Ð¼ ÐµÐºÑ€Ð°Ð½Ð¾Ð¼. ÐÐµ Ð²Ð¼Ð¸ÐºÐ°Ð¹Ñ‚Ðµ, ÑÐºÑ‰Ð¾ Ð½ÐµÐ¼Ð°Ñ” Ð¿Ñ€Ð¾Ð±Ð»ÐµÐ¼ â€” Ñ†Ðµ Ð·Ð½Ð¸Ð·Ð¸Ñ‚ÑŒ ÑÐºÑ–ÑÑ‚ÑŒ Ñ‚Ð° Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚Ð¸Ð²Ð½Ñ–ÑÑ‚ÑŒ.';
-    STR_HISTORY = 'Ð†ÑÑ‚Ð¾Ñ€Ñ–Ñ';
-    STR_WATCHED = 'ÐŸÐµÑ€ÐµÐ³Ð»ÑÐ½ÑƒÑ‚Ð¾';
-    STR_UNTIL = 'Ð´Ð¾';
-    STR_SORTING = 'Ð¡Ð¾Ñ€Ñ‚ÑƒÐ²Ð°Ð½Ð½Ñ';
-    STR_DELETE_HISTORY = 'ÐžÑ‡Ð¸ÑÑ‚Ð¸Ñ‚Ð¸ Ñ–ÑÑ‚Ð¾Ñ€Ñ–ÑŽ';
-    STR_DELETE_UNREACHABLE = 'ÐÐ²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡Ð½Ð¾ Ð²Ð¸Ð´Ð°Ð»ÑÑ‚Ð¸ Ð½ÐµÐ´Ð¾ÑÑ‚ÑƒÐ¿Ð½Ðµ';
-    STR_DELETE_UNREACHABLE_SUMMARY = 'ÐÐ²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡Ð½Ð¾ Ð²Ð¸Ð´Ð°Ð»ÑÑ‚Ð¸ VOD/ÐºÐ»Ñ–Ð¿Ð¸, ÑÐºÑ– Ð²Ð¶Ðµ Ð½ÐµÐ´Ð¾ÑÑ‚ÑƒÐ¿Ð½Ñ– (Ð²Ð¸Ð´Ð°Ð»ÐµÐ½Ñ– ÑÑ‚Ñ€Ñ–Ð¼ÐµÑ€Ð¾Ð¼).';
-    STR_NAME_A_Z = "Ð†Ð¼'Ñ A - Ð¯";
-    STR_NAME_Z_A = "Ð†Ð¼'Ñ Ð¯ - A";
-    STR_GAME_A_Z = 'Ð“Ñ€Ð° A - Ð¯';
-    STR_GAME_Z_A = 'Ð“Ñ€Ð° Ð¯ - A';
-    STR_VIWES_MOST = 'ÐÐ°Ð¹Ð±Ñ–Ð»ÑŒÑˆÐµ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´Ñ–Ð²';
-    STR_VIWES_LOWEST = 'ÐÐ°Ð¹Ð¼ÐµÐ½ÑˆÐµ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´Ñ–Ð²';
-    STR_CHANNELS_MOST = 'ÐÐ°Ð¹Ð±Ñ–Ð»ÑŒÑˆÐµ ÐºÐ°Ð½Ð°Ð»Ñ–Ð²';
-    STR_CHANNELS_LOWEST = 'ÐÐ°Ð¹Ð¼ÐµÐ½ÑˆÐµ ÐºÐ°Ð½Ð°Ð»Ñ–Ð²';
-    STR_NEWEST = 'Ð½ÐµÑ‰Ð¾Ð´Ð°Ð²Ð½Ð¾ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ½ÑƒÑ‚Ñ–';
-    STR_OLDEST = 'ÐÐ°Ð¹ÑÑ‚Ð°Ñ€Ñ–ÑˆÑ– Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´Ð¸';
-    STR_PRESS_ENTER_D = 'ÐÐ°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ ÐžÐš Ð´Ð»Ñ Ð¾Ñ‡Ð¸Ñ‰ÐµÐ½Ð½Ñ';
-    STR_LIVE_VOD = 'Ð¦ÐµÐ¹ ÐµÑ„Ñ–Ñ€ ÑÑ‚Ð°Ð² VOD<br>Ð²Ñ–Ð´ÐºÑ€Ð¸Ð²Ð°Ñ”Ð¼Ð¾ VOD Ð· Ð¼Ð¾Ð¼ÐµÐ½Ñ‚Ñƒ Ð·ÑƒÐ¿Ð¸Ð½ÐºÐ¸ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´Ñƒ:<br>';
-    STR_DELETE_SURE = 'Ð’Ð¸ Ð²Ð¿ÐµÐ²Ð½ÐµÐ½Ñ–, Ñ‰Ð¾ Ñ…Ð¾Ñ‡ÐµÑ‚Ðµ Ð²Ð¸Ð´Ð°Ð»Ð¸Ñ‚Ð¸ Ð²ÑÐµ';
-    STR_CREATED_NEWEST = 'Ð”Ð°Ñ‚Ð° ÑÑ‚Ð²Ð¾Ñ€ÐµÐ½Ð½Ñ / ÐÐ°Ð¹Ð½Ð¾Ð²Ñ–ÑˆÑ–';
-    STR_CREATED_OLDEST = 'Ð”Ð°Ñ‚Ð° ÑÑ‚Ð²Ð¾Ñ€ÐµÐ½Ð½Ñ / ÐÐ°Ð¹ÑÑ‚Ð°Ñ€Ñ–ÑˆÑ–';
-    STR_THUMB_OPTIONS = 'ÐžÐ¿Ñ†Ñ–Ñ— Ñ‰Ð¾Ð´Ð¾ Ñ‚Ñ€Ð°Ð½ÑÐ»ÑÑ†Ñ–Ñ—';
-    STR_HISTORY_LIVE_DIS = 'Ð£Ð²Ñ–Ð¼ÐºÐ½ÑƒÑ‚Ð¸ Ñ–ÑÑ‚Ð¾Ñ€Ñ–ÑŽ ÐµÑ„Ñ–Ñ€Ñ–Ð²';
-    STR_HISTORY_VOD_DIS = 'Ð£Ð²Ñ–Ð¼ÐºÐ½ÑƒÑ‚Ð¸ Ñ–ÑÑ‚Ð¾Ñ€Ñ–ÑŽ VOD';
-    STR_HISTORY_CLIP_DIS = 'Ð£Ð²Ñ–Ð¼ÐºÐ½ÑƒÑ‚Ð¸ Ñ–ÑÑ‚Ð¾Ñ€Ñ–ÑŽ ÐºÐ»Ñ–Ð¿Ñ–Ð²';
-    STR_OPEN_GAME = 'Ð¢Ñ€Ð°Ð½ÑÐ»ÑÑ†Ñ–Ñ— Ð¿Ð¾ Ð³Ñ€Ñ–';
-    STR_OPEN_CHANNEL = 'ÐŸÐµÑ€ÐµÐ¹Ñ‚Ð¸ Ð´Ð¾ ÐºÐ°Ð½Ð°Ð»Ñƒ';
-    STR_THUMB_OPTIONS_KEY = 'ÐÐ°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ ÐžÐš Ð½Ð°Ð´ Ð´Ñ–Ñ”ÑŽ (Ð´Ð»Ñ Ð²Ñ–Ð´ÐºÑ€Ð¸Ñ‚Ñ‚Ñ Ð°Ð±Ð¾ Ð·Ð°ÑÑ‚Ð¾ÑÑƒÐ²Ð°Ð½Ð½Ñ), Ð½Ð°Ð·Ð°Ð´ â€” Ð´Ð»Ñ ÑÐºÐ°ÑÑƒÐ²Ð°Ð½Ð½Ñ';
-    STR_DELETE_FROM_HISTORY = 'Ð’Ð¸Ð´Ð°Ð»Ð¸Ñ‚Ð¸ Ð· Ñ–ÑÑ‚Ð¾Ñ€Ñ–Ñ—';
-    STR_CHECK_FOLLOW = 'ÐŸÐµÑ€ÐµÐ²Ñ–Ñ€ÐºÐ° Ð¿Ñ–Ð´Ð¿Ð¸ÑÐºÐ¸ ...';
-    STR_REFRESH_DELETE = 'ÐžÐ½Ð¾Ð²Ñ–Ñ‚ÑŒ ÐµÐºÑ€Ð°Ð½ Ð¿Ñ–ÑÐ»Ñ Ð²Ð¸Ð´Ð°Ð»ÐµÐ½Ð½Ñ, Ñ‰Ð¾Ð± Ð¿Ð¾Ð±Ð°Ñ‡Ð¸Ñ‚Ð¸ Ð·Ð¼Ñ–Ð½Ð¸.';
-    STR_THUMB_OPTIONS_TOP = 'Ð£Ñ‚Ñ€Ð¸Ð¼ÑƒÐ¹Ñ‚Ðµ Ð²Ð»Ñ–Ð²Ð¾ Ð´Ð»Ñ Ð¾Ð¿Ñ†Ñ–Ð¹ Ñ‰Ð¾Ð´Ð¾ Ð¼Ñ–Ð½Ñ–Ð°Ñ‚ÑŽÑ€Ð¸ Ñ‚Ñ€Ð°Ð½ÑÐ»ÑÑ†Ñ–Ñ—';
-    STR_REPLACE_MULTI = 'Ð§Ð¸Ð¼ Ð·Ð°Ð¼Ñ–Ð½Ð¸Ñ‚Ð¸ Ð²Ð¸Ñ‰Ðµ?';
-    STR_REPLACE_MULTI_ENTER = 'ÐÐ°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ ÐžÐš Ð´Ð»Ñ Ð·Ð°Ð¼Ñ–Ð½Ð¸ Ð°Ð±Ð¾ Ð½Ð°Ð·Ð°Ð´ Ð´Ð»Ñ Ð²Ð¸Ñ…Ð¾Ð´Ñƒ Ð±ÐµÐ· Ð·Ð¼Ñ–Ð½';
-    STR_ALREDY_PLAYING = 'Ð¦Ðµ Ð²Ð¶Ðµ Ð²Ñ–Ð´Ñ‚Ð²Ð¾Ñ€ÑŽÑ”Ñ‚ÑŒÑÑ';
-    STR_STREAM_ERROR = 'ÐÐµ Ð²Ð´Ð°Ð»Ð¾ÑÑ Ð²Ñ–Ð´ÐºÑ€Ð¸Ñ‚Ð¸ Ð¿Ð¾Ð¿ÐµÑ€ÐµÐ´Ð½Ñ–Ð¹ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´';
-    STR_PP_MODO = 'Ð ÐµÐ¶Ð¸Ð¼ ÐºÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐ°-Ð²-ÐºÐ°Ñ€Ñ‚Ð¸Ð½Ñ†Ñ–';
-    STR_4_WAY_MULTI_INSTANCES = 'Ð’Ð°Ñˆ Ð¿Ñ€Ð¸ÑÑ‚Ñ€Ñ–Ð¹ Ð¿Ñ–Ð´Ñ‚Ñ€Ð¸Ð¼ÑƒÑ” Ð»Ð¸ÑˆÐµ %x Ñ–Ð½ÑÑ‚Ð°Ð½ÑÐ¸ ÐºÐ¾Ð´ÐµÐºÐ° Ð¾Ð´Ð½Ð¾Ñ‡Ð°ÑÐ½Ð¾. ÐÐµÐ¼Ð¾Ð¶Ð»Ð¸Ð²Ð¾ Ð²Ð¸ÐºÐ¾Ñ€Ð¸ÑÑ‚Ð°Ñ‚Ð¸';
-    STR_MULTI_EMPTY = 'Ð—Ð°ÐºÑ–Ð½Ñ‡ÐµÐ½Ð¾ Ð°Ð±Ð¾ Ð¿Ð¾Ñ€Ð¾Ð¶Ð½ÑŒÐ¾';
-    STR_4_WAY_MULTI = '4-ÐºÐ°Ð½Ð°Ð»ÑŒÐ½Ð¸Ð¹ Ð¼ÑƒÐ»ÑŒÑ‚Ð¸ÑÑ‚Ñ€Ñ–Ð¼';
-    STR_CONTROLS_MULTI_0 = 'Ð”Ð¾Ð¿Ð¾Ð¼Ð¾Ð³Ð° Ð¼ÑƒÐ»ÑŒÑ‚Ð¸ÑÑ‚Ñ€Ñ–Ð¼Ñƒ:';
-    STR_CONTROLS_MULTI_1 =
-        "Ð¯ÐºÑ‰Ð¾ Ð²Ð¸Ð½Ð¸ÐºÐ°ÑŽÑ‚ÑŒ Ð»Ð°Ð³Ð¸ Ð¿Ñ€Ð¸ Ð¼ÑƒÐ»ÑŒÑ‚Ð¸ÑÑ‚Ñ€Ñ–Ð¼Ñ– â€” Ð·Ð¼ÐµÐ½ÑˆÑ–Ñ‚ÑŒ 'Ð‘Ñ–Ñ‚Ñ€ÐµÐ¹Ñ‚ Ð¼Ð°Ð»Ð¾Ð³Ð¾ Ð¿Ð»ÐµÑ”Ñ€Ð°'. ÐŸÐ¾ÑÑ‚Ñ–Ð¹Ð½Ð° Ð±ÑƒÑ„ÐµÑ€Ð¸Ð·Ð°Ñ†Ñ–Ñ â€” Ð¾Ð·Ð½Ð°ÐºÐ° Ð·Ð°Ð½Ð°Ð´Ñ‚Ð¾ Ð²ÐµÐ»Ð¸ÐºÐ¾Ð³Ð¾ Ð±Ñ–Ñ‚Ñ€ÐµÐ¹Ñ‚Ñƒ Ð°Ð±Ð¾ Ð¿Ð¾Ð²Ñ–Ð»ÑŒÐ½Ð¾Ð³Ð¾ Ñ–Ð½Ñ‚ÐµÑ€Ð½ÐµÑ‚Ñƒ.";
-    STR_CONTROLS_MULTI_2 = 'Ð”Ð¾Ð´Ð°Ñ‚Ð¸ ÑÑ‚Ñ€Ñ–Ð¼Ð¸: Ð²Ñ–Ð´ÐºÑ€Ð¸Ñ‚Ð¸ ÑÑ‚Ñ€Ñ–Ñ‡ÐºÑƒ Ð¿Ð¾Ð¿ÐµÑ€ÐµÐ´Ð½ÑŒÐ¾Ð³Ð¾ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´Ñƒ (ÐºÐ»Ð°Ð²Ñ–ÑˆÐ° Ð²Ð³Ð¾Ñ€Ñƒ), Ð¿Ð¾Ñ‚Ñ–Ð¼ Ð½Ð°Ñ‚Ð¸ÑÐ½ÑƒÑ‚Ð¸ Ð½Ð° Ñ‚Ñ€Ð°Ð½ÑÐ»ÑÑ†Ñ–ÑŽ';
-    STR_CONTROLS_MULTI_3 = 'Ð—Ð°Ð¼Ñ–Ð½Ð¸Ñ‚Ð¸ ÑÑ‚Ñ€Ñ–Ð¼Ð¸: ÐºÐ¾Ð»Ð¸ Ð²ÑÑ– Ð¿Ð»ÐµÑ”Ñ€Ð¸ Ð·Ð°Ð¹Ð½ÑÑ‚Ñ– â€” Ð²Ð¸Ð±Ñ€Ð°Ñ‚Ð¸ Ð½Ð¾Ð²Ð¸Ð¹ Ð· Ð¿Ð¾Ð¿ÐµÑ€ÐµÐ´Ð½ÑŒÐ¾Ð³Ð¾ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´Ñƒ, Ð¿Ð¾Ñ‚Ñ–Ð¼ Ð²Ð¸Ð±Ñ€Ð°Ñ‚Ð¸, ÑÐºÐ¸Ð¹ Ð·Ð°Ð¼Ñ–Ð½Ð¸Ñ‚Ð¸';
-    STR_CONTROLS_MULTI_4 =
-        'Ð—Ð¼Ñ–Ð½Ð¸Ñ‚Ð¸ Ð´Ð¶ÐµÑ€ÐµÐ»Ð¾ Ð·Ð²ÑƒÐºÑƒ: D-pad Ð»Ñ–Ð²Ð¾Ñ€ÑƒÑ‡/Ð¿Ñ€Ð°Ð²Ð¾Ñ€ÑƒÑ‡ Ð°Ð±Ð¾ Ð¼ÐµÐ´Ñ–Ð°ÐºÐ»Ð°Ð²Ñ–ÑˆÑ– Ð½Ð°ÑÑ‚ÑƒÐ¿Ð½Ð¸Ð¹/Ð¿Ð¾Ð¿ÐµÑ€ÐµÐ´Ð½Ñ–Ð¹. Ð£Ñ‚Ñ€Ð¸Ð¼ÑƒÐ¹Ñ‚Ðµ â€” Ñ‰Ð¾Ð± Ð·Ð¼Ñ–Ð½Ð¸Ñ‚Ð¸ Ð´Ð»Ñ Ð²ÑÑ–Ñ… Ð²Ñ–Ð´ÐµÐ¾';
-    STR_CONTROLS_MULTI_5 = 'Ð’Ð¸Ð¹Ñ‚Ð¸ Ð· Ð¼ÑƒÐ»ÑŒÑ‚Ð¸ÑÑ‚Ñ€Ñ–Ð¼Ñƒ: Ð´Ð²Ñ–Ñ‡Ñ– Ð½Ð°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ Ð½Ð°Ð·Ð°Ð´ Ð°Ð±Ð¾ Ð²Ð¸Ð±ÐµÑ€Ñ–Ñ‚ÑŒ Ð¾Ð¿Ñ†Ñ–ÑŽ Ð²Ð½Ð¸Ð·Ñƒ Ð¿Ð»ÐµÑ”Ñ€Ð°';
-    STR_CONTROLS_MULTI_6 = 'Ð©Ð¾Ð± Ð·Ð°ÐºÑ€Ð¸Ñ‚Ð¸ Ñ†Ðµ â€” Ð²Ñ–Ð´ÐºÑ€Ð¸Ð¹Ñ‚Ðµ 4 ÐµÑ„Ñ–Ñ€Ð¸';
-    STR_PICTURE_LIVE_FEED =
-        'ÐšÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐ° Ð² ÐºÐ°Ñ€Ñ‚Ð¸Ð½Ñ†Ñ–: ÑƒÑ‚Ñ€Ð¸Ð¼ÑƒÐ¹Ñ‚Ðµ OK Ð°Ð±Ð¾ Ð½Ð°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ ÐºÐ»Ð°Ð²Ñ–ÑˆÑƒ 1, Ð¿Ð¾Ñ‚Ñ–Ð¼ D-pad Ð²Ð»Ñ–Ð²Ð¾ â€” Ð¿ÐµÑ€ÐµÐ¼Ñ–ÑÑ‚Ð¸Ñ‚Ð¸, Ð²Ð¿Ñ€Ð°Ð²Ð¾ â€” Ð·Ð¼Ñ–Ð½Ð¸Ñ‚Ð¸ Ñ€Ð¾Ð·Ð¼Ñ–Ñ€, Ð²Ð½Ð¸Ð· â€” Ð·Ð¼Ñ–Ð½Ð¸Ñ‚Ð¸ Ð²Ñ–Ð´ÐµÐ¾';
-    STR_MULTI_TITLE = ', Ð½Ð°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ Ð½Ð° Ð¼Ñ–Ð½Ñ–Ð°Ñ‚ÑŽÑ€Ñƒ, Ñ‰Ð¾Ð± Ð²Ñ–Ð´ÐºÑ€Ð¸Ñ‚Ð¸ Ð°Ð±Ð¾ Ð·Ð°Ð¼Ñ–Ð½Ð¸Ñ‚Ð¸ ÑÑ‚Ñ€Ñ–Ð¼, Ð²Ð¸ÐºÐ¾Ñ€Ð¸ÑÑ‚Ð¾Ð²ÑƒÐ¹Ñ‚Ðµ D-pad Ð»Ñ–Ð²Ð¾Ñ€ÑƒÑ‡/Ð¿Ñ€Ð°Ð²Ð¾Ñ€ÑƒÑ‡ Ð´Ð»Ñ Ð·Ð¼Ñ–Ð½Ð¸ Ð´Ð¶ÐµÑ€ÐµÐ»Ð° Ð·Ð²ÑƒÐºÑƒ';
-    STR_FEED_END_DIALOG = ', Ð½Ð°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ Ð½Ð°Ð·Ð°Ð´ Ð´Ð»Ñ Ð¿Ð¾Ð²ÐµÑ€Ð½ÐµÐ½Ð½Ñ Ð´Ð¾ Ð³Ð¾Ð»Ð¾Ð²Ð½Ð¾Ð³Ð¾ Ð¼ÐµÐ½ÑŽ';
-    STR_BACK_USER_GAMES = 'ÐÐ°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ Ð½Ð°Ð·Ð°Ð´, Ñ‰Ð¾Ð± Ð¿Ð¾Ð²ÐµÑ€Ð½ÑƒÑ‚Ð¸ÑÑ Ð´Ð¾';
-    STR_SHOW_LIVE_PLAYER = 'ÐŸÐ¾ÐºÐ°Ð·ÑƒÐ²Ð°Ñ‚Ð¸ Ð¿Ð¾Ð¿ÐµÑ€ÐµÐ´Ð½Ñ–Ð¹ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´ Ð½Ð° ÐµÐºÑ€Ð°Ð½Ð°Ñ… ÐµÑ„Ñ–Ñ€Ñ–Ð²';
-    STR_SHOW_VOD_PLAYER_WARNING = 'Ð’Ñ–Ð´Ñ‚Ð²Ð¾Ñ€ÐµÐ½Ð½Ñ Ð¿Ð¾Ñ‡Ð½ÐµÑ‚ÑŒÑÑ Ð· Ð¼Ñ–ÑÑ†Ñ, Ð´Ðµ Ð±ÑƒÐ»Ð¾ Ð·ÑƒÐ¿Ð¸Ð½ÐµÐ½Ð¾:';
-    STR_SHOW_VOD_PLAYER = 'ÐŸÐ¾ÐºÐ°Ð·ÑƒÐ²Ð°Ñ‚Ð¸ Ð¿Ð¾Ð¿ÐµÑ€ÐµÐ´Ð½Ñ–Ð¹ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´ Ð½Ð° ÐµÐºÑ€Ð°Ð½Ð°Ñ… VOD';
-    STR_SHOW_CLIP_PLAYER = 'ÐŸÐ¾ÐºÐ°Ð·ÑƒÐ²Ð°Ñ‚Ð¸ Ð¿Ð¾Ð¿ÐµÑ€ÐµÐ´Ð½Ñ–Ð¹ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´ Ð½Ð° ÐµÐºÑ€Ð°Ð½Ð°Ñ… ÐºÐ»Ñ–Ð¿Ñ–Ð²';
-    STR_PREVIEW_CLIP_NEXT = 'ÐŸÑ–ÑÐ»Ñ Ð·Ð°Ð²ÐµÑ€ÑˆÐµÐ½Ð½Ñ Ð¿Ð¾Ð¿ÐµÑ€ÐµÐ´Ð½ÑŒÐ¾Ð³Ð¾ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´Ñƒ ÐºÐ»Ñ–Ð¿Ñƒ Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡Ð½Ð¾ Ð¿ÐµÑ€ÐµÐ¼Ð¸ÐºÐ°Ñ‚Ð¸ Ð½Ð° Ð½Ð°ÑÑ‚ÑƒÐ¿Ð½Ð¸Ð¹ Ð´Ð¾ÑÑ‚ÑƒÐ¿Ð½Ð¸Ð¹ ÐºÐ»Ñ–Ð¿.';
-    STR_SHOW_SIDE_PLAYER = 'ÐŸÐ¾ÐºÐ°Ð·ÑƒÐ²Ð°Ñ‚Ð¸ Ð¿Ð¾Ð¿ÐµÑ€ÐµÐ´Ð½Ñ–Ð¹ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´ Ñƒ Ð±Ñ–Ñ‡Ð½Ñ–Ð¹ Ð¿Ð°Ð½ÐµÐ»Ñ–';
-    STR_SHOW_FEED_PLAYER = 'ÐŸÐ¾ÐºÐ°Ð·ÑƒÐ²Ð°Ñ‚Ð¸ Ð¿Ð¾Ð¿ÐµÑ€ÐµÐ´Ð½Ñ–Ð¹ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´ Ð½Ð° Ð¼Ñ–Ð½Ñ–Ð°Ñ‚ÑŽÑ€Ð°Ñ… Ð¿Ð»ÐµÑ”Ñ€Ð°';
-    STR_SHOW_FEED_PLAYER_SUMMARY = 'Ð¯ÐºÑ‰Ð¾ Ð²Ð¸ Ð½Ðµ Ñ…Ð¾Ñ‡ÐµÑ‚Ðµ Ð°Ð±Ð¾ Ð¿Ñ€Ð¸ÑÑ‚Ñ€Ñ–Ð¹ Ð»Ð°Ð³Ð°Ñ” Ð¿Ñ€Ð¸ Ð¾Ð´Ð½Ð¾Ñ‡Ð°ÑÐ½Ð¾Ð¼Ñƒ Ð²Ñ–Ð´Ñ‚Ð²Ð¾Ñ€ÐµÐ½Ð½Ñ–, Ð²ÑÑ‚Ð°Ð½Ð¾Ð²Ñ–Ñ‚ÑŒ ÐÐ†.';
-    STR_DISABLED_FEED_PLAYER_MULTI = 'Ð’Ð¸Ð¼ÐºÐ½ÑƒÑ‚Ð¸ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´, ÐºÐ¾Ð»Ð¸ ÑƒÐ²Ñ–Ð¼ÐºÐ½ÐµÐ½Ð¾ Ð¼ÑƒÐ»ÑŒÑ‚Ð¸ÑÑ‚Ñ€Ñ–Ð¼';
-    STR_DISABLED_FEED_PLAYER_MULTI_SUMMARY =
-        'ÐÐ° Ð´ÐµÑÐºÐ¸Ñ… Ð¿Ñ€Ð¸ÑÑ‚Ñ€Ð¾ÑÑ… Ð²Ð¸Ð½Ð¸ÐºÐ°ÑŽÑ‚ÑŒ Ð»Ð°Ð³Ð¸ Ð¿Ñ€Ð¸ ÐºÑ–Ð»ÑŒÐºÐ¾Ñ… Ð¿Ð»ÐµÑ”Ñ€Ð°Ñ…. Ð¯ÐºÑ‰Ð¾ Ð¼ÑƒÐ»ÑŒÑ‚Ð¸ÑÑ‚Ñ€Ñ–Ð¼ Ð¿Ñ€Ð°Ñ†ÑŽÑ” Ð½Ð¾Ñ€Ð¼Ð°Ð»ÑŒÐ½Ð¾, Ð°Ð»Ðµ Ñ” Ð»Ð°Ð³Ð¸ Ð· Ð¿Ð¾Ð¿ÐµÑ€ÐµÐ´Ð½Ñ–Ð¼ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´Ð¾Ð¼ â€” Ð²Ð¸Ð¼ÐºÐ½Ñ–Ñ‚ÑŒ.';
-    STR_PREVIEW_ERROR_LOAD = 'ÐÐµ Ð²Ð´Ð°Ð»Ð¾ÑÑ Ð·Ð°Ð²Ð°Ð½Ñ‚Ð°Ð¶Ð¸Ñ‚Ð¸ Ð¿Ð¾Ð¿ÐµÑ€ÐµÐ´Ð½Ñ–Ð¹ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´:';
-    STR_PREVIEW_ERROR_LINK = 'Ð½ÐµÐ´Ð¾ÑÑ‚ÑƒÐ¿Ð½Ð¸Ð¹';
-    STR_PREVIEW_VOD_DELETED = ', Ð¼Ð¾Ð¶Ð»Ð¸Ð²Ð¾, Ñ†ÐµÐ¹ VOD Ð²Ð¸Ð´Ð°Ð»ÐµÐ½Ð¾';
-    STR_PREVIEW_END = 'ÐŸÐ¾Ð¿ÐµÑ€ÐµÐ´Ð½Ñ–Ð¹ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´ Ð·Ð°Ð²ÐµÑ€ÑˆÐµÐ½Ð¾';
-    STR_PLAYER_LAG_ERRO = 'ÐÐµÐ¼Ð¾Ð¶Ð»Ð¸Ð²Ð¾ Ð²Ñ–Ð´Ñ‚Ð²Ð¾Ñ€Ð¸Ñ‚Ð¸ Ñ‡ÐµÑ€ÐµÐ· Ð¿Ñ€Ð¾Ð±Ð»ÐµÐ¼Ð¸ Ð· Ð¼ÐµÑ€ÐµÐ¶ÐµÑŽ';
-    STR_PLAYER_ERROR = 'ÐÐµÐ¼Ð¾Ð¶Ð»Ð¸Ð²Ð¾ Ð²Ñ–Ð´Ñ‚Ð²Ð¾Ñ€Ð¸Ñ‚Ð¸ Ñ‡ÐµÑ€ÐµÐ· Ð¿Ð¾Ð¼Ð¸Ð»ÐºÑƒ Ð¿Ð»ÐµÑ”Ñ€Ð°';
-    STR_PLAYER_ERROR_MULTI = ', ÑÐ¿Ñ€Ð¾Ð±ÑƒÐ¹Ñ‚Ðµ Ð·Ð¼ÐµÐ½ÑˆÐ¸Ñ‚Ð¸ Ð±Ñ–Ñ‚Ñ€ÐµÐ¹Ñ‚ Ð¼Ð°Ð»Ð¾Ð³Ð¾ Ð¿Ð»ÐµÑ”Ñ€Ð° Ñƒ Ð½Ð°Ð»Ð°ÑˆÑ‚ÑƒÐ²Ð°Ð½Ð½ÑÑ…';
-    STR_PREVIEW_SIZE = 'Ð Ð¾Ð·Ð¼Ñ–Ñ€ Ð¿Ð¾Ð¿ÐµÑ€ÐµÐ´Ð½ÑŒÐ¾Ð³Ð¾ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´Ñƒ';
-    STR_PREVIEW_SIZE_SUMMARY = 'Ð’ÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÑŽÑ” Ñ€Ð¾Ð·Ð¼Ñ–Ñ€ Ð¼Ð°Ð»Ð¾Ð³Ð¾ Ð¿Ð»ÐµÑ”Ñ€Ð°, ÑÐºÐ¸Ð¹ Ð·Ê¼ÑÐ²Ð»ÑÑ”Ñ‚ÑŒÑÑ Ð¿Ñ€Ð¸ Ð½Ð°Ñ‚Ð¸ÑÐºÐ°Ð½Ð½Ñ– Ð²Ð³Ð¾Ñ€Ñƒ Ð½Ð° Live, VOD Ð°Ð±Ð¾ ÐºÐ»Ñ–Ð¿Ñ–';
-    STR_PREVIEW_SIZE_ARRAY = ['ÐœÐ°Ð»Ð¸Ð¹', 'Ð¡ÐµÑ€ÐµÐ´Ð½Ñ–Ð¹', 'Ð’ÐµÐ»Ð¸ÐºÐ¸Ð¹', 'Ð”ÑƒÐ¶Ðµ Ð²ÐµÐ»Ð¸ÐºÐ¸Ð¹'];
-    STR_PREVIEW_SIZE_SCREEN = 'Ð Ð¾Ð·Ð¼Ñ–Ñ€ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´Ñƒ Ð½Ð° ÐµÐºÑ€Ð°Ð½Ñ–';
-    STR_PREVIEW_SIZE_SCREEN_SUMMARY = 'Ð’ÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÑŽÑ” Ñ€Ð¾Ð·Ð¼Ñ–Ñ€ Ð¿Ð¾Ð¿ÐµÑ€ÐµÐ´Ð½ÑŒÐ¾Ð³Ð¾ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´Ñƒ Ð½Ð°Ð´ Ð¾ÑÐ½Ð¾Ð²Ð½Ð¸Ð¼Ð¸ ÐµÐºÑ€Ð°Ð½Ð°Ð¼Ð¸ Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼Ð¸';
-    STR_PREVIEW_VOLUME_SCREEN = 'Ð“ÑƒÑ‡Ð½Ñ–ÑÑ‚ÑŒ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´Ñƒ Ð½Ð° ÐµÐºÑ€Ð°Ð½Ñ–';
-    STR_PREVIEW_VOLUME_SCREEN_SUMMARY = 'Ð“ÑƒÑ‡Ð½Ñ–ÑÑ‚ÑŒ Ð¿Ð»ÐµÑ”Ñ€Ð° Ð¿Ð¾Ð¿ÐµÑ€ÐµÐ´Ð½ÑŒÐ¾Ð³Ð¾ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´Ñƒ, Ñ‰Ð¾ Ð²Ñ–Ð´Ð¾Ð±Ñ€Ð°Ð¶Ð°Ñ”Ñ‚ÑŒÑÑ Ð½Ð°Ð´ Ð³Ð¾Ð»Ð¾Ð²Ð½Ð¸Ð¼ ÐµÐºÑ€Ð°Ð½Ð¾Ð¼ Ñ‚Ð° Ñƒ Ð±Ñ–Ñ‡Ð½Ñ–Ð¹ Ð¿Ð°Ð½ÐµÐ»Ñ–';
-    STR_PREVIEW_SIZE_SCREEN_ARRAY = ['Ð Ð¾Ð·Ð¼Ñ–Ñ€ Ð¼Ñ–Ð½Ñ–Ð°Ñ‚ÑŽÑ€Ð¸', 'Ð‘Ñ–Ð»ÑŒÑˆÐµ'];
-    STR_SIDE_PANEL_PLAYER_DELAY = 'Ð—Ð°Ñ‚Ñ€Ð¸Ð¼ÐºÐ° Ð¿Ð¾Ð¿ÐµÑ€ÐµÐ´Ð½ÑŒÐ¾Ð³Ð¾ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´Ñƒ';
-    STR_SIDE_PANEL_PLAYER_DELAY_SUMMARY =
-        'Ð—Ð°Ñ‚Ñ€Ð¸Ð¼ÐºÐ° Ð¿ÐµÑ€ÐµÐ´ Ð¿Ð¾Ñ‡Ð°Ñ‚ÐºÐ¾Ð¼ Ð·Ð°Ð²Ð°Ð½Ñ‚Ð°Ð¶ÐµÐ½Ð½Ñ Ð¿Ñ–ÑÐ»Ñ Ð²Ð¸Ð±Ð¾Ñ€Ñƒ Ð¼Ñ–Ð½Ñ–Ð°Ñ‚ÑŽÑ€Ð¸. Ð”Ð¾Ð¿Ð¾Ð¼Ð°Ð³Ð°Ñ” ÑƒÐ½Ð¸ÐºÐ½ÑƒÑ‚Ð¸ Ð»Ð°Ð³Ñ–Ð² Ð½Ð° ÑÐ»Ð°Ð±ÐºÐ¸Ñ… Ð¿Ñ€Ð¸ÑÑ‚Ñ€Ð¾ÑÑ….';
-    STR_PREVIEW_VOLUME = 'Ð“ÑƒÑ‡Ð½Ñ–ÑÑ‚ÑŒ Ð¿Ð¾Ð¿ÐµÑ€ÐµÐ´Ð½ÑŒÐ¾Ð³Ð¾ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´Ñƒ';
-    STR_PREVIEW_VOLUME_SUMMARY = 'Ð“ÑƒÑ‡Ð½Ñ–ÑÑ‚ÑŒ Ð¼Ð°Ð»Ð¾Ð³Ð¾ Ð¿Ð»ÐµÑ”Ñ€Ð°, ÑÐºÐ¸Ð¹ Ð¿Ð¾ÐºÐ°Ð·ÑƒÑ”Ñ‚ÑŒÑÑ Ð¿Ñ€Ð¸ Ð½Ð°Ñ‚Ð¸ÑÐºÐ°Ð½Ð½Ñ– Ð²Ð³Ð¾Ñ€Ñƒ Ð½Ð° Live, VOD Ð°Ð±Ð¾ ÐºÐ»Ñ–Ð¿Ñ–';
-    STR_PREVIEW_OTHERS_VOLUME = 'Ð“ÑƒÑ‡Ð½Ñ–ÑÑ‚ÑŒ Ð¾ÑÐ½Ð¾Ð²Ð½Ð¾Ð³Ð¾ Ð¿Ð»ÐµÑ”Ñ€Ð° (ÐºÐ¾Ð»Ð¸ Ð¿Ð¾ÐºÐ°Ð·Ð°Ð½Ð¾ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´)';
-    STR_PREVIEW_OTHERS_VOLUME_SUMMARY =
-        'Ð“ÑƒÑ‡Ð½Ñ–ÑÑ‚ÑŒ Ð¾ÑÐ½Ð¾Ð²Ð½Ð¾Ð³Ð¾ Ð¿Ð»ÐµÑ”Ñ€Ð° (ÑƒÑÑ– ÐºÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐ°-Ð²-ÐºÐ°Ñ€Ñ‚Ð¸Ð½Ñ†Ñ– Ñ‚Ð° Ð¼ÑƒÐ»ÑŒÑ‚Ð¸ÑÑ‚Ñ€Ñ–Ð¼Ð¸) Ð¼Ð¾Ð¶Ðµ Ð±ÑƒÑ‚Ð¸ Ð·Ð½Ð¸Ð¶ÐµÐ½Ð° Ð¿Ñ€Ð¸ Ð¿Ð¾ÐºÐ°Ð·Ñ– Ð¿Ð¾Ð¿ÐµÑ€ÐµÐ´Ð½ÑŒÐ¾Ð³Ð¾ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´Ñƒ';
-    STR_SIDE_PANEL_PLAYER = 'ÐÐ°Ð»Ð°ÑˆÑ‚ÑƒÐ²Ð°Ð½Ð½Ñ Ð¿Ð¾Ð¿ÐµÑ€ÐµÐ´Ð½ÑŒÐ¾Ð³Ð¾ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´Ñƒ Ð² Ð¼Ñ–Ð½Ñ–Ð°Ñ‚ÑŽÑ€Ñ–';
-    STR_START_AT_USER = 'Ð—Ð°Ð²Ð¶Ð´Ð¸ Ð·Ð°Ð¿ÑƒÑÐºÐ°Ñ‚Ð¸ Ð· ÐµÐºÑ€Ð°Ð½Ð° ÐºÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ‡Ð°';
-    STR_START_AT_USER_SUMMARY = "Ð¦Ðµ Ð²Ð¸Ð¼Ð¸ÐºÐ°Ñ” 'Ð’Ñ–Ð´Ð½Ð¾Ð²Ð¸Ñ‚Ð¸ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´', Ð°Ð»Ðµ Ð´Ð¾Ð·Ð²Ð¾Ð»ÑÑ” Ð²Ð¸Ð±Ñ€Ð°Ñ‚Ð¸ ÐºÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ‡Ð° Ð¿Ñ€Ð¸ Ð·Ð°Ð¿ÑƒÑÐºÑƒ.";
-    STR_START_AT_FEED = 'Ð—Ð°Ð²Ð¶Ð´Ð¸ Ð·Ð°Ð¿ÑƒÑÐºÐ°Ñ‚Ð¸ Ð· ÑÑ‚Ñ€Ñ–Ñ‡ÐºÐ¸ Ð¿Ñ–Ð´Ð¿Ð¸ÑÐ°Ð½Ð¸Ñ… ÐºÐ°Ð½Ð°Ð»Ñ–Ð²';
-    STR_START_AT_FEED_SUMMARY = 'Ð¦Ñ Ð¾Ð¿Ñ†Ñ–Ñ Ð²Ñ–Ð´ÐºÑ€Ð¸Ð²Ð°Ñ” Ð±Ñ–Ñ‡Ð½Ñƒ Ð¿Ð°Ð½ÐµÐ»ÑŒ Ð· Ð¿Ñ–Ð´Ð¿Ð¸ÑÐ°Ð½Ð¸Ð¼Ð¸ ÐºÐ°Ð½Ð°Ð»Ð°Ð¼Ð¸ Ñ‚Ð° Ð¿Ð¾Ð¿ÐµÑ€ÐµÐ´Ð½Ñ–Ð¼ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´Ð¾Ð¼ ÑÑ‚Ñ€Ñ–Ð¼Ñƒ Ð¿Ñ€Ð¸ Ð·Ð°Ð¿ÑƒÑÐºÑƒ. Ð’Ð¸Ð¼Ð¸ÐºÐ°Ñ” "Ð’Ñ–Ð´Ð½Ð¾Ð²Ð¸Ñ‚Ð¸ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´".';
-    STR_LAST_REFRESH = 'Ð¾ÑÑ‚Ð°Ð½Ð½Ñ” Ð¾Ð½Ð¾Ð²Ð»ÐµÐ½Ð½Ñ:';
-    STR_PP_VOD_ERROR = 'Ð’Ð¸Ð¹Ð´Ñ–Ñ‚ÑŒ Ð· Ñ€ÐµÐ¶Ð¸Ð¼Ñƒ ÐºÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐ°-Ð²-ÐºÐ°Ñ€Ñ‚Ð¸Ð½Ñ†Ñ– Ð°Ð±Ð¾ Ð¼ÑƒÐ»ÑŒÑ‚Ð¸ÑÑ‚Ñ€Ñ–Ð¼Ñƒ, Ñ‰Ð¾Ð± Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ½ÑƒÑ‚Ð¸ Ñ†ÐµÐ¹ VOD';
-    STR_SETTINGS_ACCESSIBILITY = "ÐŸÐ¾ÐºÐ°Ð·ÑƒÐ²Ð°Ñ‚Ð¸ Ð¿Ð¾Ð¿ÐµÑ€ÐµÐ´Ð¶ÐµÐ½Ð½Ñ 'Ð£Ð²Ñ–Ð¼ÐºÐ½ÐµÐ½Ð¾ ÑÐ»ÑƒÐ¶Ð±Ñƒ Ð´Ð¾ÑÑ‚ÑƒÐ¿Ð½Ð¾ÑÑ‚Ñ–'";
-    STR_SETTINGS_ACCESSIBILITY_SUMMARY =
-        'Ð¯ÐºÑ‰Ð¾ Ð½Ð° Ð¿Ñ€Ð¸ÑÑ‚Ñ€Ð¾Ñ— Ð°ÐºÑ‚Ð¸Ð²Ð¾Ð²Ð°Ð½Ð¾ ÑÐ»ÑƒÐ¶Ð±Ñƒ Ð´Ð¾ÑÑ‚ÑƒÐ¿Ð½Ð¾ÑÑ‚Ñ–, Ð±ÑƒÐ´Ðµ Ð¿Ð¾ÐºÐ°Ð·Ð°Ð½Ð¾ Ð¿Ð¾Ð¿ÐµÑ€ÐµÐ´Ð¶ÐµÐ½Ð½Ñ. Ð¦Ðµ Ð²Ñ–Ð´Ð¾Ð¼Ð° Ð¿Ñ€Ð¾Ð±Ð»ÐµÐ¼Ð° Android, ÑÐºÐ° Ð¼Ð¾Ð¶Ðµ Ð²Ð¸ÐºÐ»Ð¸ÐºÐ°Ñ‚Ð¸ Ð»Ð°Ð³Ð¸ Ð°Ð±Ð¾ Ð·Ð°Ð²Ð¸ÑÐ°Ð½Ð½Ñ Ð² Ð´Ð¾Ð´Ð°Ñ‚ÐºÑƒ.';
-    STR_ACCESSIBILITY_WARN = 'Ð’Ð¸ÑÐ²Ð»ÐµÐ½Ð¾ ÑÐ»ÑƒÐ¶Ð±Ñƒ Ð´Ð¾ÑÑ‚ÑƒÐ¿Ð½Ð¾ÑÑ‚Ñ–';
-    STR_ACCESSIBILITY_WARN_EXTRA = 'Ð”ÐµÑ‚Ð°Ð»ÑŒÐ½Ñ–ÑˆÐµ Ð·Ð° Ð¿Ð¾ÑÐ¸Ð»Ð°Ð½Ð½ÑÐ¼:';
-    STR_ACCESSIBILITY_WARN_EXTRA2 =
-        'Ð¯ÐºÑ‰Ð¾ Ñ” Ð»Ð°Ð³Ð¸ Ð°Ð±Ð¾ Ð·Ð°Ð²Ð¸ÑÐ°Ð½Ð½Ñ, Ð·Ð°ÐºÑ€Ð¸Ð¹Ñ‚Ðµ Ð´Ð¾Ð´Ð°Ñ‚Ð¾Ðº Ñ‚Ð° Ð²Ð¸Ð¼ÐºÐ½Ñ–Ñ‚ÑŒ ÑƒÑÑ– ÑÐ»ÑƒÐ¶Ð±Ð¸ Ð´Ð¾ÑÑ‚ÑƒÐ¿Ð½Ð¾ÑÑ‚Ñ–. ÐŸÑ–ÑÐ»Ñ Ñ†ÑŒÐ¾Ð³Ð¾ Ð¿Ñ€Ð¾Ð±Ð»ÐµÐ¼Ð¸ Ð·Ð½Ð¸ÐºÐ½ÑƒÑ‚ÑŒ.<br>Ð©Ð¾Ð± Ð±Ñ–Ð»ÑŒÑˆÐµ Ð½Ðµ Ð¿Ð¾ÐºÐ°Ð·ÑƒÐ²Ð°Ñ‚Ð¸ Ñ†Ðµ Ð¿Ð¾Ð¿ÐµÑ€ÐµÐ´Ð¶ÐµÐ½Ð½Ñ â€” Ð²Ð¸Ð¼ÐºÐ½Ñ–Ñ‚ÑŒ Ð¹Ð¾Ð³Ð¾ Ð² Ð½Ð°Ð»Ð°ÑˆÑ‚ÑƒÐ²Ð°Ð½Ð½ÑÑ….';
-    STR_AUTO_REFRESH = 'ÐÐ²Ñ‚Ð¾Ð¾Ð½Ð¾Ð²Ð»ÐµÐ½Ð½Ñ Ñ‡ÐµÑ€ÐµÐ· Ñ‚Ð°Ð¹Ð¼ÐµÑ€';
-    STR_AUTO_REFRESH_SUMMARY = 'Ð¯ÐºÑ‰Ð¾ ÑƒÐ²Ñ–Ð¼ÐºÐ½ÐµÐ½Ð¾, Ð´Ð¾Ð´Ð°Ñ‚Ð¾Ðº Ð±ÑƒÐ´Ðµ Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡Ð½Ð¾ Ð¾Ð½Ð¾Ð²Ð»ÑŽÐ²Ð°Ñ‚Ð¸ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚ Ñƒ Ñ„Ð¾Ð½Ð¾Ð²Ð¾Ð¼Ñƒ Ñ€ÐµÐ¶Ð¸Ð¼Ñ–.';
-    STR_AUTO_REFRESH_BACKGROUND = 'ÐžÐ½Ð¾Ð²Ð»ÐµÐ½Ð½Ñ Ñƒ Ñ„Ð¾Ð½Ð¾Ð²Ð¾Ð¼Ñƒ Ñ€ÐµÐ¶Ð¸Ð¼Ñ–';
-    STR_AUTO_REFRESH_BACKGROUND_SUMMARY =
-        'Ð¯ÐºÑ‰Ð¾ Ð°ÐºÑ‚Ð¸Ð²Ð¾Ð²Ð°Ð½Ð¾ Ñ‚Ð°Ð¹Ð¼ÐµÑ€ Ð°Ð²Ñ‚Ð¾Ð¾Ð½Ð¾Ð²Ð»ÐµÐ½Ð½Ñ Ñ‚Ð° Ñ†Ñ Ð¾Ð¿Ñ†Ñ–Ñ â€” Ð¾Ð½Ð¾Ð²Ð»ÐµÐ½Ð½Ñ Ð²Ð¸ÐºÐ¾Ð½ÑƒÑ”Ñ‚ÑŒÑÑ Ð· Ð²Ñ–Ð´ÐºÑ€Ð¸Ñ‚Ð¸Ð¼ Ð´Ð¾Ð´Ð°Ñ‚ÐºÐ¾Ð¼ Ñƒ Ñ„Ð¾Ð½Ð¾Ð²Ð¾Ð¼Ñƒ Ñ€ÐµÐ¶Ð¸Ð¼Ñ–. Android Ð½Ðµ Ð´Ð¾Ð·Ð²Ð¾Ð»ÑÑ” Ð¿Ð¾Ð²Ð½Ð¾Ñ†Ñ–Ð½Ð½Ñƒ Ñ€Ð¾Ð±Ð¾Ñ‚Ñƒ Ñƒ Ñ„Ð¾Ð½Ñ–, Ñ‰Ð¾Ð± ÑƒÐ½Ð¸ÐºÐ½ÑƒÑ‚Ð¸ Ð½Ð°Ð²Ð°Ð½Ñ‚Ð°Ð¶ÐµÐ½Ð½Ñ. ÐÐ° ÑÐ»Ð°Ð±ÐºÐ¸Ñ… Ð¿Ñ€Ð¸ÑÑ‚Ñ€Ð¾ÑÑ… Ð¿Ñ€Ð¸ Ð²ÐµÐ»Ð¸ÐºÑ–Ð¹ ÐºÑ–Ð»ÑŒÐºÐ¾ÑÑ‚Ñ– ÐµÐºÑ€Ð°Ð½Ñ–Ð² Ð¼Ð¾Ð¶Ð»Ð¸Ð²Ñ– Ð»Ð°Ð³Ð¸.';
-    STR_MAIN_WINDOW = 'ÐžÑÐ½Ð¾Ð²Ð½Ðµ Ð²Ñ–Ð´ÐµÐ¾';
-    STR_MULTI_MAIN_WINDOW = 'ÐžÑÐ½Ð¾Ð²Ð½Ðµ Ð²Ñ–Ð´ÐµÐ¾ Ñƒ Ð¼ÑƒÐ»ÑŒÑ‚Ð¸ÑÑ‚Ñ€Ñ–Ð¼Ñ–';
-    STR_MAIN_MULTI_BIG = STR_MULTI_MAIN_WINDOW + ' Ð±Ñ–Ð»ÑŒÑˆÐµ + Ñ‡Ð°Ñ‚: Ð½Ð°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ Ð²Ð½Ð¸Ð·, Ð¿Ð¾Ñ‚Ñ–Ð¼ Ð²Ð»Ñ–Ð²Ð¾/Ð²Ð¿Ñ€Ð°Ð²Ð¾ Ð´Ð»Ñ Ð·Ð¼Ñ–Ð½Ð¸ Ð²ÐµÐ»Ð¸ÐºÐ¾Ð³Ð¾ Ð²Ñ–Ð´ÐµÐ¾';
-    STR_SOURCE_CHECK = 'ÐÐ²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡Ð½Ð¾ Ð¿ÐµÑ€ÐµÐ¼Ð¸ÐºÐ°Ñ‚Ð¸ ÑÐºÑ–ÑÑ‚ÑŒ Ñ–Ð· Source Ð½Ð° Auto Ð¿Ñ€Ð¸ Ð»Ð°Ð³Ð°Ñ…';
-    STR_SOURCE_CHECK_SUMMARY =
-        'ÐŸÑ€Ð¸ ÑƒÐ²Ñ–Ð¼ÐºÐ½ÐµÐ½Ð½Ñ–, ÑÐºÑ‰Ð¾ Ð½Ðµ Ð²Ð¸ÐºÐ¾Ñ€Ð¸ÑÑ‚Ð¾Ð²ÑƒÑ”Ñ‚ÑŒÑÑ Ð°Ð²Ñ‚Ð¾-ÑÐºÑ–ÑÑ‚ÑŒ Ñ– Ð¿Ð»ÐµÑ”Ñ€ Ð»Ð°Ð³Ð°Ñ” â€” ÑÐºÑ–ÑÑ‚ÑŒ Ð¿ÐµÑ€ÐµÐ¼Ð¸ÐºÐ°Ñ”Ñ‚ÑŒÑÑ Ð½Ð° Auto. Ð›Ð°Ð³ â€” Ñ†Ðµ ÐºÐ¾Ð»Ð¸ Ð¿Ð»ÐµÑ”Ñ€ Ð½Ðµ Ð²Ñ–Ð´Ñ‚Ð²Ð¾Ñ€ÑŽÑ” ÐºÑ–Ð»ÑŒÐºÐ° ÑÐµÐºÑƒÐ½Ð´. ÐŸÑ€Ð¸ Ð·Ð°Ð¿ÑƒÑÐºÑƒ Ñ–Ð½ÑˆÐ¾Ð³Ð¾ Ð²Ñ–Ð´ÐµÐ¾ â€” Ð¿Ð¾Ð²ÐµÑ€Ñ‚Ð°Ñ”Ñ‚ÑŒÑÑ Ð´Ð¾ Ð¿Ð¾Ð¿ÐµÑ€ÐµÐ´Ð½ÑŒÐ¾Ñ— ÑÐºÐ¾ÑÑ‚Ñ–.';
-    STR_PLAYER_LAG = "ÐŸÐ»ÐµÑ”Ñ€ Ð»Ð°Ð³Ð°Ñ”, ÑÐºÑ–ÑÑ‚ÑŒ Ð·Ð¼Ñ–Ð½ÐµÐ½Ð¾ Ð½Ð° 'ÐÐ²Ñ‚Ð¾'";
-    STR_PLAYER_SOURCE = 'ÐŸÐ»ÐµÑ”Ñ€ Ð»Ð°Ð³Ð°Ñ”, ÑÐºÑ–ÑÑ‚ÑŒ Ð·Ð½Ð¸Ð¶ÐµÐ½Ð¾';
-    STR_TOO_ERRORS = 'Ð°Ð±Ð¾ Ð·Ð°Ð½Ð°Ð´Ñ‚Ð¾ Ð±Ð°Ð³Ð°Ñ‚Ð¾ Ð¿Ð¾Ð¼Ð¸Ð»Ð¾Ðº';
-    STR_STREAM_ERROR_SMALL = 'ÐŸÐ¾Ð¿ÐµÑ€ÐµÐ´Ð½Ñ–Ð¹ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´, Ñ‚Ñ€Ð°Ð½ÑÐ»ÑÑ†Ñ–Ñ Ð·Ð°Ð²ÐµÑ€ÑˆÐµÐ½Ð° ' + STR_TOO_ERRORS;
-    STR_CONTROLS_MEDIA_FF = 'ÐŸÐµÑ€ÐµÐ¼Ð¾Ñ‚ÐºÐ° (Ð»Ð¸ÑˆÐµ Ð´Ð»Ñ VOD Ñ– ÐºÐ»Ñ–Ð¿Ñ–Ð²): D-pad Ð²Ð»Ñ–Ð²Ð¾/Ð²Ð¿Ñ€Ð°Ð²Ð¾ Ð°Ð±Ð¾ ÐºÐ»Ð°Ð²Ñ–ÑˆÑ– Ð¿ÐµÑ€ÐµÐ¼Ð¾Ñ‚ÐºÐ¸';
-    STR_VOD_MUTED = 'Ð§Ð°ÑÑ‚Ð¸Ð½Ð° Ñ†ÑŒÐ¾Ð³Ð¾ Ð²Ñ–Ð´ÐµÐ¾ Ð¿Ñ€Ð¸Ð³Ð»ÑƒÑˆÐµÐ½Ð° Ñ‡ÐµÑ€ÐµÐ· Ð°Ð²Ñ‚Ð¾Ñ€ÑÑŒÐºÑ– Ð¿Ñ€Ð°Ð²Ð°, Ð¿Ð¾Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¾ Ð·Ð°Ñ‚ÐµÐ¼Ð½ÐµÐ½Ð½ÑÐ¼ Ð½Ð° Ð¿Ñ€Ð¾Ð³Ñ€ÐµÑ-Ð±Ð°Ñ€Ñ–';
-    STR_GIFT_SUB = 'Ð¿Ð¾Ð´Ð°Ñ€ÑƒÐ²Ð°Ð²(Ð»Ð°) Ð²Ð°Ð¼ Ð¿Ñ–Ð´Ð¿Ð¸ÑÐºÑƒ!';
-    STR_ANONYMOUS = 'ÐÐ½Ð¾Ð½Ñ–Ð¼';
-    STR_CHAT_BANNED = 'Ð’Ð°Ñ Ð½Ð°Ð·Ð°Ð²Ð¶Ð´Ð¸ Ð·Ð°Ð±Ð»Ð¾ÐºÐ¾Ð²Ð°Ð½Ð¾ Ñƒ Ñ‡Ð°Ñ‚Ñ–';
-    STR_CHAT_WRITE = 'ÐÐ°Ð¿Ð¸ÑÐ°Ñ‚Ð¸ Ñƒ Ñ‡Ð°Ñ‚';
-    STR_CHAT_EXTRA = 'Ð”Ð¾Ð´Ð°Ñ‚ÐºÐ¾Ð²Ñ– Ð½Ð°Ð»Ð°ÑˆÑ‚ÑƒÐ²Ð°Ð½Ð½Ñ Ñ‡Ð°Ñ‚Ñƒ';
-    STR_PLACEHOLDER_CHAT =
-        'ÐŸÑ€Ð¸ Ð²Ð¸Ð±Ð¾Ñ€Ñ– Ð½Ð°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ ÐžÐš Ð´Ð»Ñ Ð²Ð¸ÐºÐ»Ð¸ÐºÑƒ ÐµÐºÑ€Ð°Ð½Ð½Ð¾Ñ— ÐºÐ»Ð°Ð²Ñ–Ð°Ñ‚ÑƒÑ€Ð¸. Ð¯ÐºÑ‰Ð¾ Ð¿Ñ–Ð´ÐºÐ»ÑŽÑ‡ÐµÐ½Ð¾ Ñ„Ñ–Ð·Ð¸Ñ‡Ð½Ñƒ ÐºÐ»Ð°Ð²Ñ–Ð°Ñ‚ÑƒÑ€Ñƒ, Ð½Ð°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ Ð½Ð°Ð·Ð°Ð´ Ð°Ð±Ð¾ Esc Ð´Ð»Ñ Ð¿Ñ€Ð¸Ñ…Ð¾Ð²ÑƒÐ²Ð°Ð½Ð½Ñ ÐµÐºÑ€Ð°Ð½Ð½Ð¾Ñ— ÐºÐ»Ð°Ð²Ñ–Ð°Ñ‚ÑƒÑ€Ð¸';
-    STR_CHAT_ROOMSTATE = 'Ð¡Ñ‚Ð°Ð½ ÐºÑ–Ð¼Ð½Ð°Ñ‚Ð¸ Ñ‡Ð°Ñ‚Ñƒ:';
-    STR_CHAT_NO_RESTRICTIONS = 'Ð‘ÐµÐ· Ð¾Ð±Ð¼ÐµÐ¶ÐµÐ½ÑŒ';
-    STR_OPTIONS = 'ÐžÐ¿Ñ†Ñ–Ñ—';
-    STR_CHAT_DELL_ALL = 'Ð’Ð¸Ð´Ð°Ð»Ð¸Ñ‚Ð¸ Ð²ÑÐµ';
-    STR_CHAT_UNICODE_EMOJI = 'Ð£Ð½Ñ–ÐºÐ¾Ð´ ÐµÐ¼Ð¾Ð´Ð·Ñ–';
-    STR_CHAT_TW_EMOTES = 'Ð•Ð¼Ð¾Ñ‚Ð¸ Twitch';
-    STR_CHAT_BTTV_GLOBAL = 'BTTV Ð³Ð»Ð¾Ð±Ð°Ð»ÑŒÐ½Ñ–';
-    STR_CHAT_BTTV_STREAM = 'BTTV ÑÑ‚Ñ€Ñ–Ð¼ÐµÑ€Ð°';
-    STR_CHAT_FFZ_GLOBAL = 'FFZ Ð³Ð»Ð¾Ð±Ð°Ð»ÑŒÐ½Ñ–';
-    STR_CHAT_FFZ_STREAM = 'FFZ ÑÑ‚Ñ€Ñ–Ð¼ÐµÑ€Ð°';
-    STR_CHAT_SEVENTV_GLOBAL = '7TV Ð³Ð»Ð¾Ð±Ð°Ð»ÑŒÐ½Ñ–';
-    STR_CHAT_SEVENTV_STREAM = '7TV ÑÑ‚Ñ€Ñ–Ð¼ÐµÑ€Ð°';
-    STR_CHAT_AT_STREAM = '@ÑÑ‚Ñ€Ñ–Ð¼ÐµÑ€';
-    STR_CHAT_RESULT = 'ÐžÑ‡Ñ–ÐºÑƒÐ²Ð°Ð½Ð¸Ð¹ Ñ€ÐµÐ·ÑƒÐ»ÑŒÑ‚Ð°Ñ‚ Ñƒ Ñ‡Ð°Ñ‚Ñ–:';
-    STR_CHAT_SEND = 'ÐÐ°Ð´Ñ–ÑÐ»Ð°Ñ‚Ð¸';
-    STR_CHAT_EMOTE_EMPTY = 'Ð¡Ð¿Ð¸ÑÐ¾Ðº ÐµÐ¼Ð¾Ñ‚Ñ–Ð² Ð¿Ð¾Ñ€Ð¾Ð¶Ð½Ñ–Ð¹';
-    STR_CHAT_FOLLOWER_ONLY = 'Ð§Ð°Ñ‚ Ð»Ð¸ÑˆÐµ Ð´Ð»Ñ Ð¿Ñ–Ð´Ð¿Ð¸ÑÐ½Ð¸ÐºÑ–Ð², Ð²Ð¸ Ð½Ðµ Ð¿Ñ–Ð´Ð¿Ð¸ÑÐ°Ð½Ñ– Ð½Ð°';
-    STR_CHAT_FOLLOWER_ONLY_USER_TIME = 'Ñ– Ð²Ð¸ Ð¿Ñ–Ð´Ð¿Ð¸ÑÐ°Ð½Ñ– Ð»Ð¸ÑˆÐµ Ð¿Ñ€Ð¾Ñ‚ÑÐ³Ð¾Ð¼';
-    STR_CHAT_EMOTE_ONLY = 'Ð ÐµÐ¶Ð¸Ð¼ Ð»Ð¸ÑˆÐµ Twitch ÐµÐ¼Ð¾Ñ‚Ñ–Ð²';
-    STR_CHAT_CHOOSE = 'Ð’Ð¸Ð±ÐµÑ€Ñ–Ñ‚ÑŒ Ñ‡Ð°Ñ‚ Ð´Ð»Ñ Ð½Ð°Ð¿Ð¸ÑÐ°Ð½Ð½Ñ Ð°Ð±Ð¾ Ð½Ð°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ Ð½Ð°Ð·Ð°Ð´ Ð´Ð»Ñ Ð·Ð°ÐºÑ€Ð¸Ñ‚Ñ‚Ñ';
-    STR_CHAT_OPTIONS_TITLE = 'ÐžÐ¿Ñ†Ñ–Ñ— Ð½Ð°Ð¿Ð¸ÑÐ°Ð½Ð½Ñ Ñƒ Ñ‡Ð°Ñ‚';
-    STR_CHAT_OPTIONS_KEYBOARD = 'ÐÐ²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡Ð½Ðµ Ð¿Ñ€Ð¸Ñ…Ð¾Ð²ÑƒÐ²Ð°Ð½Ð½Ñ ÐµÐºÑ€Ð°Ð½Ð½Ð¾Ñ— ÐºÐ»Ð°Ð²Ñ–Ð°Ñ‚ÑƒÑ€Ð¸';
-    STR_CHAT_OPTIONS_KEYBOARD_SUMMARY =
-        'ÐšÐµÑ€ÑƒÑ” Ð¿Ð¾Ð²ÐµÐ´Ñ–Ð½ÐºÐ¾ÑŽ ÐµÐºÑ€Ð°Ð½Ð½Ð¾Ñ— ÐºÐ»Ð°Ð²Ñ–Ð°Ñ‚ÑƒÑ€Ð¸. ÐŸÑ€Ð¸ Ð½Ð°ÑÐ²Ð½Ð¾ÑÑ‚Ñ– Ñ„Ñ–Ð·Ð¸Ñ‡Ð½Ð¾Ñ— ÐºÐ»Ð°Ð²Ñ–Ð°Ñ‚ÑƒÑ€Ð¸ â€” Ð²Ð¸ÐºÐ¾Ñ€Ð¸ÑÑ‚Ð¾Ð²ÑƒÐ¹Ñ‚Ðµ Ñ—Ñ—. Ð¯ÐºÑ‰Ð¾ Ð½ÐµÐ¼Ð°Ñ” â€” Ð²ÑÑ‚Ð°Ð½Ð¾Ð²Ñ–Ñ‚ÑŒ "ÐÑ–ÐºÐ¾Ð»Ð¸".';
-    STR_CHAT_OPTIONS_KEYBOARD_1 = 'ÐÑ–ÐºÐ¾Ð»Ð¸';
-    STR_CHAT_OPTIONS_KEYBOARD_2 = 'Ð¯ÐºÑ‰Ð¾ ÐºÐ»Ð°Ð²Ñ–Ð°Ñ‚ÑƒÑ€Ñƒ Ð²Ð¸ÑÐ²Ð»ÐµÐ½Ð¾';
-    STR_CHAT_OPTIONS_KEYBOARD_3 = 'Ð—Ð°Ð²Ð¶Ð´Ð¸';
-    STR_CHAT_OPTIONS_EMOTE_SORT = 'Ð¡Ð¾Ñ€Ñ‚ÑƒÐ²Ð°Ð½Ð½Ñ ÐµÐ¼Ð¾Ñ‚Ñ–Ð²';
-    STR_CHAT_OPTIONS_EMOTE_SORT_SUMMARY = 'ÐŸÑ€Ð¸ Ð²Ð¸Ð¼ÐºÐ½ÐµÐ½Ð½Ñ– ÐµÐ¼Ð¾Ñ‚Ð¸ Ð²Ñ–Ð´Ð¾Ð±Ñ€Ð°Ð¶Ð°ÑŽÑ‚ÑŒÑÑ Ñƒ Ð¿Ð¾Ñ€ÑÐ´ÐºÑƒ, Ð·Ð°Ð´Ð°Ð½Ð¾Ð¼Ñƒ ÑÐµÑ€Ð²ÐµÑ€Ð¾Ð¼.';
-    STR_CHAT_OPTIONS_FORCE_SHOW = 'ÐŸÑ€Ð¸Ð¼ÑƒÑÐ¾Ð²Ð¾ Ð¿Ð¾ÐºÐ°Ð·Ð°Ñ‚Ð¸ Ñ‡Ð°Ñ‚';
-    STR_CHAT_OPTIONS_FORCE_SHOW_SUMMARY = 'Ð£Ð²Ñ–Ð¼ÐºÐ½Ñ–Ñ‚ÑŒ, ÑÐºÑ‰Ð¾ Ñ…Ð¾Ñ‡ÐµÑ‚Ðµ Ð±Ð°Ñ‡Ð¸Ñ‚Ð¸ Ñ‡Ð°Ñ‚ Ð¿Ñ€Ð¸ Ð²Ð¸ÐºÐ¾Ñ€Ð¸ÑÑ‚Ð°Ð½Ð½Ñ– "Ð½Ð°Ð¿Ð¸ÑÐ°Ñ‚Ð¸ Ñƒ Ñ‡Ð°Ñ‚"';
-    STR_NOKEY_CHAT_WARN = 'Ð”Ð¾Ð´Ð°Ð¹Ñ‚Ðµ ÐºÐ»ÑŽÑ‡ Ð°Ð²Ñ‚Ð¾Ñ€Ð¸Ð·Ð°Ñ†Ñ–Ñ— ÐºÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ‡Ð°, Ñ‰Ð¾Ð± Ð¼Ð°Ñ‚Ð¸ Ð·Ð¼Ð¾Ð³Ñƒ Ð²Ñ…Ð¾Ð´Ð¸Ñ‚Ð¸ Ñ‚Ð° Ð¿Ð¸ÑÐ°Ñ‚Ð¸ Ñƒ Ñ‡Ð°Ñ‚';
-    STR_CHAT_NOT_READY = 'Ð§Ð°Ñ‚ Ð½Ðµ Ð³Ð¾Ñ‚Ð¾Ð²Ð¸Ð¹ Ð´Ð¾ Ð½Ð°Ð´ÑÐ¸Ð»Ð°Ð½Ð½Ñ! Ð¡Ð¿Ñ€Ð¾Ð±ÑƒÐ¹Ñ‚Ðµ Ñ‡ÐµÑ€ÐµÐ· ÑÐµÐºÑƒÐ½Ð´Ñƒ.';
-    STR_CHAT_REDEEMED_MESSAGE_HIGH = 'Ð’Ð¸ÐºÐ¾Ñ€Ð¸ÑÑ‚Ð°Ð½Ð¾ Ð½Ð°Ð³Ð¾Ñ€Ð¾Ð´Ñƒ: Ð¿Ñ–Ð´ÑÐ²Ñ–Ñ‚Ð¸Ñ‚Ð¸ Ð¿Ð¾Ð²Ñ–Ð´Ð¾Ð¼Ð»ÐµÐ½Ð½Ñ';
-    STR_CHAT_FIRST_MESSAGE_HIGH = 'ÐŸÐ•Ð Ð¨Ð• ÐŸÐžÐ’Ð†Ð”ÐžÐœÐ›Ð•ÐÐÐ¯';
-    STR_CHAT_REDEEMED_MESSAGE_SUB = 'Ð’Ð¸ÐºÐ¾Ñ€Ð¸ÑÑ‚Ð°Ð½Ð¾ Ð½Ð°Ð³Ð¾Ñ€Ð¾Ð´Ñƒ: Ð½Ð°Ð¿Ð¸ÑÐ°Ñ‚Ð¸ Ñƒ Ñ€ÐµÐ¶Ð¸Ð¼Ñ– Ñ‚Ñ–Ð»ÑŒÐºÐ¸ Ð´Ð»Ñ Ð¿Ñ–Ð´Ð¿Ð¸ÑÐ½Ð¸ÐºÑ–Ð²';
-    STR_CHAT_OPTIONS = 'ÐÐ°Ð»Ð°ÑˆÑ‚ÑƒÐ²Ð°Ð½Ð½Ñ Ñ‡Ð°Ñ‚Ñƒ';
-    STR_CHAT_HIGHLIGHT_STREAMER_MSG = 'ÐŸÑ–Ð´ÑÐ²Ñ–Ñ‡ÑƒÐ²Ð°Ñ‚Ð¸ Ð¿Ð¾Ð²Ñ–Ð´Ð¾Ð¼Ð»ÐµÐ½Ð½Ñ ÑÑ‚Ñ€Ñ–Ð¼ÐµÑ€Ð° (Ñ‚ÐµÐ¼Ð½Ð¾-Ñ€Ð¾Ð¶ÐµÐ²Ð¸Ð¹ Ñ„Ð¾Ð½)';
-    STR_CHAT_HIGHLIGHT_MOD_MSG = 'ÐŸÑ–Ð´ÑÐ²Ñ–Ñ‡ÑƒÐ²Ð°Ñ‚Ð¸ Ð¿Ð¾Ð²Ñ–Ð´Ð¾Ð¼Ð»ÐµÐ½Ð½Ñ Ð¼Ð¾Ð´ÐµÑ€Ð°Ñ‚Ð¾Ñ€Ñ–Ð² (Ñ‚ÐµÐ¼Ð½Ð¾-Ð±Ñ–Ñ€ÑŽÐ·Ð¾Ð²Ð¸Ð¹ Ñ„Ð¾Ð½)';
-    STR_CHAT_HIGHLIGHT_REDEEMED = 'ÐŸÑ–Ð´ÑÐ²Ñ–Ñ‡ÑƒÐ²Ð°Ñ‚Ð¸ Ð¿Ð¾Ð²Ñ–Ð´Ð¾Ð¼Ð»ÐµÐ½Ð½Ñ-Ð½Ð°Ð³Ð¾Ñ€Ð¾Ð´Ð¸ (Ñ„Ñ–Ð¾Ð»ÐµÑ‚Ð¾Ð²Ð¸Ð¹ Ñ„Ð¾Ð½)';
-    STR_CHAT_HIGHLIGHT_FIRST = 'ÐŸÑ–Ð´ÑÐ²Ñ–Ñ‡ÑƒÐ²Ð°Ñ‚Ð¸ Ð½Ð¾Ð²Ð°Ñ‡ÐºÑ–Ð² Ñ‡Ð°Ñ‚Ñƒ (Ñ‚ÐµÐ¼Ð½Ð¾-Ñ€Ð¾Ð¶ÐµÐ²Ð¸Ð¹ Ñ„Ð¾Ð½)';
-    STR_CHAT_HIGHLIGHT_STREAMER = "ÐŸÑ–Ð´ÑÐ²Ñ–Ñ‡ÑƒÐ²Ð°Ñ‚Ð¸ Ð¿Ð¾Ð²Ñ–Ð´Ð¾Ð¼Ð»ÐµÐ½Ð½Ñ @ÑÑ‚Ñ€Ñ–Ð¼ÐµÑ€Ð° (Ñ‚ÐµÐ¼Ð½Ð¾-Ñ‡ÐµÑ€Ð²Ð¾Ð½Ð¸Ð¹ Ñ„Ð¾Ð½, '@' ÑÐ¸Ð½Ñ–Ð¹)";
-    STR_CHAT_HIGHLIGHT_USER = "ÐŸÑ–Ð´ÑÐ²Ñ–Ñ‡ÑƒÐ²Ð°Ñ‚Ð¸ Ð²Ð°ÑˆÑ– Ð¿Ð¾Ð²Ñ–Ð´Ð¾Ð¼Ð»ÐµÐ½Ð½Ñ @username (Ñ‚ÐµÐ¼Ð½Ð¾-Ð·ÐµÐ»ÐµÐ½Ð¸Ð¹ Ñ„Ð¾Ð½, '@' ÑÐ¸Ð½Ñ–Ð¹)";
-    STR_CHAT_HIGHLIGHT_USER_SEND = 'ÐŸÑ–Ð´ÑÐ²Ñ–Ñ‡ÑƒÐ²Ð°Ñ‚Ð¸ Ð²Ð°ÑˆÑ– Ð½Ð°Ð´Ñ–ÑÐ»Ð°Ð½Ñ– Ð¿Ð¾Ð²Ñ–Ð´Ð¾Ð¼Ð»ÐµÐ½Ð½Ñ (Ñ‚ÐµÐ¼Ð½Ð¾-Ð·ÐµÐ»ÐµÐ½Ð¸Ð¹ Ñ„Ð¾Ð½)';
-    STR_CHAT_SHOW_SUB = 'ÐŸÐ¾ÐºÐ°Ð·ÑƒÐ²Ð°Ñ‚Ð¸ Ð¿Ð¾Ð²Ñ–Ð´Ð¾Ð¼Ð»ÐµÐ½Ð½Ñ Ð¿Ñ–Ð´Ð¿Ð¸ÑÐ½Ð¸ÐºÑ–Ð² (Ñ‚ÐµÐ¼Ð½Ð¾-Ð¿Ð¾Ð¼Ð°Ñ€Ð°Ð½Ñ‡ÐµÐ²Ð¸Ð¹ Ñ„Ð¾Ð½)';
-    STR_CHAT_HIGHLIGHT_BIT = 'ÐŸÑ–Ð´ÑÐ²Ñ–Ñ‡ÑƒÐ²Ð°Ñ‚Ð¸ Ð¿Ð¾Ð²Ñ–Ð´Ð¾Ð¼Ð»ÐµÐ½Ð½Ñ Ð· Ð±Ñ–Ñ‚Ð°Ð¼Ð¸ (Ñ‚ÐµÐ¼Ð½Ð¾-Ð¶Ð¾Ð²Ñ‚Ð¸Ð¹ Ñ„Ð¾Ð½)';
-    STR_CHAT_HIGHLIGHT_ACTIONS = 'ÐŸÐ¾ÐºÐ°Ð·ÑƒÐ²Ð°Ñ‚Ð¸ Action-Ð¿Ð¾Ð²Ñ–Ð´Ð¾Ð¼Ð»ÐµÐ½Ð½Ñ (Ð·Ð°Ð·Ð²Ð¸Ñ‡Ð°Ð¹ Ð²Ñ–Ð´ Ð±Ð¾Ñ‚Ñ–Ð²)';
-    STR_CHAT_HIGHLIGHT_ACTIONS_SUMMARY =
-        'Ð¦Ñ– Ð¿Ð¾Ð²Ñ–Ð´Ð¾Ð¼Ð»ÐµÐ½Ð½Ñ ÑÑ…Ð¾Ð¶Ñ– Ð½Ð° Ð¿Ð¾Ð²Ñ–Ð´Ð¾Ð¼Ð»ÐµÐ½Ð½Ñ Ð¿Ñ–Ð´Ð¿Ð¸ÑÐ¾Ðº, Ð°Ð»Ðµ Ð½Ð°Ð´Ñ…Ð¾Ð´ÑÑ‚ÑŒ Ð²Ñ–Ð´ Ð±Ð¾Ñ‚Ñ–Ð². Ð¯ÐºÑ‰Ð¾ Ð²Ð¶Ðµ Ð²Ð²Ñ–Ð¼ÐºÐ½ÐµÐ½Ð¾ "Ð¿Ð¾ÐºÐ°Ð·ÑƒÐ²Ð°Ñ‚Ð¸ Ð¿Ñ–Ð´Ð¿Ð¸ÑÐºÐ¸", Ñ†Ðµ Ð¼Ð¾Ð¶Ðµ Ð±ÑƒÑ‚Ð¸ Ð·Ð°Ð¹Ð²Ð¸Ð¼.';
-    STR_CHAT_INDIVIDUAL_BACKGROUND = 'Ð¤Ð¾Ð½Ð¾Ð²Ð¸Ð¹ ÐºÐ¾Ð½Ñ‚Ñ€Ð°ÑÑ‚ Ð´Ð»Ñ Ð¾ÐºÑ€ÐµÐ¼Ð¸Ñ… Ð¿Ð¾Ð²Ñ–Ð´Ð¾Ð¼Ð»ÐµÐ½ÑŒ';
-    STR_CHAT_INDIVIDUAL_BACKGROUND_SUMMARY =
-        'Ð ÐµÐ¶Ð¸Ð¼Ð¸: "Ð²Ð¸Ð¼Ðº.", "ÑƒÐ²Ñ–Ð¼Ðº." (Ð°Ð²Ñ‚Ð¾), ÑÑÐºÑ€Ð°Ð²Ð¾ Ð°Ð±Ð¾ Ñ‚ÐµÐ¼Ð½Ñ–ÑˆÐµ. Ð’ Ð°Ð²Ñ‚Ð¾ â€” Ñ„Ð¾Ð½ Ñ‡ÐµÑ€Ð³ÑƒÑ”Ñ‚ÑŒÑÑ, ÑÐºÑ‰Ð¾ Ñ‡Ð°Ñ‚ Ð½Ð°Ð´ Ð¿Ð¾Ñ‚Ð¾ÐºÐ¾Ð¼. Ð†Ð½Ð°ÐºÑˆÐµ â€” ÑÑÐºÑ€Ð°Ð²Ð¸Ð¹.';
-    STR_CHAT_INDIVIDUAL_LINE = 'Ð Ð¾Ð·Ð´Ñ–Ð»ÑÑ‚Ð¸ Ð¿Ð¾Ð²Ñ–Ð´Ð¾Ð¼Ð»ÐµÐ½Ð½Ñ Ð»Ñ–Ð½Ñ–Ñ”ÑŽ';
-    STR_CHAT_LINE_ANIMATION = 'ÐÐ½Ñ–Ð¼Ð¾Ð²Ð°Ð½Ð° Ð¿Ñ€Ð¾ÐºÑ€ÑƒÑ‚ÐºÐ° Ð¿Ñ€Ð¸ Ð´Ð¾Ð´Ð°Ð²Ð°Ð½Ð½Ñ– Ð¿Ð¾Ð²Ñ–Ð´Ð¾Ð¼Ð»ÐµÐ½ÑŒ';
-    STR_CHAT_LOGGING = 'Ð’Ñ…Ñ–Ð´ Ð´Ð¾ Ñ‡Ð°Ñ‚Ñƒ Ð· Ð¿Ð¾Ñ‚Ð¾Ñ‡Ð½Ð¾Ð³Ð¾ ÐºÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ‡Ð°';
-    STR_CHAT_LOGGING_SUMMARY =
-        'Ð’Ñ…Ñ–Ð´ Ñƒ Ñ‡Ð°Ñ‚ Ð²Ñ–Ð´Ð±ÑƒÐ²Ð°Ñ‚Ð¸Ð¼ÐµÑ‚ÑŒÑÑ Ð²Ñ–Ð´ Ñ–Ð¼ÐµÐ½Ñ– Ð¿Ð¾Ñ‚Ð¾Ñ‡Ð½Ð¾Ð³Ð¾ ÐºÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ‡Ð°, ÑÐºÑ‰Ð¾ Ð½Ð°Ð´Ð°Ð½Ð¾ ÐºÐ»ÑŽÑ‡ Ð°Ð²Ñ‚Ð¾Ñ€Ð¸Ð·Ð°Ñ†Ñ–Ñ—. Ð¯ÐºÑ‰Ð¾ Â«ÐÑ–Â» - Ð²Ñ…Ñ–Ð´ Ð·Ð´Ñ–Ð¹ÑÐ½ÑŽÐ²Ð°Ñ‚Ð¸Ð¼ÐµÑ‚ÑŒÑÑ Ð°Ð½Ð¾Ð½Ñ–Ð¼Ð½Ð¾. Ð¦Ðµ Ð½Ðµ Ð·Ð°Ð²Ð°Ð¶Ð°Ñ” Ð½Ð°Ð´ÑÐ¸Ð»Ð°Ñ‚Ð¸ Ð¿Ð¾Ð²Ñ–Ð´Ð¾Ð¼Ð»ÐµÐ½Ð½Ñ, Ð°Ð»Ðµ Twitch Ð½Ðµ Ð·Ð¼Ð¾Ð¶Ðµ Ð²Ð¸Ð·Ð½Ð°Ñ‡Ð¸Ñ‚Ð¸, Ñ‡Ð¸ Ð²Ð°Ñ Ð·Ð°Ð±Ð»Ð¾ÐºÐ¾Ð²Ð°Ð½Ð¾, Ð°Ð±Ð¾ Ñ‡Ð¸ Ð²Ð¸ Ð¿Ñ€Ð¸ÑÑƒÑ‚Ð½Ñ– Ð² Ñ‡Ð°Ñ‚Ñ–.';
-    STR_CHAT_BOTS = 'Ð‘Ð»Ð¾ÐºÑƒÐ²Ð°Ñ‚Ð¸ Ð±Ð¾Ñ‚Ñ–Ð² Ñ– ÐºÐ¾Ð¼Ð°Ð½Ð´Ð¸ (!command) Ñƒ Ñ‡Ð°Ñ‚Ñ–';
-    STR_CHAT_TIMESTAMP = 'ÐŸÐ¾ÐºÐ°Ð·ÑƒÐ²Ð°Ñ‚Ð¸ Ñ‡Ð°Ñ Ð¿Ð¾Ð²Ñ–Ð´Ð¾Ð¼Ð»ÐµÐ½ÑŒ';
-    STR_CHAT_USER_NOTICE = 'ÐŸÐ¾ÐºÐ°Ð·Ð°Ñ‚Ð¸ Ð¿Ð¾Ð¿ÐµÑ€ÐµÐ´Ð¶ÐµÐ½Ð½Ñ Ð¿Ñ€Ð¾ Ð½ÐµÐ¿Ñ€ÑÐ¼Ðµ ÑÐ¿Ð¾Ð²Ñ–Ñ‰ÐµÐ½Ð½Ñ Ð² Ñ‡Ð°Ñ‚Ñ–';
-    STR_CHAT_USER_NOTICE_SUMMARY =
-        'ÐŸÐ¾ÐºÐ°Ð·ÑƒÐ²Ð°Ñ‚Ð¸ Ð¿Ð¾Ð¿ÐµÑ€ÐµÐ´Ð¶ÐµÐ½Ð½Ñ Ð½Ð° ÐµÐºÑ€Ð°Ð½Ñ–, ÐºÐ¾Ð»Ð¸ Ñ‡Ð°Ñ‚ Ð¾Ñ‚Ñ€Ð¸Ð¼ÑƒÑ” Ð½ÐµÐ¿Ñ€ÑÐ¼Ðµ ÑÐ¿Ð¾Ð²Ñ–Ñ‰ÐµÐ½Ð½Ñ. ÐÐ°Ð¿Ñ€Ð¸ÐºÐ»Ð°Ð´: Ð§Ð°Ñ‚: Ð¦Ñ ÐºÑ–Ð¼Ð½Ð°Ñ‚Ð° Ñ‚ÐµÐ¿ÐµÑ€ Ñƒ Ñ€ÐµÐ¶Ð¸Ð¼Ñ– Ð»Ð¸ÑˆÐµ ÐµÐ¼Ð¾Ð´Ð·Ñ–.';
-
-    STR_CHAT_NICK_COLOR = 'Ð§Ð¸Ñ‚Ð°Ð±ÐµÐ»ÑŒÐ½Ñ– ÐºÐ¾Ð»ÑŒÐ¾Ñ€Ð¸ Ð½Ñ–ÐºÑ–Ð²';
-    STR_CHAT_NICK_COLOR_SUMMARY = 'Ð—Ð°Ð¼Ñ–ÑÑ‚ÑŒ ÑÑ‚Ð°Ð½Ð´Ð°Ñ€Ñ‚Ð½Ð¸Ñ… ÐºÐ¾Ð»ÑŒÐ¾Ñ€Ñ–Ð² Ð½Ñ–ÐºÑ–Ð² (ÑÐºÑ– Ñ–Ð½Ð¾Ð´Ñ– Ð¿Ð¾Ð³Ð°Ð½Ð¾ Ð²Ð¸Ð´Ð½Ð¾), Ð²Ð¸ÐºÐ¾Ñ€Ð¸ÑÑ‚Ð¾Ð²ÑƒÑŽÑ‚ÑŒÑÑ ÑÑÐºÑ€Ð°Ð²Ñ– ÐºÐ¾Ð»ÑŒÐ¾Ñ€Ð¸';
-    STR_CHAT_CLEAR_MSG = 'ÐžÑ‡Ð¸ÑÑ‚Ð¸Ñ‚Ð¸ Ñ‡Ð°Ñ‚ â€” Ð²Ð¸Ð´Ð°Ð»Ð¸Ñ‚Ð¸ Ð¿Ð¾Ð²Ñ–Ð´Ð¾Ð¼Ð»ÐµÐ½Ð½Ñ ÐºÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ‡Ñ–Ð²';
-    STR_CHAT_SHOW_BADGES = 'ÐŸÐ¾ÐºÐ°Ð·ÑƒÐ²Ð°Ñ‚Ð¸ Ð±ÐµÐ¹Ð´Ð¶Ñ– ÐºÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ‡Ñ–Ð² (ÐºÑ€Ñ–Ð¼ Ð½Ð¸Ð¶Ñ‡Ðµ)';
-    STR_CHAT_SHOW_BADGES_MOD = 'ÐŸÐ¾ÐºÐ°Ð·ÑƒÐ²Ð°Ñ‚Ð¸ Ð±ÐµÐ¹Ð´Ð¶ Ð¼Ð¾Ð´ÐµÑ€Ð°Ñ‚Ð¾Ñ€Ð°';
-    STR_CHAT_SHOW_BADGES_VIP = 'ÐŸÐ¾ÐºÐ°Ð·ÑƒÐ²Ð°Ñ‚Ð¸ Ð±ÐµÐ¹Ð´Ð¶ VIP';
-    STR_CHAT_SHOW_BADGES_SHARED = 'ÐŸÐ¾ÐºÐ°Ð·ÑƒÐ²Ð°Ñ‚Ð¸ Ð·Ð°Ð³Ð°Ð»ÑŒÐ½Ñ– Ð±ÐµÐ¹Ð´Ð¶Ñ– Ñ‡Ð°Ñ‚Ñƒ';
-    STR_CHAT_MESSAGE_DELETED = 'Ð¦Ðµ Ð¿Ð¾Ð²Ñ–Ð´Ð¾Ð¼Ð»ÐµÐ½Ð½Ñ ÐºÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ‡Ð° Ð±ÑƒÐ»Ð¾ Ð²Ð¸Ð´Ð°Ð»ÐµÐ½Ð¾';
-    STR_CHAT_MESSAGE_DELETED_ALL = 'Ð£ÑÑ– Ð¿Ð¾Ð²Ñ–Ð´Ð¾Ð¼Ð»ÐµÐ½Ð½Ñ Ñ†ÑŒÐ¾Ð³Ð¾ ÐºÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ‡Ð° Ð±ÑƒÐ»Ð¸ Ð²Ð¸Ð´Ð°Ð»ÐµÐ½Ñ–';
-    STR_CHAT_MESSAGE_DELETED_TIMEOUT = ', Ð¹Ð¾Ð³Ð¾/Ñ—Ñ— Ð±ÑƒÐ»Ð¾ Ñ‚Ð¸Ð¼Ñ‡Ð°ÑÐ¾Ð²Ð¾ Ð·Ð°Ð±Ð»Ð¾ÐºÐ¾Ð²Ð°Ð½Ð¾ Ð½Ð°';
-    STR_CHAT_CLEAR_MSG_SUMMARY =
-        'Ð’Ð¸Ð´Ð°Ð»ÑÑ” Ð¿Ð¾Ð²Ñ–Ð´Ð¾Ð¼Ð»ÐµÐ½Ð½Ñ ÐºÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ‡Ð° Ð¿Ñ–ÑÐ»Ñ Ñ‚Ð°Ð¹Ð¼-Ð°ÑƒÑ‚Ñƒ Ð°Ð±Ð¾ Ð±Ð°Ð½Ñƒ. Ð¯ÐºÑ‰Ð¾ Ð²Ð¸Ð¼ÐºÐ½ÐµÐ½Ð¾ â€” Ñ„Ð¾Ð½ Ð·Ð¼Ñ–Ð½ÑŽÑ”Ñ‚ÑŒÑÑ Ð½Ð° ÑÐ¸Ð½Ñ–Ð¹, Ð°Ð»Ðµ Ð¿Ð¾Ð²Ñ–Ð´Ð¾Ð¼Ð»ÐµÐ½Ð½Ñ Ð·Ð°Ð»Ð¸ÑˆÐ°ÑŽÑ‚ÑŒÑÑ.';
-    STR_OPEN_HOST_SETTINGS = 'Ð—Ð°Ð²Ð¶Ð´Ð¸ Ð²Ñ–Ð´ÐºÑ€Ð¸Ð²Ð°Ñ‚Ð¸ Ñ…Ð¾ÑÑ‚Ð¸Ð½Ð³ Ð¿Ñ–ÑÐ»Ñ Ð·Ð°Ð²ÐµÑ€ÑˆÐµÐ½Ð½Ñ ÑÑ‚Ñ€Ñ–Ð¼Ñƒ, ÑÐºÑ‰Ð¾ Ð´Ð¾ÑÑ‚ÑƒÐ¿Ð½Ð¾';
-    STR_ALWAYS_STAY = 'Ð—Ð°Ð²Ð¶Ð´Ð¸ Ð·Ð°Ð»Ð¸ÑˆÐ°Ñ‚Ð¸ÑÑ Ð· Ð²Ñ–Ð´ÐºÑ€Ð¸Ñ‚Ð¸Ð¼ Ð¿Ð»ÐµÑ”Ñ€Ð¾Ð¼ Ð¿Ñ–ÑÐ»Ñ Ð·Ð°Ð²ÐµÑ€ÑˆÐµÐ½Ð½Ñ ÑÑ‚Ñ€Ñ–Ð¼Ñƒ';
-    STR_PING_WARNING = "ÐŸÐ¾ÐºÐ°Ð·ÑƒÐ²Ð°Ñ‚Ð¸ Ð¿Ð¾Ð¿ÐµÑ€ÐµÐ´Ð¶ÐµÐ½Ð½Ñ 'ÐŸÑ–Ð½Ð³ Ð´Ð¾ Twitch Ð½Ðµ Ð²Ð´Ð°Ð²ÑÑ'";
-    STR_PING_WARNING_SUMMARY =
-        'Ð”Ð¾Ð´Ð°Ñ‚Ð¾Ðº Ð¿Ð¾ÑÑ‚Ñ–Ð¹Ð½Ð¾ Ð¿ÐµÑ€ÐµÐ²Ñ–Ñ€ÑÑ” Ð·Ê¼Ñ”Ð´Ð½Ð°Ð½Ð½Ñ Ð· Twitch Ð·Ð° Ð´Ð¾Ð¿Ð¾Ð¼Ð¾Ð³Ð¾ÑŽ Ð¿Ñ–Ð½Ð³Ñƒ. Ð¯ÐºÑ‰Ð¾ Ð¿ÐµÑ€ÐµÐ²Ñ–Ñ€ÐºÐ° Ð½Ðµ Ð¿Ñ€Ð¾Ñ…Ð¾Ð´Ð¸Ñ‚ÑŒ Ð±Ð°Ð³Ð°Ñ‚Ð¾ Ñ€Ð°Ð·Ñ–Ð², Ð·â€™ÑÐ²Ð¸Ñ‚ÑŒÑÑ Ð¿Ð¾Ð¿ÐµÑ€ÐµÐ´Ð¶ÐµÐ½Ð½Ñ. Ð¯ÐºÑ‰Ð¾ Ð²Ð²Ð°Ð¶Ð°Ñ”Ñ‚Ðµ, Ñ‰Ð¾ Ñ†Ðµ Ð¿Ð¾Ð¼Ð¸Ð»ÐºÐ° â€” Ð²Ð¸Ð¼ÐºÐ½Ñ–Ñ‚ÑŒ Ñ†ÑŽ Ð¾Ð¿Ñ†Ñ–ÑŽ.';
-    STR_KEY_UP_TIMEOUT = 'Ð§Ð°Ñ ÑƒÑ‚Ñ€Ð¸Ð¼Ð°Ð½Ð½Ñ ÐºÐ»Ð°Ð²Ñ–ÑˆÑ– (Ð¼Ñ)';
-    STR_KEY_UP_TIMEOUT_SUMMARY = 'Ð¡ÐºÑ–Ð»ÑŒÐºÐ¸ Ñ‡Ð°ÑÑƒ Ð¿Ð¾Ñ‚Ñ€Ñ–Ð±Ð½Ð¾ ÑƒÑ‚Ñ€Ð¸Ð¼ÑƒÐ²Ð°Ñ‚Ð¸ ÐºÐ»Ð°Ð²Ñ–ÑˆÑƒ, Ñ‰Ð¾Ð± ÑÐ¿Ñ€Ð°Ñ†ÑŽÐ²Ð°Ð»Ð° Ð´Ñ–Ñ â€” Ð¾Ð½Ð¾Ð²Ð»ÐµÐ½Ð½Ñ, Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´ Ð¾Ð¿Ñ†Ñ–Ð¹ Ð¼Ñ–Ð½Ñ–Ð°Ñ‚ÑŽÑ€Ð¸ Ñ‚Ð¾Ñ‰Ð¾.';
-    STR_CURRENT_THUMB_STYLE = 'ÐŸÐ¾Ñ‚Ð¾Ñ‡Ð½Ð¸Ð¹ ÑÑ‚Ð¸Ð»ÑŒ Ñ„Ð¾ÐºÑƒÑÑƒÐ²Ð°Ð½Ð½Ñ';
-    STR_NEW_THUMB_STYLE = 'ÐÐ¾Ð²Ð¸Ð¹ ÑÑ‚Ð¸Ð»ÑŒ Ñ„Ð¾ÐºÑƒÑÑƒÐ²Ð°Ð½Ð½Ñ';
-    STR_COLOR_STYLE_TEXT = 'ÐÐ°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ Ð²Ð³Ð¾Ñ€Ñƒ/Ð²Ð½Ð¸Ð· Ð´Ð»Ñ Ð²Ð¸Ð±Ð¾Ñ€Ñƒ Ð¾Ð¿Ñ†Ñ–Ñ—, Ð½Ð°Ð·Ð°Ð´ â€” Ð´Ð»Ñ Ð²Ð¸Ñ…Ð¾Ð´Ñƒ, ÐžÐš Ð´Ð»Ñ Ð¿Ñ–Ð´Ñ‚Ð²ÐµÑ€Ð´Ð¶ÐµÐ½Ð½Ñ Ð·Ð¼Ñ–Ð½';
-    STR_SHADOWS = 'Ð¢Ñ–Ð½Ñ–';
-    STR_SHADOWS_NONE = 'Ð‘ÐµÐ· Ñ‚Ñ–Ð½ÐµÐ¹';
-    STR_SHADOWS_WHITE = 'Ð‘Ñ–Ð»Ñ–';
-    STR_SHADOWS_GRAY = 'Ð¡Ñ–Ñ€Ñ–';
-    STR_SHADOWS_BLACK = 'Ð§Ð¾Ñ€Ð½Ñ–';
-    STR_COLORS = 'ÐšÐ¾Ð»ÑŒÐ¾Ñ€Ð¸';
-    STR_RESULT = 'Ð ÐµÐ·ÑƒÐ»ÑŒÑ‚Ð°Ñ‚';
-    STR_APPLY = 'Ð—Ð°ÑÑ‚Ð¾ÑÑƒÐ²Ð°Ñ‚Ð¸ Ð·Ð¼Ñ–Ð½Ð¸';
-    STR_COLOR_TYPE = 'Ð¢Ð¸Ð¿ ÐºÐ¾Ð»ÑŒÐ¾Ñ€Ñƒ';
-    STR_STYLES = 'Ð¡Ñ‚Ð¸Ð»Ñ–';
-    STR_ENTER = 'ÐÐ°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ ÐžÐš';
-    STR_COLOR_ARRAY = 'Ð¤Ð¾Ð½,Ð¢ÐµÐºÑÑ‚,Ð Ð°Ð¼ÐºÐ°,ÐŸÑ€Ð¾Ð³Ñ€ÐµÑ-Ð±Ð°Ñ€ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´Ñƒ';
-    STR_STYLES_ARRAY = 'Ð¡Ñ‚Ð°Ð½Ð´Ð°Ñ€Ñ‚Ð½Ð¸Ð¹,ÐšÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ†ÑŒÐºÐ¸Ð¹,Ð‘Ñ–Ð»Ð¸Ð¹,Ð¡Ñ–Ñ€Ð¸Ð¹,Ð§ÐµÑ€Ð²Ð¾Ð½Ð¸Ð¹,ÐŸÐ¾Ð¼Ð°Ñ€Ð°Ð½Ñ‡ÐµÐ²Ð¸Ð¹,Ð–Ð¾Ð²Ñ‚Ð¸Ð¹,Ð—ÐµÐ»ÐµÐ½Ð¸Ð¹,Ð¡Ð¸Ð½Ñ–Ð¹,Ð¤Ñ–Ð¾Ð»ÐµÑ‚Ð¾Ð²Ð¸Ð¹,Ð Ð¾Ð¶ÐµÐ²Ð¸Ð¹';
-    STR_ENTER_RGB = STR_ENTER + ' Ð´Ð»Ñ Ð¿Ñ–Ð´Ñ‚Ð²ÐµÑ€Ð´Ð¶ÐµÐ½Ð½Ñ Ð·Ð¼Ñ–Ð½Ð¸ RGB';
-    STR_THUMB_STYLE = 'ÐžÐ±Ñ€Ð°Ð½Ð¸Ð¹ ÑÑ‚Ð¸Ð»ÑŒ Ð¼Ñ–Ð½Ñ–Ð°Ñ‚ÑŽÑ€Ð¸';
-    STR_OPEN_EXTERNAL_PLAYER = 'Ð’Ñ–Ð´ÐºÑ€Ð¸Ñ‚Ð¸ Ñƒ Ð·Ð¾Ð²Ð½Ñ–ÑˆÐ½ÑŒÐ¾Ð¼Ñƒ Ð¿Ð»ÐµÑ”Ñ€Ñ–';
-    STR_CHAT_SIDE_ARRAY = ['Ð›Ñ–Ð²Ð¾Ñ€ÑƒÑ‡', 'ÐŸÑ€Ð°Ð²Ð¾Ñ€ÑƒÑ‡'];
-    STR_CHAT_BASE_ARRAY = [
-        'ÐÐ¸Ð¶Ð½Ñ–Ð¹ Ð¿Ñ€Ð°Ð²Ð¸Ð¹',
-        'Ð¦ÐµÐ½Ñ‚Ñ€ Ð¿Ñ€Ð°Ð²Ð¾Ñ€ÑƒÑ‡',
-        'Ð’ÐµÑ€Ñ…Ð½Ñ–Ð¹ Ð¿Ñ€Ð°Ð²Ð¸Ð¹',
-        'Ð¦ÐµÐ½Ñ‚Ñ€ ÑƒÐ³Ð¾Ñ€Ñ–',
-        'Ð’ÐµÑ€Ñ…Ð½Ñ–Ð¹ Ð»Ñ–Ð²Ð¸Ð¹',
-        'Ð¦ÐµÐ½Ñ‚Ñ€ Ð»Ñ–Ð²Ð¾Ñ€ÑƒÑ‡',
-        'ÐÐ¸Ð¶Ð½Ñ–Ð¹ Ð»Ñ–Ð²Ð¸Ð¹',
-        'Ð¦ÐµÐ½Ñ‚Ñ€ Ð²Ð½Ð¸Ð·Ñƒ'
-    ];
-    STR_CHAT_100_ARRAY = ['ÐŸÑ€Ð°Ð²Ð¾Ñ€ÑƒÑ‡', 'Ð¦ÐµÐ½Ñ‚Ñ€', 'Ð›Ñ–Ð²Ð¾Ñ€ÑƒÑ‡'];
-    STR_NOTIFICATION_POS = 'ÐŸÐ¾Ð·Ð¸Ñ†Ñ–Ñ ÑÐ¿Ð¾Ð²Ñ–Ñ‰ÐµÐ½Ð½Ñ Ð½Ð° ÐµÐºÑ€Ð°Ð½Ñ–';
-    STR_NOTIFICATION_POS_ARRAY = ['Ð’ÐµÑ€Ñ…Ð½Ñ–Ð¹ Ð¿Ñ€Ð°Ð²Ð¸Ð¹', 'Ð’ÐµÑ€Ñ…Ð½Ñ–Ð¹ Ñ†ÐµÐ½Ñ‚Ñ€', 'Ð’ÐµÑ€Ñ…Ð½Ñ–Ð¹ Ð»Ñ–Ð²Ð¸Ð¹', 'ÐÐ¸Ð¶Ð½Ñ–Ð¹ Ð»Ñ–Ð²Ð¸Ð¹', 'ÐÐ¸Ð¶Ð½Ñ–Ð¹ Ñ†ÐµÐ½Ñ‚Ñ€', 'ÐÐ¸Ð¶Ð½Ñ–Ð¹ Ð¿Ñ€Ð°Ð²Ð¸Ð¹'];
-    STR_LOWLATENCY_ARRAY = [
-        STR_DISABLE,
-        'ÐÐ¾Ñ€Ð¼Ð°Ð»ÑŒÐ½Ð¸Ð¹ Ñ€ÐµÐ¶Ð¸Ð¼, Ð¼Ð¾Ð¶Ðµ ÑÐ¿Ñ€Ð¸Ñ‡Ð¸Ð½Ð¸Ñ‚Ð¸ Ð¿Ð¾Ð²Ñ‚Ð¾Ñ€Ð½Ñƒ Ð±ÑƒÑ„ÐµÑ€Ð¸Ð·Ð°Ñ†Ñ–ÑŽ',
-        'ÐÐ°Ð¹Ð½Ð¸Ð¶Ñ‡Ð¸Ð¹ Ñ€ÐµÐ¶Ð¸Ð¼, Ð¼Ð¾Ð¶Ðµ Ð²Ð¸ÐºÐ»Ð¸ÐºÐ°Ñ‚Ð¸ Ñ‰Ðµ Ð±Ñ–Ð»ÑŒÑˆÐµ Ð¿Ð¾Ð²Ñ‚Ð¾Ñ€Ð½Ð¸Ñ… Ð±ÑƒÑ„ÐµÑ€Ð¸Ð·Ð°Ñ†Ñ–Ð¹'
-    ];
-    STR_LOWLATENCY_ENABLE_ARRAY = [
-        STR_LOW_LATENCY + ' - ' + STR_DISABLED,
-        STR_LOW_LATENCY + ' - ÐÐ¾Ñ€Ð¼Ð°Ð»ÑŒÐ½Ð¸Ð¹ Ñ€ÐµÐ¶Ð¸Ð¼',
-        STR_LOW_LATENCY + ' - ÐÐ°Ð¹Ð½Ð¸Ð¶Ñ‡Ð¸Ð¹ Ñ€ÐµÐ¶Ð¸Ð¼'
-    ];
-    STR_VOD_SEEK = 'ÐŸÐµÑ€ÐµÐ¼Ð¾Ñ‚ÐºÐ° VOD Ð½Ð°Ð·Ð°Ð´/Ð²Ð¿ÐµÑ€ÐµÐ´';
-    STR_VOD_SEEK_SUMMARY =
-        'ÐšÐµÑ€ÑƒÑ” ÑˆÐ²Ð¸Ð´ÐºÑ–ÑÑ‚ÑŽ Ð¿ÐµÑ€ÐµÐ¼Ð¾Ñ‚ÑƒÐ²Ð°Ð½Ð½Ñ Ð½Ð°Ð·Ð°Ð´/Ð²Ð¿ÐµÑ€ÐµÐ´. ÐŸÑ€Ð¸ ÑƒÑ‚Ñ€Ð¸Ð¼Ð°Ð½Ð½Ñ– ÐºÐ»Ð°Ð²Ñ–Ñˆ Ð»Ñ–Ð²Ð¾Ñ€ÑƒÑ‡/Ð¿Ñ€Ð°Ð²Ð¾Ñ€ÑƒÑ‡ Ñ‡Ð°Ñ ÐºÑ€Ð¾ÐºÑƒ Ð·Ð±Ñ–Ð»ÑŒÑˆÑƒÑ”Ñ‚ÑŒÑÑ Ð´Ð¾ Ð¼Ð°ÐºÑÐ¸Ð¼ÑƒÐ¼Ñƒ, Ð° Ð¿Ð¾Ñ‚Ñ–Ð¼ ÑÐºÐ¸Ð´Ð°Ñ”Ñ‚ÑŒÑÑ Ð¿Ñ–ÑÐ»Ñ Ð¿Ð°ÑƒÐ·Ð¸. ÐžÐ´Ð½Ð¾Ñ€Ð°Ð·Ð¾Ð²Ðµ Ð½Ð°Ñ‚Ð¸ÑÐºÐ°Ð½Ð½Ñ Ð½Ðµ Ð·Ð¼Ñ–Ð½ÑŽÑ” ÑˆÐ²Ð¸Ð´ÐºÑ–ÑÑ‚ÑŒ. ÐŸÑ€Ð°Ñ†ÑŽÑ” Ñ‚Ñ–Ð»ÑŒÐºÐ¸ Ð· VOD.';
-    STR_VOD_SEEK_MIN = 'ÐœÑ–Ð½Ñ–Ð¼Ð°Ð»ÑŒÐ½Ð¸Ð¹ (Ð¿Ð¾Ñ‡Ð°Ñ‚ÐºÐ¾Ð²Ð¸Ð¹) ÐºÑ€Ð¾Ðº';
-    STR_VOD_SEEK_MAX = 'ÐœÐ°ÐºÑÐ¸Ð¼Ð°Ð»ÑŒÐ½Ð¸Ð¹ ÐºÑ€Ð¾Ðº';
-    STR_VOD_SEEK_TIME = 'Ð§Ð°Ñ Ð´Ð¾ Ð·Ð±Ñ–Ð»ÑŒÑˆÐµÐ½Ð½Ñ ÐºÑ€Ð¾ÐºÑƒ Ð¿Ñ€Ð¸ ÑƒÑ‚Ñ€Ð¸Ð¼Ð°Ð½Ð½Ñ–';
-    STR_UP_LOCKED = 'Ð½Ð°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ Ð²Ð³Ð¾Ñ€Ñƒ Ð´Ð»Ñ Ñ„Ñ–ÐºÑÐ°Ñ†Ñ–Ñ— Ð·Ð½Ð°Ñ‡ÐµÐ½Ð½Ñ';
-    STR_LOCKED = 'Ð·Ð°Ñ„Ñ–ÐºÑÐ¾Ð²Ð°Ð½Ð¾, Ð½Ð°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ Ð²Ð³Ð¾Ñ€Ñƒ Ð´Ð»Ñ Ð·Ð¼Ñ–Ð½Ð¸';
-    STR_IN_CHAT = 'Ð£ Ñ‡Ð°Ñ‚Ñ–';
-    STR_IN_SHARED_CHAT = 'Ð£ ÑÐ¿Ñ–Ð»ÑŒÐ½Ð¾Ð¼Ñƒ Ñ‡Ð°Ñ‚Ñ–';
-    STR_SHOW_IN_CHAT = 'ÐŸÐ¾ÐºÐ°Ð·ÑƒÐ²Ð°Ñ‚Ð¸ ÐºÑ–Ð»ÑŒÐºÑ–ÑÑ‚ÑŒ ÐºÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ‡Ñ–Ð² Ð½Ð°Ð´ Ñ‡Ð°Ñ‚Ð¾Ð¼ Ð°Ð±Ð¾ Ð³Ð»ÑÐ´Ð°Ñ‡Ð°Ð¼Ð¸';
-    STR_SHOW_IN_CHAT_SUMMARY =
-        'Ð”Ð¾Ð¿Ð¾Ð¼Ð°Ð³Ð°Ñ” Ð²Ð¸Ð·Ð½Ð°Ñ‡Ð¸Ñ‚Ð¸, Ñ‡Ð¸ Ñ” Ð°ÐºÑ‚Ð¸Ð²Ð½Ñ– ÐºÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ‡Ñ– Ñƒ Ñ‡Ð°Ñ‚Ñ– Ð² Ð¾Ñ„Ð»Ð°Ð¹Ð½Ñ–, Ñ– Ð¿Ð¾ÐºÐ°Ð·ÑƒÑ” Ñ€Ñ–Ð·Ð½Ð¸Ñ†ÑŽ Ð¼Ñ–Ð¶ Ð·Ð°Ð³Ð°Ð»ÑŒÐ½Ð¾ÑŽ ÐºÑ–Ð»ÑŒÐºÑ–ÑÑ‚ÑŽ Ð³Ð»ÑÐ´Ð°Ñ‡Ñ–Ð² Ñ‚Ð° ÑƒÑ‡Ð°ÑÐ½Ð¸ÐºÑ–Ð² Ñ‡Ð°Ñ‚Ñƒ.';
-    STR_SHOW_IN_CHAT_VIEWERS = 'ÐŸÐ¾ÐºÐ°Ð·Ð°Ñ‚Ð¸ Ð³Ð»ÑÐ´Ð°Ñ‡Ñ–Ð²';
-    STR_SHOW_IN_CHAT_CHATTERS = 'ÐŸÐ¾ÐºÐ°Ð·Ð°Ñ‚Ð¸ Ñ‡Ð°Ñ‚ÐµÑ€Ñ–Ð²';
-    STR_PLAYED = 'ÐŸÑ€Ð¾Ð³Ñ€Ð°Ð½Ð¾';
-    STR_CHAPTERS = 'Ð Ð¾Ð·Ð´Ñ–Ð»Ð¸';
-    STR_FROM_SIMPLE = 'Ð·';
-    STR_HIDE_MAIN_CLOCK = 'ÐŸÑ€Ð¸Ñ…Ð¾Ð²Ð°Ñ‚Ð¸ Ð³Ð¾Ð´Ð¸Ð½Ð½Ð¸Ðº Ð½Ð° Ð³Ð¾Ð»Ð¾Ð²Ð½Ð¾Ð¼Ñƒ ÐµÐºÑ€Ð°Ð½Ñ–';
-    STR_HIDE_PLAYER_CLOCK = 'ÐŸÑ€Ð¸Ñ…Ð¾Ð²Ð°Ñ‚Ð¸ Ð³Ð¾Ð´Ð¸Ð½Ð½Ð¸Ðº Ñƒ Ð¿Ð»ÐµÑ”Ñ€Ñ–';
-    STR_HIDE_MAIN_SCREEN_TITLE = 'ÐŸÑ€Ð¸Ñ…Ð¾Ð²Ð°Ñ‚Ð¸ Ð·Ð°Ð³Ð¾Ð»Ð¾Ð²Ð¾Ðº Ð³Ð¾Ð»Ð¾Ð²Ð½Ð¾Ð³Ð¾ ÐµÐºÑ€Ð°Ð½Ð°';
-    STR_HIDE_MAIN_SCREEN_TITLE_SUMMARY = 'Ð—Ð°Ð³Ð¾Ð»Ð¾Ð²ÐºÐ¸ Ð² Ñ†ÐµÐ½Ñ‚Ñ€Ñ–: ÐµÑ„Ñ–Ñ€Ð¸, ÐºÐ»Ñ–Ð¿Ð¸, Ð½Ð°Ð»Ð°ÑˆÑ‚ÑƒÐ²Ð°Ð½Ð½Ñ Ñ‚Ð¾Ñ‰Ð¾';
-    STR_HIDE_ETC_HELP_INFO = 'ÐŸÑ€Ð¸Ñ…Ð¾Ð²Ð°Ñ‚Ð¸ Ð¿Ñ–Ð´ÐºÐ°Ð·ÐºÐ¸ Ð½Ð°Ð²Ñ–Ð³Ð°Ñ†Ñ–Ñ— Ð½Ð° ÐµÐºÑ€Ð°Ð½Ñ–';
-    STR_HIDE_ETC_HELP_INFO_SUMMARY = "ÐŸÑ–Ð´ÐºÐ°Ð·ÐºÐ¸ Ð½Ð° ÐºÑˆÑ‚Ð°Ð»Ñ‚ 'Ð£Ñ‚Ñ€Ð¸Ð¼ÑƒÐ¹Ñ‚Ðµ ÐºÐ»Ð°Ð²Ñ–ÑˆÑƒ Ð´Ð»Ñ Ð´Ñ–Ñ—' Ñ‚Ð¾Ñ‰Ð¾.";
-    STR_INACTIVE_SETTINGS = 'ÐÐ²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡Ð½Ðµ Ð·Ð³Ð¾Ñ€Ñ‚Ð°Ð½Ð½Ñ Ð´Ð¾Ð´Ð°Ñ‚ÐºÑƒ Ð¿Ñ€Ð¸ Ð½ÐµÐ°ÐºÑ‚Ð¸Ð²Ð½Ð¾ÑÑ‚Ñ– Ñ‡ÐµÑ€ÐµÐ·';
-    STR_INACTIVE_SETTINGS_SUMMARY =
-        'Ð—Ð°Ð¿Ð¾Ð±Ñ–Ð³Ð°Ñ” Ñ‚Ñ€Ð¸Ð²Ð°Ð»Ð¾Ð¼Ñƒ Ñ„Ð¾Ð½Ð¾Ð²Ð¾Ð¼Ñƒ Ð·Ð°Ð¿ÑƒÑÐºÑƒ Ð´Ð¾Ð´Ð°Ñ‚ÐºÑƒ Ð±ÐµÐ· Ð³Ð»ÑÐ´Ð°Ñ‡Ð°. Ð—Ê¼ÑÐ²Ð¸Ñ‚ÑŒÑÑ Ð¿Ð¾Ð¿ÐµÑ€ÐµÐ´Ð¶ÐµÐ½Ð½Ñ Ð· 15 ÑÐµÐº. Ñ‚Ð°Ð¹Ð¼ÐµÑ€Ð¾Ð¼ Ð´Ð»Ñ ÑÐºÐ°ÑÑƒÐ²Ð°Ð½Ð½Ñ.';
-    STR_INACTIVE_WARNING = 'Ð”Ð¾Ð´Ð°Ñ‚Ð¾Ðº Ð±ÑƒÐ´Ðµ Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡Ð½Ð¾ Ð·Ð³Ð¾Ñ€Ð½ÑƒÑ‚Ð¸Ð¹ Ñ‡ÐµÑ€ÐµÐ· Ð½ÐµÐ°ÐºÑ‚Ð¸Ð²Ð½Ñ–ÑÑ‚ÑŒ Ñ‡ÐµÑ€ÐµÐ·<br><br>%x<br><br>ÐÐ°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ Ð±ÑƒÐ´ÑŒ-ÑÐºÑƒ ÐºÐ»Ð°Ð²Ñ–ÑˆÑƒ Ð´Ð»Ñ ÑÐºÐ°ÑÑƒÐ²Ð°Ð½Ð½Ñ';
-    STR_REMAINING = 'Ð—Ð°Ð»Ð¸ÑˆÐ¸Ð»Ð¾ÑÑŒ:';
-    STR_PLAYER_INFO_VISIBILITY = 'Ð’Ð¸Ð´Ð¸Ð¼Ñ–ÑÑ‚ÑŒ ÑÑ‚Ð°Ñ‚ÑƒÑÑƒ Ð¿Ð»ÐµÑ”Ñ€Ð°';
-    STR_PREVIEW_SET = 'ÐÐ°Ð»Ð°ÑˆÑ‚ÑƒÐ²Ð°Ð½Ð½Ñ Ð¿Ð¾Ð¿ÐµÑ€ÐµÐ´Ð½ÑŒÐ¾Ð³Ð¾ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´Ñƒ';
-    STR_PREVIEW_SHOW = 'ÐŸÐ¾ÐºÐ°Ð·ÑƒÐ²Ð°Ñ‚Ð¸ Ð¿Ð¾Ð¿ÐµÑ€ÐµÐ´Ð½Ñ–Ð¹ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´';
-    STR_PREVIEW_SIZE_CONTROLS = 'Ð Ð¾Ð·Ð¼Ñ–Ñ€ Ð¿Ð¾Ð¿ÐµÑ€ÐµÐ´Ð½ÑŒÐ¾Ð³Ð¾ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´Ñƒ';
-    STR_OLED_BURN_IN = 'Ð—Ð°Ñ…Ð¸ÑÑ‚ Ð²Ñ–Ð´ Ð²Ð¸Ð³Ð¾Ñ€Ð°Ð½Ð½Ñ OLED';
-    STR_OLED_BURN_IN_SUMMARY = 'ÐšÐ¾Ð»Ð¸ Ð°ÐºÑ‚Ð¸Ð²Ð¾Ð²Ð°Ð½Ð¾, ÐµÐºÑ€Ð°Ð½ ÑÑ‚Ð°Ñ” Ñ‡Ð¾Ñ€Ð½Ð¸Ð¼ Ð½Ð° 50 Ð¼Ñ ÐºÐ¾Ð¶Ð½Ñ– 20 Ñ…Ð². ÐŸÐ¾Ñ‚Ñ€Ñ–Ð±Ð½Ð¾ Ð»Ð¸ÑˆÐµ Ð´Ð»Ñ OLED-Ð´Ð¸ÑÐ¿Ð»ÐµÑ—Ð², ÑÑ…Ð¸Ð»ÑŒÐ½Ð¸Ñ… Ð´Ð¾ Ð²Ð¸Ð³Ð¾Ñ€Ð°Ð½Ð½Ñ.';
-    STR_AS = 'ÑÐº';
-    STR_MILLISECONDS = 'Ð¼Ñ–Ð»Ñ–ÑÐµÐºÑƒÐ½Ð´';
-    STR_HOUR = 'Ð³Ð¾Ð´Ð¸Ð½Ð°';
-    STR_HOURS = 'Ð³Ð¾Ð´Ð¸Ð½Ð¸';
-    STR_RIGHT = 'ÐŸÑ€Ð°Ð²Ð¾Ñ€ÑƒÑ‡';
-    STR_LEFT = 'Ð›Ñ–Ð²Ð¾Ñ€ÑƒÑ‡';
-    STR_BOTTOM = 'Ð’Ð½Ð¸Ð·Ñƒ';
-    STR_TOP = 'Ð’Ð³Ð¾Ñ€Ñ–';
-    STR_AVG = 'Ð¡ÐµÑ€ÐµÐ´Ð½Ñ”';
-    STR_OFFSET = 'Ð—ÑÑƒÐ²';
-
-    STR_HISTORY_EMPTY_CONTENT = 'Ð†ÑÑ‚Ð¾Ñ€Ñ–Ñ Ð¿Ð¾ÐºÐ°Ð·ÑƒÑ”, Ñ‰Ð¾ Ð²Ð¸ Ð´Ð¸Ð²Ð¸Ð»Ð¸ÑÑŒ Ñƒ Ð´Ð¾Ð´Ð°Ñ‚ÐºÑƒ, Ð»Ð¸ÑˆÐµ ÑÐºÑ‰Ð¾ Ð²Ð¾Ð½Ð° ÑƒÐ²Ñ–Ð¼ÐºÐ½ÐµÐ½Ð°';
-    STR_PREVIEW = 'Ð¿Ð¾Ð¿ÐµÑ€ÐµÐ´Ð½Ñ–Ð¹ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´';
-
-    STR_EMBED = 'Ð’Ð±ÑƒÐ´Ð¾Ð²Ð°Ð½Ð¸Ð¹ Ð¿Ð»ÐµÑ”Ñ€ ';
-    STR_CLICK_EXIT = 'ÐÐ°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ Ñ‚ÑƒÑ‚, Ñ‰Ð¾Ð± Ð²Ð¸Ð¹Ñ‚Ð¸ Ð· Ð¿Ð»ÐµÑ”Ñ€Ð°';
-    STR_GO_FULL = 'ÐÐ° Ð²ÐµÑÑŒ ÐµÐºÑ€Ð°Ð½';
-    STR_GO_FULL_HELP = 'ÐÐ°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ, Ð°Ð±Ð¾ ÐºÐ»Ð°Ð²Ñ–ÑˆÑƒ 9 Ñ‡Ð¸ F11';
-    STR_NOT_SUPPORT_BROWSER = 'Ð¦Ðµ Ð½Ðµ Ð¿Ñ–Ð´Ñ‚Ñ€Ð¸Ð¼ÑƒÑ”Ñ‚ÑŒÑÑ Ñƒ Ð±Ñ€Ð°ÑƒÐ·ÐµÑ€Ñ–';
-
-    STR_WARNING_BROWSER = 'ÐŸÐ¾Ð¿ÐµÑ€ÐµÐ´Ð¶ÐµÐ½Ð½Ñ Ð´Ð»Ñ Ð±Ñ€Ð°ÑƒÐ·ÐµÑ€Ð°';
-    STR_WARNING_BROWSER_SUMMARY =
-        'Ð¦ÐµÐ¹ Ð´Ð¾Ð´Ð°Ñ‚Ð¾Ðº ÑÑ‚Ð²Ð¾Ñ€ÐµÐ½Ð¾ Ð² Ð¿ÐµÑ€ÑˆÑƒ Ñ‡ÐµÑ€Ð³Ñƒ Ð´Ð»Ñ Ð¢Ð’. ÐŸÑ–Ð´Ñ‚Ñ€Ð¸Ð¼ÐºÐ° Ñ–Ð½ÑˆÐ¸Ñ… Ð¿Ñ€Ð¸ÑÑ‚Ñ€Ð¾Ñ—Ð² Ð¾Ð±Ð¼ÐµÐ¶ÐµÐ½Ð°. Ð’Ð¸ Ð¼Ð¾Ð¶ÐµÑ‚Ðµ ÐºÐµÑ€ÑƒÐ²Ð°Ñ‚Ð¸ Ð¼Ð¸ÑˆÐµÑŽ, Ð°Ð»Ðµ ÐºÑ€Ð°Ñ‰Ðµ Ð²Ð¸ÐºÐ¾Ñ€Ð¸ÑÑ‚Ð¾Ð²ÑƒÐ²Ð°Ñ‚Ð¸ ÐºÐ»Ð°Ð²Ñ–Ð°Ñ‚ÑƒÑ€Ñƒ (Ð²Ð³Ð¾Ñ€Ñƒ, Ð²Ð½Ð¸Ð·, Ð»Ñ–Ð²Ð¾, Ð¿Ñ€Ð°Ð²Ð¾, ÐžÐš Ñ– Ð½Ð°Ð·Ð°Ð´).';
-    STR_THUMB_OPTIONS_CLICK = 'ÐšÐ»Ð°Ñ†Ð½Ñ–Ñ‚ÑŒ Ð´Ð²Ñ–Ñ‡Ñ–, Ñ‰Ð¾Ð± Ð²Ñ–Ð´ÐºÑ€Ð¸Ñ‚Ð¸ Ð°Ð±Ð¾ Ð·Ð°ÑÑ‚Ð¾ÑÑƒÐ²Ð°Ñ‚Ð¸ Ð¾Ð¿Ñ†Ñ–ÑŽ (Ð°Ð±Ð¾ ÐºÐ»Ð°Ñ†Ð½Ñ–Ñ‚ÑŒ Ð¿Ð¾Ð·Ð° Ð²Ñ–ÐºÐ½Ð¾Ð¼ Ð´Ð»Ñ Ð²Ð¸Ñ…Ð¾Ð´Ñƒ Ð±ÐµÐ· Ð·Ð¼Ñ–Ð½)';
-    STR_CLOSE_THIS_BROWSER = 'ÐÐ°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ Ð½Ð°Ð·Ð°Ð´, ÐžÐš Ð°Ð±Ð¾ ÐºÐ»Ð°Ñ†Ð½Ñ–Ñ‚ÑŒ Ð¿Ð¾Ð·Ð° Ð¼ÐµÐ¶Ð°Ð¼Ð¸ Ð²Ñ–ÐºÐ½Ð°, Ñ‰Ð¾Ð± Ð·Ð°ÐºÑ€Ð¸Ñ‚Ð¸';
-
-    STR_DISABLE_EMBED = 'Ð£Ð²Ñ–Ð¼ÐºÐ½ÑƒÑ‚Ð¸ Ð¿Ð»ÐµÑ”Ñ€ Twitch Ð´Ð»Ñ ÐµÑ„Ñ–Ñ€Ñ–Ð² Ñ– VOD';
-    STR_DISABLE_EMBED_SUMMARY = 'ÐŸÐ¾Ñ‚Ñ€Ñ–Ð±Ð½Ð¾ Ð²Ð¸Ð¼ÐºÐ½ÑƒÑ‚Ð¸, Ð»Ð¸ÑˆÐµ ÑÐºÑ‰Ð¾ Ñ…Ð¾Ñ‡ÐµÑ‚Ðµ Ð¿Ð¾Ð±Ð°Ñ‡Ð¸Ñ‚Ð¸ Android-Ð¿Ð»ÐµÑ”Ñ€ Ð´Ð»Ñ Ñ‚ÐµÑÑ‚ÑƒÐ²Ð°Ð½Ð½Ñ Ð¹Ð¾Ð³Ð¾ Ñ–Ð½Ñ‚ÐµÑ€Ñ„ÐµÐ¹ÑÑƒ Ñ‚Ð° Ñ‚ÐµÐºÑÑ‚Ñ–Ð².';
-
-    STR_SPECIAL_FEATURE = 'Ð”Ð»Ñ Ñ†Ñ–Ñ”Ñ— Ñ„ÑƒÐ½ÐºÑ†Ñ–Ñ— Ð²Ð¸ÐºÐ¾Ñ€Ð¸ÑÑ‚Ð¾Ð²ÑƒÐ¹Ñ‚Ðµ ÐºÐ»Ð°Ð²Ñ–Ð°Ñ‚ÑƒÑ€Ñƒ';
-    STR_FAIL_VOD_INFO = 'ÐÐµ Ð²Ð´Ð°Ð»Ð¾ÑÑ Ð·Ð°Ð²Ð°Ð½Ñ‚Ð°Ð¶Ð¸Ñ‚Ð¸ Ñ–Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ñ–ÑŽ Ð¿Ñ€Ð¾ VOD';
-
-    STR_PROXY_DONATE_SUMMARY = 'Ð¯ÐºÑ‰Ð¾ Ñ…Ð¾Ñ‡ÐµÑ‚Ðµ Ð¿Ð¾Ð´ÑÐºÑƒÐ²Ð°Ñ‚Ð¸ Ð°Ð´Ð¼Ñ–Ð½Ñ–ÑÑ‚Ñ€Ð°Ñ‚Ð¾Ñ€Ñƒ Ð¿Ñ€Ð¾ÐºÑÑ–-ÑÐµÑ€Ð²ÐµÑ€Ð° Ð°Ð±Ð¾ Ð´Ñ–Ð·Ð½Ð°Ñ‚Ð¸ÑÑŒ Ð±Ñ–Ð»ÑŒÑˆÐµ â€” ÑÐºÐ¾Ñ€Ð¸ÑÑ‚Ð°Ð¹Ñ‚ÐµÑÑŒ Ð¿Ð¾ÑÐ¸Ð»Ð°Ð½Ð½ÑÐ¼:';
-
-    STR_TTV_LOL = 'TTV LOL';
-    STR_K_TWITCH = 'K-Twitch-Bypass';
-    STR_T1080 = 'T1080';
-
-    STR_PROXY_TIMEOUT = 'Ð¢Ð°Ð¹Ð¼-Ð°ÑƒÑ‚ Ð¿Ñ€Ð¾ÐºÑÑ– (ÑÐµÐºÑƒÐ½Ð´Ð¸)';
-    STR_PROXY_TIMEOUT_SUMMARY = 'Ð¯ÐºÑ‰Ð¾ Ð¿Ñ€Ð¾ÐºÑÑ– Ð½ÐµÐ´Ð¾ÑÑ‚ÑƒÐ¿Ð½Ð¸Ð¹ â€” Ñ‡ÐµÑ€ÐµÐ· Ñ†ÐµÐ¹ Ñ‡Ð°Ñ Ð±ÑƒÐ´Ðµ Ð¿Ñ€Ð¸Ð¿Ð¸Ð½ÐµÐ½Ð¾ ÑÐ¿Ñ€Ð¾Ð±Ñƒ Ð·Ê¼Ñ”Ð´Ð½Ð°Ð½Ð½Ñ Ñ‚Ð° Ð¿Ð¾Ð²ÐµÑ€Ð½ÐµÐ½Ð½Ñ Ð´Ð¾ ÑÑ‚Ð°Ð½Ð´Ð°Ñ€Ñ‚Ð½Ð¾Ð³Ð¾ Twitch';
-
-    STR_CUSTOM_PROXY = 'ÐšÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ†ÑŒÐºÐ¸Ð¹ Ð¿Ñ€Ð¾ÐºÑÑ–';
-    STR_CUSTOM_PROXY_SUMMARY = 'Ð’Ð¸ÐºÐ¾Ñ€Ð¸ÑÑ‚Ð¾Ð²ÑƒÐ²Ð°Ñ‚Ð¸ URL ÐºÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ†ÑŒÐºÐ¾Ð³Ð¾ Ð¿Ñ€Ð¾ÐºÑÑ–-ÑÐµÑ€Ð²ÐµÑ€Ð°, Ð½Ð°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ enter Ð´Ð»Ñ Ñ€ÐµÐ´Ð°Ð³ÑƒÐ²Ð°Ð½Ð½Ñ URL';
-    STR_CUSTOM_PROXY_URL = 'URL ÐºÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ†ÑŒÐºÐ¾Ð³Ð¾ Ð¿Ñ€Ð¾ÐºÑÑ–';
-    STR_CUSTOM_PROXY_URL_PROMPT = 'Ð’Ð²ÐµÐ´Ñ–Ñ‚ÑŒ URL ÐºÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ†ÑŒÐºÐ¾Ð³Ð¾ Ð¿Ñ€Ð¾ÐºÑÑ– (URL Ð¿Ð¾Ð²Ð¸Ð½ÐµÐ½ Ð·Ð°ÐºÑ–Ð½Ñ‡ÑƒÐ²Ð°Ñ‚Ð¸ÑÑ Ð½Ð° /):';
-    STR_CUSTOM_PROXY_HAS_TOKEN = 'ÐšÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ†ÑŒÐºÐ¸Ð¹ Ð¿Ñ€Ð¾ÐºÑÑ– Ð¼Ð°Ñ” Ñ‚Ð¾ÐºÐµÐ½';
-    STR_CUSTOM_PROXY_HAS_TOKEN_SUMMARY =
-        'Ð¯ÐºÑ‰Ð¾ URL Ð¿Ñ€Ð¾ÐºÑÑ– Ð²Ð¶Ðµ Ð¼Ñ–ÑÑ‚Ð¸Ñ‚ÑŒ Ñ‚Ð¾ÐºÐµÐ½, Ð²Ð¸Ð¼ÐºÐ½Ñ–Ñ‚ÑŒ Ñ†ÑŽ Ð¾Ð¿Ñ†Ñ–ÑŽ, Ñ‰Ð¾Ð± Ñ‚Ð¾ÐºÐµÐ½ Ð½Ðµ Ð´Ð¾Ð´Ð°Ð²Ð°Ð²ÑÑ Ð¿Ð¾Ð²Ñ‚Ð¾Ñ€Ð½Ð¾';
-    STR_CUSTOM_PROXY_HAS_PARAMETER = 'ÐšÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ†ÑŒÐºÐ¸Ð¹ Ð¿Ñ€Ð¾ÐºÑÑ– Ð¼Ð°Ñ” Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€Ð¸';
-    STR_CUSTOM_PROXY_HAS_PARAMETER_SUMMARY =
-        'Ð¯ÐºÑ‰Ð¾ URL Ð¿Ñ€Ð¾ÐºÑÑ– Ð²Ð¶Ðµ Ð¼Ñ–ÑÑ‚Ð¸Ñ‚ÑŒ Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€Ð¸, ÑƒÐ²Ñ–Ð¼ÐºÐ½Ñ–Ñ‚ÑŒ Ñ†ÑŽ Ð¾Ð¿Ñ†Ñ–ÑŽ, Ñ‰Ð¾Ð± Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€Ð¸ Ð´Ð¾Ð´Ð°Ð²Ð°Ð»Ð¸ÑÑ ÑÐº Ñ€ÑÐ´Ð¾Ðº Ð·Ð°Ð¿Ð¸Ñ‚Ñƒ';
-
-    PROXY_SERVICE = 'ÐŸÑ€Ð¾ÐºÑÑ–: ';
-    PROXY_SERVICE_STATUS = 'Ð£Ð²Ñ–Ð¼ÐºÐ½ÐµÐ½Ð¾ Ñ‚Ð° Ð¿Ñ€Ð°Ñ†ÑŽÑ”';
-    PROXY_SERVICE_OFF = 'Ð’Ð¸Ð¼ÐºÐ½ÐµÐ½Ð¾ Ñƒ Ð½Ð°Ð»Ð°ÑˆÑ‚ÑƒÐ²Ð°Ð½Ð½ÑÑ…';
-    PROXY_SERVICE_FAIL = 'ÐÐµ Ð¿Ñ€Ð°Ñ†ÑŽÑ”, Ð¿Ð¾Ð¼Ð¸Ð»Ð¾Ðº: %x';
-
-    PROXY_SETTINGS = 'ÐÐ°Ð»Ð°ÑˆÑ‚ÑƒÐ²Ð°Ð½Ð½Ñ Ð¿Ñ€Ð¾ÐºÑÑ– (Ñ–Ð½Ñ‚ÐµÑ€Ð½ÐµÑ‚-Ñ†ÐµÐ½Ð·ÑƒÑ€Ð° Ñ‚Ð° Ð¿Ð¾Ð²Ê¼ÑÐ·Ð°Ð½Ñ–)';
-    PROXY_SETTINGS_SUMMARY =
-        'ÐœÐ¾Ð¶Ð½Ð° ÑƒÐ²Ñ–Ð¼ÐºÐ½ÑƒÑ‚Ð¸ Ð»Ð¸ÑˆÐµ Ð¾Ð´Ð¸Ð½ Ð¿Ñ€Ð¾ÐºÑÑ–. ÐŸÑ€Ð¾ÐºÑÑ– Ð´Ð¾Ð·Ð²Ð¾Ð»ÑÑ” Ð¾Ñ‚Ñ€Ð¸Ð¼ÑƒÐ²Ð°Ñ‚Ð¸ Ð¿Ð¾ÑÐ¸Ð»Ð°Ð½Ð½Ñ Ð½Ð° ÑÑ‚Ñ€Ñ–Ð¼Ð¸ Ð· Ñ–Ð½ÑˆÐ¾Ð³Ð¾ ÑÐµÑ€Ð²ÐµÑ€Ð° â€” Ð¼Ð¾Ð¶Ðµ Ð´Ð¾Ð·Ð²Ð¾Ð»Ð¸Ñ‚Ð¸ Ð´Ð¾ÑÑ‚ÑƒÐ¿ Ð´Ð¾ Ð·Ð°Ð±Ð»Ð¾ÐºÐ¾Ð²Ð°Ð½Ð¾Ð³Ð¾ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚Ñƒ Ð°Ð±Ð¾ ÑƒÐ½Ð¸ÐºÐ½ÐµÐ½Ð½Ñ Ñ€ÐµÐºÐ»Ð°Ð¼Ð¸. Ð’Ð¸Ð¼ÐºÐ½Ñ–Ñ‚ÑŒ, ÑÐºÑ‰Ð¾ Ð²Ð¸Ð½Ð¸ÐºÐ°ÑŽÑ‚ÑŒ Ð¿Ñ€Ð¾Ð±Ð»ÐµÐ¼Ð¸ Ð· Ð±ÑƒÑ„ÐµÑ€Ð¸Ð·Ð°Ñ†Ñ–Ñ”ÑŽ, Ð·Ð°Ñ‚Ñ€Ð¸Ð¼ÐºÐ°Ð¼Ð¸ Ñ‡Ð¸ Ð¿Ð¾Ð²Ñ–Ð»ÑŒÐ½Ð¸Ð¼ Ð·Ê¼Ñ”Ð´Ð½Ð°Ð½Ð½ÑÐ¼.';
-    SEEK_PREVIEW = 'ÐŸÐ¾Ð¿ÐµÑ€ÐµÐ´Ð½Ñ–Ð¹ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´ Ð¿Ñ–Ð´ Ñ‡Ð°Ñ Ð¿ÐµÑ€ÐµÐ¼Ð¾Ñ‚ÐºÐ¸';
-    SEEK_PREVIEW_SUMMARY = 'ÐšÐµÑ€ÑƒÑ” Ð²Ñ–Ð´Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð½ÑÐ¼ Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð½Ñ Ð¿Ð¾Ð¿ÐµÑ€ÐµÐ´Ð½ÑŒÐ¾Ð³Ð¾ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´Ñƒ Ð¿Ñ€Ð¸ Ð¿ÐµÑ€ÐµÐ¼Ð¾Ñ‚Ñ†Ñ– VOD. ÐÐµ Ð´Ð¾ÑÑ‚ÑƒÐ¿Ð½Ð¾ Ð´Ð»Ñ Ð²ÑÑ–Ñ… VOD.';
-    SEEK_PREVIEW_SINGLE = 'ÐžÐ´Ð½Ðµ Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð½Ñ';
-    SEEK_PREVIEW_CAROUSEL = 'ÐšÐ°Ñ€ÑƒÑÐµÐ»ÑŒ Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½ÑŒ';
-
-    OPEN_NEW_ISSUE = '(ÐÐ°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ "New issue")';
-
-    STR_CONFIRM = 'ÐŸÑ–Ð´Ñ‚Ð²ÐµÑ€Ð´Ð¸Ñ‚Ð¸';
-
-    STR_MATURE_NO_CHANGES = 'ÐÐµÐ¼Ð°Ñ” Ð·Ð¼Ñ–Ð½ Ð´Ð¾ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚Ñƒ 18+ Ñ‡ÐµÑ€ÐµÐ· Ð²Ñ–Ð´ÑÑƒÑ‚Ð½Ñ–ÑÑ‚ÑŒ Ð¿Ð°Ñ€Ð¾Ð»Ñ';
-    STR_MATURE_PROTECT = 'Ð—Ð°Ñ…Ð¸ÑÑ‚Ð¸Ñ‚Ð¸ Ð·Ð¼Ñ–Ð½Ñƒ Ð½Ð°Ð»Ð°ÑˆÑ‚ÑƒÐ²Ð°Ð½ÑŒ 18+ Ð¿Ð°Ñ€Ð¾Ð»ÐµÐ¼';
-    STR_MATURE_HELP_SET_PASS = 'Ð’ÑÑ‚Ð°Ð½Ð¾Ð²Ñ–Ñ‚ÑŒ Ð¿Ð°Ñ€Ð¾Ð»ÑŒ Ñ– Ð½Ð°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ "ÐŸÑ–Ð´Ñ‚Ð²ÐµÑ€Ð´Ð¸Ñ‚Ð¸". Ð’Ð¸Ñ…Ñ–Ð´ ÑÐºÐ¸Ð½Ðµ Ð½Ð°Ð»Ð°ÑˆÑ‚ÑƒÐ²Ð°Ð½Ð½Ñ 18+';
-    STR_MATURE_HELP_CHECK_PASS = 'Ð’Ð²ÐµÐ´Ñ–Ñ‚ÑŒ Ð·Ð±ÐµÑ€ÐµÐ¶ÐµÐ½Ð¸Ð¹ Ð¿Ð°Ñ€Ð¾Ð»ÑŒ Ñ– Ð½Ð°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ "ÐŸÑ–Ð´Ñ‚Ð²ÐµÑ€Ð´Ð¸Ñ‚Ð¸". Ð’Ð¸Ñ…Ñ–Ð´ ÑÐºÐ¸Ð½Ðµ Ð½Ð°Ð»Ð°ÑˆÑ‚ÑƒÐ²Ð°Ð½Ð½Ñ 18+';
-
-    STR_MATURE_DISABLED = 'ÐšÐ¾Ð½Ñ‚ÐµÐ½Ñ‚ 18+ Ð²Ð¸Ð¼ÐºÐ½ÐµÐ½Ð¾';
-    STR_ENABLE_MATURE = 'ÐšÐ¾Ð½Ñ‚ÐµÐ½Ñ‚ 18+';
-    STR_ENABLE_MATURE_SUMMARY = 'Ð¯ÐºÑ‰Ð¾ Ð²Ð¸Ð¼ÐºÐ½ÐµÐ½Ð¾ â€” Ð±ÑƒÐ´Ðµ Ð·Ð°Ð±Ð»Ð¾ÐºÐ¾Ð²Ð°Ð½Ð¾ Ð²ÐµÑÑŒ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚ 18+, Ð²ÐºÐ»ÑŽÑ‡Ð½Ð¾ Ð· Ð¿Ñ–Ð´Ð¿Ð¸ÑÐ°Ð½Ð¸Ð¼, ÐµÑ„Ñ–Ñ€Ð°Ð¼Ð¸, ÐºÐ»Ñ–Ð¿Ð°Ð¼Ð¸ Ñ‚Ð° VOD.';
-
-    STR_SCREEN_OFF = 'Ð•ÐºÑ€Ð°Ð½ Ð²Ð¸Ð¼ÐºÐ½ÐµÐ½Ð¾ (Ñ‚Ñ–Ð»ÑŒÐºÐ¸ Ð·Ð²ÑƒÐº)';
-
-    STR_UNBLOCK_CHANNEL = 'Ð Ð¾Ð·Ð±Ð»Ð¾ÐºÑƒÐ²Ð°Ñ‚Ð¸ ÐºÐ°Ð½Ð°Ð»';
-    STR_UNBLOCK_GAME = 'Ð Ð¾Ð·Ð±Ð»Ð¾ÐºÑƒÐ²Ð°Ñ‚Ð¸ Ð³Ñ€Ñƒ';
-    STR_BLOCK_CHANNEL = 'Ð—Ð°Ð±Ð»Ð¾ÐºÑƒÐ²Ð°Ñ‚Ð¸ ÐºÐ°Ð½Ð°Ð»';
-    STR_BLOCK_GAME = 'Ð—Ð°Ð±Ð»Ð¾ÐºÑƒÐ²Ð°Ñ‚Ð¸ Ð³Ñ€Ñƒ';
-    STR_BLOCK_NO_USER = 'Ð¡Ð¿Ð¾Ñ‡Ð°Ñ‚ÐºÑƒ Ð´Ð¾Ð´Ð°Ð¹Ñ‚Ðµ ÐºÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ‡Ð° Ð´Ð»Ñ Ð±Ð»Ð¾ÐºÑƒÐ²Ð°Ð½Ð½Ñ';
-    STR_BLOCK_NO_CHANNEL = 'ÐÐµ Ð²Ð´Ð°Ð»Ð¾ÑÑ Ð²Ð¸Ð·Ð½Ð°Ñ‡Ð¸Ñ‚Ð¸ ÐºÐ°Ð½Ð°Ð»';
-    STR_BLOCK_OVERWRITE = 'ÐŸÐ¾ÐºÐ°Ð·Ð°Ñ‚Ð¸ Ð·Ð°Ð±Ð»Ð¾ÐºÐ¾Ð²Ð°Ð½Ñ–';
-    STR_BLOCK_SORT_DATE = 'Ð¡Ð¾Ñ€Ñ‚ÑƒÐ²Ð°Ð½Ð½Ñ Ð·Ð° Ð´Ð°Ñ‚Ð¾ÑŽ Ð±Ð»Ð¾ÐºÑƒÐ²Ð°Ð½Ð½Ñ';
-    STR_BLOCK_SORT_NAME = 'Ð¡Ð¾Ñ€Ñ‚ÑƒÐ²Ð°Ð½Ð½Ñ Ð·Ð° Ð½Ð°Ð·Ð²Ð¾ÑŽ Aâ€“Ð¯';
-    STR_BLOCK_EMPTY_CONTENT = 'Ð—Ð°Ð±Ð»Ð¾ÐºÐ¾Ð²Ð°Ð½Ð¾Ð³Ð¾ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚Ñƒ Ñ†ÑŒÐ¾Ð³Ð¾ Ñ‚Ð¸Ð¿Ñƒ Ð½ÐµÐ¼Ð°Ñ”';
-
-    STR_NO_TOKEN_WARNING = 'Ð‘ÐµÐ· Ð´Ð¾Ð´Ð°Ð½Ð¾Ð³Ð¾ ÐºÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ‡Ð° Ð´Ð¾Ð´Ð°Ñ‚Ð¾Ðº Ð¼Ð¾Ð¶Ðµ Ð½Ðµ Ð·Ð°Ð²Ð°Ð½Ñ‚Ð°Ð¶Ð¸Ñ‚Ð¸ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚ â€” Ñ†Ðµ Ð¾Ð±Ð¼ÐµÐ¶ÐµÐ½Ð½Ñ Twitch API';
-    STR_NO_TOKEN_WARNING_429 = 'Ð”Ð¾Ð´Ð°Ñ‚Ð¾Ðº Ð½Ðµ Ð¼Ð¾Ð¶Ðµ Ð·Ð°Ð²Ð°Ð½Ñ‚Ð°Ð¶Ð¸Ñ‚Ð¸ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚ Ñ‡ÐµÑ€ÐµÐ· Ð¾Ð±Ð¼ÐµÐ¶ÐµÐ½Ð½Ñ Twitch API. Ð©Ð¾Ð± Ð²Ð¸Ñ€Ñ–ÑˆÐ¸Ñ‚Ð¸ Ñ†Ðµ â€” Ð´Ð¾Ð´Ð°Ð¹Ñ‚Ðµ ÐºÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ‡Ð°.';
-
-    STR_ADD_USER_TEXT = 'Ð’Ñ–Ð´Ð²Ñ–Ð´Ð°Ð¹Ñ‚Ðµ %site Ð½Ð° Ñ–Ð½ÑˆÐ¾Ð¼Ñƒ Ð¿Ñ€Ð¸ÑÑ‚Ñ€Ð¾Ñ— Ñ‚Ð° Ð²Ð²ÐµÐ´Ñ–Ñ‚ÑŒ ÐºÐ¾Ð´: %code';
-    STR_ADD_USER_TEXT_COUNTER = 'ÐŸÐµÑ€ÐµÐ²Ñ–Ñ€ÐºÐ° Ð¿Ñ–Ð´Ñ‚Ð²ÐµÑ€Ð´Ð¶ÐµÐ½Ð½Ñ Ð´Ð¾ÑÑ‚ÑƒÐ¿Ñƒ Ñ‡ÐµÑ€ÐµÐ· %d...';
-    STR_ADD_USER_TEXT_COUNTER_NOW = 'ÐŸÐµÑ€ÐµÐ²Ñ–Ñ€ÐºÐ° Ð·Ð°Ñ€Ð°Ð·!';
-    STR_ADD_ERROR = 'ÐÐµ Ð²Ð´Ð°Ð»Ð¾ÑÑ Ð¾Ñ‚Ñ€Ð¸Ð¼Ð°Ñ‚Ð¸ Ð´Ð¾ÑÑ‚ÑƒÐ¿ Ð´Ð¾ ÑÐµÑ€Ð²Ñ–ÑÑƒ Ð´Ð¾Ð´Ð°Ð²Ð°Ð½Ð½Ñ ÐºÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ‡Ð°';
-    STR_USER_TOKEN_ERROR = 'Ð’Ñ‚Ñ€Ð°Ñ‡ÐµÐ½Ð¾ Ð´Ð¾ÑÑ‚ÑƒÐ¿ Ð´Ð¾ Ð¿Ð¾Ñ‚Ð¾Ñ‡Ð½Ð¾Ð³Ð¾ ÐºÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ‡Ð°, Ð¿ÐµÑ€ÐµÐ²Ñ–Ñ€Ñ‚Ðµ Ñ€Ð¾Ð·Ð´Ñ–Ð» ÐºÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ‡Ð°';
-
-    STR_WRONG_PASS = 'ÐÐµÐ¿Ñ€Ð°Ð²Ð¸Ð»ÑŒÐ½Ð¸Ð¹ Ð¿Ð°Ñ€Ð¾Ð»ÑŒ!';
-    STR_PASS_MATURE_ENABLED = 'ÐšÐ¾Ð½Ñ‚ÐµÐ½Ñ‚ 18+ ÑƒÐ²Ñ–Ð¼ÐºÐ½ÐµÐ½Ð¾, ÑÑ‚Ð°Ñ€Ð¸Ð¹ Ð¿Ð°Ñ€Ð¾Ð»ÑŒ Ð²Ð¸Ð´Ð°Ð»ÐµÐ½Ð¾';
-
-    STR_PLAYER_EXTRA_CODEC = 'ÐŸÐ¾ÐºÑ€Ð°Ñ‰ÐµÐ½Ðµ Ð¼Ð¾Ð²Ð»ÐµÐ½Ð½Ñ HEVC, AV1, Ð¿Ñ–Ð´Ñ‚Ñ€Ð¸Ð¼ÐºÐ° 1440p 4K';
-    STR_PLAYER_EXTRA_CODEC_SUMMARY =
-        'Ð‘Ñ–Ð»ÑŒÑˆÑ–ÑÑ‚ÑŒ Ñ‚Ñ€Ð°Ð½ÑÐ»ÑÑ†Ñ–Ð¹ Ð²Ð¸ÐºÐ¾Ñ€Ð¸ÑÑ‚Ð¾Ð²ÑƒÑŽÑ‚ÑŒ AVC (H.264) Ð´Ð¾ 1080p60; HEVC/AV1 Ð·Ð°Ð±ÐµÐ·Ð¿ÐµÑ‡ÑƒÑ” 1440p, 4K Ñ– Ð¿Ð¾Ð½Ð°Ð´ 60 ÐºÐ°Ð´Ñ€Ñ–Ð²/Ñ Ð·Ð° Ð½Ð°ÑÐ²Ð½Ð¾ÑÑ‚Ñ– (ÐŸÑ–Ð´Ñ‚Ñ€Ð¸Ð¼ÑƒÑŽÑ‚ÑŒÑÑ Ð½Ðµ Ð²ÑÑ– Ñ‚Ñ€Ð°Ð½ÑÐ»ÑÑ†Ñ–Ñ— â€” Ñ†Ðµ Ð·Ð°Ð»ÐµÐ¶Ð¸Ñ‚ÑŒ Ð²Ñ–Ð´ Ñ‚Ð¾Ð³Ð¾, Ñ‡Ð¸ Ð²Ð²Ñ–Ð¼ÐºÐ½ÑƒÐ² Ñ†Ðµ ÑÑ‚Ñ€Ñ–Ð¼ÐµÑ€ Ñ– Ñ‡Ð¸ Ð´Ð¾ÑÑ‚ÑƒÐ¿Ð½Ð¾ Ñ†Ðµ Ð²Ñ–Ð´ Twitch Ñƒ Ð²Ð°ÑˆÐ¾Ð¼Ñƒ Ñ€ÐµÐ³Ñ–Ð¾Ð½Ñ–).';
-    STR_PLAYER_EXTRA_CODEC_SUMMARY1 =
-        'Ð¦Ñ Ñ„ÑƒÐ½ÐºÑ†Ñ–Ñ Ð¿Ñ€Ð°Ñ†ÑŽÑ” Ð»Ð¸ÑˆÐµ Ð´Ð»Ñ ÐºÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ‡Ñ–Ð², ÑÐºÑ– ÑƒÐ²Ñ–Ð¹ÑˆÐ»Ð¸ Ð² ÑÐ¸ÑÑ‚ÐµÐ¼Ñƒ. ÐŸÑ–Ð´Ñ‚Ñ€Ð¸Ð¼ÑƒÑŽÑ‚ÑŒÑÑ Ð½Ðµ Ð²ÑÑ– Ñ‚Ñ€Ð°Ð½ÑÐ»ÑÑ†Ñ–Ñ— â€” Ñ†Ðµ Ð·Ð°Ð»ÐµÐ¶Ð¸Ñ‚ÑŒ Ð²Ñ–Ð´ Ñ‚Ð¾Ð³Ð¾, Ñ‡Ð¸ Ð²Ð²Ñ–Ð¼ÐºÐ½ÑƒÐ² Ñ†Ðµ ÑÑ‚Ñ€Ñ–Ð¼ÐµÑ€ Ñ– Ñ‡Ð¸ Ð´Ð¾ÑÑ‚ÑƒÐ¿Ð½Ð¾ Ñ†Ðµ Ð²Ñ–Ð´ Twitch Ñƒ Ð²Ð°ÑˆÐ¾Ð¼Ñƒ Ñ€ÐµÐ³Ñ–Ð¾Ð½Ñ–.';
-
-    STR_PLAYER_EXTRA_CODEC_SUMMARY_EXTRA = 'Ð”Ð¾Ð´Ð°Ñ‚Ð¾Ðº Ð¿ÐµÑ€ÐµÐ²Ñ–Ñ€ÑÑ”, Ñ‡Ð¸ Ð¿Ñ–Ð´Ñ‚Ñ€Ð¸Ð¼ÑƒÑ” Ð²Ð°Ñˆ Ð¿Ñ€Ð¸ÑÑ‚Ñ€Ñ–Ð¹ HEVC Ð°Ð±Ð¾ AV1 Ð´Ð»Ñ Ð²Ñ–Ð´Ñ‚Ð²Ð¾Ñ€ÐµÐ½Ð½Ñ Ð²Ð¸ÑÐ¾ÐºÐ¾ÑÐºÑ–ÑÐ½Ð¾Ð³Ð¾ Ð²Ñ–Ð´ÐµÐ¾.';
-
-    STR_PLAYER_EXTRA_CODEC_SUMMARY_EXTRA2 = 'Ð‘ÐµÐ· Ð¿Ñ–Ð´Ñ‚Ñ€Ð¸Ð¼ÐºÐ¸ Ð¿Ñ€Ð¸ÑÑ‚Ñ€Ð¾Ñ”Ð¼ Ð²Ñ–Ð´Ñ‚Ð²Ð¾Ñ€ÐµÐ½Ð½Ñ Ð±ÑƒÐ´Ðµ Ð¾Ð±Ð¼ÐµÐ¶ÐµÐ½Ð¸Ð¼ Ð°Ð±Ð¾ Ð½ÐµÐ¼Ð¾Ð¶Ð»Ð¸Ð²Ð¸Ð¼ Ð´Ð»Ñ Ð¿Ð¾ÐºÑ€Ð°Ñ‰ÐµÐ½Ð¸Ñ… ÑÑ‚Ñ€Ñ–Ð¼Ñ–Ð².';
-
-    STR_PLAYER_CODEC_AV1 = 'AV1';
-    STR_PLAYER_CODEC_HEVC = 'HEVC';
-
-    STR_PLAYER_CODEC_SUPPORTED = 'Ð¿Ñ–Ð´Ñ‚Ñ€Ð¸Ð¼ÑƒÑ”Ñ‚ÑŒÑÑ Ð¿Ñ€Ð¸ÑÑ‚Ñ€Ð¾Ñ”Ð¼';
-    STR_PLAYER_CODEC_NOT_SUPPORTED = 'ÐÐµ Ð¿Ñ–Ð´Ñ‚Ñ€Ð¸Ð¼ÑƒÑ”Ñ‚ÑŒÑÑ! Ð£Ð²Ñ–Ð¼ÐºÐ½ÐµÐ½Ð½Ñ Ð¼Ð¾Ð¶Ðµ Ð²Ð¸ÐºÐ»Ð¸ÐºÐ°Ñ‚Ð¸ Ð¿Ð¾Ð¼Ð¸Ð»ÐºÐ¸ Ð¿Ñ€Ð¸ Ð²Ñ–Ð´Ñ‚Ð²Ð¾Ñ€ÐµÐ½Ð½Ñ–.';
-
-    STR_PLAYER_EXTRA_CODEC_SUMMARY_EXTRA3 = 'Ð©Ð¾Ð± ÐºÑ€Ð°Ñ‰Ðµ Ð·Ñ€Ð¾Ð·ÑƒÐ¼Ñ–Ñ‚Ð¸ Ð¼Ð¾Ð¶Ð»Ð¸Ð²Ð¾ÑÑ‚Ñ– Ð¿Ñ€Ð¸ÑÑ‚Ñ€Ð¾ÑŽ, Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ½ÑŒÑ‚Ðµ Ð¾Ð¿Ñ†Ñ–ÑŽ Ð² Ð½Ð°Ð»Ð°ÑˆÑ‚ÑƒÐ²Ð°Ð½Ð½ÑÑ…: ';
-
-    STR_BLOCKED_CODEC = 'ÐŸÑ–Ð´Ñ‚Ñ€Ð¸Ð¼ÐºÐ° ÐºÐ¾Ð´ÐµÐºÑ–Ð² Ñ– Ð·Ð°Ð±Ð»Ð¾ÐºÐ¾Ð²Ð°Ð½Ñ– ÐºÐ¾Ð´ÐµÐºÐ¸';
-    STR_BLOCKED_CODEC_SUMMARY = 'Ð¡Ð¿Ð¸ÑÐ¾Ðº Ð¿Ñ–Ð´Ñ‚Ñ€Ð¸Ð¼ÑƒÐ²Ð°Ð½Ð¸Ñ… ÐºÐ¾Ð´ÐµÐºÑ–Ð² Ñ– Ð¼Ð¾Ð¶Ð»Ð¸Ð²Ñ–ÑÑ‚ÑŒ Ð±Ð»Ð¾ÐºÑƒÐ²Ð°Ñ‚Ð¸ Ñ—Ñ… Ð²Ð¸ÐºÐ¾Ñ€Ð¸ÑÑ‚Ð°Ð½Ð½Ñ.';
-
-    STR_CODEC_DIALOG_SUMMARY_1 =
-        'Ð¦ÐµÐ¹ Ñ€Ð¾Ð·Ð´Ñ–Ð» Ð¿Ð¾ÐºÐ°Ð·ÑƒÑ” Ð²ÑÑ– Ñ‚Ð¸Ð¿Ð¸ ÐºÐ¾Ð´ÐµÐºÑ–Ð², Ñ‰Ð¾ Ð¿Ñ–Ð´Ñ‚Ñ€Ð¸Ð¼ÑƒÑŽÑ‚ÑŒÑÑ Ð¿Ñ€Ð¸ÑÑ‚Ñ€Ð¾Ñ”Ð¼: AVC H.264, HEVC H.265 Ñ‚Ð° AV1, ÑÐºÑ– Ð²Ð¸ÐºÐ¾Ñ€Ð¸ÑÑ‚Ð¾Ð²ÑƒÑ” Ð´Ð¾Ð´Ð°Ñ‚Ð¾Ðº.';
-
-    STR_CODEC_DIALOG_SUMMARY_2 =
-        'ÐŸÑ€Ð¾Ð³Ñ€Ð°Ð¼Ð½Ñ– ÐºÐ¾Ð´ÐµÐºÐ¸ (OMX.google) Ð²Ð¸Ð¼ÐºÐ½ÐµÐ½Ñ– Ð·Ð° Ð·Ð°Ð¼Ð¾Ð²Ñ‡ÑƒÐ²Ð°Ð½Ð½ÑÐ¼, ÑÐºÑ‰Ð¾ Ð´Ð¾ÑÑ‚ÑƒÐ¿Ð½Ð¸Ð¹ Ð°Ð¿Ð°Ñ€Ð°Ñ‚Ð½Ð¸Ð¹ ÐºÐ¾Ð´ÐµÐº. ÐŸÑ€Ð¸ Ð¿Ñ€Ð¾Ð±Ð»ÐµÐ¼Ð°Ñ… Ñ–Ð· Ð²Ñ–Ð´Ñ‚Ð²Ð¾Ñ€ÐµÐ½Ð½ÑÐ¼ â€” ÑÐ¿Ñ€Ð¾Ð±ÑƒÐ¹Ñ‚Ðµ Ð²Ð¸Ð¼ÐºÐ½ÑƒÑ‚Ð¸ Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼Ð½Ð¸Ð¹ Ñ– ÑƒÐ²Ñ–Ð¼ÐºÐ½ÑƒÑ‚Ð¸ Ð°Ð¿Ð°Ñ€Ð°Ñ‚Ð½Ð¸Ð¹, Ð°Ð±Ð¾ Ð½Ð°Ð²Ð¿Ð°ÐºÐ¸. ÐŸÐ¾ÑÑ‚Ñ–Ð¹Ð½Ðµ Ð¿Ñ€Ð¾Ð¿ÑƒÑÐºÐ°Ð½Ð½Ñ ÐºÐ°Ð´Ñ€Ñ–Ð² â€” Ð¾Ð·Ð½Ð°ÐºÐ° Ð¿Ñ€Ð¾Ð±Ð»ÐµÐ¼ Ñ–Ð· ÐºÐ¾Ð´ÐµÐºÐ¾Ð¼.';
-
-    STR_CODEC_DIALOG_SUMMARY_3 = 'ÐœÐ°Ñ” Ð±ÑƒÑ‚Ð¸ Ð²Ð²Ñ–Ð¼ÐºÐ½ÐµÐ½Ð¾ Ð¿Ñ€Ð¸Ð½Ð°Ð¹Ð¼Ð½Ñ– Ð¾Ð´Ð¸Ð½ ÐºÐ¾Ð´ÐµÐº ÐºÐ¾Ð¶Ð½Ð¾Ð³Ð¾ Ñ‚Ð¸Ð¿Ñƒ Ð¿Ð¾ÑÑ‚Ñ–Ð¹Ð½Ð¾.';
-
-    STR_SPEED_ADJUST = 'ÐŸÑ–Ð´Ð»Ð°ÑˆÑ‚ÑƒÐ²Ð°Ð½Ð½Ñ Ð·Ð°Ñ‚Ñ€Ð¸Ð¼ÐºÐ¸ (Low Latency)';
-    STR_SPEED_ADJUST_SUMMARY =
-        'ÐŸÑ€Ð¸ Ð²Ð²Ñ–Ð¼ÐºÐ½ÐµÐ½Ñ–Ð¹ Ð½Ð¸Ð·ÑŒÐºÑ–Ð¹ Ð·Ð°Ñ‚Ñ€Ð¸Ð¼Ñ†Ñ– â€” Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡Ð½Ðµ Ñ€ÐµÐ³ÑƒÐ»ÑŽÐ²Ð°Ð½Ð½Ñ Ð·Ð°Ñ‚Ñ€Ð¸Ð¼ÐºÐ¸ ÑÑ‚Ñ€Ñ–Ð¼Ñƒ Ñ‡ÐµÑ€ÐµÐ· Ð·Ð¼Ñ–Ð½Ñƒ ÑˆÐ²Ð¸Ð´ÐºÐ¾ÑÑ‚Ñ– Ð½Ð° 1%. ÐœÐ¾Ð¶Ðµ Ð²Ð¸ÐºÐ»Ð¸ÐºÐ°Ñ‚Ð¸ Ð½ÐµÐ·Ð½Ð°Ñ‡Ð½Ñ– ÑˆÑƒÐ¼Ð¸ Ð² Ð°ÑƒÐ´Ñ–Ð¾.';
-
-    STR_SW_CODEC = 'ÐŸÑ€Ð¾Ð³Ñ€Ð°Ð¼Ð½Ð¸Ð¹ ÐºÐ¾Ð´ÐµÐº';
-    STR_HW_CODEC = 'ÐÐ¿Ð°Ñ€Ð°Ñ‚Ð½Ð¸Ð¹ ÐºÐ¾Ð´ÐµÐº';
-
-    STR_LOAD_ALL_LANG = 'Ð’Ñ–Ð´Ð¾Ð±Ñ€Ð°Ð¶Ð°Ñ‚Ð¸ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚ ÑƒÑÑ–Ð¼Ð° Ð¼Ð¾Ð²Ð°Ð¼Ð¸';
-    STR_LOAD_ALL_LANG_SUMMARY =
-        'ÐÐ²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡Ð½Ð¾ Ð¿ÐµÑ€ÐµÐ¼Ð¸ÐºÐ°Ñ” Ð¼Ð¾Ð²Ñƒ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚Ñƒ Ð½Ð° "Ð£ÑÑ–", ÑÐºÑ‰Ð¾ Ð´Ð»Ñ Ð¿Ð¾Ñ‚Ð¾Ñ‡Ð½Ð¾Ñ— Ð¼Ð¾Ð²Ð¸ Ð½ÐµÐ¼Ð°Ñ” ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚Ñƒ. Ð”Ñ–Ñ” Ð»Ð¸ÑˆÐµ Ð´Ð»Ñ Ñ€Ð¾Ð·Ð´Ñ–Ð»Ñƒ Ð· Ñ–Ð³Ñ€Ð°Ð¼Ð¸ Ñ‚Ð° Ð³Ð¾Ð»Ð¾Ð²Ð½Ð¾Ñ—';
-    STR_LOAD_ALL_LANG_WARNING = STR_LOAD_ALL_LANG + ' Ñ‡ÐµÑ€ÐµÐ· Ð²Ñ–Ð´ÑÑƒÑ‚Ð½Ñ–ÑÑ‚ÑŒ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚Ñƒ';
-
-    STR_DISABLE_SHARED_CHAT = 'Ð’Ð¸Ð¼ÐºÐ½ÑƒÑ‚Ð¸ ÑÐ¿Ñ–Ð»ÑŒÐ½Ð¸Ð¹ Ñ‡Ð°Ñ‚';
-    STR_DISABLE_SHARED_CHAT_SUMMARY = 'Ð¯ÐºÑ‰Ð¾ Ð²ÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚Ð¸ "Ñ‚Ð°Ðº", Ð±ÑƒÐ´Ðµ Ð¿Ð¾ÐºÐ°Ð·Ð°Ð½Ð¾ Ð»Ð¸ÑˆÐµ Ñ‡Ð°Ñ‚ Ñ‚Ð¾Ð³Ð¾ ÑÑ‚Ñ€Ñ–Ð¼Ñƒ, ÑÐºÐ¸Ð¹ Ð²Ð¸ Ð²Ñ–Ð´ÐºÑ€Ð¸Ð»Ð¸';
-
-    STR_BACKUP_ACCOUNT_REMOVE = 'Ð’Ð¸Ð´Ð°Ð»Ð¸Ñ‚Ð¸ Ð¾Ð±Ð»Ñ–ÐºÐ¾Ð²Ð¸Ð¹ Ð·Ð°Ð¿Ð¸Ñ Google Drive';
-    STR_BACKUP_ACCOUNT_ADD = 'Ð”Ð¾Ð´Ð°Ñ‚Ð¸ Ð¾Ð±Ð»Ñ–ÐºÐ¾Ð²Ð¸Ð¹ Ð·Ð°Ð¿Ð¸Ñ Google Drive Ð´Ð»Ñ Ñ€ÐµÐ·ÐµÑ€Ð²Ð½Ð¾Ð³Ð¾ ÐºÐ¾Ð¿Ñ–ÑŽÐ²Ð°Ð½Ð½Ñ';
-    STR_BACKUP_ACCOUNT_ADD_SUMMARY = 'Ð©Ð¾Ð± Ð²Ñ–Ð´Ð½Ð¾Ð²Ð¸Ñ‚Ð¸ Ñ€ÐµÐ·ÐµÑ€Ð²Ð½Ñƒ ÐºÐ¾Ð¿Ñ–ÑŽ, Ð´Ð¾Ð´Ð°Ð¹Ñ‚Ðµ Ð¾Ð±Ð»Ñ–ÐºÐ¾Ð²Ð¸Ð¹ Ð·Ð°Ð¿Ð¸Ñ, Ñ– Ð·Ð°ÑÑ‚Ð¾ÑÑƒÐ½Ð¾Ðº Ð¿Ð¾ÐºÐ°Ð¶Ðµ Ð´Ð¾ÑÑ‚ÑƒÐ¿Ð½Ñ– Ð²Ð°Ñ€Ñ–Ð°Ð½Ñ‚Ð¸ Ð²Ñ–Ð´Ð½Ð¾Ð²Ð»ÐµÐ½Ð½Ñ.';
-    STR_BACKUP_ACCOUNT_DIALOG_TITLE = 'ÐžÐ±Ð»Ñ–ÐºÐ¾Ð²Ð¸Ð¹ Ð·Ð°Ð¿Ð¸Ñ Google Drive Ð´Ð¾Ð´Ð°Ð½Ð¾';
-
-    STR_BACKUP_ACCOUNT_DIALOG_BODY = 'ÐžÑ‚Ñ€Ð¸Ð¼Ð°Ð½Ð½Ñ Ñ–Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ñ–Ñ— Ð· API, Ð±ÑƒÐ´ÑŒ Ð»Ð°ÑÐºÐ°, Ð·Ð°Ñ‡ÐµÐºÐ°Ð¹Ñ‚Ðµ...';
-    STR_BACKUP_ACCOUNT_DIALOG_CODE_FAIL = 'Ð”Ð¾ÑÑ‚ÑƒÐ¿ Ð·Ð°Ð±Ð¾Ñ€Ð¾Ð½ÐµÐ½Ð¾';
-    STR_BACKUP_ACCOUNT_DIALOG_CODE_SUCCESS = 'Ð”Ð¾ÑÑ‚ÑƒÐ¿ Ð½Ð°Ð´Ð°Ð½Ð¾, Ð·Ð°Ñ‡ÐµÐºÐ°Ð¹Ñ‚Ðµ, Ð¿Ð¾ÐºÐ¸ Ð´Ð¾Ð´Ð°Ñ‚Ð¾Ðº Ð¿ÐµÑ€ÐµÐ²Ñ–Ñ€Ð¸Ñ‚ÑŒ...';
-
-    STR_BACKUP_ACCOUNT_DIALOG_CODE_SUCCESS_END = 'Ð”Ð¾Ð´Ð°Ñ‚Ð¾Ðº Ð²Ñ–Ð´Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ Ð´Ð°Ð½Ñ– Ñ‚Ð° Ð·Ð°ÐºÑ€Ð¸Ñ” Ñ†Ðµ Ð´Ñ–Ð°Ð»Ð¾Ð³Ð¾Ð²Ðµ Ð²Ñ–ÐºÐ½Ð¾ Ð·Ð° ÐºÑ–Ð»ÑŒÐºÐ° ÑÐµÐºÑƒÐ½Ð´';
-    STR_BACKUP_NO_BACKUP_FOUND = 'ÐŸÐ¾Ð¿ÐµÑ€ÐµÐ´Ð½ÑŒÐ¾Ñ— Ñ€ÐµÐ·ÐµÑ€Ð²Ð½Ð¾Ñ— ÐºÐ¾Ð¿Ñ–Ñ— Ð½Ðµ Ð·Ð½Ð°Ð¹Ð´ÐµÐ½Ð¾, Ñ€ÐµÐ·ÐµÑ€Ð²Ð½Ñƒ ÐºÐ¾Ð¿Ñ–ÑŽ ÑƒÑÐ¿Ñ–ÑˆÐ½Ð¾ ÑÑ‚Ð²Ð¾Ñ€ÐµÐ½Ð¾';
-    STR_BACKUP_ACCOUNT_REFRESH_ERROR = 'Ð’Ñ‚Ñ€Ð°Ñ‡ÐµÐ½Ð¾ Ð´Ð¾ÑÑ‚ÑƒÐ¿ Ð´Ð¾ Ð¾Ð±Ð»Ñ–ÐºÐ¾Ð²Ð¾Ð³Ð¾ Ð·Ð°Ð¿Ð¸ÑÑƒ Ñ€ÐµÐ·ÐµÑ€Ð²Ð½Ð¾Ð³Ð¾ ÐºÐ¾Ð¿Ñ–ÑŽÐ²Ð°Ð½Ð½Ñ Ñ‚Ð° ÑÐ¸Ð½Ñ…Ñ€Ð¾Ð½Ñ–Ð·Ð°Ñ†Ñ–Ñ—, Ð¾Ð±Ð»Ñ–ÐºÐ¾Ð²Ð¸Ð¹ Ð·Ð°Ð¿Ð¸Ñ Ð²Ð¸Ð´Ð°Ð»ÐµÐ½Ð¾!';
-
-    STR_BACKUP_NAME = 'ÐÐ°Ð·Ð²Ð° Ñ€ÐµÐ·ÐµÑ€Ð²Ð½Ð¾Ñ— ÐºÐ¾Ð¿Ñ–Ñ—:';
-    STR_BACKUP_SIZE = 'Ð Ð¾Ð·Ð¼Ñ–Ñ€ Ñ€ÐµÐ·ÐµÑ€Ð²Ð½Ð¾Ñ— ÐºÐ¾Ð¿Ñ–Ñ—:';
-    STR_BACKUP_SYNC = 'Ð¡Ð¸Ð½Ñ…Ñ€Ð¾Ð½Ñ–Ð·Ð°Ñ†Ñ–Ñ, Ð ÐµÐ·ÐµÑ€Ð²Ð½Ðµ ÐºÐ¾Ð¿Ñ–ÑŽÐ²Ð°Ð½Ð½Ñ Ñ‚Ð° Ð’Ñ–Ð´Ð½Ð¾Ð²Ð»ÐµÐ½Ð½Ñ';
-    STR_BACKUP_SYNC_SUMMARY =
-        'Ð”Ð¾Ð´Ð°Ñ‚Ð¾Ðº Ð·Ð¼Ð¾Ð¶Ðµ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´Ð°Ñ‚Ð¸, ÑÑ‚Ð²Ð¾Ñ€ÑŽÐ²Ð°Ñ‚Ð¸, Ñ€ÐµÐ´Ð°Ð³ÑƒÐ²Ð°Ñ‚Ð¸ Ñ‚Ð° Ð²Ð¸Ð´Ð°Ð»ÑÑ‚Ð¸ Ð»Ð¸ÑˆÐµ Ñ‚Ñ– Ñ„Ð°Ð¹Ð»Ð¸ Google Drive, ÑÐºÑ– Ð²Ñ–Ð½ ÑÑ‚Ð²Ð¾Ñ€ÑŽÑ”. Ð’Ñ–Ð½ ÐÐ• Ð·Ð¼Ð¾Ð¶Ðµ Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´Ð°Ñ‚Ð¸, Ð·Ð¼Ñ–Ð½ÑŽÐ²Ð°Ñ‚Ð¸ Ð°Ð±Ð¾ Ð²Ð¸Ð´Ð°Ð»ÑÑ‚Ð¸ Ð±ÑƒÐ´ÑŒ-ÑÐºÑ– Ñ–Ð½ÑˆÑ– Ñ„Ð°Ð¹Ð»Ð¸ Ñƒ Ð²Ð°ÑˆÐ¾Ð¼Ñƒ Google Drive.' +
-        '<br><br>' +
-        'Ð’Ñ–Ð½ Ñ‚Ð°ÐºÐ¾Ð¶ Ð·Ð¼Ð¾Ð¶Ðµ Ð¾Ñ‚Ñ€Ð¸Ð¼Ð°Ñ‚Ð¸ Ð´Ð¾ÑÑ‚ÑƒÐ¿ Ð´Ð¾ Ð²Ð°ÑˆÐ¾Ñ— ÐµÐ»ÐµÐºÑ‚Ñ€Ð¾Ð½Ð½Ð¾Ñ— Ð°Ð´Ñ€ÐµÑÐ¸ Ñ‚Ð° Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð½Ñ Ð¿Ñ€Ð¾Ñ„Ñ–Ð»ÑŽ Ð´Ð»Ñ Ð²Ñ–Ð´Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð½Ñ Ð¿Ð¾Ñ‚Ð¾Ñ‡Ð½Ð¾Ð³Ð¾ Ð°ÐºÑ‚Ð¸Ð²Ð½Ð¾Ð³Ð¾ Ð¾Ð±Ð»Ñ–ÐºÐ¾Ð²Ð¾Ð³Ð¾ Ð·Ð°Ð¿Ð¸ÑÑƒ. Ð¦Ñ Ñ–Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ñ–Ñ Ð±ÑƒÐ´Ðµ Ð»Ð¸ÑˆÐµ Ð²Ñ–Ð´Ð¾Ð±Ñ€Ð°Ð¶Ð°Ñ‚Ð¸ÑÑ Ñ– ÐÐ• Ð±ÑƒÐ´Ðµ Ð·Ð¼Ñ–Ð½ÑŽÐ²Ð°Ñ‚Ð¸ÑÑ.';
-
-    STR_BACKUP_USER_INFO = '(Ð†Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ñ–Ñ ÐºÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ‡Ð°: ÐºÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ‡Ñ–, Ñ–ÑÑ‚Ð¾Ñ€Ñ–Ñ, Ð·Ð°Ð±Ð»Ð¾ÐºÐ¾Ð²Ð°Ð½Ñ– Ñ‚Ð° Ð½Ð°Ð»Ð°ÑˆÑ‚ÑƒÐ²Ð°Ð½Ð½Ñ)';
-
-    STR_BACKUP_SYNC_USER = 'Ð¡Ð¸Ð½Ñ…Ñ€Ð¾Ð½Ñ–Ð·ÑƒÐ²Ð°Ñ‚Ð¸ ÐºÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ‡Ñ–Ð²';
-    STR_BACKUP_SYNC_HISTORY = 'Ð¡Ð¸Ð½Ñ…Ñ€Ð¾Ð½Ñ–Ð·ÑƒÐ²Ð°Ñ‚Ð¸ Ñ–ÑÑ‚Ð¾Ñ€Ñ–ÑŽ Ñ‚Ð° ÑÐ¿Ð¸ÑÐ¾Ðº Ð·Ð°Ð±Ð»Ð¾ÐºÐ¾Ð²Ð°Ð½Ð¸Ñ… ÐºÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ‡Ñ–Ð².';
-    STR_BACKUP_SYNC_SETTINGS = 'Ð¡Ð¸Ð½Ñ…Ñ€Ð¾Ð½Ñ–Ð·ÑƒÐ²Ð°Ñ‚Ð¸ Ð½Ð°Ð»Ð°ÑˆÑ‚ÑƒÐ²Ð°Ð½Ð½Ñ';
-    STR_BACKUP_RESTORE_USER = 'Ð’Ñ–Ð´Ð½Ð¾Ð²Ð¸Ñ‚Ð¸ ÐºÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ‡Ñ–Ð²';
-    STR_BACKUP_RESTORE_HISTORY = 'Ð’Ñ–Ð´Ð½Ð¾Ð²Ð¸Ñ‚Ð¸ Ñ–ÑÑ‚Ð¾Ñ€Ñ–ÑŽ Ñ‚Ð° ÑÐ¿Ð¸ÑÐ¾Ðº Ð·Ð°Ð±Ð»Ð¾ÐºÐ¾Ð²Ð°Ð½Ð¸Ñ… ÐºÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ‡Ñ–Ð².';
-    STR_BACKUP_RESTORE_SETTINGS = 'Ð’Ñ–Ð´Ð½Ð¾Ð²Ð¸Ñ‚Ð¸ Ð½Ð°Ð»Ð°ÑˆÑ‚ÑƒÐ²Ð°Ð½Ð½Ñ';
-    STR_BACKUP_RESTORE_SUMMARY =
-        'Ð¯ÐºÑ‰Ð¾ Ð¿Ñ–ÑÐ»Ñ Ð²Ñ–Ð´Ð½Ð¾Ð²Ð»ÐµÐ½Ð½Ñ Ð²Ð¸Ð½Ð¸ÐºÐ°ÑŽÑ‚ÑŒ Ð¿Ñ€Ð¾Ð±Ð»ÐµÐ¼Ð¸, ÑÐ¿Ñ€Ð¾Ð±ÑƒÐ¹Ñ‚Ðµ Ð¾Ñ‡Ð¸ÑÑ‚Ð¸Ñ‚Ð¸ Ð´Ð°Ð½Ñ– Ð·Ð°ÑÑ‚Ð¾ÑÑƒÐ½ÐºÑƒ Ñ‚Ð° Ð²Ñ–Ð´Ð½Ð¾Ð²Ð¸Ñ‚Ð¸, Ð¿Ñ€Ð¾Ð¿ÑƒÑÑ‚Ð¸Ð²ÑˆÐ¸ Ð¾Ð´Ð¸Ð½ Ñ–Ð· Ð¿ÑƒÐ½ÐºÑ‚Ñ–Ð².';
-
-    STR_BACKUP_SYNC_SETTINGS_SUMMARY =
-        'Ð ÐµÐ·ÐµÑ€Ð²Ð½Ð° ÐºÐ¾Ð¿Ñ–Ñ Ð¼Ð°Ñ” Ð»Ð¸ÑˆÐµ Ð¾Ð´Ð¸Ð½ Ð½Ð°Ð±Ñ–Ñ€ ÑƒÐ½Ñ–Ñ„Ñ–ÐºÐ¾Ð²Ð°Ð½Ð¸Ñ… Ð½Ð°Ð»Ð°ÑˆÑ‚ÑƒÐ²Ð°Ð½ÑŒ Ð´Ð»Ñ Ð²ÑÑ–Ñ… Ð²Ð°ÑˆÐ¸Ñ… Ð¿Ñ€Ð¸ÑÑ‚Ñ€Ð¾Ñ—Ð². Ð‘ÑƒÐ´ÑŒ-ÑÐºÑ– Ð·Ð¼Ñ–Ð½Ð¸, ÑÐºÑ– Ð²Ð¸ Ð²Ð½ÐµÑÐµÑ‚Ðµ, Ð±ÑƒÐ´ÑƒÑ‚ÑŒ Ð·Ð°ÑÑ‚Ð¾ÑÐ¾Ð²Ð°Ð½Ñ– Ð½Ð° Ñ–Ð½ÑˆÐ¸Ñ… Ð¿Ñ€Ð¸ÑÑ‚Ñ€Ð¾ÑÑ… Ð¿Ñ–Ð´ Ñ‡Ð°Ñ Ð½Ð°ÑÑ‚ÑƒÐ¿Ð½Ð¾Ð³Ð¾ Ð²Ñ–Ð´ÐºÑ€Ð¸Ñ‚Ñ‚Ñ Ð´Ð¾Ð´Ð°Ñ‚ÐºÐ°.';
-    STR_BACKUP_SYNC_RESTORE = 'Ð—Ð½Ð°Ð¹Ð´ÐµÐ½Ð¾ Ñ€ÐµÐ·ÐµÑ€Ð²Ð½Ñƒ ÐºÐ¾Ð¿Ñ–ÑŽ';
-    STR_BACKUP_SYNC_RESTORE_SUMMARY = 'Ð—Ð½Ð°Ð¹Ð´ÐµÐ½Ð¾ Ñ€ÐµÐ·ÐµÑ€Ð²Ð½Ñƒ ÐºÐ¾Ð¿Ñ–ÑŽ. Ð’Ð¸Ð±ÐµÑ€Ñ–Ñ‚ÑŒ, Ñ‰Ð¾ Ð²Ñ–Ð´Ð½Ð¾Ð²Ð¸Ñ‚Ð¸, Ñ– Ð½Ð°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ Enter Ð´Ð»Ñ Ð¿Ñ–Ð´Ñ‚Ð²ÐµÑ€Ð´Ð¶ÐµÐ½Ð½Ñ.';
-    STR_BACKUP_SYNC_RESTORE_SUCCESS = 'Ð’Ñ–Ð´Ð½Ð¾Ð²Ð»ÐµÐ½Ð½Ñ ÑƒÑÐ¿Ñ–ÑˆÐ½Ðµ!';
-    STR_BACKUP_RESTORE_FAIL = 'ÐÐµ Ð²Ð´Ð°Ð»Ð¾ÑÑ Ð²Ñ–Ð´Ð½Ð¾Ð²Ð¸Ñ‚Ð¸ Ñ€ÐµÐ·ÐµÑ€Ð²Ð½Ñƒ ÐºÐ¾Ð¿Ñ–ÑŽ';
-
-    STR_BACKUP_ENABLE = 'Ð£Ð²Ñ–Ð¼ÐºÐ½ÑƒÑ‚Ð¸ Ñ€ÐµÐ·ÐµÑ€Ð²Ð½Ðµ ÐºÐ¾Ð¿Ñ–ÑŽÐ²Ð°Ð½Ð½Ñ';
-    STR_BACKUP_ENABLE_SUMMARY = 'Ð¯ÐºÑ‰Ð¾ Ð²ÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ð¾ Ð¢ÐÐš, Ð´Ð¾Ð´Ð°Ñ‚Ð¾Ðº Ð·Ð±ÐµÑ€Ñ–Ð³Ð°Ñ‚Ð¸Ð¼Ðµ Ñ€ÐµÐ·ÐµÑ€Ð²Ð½Ñƒ ÐºÐ¾Ð¿Ñ–ÑŽ Ð²ÑÑ–Ñ”Ñ— Ñ–Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ñ–Ñ— ÐºÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ‡Ð° ' + STR_BACKUP_USER_INFO;
-
-    STR_BACKUP_SYNC_ENABLE = 'Ð£Ð²Ñ–Ð¼ÐºÐ½ÑƒÑ‚Ð¸ ÑÐ¸Ð½Ñ…Ñ€Ð¾Ð½Ñ–Ð·Ð°Ñ†Ñ–ÑŽ';
-    STR_BACKUP_SYNC_ENABLE_SUMMARY =
-        'Якщо встановлено ТАК, додаток синхронізуватиме всі ввімкнені опції нижче між цим пристроєм та іншими, що використовують той самий обліковий запис Google Drive. Щоб перемкнутися між пристроями та продовжити перегляд без проблем, згорніть додаток на поточному пристрої, натиснувши клавішу Home. Потім переконайтеся, що додаток повністю закрито на іншому пристрої, перш ніж відкривати його.';
-
-    STR_EXPORT_LOGS = 'Експорт логів проксі';
-    STR_PROXY_LOGS_EMPTY = 'Немає логів проксі для експорту';
-}
-
-/*
- * Copyright (c) 2017â€“present Felipe de Leon <fglfgl27@gmail.com>
+ * Copyright (c) 2017–present Felipe de Leon <fglfgl27@gmail.com>
  *
  * This file is part of SmartTwitchTV <https://github.com/fgl27/SmartTwitchTV>
  *
@@ -7973,10 +3129,10 @@ function uk_UALang() {
 //https://emojipedia.org/
 //But removed not working or not needed as is too much
 var emojis_string =
-    '[{"unicode":"ðŸ˜€","code":"grin","id":"0_grin","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f600.png"},{"unicode":"ðŸ˜ƒ","code":"smile","id":"1_smile","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f603.png"},{"unicode":"ðŸ˜„","code":"smile2","id":"2_smile2","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f604.png"},{"unicode":"ðŸ˜","code":"smile3","id":"3_smile3","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f601.png"},{"unicode":"ðŸ˜†","code":"satisfied","id":"4_satisfied","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f606.png"},{"unicode":"ðŸ˜…","code":"sweat","id":"5_sweat","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f605.png"},{"unicode":"ðŸ¤£","code":"rolling","id":"6_rolling","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f923.png"},{"unicode":"ðŸ˜‚","code":"tear","id":"7_tear","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f602.png"},{"unicode":"ðŸ™‚","code":"smile4","id":"8_smile4","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f642.png"},{"unicode":"ðŸ™ƒ","code":"smile-upside-down","id":"9_smile-upside-down","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f643.png"},{"unicode":"ðŸ˜‰","code":"wink","id":"10_wink","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f609.png"},{"unicode":"ðŸ˜Š","code":"smile-blush","id":"11_smile-blush","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f60a.png"},{"unicode":"ðŸ˜‡","code":"angel","id":"12_angel","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f607.png"},{"unicode":"ðŸ¥°","code":"adore","id":"13_adore","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f970.png"},{"unicode":"ðŸ˜","code":"smile-love","id":"14_smile-love","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f60d.png"},{"unicode":"ðŸ¤©","code":"smile-star","id":"15_smile-star","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f929.png"},{"unicode":"ðŸ˜˜","code":"kiss","id":"16_kiss","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f618.png"},{"unicode":"ðŸ˜—","code":"kiss2","id":"17_kiss2","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f617.png"},{"unicode":"â˜ºï¸","code":"relaxed","id":"18_relaxed","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/263a.png"},{"unicode":"ðŸ˜š","code":"kiss3","id":"19_kiss3","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f61a.png"},{"unicode":"ðŸ˜™","code":"kis4","id":"20_kis4","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f619.png"},{"unicode":"ðŸ˜‹","code":"delicious","id":"21_delicious","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f60b.png"},{"unicode":"ðŸ˜›","code":"tongue","id":"22_tongue","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f61b.png"},{"unicode":"ðŸ˜œ","code":"tongue-wink","id":"23_tongue-wink","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f61c.png"},{"unicode":"ðŸ¤ª","code":"goofy","id":"24_goofy","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f92a.png"},{"unicode":"ðŸ˜","code":"tongue-><","id":"25_tongue-><","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f61d.png"},{"unicode":"ðŸ¤‘","code":"face-money","id":"26_face-money","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f911.png"},{"unicode":"ðŸ¤—","code":"hugging","id":"27_hugging","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f917.png"},{"unicode":"ðŸ¤­","code":"whoops","id":"28_whoops","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f92d.png"},{"unicode":"ðŸ¤«","code":"quiet","id":"29_quiet","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f92b.png"},{"unicode":"ðŸ¤”","code":"thinking","id":"30_thinking","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f914.png"},{"unicode":"ðŸ¤","code":"zipper","id":"31_zipper","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f910.png"},{"unicode":"ðŸ¤¨","code":"skeptic","id":"32_skeptic","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f928.png"},{"unicode":"ðŸ˜‘","code":"unexpressive","id":"33_unexpressive","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f611.png"},{"unicode":"ðŸ˜¶","code":"silent","id":"34_silent","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f636.png"},{"unicode":"ðŸ˜","code":"smirk","id":"35_smirk","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f60f.png"},{"unicode":"ðŸ˜’","code":"unhappy","id":"36_unhappy","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f612.png"},{"unicode":"ðŸ™„","code":"eyeroll","id":"37_eyeroll","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f644.png"},{"unicode":"ðŸ˜¬","code":"grimace","id":"38_grimace","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f62c.png"},{"unicode":"ðŸ¤¥","code":"pinocchio","id":"39_pinocchio","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f925.png"},{"unicode":"ðŸ˜Œ","code":"relieved","id":"40_relieved","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f60c.png"},{"unicode":"ðŸ˜”","code":"pensive","id":"41_pensive","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f614.png"},{"unicode":"ðŸ˜ª","code":"sleep","id":"42_sleep","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f62a.png"},{"unicode":"ðŸ¤¤","code":"drooling-face","id":"43_drooling-face","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f924.png"},{"unicode":"ðŸ˜´","code":"sleep-face","id":"44_sleep-face","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f634.png"},{"unicode":"ðŸ˜·","code":"cold-face","id":"45_cold-face","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f637.png"},{"unicode":"ðŸ¤’","code":"sick-face","id":"46_sick-face","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f912.png"},{"unicode":"ðŸ¤•","code":"bandage-face","id":"47_bandage-face","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f915.png"},{"unicode":"ðŸ¤¢","code":"nauseated-face","id":"48_nauseated-face","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f922.png"},{"unicode":"ðŸ¤®","code":"sick-face","id":"49_sick-face","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f92e.png"},{"unicode":"ðŸ¤§","code":"sneeze","id":"50_sneeze","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f927.png"},{"unicode":"ðŸ¥µ","code":"feverish","id":"51_feverish","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f975.png"},{"unicode":"ðŸ¥¶","code":"blue-faced","id":"52_blue-faced","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f976.png"},{"unicode":"ðŸ¥´","code":"intoxicated","id":"53_intoxicated","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f974.png"},{"unicode":"ðŸ˜µ","code":"dizzy","id":"54_dizzy","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f635.png"},{"unicode":"ðŸ¤¯","code":"mind blown","id":"55_mind blown","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f92f.png"},{"unicode":"ðŸ¤ ","code":"cowboy","id":"56_cowboy","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f920.png"},{"unicode":"ðŸ¥³","code":"celebration","id":"57_celebration","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f973.png"},{"unicode":"ðŸ˜Ž","code":"cool-face","id":"58_cool-face","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f60e.png"},{"unicode":"ðŸ¤“","code":"cool","id":"59_cool","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f913.png"},{"unicode":"ðŸ§","code":"stuffy","id":"60_stuffy","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f9d0.png"},{"unicode":"ðŸ˜•","code":"confused","id":"61_confused","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f615.png"},{"unicode":"ðŸ˜Ÿ","code":"worried","id":"62_worried","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f61f.png"},{"unicode":"ðŸ™","code":"frown","id":"63_frown","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f641.png"},{"unicode":"â˜¹ï¸","code":"frown","id":"64_frown","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/2639.png"},{"unicode":"ðŸ˜®","code":"mouth-open","id":"65_mouth-open","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f62e.png"},{"unicode":"ðŸ˜¯","code":"surprised","id":"66_surprised","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f62f.png"},{"unicode":"ðŸ˜²","code":"astonished","id":"67_astonished","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f632.png"},{"unicode":"ðŸ˜³","code":"dazed","id":"68_dazed","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f633.png"},{"unicode":"ðŸ¥º","code":"puppy eyes","id":"69_puppy eyes","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f97a.png"},{"unicode":"ðŸ˜¦","code":"frown","id":"70_frown","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f626.png"},{"unicode":"ðŸ˜§","code":"anguished","id":"71_anguished","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f627.png"},{"unicode":"ðŸ˜¨","code":"fearful","id":"72_fearful","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f628.png"},{"unicode":"ðŸ˜°","code":"fearful2","id":"73_fearful2","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f630.png"},{"unicode":"ðŸ˜¥","code":"disappointed","id":"74_disappointed","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f625.png"},{"unicode":"ðŸ˜¢","code":"cry-face","id":"75_cry-face","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f622.png"},{"unicode":"ðŸ˜­","code":"cry-face2","id":"76_cry-face2","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f62d.png"},{"unicode":"ðŸ˜±","code":"fear-face","id":"77_fear-face","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f631.png"},{"unicode":"ðŸ˜–","code":"confounded","id":"78_confounded","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f616.png"},{"unicode":"ðŸ˜£","code":"persevere","id":"79_persevere","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f623.png"},{"unicode":"ðŸ˜ž","code":"disappointed","id":"80_disappointed","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f61e.png"},{"unicode":"ðŸ˜“","code":"cold","id":"81_cold","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f613.png"},{"unicode":"ðŸ˜©","code":"weary","id":"82_weary","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f629.png"},{"unicode":"ðŸ˜«","code":"tired","id":"83_tired","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f62b.png"},{"unicode":"ðŸ˜¤","code":"triumph","id":"84_triumph","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f624.png"},{"unicode":"ðŸ˜¡","code":"angry","id":"85_angry","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f621.png"},{"unicode":"ðŸ˜ ","code":"mad","id":"86_mad","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f620.png"},{"unicode":"ðŸ¤¬","code":"swearing","id":"87_swearing","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f92c.png"},{"unicode":"ðŸ˜ˆ","code":"devil","id":"88_devil","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f608.png"},{"unicode":"ðŸ‘¿","code":"demon","id":"89_demon","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f47f.png"},{"unicode":"ðŸ’€","code":"death","id":"90_death","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f480.png"},{"unicode":"â˜ ï¸","code":"crossbones","id":"91_crossbones","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/2620.png"},{"unicode":"ðŸ’©","code":"poop","id":"92_poop","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4a9.png"},{"unicode":"ðŸ¤¡","code":"clown","id":"93_clown","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f921.png"},{"unicode":"ðŸ‘¹","code":"creature","id":"94_creature","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f479.png"},{"unicode":"ðŸ‘º","code":"creature2","id":"95_creature2","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f47a.png"},{"unicode":"ðŸ‘»","code":"ghost","id":"96_ghost","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f47b.png"},{"unicode":"ðŸ‘¾","code":"alien","id":"97_alien","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f47e.png"},{"unicode":"ðŸ¤–","code":"robot","id":"98_robot","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f916.png"},{"unicode":"ðŸ˜º","code":"cat-face","id":"99_cat-face","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f63a.png"},{"unicode":"ðŸ˜¸","code":"cat-smile","id":"100_cat-smile","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f638.png"},{"unicode":"ðŸ˜¹","code":"cat-tear","id":"101_cat-tear","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f639.png"},{"unicode":"ðŸ˜»","code":"cat-heart","id":"102_cat-heart","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f63b.png"},{"unicode":"ðŸ˜¼","code":"cat-ironic","id":"103_cat-ironic","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f63c.png"},{"unicode":"ðŸ˜½","code":"cat-kiss","id":"104_cat-kiss","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f63d.png"},{"unicode":"ðŸ™€","code":"cat-surprised","id":"105_cat-surprised","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f640.png"},{"unicode":"ðŸ˜¿","code":"cat-sad","id":"106_cat-sad","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f63f.png"},{"unicode":"ðŸ˜¾","code":"cat-pouting","id":"107_cat-pouting","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f63e.png"},{"unicode":"ðŸ‘‹","code":"hand-wave","id":"108_hand-wave","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f44b.png"},{"unicode":"ðŸ¤š","code":"backhand","id":"109_backhand","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f91a.png"},{"unicode":"ðŸ–ï¸","code":"hand-open-finger","id":"110_hand-open-finger","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f590.png"},{"unicode":"âœ‹","code":"hand","id":"111_hand","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/270b.png"},{"unicode":"ðŸ––","code":"hand-vulcan","id":"112_hand-vulcan","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f596.png"},{"unicode":"ðŸ‘Œ","code":"hand-ok","id":"113_hand-ok","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f44c.png"},{"unicode":"âœŒï¸","code":"hand-v","id":"114_hand-v","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/270c.png"},{"unicode":"ðŸ¤ž","code":"hand-cross","id":"115_hand-cross","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f91e.png"},{"unicode":"ðŸ¤Ÿ","code":"hand-ily","id":"116_hand-ily","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f91f.png"},{"unicode":"ðŸ¤˜","code":"hand-horns","id":"117_hand-horns","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f918.png"},{"unicode":"ðŸ¤™","code":"hand-call","id":"118_hand-call","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f919.png"},{"unicode":"ðŸ–•","code":"hand-finger","id":"119_hand-finger","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f595.png"},{"unicode":"ðŸ‘ˆ","code":"hand-point","id":"120_hand-point","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f448.png"},{"unicode":"ðŸ‘‡","code":"hand-poin2","id":"121_hand-poin2","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f447.png"},{"unicode":"â˜ï¸","code":"hand-point3","id":"122_hand-point3","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/261d.png"},{"unicode":"ðŸ‘","code":"hand-thumb-up","id":"123_hand-thumb-up","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f44d.png"},{"unicode":"ðŸ‘Ž","code":"hand-thumb-down","id":"124_hand-thumb-down","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f44e.png"},{"unicode":"âœŠ","code":"hand-punch","id":"125_hand-punch","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/270a.png"},{"unicode":"ðŸ‘Š","code":"hand-punch2","id":"126_hand-punch2","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f44a.png"},{"unicode":"ðŸ¤›","code":"hand-punch3","id":"127_hand-punch3","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f91b.png"},{"unicode":"ðŸ¤œ","code":"hand-punch4","id":"128_hand-punch4","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f91c.png"},{"unicode":"ðŸ‘","code":"hand-clap","id":"129_hand-clap","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f44f.png"},{"unicode":"ðŸ™Œ","code":"hand-celebration","id":"130_hand-celebration","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f64c.png"},{"unicode":"ðŸ‘","code":"hand-open","id":"131_hand-open","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f450.png"},{"unicode":"ðŸ¤²","code":"hand-prayer","id":"132_hand-prayer","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f932.png"},{"unicode":"ðŸ¤","code":"hand-agreement","id":"133_hand-agreement","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f91d.png"},{"unicode":"ðŸ™","code":"hand-please","id":"134_hand-please","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f64f.png"},{"unicode":"âœï¸","code":"hand-write","id":"135_hand-write","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/270d.png"},{"unicode":"ðŸ’…","code":"cosmetics","id":"136_cosmetics","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f485.png"},{"unicode":"ðŸ¤³","code":"self","id":"137_self","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f933.png"},{"unicode":"ðŸ’ª","code":"muscle","id":"138_muscle","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4aa.png"},{"unicode":"ðŸ¦µ","code":"kick","id":"139_kick","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f9b5.png"},{"unicode":"ðŸ¦¶","code":"kick2","id":"140_kick2","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f9b6.png"},{"unicode":"ðŸ‘‚","code":"ear","id":"141_ear","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f442.png"},{"unicode":"ðŸ‘ƒ","code":"nose","id":"142_nose","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f443.png"},{"unicode":"ðŸ§ ","code":"brain","id":"143_brain","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f9e0.png"},{"unicode":"ðŸ¦·","code":"tooth","id":"144_tooth","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f9b7.png"},{"unicode":"ðŸ‘€","code":"eyes","id":"145_eyes","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f440.png"},{"unicode":"ðŸ‘ï¸","code":"eye","id":"146_eye","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f441.png"},{"unicode":"ðŸ‘…","code":"tongue2","id":"147_tongue2","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f445.png"},{"unicode":"ðŸ‘„","code":"lips","id":"148_lips","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f444.png"},{"unicode":"ðŸ‘¶","code":"baby","id":"149_baby","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f476.png"},{"unicode":"ðŸ‘¨â€ðŸ¦²","code":"bald","id":"150_bald","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f468-200d-1f9b2.png"},{"unicode":"ðŸ‘´","code":"old-man","id":"151_old-man","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f474.png"},{"unicode":"ðŸ‘µ","code":"old-woman","id":"152_old-woman","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f475.png"},{"unicode":"ðŸ”¥","code":"fire","id":"153_fire","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f525.png"},{"unicode":"ðŸ‘¨â€ðŸš’","code":"firefighter","id":"154_firefighter","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f468-200d-1f692.png"},{"unicode":"ðŸ‘©â€ðŸš’","code":"firefighter2","id":"155_firefighter2","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f469-200d-1f692.png"},{"unicode":"ðŸ‘®â€â™‚ï¸","code":"police-officer","id":"156_police-officer","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f46e-200d-2642-fe0f.png"},{"unicode":"ðŸ‘®â€â™€ï¸","code":"police-officer-woman","id":"157_police-officer-woman","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f46e-200d-2640-fe0f.png"},{"unicode":"ðŸ‘¨â€ðŸ‘©â€ðŸ‘§â€ðŸ‘¦","code":"family","id":"158_family","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f468-200d-1f469-200d-1f467-200d-1f466.png"},{"unicode":"ðŸ™ˆ","code":"monkey-see","id":"159_monkey-see","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f648.png"},{"unicode":"ðŸ™‰","code":"monkey-hear","id":"160_monkey-hear","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f649.png"},{"unicode":"ðŸ™Š","code":"monkey-speak","id":"161_monkey-speak","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f64a.png"},{"unicode":"ðŸ’‹","code":"kiss-lips","id":"162_kiss-lips","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f48b.png"},{"unicode":"ðŸ’Œ","code":"heart-letter","id":"163_heart-letter","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f48c.png"},{"unicode":"ðŸ’˜","code":"arrow-cupid","id":"164_arrow-cupid","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f498.png"},{"unicode":"ðŸ’","code":"valentine","id":"165_valentine","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f49d.png"},{"unicode":"ðŸ’–","code":"sparkle-heart","id":"166_sparkle-heart","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f496.png"},{"unicode":"ðŸ’—","code":"pulse","id":"167_pulse","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f497.png"},{"unicode":"ðŸ’“","code":"beating","id":"168_beating","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f493.png"},{"unicode":"ðŸ’ž","code":"revolving","id":"169_revolving","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f49e.png"},{"unicode":"ðŸ’•","code":"love","id":"170_love","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f495.png"},{"unicode":"â£ï¸","code":"exclamation","id":"171_exclamation","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/2763.png"},{"unicode":"ðŸ’”","code":"broken-heart","id":"172_broken-heart","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f494.png"},{"unicode":"ðŸ’Ÿ","code":"heart-Decoration","id":"173_heart-Decoration","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f49f.png"},{"unicode":"ðŸ–¤","code":"heart-black","id":"174_heart-black","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f5a4.png"},{"unicode":"ðŸ¤Ž","code":"heart-brown","id":"175_heart-brown","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f90e.png"},{"unicode":"ðŸ’™","code":"heart-blue","id":"176_heart-blue","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f499.png"},{"unicode":"ðŸ’š","code":"heart-green","id":"177_heart-green","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f49a.png"},{"unicode":"ðŸ§¡","code":"heart-orange","id":"178_heart-orange","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f9e1.png"},{"unicode":"ðŸ’œ","code":"heart-purple","id":"179_heart-purple","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f49c.png"},{"unicode":"â¤ï¸","code":"heart-red","id":"180_heart-red","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/2764.png"},{"unicode":"ðŸ¤","code":"black-white","id":"181_black-white","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f90d.png"},{"unicode":"ðŸ’›","code":"heart-yellow","id":"182_heart-yellow","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f49b.png"},{"unicode":"ðŸ’¯","code":"hundred","id":"183_hundred","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4af.png"},{"unicode":"ðŸ’¢","code":"mad","id":"184_mad","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4a2.png"},{"unicode":"ðŸ’¥","code":"boom","id":"185_boom","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4a5.png"},{"unicode":"ðŸ’«","code":"stars","id":"186_stars","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4ab.png"},{"unicode":"ðŸ’¦","code":"splashing","id":"187_splashing","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4a6.png"},{"unicode":"ðŸ’¨","code":"comic-dash","id":"188_comic-dash","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4a8.png"},{"unicode":"ðŸ•³ï¸","code":"hole","id":"189_hole","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f573.png"},{"unicode":"ðŸ’¬","code":"balloon-dialog","id":"190_balloon-dialog","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4ac.png"},{"unicode":"ðŸ—¨ï¸","code":"dialog","id":"191_dialog","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f5e8.png"},{"unicode":"ðŸ—¯ï¸","code":"angry-balloon","id":"192_angry-balloon","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f5ef.png"},{"unicode":"ðŸ’­","code":"balloon-bubble","id":"193_balloon-bubble","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4ad.png"},{"unicode":"ðŸ’¤","code":"comic-sleep","id":"194_comic-sleep","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4a4.png"},{"unicode":"ðŸ•¶ï¸","code":"glasses-dark","id":"195_glasses-dark","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f576.png"},{"unicode":"ðŸ¥½","code":"glasses-swimming","id":"196_glasses-swimming","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f97d.png"},{"unicode":"ðŸ¥¼","code":"scientist","id":"197_scientist","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f97c.png"},{"unicode":"ðŸ‘”","code":"tie","id":"198_tie","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f454.png"},{"unicode":"ðŸ‘•","code":"tshirt","id":"199_tshirt","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f455.png"},{"unicode":"ðŸ‘–","code":"pants","id":"200_pants","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f456.png"},{"unicode":"ðŸ§£","code":"neck","id":"201_neck","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f9e3.png"},{"unicode":"ðŸ§¤","code":"hand","id":"202_hand","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f9e4.png"},{"unicode":"ðŸ§¥","code":"jacket","id":"203_jacket","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f9e5.png"},{"unicode":"ðŸ§¦","code":"stocking","id":"204_stocking","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f9e6.png"},{"unicode":"ðŸ‘—","code":"clothing","id":"205_clothing","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f457.png"},{"unicode":"ðŸ‘˜","code":"clothing2","id":"206_clothing2","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f458.png"},{"unicode":"ðŸ‘™","code":"swim-clothing","id":"207_swim-clothing","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f459.png"},{"unicode":"ðŸ‘š","code":"woman-clothing","id":"208_woman-clothing","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f45a.png"},{"unicode":"ðŸ‘›","code":"coin-clothing","id":"209_coin-clothing","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f45b.png"},{"unicode":"ðŸ‘œ","code":"purse","id":"210_purse","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f45c.png"},{"unicode":"ðŸ‘","code":"pouch","id":"211_pouch","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f45d.png"},{"unicode":"ðŸ›ï¸","code":"shopping-bag","id":"212_shopping-bag","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f6cd.png"},{"unicode":"ðŸŽ’","code":"school-bag","id":"213_school-bag","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f392.png"},{"unicode":"ðŸ‘ž","code":"shoe","id":"214_shoe","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f45e.png"},{"unicode":"ðŸ‘Ÿ","code":"sneaker","id":"215_sneaker","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f45f.png"},{"unicode":"ðŸ¥¾","code":"hiking-boot","id":"216_hiking-boot","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f97e.png"},{"unicode":"ðŸ¥¿","code":"ballet flat","id":"217_ballet flat","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f97f.png"},{"unicode":"ðŸ‘ ","code":"woman-shoe","id":"218_woman-shoe","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f460.png"},{"unicode":"ðŸ‘¡","code":"woman-shoe2","id":"219_woman-shoe2","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f461.png"},{"unicode":"ðŸ‘¢","code":"woman-boot","id":"220_woman-boot","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f462.png"},{"unicode":"ðŸ‘‘","code":"king","id":"221_king","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f451.png"},{"unicode":"ðŸ‘’","code":"hat","id":"222_hat","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f452.png"},{"unicode":"ðŸŽ©","code":"tophat","id":"223_tophat","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f3a9.png"},{"unicode":"ðŸ§¢","code":"baseball cap","id":"224_baseball cap","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f9e2.png"},{"unicode":"â›‘ï¸","code":"aid","id":"225_aid","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/26d1.png"},{"unicode":"ðŸ“¿","code":"beads","id":"226_beads","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4ff.png"},{"unicode":"ðŸ’„","code":"lipstick","id":"227_lipstick","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f484.png"},{"unicode":"ðŸ’","code":"diamond-ring","id":"228_diamond-ring","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f48d.png"},{"unicode":"ðŸ’Ž","code":"diamond","id":"229_diamond","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f48e.png"},{"unicode":"ðŸ”‡","code":"mute","id":"230_mute","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f507.png"},{"unicode":"ðŸ”‰","code":"medium","id":"231_medium","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f509.png"},{"unicode":"ðŸ”Š","code":"loud","id":"232_loud","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f50a.png"},{"unicode":"ðŸ“¢","code":"loud2","id":"233_loud2","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4e2.png"},{"unicode":"ðŸ“£","code":"cheering","id":"234_cheering","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4e3.png"},{"unicode":"ðŸ“¯","code":"horn","id":"235_horn","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4ef.png"},{"unicode":"ðŸ””","code":"bell","id":"236_bell","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f514.png"},{"unicode":"ðŸ”•","code":"bell","id":"237_bell","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f515.png"},{"unicode":"ðŸŽ¼","code":"music-score","id":"238_music-score","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f3bc.png"},{"unicode":"ðŸŽµ","code":"music-note","id":"239_music-note","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f3b5.png"},{"unicode":"ðŸŽ¶","code":"music-notes","id":"240_music-notes","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f3b6.png"},{"unicode":"ðŸŽ™ï¸","code":"microphone","id":"241_microphone","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f399.png"},{"unicode":"ðŸŽ¤","code":"microphone2","id":"242_microphone2","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f3a4.png"},{"unicode":"ðŸŽ·","code":"sax","id":"243_sax","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f3b7.png"},{"unicode":"ðŸŽ¸","code":"guitar","id":"244_guitar","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f3b8.png"},{"unicode":"ðŸŽ¹","code":"piano-keys","id":"245_piano-keys","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f3b9.png"},{"unicode":"ðŸŽº","code":"trumpet","id":"246_trumpet","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f3ba.png"},{"unicode":"ðŸŽ»","code":"violin","id":"247_violin","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f3bb.png"},{"unicode":"ðŸ¥","code":"drumsticks","id":"248_drumsticks","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f941.png"},{"unicode":"ðŸ“±","code":"cellphone","id":"249_cellphone","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4f1.png"},{"unicode":"â˜Žï¸","code":"phone","id":"250_phone","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/260e.png"},{"unicode":"ðŸ“ž","code":"phone2","id":"251_phone2","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4de.png"},{"unicode":"ðŸ“ ","code":"fax","id":"252_fax","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4e0.png"},{"unicode":"ðŸ”‹","code":"battery","id":"253_battery","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f50b.png"},{"unicode":"ðŸ”Œ","code":"plug","id":"254_plug","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f50c.png"},{"unicode":"ðŸ–¥ï¸","code":"computer-desktop","id":"255_computer-desktop","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f5a5.png"},{"unicode":"ðŸ–¨ï¸","code":"printer","id":"256_printer","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f5a8.png"},{"unicode":"âŒ¨ï¸","code":"keyboard","id":"257_keyboard","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/2328.png"},{"unicode":"ðŸ–±ï¸","code":"mouse-computer","id":"258_mouse-computer","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f5b1.png"},{"unicode":"ðŸ’½","code":"computer-disk","id":"259_computer-disk","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4bd.png"},{"unicode":"ðŸ’¾","code":"floppy-disk","id":"260_floppy-disk","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4be.png"},{"unicode":"ðŸ“€","code":"blu-ray","id":"261_blu-ray","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4c0.png"},{"unicode":"ðŸ§®","code":"calculation","id":"262_calculation","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f9ee.png"},{"unicode":"ðŸŽ¥","code":"camera","id":"263_camera","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f3a5.png"},{"unicode":"ðŸŽžï¸","code":"cinema","id":"264_cinema","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f39e.png"},{"unicode":"ðŸ“½ï¸","code":"cinema2","id":"265_cinema2","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4fd.png"},{"unicode":"ðŸ“¸","code":"camera-flash","id":"266_camera-flash","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4f8.png"},{"unicode":"ðŸ“¼","code":"vhs-tape","id":"267_vhs-tape","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4fc.png"},{"unicode":"ðŸ”Ž","code":"magnifying","id":"268_magnifying","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f50e.png"},{"unicode":"ðŸ•¯ï¸","code":"light","id":"269_light","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f56f.png"},{"unicode":"ðŸ’¡","code":"bulb","id":"270_bulb","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4a1.png"},{"unicode":"ðŸ”¦","code":"electric-torch","id":"271_electric-torch","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f526.png"},{"unicode":"ðŸ“’","code":"notebook","id":"272_notebook","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4d2.png"},{"unicode":"ðŸ“ƒ","code":"note","id":"273_note","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4c3.png"},{"unicode":"ðŸ“°","code":"newspaper","id":"274_newspaper","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4f0.png"},{"unicode":"ðŸ—žï¸","code":"newspaper-rolled","id":"275_newspaper-rolled","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f5de.png"},{"unicode":"ðŸ’´","code":"money-rolled","id":"276_money-rolled","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4b4.png"},{"unicode":"ðŸ’²","code":"dollar-sign","id":"277_dollar-sign","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4b2.png"},{"unicode":"âœ‰ï¸","code":"email","id":"278_email","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/2709.png"},{"unicode":"âœï¸","code":"pencil","id":"279_pencil","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/270f.png"},{"unicode":"âœ’ï¸","code":"pen","id":"280_pen","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/2712.png"},{"unicode":"ðŸ“","code":"note-pencil","id":"281_note-pencil","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4dd.png"},{"unicode":"ðŸ’¼","code":"briefcase","id":"282_briefcase","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4bc.png"},{"unicode":"ðŸ—“ï¸","code":"calendar","id":"283_calendar","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f5d3.png"},{"unicode":"ðŸ“Œ","code":"pin","id":"284_pin","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4cc.png"},{"unicode":"ðŸ“","code":"pin2","id":"285_pin2","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4cd.png"},{"unicode":"ðŸ“Ž","code":"paperclip","id":"286_paperclip","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4ce.png"},{"unicode":"ðŸ“","code":"ruler","id":"287_ruler","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4cf.png"},{"unicode":"ðŸ“","code":"ruler2","id":"288_ruler2","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4d0.png"},{"unicode":"âœ‚ï¸","code":"cutting","id":"289_cutting","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/2702.png"},{"unicode":"ðŸ—‘ï¸","code":"wastebasket","id":"290_wastebasket","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f5d1.png"},{"unicode":"ðŸ”‘","code":"key","id":"291_key","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f511.png"},{"unicode":"ðŸ—ï¸","code":"key-old","id":"292_key-old","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f5dd.png"},{"unicode":"ðŸ”¨","code":"hammer","id":"293_hammer","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f528.png"},{"unicode":"â›ï¸","code":"pickaxe","id":"294_pickaxe","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/26cf.png"},{"unicode":"âš’ï¸","code":"hammer2","id":"295_hammer2","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/2692.png"},{"unicode":"ðŸ› ï¸","code":"hammer-wrench","id":"296_hammer-wrench","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f6e0.png"},{"unicode":"ðŸ—¡ï¸","code":"knife","id":"297_knife","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f5e1.png"},{"unicode":"âš”ï¸","code":"swords","id":"298_swords","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/2694.png"},{"unicode":"ðŸ”«","code":"gun-tool","id":"299_gun-tool","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f52b.png"},{"unicode":"ðŸ¹","code":"archer","id":"300_archer","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f3f9.png"},{"unicode":"ðŸ›¡ï¸","code":"shield","id":"301_shield","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f6e1.png"},{"unicode":"ðŸ”§","code":"spanner","id":"302_spanner","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f527.png"},{"unicode":"ðŸ”©","code":"bolt","id":"303_bolt","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f529.png"},{"unicode":"âš™ï¸","code":"cog","id":"304_cog","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/2699.png"},{"unicode":"âš–ï¸","code":"balance","id":"305_balance","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/2696.png"},{"unicode":"ðŸ”—","code":"link","id":"306_link","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f517.png"},{"unicode":"ðŸ§²","code":"magnetic","id":"307_magnetic","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f9f2.png"},{"unicode":"âš—ï¸","code":"chemistry","id":"308_chemistry","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/2697.png"},{"unicode":"ðŸ§ª","code":"chemist","id":"309_chemist","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f9ea.png"},{"unicode":"ðŸ§¬","code":"gene","id":"310_gene","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f9ec.png"},{"unicode":"ðŸ”¬","code":"microscope","id":"311_microscope","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f52c.png"},{"unicode":"ðŸ”­","code":"telescope","id":"312_telescope","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f52d.png"},{"unicode":"ðŸ“¡","code":"antenna-dish","id":"313_antenna-dish","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4e1.png"},{"unicode":"ðŸ’‰","code":"medicine","id":"314_medicine","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f489.png"},{"unicode":"ðŸ’Š","code":"medicine","id":"315_medicine","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f48a.png"},{"unicode":"ðŸšª","code":"door","id":"316_door","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f6aa.png"},{"unicode":"ðŸ›ï¸","code":"hotel-bed","id":"317_hotel-bed","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f6cf.png"},{"unicode":"ðŸš½","code":"toilet","id":"318_toilet","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f6bd.png"},{"unicode":"ðŸš¿","code":"shower","id":"319_shower","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f6bf.png"},{"unicode":"ðŸ›","code":"bath","id":"320_bath","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f6c1.png"},{"unicode":"ðŸ§´","code":"lotion","id":"321_lotion","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f9f4.png"},{"unicode":"ðŸ§·","code":"diaper","id":"322_diaper","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f9f7.png"},{"unicode":"ðŸ§¹","code":"sweeping","id":"323_sweeping","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f9f9.png"},{"unicode":"ðŸ§º","code":"farming","id":"324_farming","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f9fa.png"},{"unicode":"ðŸ§»","code":"toilet paper","id":"325_toilet paper","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f9fb.png"},{"unicode":"ðŸ§¯","code":"extinguisher","id":"326_extinguisher","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f9ef.png"},{"unicode":"ðŸ›’","code":"shopping-cart","id":"327_shopping-cart","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f6d2.png"},{"unicode":"ðŸš¬","code":"smoking","id":"328_smoking","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f6ac.png"},{"unicode":"âœ”ï¸","code":"check","id":"329_check","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/2714.png"},{"unicode":"âš°ï¸","code":"death","id":"330_death","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/26b0.png"},{"unicode":"ðŸ—¿","code":"statue-face","id":"331_statue-face","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f5ff.png"},{"unicode":"ðŸµ","code":"monkey-face","id":"332_monkey-face","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f435.png"},{"unicode":"ðŸ’","code":"monkey","id":"333_monkey","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f412.png"},{"unicode":"ðŸ¦","code":"gorilla","id":"334_gorilla","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f98d.png"},{"unicode":"ðŸ¶","code":"dog-face","id":"335_dog-face","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f436.png"},{"unicode":"ðŸ©","code":"dog","id":"336_dog","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f429.png"},{"unicode":"ðŸº","code":"face","id":"337_face","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f43a.png"},{"unicode":"ðŸ¦Š","code":"face","id":"338_face","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f98a.png"},{"unicode":"ðŸ¦","code":"curious","id":"339_curious","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f99d.png"},{"unicode":"ðŸ±","code":"cat","id":"340_cat","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f431.png"},{"unicode":"ðŸ¦","code":"lion-face","id":"341_lion-face","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f981.png"},{"unicode":"ðŸ¯","code":"tiger-face","id":"342_tiger-face","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f42f.png"},{"unicode":"ðŸ…","code":"tiger","id":"343_tiger","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f405.png"},{"unicode":"ðŸ†","code":"leopard","id":"344_leopard","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f406.png"},{"unicode":"ðŸ´","code":"horse-face","id":"345_horse-face","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f434.png"},{"unicode":"ðŸŽ","code":"racehorse","id":"346_racehorse","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f40e.png"},{"unicode":"ðŸ¦„","code":"unicorn-face","id":"347_unicorn-face","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f984.png"},{"unicode":"ðŸ¦“","code":"zebra","id":"348_zebra","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f993.png"},{"unicode":"ðŸ¦Œ","code":"deer","id":"349_deer","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f98c.png"},{"unicode":"ðŸ®","code":"cow","id":"350_cow","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f42e.png"},{"unicode":"ðŸ‚","code":"bull","id":"351_bull","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f402.png"},{"unicode":"ðŸƒ","code":"buffalo","id":"352_buffalo","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f403.png"},{"unicode":"ðŸ„","code":"cow","id":"353_cow","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f404.png"},{"unicode":"ðŸ·","code":"pig-face","id":"354_pig-face","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f437.png"},{"unicode":"ðŸ–","code":"sow","id":"355_sow","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f416.png"},{"unicode":"ðŸ—","code":"pig","id":"356_pig","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f417.png"},{"unicode":"ðŸ½","code":"pig-nose","id":"357_pig-nose","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f43d.png"},{"unicode":"ðŸ","code":"aries","id":"358_aries","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f40f.png"},{"unicode":"ðŸ‘","code":"sheep","id":"359_sheep","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f411.png"},{"unicode":"ðŸ","code":"capricorn","id":"360_capricorn","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f410.png"},{"unicode":"ðŸª","code":"dromedary","id":"361_dromedary","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f42a.png"},{"unicode":"ðŸ«","code":"camel","id":"362_camel","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f42b.png"},{"unicode":"ðŸ¦™","code":"alpaca","id":"363_alpaca","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f999.png"},{"unicode":"ðŸ¦’","code":"spots","id":"364_spots","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f992.png"},{"unicode":"ðŸ˜","code":"elephant","id":"365_elephant","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f418.png"},{"unicode":"ðŸ¦","code":"rhinoceros","id":"366_rhinoceros","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f98f.png"},{"unicode":"ðŸ¦›","code":"hippo","id":"367_hippo","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f99b.png"},{"unicode":"ðŸ­","code":"mouse-face","id":"368_mouse-face","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f42d.png"},{"unicode":"ðŸ","code":"mouse","id":"369_mouse","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f401.png"},{"unicode":"ðŸ€","code":"rat","id":"370_rat","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f400.png"},{"unicode":"ðŸ¹","code":"pet-face","id":"371_pet-face","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f439.png"},{"unicode":"ðŸ°","code":"bunny-face","id":"372_bunny-face","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f430.png"},{"unicode":"ðŸ‡","code":"bunny","id":"373_bunny","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f407.png"},{"unicode":"ðŸ¿ï¸","code":"squirrel","id":"374_squirrel","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f43f.png"},{"unicode":"ðŸ¦”","code":"spiny","id":"375_spiny","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f994.png"},{"unicode":"ðŸ¦‡","code":"vampire","id":"376_vampire","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f987.png"},{"unicode":"ðŸ»","code":"face","id":"377_face","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f43b.png"},{"unicode":"ðŸ¨","code":"bear","id":"378_bear","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f428.png"},{"unicode":"ðŸ¼","code":"panda-face","id":"379_panda-face","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f43c.png"},{"unicode":"ðŸ¦˜","code":"marsupial","id":"380_marsupial","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f998.png"},{"unicode":"ðŸ¦¡","code":"honey badger","id":"381_honey badger","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f9a1.png"},{"unicode":"ðŸ¾","code":"paw","id":"382_paw","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f43e.png"},{"unicode":"ðŸ¦ƒ","code":"bird","id":"383_bird","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f983.png"},{"unicode":"ðŸ”","code":"chicken","id":"384_chicken","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f414.png"},{"unicode":"ðŸ“","code":"rooster","id":"385_rooster","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f413.png"},{"unicode":"ðŸ£","code":"baby-bird","id":"386_baby-bird","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f423.png"},{"unicode":"ðŸ¤","code":"baby-chick","id":"387_baby-chick","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f424.png"},{"unicode":"ðŸ¥","code":"baby-chick2","id":"388_baby-chick2","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f425.png"},{"unicode":"ðŸ§","code":"penguin","id":"389_penguin","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f427.png"},{"unicode":"ðŸ•Šï¸","code":"bird-fly","id":"390_bird-fly","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f54a.png"},{"unicode":"ðŸ¦…","code":"eagle","id":"391_eagle","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f985.png"},{"unicode":"ðŸ¦†","code":"duck","id":"392_duck","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f986.png"},{"unicode":"ðŸ¦¢","code":"swan","id":"393_swan","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f9a2.png"},{"unicode":"ðŸ¦‰","code":"owl","id":"394_owl","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f989.png"},{"unicode":"ðŸ¦š","code":"peahen","id":"395_peahen","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f99a.png"},{"unicode":"ðŸ¦œ","code":"macaw","id":"396_macaw","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f99c.png"},{"unicode":"ðŸ¸","code":"frog-face","id":"397_frog-face","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f438.png"},{"unicode":"ðŸŠ","code":"crocodile","id":"398_crocodile","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f40a.png"},{"unicode":"ðŸ¢","code":"turtle","id":"399_turtle","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f422.png"},{"unicode":"ðŸ¦Ž","code":"reptile","id":"400_reptile","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f98e.png"},{"unicode":"ðŸ","code":"snake","id":"401_snake","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f40d.png"},{"unicode":"ðŸ²","code":"dragon-face","id":"402_dragon-face","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f432.png"},{"unicode":"ðŸ‰","code":"dragon","id":"403_dragon","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f409.png"},{"unicode":"ðŸ¦•","code":"brontosaurus","id":"404_brontosaurus","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f995.png"},{"unicode":"ðŸ¦–","code":"t-rex","id":"405_t-rex","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f996.png"},{"unicode":"ðŸ³","code":"whale","id":"406_whale","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f433.png"},{"unicode":"ðŸ‹","code":"whale2","id":"407_whale2","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f40b.png"},{"unicode":"ðŸ¬","code":"flipper","id":"408_flipper","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f42c.png"},{"unicode":"ðŸ ","code":"tropical-fish","id":"409_tropical-fish","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f420.png"},{"unicode":"ðŸ¡","code":"fish","id":"410_fish","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f421.png"},{"unicode":"ðŸ¦ˆ","code":"shark","id":"411_shark","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f988.png"},{"unicode":"ðŸ™","code":"octopus","id":"412_octopus","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f419.png"},{"unicode":"ðŸš","code":"shell","id":"413_shell","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f41a.png"},{"unicode":"ðŸŒ","code":"snail","id":"414_snail","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f40c.png"},{"unicode":"ðŸ¦‹","code":"butterfly","id":"415_butterfly","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f98b.png"},{"unicode":"ðŸ›","code":"insect","id":"416_insect","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f41b.png"},{"unicode":"ðŸœ","code":"insect","id":"417_insect","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f41c.png"},{"unicode":"ðŸ","code":"bee","id":"418_bee","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f41d.png"},{"unicode":"ðŸž","code":"ladybug","id":"419_ladybug","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f41e.png"},{"unicode":"ðŸ¦—","code":"grasshopper","id":"420_grasshopper","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f997.png"},{"unicode":"ðŸ•·ï¸","code":"insect","id":"421_insect","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f577.png"},{"unicode":"ðŸ•¸ï¸","code":"spider-web","id":"422_spider-web","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f578.png"},{"unicode":"ðŸ¦‚","code":"scorpio","id":"423_scorpio","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f982.png"},{"unicode":"ðŸ¦Ÿ","code":"mosquito","id":"424_mosquito","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f99f.png"},{"unicode":"ðŸ¦ ","code":"amoeba","id":"425_amoeba","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f9a0.png"},{"unicode":"ðŸ’","code":"flower","id":"426_flower","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f490.png"},{"unicode":"ðŸŒ¸","code":"blossom","id":"427_blossom","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f338.png"},{"unicode":"ðŸŒ¹","code":"flower","id":"428_flower","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f339.png"},{"unicode":"ðŸ¥€","code":"flower-wilted","id":"429_flower-wilted","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f940.png"},{"unicode":"ðŸŒº","code":"flower2","id":"430_flower2","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f33a.png"},{"unicode":"ðŸŒ»","code":"sun-flower","id":"431_sun-flower","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f33b.png"},{"unicode":"ðŸŒ¼","code":"flower3","id":"432_flower3","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f33c.png"},{"unicode":"ðŸŒ·","code":"flower4","id":"433_flower4","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f337.png"},{"unicode":"ðŸŒ±","code":"young-tree","id":"434_young-tree","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f331.png"},{"unicode":"ðŸŒ²","code":"tree","id":"435_tree","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f332.png"},{"unicode":"ðŸŒ³","code":"big-tree","id":"436_big-tree","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f333.png"},{"unicode":"ðŸŒµ","code":"plant","id":"437_plant","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f335.png"},{"unicode":"ðŸŒ¿","code":"leaf","id":"438_leaf","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f33f.png"},{"unicode":"â˜˜ï¸","code":"three-leaf clover","id":"439_three-leaf clover","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/2618.png"},{"unicode":"ðŸ€","code":"four-leaf clover","id":"440_four-leaf clover","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f340.png"},{"unicode":"ðŸ","code":"falling-leaf","id":"441_falling-leaf","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f341.png"},{"unicode":"ðŸ","code":"checkered","id":"442_checkered","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f3c1.png"},{"unicode":"ðŸš©","code":"post","id":"443_post","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f6a9.png"},{"unicode":"ðŸŽŒ","code":"japanese-celebration","id":"444_japanese-celebration","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f38c.png"},{"unicode":"ðŸ´","code":"flag-black","id":"445_flag-black","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f3f4.png"},{"unicode":"ðŸ³ï¸","code":"flag-white","id":"446_flag-white","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f3f3.png"},{"unicode":"ðŸ³ï¸â€ðŸŒˆ","code":"flag-pride","id":"447_flag-pride","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f3f3-fe0f-200d-1f308.png"},{"unicode":"ðŸ´â€â˜ ï¸","code":"flag-pirate","id":"448_flag-pirate","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f3f4-200d-2620-fe0f.png"},{"unicode":"ðŸ‡¦ðŸ‡·","code":"AR","id":"449_AR","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1e6-1f1f7.png"},{"unicode":"ðŸ‡¦ðŸ‡º","code":"AU","id":"450_AU","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1e6-1f1fa.png"},{"unicode":"ðŸ‡§ðŸ‡¬","code":"BG","id":"451_BG","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1e7-1f1ec.png"},{"unicode":"ðŸ‡§ðŸ‡·","code":"BR","id":"452_BR","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1e7-1f1f7.png"},{"unicode":"ðŸ‡¨ðŸ‡¦","code":"CA","id":"453_CA","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1e8-1f1e6.png"},{"unicode":"ðŸ‡¨ðŸ‡³","code":"CN","id":"454_CN","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1e8-1f1f3.png"},{"unicode":"ðŸ‡¨ðŸ‡¿","code":"CZ","id":"455_CZ","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1e8-1f1ff.png"},{"unicode":"ðŸ‡©ðŸ‡ª","code":"DE","id":"456_DE","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1e9-1f1ea.png"},{"unicode":"ðŸ‡©ðŸ‡°","code":"DK","id":"457_DK","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1e9-1f1f0.png"},{"unicode":"ðŸ‡©ðŸ‡²","code":"DM","id":"458_DM","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1e9-1f1f2.png"},{"unicode":"ðŸ‡©ðŸ‡´","code":"DO","id":"459_DO","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1e9-1f1f4.png"},{"unicode":"ðŸ‡©ðŸ‡¿","code":"DZ","id":"460_DZ","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1e9-1f1ff.png"},{"unicode":"ðŸ‡ªðŸ‡¦","code":"EA","id":"461_EA","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1ea-1f1e6.png"},{"unicode":"ðŸ‡ªðŸ‡¨","code":"EC","id":"462_EC","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1ea-1f1e8.png"},{"unicode":"ðŸ‡ªðŸ‡¸","code":"ES","id":"463_ES","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1ea-1f1f8.png"},{"unicode":"ðŸ‡«ðŸ‡®","code":"FI","id":"464_FI","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1eb-1f1ee.png"},{"unicode":"ðŸ‡«ðŸ‡·","code":"FR","id":"465_FR","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1eb-1f1f7.png"},{"unicode":"ðŸ‡¬ðŸ‡§","code":"GB","id":"466_GB","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1ec-1f1e7.png"},{"unicode":"ðŸ‡­ðŸ‡°","code":"HK","id":"467_HK","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1ed-1f1f0.png"},{"unicode":"ðŸ‡®ðŸ‡±","code":"IL","id":"468_IL","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1ee-1f1f1.png"},{"unicode":"ðŸ‡®ðŸ‡¹","code":"IT","id":"469_IT","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1ee-1f1f9.png"},{"unicode":"ðŸ‡¯ðŸ‡µ","code":"JA","id":"470_JA","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1ef-1f1f5.png"},{"unicode":"ðŸ‡°ðŸ‡µ","code":"KP","id":"471_KP","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1f0-1f1f5.png"},{"unicode":"ðŸ‡°ðŸ‡·","code":"KR","id":"472_KR","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1f0-1f1f7.png"},{"unicode":"ðŸ‡³ðŸ‡±","code":"NL","id":"473_NL","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1f3-1f1f1.png"},{"unicode":"ðŸ‡³ðŸ‡´","code":"NO","id":"474_NO","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1f3-1f1f4.png"},{"unicode":"ðŸ‡µðŸ‡±","code":"PL","id":"475_PL","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1f5-1f1f1.png"},{"unicode":"ðŸ‡µðŸ‡¹","code":"PT","id":"476_PT","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1f5-1f1f9.png"},{"unicode":"ðŸ‡·ðŸ‡´","code":"RO","id":"477_RO","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1f7-1f1f4.png"},{"unicode":"ðŸ‡·ðŸ‡º","code":"RU","id":"478_RU","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1f7-1f1fa.png"},{"unicode":"ðŸ‡¸ðŸ‡°","code":"SK","id":"479_SK","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1f8-1f1f0.png"},{"unicode":"ðŸ‡¸ðŸ‡»","code":"SV","id":"480_SV","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1f8-1f1fb.png"},{"unicode":"ðŸ‡¹ðŸ‡­","code":"TH","id":"481_TH","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1f9-1f1ed.png"},{"unicode":"ðŸ‡¹ðŸ‡·","code":"TR","id":"482_TR","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1f9-1f1f7.png"},{"unicode":"ðŸ‡»ðŸ‡®","code":"VI","id":"483_VI","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1fb-1f1ee.png"}]';
+    '[{"unicode":"😀","code":"grin","id":"0_grin","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f600.png"},{"unicode":"😃","code":"smile","id":"1_smile","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f603.png"},{"unicode":"😄","code":"smile2","id":"2_smile2","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f604.png"},{"unicode":"😁","code":"smile3","id":"3_smile3","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f601.png"},{"unicode":"😆","code":"satisfied","id":"4_satisfied","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f606.png"},{"unicode":"😅","code":"sweat","id":"5_sweat","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f605.png"},{"unicode":"🤣","code":"rolling","id":"6_rolling","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f923.png"},{"unicode":"😂","code":"tear","id":"7_tear","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f602.png"},{"unicode":"🙂","code":"smile4","id":"8_smile4","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f642.png"},{"unicode":"🙃","code":"smile-upside-down","id":"9_smile-upside-down","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f643.png"},{"unicode":"😉","code":"wink","id":"10_wink","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f609.png"},{"unicode":"😊","code":"smile-blush","id":"11_smile-blush","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f60a.png"},{"unicode":"😇","code":"angel","id":"12_angel","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f607.png"},{"unicode":"🥰","code":"adore","id":"13_adore","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f970.png"},{"unicode":"😍","code":"smile-love","id":"14_smile-love","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f60d.png"},{"unicode":"🤩","code":"smile-star","id":"15_smile-star","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f929.png"},{"unicode":"😘","code":"kiss","id":"16_kiss","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f618.png"},{"unicode":"😗","code":"kiss2","id":"17_kiss2","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f617.png"},{"unicode":"☺️","code":"relaxed","id":"18_relaxed","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/263a.png"},{"unicode":"😚","code":"kiss3","id":"19_kiss3","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f61a.png"},{"unicode":"😙","code":"kis4","id":"20_kis4","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f619.png"},{"unicode":"😋","code":"delicious","id":"21_delicious","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f60b.png"},{"unicode":"😛","code":"tongue","id":"22_tongue","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f61b.png"},{"unicode":"😜","code":"tongue-wink","id":"23_tongue-wink","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f61c.png"},{"unicode":"🤪","code":"goofy","id":"24_goofy","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f92a.png"},{"unicode":"😝","code":"tongue-><","id":"25_tongue-><","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f61d.png"},{"unicode":"🤑","code":"face-money","id":"26_face-money","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f911.png"},{"unicode":"🤗","code":"hugging","id":"27_hugging","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f917.png"},{"unicode":"🤭","code":"whoops","id":"28_whoops","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f92d.png"},{"unicode":"🤫","code":"quiet","id":"29_quiet","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f92b.png"},{"unicode":"🤔","code":"thinking","id":"30_thinking","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f914.png"},{"unicode":"🤐","code":"zipper","id":"31_zipper","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f910.png"},{"unicode":"🤨","code":"skeptic","id":"32_skeptic","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f928.png"},{"unicode":"😑","code":"unexpressive","id":"33_unexpressive","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f611.png"},{"unicode":"😶","code":"silent","id":"34_silent","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f636.png"},{"unicode":"😏","code":"smirk","id":"35_smirk","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f60f.png"},{"unicode":"😒","code":"unhappy","id":"36_unhappy","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f612.png"},{"unicode":"🙄","code":"eyeroll","id":"37_eyeroll","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f644.png"},{"unicode":"😬","code":"grimace","id":"38_grimace","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f62c.png"},{"unicode":"🤥","code":"pinocchio","id":"39_pinocchio","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f925.png"},{"unicode":"😌","code":"relieved","id":"40_relieved","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f60c.png"},{"unicode":"😔","code":"pensive","id":"41_pensive","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f614.png"},{"unicode":"😪","code":"sleep","id":"42_sleep","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f62a.png"},{"unicode":"🤤","code":"drooling-face","id":"43_drooling-face","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f924.png"},{"unicode":"😴","code":"sleep-face","id":"44_sleep-face","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f634.png"},{"unicode":"😷","code":"cold-face","id":"45_cold-face","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f637.png"},{"unicode":"🤒","code":"sick-face","id":"46_sick-face","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f912.png"},{"unicode":"🤕","code":"bandage-face","id":"47_bandage-face","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f915.png"},{"unicode":"🤢","code":"nauseated-face","id":"48_nauseated-face","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f922.png"},{"unicode":"🤮","code":"sick-face","id":"49_sick-face","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f92e.png"},{"unicode":"🤧","code":"sneeze","id":"50_sneeze","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f927.png"},{"unicode":"🥵","code":"feverish","id":"51_feverish","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f975.png"},{"unicode":"🥶","code":"blue-faced","id":"52_blue-faced","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f976.png"},{"unicode":"🥴","code":"intoxicated","id":"53_intoxicated","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f974.png"},{"unicode":"😵","code":"dizzy","id":"54_dizzy","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f635.png"},{"unicode":"🤯","code":"mind blown","id":"55_mind blown","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f92f.png"},{"unicode":"🤠","code":"cowboy","id":"56_cowboy","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f920.png"},{"unicode":"🥳","code":"celebration","id":"57_celebration","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f973.png"},{"unicode":"😎","code":"cool-face","id":"58_cool-face","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f60e.png"},{"unicode":"🤓","code":"cool","id":"59_cool","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f913.png"},{"unicode":"🧐","code":"stuffy","id":"60_stuffy","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f9d0.png"},{"unicode":"😕","code":"confused","id":"61_confused","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f615.png"},{"unicode":"😟","code":"worried","id":"62_worried","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f61f.png"},{"unicode":"🙁","code":"frown","id":"63_frown","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f641.png"},{"unicode":"☹️","code":"frown","id":"64_frown","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/2639.png"},{"unicode":"😮","code":"mouth-open","id":"65_mouth-open","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f62e.png"},{"unicode":"😯","code":"surprised","id":"66_surprised","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f62f.png"},{"unicode":"😲","code":"astonished","id":"67_astonished","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f632.png"},{"unicode":"😳","code":"dazed","id":"68_dazed","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f633.png"},{"unicode":"🥺","code":"puppy eyes","id":"69_puppy eyes","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f97a.png"},{"unicode":"😦","code":"frown","id":"70_frown","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f626.png"},{"unicode":"😧","code":"anguished","id":"71_anguished","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f627.png"},{"unicode":"😨","code":"fearful","id":"72_fearful","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f628.png"},{"unicode":"😰","code":"fearful2","id":"73_fearful2","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f630.png"},{"unicode":"😥","code":"disappointed","id":"74_disappointed","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f625.png"},{"unicode":"😢","code":"cry-face","id":"75_cry-face","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f622.png"},{"unicode":"😭","code":"cry-face2","id":"76_cry-face2","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f62d.png"},{"unicode":"😱","code":"fear-face","id":"77_fear-face","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f631.png"},{"unicode":"😖","code":"confounded","id":"78_confounded","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f616.png"},{"unicode":"😣","code":"persevere","id":"79_persevere","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f623.png"},{"unicode":"😞","code":"disappointed","id":"80_disappointed","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f61e.png"},{"unicode":"😓","code":"cold","id":"81_cold","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f613.png"},{"unicode":"😩","code":"weary","id":"82_weary","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f629.png"},{"unicode":"😫","code":"tired","id":"83_tired","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f62b.png"},{"unicode":"😤","code":"triumph","id":"84_triumph","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f624.png"},{"unicode":"😡","code":"angry","id":"85_angry","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f621.png"},{"unicode":"😠","code":"mad","id":"86_mad","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f620.png"},{"unicode":"🤬","code":"swearing","id":"87_swearing","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f92c.png"},{"unicode":"😈","code":"devil","id":"88_devil","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f608.png"},{"unicode":"👿","code":"demon","id":"89_demon","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f47f.png"},{"unicode":"💀","code":"death","id":"90_death","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f480.png"},{"unicode":"☠️","code":"crossbones","id":"91_crossbones","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/2620.png"},{"unicode":"💩","code":"poop","id":"92_poop","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4a9.png"},{"unicode":"🤡","code":"clown","id":"93_clown","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f921.png"},{"unicode":"👹","code":"creature","id":"94_creature","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f479.png"},{"unicode":"👺","code":"creature2","id":"95_creature2","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f47a.png"},{"unicode":"👻","code":"ghost","id":"96_ghost","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f47b.png"},{"unicode":"👾","code":"alien","id":"97_alien","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f47e.png"},{"unicode":"🤖","code":"robot","id":"98_robot","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f916.png"},{"unicode":"😺","code":"cat-face","id":"99_cat-face","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f63a.png"},{"unicode":"😸","code":"cat-smile","id":"100_cat-smile","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f638.png"},{"unicode":"😹","code":"cat-tear","id":"101_cat-tear","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f639.png"},{"unicode":"😻","code":"cat-heart","id":"102_cat-heart","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f63b.png"},{"unicode":"😼","code":"cat-ironic","id":"103_cat-ironic","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f63c.png"},{"unicode":"😽","code":"cat-kiss","id":"104_cat-kiss","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f63d.png"},{"unicode":"🙀","code":"cat-surprised","id":"105_cat-surprised","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f640.png"},{"unicode":"😿","code":"cat-sad","id":"106_cat-sad","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f63f.png"},{"unicode":"😾","code":"cat-pouting","id":"107_cat-pouting","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f63e.png"},{"unicode":"👋","code":"hand-wave","id":"108_hand-wave","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f44b.png"},{"unicode":"🤚","code":"backhand","id":"109_backhand","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f91a.png"},{"unicode":"🖐️","code":"hand-open-finger","id":"110_hand-open-finger","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f590.png"},{"unicode":"✋","code":"hand","id":"111_hand","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/270b.png"},{"unicode":"🖖","code":"hand-vulcan","id":"112_hand-vulcan","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f596.png"},{"unicode":"👌","code":"hand-ok","id":"113_hand-ok","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f44c.png"},{"unicode":"✌️","code":"hand-v","id":"114_hand-v","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/270c.png"},{"unicode":"🤞","code":"hand-cross","id":"115_hand-cross","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f91e.png"},{"unicode":"🤟","code":"hand-ily","id":"116_hand-ily","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f91f.png"},{"unicode":"🤘","code":"hand-horns","id":"117_hand-horns","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f918.png"},{"unicode":"🤙","code":"hand-call","id":"118_hand-call","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f919.png"},{"unicode":"🖕","code":"hand-finger","id":"119_hand-finger","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f595.png"},{"unicode":"👈","code":"hand-point","id":"120_hand-point","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f448.png"},{"unicode":"👇","code":"hand-poin2","id":"121_hand-poin2","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f447.png"},{"unicode":"☝️","code":"hand-point3","id":"122_hand-point3","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/261d.png"},{"unicode":"👍","code":"hand-thumb-up","id":"123_hand-thumb-up","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f44d.png"},{"unicode":"👎","code":"hand-thumb-down","id":"124_hand-thumb-down","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f44e.png"},{"unicode":"✊","code":"hand-punch","id":"125_hand-punch","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/270a.png"},{"unicode":"👊","code":"hand-punch2","id":"126_hand-punch2","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f44a.png"},{"unicode":"🤛","code":"hand-punch3","id":"127_hand-punch3","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f91b.png"},{"unicode":"🤜","code":"hand-punch4","id":"128_hand-punch4","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f91c.png"},{"unicode":"👏","code":"hand-clap","id":"129_hand-clap","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f44f.png"},{"unicode":"🙌","code":"hand-celebration","id":"130_hand-celebration","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f64c.png"},{"unicode":"👐","code":"hand-open","id":"131_hand-open","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f450.png"},{"unicode":"🤲","code":"hand-prayer","id":"132_hand-prayer","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f932.png"},{"unicode":"🤝","code":"hand-agreement","id":"133_hand-agreement","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f91d.png"},{"unicode":"🙏","code":"hand-please","id":"134_hand-please","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f64f.png"},{"unicode":"✍️","code":"hand-write","id":"135_hand-write","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/270d.png"},{"unicode":"💅","code":"cosmetics","id":"136_cosmetics","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f485.png"},{"unicode":"🤳","code":"self","id":"137_self","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f933.png"},{"unicode":"💪","code":"muscle","id":"138_muscle","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4aa.png"},{"unicode":"🦵","code":"kick","id":"139_kick","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f9b5.png"},{"unicode":"🦶","code":"kick2","id":"140_kick2","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f9b6.png"},{"unicode":"👂","code":"ear","id":"141_ear","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f442.png"},{"unicode":"👃","code":"nose","id":"142_nose","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f443.png"},{"unicode":"🧠","code":"brain","id":"143_brain","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f9e0.png"},{"unicode":"🦷","code":"tooth","id":"144_tooth","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f9b7.png"},{"unicode":"👀","code":"eyes","id":"145_eyes","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f440.png"},{"unicode":"👁️","code":"eye","id":"146_eye","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f441.png"},{"unicode":"👅","code":"tongue2","id":"147_tongue2","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f445.png"},{"unicode":"👄","code":"lips","id":"148_lips","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f444.png"},{"unicode":"👶","code":"baby","id":"149_baby","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f476.png"},{"unicode":"👨‍🦲","code":"bald","id":"150_bald","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f468-200d-1f9b2.png"},{"unicode":"👴","code":"old-man","id":"151_old-man","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f474.png"},{"unicode":"👵","code":"old-woman","id":"152_old-woman","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f475.png"},{"unicode":"🔥","code":"fire","id":"153_fire","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f525.png"},{"unicode":"👨‍🚒","code":"firefighter","id":"154_firefighter","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f468-200d-1f692.png"},{"unicode":"👩‍🚒","code":"firefighter2","id":"155_firefighter2","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f469-200d-1f692.png"},{"unicode":"👮‍♂️","code":"police-officer","id":"156_police-officer","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f46e-200d-2642-fe0f.png"},{"unicode":"👮‍♀️","code":"police-officer-woman","id":"157_police-officer-woman","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f46e-200d-2640-fe0f.png"},{"unicode":"👨‍👩‍👧‍👦","code":"family","id":"158_family","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f468-200d-1f469-200d-1f467-200d-1f466.png"},{"unicode":"🙈","code":"monkey-see","id":"159_monkey-see","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f648.png"},{"unicode":"🙉","code":"monkey-hear","id":"160_monkey-hear","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f649.png"},{"unicode":"🙊","code":"monkey-speak","id":"161_monkey-speak","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f64a.png"},{"unicode":"💋","code":"kiss-lips","id":"162_kiss-lips","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f48b.png"},{"unicode":"💌","code":"heart-letter","id":"163_heart-letter","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f48c.png"},{"unicode":"💘","code":"arrow-cupid","id":"164_arrow-cupid","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f498.png"},{"unicode":"💝","code":"valentine","id":"165_valentine","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f49d.png"},{"unicode":"💖","code":"sparkle-heart","id":"166_sparkle-heart","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f496.png"},{"unicode":"💗","code":"pulse","id":"167_pulse","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f497.png"},{"unicode":"💓","code":"beating","id":"168_beating","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f493.png"},{"unicode":"💞","code":"revolving","id":"169_revolving","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f49e.png"},{"unicode":"💕","code":"love","id":"170_love","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f495.png"},{"unicode":"❣️","code":"exclamation","id":"171_exclamation","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/2763.png"},{"unicode":"💔","code":"broken-heart","id":"172_broken-heart","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f494.png"},{"unicode":"💟","code":"heart-Decoration","id":"173_heart-Decoration","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f49f.png"},{"unicode":"🖤","code":"heart-black","id":"174_heart-black","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f5a4.png"},{"unicode":"🤎","code":"heart-brown","id":"175_heart-brown","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f90e.png"},{"unicode":"💙","code":"heart-blue","id":"176_heart-blue","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f499.png"},{"unicode":"💚","code":"heart-green","id":"177_heart-green","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f49a.png"},{"unicode":"🧡","code":"heart-orange","id":"178_heart-orange","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f9e1.png"},{"unicode":"💜","code":"heart-purple","id":"179_heart-purple","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f49c.png"},{"unicode":"❤️","code":"heart-red","id":"180_heart-red","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/2764.png"},{"unicode":"🤍","code":"black-white","id":"181_black-white","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f90d.png"},{"unicode":"💛","code":"heart-yellow","id":"182_heart-yellow","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f49b.png"},{"unicode":"💯","code":"hundred","id":"183_hundred","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4af.png"},{"unicode":"💢","code":"mad","id":"184_mad","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4a2.png"},{"unicode":"💥","code":"boom","id":"185_boom","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4a5.png"},{"unicode":"💫","code":"stars","id":"186_stars","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4ab.png"},{"unicode":"💦","code":"splashing","id":"187_splashing","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4a6.png"},{"unicode":"💨","code":"comic-dash","id":"188_comic-dash","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4a8.png"},{"unicode":"🕳️","code":"hole","id":"189_hole","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f573.png"},{"unicode":"💬","code":"balloon-dialog","id":"190_balloon-dialog","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4ac.png"},{"unicode":"🗨️","code":"dialog","id":"191_dialog","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f5e8.png"},{"unicode":"🗯️","code":"angry-balloon","id":"192_angry-balloon","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f5ef.png"},{"unicode":"💭","code":"balloon-bubble","id":"193_balloon-bubble","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4ad.png"},{"unicode":"💤","code":"comic-sleep","id":"194_comic-sleep","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4a4.png"},{"unicode":"🕶️","code":"glasses-dark","id":"195_glasses-dark","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f576.png"},{"unicode":"🥽","code":"glasses-swimming","id":"196_glasses-swimming","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f97d.png"},{"unicode":"🥼","code":"scientist","id":"197_scientist","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f97c.png"},{"unicode":"👔","code":"tie","id":"198_tie","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f454.png"},{"unicode":"👕","code":"tshirt","id":"199_tshirt","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f455.png"},{"unicode":"👖","code":"pants","id":"200_pants","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f456.png"},{"unicode":"🧣","code":"neck","id":"201_neck","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f9e3.png"},{"unicode":"🧤","code":"hand","id":"202_hand","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f9e4.png"},{"unicode":"🧥","code":"jacket","id":"203_jacket","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f9e5.png"},{"unicode":"🧦","code":"stocking","id":"204_stocking","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f9e6.png"},{"unicode":"👗","code":"clothing","id":"205_clothing","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f457.png"},{"unicode":"👘","code":"clothing2","id":"206_clothing2","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f458.png"},{"unicode":"👙","code":"swim-clothing","id":"207_swim-clothing","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f459.png"},{"unicode":"👚","code":"woman-clothing","id":"208_woman-clothing","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f45a.png"},{"unicode":"👛","code":"coin-clothing","id":"209_coin-clothing","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f45b.png"},{"unicode":"👜","code":"purse","id":"210_purse","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f45c.png"},{"unicode":"👝","code":"pouch","id":"211_pouch","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f45d.png"},{"unicode":"🛍️","code":"shopping-bag","id":"212_shopping-bag","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f6cd.png"},{"unicode":"🎒","code":"school-bag","id":"213_school-bag","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f392.png"},{"unicode":"👞","code":"shoe","id":"214_shoe","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f45e.png"},{"unicode":"👟","code":"sneaker","id":"215_sneaker","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f45f.png"},{"unicode":"🥾","code":"hiking-boot","id":"216_hiking-boot","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f97e.png"},{"unicode":"🥿","code":"ballet flat","id":"217_ballet flat","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f97f.png"},{"unicode":"👠","code":"woman-shoe","id":"218_woman-shoe","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f460.png"},{"unicode":"👡","code":"woman-shoe2","id":"219_woman-shoe2","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f461.png"},{"unicode":"👢","code":"woman-boot","id":"220_woman-boot","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f462.png"},{"unicode":"👑","code":"king","id":"221_king","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f451.png"},{"unicode":"👒","code":"hat","id":"222_hat","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f452.png"},{"unicode":"🎩","code":"tophat","id":"223_tophat","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f3a9.png"},{"unicode":"🧢","code":"baseball cap","id":"224_baseball cap","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f9e2.png"},{"unicode":"⛑️","code":"aid","id":"225_aid","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/26d1.png"},{"unicode":"📿","code":"beads","id":"226_beads","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4ff.png"},{"unicode":"💄","code":"lipstick","id":"227_lipstick","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f484.png"},{"unicode":"💍","code":"diamond-ring","id":"228_diamond-ring","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f48d.png"},{"unicode":"💎","code":"diamond","id":"229_diamond","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f48e.png"},{"unicode":"🔇","code":"mute","id":"230_mute","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f507.png"},{"unicode":"🔉","code":"medium","id":"231_medium","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f509.png"},{"unicode":"🔊","code":"loud","id":"232_loud","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f50a.png"},{"unicode":"📢","code":"loud2","id":"233_loud2","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4e2.png"},{"unicode":"📣","code":"cheering","id":"234_cheering","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4e3.png"},{"unicode":"📯","code":"horn","id":"235_horn","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4ef.png"},{"unicode":"🔔","code":"bell","id":"236_bell","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f514.png"},{"unicode":"🔕","code":"bell","id":"237_bell","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f515.png"},{"unicode":"🎼","code":"music-score","id":"238_music-score","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f3bc.png"},{"unicode":"🎵","code":"music-note","id":"239_music-note","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f3b5.png"},{"unicode":"🎶","code":"music-notes","id":"240_music-notes","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f3b6.png"},{"unicode":"🎙️","code":"microphone","id":"241_microphone","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f399.png"},{"unicode":"🎤","code":"microphone2","id":"242_microphone2","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f3a4.png"},{"unicode":"🎷","code":"sax","id":"243_sax","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f3b7.png"},{"unicode":"🎸","code":"guitar","id":"244_guitar","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f3b8.png"},{"unicode":"🎹","code":"piano-keys","id":"245_piano-keys","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f3b9.png"},{"unicode":"🎺","code":"trumpet","id":"246_trumpet","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f3ba.png"},{"unicode":"🎻","code":"violin","id":"247_violin","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f3bb.png"},{"unicode":"🥁","code":"drumsticks","id":"248_drumsticks","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f941.png"},{"unicode":"📱","code":"cellphone","id":"249_cellphone","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4f1.png"},{"unicode":"☎️","code":"phone","id":"250_phone","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/260e.png"},{"unicode":"📞","code":"phone2","id":"251_phone2","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4de.png"},{"unicode":"📠","code":"fax","id":"252_fax","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4e0.png"},{"unicode":"🔋","code":"battery","id":"253_battery","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f50b.png"},{"unicode":"🔌","code":"plug","id":"254_plug","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f50c.png"},{"unicode":"🖥️","code":"computer-desktop","id":"255_computer-desktop","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f5a5.png"},{"unicode":"🖨️","code":"printer","id":"256_printer","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f5a8.png"},{"unicode":"⌨️","code":"keyboard","id":"257_keyboard","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/2328.png"},{"unicode":"🖱️","code":"mouse-computer","id":"258_mouse-computer","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f5b1.png"},{"unicode":"💽","code":"computer-disk","id":"259_computer-disk","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4bd.png"},{"unicode":"💾","code":"floppy-disk","id":"260_floppy-disk","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4be.png"},{"unicode":"📀","code":"blu-ray","id":"261_blu-ray","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4c0.png"},{"unicode":"🧮","code":"calculation","id":"262_calculation","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f9ee.png"},{"unicode":"🎥","code":"camera","id":"263_camera","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f3a5.png"},{"unicode":"🎞️","code":"cinema","id":"264_cinema","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f39e.png"},{"unicode":"📽️","code":"cinema2","id":"265_cinema2","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4fd.png"},{"unicode":"📸","code":"camera-flash","id":"266_camera-flash","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4f8.png"},{"unicode":"📼","code":"vhs-tape","id":"267_vhs-tape","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4fc.png"},{"unicode":"🔎","code":"magnifying","id":"268_magnifying","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f50e.png"},{"unicode":"🕯️","code":"light","id":"269_light","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f56f.png"},{"unicode":"💡","code":"bulb","id":"270_bulb","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4a1.png"},{"unicode":"🔦","code":"electric-torch","id":"271_electric-torch","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f526.png"},{"unicode":"📒","code":"notebook","id":"272_notebook","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4d2.png"},{"unicode":"📃","code":"note","id":"273_note","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4c3.png"},{"unicode":"📰","code":"newspaper","id":"274_newspaper","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4f0.png"},{"unicode":"🗞️","code":"newspaper-rolled","id":"275_newspaper-rolled","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f5de.png"},{"unicode":"💴","code":"money-rolled","id":"276_money-rolled","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4b4.png"},{"unicode":"💲","code":"dollar-sign","id":"277_dollar-sign","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4b2.png"},{"unicode":"✉️","code":"email","id":"278_email","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/2709.png"},{"unicode":"✏️","code":"pencil","id":"279_pencil","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/270f.png"},{"unicode":"✒️","code":"pen","id":"280_pen","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/2712.png"},{"unicode":"📝","code":"note-pencil","id":"281_note-pencil","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4dd.png"},{"unicode":"💼","code":"briefcase","id":"282_briefcase","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4bc.png"},{"unicode":"🗓️","code":"calendar","id":"283_calendar","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f5d3.png"},{"unicode":"📌","code":"pin","id":"284_pin","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4cc.png"},{"unicode":"📍","code":"pin2","id":"285_pin2","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4cd.png"},{"unicode":"📎","code":"paperclip","id":"286_paperclip","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4ce.png"},{"unicode":"📏","code":"ruler","id":"287_ruler","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4cf.png"},{"unicode":"📐","code":"ruler2","id":"288_ruler2","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4d0.png"},{"unicode":"✂️","code":"cutting","id":"289_cutting","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/2702.png"},{"unicode":"🗑️","code":"wastebasket","id":"290_wastebasket","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f5d1.png"},{"unicode":"🔑","code":"key","id":"291_key","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f511.png"},{"unicode":"🗝️","code":"key-old","id":"292_key-old","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f5dd.png"},{"unicode":"🔨","code":"hammer","id":"293_hammer","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f528.png"},{"unicode":"⛏️","code":"pickaxe","id":"294_pickaxe","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/26cf.png"},{"unicode":"⚒️","code":"hammer2","id":"295_hammer2","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/2692.png"},{"unicode":"🛠️","code":"hammer-wrench","id":"296_hammer-wrench","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f6e0.png"},{"unicode":"🗡️","code":"knife","id":"297_knife","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f5e1.png"},{"unicode":"⚔️","code":"swords","id":"298_swords","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/2694.png"},{"unicode":"🔫","code":"gun-tool","id":"299_gun-tool","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f52b.png"},{"unicode":"🏹","code":"archer","id":"300_archer","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f3f9.png"},{"unicode":"🛡️","code":"shield","id":"301_shield","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f6e1.png"},{"unicode":"🔧","code":"spanner","id":"302_spanner","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f527.png"},{"unicode":"🔩","code":"bolt","id":"303_bolt","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f529.png"},{"unicode":"⚙️","code":"cog","id":"304_cog","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/2699.png"},{"unicode":"⚖️","code":"balance","id":"305_balance","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/2696.png"},{"unicode":"🔗","code":"link","id":"306_link","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f517.png"},{"unicode":"🧲","code":"magnetic","id":"307_magnetic","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f9f2.png"},{"unicode":"⚗️","code":"chemistry","id":"308_chemistry","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/2697.png"},{"unicode":"🧪","code":"chemist","id":"309_chemist","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f9ea.png"},{"unicode":"🧬","code":"gene","id":"310_gene","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f9ec.png"},{"unicode":"🔬","code":"microscope","id":"311_microscope","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f52c.png"},{"unicode":"🔭","code":"telescope","id":"312_telescope","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f52d.png"},{"unicode":"📡","code":"antenna-dish","id":"313_antenna-dish","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f4e1.png"},{"unicode":"💉","code":"medicine","id":"314_medicine","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f489.png"},{"unicode":"💊","code":"medicine","id":"315_medicine","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f48a.png"},{"unicode":"🚪","code":"door","id":"316_door","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f6aa.png"},{"unicode":"🛏️","code":"hotel-bed","id":"317_hotel-bed","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f6cf.png"},{"unicode":"🚽","code":"toilet","id":"318_toilet","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f6bd.png"},{"unicode":"🚿","code":"shower","id":"319_shower","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f6bf.png"},{"unicode":"🛁","code":"bath","id":"320_bath","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f6c1.png"},{"unicode":"🧴","code":"lotion","id":"321_lotion","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f9f4.png"},{"unicode":"🧷","code":"diaper","id":"322_diaper","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f9f7.png"},{"unicode":"🧹","code":"sweeping","id":"323_sweeping","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f9f9.png"},{"unicode":"🧺","code":"farming","id":"324_farming","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f9fa.png"},{"unicode":"🧻","code":"toilet paper","id":"325_toilet paper","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f9fb.png"},{"unicode":"🧯","code":"extinguisher","id":"326_extinguisher","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f9ef.png"},{"unicode":"🛒","code":"shopping-cart","id":"327_shopping-cart","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f6d2.png"},{"unicode":"🚬","code":"smoking","id":"328_smoking","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f6ac.png"},{"unicode":"✔️","code":"check","id":"329_check","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/2714.png"},{"unicode":"⚰️","code":"death","id":"330_death","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/26b0.png"},{"unicode":"🗿","code":"statue-face","id":"331_statue-face","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f5ff.png"},{"unicode":"🐵","code":"monkey-face","id":"332_monkey-face","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f435.png"},{"unicode":"🐒","code":"monkey","id":"333_monkey","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f412.png"},{"unicode":"🦍","code":"gorilla","id":"334_gorilla","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f98d.png"},{"unicode":"🐶","code":"dog-face","id":"335_dog-face","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f436.png"},{"unicode":"🐩","code":"dog","id":"336_dog","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f429.png"},{"unicode":"🐺","code":"face","id":"337_face","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f43a.png"},{"unicode":"🦊","code":"face","id":"338_face","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f98a.png"},{"unicode":"🦝","code":"curious","id":"339_curious","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f99d.png"},{"unicode":"🐱","code":"cat","id":"340_cat","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f431.png"},{"unicode":"🦁","code":"lion-face","id":"341_lion-face","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f981.png"},{"unicode":"🐯","code":"tiger-face","id":"342_tiger-face","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f42f.png"},{"unicode":"🐅","code":"tiger","id":"343_tiger","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f405.png"},{"unicode":"🐆","code":"leopard","id":"344_leopard","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f406.png"},{"unicode":"🐴","code":"horse-face","id":"345_horse-face","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f434.png"},{"unicode":"🐎","code":"racehorse","id":"346_racehorse","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f40e.png"},{"unicode":"🦄","code":"unicorn-face","id":"347_unicorn-face","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f984.png"},{"unicode":"🦓","code":"zebra","id":"348_zebra","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f993.png"},{"unicode":"🦌","code":"deer","id":"349_deer","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f98c.png"},{"unicode":"🐮","code":"cow","id":"350_cow","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f42e.png"},{"unicode":"🐂","code":"bull","id":"351_bull","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f402.png"},{"unicode":"🐃","code":"buffalo","id":"352_buffalo","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f403.png"},{"unicode":"🐄","code":"cow","id":"353_cow","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f404.png"},{"unicode":"🐷","code":"pig-face","id":"354_pig-face","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f437.png"},{"unicode":"🐖","code":"sow","id":"355_sow","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f416.png"},{"unicode":"🐗","code":"pig","id":"356_pig","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f417.png"},{"unicode":"🐽","code":"pig-nose","id":"357_pig-nose","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f43d.png"},{"unicode":"🐏","code":"aries","id":"358_aries","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f40f.png"},{"unicode":"🐑","code":"sheep","id":"359_sheep","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f411.png"},{"unicode":"🐐","code":"capricorn","id":"360_capricorn","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f410.png"},{"unicode":"🐪","code":"dromedary","id":"361_dromedary","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f42a.png"},{"unicode":"🐫","code":"camel","id":"362_camel","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f42b.png"},{"unicode":"🦙","code":"alpaca","id":"363_alpaca","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f999.png"},{"unicode":"🦒","code":"spots","id":"364_spots","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f992.png"},{"unicode":"🐘","code":"elephant","id":"365_elephant","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f418.png"},{"unicode":"🦏","code":"rhinoceros","id":"366_rhinoceros","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f98f.png"},{"unicode":"🦛","code":"hippo","id":"367_hippo","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f99b.png"},{"unicode":"🐭","code":"mouse-face","id":"368_mouse-face","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f42d.png"},{"unicode":"🐁","code":"mouse","id":"369_mouse","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f401.png"},{"unicode":"🐀","code":"rat","id":"370_rat","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f400.png"},{"unicode":"🐹","code":"pet-face","id":"371_pet-face","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f439.png"},{"unicode":"🐰","code":"bunny-face","id":"372_bunny-face","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f430.png"},{"unicode":"🐇","code":"bunny","id":"373_bunny","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f407.png"},{"unicode":"🐿️","code":"squirrel","id":"374_squirrel","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f43f.png"},{"unicode":"🦔","code":"spiny","id":"375_spiny","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f994.png"},{"unicode":"🦇","code":"vampire","id":"376_vampire","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f987.png"},{"unicode":"🐻","code":"face","id":"377_face","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f43b.png"},{"unicode":"🐨","code":"bear","id":"378_bear","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f428.png"},{"unicode":"🐼","code":"panda-face","id":"379_panda-face","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f43c.png"},{"unicode":"🦘","code":"marsupial","id":"380_marsupial","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f998.png"},{"unicode":"🦡","code":"honey badger","id":"381_honey badger","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f9a1.png"},{"unicode":"🐾","code":"paw","id":"382_paw","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f43e.png"},{"unicode":"🦃","code":"bird","id":"383_bird","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f983.png"},{"unicode":"🐔","code":"chicken","id":"384_chicken","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f414.png"},{"unicode":"🐓","code":"rooster","id":"385_rooster","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f413.png"},{"unicode":"🐣","code":"baby-bird","id":"386_baby-bird","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f423.png"},{"unicode":"🐤","code":"baby-chick","id":"387_baby-chick","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f424.png"},{"unicode":"🐥","code":"baby-chick2","id":"388_baby-chick2","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f425.png"},{"unicode":"🐧","code":"penguin","id":"389_penguin","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f427.png"},{"unicode":"🕊️","code":"bird-fly","id":"390_bird-fly","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f54a.png"},{"unicode":"🦅","code":"eagle","id":"391_eagle","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f985.png"},{"unicode":"🦆","code":"duck","id":"392_duck","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f986.png"},{"unicode":"🦢","code":"swan","id":"393_swan","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f9a2.png"},{"unicode":"🦉","code":"owl","id":"394_owl","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f989.png"},{"unicode":"🦚","code":"peahen","id":"395_peahen","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f99a.png"},{"unicode":"🦜","code":"macaw","id":"396_macaw","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f99c.png"},{"unicode":"🐸","code":"frog-face","id":"397_frog-face","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f438.png"},{"unicode":"🐊","code":"crocodile","id":"398_crocodile","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f40a.png"},{"unicode":"🐢","code":"turtle","id":"399_turtle","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f422.png"},{"unicode":"🦎","code":"reptile","id":"400_reptile","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f98e.png"},{"unicode":"🐍","code":"snake","id":"401_snake","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f40d.png"},{"unicode":"🐲","code":"dragon-face","id":"402_dragon-face","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f432.png"},{"unicode":"🐉","code":"dragon","id":"403_dragon","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f409.png"},{"unicode":"🦕","code":"brontosaurus","id":"404_brontosaurus","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f995.png"},{"unicode":"🦖","code":"t-rex","id":"405_t-rex","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f996.png"},{"unicode":"🐳","code":"whale","id":"406_whale","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f433.png"},{"unicode":"🐋","code":"whale2","id":"407_whale2","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f40b.png"},{"unicode":"🐬","code":"flipper","id":"408_flipper","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f42c.png"},{"unicode":"🐠","code":"tropical-fish","id":"409_tropical-fish","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f420.png"},{"unicode":"🐡","code":"fish","id":"410_fish","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f421.png"},{"unicode":"🦈","code":"shark","id":"411_shark","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f988.png"},{"unicode":"🐙","code":"octopus","id":"412_octopus","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f419.png"},{"unicode":"🐚","code":"shell","id":"413_shell","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f41a.png"},{"unicode":"🐌","code":"snail","id":"414_snail","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f40c.png"},{"unicode":"🦋","code":"butterfly","id":"415_butterfly","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f98b.png"},{"unicode":"🐛","code":"insect","id":"416_insect","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f41b.png"},{"unicode":"🐜","code":"insect","id":"417_insect","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f41c.png"},{"unicode":"🐝","code":"bee","id":"418_bee","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f41d.png"},{"unicode":"🐞","code":"ladybug","id":"419_ladybug","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f41e.png"},{"unicode":"🦗","code":"grasshopper","id":"420_grasshopper","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f997.png"},{"unicode":"🕷️","code":"insect","id":"421_insect","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f577.png"},{"unicode":"🕸️","code":"spider-web","id":"422_spider-web","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f578.png"},{"unicode":"🦂","code":"scorpio","id":"423_scorpio","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f982.png"},{"unicode":"🦟","code":"mosquito","id":"424_mosquito","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f99f.png"},{"unicode":"🦠","code":"amoeba","id":"425_amoeba","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f9a0.png"},{"unicode":"💐","code":"flower","id":"426_flower","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f490.png"},{"unicode":"🌸","code":"blossom","id":"427_blossom","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f338.png"},{"unicode":"🌹","code":"flower","id":"428_flower","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f339.png"},{"unicode":"🥀","code":"flower-wilted","id":"429_flower-wilted","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f940.png"},{"unicode":"🌺","code":"flower2","id":"430_flower2","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f33a.png"},{"unicode":"🌻","code":"sun-flower","id":"431_sun-flower","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f33b.png"},{"unicode":"🌼","code":"flower3","id":"432_flower3","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f33c.png"},{"unicode":"🌷","code":"flower4","id":"433_flower4","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f337.png"},{"unicode":"🌱","code":"young-tree","id":"434_young-tree","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f331.png"},{"unicode":"🌲","code":"tree","id":"435_tree","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f332.png"},{"unicode":"🌳","code":"big-tree","id":"436_big-tree","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f333.png"},{"unicode":"🌵","code":"plant","id":"437_plant","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f335.png"},{"unicode":"🌿","code":"leaf","id":"438_leaf","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f33f.png"},{"unicode":"☘️","code":"three-leaf clover","id":"439_three-leaf clover","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/2618.png"},{"unicode":"🍀","code":"four-leaf clover","id":"440_four-leaf clover","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f340.png"},{"unicode":"🍁","code":"falling-leaf","id":"441_falling-leaf","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f341.png"},{"unicode":"🏁","code":"checkered","id":"442_checkered","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f3c1.png"},{"unicode":"🚩","code":"post","id":"443_post","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f6a9.png"},{"unicode":"🎌","code":"japanese-celebration","id":"444_japanese-celebration","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f38c.png"},{"unicode":"🏴","code":"flag-black","id":"445_flag-black","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f3f4.png"},{"unicode":"🏳️","code":"flag-white","id":"446_flag-white","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f3f3.png"},{"unicode":"🏳️‍🌈","code":"flag-pride","id":"447_flag-pride","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f3f3-fe0f-200d-1f308.png"},{"unicode":"🏴‍☠️","code":"flag-pirate","id":"448_flag-pirate","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f3f4-200d-2620-fe0f.png"},{"unicode":"🇦🇷","code":"AR","id":"449_AR","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1e6-1f1f7.png"},{"unicode":"🇦🇺","code":"AU","id":"450_AU","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1e6-1f1fa.png"},{"unicode":"🇧🇬","code":"BG","id":"451_BG","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1e7-1f1ec.png"},{"unicode":"🇧🇷","code":"BR","id":"452_BR","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1e7-1f1f7.png"},{"unicode":"🇨🇦","code":"CA","id":"453_CA","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1e8-1f1e6.png"},{"unicode":"🇨🇳","code":"CN","id":"454_CN","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1e8-1f1f3.png"},{"unicode":"🇨🇿","code":"CZ","id":"455_CZ","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1e8-1f1ff.png"},{"unicode":"🇩🇪","code":"DE","id":"456_DE","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1e9-1f1ea.png"},{"unicode":"🇩🇰","code":"DK","id":"457_DK","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1e9-1f1f0.png"},{"unicode":"🇩🇲","code":"DM","id":"458_DM","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1e9-1f1f2.png"},{"unicode":"🇩🇴","code":"DO","id":"459_DO","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1e9-1f1f4.png"},{"unicode":"🇩🇿","code":"DZ","id":"460_DZ","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1e9-1f1ff.png"},{"unicode":"🇪🇦","code":"EA","id":"461_EA","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1ea-1f1e6.png"},{"unicode":"🇪🇨","code":"EC","id":"462_EC","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1ea-1f1e8.png"},{"unicode":"🇪🇸","code":"ES","id":"463_ES","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1ea-1f1f8.png"},{"unicode":"🇫🇮","code":"FI","id":"464_FI","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1eb-1f1ee.png"},{"unicode":"🇫🇷","code":"FR","id":"465_FR","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1eb-1f1f7.png"},{"unicode":"🇬🇧","code":"GB","id":"466_GB","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1ec-1f1e7.png"},{"unicode":"🇭🇰","code":"HK","id":"467_HK","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1ed-1f1f0.png"},{"unicode":"🇮🇱","code":"IL","id":"468_IL","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1ee-1f1f1.png"},{"unicode":"🇮🇹","code":"IT","id":"469_IT","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1ee-1f1f9.png"},{"unicode":"🇯🇵","code":"JA","id":"470_JA","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1ef-1f1f5.png"},{"unicode":"🇰🇵","code":"KP","id":"471_KP","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1f0-1f1f5.png"},{"unicode":"🇰🇷","code":"KR","id":"472_KR","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1f0-1f1f7.png"},{"unicode":"🇳🇱","code":"NL","id":"473_NL","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1f3-1f1f1.png"},{"unicode":"🇳🇴","code":"NO","id":"474_NO","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1f3-1f1f4.png"},{"unicode":"🇵🇱","code":"PL","id":"475_PL","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1f5-1f1f1.png"},{"unicode":"🇵🇹","code":"PT","id":"476_PT","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1f5-1f1f9.png"},{"unicode":"🇷🇴","code":"RO","id":"477_RO","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1f7-1f1f4.png"},{"unicode":"🇷🇺","code":"RU","id":"478_RU","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1f7-1f1fa.png"},{"unicode":"🇸🇰","code":"SK","id":"479_SK","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1f8-1f1f0.png"},{"unicode":"🇸🇻","code":"SV","id":"480_SV","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1f8-1f1fb.png"},{"unicode":"🇹🇭","code":"TH","id":"481_TH","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1f9-1f1ed.png"},{"unicode":"🇹🇷","code":"TR","id":"482_TR","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1f9-1f1f7.png"},{"unicode":"🇻🇮","code":"VI","id":"483_VI","4x":"https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f1fb-1f1ee.png"}]';
 
 /*
- * Copyright (c) 2017â€“present Felipe de Leon <fglfgl27@gmail.com>
+ * Copyright (c) 2017–present Felipe de Leon <fglfgl27@gmail.com>
  *
  * This file is part of SmartTwitchTV <https://github.com/fgl27/SmartTwitchTV>
  *
@@ -8015,7 +3171,7 @@ var IMG_PARTNER =
 //empty
 
 /*
- * Copyright (c) 2017â€“present Felipe de Leon <fglfgl27@gmail.com>
+ * Copyright (c) 2017–present Felipe de Leon <fglfgl27@gmail.com>
  *
  * This file is part of SmartTwitchTV <https://github.com/fgl27/SmartTwitchTV>
  *
@@ -8132,86 +3288,7 @@ function calculateFontSizeTizen() {
 }
 
 /*
- * Copyright (c) 2017â€“present Felipe de Leon <fglfgl27@gmail.com>
- *
- * This file is part of SmartTwitchTV <https://github.com/fgl27/SmartTwitchTV>
- *
- * SmartTwitchTV is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * SmartTwitchTV is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with SmartTwitchTV.  If not, see <https://github.com/fgl27/SmartTwitchTV/blob/master/LICENSE>.
- *
- */
-
-//https://developer.android.com/reference/android/view/KeyEvent
-//overwrite from java dispatchKeyEvent()
-var KEY_PAUSE = 83; //overwrite key S = stop because p = play
-var KEY_PLAY = 80; //overwrite key P = play
-
-var KEY_STOP = 178;
-var KEY_PLAYPAUSE = 179;
-
-var KEY_LEFT = 37;
-var KEY_UP = 38;
-var KEY_RIGHT = 39;
-var KEY_DOWN = 40;
-var KEY_ENTER = 13;
-
-var KEY_PG_DOWN = 34;
-var KEY_PG_UP = 33;
-
-var KEY_RETURN = 113; //key #F2
-
-var KEY_KEYBOARD_BACKSPACE = 8; // http://developer.samsung.com/tv/develop/guides/user-interaction/keyboardime
-var KEY_KEYBOARD_DONE = 13;
-var KEY_KEYBOARD_SPACE = 32;
-
-var KEY_MEDIA_NEXT = 176;
-var KEY_MEDIA_PREVIOUS = 177;
-
-var KEY_MEDIA_FAST_FORWARD = 228;
-var KEY_MEDIA_REWIND = 227;
-
-var KEY_0 = 48;
-var KEY_1 = 49;
-var KEY_2 = 50;
-var KEY_3 = 51;
-var KEY_4 = 52;
-var KEY_5 = 53;
-var KEY_6 = 54;
-var KEY_7 = 55;
-var KEY_8 = 56;
-var KEY_9 = 57;
-
-var KEY_NUMPAD_0 = 96;
-var KEY_NUMPAD_1 = 97;
-var KEY_NUMPAD_2 = 98;
-var KEY_NUMPAD_3 = 99;
-var KEY_NUMPAD_4 = 100;
-var KEY_NUMPAD_5 = 101;
-var KEY_NUMPAD_6 = 102;
-var KEY_NUMPAD_7 = 103;
-var KEY_NUMPAD_8 = 104;
-var KEY_NUMPAD_9 = 105;
-
-var KEY_A = 65;
-var KEY_C = 67;
-var KEY_E = 69;
-var KEY_J = 74;
-var KEY_K = 75;
-var KEY_T = 84;
-var KEY_U = 85;
-
-/*
- * Copyright (c) 2017-âˆž Felipe de Leon <fglfgl27@gmail.com>
+ * Copyright (c) 2017-∞ Felipe de Leon <fglfgl27@gmail.com>
  *
  * This file is part of SmartTwitchTV <https://github.com/fgl27/SmartTwitchTV>
  *
@@ -8279,7 +3356,7 @@ var version = {
 };
 
 /*
- * Copyright (c) 2017â€“present Felipe de Leon <fglfgl27@gmail.com>
+ * Copyright (c) 2017–present Felipe de Leon <fglfgl27@gmail.com>
  *
  * This file is part of SmartTwitchTV <https://github.com/fgl27/SmartTwitchTV>
  *
@@ -8697,7 +3774,7 @@ var AddCode_UrlToken = AddCode_Url + 'token?';
 var AddCode_ValidateUrl = AddCode_Url + 'validate';
 
 /*
- * Copyright (c) 2017â€“present Felipe de Leon <fglfgl27@gmail.com>
+ * Copyright (c) 2017–present Felipe de Leon <fglfgl27@gmail.com>
  *
  * This file is part of SmartTwitchTV <https://github.com/fgl27/SmartTwitchTV>
  *
@@ -11876,7 +6953,7 @@ function BrowserTest_sidePanel_element_show() {
 }
 
 /*
- * Copyright (c) 2017â€“present Felipe de Leon <fglfgl27@gmail.com>
+ * Copyright (c) 2017–present Felipe de Leon <fglfgl27@gmail.com>
  *
  * This file is part of SmartTwitchTV <https://github.com/fgl27/SmartTwitchTV>
  *
@@ -12658,7 +7735,7 @@ function ChannelContent_UpdateSince(key) {
 }
 
 /*
- * Copyright (c) 2017â€“present Felipe de Leon <fglfgl27@gmail.com>
+ * Copyright (c) 2017–present Felipe de Leon <fglfgl27@gmail.com>
  *
  * This file is part of SmartTwitchTV <https://github.com/fgl27/SmartTwitchTV>
  *
@@ -13883,19 +8960,19 @@ function ChatLive_loadChatRequest(chat_number, id, SkipStartLine) {
                 // command: "ROOMSTATE"
                 // params: Array(6)
                 // 0: "#sayeedblack
-                // â†µ:testtwitch27.tmi.twitch.tv"
+                // ↵:testtwitch27.tmi.twitch.tv"
                 // 1: "353"
                 // 2: "testtwitch27"
                 // 3: "="
                 // 4: "#sayeedblack"
                 // 5: "testtwitch27
-                // â†µ:testtwitch27.tmi.twitch.tv 366 testtwitch27 #sayeedblack :End of /NAMES list"
+                // ↵:testtwitch27.tmi.twitch.tv 366 testtwitch27 #sayeedblack :End of /NAMES list"
                 // length: 6
                 // __proto__: Array(0)
                 // prefix: "tmi.twitch.tv"
                 // raw: "@emote-only=0;followers-only=-1;r9k=0;rituals=1;room-id=83084666;slow=0;subs-only=0 :tmi.twitch.tv ROOMSTATE #sayeedblack
-                // â†µ:testtwitch27.tmi.twitch.tv 353 testtwitch27 = #sayeedblack :testtwitch27
-                // â†µ:testtwitch27.tmi.twitch.tv 366 testtwitch27 #sayeedblack :End of /NAMES list"
+                // ↵:testtwitch27.tmi.twitch.tv 353 testtwitch27 = #sayeedblack :testtwitch27
+                // ↵:testtwitch27.tmi.twitch.tv 366 testtwitch27 #sayeedblack :End of /NAMES list"
                 // tags:
                 // emote-only: "0"
                 // followers-only: "-1"
@@ -14886,7 +9963,7 @@ function ChatLive_CleanMessage(message) {
 }
 
 /*
- * Copyright (c) 2017â€“present Felipe de Leon <fglfgl27@gmail.com>
+ * Copyright (c) 2017–present Felipe de Leon <fglfgl27@gmail.com>
  *
  * This file is part of SmartTwitchTV <https://github.com/fgl27/SmartTwitchTV>
  *
@@ -15917,7 +10994,7 @@ function ChatLiveControls_OptionsRigthLeft(offset) {
 }
 
 /*
- * Copyright (c) 2017â€“present Felipe de Leon <fglfgl27@gmail.com>
+ * Copyright (c) 2017–present Felipe de Leon <fglfgl27@gmail.com>
  *
  * This file is part of SmartTwitchTV <https://github.com/fgl27/SmartTwitchTV>
  *
@@ -16831,7 +11908,7 @@ function Chat_getHighlightsValue() {
 }
 
 /*
- * Copyright (c) 2017â€“present Felipe de Leon <fglfgl27@gmail.com>
+ * Copyright (c) 2017–present Felipe de Leon <fglfgl27@gmail.com>
  *
  * This file is part of SmartTwitchTV <https://github.com/fgl27/SmartTwitchTV>
  *
@@ -17002,7 +12079,7 @@ var Main_loadingSafetyTimeoutId;
 //Variable initialization end
 
 // this function call will be used only when running the app/ folder, release maker will remove this
-Main_Start();
+//Main_Start();
 
 function Main_Start() {
     if (document.readyState === 'loading') {
@@ -18904,7 +13981,7 @@ function Main_getItemBool(item, default_value) {
 }
 
 // use http://www.fileformat.info/info/unicode/char/16EB/index.html
-// Replace "16EB" with is the char á›« by the result of "string.charCodeAt(i).toString(16).toUpperCase()"
+// Replace "16EB" with is the char ᛫ by the result of "string.charCodeAt(i).toString(16).toUpperCase()"
 // To see supported fonts and etc info about the unknown char
 // function Main_PrintUnicode(string) { // jshint ignore:line
 //     Main_Log(string);
@@ -20603,7 +15680,7 @@ function Main_removeMissingProps(obj, referenceArray) {
 }
 
 /*
- * Copyright (c) 2017â€“present Felipe de Leon <fglfgl27@gmail.com>
+ * Copyright (c) 2017–present Felipe de Leon <fglfgl27@gmail.com>
  *
  * This file is part of SmartTwitchTV <https://github.com/fgl27/SmartTwitchTV>
  *
@@ -21756,7 +16833,7 @@ function OSInterface_SaveFile(fileName, content) {
 }
 
 /*
- * Copyright (c) 2017â€“present Felipe de Leon <fglfgl27@gmail.com>
+ * Copyright (c) 2017–present Felipe de Leon <fglfgl27@gmail.com>
  *
  * This file is part of SmartTwitchTV <https://github.com/fgl27/SmartTwitchTV>
  *
@@ -22036,7 +17113,7 @@ function Password_KeyboardDismiss() {
 }
 
 /*
- * Copyright (c) 2017â€“present Felipe de Leon <fglfgl27@gmail.com>
+ * Copyright (c) 2017–present Felipe de Leon <fglfgl27@gmail.com>
  *
  * This file is part of SmartTwitchTV <https://github.com/fgl27/SmartTwitchTV>
  *
@@ -23103,6 +18180,7 @@ function Play_FixQualities(input) {
 
     return input;
 }
+
 
 function Play_extractQualities(input) {
     var result = [],
@@ -24241,7 +19319,7 @@ function Play_FastBackForward(position) {
 }
 
 /*
- * Copyright (c) 2017â€“present Felipe de Leon <fglfgl27@gmail.com>
+ * Copyright (c) 2017–present Felipe de Leon <fglfgl27@gmail.com>
  *
  * This file is part of SmartTwitchTV <https://github.com/fgl27/SmartTwitchTV>
  *
@@ -25327,7 +20405,7 @@ function PlayClip_ClipCheckIfIsLiveOpen() {
 }
 
 /*
- * Copyright (c) 2017â€“present Felipe de Leon <fglfgl27@gmail.com>
+ * Copyright (c) 2017–present Felipe de Leon <fglfgl27@gmail.com>
  *
  * This file is part of SmartTwitchTV <https://github.com/fgl27/SmartTwitchTV>
  *
@@ -30018,7 +25096,7 @@ function Play_handleKeyControls(event) {
 }
 
 /*
- * Copyright (c) 2017â€“present Felipe de Leon <fglfgl27@gmail.com>
+ * Copyright (c) 2017–present Felipe de Leon <fglfgl27@gmail.com>
  *
  * This file is part of SmartTwitchTV <https://github.com/fgl27/SmartTwitchTV>
  *
@@ -30480,7 +25558,7 @@ function PlayExtra_updateStreamInfo() {
 }
 
 /*
- * Copyright (c) 2017â€“present Felipe de Leon <fglfgl27@gmail.com>
+ * Copyright (c) 2017–present Felipe de Leon <fglfgl27@gmail.com>
  *
  * This file is part of SmartTwitchTV <https://github.com/fgl27/SmartTwitchTV>
  *
@@ -30870,7 +25948,7 @@ function PlayHLS_GetPlayListSyncUrl(isLive, Channel_or_VOD_Id, useProxy, Token, 
 }
 
 /*
- * Copyright (c) 2017â€“present Felipe de Leon <fglfgl27@gmail.com>
+ * Copyright (c) 2017–present Felipe de Leon <fglfgl27@gmail.com>
  *
  * This file is part of SmartTwitchTV <https://github.com/fgl27/SmartTwitchTV>
  *
@@ -31897,7 +26975,7 @@ var PlayUtils = {
 };
 
 /*
- * Copyright (c) 2017â€“present Felipe de Leon <fglfgl27@gmail.com>
+ * Copyright (c) 2017–present Felipe de Leon <fglfgl27@gmail.com>
  *
  * This file is part of SmartTwitchTV <https://github.com/fgl27/SmartTwitchTV>
  *
@@ -33791,7 +28869,7 @@ function PlayVod_SetPreviewType() {
 // }
 
 /*
- * Copyright (c) 2017â€“present Felipe de Leon <fglfgl27@gmail.com>
+ * Copyright (c) 2017–present Felipe de Leon <fglfgl27@gmail.com>
  *
  * This file is part of SmartTwitchTV <https://github.com/fgl27/SmartTwitchTV>
  *
@@ -34712,16 +29790,16 @@ function Screens_createCellLive(id, idArray, valuesArray, key, Extra_when, Extra
         ScreenObj[key].img_404 +
         '\';" ><div class="viewer_badge"><span class="viewer_dot"></span><span>' +
         valuesArray[4] +
-        '</span></div></div><div class="thumb_info_row">' +
+        '</span></div><div class="thumb_info_row">' +
         (avatar ? '<img class="thumb_avatar" alt="" src="' + avatar + '" onerror="this.style.display=\'none\'">' : '') +
-        '<div class="thumb_text_info"><div class="thumb_game_name">' +
-        (valuesArray[3] !== '' ? valuesArray[3] : '') +
-        '</div><div class="thumb_streamer_name" id="' +
+        '<div class="thumb_text_info"><div class="thumb_streamer_name" id="' +
         idArray[2] +
         id +
         '">' +
         valuesArray[1] +
-        '</div></div></div>' +
+        '</div><div class="thumb_game_name">' +
+        (valuesArray[2] !== '' ? valuesArray[2] : (valuesArray[3] !== '' ? valuesArray[3] : '')) +
+        '</div></div></div></div>' +
         '<div style="display: none;" id="' +
         idArray[4] +
         id +
@@ -34773,7 +29851,7 @@ function Screens_loadDataSuccessFinish(key) {
             var i,
                 Cells_length = ScreenObj[key].Cells.length;
 
-            for (i = 0; i < (Cells_length < ScreenObj[key].visiblerows ? Cells_length : ScreenObj[key].visiblerows); i++) {
+            for (i = 0; i < Cells_length; i++) {
                 if (ScreenObj[key].Cells[i]) {
                     ScreenObj[key].tableDoc.appendChild(ScreenObj[key].Cells[i]);
                     ScreenObj[key].Cells[i].style.position = '';
@@ -34809,7 +29887,7 @@ function Screens_loadDataSuccessFinish(key) {
                 // Main_RemoveClassWithEle(Main_Scene1Doc, 'opacity_zero');
             } else Screens_setOffset(1, 0, key);
 
-            for (i = 0; i < (Cells_length < ScreenObj[key].visiblerows ? Cells_length : ScreenObj[key].visiblerows); i++) {
+            for (i = 0; i < Cells_length; i++) {
                 if (ScreenObj[key].Cells[i]) {
                     ScreenObj[key].Cells[i].style.transform = 'translateY(' + i * ScreenObj[key].offsettop + 'em)';
                 }
@@ -35526,42 +30604,13 @@ function Screens_addrow(forceScroll, y, key, forceAfterDelete) {
         // down
         Screens_addrowDown(y, key);
     } else if (ScreenObj[key].currY > y) {
-        // Up
-
-        if ((y && ScreenObj[key].Cells.length > y + 1 && ScreenObj[key].Cells[y + 3]) || forceAfterDelete) {
-            if (Screens_ChangeFocusAnimationFinished && Screens_SettingDoAnimations && !Screens_ChangeFocusAnimationFast) {
-                //If with animation
-
-                Screens_addrowAnimated(
-                    y,
-                    -1, //y_plus
-                    -1, //y_plus_offset
-                    -1, //for_in
-                    4, //for_out
-                    1, //for_offset
-                    3, //eleRemovePos
-                    0, //down?
-                    key
-                );
-            } else {
-                Screens_addrowNotAnimated(
-                    y,
-                    -1, //y_plus
-                    -1, //for_in
-                    4, //for_out
-                    1, //for_offset
-                    3, //eleRemovePos
-                    0, //down?
-                    key
-                );
+        // Up - just ensure the row above is in the DOM
+        if (y >= 0 && ScreenObj[key].Cells[y]) {
+            var prevCell = ScreenObj[key].Cells[y];
+            if (!prevCell.parentNode) {
+                prevCell.style.transform = 'translateY(' + y * ScreenObj[key].offsettop + 'em)';
+                ScreenObj[key].tableDoc.insertBefore(prevCell, ScreenObj[key].tableDoc.firstChild);
             }
-        } else {
-            Main_setTimeout(
-                function () {
-                    Screens_LoadPreview(key);
-                },
-                y ? 0 : Screens_ScrollAnimationTimeout
-            );
         }
     } else Screens_LoadPreview(key);
 
@@ -35570,38 +30619,13 @@ function Screens_addrow(forceScroll, y, key, forceAfterDelete) {
 }
 
 function Screens_addrowDown(y, key) {
-    if (y > 2 && ScreenObj[key].Cells[y + 1]) {
-        if (Screens_ChangeFocusAnimationFinished && Screens_SettingDoAnimations && !Screens_ChangeFocusAnimationFast) {
-            //If with animation
-
-            Screens_addrowAnimated(
-                y,
-                1, //y_plus
-                4, //y_plus_offset
-                -1, //for_in
-                3, //for_out
-                1, //for_offset
-                -3, //eleRemovePos
-                1, //down?
-                key
-            );
-        } else {
-            Screens_addrowNotAnimated(
-                y,
-                1, //y_plus
-                -1, //for_in
-                3, //for_out
-                1, //for_offset
-                -3, //eleRemovePos
-                1, //down?
-                key
-            );
+    if (ScreenObj[key].Cells[y + 1]) {
+        var nextCell = ScreenObj[key].Cells[y + 1];
+        if (!nextCell.parentNode) {
+            nextCell.style.transform = 'translateY(' + (y + 1) * ScreenObj[key].offsettop + 'em)';
+            ScreenObj[key].tableDoc.appendChild(nextCell);
         }
     } else if (ScreenObj[key].loadingData) {
-        //Technically we will not get here because
-        //Key down or right (ScreenObj[key].Cells.length - 1) >= (ScreenObj[key].posY + 4) will hold the screen
-        //but this works, the issue is related to slow to load more content
-        //Only happens if scroll too fast
         Main_setTimeout(function () {
             Screens_addrowDown(y, key);
         }, 10);
@@ -35788,8 +30812,10 @@ function Screens_addFocusVideo(forceScroll, key) {
     if (!ScreenObj[key]) return;
     var y = ScreenObj[key].posY;
 
-    if (Main_YchangeAddFocus(y) || forceScroll) {
-    ScreenObj[key].ScrollDoc.style.transform = '';
+    if (y < ScreenObj[key].visiblerows || forceScroll) {
+        ScreenObj[key].tableDoc.style.transform = '';
+    } else {
+        ScreenObj[key].tableDoc.style.transform = 'translateY(-' + ((y - ScreenObj[key].visiblerows + 1) * ScreenObj[key].offsettop) + 'em)';
     }
 }
 
@@ -38119,7 +33145,7 @@ function Screens_FollowGameRequestEnd(FollowState) {
 }
 
 /*
- * Copyright (c) 2017â€“present Felipe de Leon <fglfgl27@gmail.com>
+ * Copyright (c) 2017–present Felipe de Leon <fglfgl27@gmail.com>
  *
  * This file is part of SmartTwitchTV <https://github.com/fgl27/SmartTwitchTV>
  *
@@ -41645,7 +36671,7 @@ function BaseXmlHttpGetFull_Process_End(response, checkResult, check_1, check_2,
 }
 
 /*
- * Copyright (c) 2017â€“present Felipe de Leon <fglfgl27@gmail.com>
+ * Copyright (c) 2017–present Felipe de Leon <fglfgl27@gmail.com>
  *
  * This file is part of SmartTwitchTV <https://github.com/fgl27/SmartTwitchTV>
  *
@@ -41869,7 +36895,7 @@ function Search_KeyboardDismiss() {
 }
 
 /*
- * Copyright (c) 2017â€“present Felipe de Leon <fglfgl27@gmail.com>
+ * Copyright (c) 2017–present Felipe de Leon <fglfgl27@gmail.com>
  *
  * This file is part of SmartTwitchTV <https://github.com/fgl27/SmartTwitchTV>
  *
@@ -41912,38 +36938,38 @@ var Settings_value = {
         values: [
             'All',
             'American Sign Language [ASL]',
-            'Ø§Ù„Ø¹Ø±Ø¨ÙŠØ© - Al Arabiya [AR]',
+            'العربية - Al Arabiya [AR]',
             'Bahasa Indonesia [ID]',
-            'Ð‘ÑŠÐ»Ð³Ð°Ñ€ÑÐºÐ¸ - Bulgarian [BG]',
-            'CatalÃ  - Catalan [CA]',
-            'ÄŒeÅ¡tina - Czech [CS]',
+            'Български - Bulgarian [BG]',
+            'Català - Catalan [CA]',
+            'Čeština - Czech [CS]',
             'Dansk - Danish [DA]',
             'Deutsch [DE]',
-            'Î•Î»Î»Î·Î½Î¹ÎºÎ¬ - Griechisch [EL]',
+            'Ελληνικά - Griechisch [EL]',
             'English [EN]',
-            'EspaÃ±ol - Spanish [ES]',
+            'Español - Spanish [ES]',
             'Suomi - Finnish [FI]',
-            'FranÃ§ais - French [FR]',
+            'Français - French [FR]',
             'Italiano - Italian [IT]',
-            'à¤®à¤¾à¤¨à¤• à¤¹à¤¿à¤¨à¥à¤¦à¥€ - Hindi [HI]',
+            'मानक हिन्दी - Hindi [HI]',
             'Magyar - Hungarian [HU]',
-            'æ—¥æœ¬èªž - Japanese [JA]',
-            'í•œêµ­ì–´ - Korean [KO]',
-            'Ø¨Ù‡Ø§Ø³ Ù…Ù„Ø§ÙŠÙˆ - Malay [MS]',
+            '日本語 - Japanese [JA]',
+            '한국어 - Korean [KO]',
+            'بهاس ملايو - Malay [MS]',
             'Nederlands - Dutch [NL]',
             'Norsk - Norwegian [NO]',
             'Polski - Polish [PL]',
-            'PortuguÃªs - Portuguese [PT]',
-            'RomÃ¢nÄƒ - Romanian  [RO]',
-            'Ð ÑƒÑÑÐºÐ¸Ð¹ - Russian [RU]',
-            'SlovenÄina - Slovak [SK]',
+            'Português - Portuguese [PT]',
+            'Română - Romanian  [RO]',
+            'Русский - Russian [RU]',
+            'Slovenčina - Slovak [SK]',
             'Svenska - Swedish [SV]',
-            'à¸ à¸²à¸©à¸²à¹„à¸—à¸¢ - Tai [TH]',
-            'TÃ¼rkÃ§e - Turkish [TR]',
-            'Tiáº¿ng Viá»‡t - Vietnamese [VI]',
+            'ภาษาไทย - Tai [TH]',
+            'Türkçe - Turkish [TR]',
+            'Tiếng Việt - Vietnamese [VI]',
             'Tagalog [TL]',
-            'Ð£ÐºÑ€Ð°Ñ—Ð½ÑÑŒÐºÐ° - Ukrainian [UK]',
-            'ä¸­æ–‡ - Chinese [ZH]',
+            'Українська - Ukrainian [UK]',
+            '中文 - Chinese [ZH]',
             'Other'
         ],
         apply_values: [
@@ -41988,14 +37014,14 @@ var Settings_value = {
     app_lang: {
         values: [
             'English [EN]',
-            'EspaÃ±ol - Spanish [ES]',
-            'FranÃ§ais - French [FR]',
-            'PortuguÃªs - Portuguese [PT-BR]',
-            'Ð ÑƒÑÑÐºÐ¸Ð¹ - Russian [RU]',
-            'TÃ¼rkÃ§e - Turkish [TR]',
-            'Ð£ÐºÑ€Ð°Ñ—Ð½ÑÑŒÐºÐ° - Ukrainian [UK-UA]'
+            'Español - Spanish [ES]',
+            'Français - French [FR]',
+            'Português - Portuguese [PT-BR]',
+            'Русский - Russian [RU]',
+            'Türkçe - Turkish [TR]',
+            'Українська - Ukrainian [UK-UA]'
         ],
-        apply_values: ['en_US', 'es_Us', 'fr_FR', 'pt_BR', 'ru_RU', 'tr_TR', 'uk_UA'],
+        apply_values: ['en_US', 'es_Us'],
         defaultValue: 1
     },
     loadAll_lang: {
@@ -43111,12 +38137,7 @@ function Settings_SetAppLang() {
 
     en_USLang();
 
-    if (Main_A_includes_B(app_lang, 'pt_')) pt_BRLang();
-    else if (Main_A_includes_B(app_lang, 'ru_')) ru_RULang();
-    else if (Main_A_includes_B(app_lang, 'es_')) es_ESLang();
-    else if (Main_A_includes_B(app_lang, 'fr_')) fr_FRLang();
-    else if (Main_A_includes_B(app_lang, 'uk_')) uk_UALang();
-    else if (Main_A_includes_B(app_lang, 'tr_')) tr_TRLang();
+    if (Main_A_includes_B(app_lang, 'es_')) es_ESLang();
 
     OSInterface_SetLanguage(app_lang);
 
@@ -45817,7 +40838,7 @@ function Settings_DialogRestoreBackupShowingCheck() {
 }
 
 /*
- * Copyright (c) 2017â€“present Felipe de Leon <fglfgl27@gmail.com>
+ * Copyright (c) 2017–present Felipe de Leon <fglfgl27@gmail.com>
  *
  * This file is part of SmartTwitchTV <https://github.com/fgl27/SmartTwitchTV>
  *
@@ -46584,7 +41605,7 @@ function SettingsColor_ColorSetarrowsKey(pos, currentValue, maxValue) {
 }
 
 /*
- * Copyright (c) 2017â€“present Felipe de Leon <fglfgl27@gmail.com>
+ * Copyright (c) 2017–present Felipe de Leon <fglfgl27@gmail.com>
  *
  * This file is part of SmartTwitchTV <https://github.com/fgl27/SmartTwitchTV>
  *
@@ -47604,7 +42625,7 @@ function Sidepannel_handleKeyDownMain(event) {
 }
 
 /*
- * Copyright (c) 2017â€“present Felipe de Leon <fglfgl27@gmail.com>
+ * Copyright (c) 2017–present Felipe de Leon <fglfgl27@gmail.com>
  *
  * This file is part of SmartTwitchTV <https://github.com/fgl27/SmartTwitchTV>
  *
@@ -49001,7 +44022,7 @@ function UserLiveFeed_ThumbInfoUpdate(obj, checkResult, check_1) {
 }
 
 /*
- * Copyright (c) 2017â€“present Felipe de Leon <fglfgl27@gmail.com>
+ * Copyright (c) 2017–present Felipe de Leon <fglfgl27@gmail.com>
  *
  * This file is part of SmartTwitchTV <https://github.com/fgl27/SmartTwitchTV>
  *
@@ -50953,7 +45974,7 @@ function UserLiveFeedobj_CheckOffset(pos) {
 }
 
 /*
- * Copyright (c) 2017â€“present Felipe de Leon <fglfgl27@gmail.com>
+ * Copyright (c) 2017–present Felipe de Leon <fglfgl27@gmail.com>
  *
  * This file is part of SmartTwitchTV <https://github.com/fgl27/SmartTwitchTV>
  *
@@ -51636,7 +46657,7 @@ window.parseIRC = function (data) {
 };
 
 // The bellow are some function or adaptations of function from
-// Â© NightDev 2016 https://www.nightdev.com/kapchat/
+// © NightDev 2016 https://www.nightdev.com/kapchat/
 
 var emoteURLSizes = {
     1: '1.0',
@@ -52403,13 +47424,13 @@ var twemoji = (function () /*! Copyright Twitter Inc. and other contributors. Li
              * @example
              *
              *  twemoji.parse("I \u2764\uFE0F emoji!");
-             *  // I <img class="emoji" draggable="false" alt="â¤ï¸" src="/assets/2764.gif"/> emoji!
+             *  // I <img class="emoji" draggable="false" alt="❤️" src="/assets/2764.gif"/> emoji!
              *
              *
              *  twemoji.parse("I \u2764\uFE0F emoji!", function(iconId, options) {
              *    return '/assets/' + iconId + '.gif';
              *  });
-             *  // I <img class="emoji" draggable="false" alt="â¤ï¸" src="/assets/2764.gif"/> emoji!
+             *  // I <img class="emoji" draggable="false" alt="❤️" src="/assets/2764.gif"/> emoji!
              *
              *
              * twemoji.parse("I \u2764\uFE0F emoji!", {
@@ -52418,7 +47439,7 @@ var twemoji = (function () /*! Copyright Twitter Inc. and other contributors. Li
              *     return '/assets/' + options.size + '/' + iconId + options.ext;
              *   }
              * });
-             *  // I <img class="emoji" draggable="false" alt="â¤ï¸" src="/assets/72x72/2764.png"/> emoji!
+             *  // I <img class="emoji" draggable="false" alt="❤️" src="/assets/72x72/2764.png"/> emoji!
              *
              */
             parse: parse,
@@ -52447,7 +47468,7 @@ var twemoji = (function () /*! Copyright Twitter Inc. and other contributors. Li
         // RegExp based on emoji's official Unicode standards
         // http://www.unicode.org/Public/UNIDATA/EmojiSources.txt
         re =
-            /(?:\ud83d\udc68\ud83c\udffb\u200d\ud83e\udd1d\u200d\ud83d\udc68\ud83c[\udffc-\udfff]|\ud83d\udc68\ud83c\udffc\u200d\ud83e\udd1d\u200d\ud83d\udc68\ud83c[\udffb\udffd-\udfff]|\ud83d\udc68\ud83c\udffd\u200d\ud83e\udd1d\u200d\ud83d\udc68\ud83c[\udffb\udffc\udffe\udfff]|\ud83d\udc68\ud83c\udffe\u200d\ud83e\udd1d\u200d\ud83d\udc68\ud83c[\udffb-\udffd\udfff]|\ud83d\udc68\ud83c\udfff\u200d\ud83e\udd1d\u200d\ud83d\udc68\ud83c[\udffb-\udffe]|\ud83d\udc69\ud83c\udffb\u200d\ud83e\udd1d\u200d\ud83d\udc68\ud83c[\udffc-\udfff]|\ud83d\udc69\ud83c\udffb\u200d\ud83e\udd1d\u200d\ud83d\udc69\ud83c[\udffc-\udfff]|\ud83d\udc69\ud83c\udffc\u200d\ud83e\udd1d\u200d\ud83d\udc68\ud83c[\udffb\udffd-\udfff]|\ud83d\udc69\ud83c\udffc\u200d\ud83e\udd1d\u200d\ud83d\udc69\ud83c[\udffb\udffd-\udfff]|\ud83d\udc69\ud83c\udffd\u200d\ud83e\udd1d\u200d\ud83d\udc68\ud83c[\udffb\udffc\udffe\udfff]|\ud83d\udc69\ud83c\udffd\u200d\ud83e\udd1d\u200d\ud83d\udc69\ud83c[\udffb\udffc\udffe\udfff]|\ud83d\udc69\ud83c\udffe\u200d\ud83e\udd1d\u200d\ud83d\udc68\ud83c[\udffb-\udffd\udfff]|\ud83d\udc69\ud83c\udffe\u200d\ud83e\udd1d\u200d\ud83d\udc69\ud83c[\udffb-\udffd\udfff]|\ud83d\udc69\ud83c\udfff\u200d\ud83e\udd1d\u200d\ud83d\udc68\ud83c[\udffb-\udffe]|\ud83d\udc69\ud83c\udfff\u200d\ud83e\udd1d\u200d\ud83d\udc69\ud83c[\udffb-\udffe]|\ud83e\uddd1\ud83c\udffb\u200d\ud83e\udd1d\u200d\ud83e\uddd1\ud83c[\udffb-\udfff]|\ud83e\uddd1\ud83c\udffc\u200d\ud83e\udd1d\u200d\ud83e\uddd1\ud83c[\udffb-\udfff]|\ud83e\uddd1\ud83c\udffd\u200d\ud83e\udd1d\u200d\ud83e\uddd1\ud83c[\udffb-\udfff]|\ud83e\uddd1\ud83c\udffe\u200d\ud83e\udd1d\u200d\ud83e\uddd1\ud83c[\udffb-\udfff]|\ud83e\uddd1\ud83c\udfff\u200d\ud83e\udd1d\u200d\ud83e\uddd1\ud83c[\udffb-\udfff]|\ud83e\uddd1\u200d\ud83e\udd1d\u200d\ud83e\uddd1|\ud83d\udc6b\ud83c[\udffb-\udfff]|\ud83d\udc6c\ud83c[\udffb-\udfff]|\ud83d\udc6d\ud83c[\udffb-\udfff]|\ud83d[\udc6b-\udc6d])|(?:\ud83d[\udc68\udc69]|\ud83e\uddd1)(?:\ud83c[\udffb-\udfff])?\u200d(?:\u2695\ufe0f|\u2696\ufe0f|\u2708\ufe0f|\ud83c[\udf3e\udf73\udf7c\udf84\udf93\udfa4\udfa8\udfeb\udfed]|\ud83d[\udcbb\udcbc\udd27\udd2c\ude80\ude92]|\ud83e[\uddaf-\uddb3\uddbc\uddbd])|(?:\ud83c[\udfcb\udfcc]|\ud83d[\udd74\udd75]|\u26f9)((?:\ud83c[\udffb-\udfff]|\ufe0f)\u200d[\u2640\u2642]\ufe0f)|(?:\ud83c[\udfc3\udfc4\udfca]|\ud83d[\udc6e\udc70\udc71\udc73\udc77\udc81\udc82\udc86\udc87\ude45-\ude47\ude4b\ude4d\ude4e\udea3\udeb4-\udeb6]|\ud83e[\udd26\udd35\udd37-\udd39\udd3d\udd3e\uddb8\uddb9\uddcd-\uddcf\uddd6-\udddd])(?:\ud83c[\udffb-\udfff])?\u200d[\u2640\u2642]\ufe0f|(?:\ud83d\udc68\u200d\u2764\ufe0f\u200d\ud83d\udc8b\u200d\ud83d\udc68|\ud83d\udc68\u200d\ud83d\udc68\u200d\ud83d\udc66\u200d\ud83d\udc66|\ud83d\udc68\u200d\ud83d\udc68\u200d\ud83d\udc67\u200d\ud83d[\udc66\udc67]|\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc66\u200d\ud83d\udc66|\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d[\udc66\udc67]|\ud83d\udc69\u200d\u2764\ufe0f\u200d\ud83d\udc8b\u200d\ud83d[\udc68\udc69]|\ud83d\udc69\u200d\ud83d\udc69\u200d\ud83d\udc66\u200d\ud83d\udc66|\ud83d\udc69\u200d\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d[\udc66\udc67]|\ud83d\udc68\u200d\u2764\ufe0f\u200d\ud83d\udc68|\ud83d\udc68\u200d\ud83d\udc66\u200d\ud83d\udc66|\ud83d\udc68\u200d\ud83d\udc67\u200d\ud83d[\udc66\udc67]|\ud83d\udc68\u200d\ud83d\udc68\u200d\ud83d[\udc66\udc67]|\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d[\udc66\udc67]|\ud83d\udc69\u200d\u2764\ufe0f\u200d\ud83d[\udc68\udc69]|\ud83d\udc69\u200d\ud83d\udc66\u200d\ud83d\udc66|\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d[\udc66\udc67]|\ud83d\udc69\u200d\ud83d\udc69\u200d\ud83d[\udc66\udc67]|\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f|\ud83c\udff3\ufe0f\u200d\ud83c\udf08|\ud83c\udff4\u200d\u2620\ufe0f|\ud83d\udc15\u200d\ud83e\uddba|\ud83d\udc3b\u200d\u2744\ufe0f|\ud83d\udc41\u200d\ud83d\udde8|\ud83d\udc68\u200d\ud83d[\udc66\udc67]|\ud83d\udc69\u200d\ud83d[\udc66\udc67]|\ud83d\udc6f\u200d\u2640\ufe0f|\ud83d\udc6f\u200d\u2642\ufe0f|\ud83e\udd3c\u200d\u2640\ufe0f|\ud83e\udd3c\u200d\u2642\ufe0f|\ud83e\uddde\u200d\u2640\ufe0f|\ud83e\uddde\u200d\u2642\ufe0f|\ud83e\udddf\u200d\u2640\ufe0f|\ud83e\udddf\u200d\u2642\ufe0f|\ud83d\udc08\u200d\u2b1b)|[#*0-9]\ufe0f?\u20e3|(?:[Â©Â®\u2122\u265f]\ufe0f)|(?:\ud83c[\udc04\udd70\udd71\udd7e\udd7f\ude02\ude1a\ude2f\ude37\udf21\udf24-\udf2c\udf36\udf7d\udf96\udf97\udf99-\udf9b\udf9e\udf9f\udfcd\udfce\udfd4-\udfdf\udff3\udff5\udff7]|\ud83d[\udc3f\udc41\udcfd\udd49\udd4a\udd6f\udd70\udd73\udd76-\udd79\udd87\udd8a-\udd8d\udda5\udda8\uddb1\uddb2\uddbc\uddc2-\uddc4\uddd1-\uddd3\udddc-\uddde\udde1\udde3\udde8\uddef\uddf3\uddfa\udecb\udecd-\udecf\udee0-\udee5\udee9\udef0\udef3]|[\u203c\u2049\u2139\u2194-\u2199\u21a9\u21aa\u231a\u231b\u2328\u23cf\u23ed-\u23ef\u23f1\u23f2\u23f8-\u23fa\u24c2\u25aa\u25ab\u25b6\u25c0\u25fb-\u25fe\u2600-\u2604\u260e\u2611\u2614\u2615\u2618\u2620\u2622\u2623\u2626\u262a\u262e\u262f\u2638-\u263a\u2640\u2642\u2648-\u2653\u2660\u2663\u2665\u2666\u2668\u267b\u267f\u2692-\u2697\u2699\u269b\u269c\u26a0\u26a1\u26a7\u26aa\u26ab\u26b0\u26b1\u26bd\u26be\u26c4\u26c5\u26c8\u26cf\u26d1\u26d3\u26d4\u26e9\u26ea\u26f0-\u26f5\u26f8\u26fa\u26fd\u2702\u2708\u2709\u270f\u2712\u2714\u2716\u271d\u2721\u2733\u2734\u2744\u2747\u2757\u2763\u2764\u27a1\u2934\u2935\u2b05-\u2b07\u2b1b\u2b1c\u2b50\u2b55\u3030\u303d\u3297\u3299])(?:\ufe0f|(?!\ufe0e))|(?:(?:\ud83c[\udfcb\udfcc]|\ud83d[\udd74\udd75\udd90]|[\u261d\u26f7\u26f9\u270c\u270d])(?:\ufe0f|(?!\ufe0e))|(?:\ud83c[\udf85\udfc2-\udfc4\udfc7\udfca]|\ud83d[\udc42\udc43\udc46-\udc50\udc66-\udc69\udc6e\udc70-\udc78\udc7c\udc81-\udc83\udc85-\udc87\udcaa\udd7a\udd95\udd96\ude45-\ude47\ude4b-\ude4f\udea3\udeb4-\udeb6\udec0\udecc]|\ud83e[\udd0c\udd0f\udd18-\udd1c\udd1e\udd1f\udd26\udd30-\udd39\udd3d\udd3e\udd77\uddb5\uddb6\uddb8\uddb9\uddbb\uddcd-\uddcf\uddd1-\udddd]|[\u270a\u270b]))(?:\ud83c[\udffb-\udfff])?|(?:\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f|\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc73\udb40\udc63\udb40\udc74\udb40\udc7f|\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc77\udb40\udc6c\udb40\udc73\udb40\udc7f|\ud83c\udde6\ud83c[\udde8-\uddec\uddee\uddf1\uddf2\uddf4\uddf6-\uddfa\uddfc\uddfd\uddff]|\ud83c\udde7\ud83c[\udde6\udde7\udde9-\uddef\uddf1-\uddf4\uddf6-\uddf9\uddfb\uddfc\uddfe\uddff]|\ud83c\udde8\ud83c[\udde6\udde8\udde9\uddeb-\uddee\uddf0-\uddf5\uddf7\uddfa-\uddff]|\ud83c\udde9\ud83c[\uddea\uddec\uddef\uddf0\uddf2\uddf4\uddff]|\ud83c\uddea\ud83c[\udde6\udde8\uddea\uddec\udded\uddf7-\uddfa]|\ud83c\uddeb\ud83c[\uddee-\uddf0\uddf2\uddf4\uddf7]|\ud83c\uddec\ud83c[\udde6\udde7\udde9-\uddee\uddf1-\uddf3\uddf5-\uddfa\uddfc\uddfe]|\ud83c\udded\ud83c[\uddf0\uddf2\uddf3\uddf7\uddf9\uddfa]|\ud83c\uddee\ud83c[\udde8-\uddea\uddf1-\uddf4\uddf6-\uddf9]|\ud83c\uddef\ud83c[\uddea\uddf2\uddf4\uddf5]|\ud83c\uddf0\ud83c[\uddea\uddec-\uddee\uddf2\uddf3\uddf5\uddf7\uddfc\uddfe\uddff]|\ud83c\uddf1\ud83c[\udde6-\udde8\uddee\uddf0\uddf7-\uddfb\uddfe]|\ud83c\uddf2\ud83c[\udde6\udde8-\udded\uddf0-\uddff]|\ud83c\uddf3\ud83c[\udde6\udde8\uddea-\uddec\uddee\uddf1\uddf4\uddf5\uddf7\uddfa\uddff]|\ud83c\uddf4\ud83c\uddf2|\ud83c\uddf5\ud83c[\udde6\uddea-\udded\uddf0-\uddf3\uddf7-\uddf9\uddfc\uddfe]|\ud83c\uddf6\ud83c\udde6|\ud83c\uddf7\ud83c[\uddea\uddf4\uddf8\uddfa\uddfc]|\ud83c\uddf8\ud83c[\udde6-\uddea\uddec-\uddf4\uddf7-\uddf9\uddfb\uddfd-\uddff]|\ud83c\uddf9\ud83c[\udde6\udde8\udde9\uddeb-\udded\uddef-\uddf4\uddf7\uddf9\uddfb\uddfc\uddff]|\ud83c\uddfa\ud83c[\udde6\uddec\uddf2\uddf3\uddf8\uddfe\uddff]|\ud83c\uddfb\ud83c[\udde6\udde8\uddea\uddec\uddee\uddf3\uddfa]|\ud83c\uddfc\ud83c[\uddeb\uddf8]|\ud83c\uddfd\ud83c\uddf0|\ud83c\uddfe\ud83c[\uddea\uddf9]|\ud83c\uddff\ud83c[\udde6\uddf2\uddfc]|\ud83c[\udccf\udd8e\udd91-\udd9a\udde6-\uddff\ude01\ude32-\ude36\ude38-\ude3a\ude50\ude51\udf00-\udf20\udf2d-\udf35\udf37-\udf7c\udf7e-\udf84\udf86-\udf93\udfa0-\udfc1\udfc5\udfc6\udfc8\udfc9\udfcf-\udfd3\udfe0-\udff0\udff4\udff8-\udfff]|\ud83d[\udc00-\udc3e\udc40\udc44\udc45\udc51-\udc65\udc6a\udc6f\udc79-\udc7b\udc7d-\udc80\udc84\udc88-\udca9\udcab-\udcfc\udcff-\udd3d\udd4b-\udd4e\udd50-\udd67\udda4\uddfb-\ude44\ude48-\ude4a\ude80-\udea2\udea4-\udeb3\udeb7-\udebf\udec1-\udec5\uded0-\uded2\uded5-\uded7\udeeb\udeec\udef4-\udefc\udfe0-\udfeb]|\ud83e[\udd0d\udd0e\udd10-\udd17\udd1d\udd20-\udd25\udd27-\udd2f\udd3a\udd3c\udd3f-\udd45\udd47-\udd76\udd78\udd7a-\uddb4\uddb7\uddba\uddbc-\uddcb\uddd0\uddde-\uddff\ude70-\ude74\ude78-\ude7a\ude80-\ude86\ude90-\udea8\udeb0-\udeb6\udec0-\udec2\uded0-\uded6]|[\u23e9-\u23ec\u23f0\u23f3\u267e\u26ce\u2705\u2728\u274c\u274e\u2753-\u2755\u2795-\u2797\u27b0\u27bf\ue50a])|\ufe0f/g,
+            /(?:\ud83d\udc68\ud83c\udffb\u200d\ud83e\udd1d\u200d\ud83d\udc68\ud83c[\udffc-\udfff]|\ud83d\udc68\ud83c\udffc\u200d\ud83e\udd1d\u200d\ud83d\udc68\ud83c[\udffb\udffd-\udfff]|\ud83d\udc68\ud83c\udffd\u200d\ud83e\udd1d\u200d\ud83d\udc68\ud83c[\udffb\udffc\udffe\udfff]|\ud83d\udc68\ud83c\udffe\u200d\ud83e\udd1d\u200d\ud83d\udc68\ud83c[\udffb-\udffd\udfff]|\ud83d\udc68\ud83c\udfff\u200d\ud83e\udd1d\u200d\ud83d\udc68\ud83c[\udffb-\udffe]|\ud83d\udc69\ud83c\udffb\u200d\ud83e\udd1d\u200d\ud83d\udc68\ud83c[\udffc-\udfff]|\ud83d\udc69\ud83c\udffb\u200d\ud83e\udd1d\u200d\ud83d\udc69\ud83c[\udffc-\udfff]|\ud83d\udc69\ud83c\udffc\u200d\ud83e\udd1d\u200d\ud83d\udc68\ud83c[\udffb\udffd-\udfff]|\ud83d\udc69\ud83c\udffc\u200d\ud83e\udd1d\u200d\ud83d\udc69\ud83c[\udffb\udffd-\udfff]|\ud83d\udc69\ud83c\udffd\u200d\ud83e\udd1d\u200d\ud83d\udc68\ud83c[\udffb\udffc\udffe\udfff]|\ud83d\udc69\ud83c\udffd\u200d\ud83e\udd1d\u200d\ud83d\udc69\ud83c[\udffb\udffc\udffe\udfff]|\ud83d\udc69\ud83c\udffe\u200d\ud83e\udd1d\u200d\ud83d\udc68\ud83c[\udffb-\udffd\udfff]|\ud83d\udc69\ud83c\udffe\u200d\ud83e\udd1d\u200d\ud83d\udc69\ud83c[\udffb-\udffd\udfff]|\ud83d\udc69\ud83c\udfff\u200d\ud83e\udd1d\u200d\ud83d\udc68\ud83c[\udffb-\udffe]|\ud83d\udc69\ud83c\udfff\u200d\ud83e\udd1d\u200d\ud83d\udc69\ud83c[\udffb-\udffe]|\ud83e\uddd1\ud83c\udffb\u200d\ud83e\udd1d\u200d\ud83e\uddd1\ud83c[\udffb-\udfff]|\ud83e\uddd1\ud83c\udffc\u200d\ud83e\udd1d\u200d\ud83e\uddd1\ud83c[\udffb-\udfff]|\ud83e\uddd1\ud83c\udffd\u200d\ud83e\udd1d\u200d\ud83e\uddd1\ud83c[\udffb-\udfff]|\ud83e\uddd1\ud83c\udffe\u200d\ud83e\udd1d\u200d\ud83e\uddd1\ud83c[\udffb-\udfff]|\ud83e\uddd1\ud83c\udfff\u200d\ud83e\udd1d\u200d\ud83e\uddd1\ud83c[\udffb-\udfff]|\ud83e\uddd1\u200d\ud83e\udd1d\u200d\ud83e\uddd1|\ud83d\udc6b\ud83c[\udffb-\udfff]|\ud83d\udc6c\ud83c[\udffb-\udfff]|\ud83d\udc6d\ud83c[\udffb-\udfff]|\ud83d[\udc6b-\udc6d])|(?:\ud83d[\udc68\udc69]|\ud83e\uddd1)(?:\ud83c[\udffb-\udfff])?\u200d(?:\u2695\ufe0f|\u2696\ufe0f|\u2708\ufe0f|\ud83c[\udf3e\udf73\udf7c\udf84\udf93\udfa4\udfa8\udfeb\udfed]|\ud83d[\udcbb\udcbc\udd27\udd2c\ude80\ude92]|\ud83e[\uddaf-\uddb3\uddbc\uddbd])|(?:\ud83c[\udfcb\udfcc]|\ud83d[\udd74\udd75]|\u26f9)((?:\ud83c[\udffb-\udfff]|\ufe0f)\u200d[\u2640\u2642]\ufe0f)|(?:\ud83c[\udfc3\udfc4\udfca]|\ud83d[\udc6e\udc70\udc71\udc73\udc77\udc81\udc82\udc86\udc87\ude45-\ude47\ude4b\ude4d\ude4e\udea3\udeb4-\udeb6]|\ud83e[\udd26\udd35\udd37-\udd39\udd3d\udd3e\uddb8\uddb9\uddcd-\uddcf\uddd6-\udddd])(?:\ud83c[\udffb-\udfff])?\u200d[\u2640\u2642]\ufe0f|(?:\ud83d\udc68\u200d\u2764\ufe0f\u200d\ud83d\udc8b\u200d\ud83d\udc68|\ud83d\udc68\u200d\ud83d\udc68\u200d\ud83d\udc66\u200d\ud83d\udc66|\ud83d\udc68\u200d\ud83d\udc68\u200d\ud83d\udc67\u200d\ud83d[\udc66\udc67]|\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc66\u200d\ud83d\udc66|\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d[\udc66\udc67]|\ud83d\udc69\u200d\u2764\ufe0f\u200d\ud83d\udc8b\u200d\ud83d[\udc68\udc69]|\ud83d\udc69\u200d\ud83d\udc69\u200d\ud83d\udc66\u200d\ud83d\udc66|\ud83d\udc69\u200d\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d[\udc66\udc67]|\ud83d\udc68\u200d\u2764\ufe0f\u200d\ud83d\udc68|\ud83d\udc68\u200d\ud83d\udc66\u200d\ud83d\udc66|\ud83d\udc68\u200d\ud83d\udc67\u200d\ud83d[\udc66\udc67]|\ud83d\udc68\u200d\ud83d\udc68\u200d\ud83d[\udc66\udc67]|\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d[\udc66\udc67]|\ud83d\udc69\u200d\u2764\ufe0f\u200d\ud83d[\udc68\udc69]|\ud83d\udc69\u200d\ud83d\udc66\u200d\ud83d\udc66|\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d[\udc66\udc67]|\ud83d\udc69\u200d\ud83d\udc69\u200d\ud83d[\udc66\udc67]|\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f|\ud83c\udff3\ufe0f\u200d\ud83c\udf08|\ud83c\udff4\u200d\u2620\ufe0f|\ud83d\udc15\u200d\ud83e\uddba|\ud83d\udc3b\u200d\u2744\ufe0f|\ud83d\udc41\u200d\ud83d\udde8|\ud83d\udc68\u200d\ud83d[\udc66\udc67]|\ud83d\udc69\u200d\ud83d[\udc66\udc67]|\ud83d\udc6f\u200d\u2640\ufe0f|\ud83d\udc6f\u200d\u2642\ufe0f|\ud83e\udd3c\u200d\u2640\ufe0f|\ud83e\udd3c\u200d\u2642\ufe0f|\ud83e\uddde\u200d\u2640\ufe0f|\ud83e\uddde\u200d\u2642\ufe0f|\ud83e\udddf\u200d\u2640\ufe0f|\ud83e\udddf\u200d\u2642\ufe0f|\ud83d\udc08\u200d\u2b1b)|[#*0-9]\ufe0f?\u20e3|(?:[©®\u2122\u265f]\ufe0f)|(?:\ud83c[\udc04\udd70\udd71\udd7e\udd7f\ude02\ude1a\ude2f\ude37\udf21\udf24-\udf2c\udf36\udf7d\udf96\udf97\udf99-\udf9b\udf9e\udf9f\udfcd\udfce\udfd4-\udfdf\udff3\udff5\udff7]|\ud83d[\udc3f\udc41\udcfd\udd49\udd4a\udd6f\udd70\udd73\udd76-\udd79\udd87\udd8a-\udd8d\udda5\udda8\uddb1\uddb2\uddbc\uddc2-\uddc4\uddd1-\uddd3\udddc-\uddde\udde1\udde3\udde8\uddef\uddf3\uddfa\udecb\udecd-\udecf\udee0-\udee5\udee9\udef0\udef3]|[\u203c\u2049\u2139\u2194-\u2199\u21a9\u21aa\u231a\u231b\u2328\u23cf\u23ed-\u23ef\u23f1\u23f2\u23f8-\u23fa\u24c2\u25aa\u25ab\u25b6\u25c0\u25fb-\u25fe\u2600-\u2604\u260e\u2611\u2614\u2615\u2618\u2620\u2622\u2623\u2626\u262a\u262e\u262f\u2638-\u263a\u2640\u2642\u2648-\u2653\u2660\u2663\u2665\u2666\u2668\u267b\u267f\u2692-\u2697\u2699\u269b\u269c\u26a0\u26a1\u26a7\u26aa\u26ab\u26b0\u26b1\u26bd\u26be\u26c4\u26c5\u26c8\u26cf\u26d1\u26d3\u26d4\u26e9\u26ea\u26f0-\u26f5\u26f8\u26fa\u26fd\u2702\u2708\u2709\u270f\u2712\u2714\u2716\u271d\u2721\u2733\u2734\u2744\u2747\u2757\u2763\u2764\u27a1\u2934\u2935\u2b05-\u2b07\u2b1b\u2b1c\u2b50\u2b55\u3030\u303d\u3297\u3299])(?:\ufe0f|(?!\ufe0e))|(?:(?:\ud83c[\udfcb\udfcc]|\ud83d[\udd74\udd75\udd90]|[\u261d\u26f7\u26f9\u270c\u270d])(?:\ufe0f|(?!\ufe0e))|(?:\ud83c[\udf85\udfc2-\udfc4\udfc7\udfca]|\ud83d[\udc42\udc43\udc46-\udc50\udc66-\udc69\udc6e\udc70-\udc78\udc7c\udc81-\udc83\udc85-\udc87\udcaa\udd7a\udd95\udd96\ude45-\ude47\ude4b-\ude4f\udea3\udeb4-\udeb6\udec0\udecc]|\ud83e[\udd0c\udd0f\udd18-\udd1c\udd1e\udd1f\udd26\udd30-\udd39\udd3d\udd3e\udd77\uddb5\uddb6\uddb8\uddb9\uddbb\uddcd-\uddcf\uddd1-\udddd]|[\u270a\u270b]))(?:\ud83c[\udffb-\udfff])?|(?:\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f|\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc73\udb40\udc63\udb40\udc74\udb40\udc7f|\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc77\udb40\udc6c\udb40\udc73\udb40\udc7f|\ud83c\udde6\ud83c[\udde8-\uddec\uddee\uddf1\uddf2\uddf4\uddf6-\uddfa\uddfc\uddfd\uddff]|\ud83c\udde7\ud83c[\udde6\udde7\udde9-\uddef\uddf1-\uddf4\uddf6-\uddf9\uddfb\uddfc\uddfe\uddff]|\ud83c\udde8\ud83c[\udde6\udde8\udde9\uddeb-\uddee\uddf0-\uddf5\uddf7\uddfa-\uddff]|\ud83c\udde9\ud83c[\uddea\uddec\uddef\uddf0\uddf2\uddf4\uddff]|\ud83c\uddea\ud83c[\udde6\udde8\uddea\uddec\udded\uddf7-\uddfa]|\ud83c\uddeb\ud83c[\uddee-\uddf0\uddf2\uddf4\uddf7]|\ud83c\uddec\ud83c[\udde6\udde7\udde9-\uddee\uddf1-\uddf3\uddf5-\uddfa\uddfc\uddfe]|\ud83c\udded\ud83c[\uddf0\uddf2\uddf3\uddf7\uddf9\uddfa]|\ud83c\uddee\ud83c[\udde8-\uddea\uddf1-\uddf4\uddf6-\uddf9]|\ud83c\uddef\ud83c[\uddea\uddf2\uddf4\uddf5]|\ud83c\uddf0\ud83c[\uddea\uddec-\uddee\uddf2\uddf3\uddf5\uddf7\uddfc\uddfe\uddff]|\ud83c\uddf1\ud83c[\udde6-\udde8\uddee\uddf0\uddf7-\uddfb\uddfe]|\ud83c\uddf2\ud83c[\udde6\udde8-\udded\uddf0-\uddff]|\ud83c\uddf3\ud83c[\udde6\udde8\uddea-\uddec\uddee\uddf1\uddf4\uddf5\uddf7\uddfa\uddff]|\ud83c\uddf4\ud83c\uddf2|\ud83c\uddf5\ud83c[\udde6\uddea-\udded\uddf0-\uddf3\uddf7-\uddf9\uddfc\uddfe]|\ud83c\uddf6\ud83c\udde6|\ud83c\uddf7\ud83c[\uddea\uddf4\uddf8\uddfa\uddfc]|\ud83c\uddf8\ud83c[\udde6-\uddea\uddec-\uddf4\uddf7-\uddf9\uddfb\uddfd-\uddff]|\ud83c\uddf9\ud83c[\udde6\udde8\udde9\uddeb-\udded\uddef-\uddf4\uddf7\uddf9\uddfb\uddfc\uddff]|\ud83c\uddfa\ud83c[\udde6\uddec\uddf2\uddf3\uddf8\uddfe\uddff]|\ud83c\uddfb\ud83c[\udde6\udde8\uddea\uddec\uddee\uddf3\uddfa]|\ud83c\uddfc\ud83c[\uddeb\uddf8]|\ud83c\uddfd\ud83c\uddf0|\ud83c\uddfe\ud83c[\uddea\uddf9]|\ud83c\uddff\ud83c[\udde6\uddf2\uddfc]|\ud83c[\udccf\udd8e\udd91-\udd9a\udde6-\uddff\ude01\ude32-\ude36\ude38-\ude3a\ude50\ude51\udf00-\udf20\udf2d-\udf35\udf37-\udf7c\udf7e-\udf84\udf86-\udf93\udfa0-\udfc1\udfc5\udfc6\udfc8\udfc9\udfcf-\udfd3\udfe0-\udff0\udff4\udff8-\udfff]|\ud83d[\udc00-\udc3e\udc40\udc44\udc45\udc51-\udc65\udc6a\udc6f\udc79-\udc7b\udc7d-\udc80\udc84\udc88-\udca9\udcab-\udcfc\udcff-\udd3d\udd4b-\udd4e\udd50-\udd67\udda4\uddfb-\ude44\ude48-\ude4a\ude80-\udea2\udea4-\udeb3\udeb7-\udebf\udec1-\udec5\uded0-\uded2\uded5-\uded7\udeeb\udeec\udef4-\udefc\udfe0-\udfeb]|\ud83e[\udd0d\udd0e\udd10-\udd17\udd1d\udd20-\udd25\udd27-\udd2f\udd3a\udd3c\udd3f-\udd45\udd47-\udd76\udd78\udd7a-\uddb4\uddb7\uddba\uddbc-\uddcb\uddd0\uddde-\uddff\ude70-\ude74\ude78-\ude7a\ude80-\ude86\ude90-\udea8\udeb0-\udeb6\udec0-\udec2\uded0-\uded6]|[\u23e9-\u23ec\u23f0\u23f3\u267e\u26ce\u2705\u2728\u274c\u274e\u2753-\u2755\u2795-\u2797\u27b0\u27bf\ue50a])|\ufe0f/g,
         // avoid runtime RegExp creation for not so smart,
         // not JIT based, and old browsers / engines
         UFE0Fg = /\uFE0F/g,
@@ -52535,3 +47556,57 @@ var twemoji = (function () /*! Copyright Twitter Inc. and other contributors. Li
     }
 })();
 
+
+    /**
+     * Define the public API
+     * and all function need to be called outiside the API
+     * smartTwitchTV + all functions called by java
+     */
+    smartTwitchTV = {
+        // smartTwitchTV var is defined in app/specific/Main.js
+        mainstart: Main_Start,
+        Play_PannelEndStart: Play_PannelEndStart,
+        Play_PlayerCheck: Play_PlayerCheck,
+        Play_UpdateDuration: Play_UpdateDuration,
+        PlayExtra_End: PlayExtra_End,
+        Play_MultiEnd: Play_MultiEnd,
+        Play_CheckIfIsLiveClean: Play_CheckIfIsLiveClean,
+        UserLiveFeed_CheckIfIsLiveResult: UserLiveFeed_CheckIfIsLiveResult,
+        Sidepannel_CheckIfIsLiveResult: Sidepannel_CheckIfIsLiveResult,
+        Main_CheckStop: Main_CheckStop,
+        Main_CheckResume: Main_CheckResume,
+        Play_getQualities: Play_getQualities,
+        Play_ShowVideoStatus: Play_ShowVideoStatus,
+        Play_ShowVideoQuality: Play_ShowVideoQuality,
+        Play_PlayPauseChange: Play_PlayPauseChange,
+        PlayVod_loadDataResult: PlayVod_loadDataResult,
+        PlayExtra_ResumeResult: PlayExtra_ResumeResult,
+        Play_loadDataResult: Play_loadDataResult,
+        PlayClip_CheckIfIsLiveResult: PlayClip_CheckIfIsLiveResult,
+        PlayVod_CheckIfIsLiveResult: PlayVod_CheckIfIsLiveResult,
+        Play_MultiResult: Play_MultiResult,
+        Screens_LoadPreviewResult: Screens_LoadPreviewResult,
+        ChannelContent_LoadPreviewResult: ChannelContent_LoadPreviewResult,
+        Play_StayCheckLiveResult: Play_StayCheckLiveResult,
+        Play_CheckIfIsLiveResult: Play_CheckIfIsLiveResult,
+        Play_ClipCheckIfIsLiveEnd: Play_ClipCheckIfIsLiveEnd,
+        Main_onNewIntent: Main_onNewIntent,
+        Main_EventChannelRefresh: Main_EventChannelRefresh,
+        ChatLive_SetLatency: ChatLive_SetLatency,
+        Main_CheckBasexmlHttpGet: Main_CheckBasexmlHttpGet,
+        BaseXmlHttpGetFull_Process: BaseXmlHttpGetFull_Process,
+        Main_CheckFullxmlHttpGet: Main_CheckFullxmlHttpGet,
+        PlayHLS_GetTokenResult: PlayHLS_GetTokenResult,
+        PlayHLS_PlayListUrlResult: PlayHLS_PlayListUrlResult,
+        AddCode_AppTokenResult: AddCode_AppTokenResult,
+        Play_UpdateDurationDiv: Play_UpdateDurationDiv,
+        Screens_PlaybackTimeSetVodDuration: Screens_PlaybackTimeSetVodDuration
+    };
+
+    /** Expose `smartTwitchTV` */
+    root.smartTwitchTV = smartTwitchTV;
+})(this);
+
+smartTwitchTV.mainstart();
+//If running from fs and not from internet add a timeout to prevent crash as the parsing of the file will not be defer
+//window.setTimeout(smartTwitchTV.mainstart, 10000);

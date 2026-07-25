@@ -1067,15 +1067,7 @@ function Play_FixQualities(input) {
     return input;
 }
 
-<<<<<<< HEAD
-=======
-//function Play_extractQualitiesTest() { /* jshint ignore:start */
-//    var testString = '#EXTM3U\n#EXT-X-TWITCH-INFO:NODE="video-edge-6205c6.sao03"\n#EXT-X-MEDIA:TYPE=VIDEO,GROUP-ID="chunked",NAME="1080p60 (source)"\nhttps://video-weaver.sao03.hls.ttvnw.net/v1/playlist/C.m3u8';
-//    console.log('Play_extractQualitiesTest', Play_extractQualities(testString));
-//    /* jshint ignore:end */
-//}
 
->>>>>>> 49841b4ac648fd4d8761719e548526d96dc075a3
 function Play_extractQualities(input) {
     var result = [],
         addedResolution = {},

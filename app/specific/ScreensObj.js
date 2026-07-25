@@ -25,11 +25,7 @@ var Main_ItemsLimitMax = 100;
 var Main_ReloadLimitOffsetGames = 1.35;
 var Main_ReloadLimitOffsetVideos = 1.5;
 
-<<<<<<< HEAD
 var Main_ItemsLimitVideo = 32;
-=======
-var Main_ItemsLimitVideo = 30;
->>>>>>> 49841b4ac648fd4d8761719e548526d96dc075a3
 var Main_ColumnsCountVideo = 4;
 var Main_ItemsReloadLimitVideo = Math.floor(Main_ItemsLimitVideo / Main_ColumnsCountVideo / Main_ReloadLimitOffsetVideos);
 

@@ -920,16 +920,16 @@ function Screens_createCellLive(id, idArray, valuesArray, key, Extra_when, Extra
         ScreenObj[key].img_404 +
         '\';" ><div class="viewer_badge"><span class="viewer_dot"></span><span>' +
         valuesArray[4] +
-        '</span></div></div><div class="thumb_info_row">' +
+        '</span></div><div class="thumb_info_row">' +
         (avatar ? '<img class="thumb_avatar" alt="" src="' + avatar + '" onerror="this.style.display=\'none\'">' : '') +
-        '<div class="thumb_text_info"><div class="thumb_game_name">' +
-        (valuesArray[3] !== '' ? valuesArray[3] : '') +
-        '</div><div class="thumb_streamer_name" id="' +
+        '<div class="thumb_text_info"><div class="thumb_streamer_name" id="' +
         idArray[2] +
         id +
         '">' +
         valuesArray[1] +
-        '</div></div></div>' +
+        '</div><div class="thumb_game_name">' +
+        (valuesArray[2] !== '' ? valuesArray[2] : (valuesArray[3] !== '' ? valuesArray[3] : '')) +
+        '</div></div></div></div>' +
         '<div style="display: none;" id="' +
         idArray[4] +
         id +
@@ -981,7 +981,7 @@ function Screens_loadDataSuccessFinish(key) {
             var i,
                 Cells_length = ScreenObj[key].Cells.length;
 
-            for (i = 0; i < (Cells_length < ScreenObj[key].visiblerows ? Cells_length : ScreenObj[key].visiblerows); i++) {
+            for (i = 0; i < Cells_length; i++) {
                 if (ScreenObj[key].Cells[i]) {
                     ScreenObj[key].tableDoc.appendChild(ScreenObj[key].Cells[i]);
                     ScreenObj[key].Cells[i].style.position = '';
@@ -1017,7 +1017,7 @@ function Screens_loadDataSuccessFinish(key) {
                 // Main_RemoveClassWithEle(Main_Scene1Doc, 'opacity_zero');
             } else Screens_setOffset(1, 0, key);
 
-            for (i = 0; i < (Cells_length < ScreenObj[key].visiblerows ? Cells_length : ScreenObj[key].visiblerows); i++) {
+            for (i = 0; i < Cells_length; i++) {
                 if (ScreenObj[key].Cells[i]) {
                     ScreenObj[key].Cells[i].style.transform = 'translateY(' + i * ScreenObj[key].offsettop + 'em)';
                 }
@@ -1734,42 +1734,13 @@ function Screens_addrow(forceScroll, y, key, forceAfterDelete) {
         // down
         Screens_addrowDown(y, key);
     } else if (ScreenObj[key].currY > y) {
-        // Up
-
-        if ((y && ScreenObj[key].Cells.length > y + 1 && ScreenObj[key].Cells[y + 3]) || forceAfterDelete) {
-            if (Screens_ChangeFocusAnimationFinished && Screens_SettingDoAnimations && !Screens_ChangeFocusAnimationFast) {
-                //If with animation
-
-                Screens_addrowAnimated(
-                    y,
-                    -1, //y_plus
-                    -1, //y_plus_offset
-                    -1, //for_in
-                    4, //for_out
-                    1, //for_offset
-                    3, //eleRemovePos
-                    0, //down?
-                    key
-                );
-            } else {
-                Screens_addrowNotAnimated(
-                    y,
-                    -1, //y_plus
-                    -1, //for_in
-                    4, //for_out
-                    1, //for_offset
-                    3, //eleRemovePos
-                    0, //down?
-                    key
-                );
+        // Up - just ensure the row above is in the DOM
+        if (y >= 0 && ScreenObj[key].Cells[y]) {
+            var prevCell = ScreenObj[key].Cells[y];
+            if (!prevCell.parentNode) {
+                prevCell.style.transform = 'translateY(' + y * ScreenObj[key].offsettop + 'em)';
+                ScreenObj[key].tableDoc.insertBefore(prevCell, ScreenObj[key].tableDoc.firstChild);
             }
-        } else {
-            Main_setTimeout(
-                function () {
-                    Screens_LoadPreview(key);
-                },
-                y ? 0 : Screens_ScrollAnimationTimeout
-            );
         }
     } else Screens_LoadPreview(key);
 
@@ -1778,43 +1749,13 @@ function Screens_addrow(forceScroll, y, key, forceAfterDelete) {
 }
 
 function Screens_addrowDown(y, key) {
-<<<<<<< HEAD
-    if (y > 2 && ScreenObj[key].Cells[y + 1]) {
-=======
-    if (!ScreenObj[key]) return;
-    if (y > 1 && ScreenObj[key].Cells[y + 1]) {
->>>>>>> 49841b4ac648fd4d8761719e548526d96dc075a3
-        if (Screens_ChangeFocusAnimationFinished && Screens_SettingDoAnimations && !Screens_ChangeFocusAnimationFast) {
-            //If with animation
-
-            Screens_addrowAnimated(
-                y,
-                1, //y_plus
-                4, //y_plus_offset
-                -1, //for_in
-                3, //for_out
-                1, //for_offset
-                -3, //eleRemovePos
-                1, //down?
-                key
-            );
-        } else {
-            Screens_addrowNotAnimated(
-                y,
-                1, //y_plus
-                -1, //for_in
-                3, //for_out
-                1, //for_offset
-                -3, //eleRemovePos
-                1, //down?
-                key
-            );
+    if (ScreenObj[key].Cells[y + 1]) {
+        var nextCell = ScreenObj[key].Cells[y + 1];
+        if (!nextCell.parentNode) {
+            nextCell.style.transform = 'translateY(' + (y + 1) * ScreenObj[key].offsettop + 'em)';
+            ScreenObj[key].tableDoc.appendChild(nextCell);
         }
     } else if (ScreenObj[key].loadingData) {
-        //Technically we will not get here because
-        //Key down or right (ScreenObj[key].Cells.length - 1) >= (ScreenObj[key].posY + 4) will hold the screen
-        //but this works, the issue is related to slow to load more content
-        //Only happens if scroll too fast
         Main_setTimeout(function () {
             Screens_addrowDown(y, key);
         }, 10);
@@ -2001,8 +1942,10 @@ function Screens_addFocusVideo(forceScroll, key) {
     if (!ScreenObj[key]) return;
     var y = ScreenObj[key].posY;
 
-    if (Main_YchangeAddFocus(y) || forceScroll) {
-    ScreenObj[key].ScrollDoc.style.transform = '';
+    if (y < ScreenObj[key].visiblerows || forceScroll) {
+        ScreenObj[key].tableDoc.style.transform = '';
+    } else {
+        ScreenObj[key].tableDoc.style.transform = 'translateY(-' + ((y - ScreenObj[key].visiblerows + 1) * ScreenObj[key].offsettop) + 'em)';
     }
 }
 
