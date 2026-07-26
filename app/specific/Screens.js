@@ -2092,7 +2092,7 @@ function Screens_RemoveAllFocus(key) {
 var Screens_handleKeyUpIsClear = false;
 
 function Screens_handleKeyUp(key, e) {
-    //Main_Log('Screens_handleKeyUp e.keyCode ' + e.keyCode + ' key ' + key);
+    console.log('Screens_handleKeyUp e.keyCode ' + e.keyCode + ' key ' + key + ' posX=' + (ScreenObj[key] ? ScreenObj[key].posX : 'null') + ' Screens_clear=' + Screens_clear);
     if (!ScreenObj[key]) return;
 
     if (e.keyCode === KEY_ENTER) {
@@ -2107,11 +2107,16 @@ function Screens_handleKeyUp(key, e) {
         Main_removeEventListener('keyup', ScreenObj[key].key_up);
 
         if (!Screens_clear) {
-            if (!ScreenObj[key].posX) Screens_OpenSidePanel(false, key);
+            if (!ScreenObj[key].posX) {
+                console.log('Screens_handleKeyUp: Opening SidePanel, key=' + key);
+                Screens_OpenSidePanel(false, key);
+            }
             else {
                 Screens_KeyLeftRight(-1, ScreenObj[key].ColumnsCount - 1, key);
                 Main_addEventListener('keydown', ScreenObj[key].key_fun);
             }
+        } else {
+            console.log('Screens_handleKeyUp: Screens_clear is true, skipping');
         }
     }
     Screens_handleKeyUpIsClear = true;
@@ -2229,6 +2234,7 @@ function Screens_handleKeyDown(key, event) {
             ScreenObj[key].key_exit();
             break;
         case KEY_LEFT:
+            console.log('Screens_handleKeyDown KEY_LEFT key=' + key + ' posX=' + (ScreenObj[key] ? ScreenObj[key].posX : 'null') + ' Screens_clear=' + Screens_clear);
             Screens_ThumbOptionCanKeyLeft = false;
             Screens_handleKeyUpIsClear = false;
             Screens_clear = false;

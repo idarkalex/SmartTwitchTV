@@ -715,10 +715,6 @@ function Sidepannel_SetUserLabels() {
 
     Main_innerHTML('side_panel_movel_user_text', STR_SPACE_HTML + STR_USER_MENU + STR_SPACE_HTML);
     Main_ShowElement('side_panel_movel_user_text_holder');
-    Main_ShowElement('side_panel_movel_new_8');
-    Main_ShowElement('side_panel_new_8');
-    Main_ShowElement('side_panel_movel_new_9');
-    Main_ShowElement('side_panel_new_9');
 
     Main_ShowElement('side_panel_movel_new_6');
     Main_ShowElement('side_panel_new_6');
@@ -940,9 +936,8 @@ function Sidepannel_ShowNoUserWarning() {
 }
 
 function Sidepannel_handleMainKey(Down) {
-    if (!Main_values.Sidepannel_IsUser && Sidepannel_Sidepannel_Pos === 9) {
-        //click down to settings on none user menu
-        Sidepannel_Sidepannel_Pos += Down ? 1 : -1;
+    if (Sidepannel_Sidepannel_Pos === 8 || Sidepannel_Sidepannel_Pos === 9) {
+        Sidepannel_Sidepannel_Pos = Down ? 10 : 7;
     }
 }
 
@@ -964,8 +959,8 @@ function Sidepannel_handleKeyDownMain(event) {
             if (Sidepannel_Sidepannel_Pos) {
                 Sidepannel_RemoveFocusMain();
                 Sidepannel_Sidepannel_Pos--;
-                if (!Main_values.Sidepannel_IsUser && Sidepannel_Sidepannel_Pos === 9) {
-                    Sidepannel_Sidepannel_Pos -= 2;
+                if (Sidepannel_Sidepannel_Pos === 8 || Sidepannel_Sidepannel_Pos === 9) {
+                    Sidepannel_Sidepannel_Pos = 7;
                 }
 
                 Sidepannel_handleMainKey(false);
@@ -977,8 +972,8 @@ function Sidepannel_handleKeyDownMain(event) {
             if (Sidepannel_Sidepannel_Pos < 14) {
                 Sidepannel_RemoveFocusMain();
                 Sidepannel_Sidepannel_Pos++;
-                if (!Main_values.Sidepannel_IsUser && Sidepannel_Sidepannel_Pos === 8) {
-                    Sidepannel_Sidepannel_Pos++;
+                if (Sidepannel_Sidepannel_Pos === 8 || Sidepannel_Sidepannel_Pos === 9) {
+                    Sidepannel_Sidepannel_Pos = 10;
                 }
                 Sidepannel_handleMainKey(true);
                 Sidepannel_AddFocusMain();

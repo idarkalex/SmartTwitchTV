@@ -58,7 +58,11 @@
     body, html {
         background: #0b0914 !important;
     }
-    #scene1, #body_container {
+    #body_container {
+        background: #0b0914 !important;
+        color: #efeff1 !important;
+    }
+    #scene1 {
         background: #0b0914 radial-gradient(ellipse at 80% 10%, rgba(120, 50, 220, 0.15) 0%, transparent 60%) !important;
         color: #efeff1 !important;
     }
@@ -74,8 +78,7 @@
     }
     .side_panel_fix {
         width: 3.5em !important;
-        background: linear-gradient(180deg, #161225 0%, #13111d 30%, #13111d 70%, #161225 100%) !important;
-        border-right: 1px solid rgba(168, 85, 247, 0.15) !important;
+        background: #0e0c16 !important;
         overflow: hidden !important;
     }
     .side_panel_new_icons {
@@ -85,7 +88,7 @@
         margin-top: 0.7vh !important;
         position: relative !important;
         color: #ffffff !important;
-        font-size: 100% !important;
+        font-size: 0.82em !important;
         text-align: center !important;
         text-shadow: -0.02em -0.02em 0 #000, 0.02em -0.02em 0 #000, -0.02em 0.02em 0 #000, 0.02em 0.02em 0 #000 !important;
         border: none !important;
@@ -95,7 +98,7 @@
     }
     .side_panel_new_icons_pad {
         vertical-align: middle !important;
-        font-size: 1.1em !important;
+        font-size: 1em !important;
     }
     .side_panel_new_icons_text_holder {
         padding-left: 0 !important;
@@ -106,8 +109,7 @@
     /* --- EXPANDED SIDEBAR: text menu --- */
     .side_panel_movel {
         width: 11em !important;
-        background: #13111d !important;
-        border-right: 1px solid rgba(168, 85, 247, 0.2) !important;
+        background: #0e0c16 !important;
         overflow: hidden !important;
     }
     /* Override the inline translateX(5%) set by JS to slide flush past the 3.5em icon strip */
@@ -117,13 +119,13 @@
     .side_panel_fix_top,
     .side_panel_fix_top_2,
     .side_panel_fix_center {
-        background-color: #13111d !important;
+        background-color: #0e0c16 !important;
     }
     #side_panel_fix_botton {
-        background-color: #13111d !important;
+        background-color: #0e0c16 !important;
     }
     .side_panel_background_color {
-        background-color: #13111d !important;
+        background-color: #0e0c16 !important;
     }
 
     /* Movel header: back arrow + title */
@@ -150,11 +152,15 @@
         font-size: 0.82em !important;
         margin-left: 5% !important;
         width: 90% !important;
+        height: 9.25% !important;
+        margin-top: 0.7vh !important;
         text-align: left !important;
         border: none !important;
         border-radius: 0.3em !important;
         transition: background 150ms ease !important;
         box-sizing: border-box !important;
+        display: flex !important;
+        align-items: center !important;
     }
 
     /* Focus states: purple highlight â€” icon and text as one entity */
@@ -162,20 +168,20 @@
         color: #ffffff !important;
         background: rgba(168, 85, 247, 0.15) !important;
         border-image: none !important;
-        border-left: 3px solid #a855f7 !important;
+        border: none !important;
         border-radius: 0.3em !important;
     }
     .side_panel_new_icons_text_botton {
         color: #ffffff !important;
         background: rgba(168, 85, 247, 0.15) !important;
         border-image: none !important;
-        border-left: 3px solid #a855f7 !important;
+        border: none !important;
         border-radius: 0.3em !important;
     }
     .side_panel_new_icons_start {
         background: rgba(168, 85, 247, 0.2) !important;
         border-image: none !important;
-        border-left: 3px solid #a855f7 !important;
+        border: none !important;
         border-radius: 0.3em !important;
     }
 
@@ -183,7 +189,6 @@
     .side_panel_fix_icon_focused {
         background: rgba(168, 85, 247, 0.15) !important;
         border-radius: 0.3em !important;
-        box-shadow: inset 0 0 0 1px rgba(168, 85, 247, 0.3) !important;
     }
 
     /* Bottom config text in movel: same format as top text */
@@ -195,7 +200,7 @@
         height: auto !important;
         transform: none !important;
         padding-top: 0.3em !important;
-        background: #13111d !important;
+        background: #0e0c16 !important;
     }
     .side_panel_movel .side_panel_movel_bottom_holder {
         height: auto !important;
@@ -614,8 +619,7 @@
     .side_panel_new_icons_text,
     .side_panel_new_icons_text_botton {
         background: rgba(168, 85, 247, 0.15) !important;
-        border-image: none !important;
-        border-left: 3px solid #a855f7 !important;
+        border: none !important;
         border-radius: 0.3em !important;
         color: #ffffff !important;
         margin: 0 !important;
@@ -624,8 +628,7 @@
     /* Active screen indicator */
     .side_panel_new_icons_start {
         background: rgba(168, 85, 247, 0.2) !important;
-        border-image: none !important;
-        border-left: 3px solid #a855f7 !important;
+        border: none !important;
         border-radius: 0.3em !important;
     }
 
@@ -1213,7 +1216,7 @@
                             </div>
                             <!-- Empty div are added to fill up the container and make the layout perfect align-->
                             <div id="side_panel_top_text_empty" class="side_panel_new_icons_text_holder"></div>
-                            <div id="side_panel_movel_new_0" class="side_panel_new_icons_text_holder" style="height: 1.9em"></div>
+                            <div id="side_panel_movel_new_0" class="side_panel_new_icons_text_holder"></div>
                             <div class="side_panel_new_icons_text_holder"></div>
                         </div>
                         <div class="side_panel_fix_top_2">
@@ -1255,21 +1258,22 @@
                         </div>
                     </div>
                     <div id="side_panel_fix" class="side_panel_fix avoidclicks">
-                        <div class="side_panel_fix_top" style="background-color: #131318">
+                        <div class="side_panel_fix_top" style="background-color: #0e0c16">
                             <!-- Empty div are added to fill up the container and make the layout perfect align-->
                             <div class="side_panel_new_icons"></div>
                             <div id="side_panel_new_0" class="side_panel_new_icons">
                                 <div id="icon_side_panel_imgholder_0"></div>
                             </div>
+                            <div class="side_panel_new_icons"></div>
                         </div>
-                        <div class="side_panel_fix_top_2" style="background-color: #131318">
+                        <div class="side_panel_fix_top_2" style="background-color: #0e0c16">
                             <div class="side_panel_new_icons"></div>
                             <div id="side_panel_new_1" class="side_panel_new_icons">
                                 <i class="icon icon-search side_panel_new_icons_pad"></i>
                             </div>
                             <div class="side_panel_new_icons"></div>
                         </div>
-                        <div id="side_panel_fix_center" class="side_panel_fix_center" style="background-color: #131318">
+                        <div id="side_panel_fix_center" class="side_panel_fix_center" style="background-color: #0e0c16">
                             <div id="side_panel_new_2" class="side_panel_new_icons"></div>
                             <div id="side_panel_new_3" class="side_panel_new_icons">
                                 <i id="icon_side_panel_new_3" class="icon icon-play side_panel_new_icons_pad"></i>
@@ -1288,7 +1292,7 @@
                         <div
                             id="side_panel_fix_botton"
                             class="side_panel_fix_bottom avoidclicks"
-                            style="width: 30%; background-color: #131318; pointer-events: none"
+                            style="width: 30%; background-color: #0e0c16; pointer-events: none"
                         ></div>
                     </div>
                 </div>

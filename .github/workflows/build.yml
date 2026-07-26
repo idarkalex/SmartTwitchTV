@@ -44,6 +44,39 @@ jobs:
           path: apk/app/build/outputs/apk/release/app-release.apk
           if-no-files-found: error
 
+      - name: Read version info
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        id: version
+        run: |
+          VERSION_CODE=$(grep "publishVersionCode:" apk/versions.gradle | grep -o '[0-9]*')
+          VERSION_BASE=$(grep "publishVersion:" apk/versions.gradle | sed "s/.*'\(.*\)'.*/\1/")
+          APK_NAME="SmartTV_twitch_${VERSION_BASE//./_}_${VERSION_CODE}.apk"
+          TAG_NAME="v${VERSION_CODE}"
+          echo "version_code=${VERSION_CODE}" >> $GITHUB_OUTPUT
+          echo "version_base=${VERSION_BASE}" >> $GITHUB_OUTPUT
+          echo "apk_name=${APK_NAME}" >> $GITHUB_OUTPUT
+          echo "tag_name=${TAG_NAME}" >> $GITHUB_OUTPUT
+          echo "Version: ${VERSION_BASE}${VERSION_CODE} (tag: ${TAG_NAME}, apk: ${APK_NAME})"
+
+      - name: Rename APK
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        run: |
+          cp apk/app/build/outputs/apk/release/app-release.apk \
+             "/tmp/${{ steps.version.outputs.apk_name }}"
+
+      - name: Create GitHub Release
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release view "${{ steps.version.outputs.tag_name }}" 2>/dev/null && \
+            echo "Release ${{ steps.version.outputs.tag_name }} already exists, skipping" || \
+            gh release create "${{ steps.version.outputs.tag_name }}" \
+              --repo "${{ github.repository }}" \
+              --title "v${{ steps.version.outputs.version_code }}" \
+              --generate-notes \
+              "/tmp/${{ steps.version.outputs.apk_name }}#SmartTV_twitch_${{ steps.version.outputs.version_base//./_ }}_${{ steps.version.outputs.version_code }}.apk"
+
       - name: Set up Node.js
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         uses: actions/setup-node@v4
@@ -55,6 +88,20 @@ jobs:
         run: |
           npm install -g uglify-js html-minifier crass
           node release/scripts/build.js
+
+      - name: Generate version.json and update ApkUrl
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        run: |
+          APK_URL="https://github.com/${{ github.repository }}/releases/download/${{ steps.version.outputs.tag_name }}/${{ steps.version.outputs.apk_name }}"
+          cat app/general/version.js > /tmp/version_gen.js
+          cat release/scripts/version.js >> /tmp/version_gen.js
+          node -e "
+            eval(require('fs').readFileSync('/tmp/version_gen.js', 'utf8'));
+            version.ApkUrl = '${APK_URL}';
+            require('fs').writeFileSync('release/githubio/version/version.json', JSON.stringify(version));
+            console.log('Updated version.json: ApkUrl=' + version.ApkUrl);
+          "
+          rm /tmp/version_gen.js
 
       - name: Deploy web content to release branch
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'

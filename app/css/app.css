@@ -873,11 +873,14 @@ body,
             .scenefeed_background_no_ani,
             .scenefeed_background {
                 background: #131318;
+                transform: translateY(0);
+                z-index: 11 !important;
             }
 
             .scenefeed_background {
-                transition: background 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+                transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s, background 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
                 background: #131318;
+                transform: translateY(0);
             }
 
             .user_feed {
@@ -1451,7 +1454,7 @@ body,
             }
 
             .side_panel_background_color {
-                background-color: #131318;
+                background-color: #0e0c16;
             }
 
             .side_panel_fix_top_2,
@@ -1499,7 +1502,7 @@ body,
                 margin-top: 0.7vh;
                 position: relative;
                 color: #ffffff;
-                font-size: 100%;
+                font-size: 0.82em;
                 text-align: center;
                 text-shadow:
                     -0.02em -0.02em 0 #000,
@@ -1511,9 +1514,9 @@ body,
             .side_panel_new_text_options,
             .side_panel_new_icons_text_holder,
             .side_panel_new_icons {
-                border-top: 0.05em solid;
-                border-bottom: 0.05em solid;
-                border-image: linear-gradient(#131318, #131318) 1;
+                border-top: none;
+                border-bottom: none;
+                border-image: none;
                 box-sizing: border-box;
             }
 
@@ -1529,13 +1532,19 @@ body,
             }
 
             .side_panel_new_icons_text {
-                background: linear-gradient(to right, #131318 18%, rgba(255, 255, 255, 0.3), #131318 80%);
-                border-image: linear-gradient(to right, #131318 18%, #d0d3d4, #131318 80%) 1 !important;
+                color: #ffffff;
+                background: rgba(168, 85, 247, 0.15);
+                border-image: none;
+                border: none;
+                border-radius: 0.3em;
             }
 
             .side_panel_new_icons_text_botton {
-                background: linear-gradient(to right, #131318 0%, rgba(255, 255, 255, 0.3), #131318 70%);
-                border-image: linear-gradient(to right, #131318 0%, #d0d3d4, #131318 70%) 1 !important;
+                color: #ffffff;
+                background: rgba(168, 85, 247, 0.15);
+                border-image: none;
+                border: none;
+                border-radius: 0.3em;
             }
 
             .side_panel_new_icons_pad {
@@ -1543,8 +1552,10 @@ body,
             }
 
             .side_panel_new_icons_start {
-                background: linear-gradient(to right, #131318 8%, rgba(255, 255, 255, 0.3), #131318 92%);
-                border-image: linear-gradient(to right, #131318 8%, #d0d3d4, #131318 92%) 1 !important;
+                background: rgba(168, 85, 247, 0.2);
+                border-image: none;
+                border: none;
+                border-radius: 0.3em;
             }
 
             .side_panel_movel_user_text,
