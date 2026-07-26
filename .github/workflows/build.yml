@@ -51,9 +51,11 @@ jobs:
           VERSION_CODE=$(grep "publishVersionCode:" apk/versions.gradle | grep -o '[0-9]*')
           VERSION_BASE=$(grep "publishVersion:" apk/versions.gradle | sed "s/.*'\(.*\)'.*/\1/")
           APK_NAME="SmartTV_twitch_${VERSION_BASE//./_}_${VERSION_CODE}.apk"
+          VERSION_BASE_UNDERSCORE="${VERSION_BASE//./_}"
           TAG_NAME="v${VERSION_CODE}"
           echo "version_code=${VERSION_CODE}" >> $GITHUB_OUTPUT
           echo "version_base=${VERSION_BASE}" >> $GITHUB_OUTPUT
+          echo "version_base_underscore=${VERSION_BASE_UNDERSCORE}" >> $GITHUB_OUTPUT
           echo "apk_name=${APK_NAME}" >> $GITHUB_OUTPUT
           echo "tag_name=${TAG_NAME}" >> $GITHUB_OUTPUT
           echo "Version: ${VERSION_BASE}${VERSION_CODE} (tag: ${TAG_NAME}, apk: ${APK_NAME})"
@@ -75,7 +77,7 @@ jobs:
               --repo "${{ github.repository }}" \
               --title "v${{ steps.version.outputs.version_code }}" \
               --generate-notes \
-              "/tmp/${{ steps.version.outputs.apk_name }}#SmartTV_twitch_${{ steps.version.outputs.version_base//./_ }}_${{ steps.version.outputs.version_code }}.apk"
+              "/tmp/${{ steps.version.outputs.apk_name }}#SmartTV_twitch_${{ steps.version.outputs.version_base_underscore }}_${{ steps.version.outputs.version_code }}.apk"
 
       - name: Set up Node.js
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
