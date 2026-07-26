@@ -874,7 +874,7 @@ body,
             .scenefeed_background {
                 background: #131318;
                 transform: translateY(0);
-                z-index: 5;
+                z-index: 11;
             }
 
             .scenefeed_background {

@@ -56,10 +56,10 @@
 
     /* --- GLOBAL --- */
     body, html {
-        background: #0b0914 !important;
+        background: transparent !important;
     }
     #body_container {
-        background: #0b0914 !important;
+        background: transparent !important;
         color: #efeff1 !important;
     }
     #scene1 {
@@ -661,7 +661,7 @@
 
     <body>
         <div id="body_container" class="screen_size" style="position: relative">
-            <div id="scene1" class="screen_size" style="background-color: #131318; opacity: 1; will-change: opacity; z-index: 1">
+            <div id="scene1" class="screen_size" style="background-color: #131318; opacity: 1; will-change: opacity; z-index: 2">
                 <div id="dialog_loading" class="screens dialogs hide" style="z-index: 98; margin-top: 50vh; overflow: visible">
                     <div class="loading">
                         <div></div>
@@ -1405,7 +1405,7 @@
             <div
                 id="scene2"
                 class="screen_size"
-                style="opacity: 0; pointer-events: none; will-change: opacity; background-repeat: no-repeat; background-size: 100%; z-index: 2"
+                style="opacity: 0; pointer-events: none; will-change: opacity; background-repeat: no-repeat; background-size: 100%; z-index: 1"
             >
                 <div id="scene2_click" class="screen_size hide" style="width: 55%; height: 59%; left: 16%; z-index: 9999">
                     <div id="player_embed_clicks" class="hide">
