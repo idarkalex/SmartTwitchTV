@@ -656,6 +656,6 @@ function es_ESLang() {
     STR_OPEN_REWIND_SUMMARY = 'Abrir el VOD con retroceso completo';
     STR_OPEN_REWIND_FAIL = 'Sin retroceso para esta transmisión en vivo';
 
-    STR_EXPORT_LOGS = 'Exportar logs del proxy';
-    STR_PROXY_LOGS_EMPTY = 'No hay logs del proxy para exportar';
+    STR_EXPORT_LOGS = 'Exportar logs de la app';
+    STR_PROXY_LOGS_EMPTY = 'No hay logs para exportar';
 }

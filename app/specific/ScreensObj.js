@@ -30,7 +30,7 @@ var Main_ColumnsCountVideo = 4;
 var Main_ItemsReloadLimitVideo = Math.floor(Main_ItemsLimitVideo / Main_ColumnsCountVideo / Main_ReloadLimitOffsetVideos);
 
 var Main_ItemsLimitGame = 30;
-var Main_ColumnsCountGame = 5;
+var Main_ColumnsCountGame = 7;
 var Main_ItemsReloadLimitGame = Math.floor(Main_ItemsLimitGame / Main_ColumnsCountGame / Main_ReloadLimitOffsetGames);
 
 var Main_ItemsLimitChannel = 36;
@@ -777,6 +777,7 @@ function ScreensObj_CreateBaseGameObj() {
         ItemsLimit: Main_ItemsLimitGame,
         rowClass: 'animate_height_transition_games',
         ColumnsCount: Main_ColumnsCountGame,
+        visiblerows: 3,
         addFocus: Screens_addFocusVideo,
         img_404: IMG_404_GAME,
         screenType: 3,
@@ -848,12 +849,7 @@ function ScreensObj_CreateBaseGameObj() {
                             [
                                 game.boxArtURL ? game.boxArtURL.replace('{width}x{height}', Main_GameSize) : '', //0
                                 game.displayName, //1
-                                (cell.channelsCount ? Main_formatNumber(cell.channelsCount) : 0) +
-                                    STR_SPACE_HTML +
-                                    STR_CHANNELS +
-                                    STR_BR +
-                                    STR_FOR +
-                                    (cell.viewersCount ? Main_formatNumber(cell.viewersCount) : 0) +
+                                (cell.viewersCount ? Main_formatNumber(cell.viewersCount) : 0) +
                                     STR_SPACE_HTML +
                                     Main_GetViewerStrings(cell.viewersCount ? cell.viewersCount : 0), //2
                                 id_cell //3
@@ -870,12 +866,7 @@ function ScreensObj_CreateBaseGameObj() {
                                 game.box && game.box.template ? game.box.template.replace('{width}x{height}', Main_GameSize) : '', //0
                                 game.name, //1
                                 hasLive
-                                    ? Main_formatNumber(cell.channels) +
-                                      STR_SPACE_HTML +
-                                      STR_CHANNELS +
-                                      STR_BR +
-                                      STR_FOR +
-                                      Main_formatNumber(cell.viewers) +
+                                    ? Main_formatNumber(cell.viewers) +
                                       STR_SPACE_HTML +
                                       Main_GetViewerStrings(cell.viewers)
                                     : '', //2

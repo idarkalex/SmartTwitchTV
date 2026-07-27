@@ -353,40 +353,44 @@
     }
 
     /* ============================================
-       GAMES GRID — 5 cols, vertical portrait cards
+       GAMES GRID — 7 cols, portrait 340×475 (1:1.397 exact)
+       Row height matches card height exactly
        ============================================ */
     .animate_height_transition_games,
     .animate_height_transition_blocked_games {
-        height: 48% !important;
+        height: 32.9% !important;
         width: 100% !important;
         display: flex !important;
-        justify-content: center !important;
+        justify-content: space-between !important;
+        align-items: flex-start !important;
     }
     .stream_thumbnail_game_holder {
-        height: 100% !important;
-        width: 17.5% !important;
-        padding: 0.3% !important;
+        height: auto !important;
+        width: 13.8% !important;
+        padding: 0.2% !important;
         box-sizing: border-box !important;
         vertical-align: top !important;
     }
     .stream_thumbnail_game {
-        height: 100% !important;
+        height: auto !important;
         width: 100% !important;
-        padding-bottom: 0 !important;
+        padding-bottom: 139.7% !important;
         background-color: #1a1a22 !important;
         border-radius: 0.35em !important;
         overflow: hidden !important;
         color: #ffffff !important;
         position: relative !important;
-        display: flex !important;
-        flex-direction: column !important;
     }
     .stream_thumbnail_live_game {
-        flex: 1 !important;
+        width: 100% !important;
+        height: 100% !important;
         padding-bottom: 0 !important;
-        position: relative !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
         overflow: hidden !important;
         border-radius: 0.35em 0.35em 0 0 !important;
+        background-color: #1a1a22 !important;
     }
     .stream_thumbnail_live_game img.stream_img {
         width: 100% !important;
@@ -398,7 +402,7 @@
     }
     .stream_thumbnail_game_text_holder {
         height: auto !important;
-        padding: 0.6em 0.6em 0.5em !important;
+        padding: 0.4em 0.5em 0.3em !important;
         margin-top: 0 !important;
         background: linear-gradient(transparent, rgba(0, 0, 0, 0.95)) !important;
         position: absolute !important;
@@ -408,7 +412,7 @@
         z-index: 2 !important;
     }
     .stream_info_game_name {
-        font-size: 1em !important;
+        font-size: 0.75em !important;
         font-family: 'Roboto-Bold' !important;
         color: #e4e4e7 !important;
         overflow: hidden !important;
@@ -421,12 +425,17 @@
         text-shadow: -0.04em -0.04em 0 #000, 0.04em -0.04em 0 #000, -0.04em 0.04em 0 #000, 0.04em 0.04em 0 #000 !important;
     }
     .stream_thumbnail_game_text_holder .stream_info_live {
-        font-size: 0.75em !important;
-        color: #a78bfa !important;
+        font-size: 0.65em !important;
+        color: #ffffff !important;
         white-space: nowrap !important;
         overflow: hidden !important;
         text-overflow: ellipsis !important;
         text-shadow: -0.03em -0.03em 0 #000, 0.03em -0.03em 0 #000, -0.03em 0.03em 0 #000, 0.03em 0.03em 0 #000 !important;
+    }
+    .stream_thumbnail_game .stream_text_holder {
+        position: static !important;
+        transform: none !important;
+        top: auto !important;
     }
 
     /* ============================================
@@ -654,6 +663,131 @@
     .side_panel_div_focused {
         background: linear-gradient(to right, rgba(0, 0, 0, 0.6) 20%, rgba(168, 85, 247, 0.2), rgba(0, 0, 0, 0.6) 80%) !important;
         border-image: none !important;
+    }
+
+    /* ================================================================
+       LIVE FEED MODERNIZATION
+       ================================================================ */
+
+    /* Hide tips, instructions, counters, and back icon */
+    #icon_feed_refresh,
+    #feed_last_refresh,
+    #feed_counter,
+    #icon_feed_back,
+    #top_lable_etc,
+    #label_thumb,
+    #side_panel_row_0,
+    #side_panel_top_text {
+        display: none !important;
+    }
+
+    /* Enlarge the feed preview area - take more screen */
+    .user_feed {
+        height: 65% !important;
+        bottom: 0 !important;
+        background: linear-gradient(to top, rgba(14, 12, 22, 0.98) 0%, rgba(14, 12, 22, 0.85) 40%, rgba(14, 12, 22, 0.3) 80%, transparent 100%) !important;
+    }
+
+    /* Enlarge stream thumbnails - much bigger */
+    .user_feed_thumb {
+        width: 32% !important;
+        margin-right: 0.5% !important;
+    }
+
+    .user_feed_thumb_game {
+        width: 20% !important;
+    }
+
+    /* Stream thumbnail card: modern card design */
+    .stream_thumbnail_player_feed {
+        background: #1a1525 !important;
+        border-radius: 0.6em !important;
+        overflow: hidden !important;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6) !important;
+        border: 1px solid rgba(168, 85, 247, 0.15) !important;
+    }
+
+    /* Game thumbnail card */
+    .stream_thumbnail_game_feed {
+        border-radius: 0.6em !important;
+        overflow: hidden !important;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6) !important;
+        border: 1px solid rgba(168, 85, 247, 0.15) !important;
+        background: #1a1525 !important;
+    }
+
+    /* Games tab: text at bottom, 3 cards vertical */
+    .stream_thumbnail_game_feed {
+        padding-bottom: 95% !important;
+    }
+
+    .stream_thumbnail_game_feed_text_holder {
+        height: 18% !important;
+        bottom: 0 !important;
+        top: auto !important;
+        padding-bottom: 0 !important;
+        background: linear-gradient(to top, rgba(14, 12, 22, 0.95) 0%, rgba(14, 12, 22, 0.6) 60%, transparent 100%) !important;
+        border-radius: 0 0 0.6em 0.6em !important;
+    }
+
+    /* Feed text overlay: modern gradient */
+    .stream_thumbnail_feed_text_holder {
+        background: linear-gradient(to top, rgba(14, 12, 22, 0.95) 0%, rgba(14, 12, 22, 0.7) 50%, transparent 100%) !important;
+        border-radius: 0 0 0.6em 0.6em !important;
+        padding: 0.6% !important;
+    }
+
+    /* Stream title text: bolder */
+    .stream_thumbnail_inner_title {
+        font-size: 1.05em !important;
+        font-weight: bold !important;
+        line-height: 1.2 !important;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) !important;
+    }
+
+    /* Game name text */
+    .stream_thumbnail_game {
+        font-size: 0.95em !important;
+        color: #a855f7 !important;
+    }
+
+    /* Viewer count: purple accent */
+    .stream_thumbnail_live_img_viewer {
+        color: #c084fc !important;
+        font-weight: bold !important;
+    }
+
+    /* Feed thumbnail focus: dramatic purple glow + scale */
+    .feed_thumbnail_focused {
+        box-shadow: 0 0 30px rgba(168, 85, 247, 0.6), 0 0 60px rgba(168, 85, 247, 0.2) !important;
+        transform: scale(1.08) !important;
+        z-index: 10 !important;
+        border-color: #a855f7 !important;
+    }
+
+    .feed_thumbnail_focused .stream_thumbnail_player_feed {
+        border-color: #a855f7 !important;
+        box-shadow: 0 0 25px rgba(168, 85, 247, 0.5) !important;
+    }
+
+    /* Feed scroll: reclaim space from hidden tips */
+    .user_feed_scroll {
+        bottom: 5% !important;
+        height: 90% !important;
+        padding-left: 1% !important;
+    }
+
+    .user_feed_scroll_game {
+        bottom: 5% !important;
+        height: 90% !important;
+        padding-left: 1% !important;
+    }
+
+    /* Sidebar feed thumb: match theme */
+    .side_panel_feed_thumb {
+        border-radius: 0.5em !important;
+        overflow: hidden !important;
+        border: 1px solid rgba(168, 85, 247, 0.2) !important;
     }
 
 </style>
@@ -1196,11 +1330,11 @@
                         <div id="label_update" class="icon_top_label"></div>
                     </div>
                     <div id="controls_div" class="controls_div">
-                        <div id="top_lable_etc" class="show_pointer" style="line-height: 1vh">
-                            <div id="label_refresh" class="icon_top_label" style="display: inline-block"></div>
-                            <div id="label_last_refresh" class="icon_top_label" style="display: inline-block; transform: translateY(10%)"></div>
+                        <div id="top_lable_etc" class="show_pointer" style="line-height: 1vh; display: none !important">
+                            <div id="label_refresh" class="icon_top_label" style="display: none !important"></div>
+                            <div id="label_last_refresh" class="icon_top_label" style="display: none !important"></div>
                         </div>
-                        <div id="label_thumb" class="icon_top_label show_pointer" style="margin-top: 1%"></div>
+                        <div id="label_thumb" class="icon_top_label show_pointer" style="margin-top: 1%; display: none !important"></div>
                     </div>
                 </div>
                 <div id="side_panel_new_holder" class="hide side_panel_new_holder">
@@ -2268,7 +2402,7 @@
                     <div id="user_agames_scroll" class="user_feed_scroll hide"></div>
                     <div id="user_vod_scroll" class="user_feed_scroll hide"></div>
                     <div id="user_vod_history_scroll" class="user_feed_scroll hide"></div>
-                    <div style="position: absolute; bottom: 0; width: 100%; height: 20%">
+                    <div style="position: absolute; bottom: 0; width: 100%; height: 20%; display: none !important">
                         <div
                             id="icon_feed_back"
                             class="show_pointer icon_feed_refresh opacity_zero"

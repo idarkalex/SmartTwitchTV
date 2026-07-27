@@ -2359,8 +2359,8 @@ function en_USLang() {
     STR_BACKUP_SYNC_ENABLE_SUMMARY =
         "Enabling this will add a slight delay to the application's startup process, and is unnecessary if you are using the app in a single device. The app will sync all enabled options below between this device and others using the same Google Drive account. To switch devices and continue watching seamlessly, minimize the app on the current device by pressing the Home key. Then, make sure the app is fully closed on the other device before opening it.";
 
-    STR_EXPORT_LOGS = 'Export Proxy Logs';
-    STR_PROXY_LOGS_EMPTY = 'No proxy logs to export';
+    STR_EXPORT_LOGS = 'Export App Logs';
+    STR_PROXY_LOGS_EMPTY = 'No logs to export';
 }
 
 /*
@@ -3021,8 +3021,8 @@ function es_ESLang() {
     STR_OPEN_REWIND_SUMMARY = 'Abrir el VOD con retroceso completo';
     STR_OPEN_REWIND_FAIL = 'Sin retroceso para esta transmisión en vivo';
 
-    STR_EXPORT_LOGS = 'Exportar logs del proxy';
-    STR_PROXY_LOGS_EMPTY = 'No hay logs del proxy para exportar';
+    STR_EXPORT_LOGS = 'Exportar logs de la app';
+    STR_PROXY_LOGS_EMPTY = 'No hay logs para exportar';
 }
 
 /*
@@ -13271,6 +13271,12 @@ function Main_RefreshPage() {
     }, 250);
 }
 
+function Main_UpdateAPKComplete(success) {
+    Main_Log('Main_UpdateAPKComplete success: ' + success);
+    Main_HideLoadDialog();
+    Main_values.IsUpDating = false;
+}
+
 var Main_UpdateDialogLastCheck;
 function Main_UpdateDialogTitle() {
     var innerHtml =
@@ -15156,18 +15162,17 @@ function Main_LoadUrl(url) {
 }
 
 var Main_LogBuffer = [];
-var Main_LogBufferMax = 50;
+var Main_LogBufferMax = 200;
 
 function Main_Log(text) {
+    var timestamp = Main_LogDate(new Date());
     if (Main_isDebug) {
-        text = text + ' ' + Main_LogDate(new Date());
+        text = text + ' ' + timestamp;
         console.log(text);
         OSInterface_LongLog(text);
     }
-    if (text.charAt(0) === 'P') {
-        Main_LogBuffer.push(text);
-        if (Main_LogBuffer.length > Main_LogBufferMax) Main_LogBuffer.shift();
-    }
+    Main_LogBuffer.push(timestamp + ' ' + text);
+    if (Main_LogBuffer.length > Main_LogBufferMax) Main_LogBuffer.shift();
 }
 
 function Main_LogDate(date) {
@@ -18830,7 +18835,7 @@ function Play_ExportProxyLogs() {
     }
     var now = new Date();
     var fileName =
-        'SmartTwitchTV_proxy_logs_' +
+        'SmartTwitchTV_logs_' +
         now.getFullYear() +
         ('0' + (now.getMonth() + 1)).slice(-2) +
         ('0' + now.getDate()).slice(-2) +
@@ -18839,8 +18844,9 @@ function Play_ExportProxyLogs() {
         ('0' + now.getMinutes()).slice(-2) +
         '.txt';
     var content =
-        'SmartTwitchTV Proxy Log Export\nDate: ' +
+        'SmartTwitchTV App Log Export\nDate: ' +
         now.toLocaleString() +
+        '\nVersion: ' + version.WebVersion + ' (WebTag ' + version.WebTag + ', APK ' + version.publishVersionCode + ')' +
         '\n========================================\n\n' +
         Main_LogBuffer.join('\n') +
         '\n';
@@ -33186,7 +33192,7 @@ var Main_ColumnsCountVideo = 4;
 var Main_ItemsReloadLimitVideo = Math.floor(Main_ItemsLimitVideo / Main_ColumnsCountVideo / Main_ReloadLimitOffsetVideos);
 
 var Main_ItemsLimitGame = 30;
-var Main_ColumnsCountGame = 5;
+var Main_ColumnsCountGame = 7;
 var Main_ItemsReloadLimitGame = Math.floor(Main_ItemsLimitGame / Main_ColumnsCountGame / Main_ReloadLimitOffsetGames);
 
 var Main_ItemsLimitChannel = 36;
@@ -33933,6 +33939,7 @@ function ScreensObj_CreateBaseGameObj() {
         ItemsLimit: Main_ItemsLimitGame,
         rowClass: 'animate_height_transition_games',
         ColumnsCount: Main_ColumnsCountGame,
+        visiblerows: 3,
         addFocus: Screens_addFocusVideo,
         img_404: IMG_404_GAME,
         screenType: 3,
@@ -34004,12 +34011,7 @@ function ScreensObj_CreateBaseGameObj() {
                             [
                                 game.boxArtURL ? game.boxArtURL.replace('{width}x{height}', Main_GameSize) : '', //0
                                 game.displayName, //1
-                                (cell.channelsCount ? Main_formatNumber(cell.channelsCount) : 0) +
-                                    STR_SPACE_HTML +
-                                    STR_CHANNELS +
-                                    STR_BR +
-                                    STR_FOR +
-                                    (cell.viewersCount ? Main_formatNumber(cell.viewersCount) : 0) +
+                                (cell.viewersCount ? Main_formatNumber(cell.viewersCount) : 0) +
                                     STR_SPACE_HTML +
                                     Main_GetViewerStrings(cell.viewersCount ? cell.viewersCount : 0), //2
                                 id_cell //3
@@ -34026,12 +34028,7 @@ function ScreensObj_CreateBaseGameObj() {
                                 game.box && game.box.template ? game.box.template.replace('{width}x{height}', Main_GameSize) : '', //0
                                 game.name, //1
                                 hasLive
-                                    ? Main_formatNumber(cell.channels) +
-                                      STR_SPACE_HTML +
-                                      STR_CHANNELS +
-                                      STR_BR +
-                                      STR_FOR +
-                                      Main_formatNumber(cell.viewers) +
+                                    ? Main_formatNumber(cell.viewers) +
                                       STR_SPACE_HTML +
                                       Main_GetViewerStrings(cell.viewers)
                                     : '', //2

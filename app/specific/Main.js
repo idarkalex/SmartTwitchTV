@@ -1358,6 +1358,12 @@ function Main_RefreshPage() {
     }, 250);
 }
 
+function Main_UpdateAPKComplete(success) {
+    Main_Log('Main_UpdateAPKComplete success: ' + success);
+    Main_HideLoadDialog();
+    Main_values.IsUpDating = false;
+}
+
 var Main_UpdateDialogLastCheck;
 function Main_UpdateDialogTitle() {
     var innerHtml =
@@ -3243,18 +3249,17 @@ function Main_LoadUrl(url) {
 }
 
 var Main_LogBuffer = [];
-var Main_LogBufferMax = 50;
+var Main_LogBufferMax = 200;
 
 function Main_Log(text) {
+    var timestamp = Main_LogDate(new Date());
     if (Main_isDebug) {
-        text = text + ' ' + Main_LogDate(new Date());
+        text = text + ' ' + timestamp;
         console.log(text);
         OSInterface_LongLog(text);
     }
-    if (text.charAt(0) === 'P') {
-        Main_LogBuffer.push(text);
-        if (Main_LogBuffer.length > Main_LogBufferMax) Main_LogBuffer.shift();
-    }
+    Main_LogBuffer.push(timestamp + ' ' + text);
+    if (Main_LogBuffer.length > Main_LogBufferMax) Main_LogBuffer.shift();
 }
 
 function Main_LogDate(date) {

@@ -1033,6 +1033,7 @@ public final class Tools {
         OutputStream output = null;
 
         try {
+            Log.d(TAG, "DownloadAPK starting download from: " + apkURL);
             urlConnection = (HttpURLConnection) new URL(apkURL).openConnection();
             urlConnection.setConnectTimeout(Constants.DEFAULT_HTTP_TIMEOUT);
             urlConnection.setReadTimeout(Constants.DEFAULT_HTTP_TIMEOUT * 10);
@@ -1040,29 +1041,39 @@ public final class Tools {
             urlConnection.connect();
 
             int status = urlConnection.getResponseCode();
+            Log.d(TAG, "DownloadAPK response status: " + status);
 
             if (status != -1) {
                 if (status == 200) {
                     File file = GetUpdateFile(context);
-                    if (file == null) return null;
+                    if (file == null) {
+                        Log.e(TAG, "DownloadAPK GetUpdateFile returned null");
+                        return null;
+                    }
 
                     input = urlConnection.getInputStream();
                     output = new FileOutputStream(file);
 
                     byte[] buffer = new byte[1024];
                     int count;
+                    int totalBytes = 0;
                     while ((count = input.read(buffer)) != -1) {
                         output.write(buffer, 0, count);
+                        totalBytes += count;
                     }
 
+                    Log.d(TAG, "DownloadAPK download complete, total bytes: " + totalBytes + " file: " + file.getAbsolutePath());
                     return file.getAbsolutePath();
                 } else {
+                    Log.e(TAG, "DownloadAPK unexpected status: " + status);
                     return null;
                 }
             } else {
+                Log.e(TAG, "DownloadAPK status is -1");
                 return null;
             }
         } catch (Throwable e) {
+            Log.e(TAG, "DownloadAPK exception: " + e.getMessage());
             recordException(TAG, "DownloadAPK ", e);
             return null;
         } finally {
@@ -1116,8 +1127,10 @@ public final class Tools {
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_GRANT_READ_URI_PERMISSION); // without this flag android returned a intent error!
 
         try {
+            Log.d(TAG, "installPackage launching installer for: " + packagePath);
             context.startActivity(intent);
         } catch (Throwable e) {
+            Log.e(TAG, "installPackage failed: " + e.getMessage());
             recordException(TAG, "installPackage ", e);
         }
     }

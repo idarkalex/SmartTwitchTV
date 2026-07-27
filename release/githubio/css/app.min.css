@@ -38,8 +38,8 @@ body,
 
             .feed_end_name_focus {
                 transform: translate(0, 29%) scale(1.25);
-                background-color: rgba(0, 0, 0, 0.85);
-                border-color: #ffffff;
+                background-color: rgba(168, 85, 247, 0.2);
+                border-color: #a855f7;
                 z-index: 999;
                 position: relative;
             }
@@ -104,7 +104,7 @@ body,
             }
 
             .animate_height_transition_games {
-                height: 50.1%;
+                height: 32.9%;
             }
 
             .animate_height_transition_blocked_games {
@@ -277,7 +277,7 @@ body,
                 padding-bottom: 93%;
                 width: 97%;
                 background-repeat: no-repeat;
-                background: #000000;
+                background: #0e0c16;
                 color: #ffffff;
             }
 
@@ -327,7 +327,7 @@ body,
 
             .stream_thumbnail_blocked_game_holder,
             .stream_thumbnail_game_holder {
-                width: 17%;
+                width: 13.8%;
                 display: inline-block;
                 padding: 1%;
                 padding-top: 0;
@@ -517,6 +517,7 @@ body,
 
             .stream_thumbnail_game_text_holder {
                 height: 14%;
+                bottom: 0;
             }
 
             .stream_thumbnail_game_feed_text_holder {
@@ -872,14 +873,14 @@ body,
 
             .scenefeed_background_no_ani,
             .scenefeed_background {
-                background: #131318;
+                background: #0e0c16;
                 transform: translateY(0);
                 z-index: 11;
             }
 
             .scenefeed_background {
                 transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s, background 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
-                background: #131318;
+                background: #0e0c16;
                 transform: translateY(0);
             }
 

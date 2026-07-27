@@ -1712,7 +1712,7 @@ function Play_ExportProxyLogs() {
     }
     var now = new Date();
     var fileName =
-        'SmartTwitchTV_proxy_logs_' +
+        'SmartTwitchTV_logs_' +
         now.getFullYear() +
         ('0' + (now.getMonth() + 1)).slice(-2) +
         ('0' + now.getDate()).slice(-2) +
@@ -1721,8 +1721,9 @@ function Play_ExportProxyLogs() {
         ('0' + now.getMinutes()).slice(-2) +
         '.txt';
     var content =
-        'SmartTwitchTV Proxy Log Export\nDate: ' +
+        'SmartTwitchTV App Log Export\nDate: ' +
         now.toLocaleString() +
+        '\nVersion: ' + version.WebVersion + ' (WebTag ' + version.WebTag + ', APK ' + version.publishVersionCode + ')' +
         '\n========================================\n\n' +
         Main_LogBuffer.join('\n') +
         '\n';

@@ -3658,19 +3658,27 @@ public class PlayerActivity extends Activity {
 
                 if (apkURL == null) {
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
+                    runOnUiThread(() -> mWebView.loadUrl("javascript:smartTwitchTV.Main_UpdateAPKComplete(true)"));
                 } else {
                     DataThreadPool.execute(() -> {
                         final String file = Tools.DownloadAPK(apkURL, context);
 
                         if (file != null) {
                             Tools.installPackage(context, file);
+                            runOnUiThread(() -> mWebView.loadUrl("javascript:smartTwitchTV.Main_UpdateAPKComplete(true)"));
                         } else {
-                            runOnUiThread(() -> Toast.makeText(mWebViewContext, failDownload, Toast.LENGTH_LONG).show());
+                            runOnUiThread(() -> {
+                                Toast.makeText(mWebViewContext, failDownload, Toast.LENGTH_LONG).show();
+                                mWebView.loadUrl("javascript:smartTwitchTV.Main_UpdateAPKComplete(false)");
+                            });
                         }
                     });
                 }
             } catch (Exception e) {
-                runOnUiThread(() -> Toast.makeText(mWebViewContext, failAll, Toast.LENGTH_LONG).show());
+                runOnUiThread(() -> {
+                    Toast.makeText(mWebViewContext, failAll, Toast.LENGTH_LONG).show();
+                    mWebView.loadUrl("javascript:smartTwitchTV.Main_UpdateAPKComplete(false)");
+                });
 
                 Tools.recordException(TAG, "UpdateAPK Exception ", e);
             }
