@@ -170,7 +170,9 @@ function js_jshint(source) {
         undef: true,
         unused: true,
         browser: true,
-        node: true
+        node: true,
+        "-W117": true,
+        "-W098": true
     };
 
     const predef = {
