@@ -21,11 +21,15 @@
 //Spacing for release maker not trow errors from jshint
 var version = {
     VersionBase: '3.0',
-    publishVersionCode: 382, //Always update (+1 to current value) Main_version_java after update publishVersionCode or a major update of the apk is released
-    ApkUrl: 'https://github.com/idarkalex/SmartTwitchTV/releases/download/v382/SmartTV_twitch__382.apk',
+    publishVersionCode: 383, //Always update (+1 to current value) Main_version_java after update publishVersionCode or a major update of the apk is released
+    ApkUrl: 'https://github.com/idarkalex/SmartTwitchTV/releases/download/v383/SmartTV_twitch__383.apk',
     WebVersion: 'July 28 2026',
-    WebTag: 730, //Always update (+1 to current value) Main_version_web after update Main_minversion or a major update of the web part of the app
+    WebTag: 731, //Always update (+1 to current value) Main_version_web after update Main_minversion or a major update of the web part of the app
     changelog: [
+        {
+            title: 'July 28 2026',
+            changes: ['Fixed APK update getting stuck in a loop when downloading', 'Fixed update check stuck on "Checking for Updates..." when fetch fails', 'General performance improvements and bug fixes']
+        },
         {
             title: 'July 28 2026',
             changes: ['Removed sidebar icon strip, integrated icons into floating menu with user avatar', 'Unified dark purple background theme across all screens', 'Game grid redesigned: 7 columns with portrait cards, space-evenly gaps', 'Settings page: full width redesign with modern purple accents', 'General performance improvements and bug fixes']
