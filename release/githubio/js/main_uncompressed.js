@@ -13874,18 +13874,11 @@ function Main_getclock() {
     Main_date_Ms = new Date().getTime();
 
     var timems = Main_date_Ms + Main_ClockOffset,
-        dayMonth,
         date = new Date(timems);
-
-    if (Main_IsDayFirst) {
-        dayMonth = STR_DAYS[date.getDay()] + ', ' + date.getDate() + ' ' + STR_MONTHS[date.getMonth()];
-    } else {
-        dayMonth = STR_DAYS[date.getDay()] + ', ' + STR_MONTHS[date.getMonth()] + ' ' + date.getDate();
-    }
 
     Main_clock_H_M = Main_getHours(date);
 
-    return dayMonth + ', ' + Main_clock_H_M;
+    return Main_clock_H_M;
 }
 
 function Main_getHours(date) {
