@@ -3310,11 +3310,15 @@ function calculateFontSizeTizen() {
 //Spacing for release maker not trow errors from jshint
 var version = {
     VersionBase: '3.0',
-    publishVersionCode: 381, //Always update (+1 to current value) Main_version_java after update publishVersionCode or a major update of the apk is released
-    ApkUrl: 'https://github.com/idarkalex/SmartTwitchTV/releases/download/v381/SmartTV_twitch_3_0_381.apk',
-    WebVersion: 'July 27 2026',
-    WebTag: 729, //Always update (+1 to current value) Main_version_web after update Main_minversion or a major update of the web part of the app
+    publishVersionCode: 382, //Always update (+1 to current value) Main_version_java after update publishVersionCode or a major update of the apk is released
+    ApkUrl: 'https://github.com/idarkalex/SmartTwitchTV/releases/download/v382/SmartTV_twitch_3_0_382.apk',
+    WebVersion: 'July 28 2026',
+    WebTag: 730, //Always update (+1 to current value) Main_version_web after update Main_minversion or a major update of the web part of the app
     changelog: [
+        {
+            title: 'July 28 2026',
+            changes: ['Removed sidebar icon strip, integrated icons into floating menu with user avatar', 'Unified dark purple background theme across all screens', 'Game grid redesigned: 7 columns with portrait cards, space-evenly gaps', 'Settings page: full width redesign with modern purple accents', 'General performance improvements and bug fixes']
+        },
         {
             title: 'July 26 2026',
             changes: ['New modern dark/purple theme with narrow sidebar', 'Transparent backgrounds for hardware video overlay compatibility', 'Scenefeed covers sidebar when active', 'General performance improvements and bug fixes']
@@ -13093,6 +13097,9 @@ function Main_CheckUpdate(forceUpdate) {
 }
 
 function Main_CheckUpdateFail() {
+    Main_Ischecking = false;
+    Main_UpdateDialogTitle();
+    Main_UpdateDialogSetTitle();
     if (Main_isUpdateDialogVisible()) {
         OSInterface_showToast(STR_UPDATE_CHECKING_FAIL);
     }

@@ -1180,6 +1180,9 @@ function Main_CheckUpdate(forceUpdate) {
 }
 
 function Main_CheckUpdateFail() {
+    Main_Ischecking = false;
+    Main_UpdateDialogTitle();
+    Main_UpdateDialogSetTitle();
     if (Main_isUpdateDialogVisible()) {
         OSInterface_showToast(STR_UPDATE_CHECKING_FAIL);
     }
