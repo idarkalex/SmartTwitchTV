@@ -3323,17 +3323,16 @@
     //Spacing for release maker not trow errors from jshint
     var version = {
         VersionBase: '3.0',
-        publishVersionCode: 384, //Always update (+1 to current value) Main_version_java after update publishVersionCode or a major update of the apk is released
-        ApkUrl: 'https://github.com/idarkalex/SmartTwitchTV/releases/download/v384/SmartTV_twitch__384.apk',
+        publishVersionCode: 385, //Always update (+1 to current value) Main_version_java after update publishVersionCode or a major update of the apk is released
+        ApkUrl: 'https://github.com/idarkalex/SmartTwitchTV/releases/download/v385/SmartTV_twitch__385.apk',
         WebVersion: 'July 28 2026',
-        WebTag: 732, //Always update (+1 to current value) Main_version_web after update Main_minversion or a major update of the web part of the app
+        WebTag: 733, //Always update (+1 to current value) Main_version_web after update Main_minversion or a major update of the web part of the app
         changelog: [
             {
                 title: 'July 28 2026',
                 changes: [
-                    'Fixed purple overlay on video player (scene2 background)',
-                    'Fixed top-right clock positioned off-screen',
-                    'Clock now shows time only (no date)',
+                    'Fixed chat overlay transparency slider not working',
+                    'Fixed multi-stream feed taking too much screen and missing previews',
                     'General performance improvements and bug fixes'
                 ]
             },
