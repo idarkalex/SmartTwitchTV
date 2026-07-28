@@ -107,7 +107,7 @@
 
     /* --- EXPANDED SIDEBAR: text menu --- */
     .side_panel_movel {
-        width: 11em !important;
+        width: 13em !important;
         background: #0e0c16 !important;
         overflow: hidden !important;
     }
@@ -358,16 +358,17 @@
        ============================================ */
     .animate_height_transition_games,
     .animate_height_transition_blocked_games {
-        height: 32.9% !important;
         width: 100% !important;
         display: flex !important;
-        justify-content: space-between !important;
+        justify-content: space-evenly !important;
         align-items: flex-start !important;
+        overflow: visible !important;
+        box-sizing: border-box !important;
     }
     .stream_thumbnail_game_holder {
         height: auto !important;
-        width: 13.8% !important;
-        padding: 0.2% !important;
+        width: 12.8% !important;
+        padding: 0.15% !important;
         box-sizing: border-box !important;
         vertical-align: top !important;
     }
@@ -790,12 +791,404 @@
         border: 1px solid rgba(168, 85, 247, 0.2) !important;
     }
 
+    /* TEST: hide sidebar icon strip → keep movel dropdown */
+    .side_panel_fix,
+    .side_panel_fix_2 {
+        display: none !important;
+    }
+    .side_panel_new_holder {
+        width: 0 !important;
+        overflow: visible !important;
+    }
+    .side_panel_movel[style*="translateX(5%)"] {
+        transform: translateX(0%) !important;
+    }
+
+    /* Movel: icon next to text */
+    .movel-icon {
+        width: 1.8em !important;
+        text-align: center !important;
+        font-size: 1.1em !important;
+        flex-shrink: 0 !important;
+    }
+    .side_panel_new_icons_text_holder {
+        gap: 0.3em !important;
+    }
+
+    /* Movel: user avatar + name */
+    .movel-avatar {
+        width: 2em !important;
+        height: 2em !important;
+        border-radius: 50% !important;
+        object-fit: cover !important;
+        flex-shrink: 0 !important;
+    }
+    .movel-user-name {
+        font-weight: bold !important;
+    }
+    .movel-user-info {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+    }
+    #side_panel_movel_new_0 {
+        display: flex !important;
+        align-items: center !important;
+        gap: 0.5em !important;
+        height: auto !important;
+        min-height: 2.5em !important;
+        padding-top: 0.3em !important;
+        padding-bottom: 0.3em !important;
+    }
+    .screen_holder,
+    .screen_holder_channel,
+    .screen_holder_switch,
+    .screen_holder_user,
+    .screen_holder_games {
+        width: 100% !important;
+        margin-left: 0 !important;
+    }
+    .streams_div,
+    .streams_game_div {
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+
+    /* ============================================
+       SETTINGS — full width, modern theme
+       ============================================ */
+    .settings_holder {
+        width: 100% !important;
+        margin-left: 0 !important;
+        overflow-y: auto !important;
+    }
+    .screen_holder_settings {
+        width: 96% !important;
+        margin-left: 2% !important;
+        overflow-y: auto !important;
+    }
+    .settings_main {
+        width: 100% !important;
+        margin-left: 0 !important;
+    }
+    .settings_div {
+        display: flex !important;
+        align-items: center !important;
+        padding: 0.2em 0.4em !important;
+        margin-bottom: 0.1em !important;
+        border: none !important;
+        background: rgba(255, 255, 255, 0.02) !important;
+        border-radius: 0.3em !important;
+        line-height: 0.9em !important;
+    }
+    .settings_name {
+        width: auto !important;
+        flex: 1 !important;
+        font-size: 0.6em !important;
+        margin: 0 !important;
+        padding-right: 0.3em !important;
+        color: #e0e0e0 !important;
+    }
+    .settings_value {
+        width: auto !important;
+        min-width: 4em !important;
+        text-align: center !important;
+        font-size: 0.5em !important;
+        margin: 0 !important;
+        padding: 0.1em 0.3em !important;
+        border-radius: 0.25em !important;
+        border: 1px solid rgba(168, 85, 247, 0.3) !important;
+        background: rgba(168, 85, 247, 0.1) !important;
+        color: #c4b5fd !important;
+    }
+    .settings_div_focus {
+        background: rgba(168, 85, 247, 0.2) !important;
+        border: 1px solid rgba(168, 85, 247, 0.5) !important;
+        border-image: none !important;
+    }
+    .settings_value_focus {
+        background: rgba(168, 85, 247, 0.3) !important;
+        border-color: #a78bfa !important;
+    }
+    .settings_section {
+        font-size: 0.9em !important;
+        padding: 0.8em 0 0.3em 0.5em !important;
+        color: #a78bfa !important;
+        text-align: left !important;
+        letter-spacing: 0.05em !important;
+        text-transform: uppercase !important;
+    }
+    .settings_title {
+        width: auto !important;
+        flex: 1 !important;
+        font-size: 0.85em !important;
+        text-align: left !important;
+    }
+    .settings_summary {
+        font-size: 0.7em !important;
+        color: #888 !important;
+        margin-left: 0 !important;
+        line-height: 1.3em !important;
+    }
+    .settings_arraw_div {
+        width: auto !important;
+        margin: 0 0.2em !important;
+    }
+    .left,
+    .right {
+        border-color: #a78bfa !important;
+        border-width: 0.3em !important;
+    }
+    .settings_scroll_container {
+        max-height: 85vh !important;
+        overflow-y: auto !important;
+    }
+    .settings_codec_container {
+        max-height: 45vh !important;
+        overflow-y: auto !important;
+    }
+
+    /* ============================================
+       UNIFIED BACKGROUND COLORS — dark purple theme
+       bg-primary:   #0e0c16 (main background)
+       bg-surface:   #1a1a22 (cards, thumbnails)
+       bg-overlay:   rgba(14,12,22,0.95) (dialogs)
+       accent:       rgba(168,85,247,0.15) (focus/hover)
+       ============================================ */
+
+    /* Scene backgrounds */
+    #scene1,
+    #scene2,
+    .screen_size,
+    .screens,
+    .feed_screen_new {
+        background-color: #0e0c16 !important;
+    }
+
+    /* Top bar */
+    .topbar {
+        background: #0e0c16 !important;
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+
+    /* Stream thumbnail cards */
+    .stream_thumbnail_live,
+    .stream_thumbnail_live_game,
+    .stream_thumbnail_live_img,
+    .stream_thumbnail_channel_img,
+    .stream_thumbnail_channel,
+    .stream_thumbnail_user,
+    .stream_thumbnail_side,
+    .stream_thumbnail_player_feed,
+    .stream_thumbnail_game_feed,
+    .side_panel_feed_thumb,
+    .side_panel {
+        background-color: #1a1a22 !important;
+    }
+    .side_panel_feed_thumb {
+        background-color: #1a1a22 !important;
+    }
+
+    /* Sidebar elements whose background was separate from scene */
+    .side_panel_fix,
+    .side_panel_movel,
+    .side_panel_fix_top,
+    .side_panel_fix_top_2,
+    .side_panel_fix_center,
+    #side_panel_fix_botton,
+    .side_panel_background_color,
+    .side_panel_movel .side_panel_fix_bottom,
+    .side_panel_div_focused {
+        background-color: #0e0c16 !important;
+    }
+
+    /* Feed backgrounds */
+    .scenefeed_background_no_ani,
+    .scenefeed_background {
+        background-color: rgba(14, 12, 22, 0.98) !important;
+    }
+    .user_feed {
+        background: linear-gradient(to top, rgba(14,12,22,0.98) 0%, rgba(14,12,22,0.85) 40%, rgba(14,12,22,0.3) 80%, transparent 100%) !important;
+    }
+
+    /* Feed card text holders — reuse #1a1a22 compatible gradients */
+    .stream_thumbnail_game_feed_text_holder,
+    .stream_thumbnail_feed_text_holder {
+        background: linear-gradient(to top, rgba(26,26,34,0.95) 0%, rgba(26,26,34,0.6) 60%, transparent 100%) !important;
+    }
+
+    /* Dialogs & overlays */
+    .dialog_exit,
+    .about_dialogs,
+    .dialog_period {
+        background: rgba(14, 12, 22, 0.95) !important;
+    }
+
+    /* Inline dialog overlays with rgba(0,0,0,0.75) */
+    div[id^="dialog_"],
+    div[id^="yes_no_dialog"],
+    div[id^="main_dialog_"],
+    div[id^="update_dialog"],
+    div[id^="welcome_dialog"],
+    div[id^="backup_dialog"],
+    div[id^="restore_dialog"],
+    #dialog_settings,
+    #dialog_color,
+    #dialog_codecs,
+    #dialog_controls,
+    #dialog_controls_player,
+    #dialog_about,
+    #dialog_proxy_url,
+    #dialog_thumb_opt,
+    #dialog_period,
+    #dialog_OffSet,
+    #dialog_hist_setting,
+    #dialog_accessibility,
+    #dialog_end_stream {
+        background: rgba(14, 12, 22, 0.95) !important;
+    }
+    #dialog_proxy_url {
+        background: rgba(14, 12, 22, 0.97) !important;
+    }
+
+    /* Chat & input areas — dark theme */
+    .chat_container,
+    .chat_container1,
+    .chat_container_name,
+    .chat_container1_name {
+        background-color: #0e0c16 !important;
+    }
+    .chat_input_class,
+    .input_class {
+        background-color: #1a1a22 !important;
+        color: #e0e0e0 !important;
+    }
+    .chat_input_class_focus,
+    .chat_input_class_block {
+        background-color: #1a1a22 !important;
+        color: #ffffff !important;
+    }
+
+    /* Buttons — dark */
+    .button_chat,
+    .button_dialog,
+    .button_search {
+        background-color: #1a1a22 !important;
+        color: #e0e0e0 !important;
+    }
+    .button_chat_focused,
+    .button_dialog_focused,
+    .button_search_focused {
+        background-color: rgba(168, 85, 247, 0.2) !important;
+        color: #ffffff !important;
+    }
+
+    /* Codec settings */
+    .settings_value_focus {
+        background: rgba(168, 85, 247, 0.3) !important;
+    }
+    .settings_codec_container {
+        background-color: transparent !important;
+    }
+    .settings_scroll_container {
+        background-color: transparent !important;
+    }
+
+    /* Banner backgrounds */
+    .inner_banner_holder,
+    .banner_img_holder {
+        background-color: #0e0c16 !important;
+    }
+
+    /* Progress bars */
+    .progress_bar {
+        background-color: #1a1a22 !important;
+    }
+    .progress_bar_div {
+        background-color: transparent !important;
+    }
+    .inner_progress_circle {
+        background-color: #a78bfa !important;
+    }
+
+    /* Player info */
+    .playerinfo {
+        background: linear-gradient(to bottom, rgba(14,12,22,0.95), rgba(14,12,22,0)) !important;
+    }
+
+    /* Loading spinner */
+    .loading {
+        background-color: transparent !important;
+    }
+    .loading div {
+        background-color: #a78bfa !important;
+    }
+
+    /* Miscellaneous */
+    .chat_emotes_holder,
+    .chat_emotes_focus,
+    .chat_send,
+    .exit_player_embed {
+        background-color: rgba(14, 12, 22, 0.9) !important;
+    }
+    .playsideinfofocus {
+        background-color: rgba(168, 85, 247, 0.15) !important;
+    }
+    .stream_switch_focused {
+        background-color: rgba(168, 85, 247, 0.15) !important;
+    }
+    .viewer_badge {
+        background-color: rgba(0, 0, 0, 0.75) !important;
+    }
+
+    /* Feed end / focus */
+    .feed_end_name_focus {
+        background: rgba(168, 85, 247, 0.2) !important;
+    }
+
+    /* Dialog close button / misc */
+    .dialog_end_icons_focus {
+        background: rgba(168, 85, 247, 0.2) !important;
+    }
+
+    /* Remove horizontal border lines from side panel items */
+    .side_panel_div {
+        border-top: none !important;
+        border-bottom: none !important;
+        background-color: transparent !important;
+    }
+    .side_panel_div_focused {
+        background: rgba(168, 85, 247, 0.15) !important;
+        border-image: none !important;
+    }
+
+    /* Fix live player info bar background */
+    .playerinfo {
+        background: linear-gradient(to bottom, rgba(14,12,22,0.95), rgba(14,12,22,0)) !important;
+    }
+
+    /* Feed sidebar items */
+    .side_panel_feed_thumb {
+        background-color: #1a1a22 !important;
+    }
+    .side_panel_feed_thumb_text_holder {
+        background: linear-gradient(transparent, rgba(14,12,22,0.9)) !important;
+    }
+
+    /* Stream info section background */
+    .stream_info_multi_div,
+    .stream_info_pp_div,
+    .stream_info_multi_diag_div {
+        background-color: transparent !important;
+    }
+
 </style>
 </head>
 
     <body>
         <div id="body_container" class="screen_size" style="position: relative">
-            <div id="scene1" class="screen_size" style="background-color: #131318; opacity: 1; will-change: opacity; z-index: 2">
+            <div id="scene1" class="screen_size" style="background-color: #0e0c16; opacity: 1; will-change: opacity; z-index: 2">
                 <div id="dialog_loading" class="screens dialogs hide" style="z-index: 98; margin-top: 50vh; overflow: visible">
                     <div class="loading">
                         <div></div>

@@ -307,7 +307,7 @@ function AddUser_UpdateSidePanelSize(logo, username) {
             IMG_404_LOGO +
             '\';">'
     );
-    Sidepannel_SetUserLabel(username);
+    Sidepannel_SetUserLabel(username, logo);
 
     var size = username.length;
 

@@ -3310,10 +3310,10 @@ function calculateFontSizeTizen() {
 //Spacing for release maker not trow errors from jshint
 var version = {
     VersionBase: '3.0',
-    publishVersionCode: 380, //Always update (+1 to current value) Main_version_java after update publishVersionCode or a major update of the apk is released
-    ApkUrl: 'https://github.com/idarkalex/SmartTwitchTV/releases/download/380/SmartTV_twitch_3_0_380.apk',
-    WebVersion: 'July 26 2026',
-    WebTag: 728, //Always update (+1 to current value) Main_version_web after update Main_minversion or a major update of the web part of the app
+    publishVersionCode: 381, //Always update (+1 to current value) Main_version_java after update publishVersionCode or a major update of the apk is released
+    ApkUrl: 'https://github.com/idarkalex/SmartTwitchTV/releases/download/v381/SmartTV_twitch_3_0_381.apk',
+    WebVersion: 'July 27 2026',
+    WebTag: 729, //Always update (+1 to current value) Main_version_web after update Main_minversion or a major update of the web part of the app
     changelog: [
         {
             title: 'July 26 2026',
@@ -4086,7 +4086,7 @@ function AddUser_UpdateSidePanelSize(logo, username) {
             IMG_404_LOGO +
             '\';">'
     );
-    Sidepannel_SetUserLabel(username);
+    Sidepannel_SetUserLabel(username, logo);
 
     var size = username.length;
 
@@ -42334,13 +42334,13 @@ function Sidepannel_SetUserLabels() {
     Main_ShowElement('side_panel_movel_new_7');
     Main_ShowElement('side_panel_new_7');
 
-    Main_innerHTML('side_panel_movel_new_2', STR_MAIN_MENU);
-    Main_innerHTML('side_panel_movel_new_4', STR_GAMES);
-    Main_innerHTML('side_panel_movel_new_5', STR_VIDEOS);
-    Main_innerHTML('side_panel_movel_new_6', STR_CHANNELS);
-    Main_innerHTML('side_panel_movel_new_7', STR_USER_MY_CHANNEL);
-    Main_innerHTML('side_panel_movel_new_8', STR_HISTORY);
-    Main_innerHTML('side_panel_movel_new_9', STR_BLOCKED);
+    Main_innerHTML('side_panel_movel_new_2', '<i class="icon icon-arrow-left movel-icon"></i> ' + STR_MAIN_MENU);
+    Main_innerHTML('side_panel_movel_new_4', '<i class="icon icon-gamepad movel-icon"></i> ' + STR_GAMES);
+    Main_innerHTML('side_panel_movel_new_5', '<i class="icon icon-movie-play movel-icon"></i> ' + STR_VIDEOS);
+    Main_innerHTML('side_panel_movel_new_6', '<i class="icon icon-filmstrip movel-icon"></i> ' + STR_CHANNELS);
+    Main_innerHTML('side_panel_movel_new_7', '<i class="icon icon-user movel-icon"></i> ' + STR_USER_MY_CHANNEL);
+    Main_innerHTML('side_panel_movel_new_8', '<i class="icon icon-history movel-icon"></i> ' + STR_HISTORY);
+    Main_innerHTML('side_panel_movel_new_9', '<i class="icon icon-blocked movel-icon"></i> ' + STR_BLOCKED);
 
     Sidepannel_SetIcons('side_panel_new_2', 'arrow-left', 'font-size: 115%; position: relative; top: 2%;');
     Sidepannel_SetIcons('side_panel_new_4', 'gamepad', 'font-size: 115%;');
@@ -42350,7 +42350,7 @@ function Sidepannel_SetUserLabels() {
 }
 
 function Sidepannel_SetDefaultLabels() {
-    if (AddUser_UsernameArray[0]) Sidepannel_SetUserLabel(AddUser_UsernameArray[0].display_name);
+    if (AddUser_UsernameArray[0]) Sidepannel_SetUserLabel(AddUser_UsernameArray[0].display_name, AddUser_UsernameArray[0].logo);
     else Sidepannel_SetUserLabel(STR_USER_ADD);
 
     Main_HideElement('side_panel_movel_new_8');
@@ -42362,14 +42362,14 @@ function Sidepannel_SetDefaultLabels() {
 
     Main_HideElement('side_panel_movel_user_text_holder');
 
-    Main_innerHTML('side_panel_movel_new_1', STR_SEARCH);
+    Main_innerHTML('side_panel_movel_new_1', '<i class="icon icon-search movel-icon"></i> ' + STR_SEARCH);
 
-    Main_innerHTML('side_panel_movel_new_2', STR_USER_MENU);
-    Main_innerHTML('side_panel_movel_new_3', STR_LIVE);
-    Main_innerHTML('side_panel_movel_new_4', STR_FEATURED);
-    Main_innerHTML('side_panel_movel_new_5', STR_GAMES);
-    Main_innerHTML('side_panel_movel_new_6', STR_VIDEOS);
-    Main_innerHTML('side_panel_movel_new_7', STR_CLIPS);
+    Main_innerHTML('side_panel_movel_new_2', '<i class="icon icon-user movel-icon"></i> ' + STR_USER_MENU);
+    Main_innerHTML('side_panel_movel_new_3', '<i class="icon icon-play movel-icon"></i> ' + STR_LIVE);
+    Main_innerHTML('side_panel_movel_new_4', '<i class="icon icon-star movel-icon"></i> ' + STR_FEATURED);
+    Main_innerHTML('side_panel_movel_new_5', '<i class="icon icon-gamepad movel-icon"></i> ' + STR_GAMES);
+    Main_innerHTML('side_panel_movel_new_6', '<i class="icon icon-movie-play movel-icon"></i> ' + STR_VIDEOS);
+    Main_innerHTML('side_panel_movel_new_7', '<i class="icon icon-movie movel-icon"></i> ' + STR_CLIPS);
 
     Main_innerHTML('side_panel_movel_new_10', STR_SPACE_HTML + STR_SETTINGS);
     Main_innerHTML('side_panel_movel_new_11', STR_SPACE_HTML + STR_ABOUT);
@@ -42385,10 +42385,11 @@ function Sidepannel_SetDefaultLabels() {
     Sidepannel_SetIcons('side_panel_new_7', 'movie');
 }
 
-function Sidepannel_SetUserLabel(text) {
+function Sidepannel_SetUserLabel(text, logo) {
+    var avatarHtml = logo ? '<img class="movel-avatar" src="' + logo + '">' : '';
     Main_innerHTML(
         'side_panel_movel_new_0',
-        text + STR_BR + '<div style="font-size: 45%;display: inline-block; transform: translateY(-80%);">' + STR_USER_EXTRAS + '</div>'
+        avatarHtml + '<div class="movel-user-info"><span class="movel-user-name">' + text + '</span><div style="font-size: 45%;">' + STR_USER_EXTRAS + '</div></div>'
     );
 }
 
