@@ -1164,12 +1164,14 @@ function Main_CheckUpdate(forceUpdate) {
         if (Main_HasUpdate && Main_isUpdateDialogVisible() && Settings_value.update_background.defaultValue && !forceUpdate) return;
 
         if (Main_A_includes_B(window.location.href, 'https://idarkalex.github.io')) {
+            Main_Log('[UPDATE] Fetching version.json from github.io');
             BaseXmlHttpGet(
                 'https://idarkalex.github.io/SmartTwitchTV/githubio/version/version.json',
                 Main_CheckUpdateResult,
                 Main_CheckUpdateFail
             );
         } else {
+            Main_Log('[UPDATE] Not on github.io, skipping version check (href=' + window.location.href + ')');
             Main_setTimeout(function () {
                 Main_Ischecking = false;
                 Main_UpdateDialogTitle();
@@ -1180,6 +1182,7 @@ function Main_CheckUpdate(forceUpdate) {
 }
 
 function Main_CheckUpdateFail() {
+    Main_Log('[UPDATE] Main_CheckUpdateFail - version fetch failed');
     Main_Ischecking = false;
     Main_UpdateDialogTitle();
     Main_UpdateDialogSetTitle();
@@ -1190,6 +1193,7 @@ function Main_CheckUpdateFail() {
 
 var Main_IsWebupdate;
 function Main_CheckUpdateResult(responseText) {
+    Main_Log('[UPDATE] Main_CheckUpdateResult response received');
     Main_Ischecking = false;
     Main_UpdateDialogLastCheck = Main_getclock();
 
@@ -1200,10 +1204,15 @@ function Main_CheckUpdateResult(responseText) {
     version.changelog = JSON.parse(JSON.stringify(response.changelog));
     version.ApkUrl = response.ApkUrl;
 
+    Main_Log('[UPDATE] local WebTag=' + version.WebTag + ' remote WebTag=' + response.WebTag + ' webupdate=' + webupdate);
+    Main_Log('[UPDATE] local publishVersionCode=' + version.publishVersionCode + ' remote=' + response.publishVersionCode + ' apkupdate=' + apkupdate + ' IsOn_OSInterface=' + Main_IsOn_OSInterface);
+    Main_Log('[UPDATE] ApkUrl=' + version.ApkUrl);
+
     if (webupdate || apkupdate) {
         Main_HasUpdate = true;
 
         Main_IsWebupdate = !apkupdate && webupdate;
+        Main_Log('[UPDATE] Update available! Main_IsWebupdate=' + Main_IsWebupdate);
 
         Main_WarnUpdate(Main_IsWebupdate);
     } else if (Main_isUpdateDialogVisible()) {
@@ -1319,6 +1328,7 @@ function Main_UpdateDialogKeyFun(event) {
 }
 
 function Main_UpdateDialogKeyEnter() {
+    Main_Log('[UPDATE] Main_UpdateDialogKeyEnter Main_HasUpdate=' + Main_HasUpdate + ' Main_IsWebupdate=' + Main_IsWebupdate + ' Main_UpdateCursor=' + Main_UpdateCursor);
     if (Main_isAboutDialogVisible()) {
         Main_HideChangeDialog();
         Main_HideUpdateDialog();
@@ -1331,6 +1341,7 @@ function Main_UpdateDialogKeyEnter() {
             Main_SaveValues();
 
             if (Main_IsWebupdate) {
+                Main_Log('[UPDATE] Web update detected, refreshing page');
                 Main_HideElement('update_dialog');
                 Main_showLoadDialog();
                 Main_SaveHistoryItem();
@@ -1340,8 +1351,10 @@ function Main_UpdateDialogKeyEnter() {
 
                 Main_RefreshPage();
             } else {
+                Main_HideUpdateDialog(true);
                 Main_showLoadDialog();
                 var fromPlay = OSInterface_getInstallFromPLay();
+                Main_Log('[UPDATE] APK update fromPlay=' + fromPlay + ' url=' + version.ApkUrl);
 
                 OSInterface_showToast(fromPlay ? STR_UPDATE_PLAY : STR_UPDATE_START);
 
@@ -1362,9 +1375,10 @@ function Main_RefreshPage() {
 }
 
 function Main_UpdateAPKComplete(success) {
-    Main_Log('Main_UpdateAPKComplete success: ' + success);
+    Main_Log('[UPDATE] Main_UpdateAPKComplete success=' + success);
     Main_HideLoadDialog();
     Main_values.IsUpDating = false;
+    Main_Log('[UPDATE] Main_UpdateAPKComplete finished, IsUpDating=false');
 }
 
 var Main_UpdateDialogLastCheck;
