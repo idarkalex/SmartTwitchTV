@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <string-array name="exo_controls_playback_speeds">
+    <item>0.25x</item>
+    <item>0.5x</item>
+    <item>0.75x</item>
+    <item>רגילה</item>
+    <item>1.25x</item>
+    <item>1.5x</item>
+    <item>2x</item>
+  </string-array>
+    <plurals name="exo_controls_fastforward_by_amount_description">
+    <item quantity="one">הרצה %d שניות קדימה</item>
+    <item quantity="two">הרצה %d שניות קדימה</item>
+    <item quantity="other">הרצה %d שניות קדימה</item>
+  </plurals>
+    <plurals name="exo_controls_rewind_by_amount_description">
+    <item quantity="one">הרצה %d שניות אחורה</item>
+    <item quantity="two">הרצה %d שניות אחורה</item>
+    <item quantity="other">הרצה %d שניות אחורה</item>
+  </plurals>
+    <string msgid="4600421777120114993" name="abc_action_bar_home_description">"נווט לדף הבית"</string>
+    <string msgid="1594238315039666878" name="abc_action_bar_up_description">"נווט למעלה"</string>
+    <string msgid="3588849162933574182" name="abc_action_menu_overflow_description">"עוד אפשרויות"</string>
+    <string msgid="4076576682505996667" name="abc_action_mode_done">"בוצע"</string>
+    <string msgid="7468859129482906941" name="abc_activity_chooser_view_see_all">"ראה הכל"</string>
+    <string msgid="2031811694353399454" name="abc_activitychooserview_choose_application">"בחר אפליקציה"</string>
+    <string msgid="121134116657445385" name="abc_capital_off">"כבוי"</string>
+    <string msgid="3405795526292276155" name="abc_capital_on">"פועל"</string>
+    <string msgid="1302280443949172191" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="1324831542140195728" name="abc_menu_ctrl_shortcut_label">"Ctrl+‎"</string>
+    <string msgid="8362206064229013510" name="abc_menu_delete_shortcut_label">"delete"</string>
+    <string msgid="8341180395196749340" name="abc_menu_enter_shortcut_label">"Enter"</string>
+    <string msgid="4792426091847145555" name="abc_menu_function_shortcut_label">"Function+"</string>
+    <string msgid="7643535737296831317" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="8126296154200614004" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="2378550843553983978" name="abc_menu_space_shortcut_label">"מקש רווח"</string>
+    <string msgid="9002602288060866689" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="1351762916121158029" name="abc_prepend_shortcut_label">"תפריט+"</string>
+    <string msgid="7723749260725869598" name="abc_search_hint">"חיפוש…"</string>
+    <string msgid="3691816814315814921" name="abc_searchview_description_clear">"מחק שאילתה"</string>
+    <string msgid="2550479030709304392" name="abc_searchview_description_query">"שאילתת חיפוש"</string>
+    <string msgid="8264924765203268293" name="abc_searchview_description_search">"חיפוש"</string>
+    <string msgid="8928215447528550784" name="abc_searchview_description_submit">"שלח שאילתה"</string>
+    <string msgid="893419373245838918" name="abc_searchview_description_voice">"חיפוש קולי"</string>
+    <string msgid="3421042268587513524" name="abc_shareactionprovider_share_with">"שתף עם"</string>
+    <string msgid="3300176832234831527" name="abc_shareactionprovider_share_with_application">"שתף עם <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="1603543279005712093" name="abc_toolbar_collapse_description">"כווץ"</string>
+    <string name="exo_controls_cc_disabled_description">הפעלת כתוביות</string>
+    <string name="exo_controls_cc_enabled_description">השבתת כתוביות</string>
+    <string name="exo_controls_fastforward_description">הרצה קדימה</string>
+    <string name="exo_controls_fullscreen_enter_description">כניסה למסך מלא</string>
+    <string name="exo_controls_fullscreen_exit_description">יציאה ממסך מלא</string>
+    <string name="exo_controls_hide">הסתרת פקדי הנגן</string>
+    <string name="exo_controls_next_description">הבא</string>
+    <string name="exo_controls_overflow_hide_description">הסתרת ההגדרות הנוספות</string>
+    <string name="exo_controls_overflow_show_description">הצגת הגדרות נוספות</string>
+    <string name="exo_controls_pause_description">השהיה</string>
+    <string name="exo_controls_play_description">הפעלה</string>
+    <string name="exo_controls_playback_speed">מהירות</string>
+    <string name="exo_controls_previous_description">הקודם</string>
+    <string name="exo_controls_repeat_all_description">המצב הנוכחי: חזרה על כל הפריטים. כפתור להחלפת מצב החזרה.</string>
+    <string name="exo_controls_repeat_off_description">המצב הנוכחי: ללא חזרה. כפתור להחלפת מצב החזרה.</string>
+    <string name="exo_controls_repeat_one_description">המצב הנוכחי: חזרה על פריט אחד. כפתור להחלפת מצב החזרה.</string>
+    <string name="exo_controls_rewind_description">הרצה אחורה</string>
+    <string name="exo_controls_seek_bar_description">התקדמות ההפעלה</string>
+    <string name="exo_controls_settings_description">הגדרות</string>
+    <string name="exo_controls_show">הצגת פקדי הנגן</string>
+    <string name="exo_controls_shuffle_off_description">הפעלת מצב ההפעלה האקראית</string>
+    <string name="exo_controls_shuffle_on_description">השבתת מצב ההפעלה האקראית</string>
+    <string name="exo_controls_stop_description">הפסקה</string>
+    <string name="exo_controls_vr_description">מצב VR</string>
+    <string name="exo_download_completed">ההורדה הושלמה</string>
+    <string name="exo_download_description">הורדה</string>
+    <string name="exo_download_downloading">ההורדה מתבצעת</string>
+    <string name="exo_download_failed">ההורדה לא הושלמה</string>
+    <string name="exo_download_notification_channel_name">הורדות</string>
+    <string name="exo_download_paused">ההורדות הושהו</string>
+    <string name="exo_download_paused_for_network">ההורדות בהמתנה לרשת</string>
+    <string name="exo_download_paused_for_wifi">ההורדות בהמתנה ל-Wi-Fi</string>
+    <string name="exo_download_removing">מסיר הורדות</string>
+    <string name="exo_item_list">%1$s‏, %2$s</string>
+    <string name="exo_track_bitrate">%1$.2f מגה סיביות לשנייה</string>
+    <string name="exo_track_mono">מונו</string>
+    <string name="exo_track_resolution">%1$d × %2$d</string>
+    <string name="exo_track_role_alternate">חלופי</string>
+    <string name="exo_track_role_closed_captions">כתוביות</string>
+    <string name="exo_track_role_commentary">פרשנות</string>
+    <string name="exo_track_role_supplementary">משלים</string>
+    <string name="exo_track_selection_auto">אוטומטי</string>
+    <string name="exo_track_selection_none">ללא</string>
+    <string name="exo_track_selection_title_audio">אודיו</string>
+    <string name="exo_track_stereo">סטריאו</string>
+    <string name="exo_track_surround">סראונד</string>
+    <string name="exo_track_surround_5_point_1">סראונד 5.1</string>
+    <string name="exo_track_surround_7_point_1">סראונד 7.1</string>
+    <string name="exo_track_unknown">לא ידוע</string>
+    <string name="exo_track_unknown_name">לא ידוע (%1$s)</string>
+    <string msgid="4657191930956702614" name="lb_control_display_fast_forward_multiplier">"‎%1$dX‎‎"</string>
+    <string msgid="4597148235912710942" name="lb_control_display_rewind_multiplier">"‎%1$dX‎‎"</string>
+    <string msgid="893619591225519922" name="lb_guidedaction_continue_title">"המשך"</string>
+    <string msgid="3330958750346333890" name="lb_guidedaction_finish_title">"סיום"</string>
+    <string msgid="3228326776757666747" name="lb_media_player_error">"‏קוד שגיאה %1$d‏ של MediaPlayer ועוד %2$d"</string>
+    <string msgid="8084428500709675515" name="lb_navigation_menu_contentDescription">"תפריט ניווט"</string>
+    <string msgid="2394451791544864917" name="lb_onboarding_accessibility_next">"הבא"</string>
+    <string msgid="5549711907371161292" name="lb_onboarding_get_started">"קדימה, לעבודה"</string>
+    <string msgid="8691966842977635128" name="lb_playback_controls_closed_captioning_disable">"השבתת כתוביות"</string>
+    <string msgid="2346334170216706076" name="lb_playback_controls_closed_captioning_enable">"הפעלת כתוביות"</string>
+    <string msgid="740570111678243493" name="lb_playback_controls_fast_forward">"הרצה קדימה"</string>
+    <string msgid="5734614175721471329" name="lb_playback_controls_fast_forward_multiplier">"‏הרצה קדימה של %1$dX"</string>
+    <string msgid="5859666950961624736" name="lb_playback_controls_hidden">"‏פקדי המדיה מוסתרים. יש להקיש על ה-d-pad כדי להציג אותם"</string>
+    <string msgid="1209119371486219736" name="lb_playback_controls_high_quality_disable">"השבתת איכות גבוהה"</string>
+    <string msgid="3057698527166674705" name="lb_playback_controls_high_quality_enable">"הפעלת איכות גבוהה"</string>
+    <string msgid="8730341244454469032" name="lb_playback_controls_more_actions">"פעולות נוספות"</string>
+    <string msgid="917331776961802657" name="lb_playback_controls_pause">"השהיה"</string>
+    <string msgid="5770668162543767702" name="lb_playback_controls_picture_in_picture">"מעבר למצב תמונה בתוך תמונה"</string>
+    <string msgid="7088090604803481121" name="lb_playback_controls_play">"הפעלה"</string>
+    <string msgid="8429099206716245199" name="lb_playback_controls_repeat_all">"חזרה על הכול"</string>
+    <string msgid="1614290959784265209" name="lb_playback_controls_repeat_none">"לא לחזור על כלום"</string>
+    <string msgid="676658705837320560" name="lb_playback_controls_repeat_one">"חזרה על פריט אחד"</string>
+    <string msgid="2866333981131020771" name="lb_playback_controls_rewind">"הרצה אחורה"</string>
+    <string msgid="6038956370475252734" name="lb_playback_controls_rewind_multiplier">"‏הרצה אחורה של %1$dX"</string>
+    <string msgid="8690223891515602822" name="lb_playback_controls_shown">"פקדי המדיה מוצגים"</string>
+    <string msgid="6793109999253893369" name="lb_playback_controls_shuffle_disable">"השבתת ערבוב"</string>
+    <string msgid="5151681938752704485" name="lb_playback_controls_shuffle_enable">"הפעלה באקראי"</string>
+    <string msgid="8117512422682146745" name="lb_playback_controls_skip_next">"דילוג אל הפריט הבא"</string>
+    <string msgid="3481218248309447059" name="lb_playback_controls_skip_previous">"דילוג אל הפריט הקודם"</string>
+    <string msgid="3544533410444618518" name="lb_playback_controls_thumb_down">"ביטול הבחירה בסימון \'לא אהבתי\'"</string>
+    <string msgid="8475278766138652105" name="lb_playback_controls_thumb_down_outline">"בחירה בסימון \'לא אהבתי\'"</string>
+    <string msgid="3458671378107738666" name="lb_playback_controls_thumb_up">"ביטול הבחירה בסימון \'לייק\'"</string>
+    <string msgid="1385865732502550659" name="lb_playback_controls_thumb_up_outline">"בחירה בסימון \'לייק\'"</string>
+    <string msgid="1471121602610716654" name="lb_playback_time_separator">"/"</string>
+    <string msgid="5700349211583074131" name="lb_search_bar_hint">"חיפוש"</string>
+    <string msgid="5926531297066387462" name="lb_search_bar_hint_speech">"צריך לדבר בקול כדי לבצע חיפוש"</string>
+    <string msgid="4826526877249029043" name="lb_search_bar_hint_with_title">"חיפוש של <ns1:g id="SEARCH_CONTEXT">%1$s</ns1:g>"</string>
+    <string msgid="6032250334706920550" name="lb_search_bar_hint_with_title_speech">"יש לדבר כדי לחפש <ns1:g id="SEARCH_CONTEXT">%1$s</ns1:g>"</string>
+    <string msgid="1301877238242752863" name="orb_search_action">"פעולת חיפוש"</string>
+    <string msgid="146198913615257606" name="search_menu_title">"חיפוש"</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+</resources>

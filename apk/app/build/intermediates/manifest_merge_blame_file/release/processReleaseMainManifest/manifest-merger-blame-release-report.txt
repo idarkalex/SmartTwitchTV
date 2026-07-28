@@ -1,0 +1,231 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<!--
+3 /*
+4 * Copyright (c) 2017–present Felipe de Leon <fglfgl27@gmail.com>
+5 *
+6 * This file is part of SmartTwitchTV <https://github.com/fgl27/SmartTwitchTV>
+7 *
+8 * SmartTwitchTV is free software: you can redistribute it and/or modify
+9 * it under the terms of the GNU General Public License as published by
+10 * the Free Software Foundation, either version 3 of the License, or
+11 * (at your option) any later version.
+12 *
+13 * SmartTwitchTV is distributed in the hope that it will be useful,
+14 * but WITHOUT ANY WARRANTY; without even the implied warranty of
+15 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+16 * GNU General Public License for more details.
+17 *
+18 * You should have received a copy of the GNU General Public License
+19 * along with SmartTwitchTV.  If not, see <https://github.com/fgl27/SmartTwitchTV/blob/master/LICENSE>.
+20 *
+21 */
+22-->
+23<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+24    package="com.smarttwitch.tv"
+25    android:versionCode="385"
+26    android:versionName="3.0.385" >
+27
+28    <uses-sdk
+29        android:minSdkVersion="21"
+30        android:targetSdkVersion="35" />
+31
+32    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+32-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:25:5-77
+32-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:25:22-74
+33    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+33-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:26:5-81
+33-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:26:22-78
+34    <uses-permission android:name="android.permission.INTERNET" />
+34-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:28:5-67
+34-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:28:22-64
+35    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+35-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:29:5-81
+35-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:29:22-78
+36    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+36-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:31:5-79
+36-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:31:22-76
+37    <uses-permission android:name="com.android.providers.tv.permission.WRITE_EPG_DATA" />
+37-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:33:5-90
+37-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:33:22-87
+38    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+38-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:25:5-77
+38-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:25:22-74
+39    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_TYPE_SHORT_SERVICE" />
+39-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:36:5-95
+39-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:36:22-93
+40    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+40-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:37:5-76
+40-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:37:22-74
+41
+42    <!-- Android 8.0 updater fix only needed for github release version of the apk -->
+43    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+43-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:40:5-83
+43-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:40:22-80
+44
+45    <uses-feature
+45-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:42:5-44:36
+46        android:name="android.hardware.touchscreen"
+46-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:43:9-52
+47        android:required="false" />
+47-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:44:9-33
+48    <uses-feature
+48-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:45:5-47:35
+49        android:name="android.software.leanback"
+49-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:46:9-49
+50        android:required="true" />
+50-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:47:9-32
+51
+52    <uses-permission android:name="com.android.providers.tv.permission.READ_EPG_DATA" />
+52-->[androidx.tvprovider:tvprovider:1.1.0] /home/runner/.gradle/caches/8.13/transforms/d50d0492ac13dc091117742e8a5bc3a1/transformed/tvprovider-1.1.0/AndroidManifest.xml:23:5-89
+52-->[androidx.tvprovider:tvprovider:1.1.0] /home/runner/.gradle/caches/8.13/transforms/d50d0492ac13dc091117742e8a5bc3a1/transformed/tvprovider-1.1.0/AndroidManifest.xml:23:22-86
+53
+54    <application
+54-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:49:5-121:19
+55        android:allowBackup="true"
+55-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:50:9-35
+56        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+56-->[androidx.core:core:1.8.0] /home/runner/.gradle/caches/8.13/transforms/50d427b13170de8aa09dd527e036b382/transformed/core-1.8.0/AndroidManifest.xml:24:18-86
+57        android:banner="@drawable/banner"
+57-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:54:9-42
+58        android:extractNativeLibs="true"
+59        android:fullBackupContent="true"
+59-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:51:9-41
+60        android:hardwareAccelerated="true"
+60-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:57:9-43
+61        android:icon="@mipmap/ic_launchers"
+61-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:52:9-44
+62        android:label="@string/app_name"
+62-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:55:9-41
+63        android:largeHeap="true"
+63-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:58:9-33
+64        android:networkSecurityConfig="@xml/network_security_config"
+64-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:59:9-69
+65        android:requestLegacyExternalStorage="true"
+65-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:60:9-52
+66        android:roundIcon="@mipmap/ic_launchers"
+66-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:53:9-49
+67        android:theme="@style/AppTheme" >
+67-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:56:9-40
+68        <activity
+68-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:61:9-88:20
+69            android:name="com.fgl27.twitch.PlayerActivity"
+69-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:63:13-43
+70            android:exported="true"
+70-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:62:13-36
+71            android:label="@string/app_name"
+71-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:64:13-45
+72            android:launchMode="singleInstance"
+72-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:66:13-48
+73            android:logo="@mipmap/app_icon"
+73-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:65:13-44
+74            android:screenOrientation="landscape"
+74-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:68:13-50
+75            android:theme="@style/AppTheme.Launcher" >
+75-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:67:13-53
+76            <intent-filter>
+76-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:70:13-77:29
+77                <action android:name="android.intent.action.VIEW" />
+77-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:71:17-69
+77-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:71:25-66
+78                <action android:name="android.intent.action.MAIN" />
+78-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:72:17-69
+78-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:72:25-66
+79
+80                <category android:name="android.intent.category.DEFAULT" />
+80-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:74:17-76
+80-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:74:27-73
+81                <category android:name="android.intent.category.LAUNCHER" />
+81-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:75:17-77
+81-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:75:27-74
+82                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+82-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:76:17-86
+82-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:76:27-83
+83            </intent-filter>
+84            <intent-filter>
+84-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:78:13-87:29
+85                <action android:name="android.intent.action.VIEW" />
+85-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:71:17-69
+85-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:71:25-66
+86
+87                <category android:name="android.intent.category.DEFAULT" />
+87-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:74:17-76
+87-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:74:27-73
+88                <category android:name="android.intent.category.BROWSABLE" />
+88-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:82:17-78
+88-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:82:27-75
+89
+90                <!-- adb shell am start -W -a android.intent.action.VIEW -d smarttvtwitchmod://data/Type/Value -->
+91                <data android:scheme="smarttvtwitchmod" />
+91-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:85:17-59
+91-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:85:23-56
+92                <data android:host="data" />
+92-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:85:17-59
+92-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:86:23-42
+93            </intent-filter>
+94        </activity>
+95
+96        <receiver
+96-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:90:9-96:20
+97            android:name="com.fgl27.twitch.BootBroadcastReceiver"
+97-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:91:13-50
+98            android:exported="true" >
+98-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:92:13-36
+99            <intent-filter>
+99-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:93:13-95:29
+100                <action android:name="android.intent.action.BOOT_COMPLETED" />
+100-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:94:17-79
+100-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:94:25-76
+101            </intent-filter>
+102        </receiver>
+103
+104        <service
+104-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:98:9-102:64
+105            android:name="com.fgl27.twitch.notification.NotificationService"
+105-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:102:13-61
+106            android:enabled="true"
+106-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:99:13-35
+107            android:foregroundServiceType="shortService"
+107-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:101:13-57
+108            android:process=":background" />
+108-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:100:13-42
+109        <service
+109-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:104:9-107:72
+110            android:name="com.fgl27.twitch.channels.SyncChannelJobService"
+110-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:105:13-59
+111            android:exported="false"
+111-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:106:13-37
+112            android:permission="android.permission.BIND_JOB_SERVICE" />
+112-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:107:13-69
+113
+114        <!-- Read more: https://stackoverflow.com/questions/38200282/android-os-fileuriexposedexception-file-storage-emulated-0-test-txt-exposed -->
+115        <provider
+116            android:name="androidx.core.content.FileProvider"
+116-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:111:13-62
+117            android:authorities="com.smarttwitch.tv.update_provider"
+117-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:112:13-67
+118            android:exported="false"
+118-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:113:13-37
+119            android:grantUriPermissions="true" >
+119-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:114:13-47
+120
+121            <!-- Details: https://developer.android.com/reference/android/support/v4/content/FileProvider.html#SpecifyFiles -->
+122            <meta-data
+122-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:116:13-118:67
+123                android:name="android.support.FILE_PROVIDER_PATHS"
+123-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:117:17-67
+124                android:resource="@xml/download_provider_paths" />
+124-->/home/runner/work/SmartTwitchTV/SmartTwitchTV/apk/app/src/main/AndroidManifest.xml:118:17-64
+125        </provider>
+126        <provider
+126-->[com.github.GCX-HCI:tray:v0.12.0] /home/runner/.gradle/caches/8.13/transforms/b2902d14e34dac5a00a2f34deaceb729/transformed/jetified-tray-v0.12.0/AndroidManifest.xml:12:9-16:44
+127            android:name="net.grandcentrix.tray.provider.TrayContentProvider"
+127-->[com.github.GCX-HCI:tray:v0.12.0] /home/runner/.gradle/caches/8.13/transforms/b2902d14e34dac5a00a2f34deaceb729/transformed/jetified-tray-v0.12.0/AndroidManifest.xml:13:13-78
+128            android:authorities="com.smarttwitch.tv.tray"
+128-->[com.github.GCX-HCI:tray:v0.12.0] /home/runner/.gradle/caches/8.13/transforms/b2902d14e34dac5a00a2f34deaceb729/transformed/jetified-tray-v0.12.0/AndroidManifest.xml:14:13-56
+129            android:exported="false"
+129-->[com.github.GCX-HCI:tray:v0.12.0] /home/runner/.gradle/caches/8.13/transforms/b2902d14e34dac5a00a2f34deaceb729/transformed/jetified-tray-v0.12.0/AndroidManifest.xml:15:13-37
+130            android:multiprocess="false" />
+130-->[com.github.GCX-HCI:tray:v0.12.0] /home/runner/.gradle/caches/8.13/transforms/b2902d14e34dac5a00a2f34deaceb729/transformed/jetified-tray-v0.12.0/AndroidManifest.xml:16:13-41
+131    </application>
+132
+133</manifest>

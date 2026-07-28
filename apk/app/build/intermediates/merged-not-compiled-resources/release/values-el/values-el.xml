@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <string-array name="exo_controls_playback_speeds">
+    <item>0,25x</item>
+    <item>0,5x</item>
+    <item>0,75x</item>
+    <item>Κανονική</item>
+    <item>1,25x</item>
+    <item>1,5x</item>
+    <item>2x</item>
+  </string-array>
+    <plurals name="exo_controls_fastforward_by_amount_description">
+    <item quantity="one">Γρήγορη προώθηση κατά %d δευτερόλεπτο</item>
+    <item quantity="other">Γρήγορη προώθηση κατά %d δευτερόλεπτα</item>
+  </plurals>
+    <plurals name="exo_controls_rewind_by_amount_description">
+    <item quantity="one">Μετάβαση προς τα πίσω κατά %d δευτερόλεπτο</item>
+    <item quantity="other">Μετάβαση προς τα πίσω κατά %d δευτερόλεπτα</item>
+  </plurals>
+    <string msgid="4600421777120114993" name="abc_action_bar_home_description">"Πλοήγηση στην αρχική σελίδα"</string>
+    <string msgid="1594238315039666878" name="abc_action_bar_up_description">"Πλοήγηση προς τα επάνω"</string>
+    <string msgid="3588849162933574182" name="abc_action_menu_overflow_description">"Περισσότερες επιλογές"</string>
+    <string msgid="4076576682505996667" name="abc_action_mode_done">"Τέλος"</string>
+    <string msgid="7468859129482906941" name="abc_activity_chooser_view_see_all">"Προβολή όλων"</string>
+    <string msgid="2031811694353399454" name="abc_activitychooserview_choose_application">"Επιλέξτε κάποια εφαρμογή"</string>
+    <string msgid="121134116657445385" name="abc_capital_off">"ΑΠΕΝΕΡΓΟΠΟΙΗΣΗ"</string>
+    <string msgid="3405795526292276155" name="abc_capital_on">"ΕΝΕΡΓΟΠΟΙΗΣΗ"</string>
+    <string msgid="1302280443949172191" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="1324831542140195728" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="8362206064229013510" name="abc_menu_delete_shortcut_label">"delete"</string>
+    <string msgid="8341180395196749340" name="abc_menu_enter_shortcut_label">"enter"</string>
+    <string msgid="4792426091847145555" name="abc_menu_function_shortcut_label">"Function+"</string>
+    <string msgid="7643535737296831317" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="8126296154200614004" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="2378550843553983978" name="abc_menu_space_shortcut_label">"διάστημα"</string>
+    <string msgid="9002602288060866689" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="1351762916121158029" name="abc_prepend_shortcut_label">"Menu+"</string>
+    <string msgid="7723749260725869598" name="abc_search_hint">"Αναζήτηση…"</string>
+    <string msgid="3691816814315814921" name="abc_searchview_description_clear">"Διαγραφή ερωτήματος"</string>
+    <string msgid="2550479030709304392" name="abc_searchview_description_query">"Ερώτημα αναζήτησης"</string>
+    <string msgid="8264924765203268293" name="abc_searchview_description_search">"Αναζήτηση"</string>
+    <string msgid="8928215447528550784" name="abc_searchview_description_submit">"Υποβολή ερωτήματος"</string>
+    <string msgid="893419373245838918" name="abc_searchview_description_voice">"Φωνητική αναζήτηση"</string>
+    <string msgid="3421042268587513524" name="abc_shareactionprovider_share_with">"Κοινή χρήση με"</string>
+    <string msgid="3300176832234831527" name="abc_shareactionprovider_share_with_application">"Κοινή χρήση με <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="1603543279005712093" name="abc_toolbar_collapse_description">"Σύμπτυξη"</string>
+    <string name="exo_controls_cc_disabled_description">Ενεργοποίηση υπότιτλων</string>
+    <string name="exo_controls_cc_enabled_description">Απενεργοποίηση υπότιτλων</string>
+    <string name="exo_controls_fastforward_description">Γρήγορη προώθηση</string>
+    <string name="exo_controls_fullscreen_enter_description">Πλήρης οθόνη</string>
+    <string name="exo_controls_fullscreen_exit_description">Έξοδος από πλήρη οθόνη</string>
+    <string name="exo_controls_hide">Απόκρ. στοιχείων ελέγχου προγράμματος αναπαραγωγής</string>
+    <string name="exo_controls_next_description">Επόμενο</string>
+    <string name="exo_controls_overflow_hide_description">Απόκρυψη πρόσθετων ρυθμίσεων</string>
+    <string name="exo_controls_overflow_show_description">Εμφάνιση πρόσθετων ρυθμίσεων</string>
+    <string name="exo_controls_pause_description">Παύση</string>
+    <string name="exo_controls_play_description">Αναπαραγωγή</string>
+    <string name="exo_controls_playback_speed">Ταχύτητα</string>
+    <string name="exo_controls_previous_description">Προηγούμενο</string>
+    <string name="exo_controls_repeat_all_description">Τρέχ. λειτουργία: Επανάλ. όλων Εναλλαγή λειτουργ. επανάλ.</string>
+    <string name="exo_controls_repeat_off_description">Τρέχ. λειτουργία: Καμία επανάλ. Εναλλαγή λειτουργ. επανάλ.</string>
+    <string name="exo_controls_repeat_one_description">Τρέχ. λειτουργία: Επανάλ. ενός. Εναλλαγή λειτουργ. επανάλ.</string>
+    <string name="exo_controls_rewind_description">Επαναφορά</string>
+    <string name="exo_controls_seek_bar_description">Πρόοδος αναπαραγωγής</string>
+    <string name="exo_controls_settings_description">Ρυθμίσεις</string>
+    <string name="exo_controls_show">Εμφάν. στοιχείων ελέγχου προγράμματος αναπαραγωγής</string>
+    <string name="exo_controls_shuffle_off_description">Ενεργοπ. λειτουργ. τυχαίας αναπαραγωγής</string>
+    <string name="exo_controls_shuffle_on_description">Απενεργ. λειτουργ. τυχαίας αναπαραγωγής</string>
+    <string name="exo_controls_stop_description">Διακοπή</string>
+    <string name="exo_controls_vr_description">Λειτουργία VR mode</string>
+    <string name="exo_download_completed">Η λήψη ολοκληρώθηκε</string>
+    <string name="exo_download_description">Λήψη</string>
+    <string name="exo_download_downloading">Λήψη</string>
+    <string name="exo_download_failed">Η λήψη απέτυχε</string>
+    <string name="exo_download_notification_channel_name">Λήψεις</string>
+    <string name="exo_download_paused">Οι λήψεις τέθηκαν σε παύση.</string>
+    <string name="exo_download_paused_for_network">Οι λήψεις είναι σε αναμονή για δίκτυο.</string>
+    <string name="exo_download_paused_for_wifi">Οι λήψεις είναι σε αναμονή για Wi-Fi.</string>
+    <string name="exo_download_removing">Κατάργηση λήψεων</string>
+    <string name="exo_item_list">%1$s, %2$s</string>
+    <string name="exo_track_bitrate">%1$.2f Mbps</string>
+    <string name="exo_track_mono">Μονοφωνικό</string>
+    <string name="exo_track_resolution">%1$d × %2$d</string>
+    <string name="exo_track_role_alternate">Εναλλακτικό</string>
+    <string name="exo_track_role_closed_captions">Υπότιτλοι</string>
+    <string name="exo_track_role_commentary">Σχολιασμός</string>
+    <string name="exo_track_role_supplementary">Συμπληρωματικό</string>
+    <string name="exo_track_selection_auto">Αυτόματο</string>
+    <string name="exo_track_selection_none">Κανένα</string>
+    <string name="exo_track_selection_title_audio">Ήχος</string>
+    <string name="exo_track_stereo">Στερεοφωνικό</string>
+    <string name="exo_track_surround">Περιφερειακός ήχος</string>
+    <string name="exo_track_surround_5_point_1">Περιφερειακός ήχος 5.1</string>
+    <string name="exo_track_surround_7_point_1">Περιφερειακός ήχος 7.1</string>
+    <string name="exo_track_unknown">Άγνωστο</string>
+    <string name="exo_track_unknown_name">Άγνωστο (%1$s)</string>
+    <string msgid="4657191930956702614" name="lb_control_display_fast_forward_multiplier">"%1$dX"</string>
+    <string msgid="4597148235912710942" name="lb_control_display_rewind_multiplier">"%1$dX"</string>
+    <string msgid="893619591225519922" name="lb_guidedaction_continue_title">"Συνέχεια"</string>
+    <string msgid="3330958750346333890" name="lb_guidedaction_finish_title">"Τέλος"</string>
+    <string msgid="3228326776757666747" name="lb_media_player_error">"Κωδικός σφάλματος MediaPlayer %1$d επιπλέον %2$d"</string>
+    <string msgid="8084428500709675515" name="lb_navigation_menu_contentDescription">"Μενού πλοήγησης"</string>
+    <string msgid="2394451791544864917" name="lb_onboarding_accessibility_next">"Επόμενη"</string>
+    <string msgid="5549711907371161292" name="lb_onboarding_get_started">"ΕΝΑΡΞΗ"</string>
+    <string msgid="8691966842977635128" name="lb_playback_controls_closed_captioning_disable">"Απενεργοποίηση υποτίτλων"</string>
+    <string msgid="2346334170216706076" name="lb_playback_controls_closed_captioning_enable">"Ενεργοποίηση υποτίτλων"</string>
+    <string msgid="740570111678243493" name="lb_playback_controls_fast_forward">"Γρήγορη προώθηση"</string>
+    <string msgid="5734614175721471329" name="lb_playback_controls_fast_forward_multiplier">"Γρήγορη προώθηση %1$dX"</string>
+    <string msgid="5859666950961624736" name="lb_playback_controls_hidden">"Απόκρυψη στοιχείων ελέγχου μέσων, πιέστε το d-pad για εμφάνιση"</string>
+    <string msgid="1209119371486219736" name="lb_playback_controls_high_quality_disable">"Απενεργοποίηση υψηλής ποιότητας"</string>
+    <string msgid="3057698527166674705" name="lb_playback_controls_high_quality_enable">"Ενεργοποίηση υψηλής ποιότητας"</string>
+    <string msgid="8730341244454469032" name="lb_playback_controls_more_actions">"Περισσότερες ενέργειες"</string>
+    <string msgid="917331776961802657" name="lb_playback_controls_pause">"Παύση"</string>
+    <string msgid="5770668162543767702" name="lb_playback_controls_picture_in_picture">"Εισαγωγή εικόνας στη λειτουργία παράθεσης εικόνων"</string>
+    <string msgid="7088090604803481121" name="lb_playback_controls_play">"Αναπαραγωγή"</string>
+    <string msgid="8429099206716245199" name="lb_playback_controls_repeat_all">"Επανάληψη όλων"</string>
+    <string msgid="1614290959784265209" name="lb_playback_controls_repeat_none">"Καμία επανάληψη"</string>
+    <string msgid="676658705837320560" name="lb_playback_controls_repeat_one">"Επανάληψη ενός στοιχείου"</string>
+    <string msgid="2866333981131020771" name="lb_playback_controls_rewind">"Επαναφορά"</string>
+    <string msgid="6038956370475252734" name="lb_playback_controls_rewind_multiplier">"Επαναφορά %1$dX"</string>
+    <string msgid="8690223891515602822" name="lb_playback_controls_shown">"Εμφάνιση στοιχείων ελέγχου μέσων"</string>
+    <string msgid="6793109999253893369" name="lb_playback_controls_shuffle_disable">"Απενεργοποίηση τυχαίας αναπαραγωγής"</string>
+    <string msgid="5151681938752704485" name="lb_playback_controls_shuffle_enable">"Ενεργοποίηση τυχαίας αναπαραγωγής"</string>
+    <string msgid="8117512422682146745" name="lb_playback_controls_skip_next">"Παράβλεψη επόμενου"</string>
+    <string msgid="3481218248309447059" name="lb_playback_controls_skip_previous">"Παράβλεψη προηγούμενου"</string>
+    <string msgid="3544533410444618518" name="lb_playback_controls_thumb_down">"Αποεπιλογή αξιολόγησης \"Δεν εγκρίνω\""</string>
+    <string msgid="8475278766138652105" name="lb_playback_controls_thumb_down_outline">"Επιλογή αξιολόγησης \"Δεν εγκρίνω\""</string>
+    <string msgid="3458671378107738666" name="lb_playback_controls_thumb_up">"Αποεπιλογή αξιολόγησης \"Μου αρέσουν\""</string>
+    <string msgid="1385865732502550659" name="lb_playback_controls_thumb_up_outline">"Επιλογή αξιολόγησης \"Μου αρέσουν\""</string>
+    <string msgid="1471121602610716654" name="lb_playback_time_separator">"/"</string>
+    <string msgid="5700349211583074131" name="lb_search_bar_hint">"Αναζήτηση"</string>
+    <string msgid="5926531297066387462" name="lb_search_bar_hint_speech">"Μιλήστε για να αναζητήσετε"</string>
+    <string msgid="4826526877249029043" name="lb_search_bar_hint_with_title">"Αναζήτηση <ns1:g id="SEARCH_CONTEXT">%1$s</ns1:g>"</string>
+    <string msgid="6032250334706920550" name="lb_search_bar_hint_with_title_speech">"Μιλήστε για να αναζητήσετε σε <ns1:g id="SEARCH_CONTEXT">%1$s</ns1:g>"</string>
+    <string msgid="1301877238242752863" name="orb_search_action">"Ενέργεια αναζήτησης"</string>
+    <string msgid="146198913615257606" name="search_menu_title">"Αναζήτηση"</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+</resources>
