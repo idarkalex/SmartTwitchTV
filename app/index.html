@@ -682,9 +682,21 @@
         display: none !important;
     }
 
-    /* Feed preview area */
+    /* Enlarge the feed preview area - take more screen */
     .user_feed {
-        background: linear-gradient(to top, rgba(14, 12, 22, 0.98) 0%, rgba(14, 12, 22, 0.85) 40%, rgba(14, 12, 22, 0) 100%) !important;
+        height: 65% !important;
+        bottom: 0 !important;
+        background: linear-gradient(to top, rgba(14, 12, 22, 0.98) 0%, rgba(14, 12, 22, 0.85) 40%, rgba(14, 12, 22, 0.3) 80%, transparent 100%) !important;
+    }
+
+    /* Enlarge stream thumbnails - much bigger */
+    .user_feed_thumb {
+        width: 32% !important;
+        margin-right: 0.5% !important;
+    }
+
+    .user_feed_thumb_game {
+        width: 20% !important;
     }
 
     /* Stream thumbnail card: modern card design */
@@ -1044,7 +1056,7 @@
     .chat_container1,
     .chat_container_name,
     .chat_container1_name {
-        background-color: #0e0c16;
+        background-color: #0e0c16 !important;
     }
     .chat_input_class,
     .input_class {
