@@ -21,11 +21,20 @@
 //Spacing for release maker not trow errors from jshint
 var version = {
     VersionBase: '3.0',
-    publishVersionCode: 383, //Always update (+1 to current value) Main_version_java after update publishVersionCode or a major update of the apk is released
-    ApkUrl: 'https://github.com/idarkalex/SmartTwitchTV/releases/download/v383/SmartTV_twitch__383.apk',
-    WebVersion: 'July 28 2026',
-    WebTag: 731, //Always update (+1 to current value) Main_version_web after update Main_minversion or a major update of the web part of the app
+    publishVersionCode: 386, //Always update (+1 to current value) Main_version_java after update publishVersionCode or a major update of the apk is released
+    ApkUrl: 'https://github.com/idarkalex/SmartTwitchTV/releases/download/v386/SmartTV_twitch_3_0__386.apk',
+    WebVersion: 'August 22 2026',
+    WebTag: 732, //Always update (+1 to current value) Main_version_web after update Main_minversion or a major update of the web part of the app
     changelog: [
+        {
+            title: 'August 22 2026',
+            changes: [
+                'Multi-view: stream preview now aligns with the focused card (16:9 cards)',
+                'Feed thumbnails: fixed collapsed image area, thumbnails fill the card',
+                'Screen switch buttons (Switch/Play All) moved into the top bar, no longer break screen height',
+                'General performance improvements and bug fixes'
+            ]
+        },
         {
             title: 'July 28 2026',
             changes: ['Fixed APK update getting stuck in a loop when downloading', 'Fixed update check stuck on "Checking for Updates..." when fetch fails', 'General performance improvements and bug fixes']

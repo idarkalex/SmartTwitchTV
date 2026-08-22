@@ -16,36 +16,27 @@ const JS_FOLDERS = [
     path.join(APP, 'thirdparty')
 ];
 
-function read(file) {
-    return fs.readFileSync(file, 'utf8');
-}
-
+function read(file) { return fs.readFileSync(file, 'utf8'); }
 function write(file, content) {
     fs.mkdirSync(path.dirname(file), { recursive: true });
     fs.writeFileSync(file, content, 'utf8');
 }
-
 function tryExec(cmd) {
     try {
         return execSync(cmd, { encoding: 'utf8', stdio: ['pipe', 'pipe', 'pipe'] }).trim();
-    } catch (e) {
-        return null;
-    }
+    } catch (e) { return null; }
+}
+function simpleMin(cssText) {
+    return cssText
+        .replace(/\/\*[\s\S]*?\*\//g, '')
+        .replace(/\s+/g, ' ')
+        .replace(/\s*([{}:;,])\s*/g, '$1')
+        .replace(/;}/g, '}');
 }
 
-// Check tools
-const canUglify = tryExec('npx uglifyjs --version') !== null;
-const canHtmlMin = tryExec('npx html-minifier --version') !== null;
-const canCrass = tryExec('npx crass --version') !== null;
-
 console.log('\n=== SmartTwitchTV Build Script ===\n');
-console.log(`uglifyjs: ${canUglify ? 'OK' : 'MISSING'}`);
-console.log(`html-minifier: ${canHtmlMin ? 'OK' : 'MISSING'}`);
-console.log(`crass: ${canCrass ? 'OK' : 'MISSING'}\n`);
 
-// Extract API wrapper parts (matching release_maker.sh sed logic)
-// main_start = content between APISTART and APIMID markers (exclusive)
-// main_end = content between APICENTER and APIEND markers (exclusive)
+// Extract API wrapper parts
 const apiLines = read(path.join(RELEASE, 'api.js')).split('\n');
 let startIdx = apiLines.findIndex(l => l.includes('APISTART'));
 let midIdx = apiLines.findIndex(l => l.includes('APIMID'));
@@ -61,7 +52,7 @@ let mainJsSrc = read(mainJsPath);
 write(mainJsPath, mainJsSrc.replace('Main_Start();', '//Main_Start();'));
 
 try {
-    // Concatenate all JS
+    // 1. Concatenate all JS
     console.log('Concatenating JS...');
     let js = '/* jshint eqeqeq: true, laxbreak: true, undef: true, unused: true, node: true, browser: true */\n';
     js += '/*globals Android, punycode, smartTwitchTV, firebase, dataLayer, ActiveXObject, Twitch */\n';
@@ -80,31 +71,26 @@ try {
     write(uncompressedPath, js);
     console.log(`  -> main_uncompressed.js (${(js.length / 1024).toFixed(0)} KB)`);
 
-    // Minify JS
+    // 2. Minify JS
     const minifiedPath = path.join(RELEASE, 'githubio', 'js', 'main.js');
-    if (canUglify) {
-        console.log('Minifying JS...');
-        const result = tryExec(`npx uglifyjs "${uncompressedPath}" -c -m toplevel=true,eval=true -o "${minifiedPath}"`);
-        if (result !== null || fs.existsSync(minifiedPath)) {
-            const size = fs.statSync(minifiedPath).size;
-            console.log(`  -> main.js (${(size / 1024).toFixed(0)} KB)`);
-        } else {
-            console.log('  uglifyjs failed, using uncompressed');
-            fs.copyFileSync(uncompressedPath, minifiedPath);
-        }
+    console.log('Minifying JS...');
+    const uglifyResult = tryExec(`npx uglifyjs "${uncompressedPath}" -c -m toplevel=true,eval=true -o "${minifiedPath}"`);
+    if (fs.existsSync(minifiedPath)) {
+        console.log(`  -> main.js (${(fs.statSync(minifiedPath).size / 1024).toFixed(0)} KB)`);
     } else {
         fs.copyFileSync(uncompressedPath, minifiedPath);
+        console.log('  uglifyjs failed, using uncompressed');
     }
 
-    // Minify Extrapage.js
-    const extrapageSrc = path.join(APP, 'Extrapage', 'Extrapage.js');
-    const extrapageDst = path.join(RELEASE, 'githubio', 'js', 'Extrapage.js');
-    if (canUglify) {
-        tryExec(`npx uglifyjs "${extrapageSrc}" -c -m toplevel=true,eval=true -o "${extrapageDst}"`);
+    // Sanity check: multi-stream module present in bundle
+    const bundle = read(uncompressedPath);
+    if (!/function Play_MultiStart|Play_MultiSetPanelInfo/.test(bundle)) {
+        console.error('  WARNING: PlayMulti functions missing from bundle!');
+    } else {
+        console.log('  OK: PlayMulti functions present');
     }
-    if (!fs.existsSync(extrapageDst)) fs.copyFileSync(extrapageSrc, extrapageDst);
 
-    // Build release/index.html
+    // 3. Build release/index.html
     console.log('\nBuilding release/index.html...');
     let html = read(path.join(APP, 'index.html'));
     html = html.replace(/<!-- jsstart[\s\S]*?jsend-->/, '<script src="githubio/js/main.js" defer></script>');
@@ -112,6 +98,7 @@ try {
     html = html.replace(/css\/icons\.css/g, 'css/icons.min.css');
     html = html.replace(/css\/app\.css/g, 'css/app.min.css');
 
+    const canHtmlMin = tryExec('npx html-minifier --version') !== null;
     if (canHtmlMin) {
         fs.mkdirSync(TEMP, { recursive: true });
         write(path.join(TEMP, '_index.html'), html);
@@ -121,7 +108,7 @@ try {
     write(path.join(RELEASE, 'index.html'), html);
     console.log(`  -> release/index.html (${(html.length / 1024).toFixed(0)} KB)`);
 
-    // Build release/extrapageindex.html
+    // 4. Build release/extrapageindex.html
     console.log('Building release/extrapageindex.html...');
     let exhtml = read(path.join(APP, 'Extrapage', 'index.html'));
     exhtml = exhtml.replace(/<!-- jsstart[\s\S]*?jsend-->/, '<script src="githubio/js/Extrapage.js" defer></script>');
@@ -136,33 +123,51 @@ try {
     write(path.join(RELEASE, 'extrapageindex.html'), exhtml);
     console.log(`  -> release/extrapageindex.html`);
 
-    // Compress CSS
-    if (canCrass) {
-        console.log('Minifying CSS...');
-        
-        // Minify icons.css
-        const iconsSrc = path.join(RELEASE, 'githubio', 'css', 'icons.css');
-        const iconsDst = path.join(RELEASE, 'githubio', 'css', 'icons.min.css');
-        if (fs.existsSync(iconsSrc)) {
-            write(path.join(TEMP, '_icons.css'), read(iconsSrc));
-            const minCSS = tryExec(`npx crass "${path.join(TEMP, '_icons.css')}"`);
-            if (minCSS) {
-                write(iconsDst, minCSS);
-                console.log(`  -> icons.min.css (${(minCSS.length / 1024).toFixed(0)} KB)`);
-            }
+    // 5. CSS: concatenate modules (order from app.css @imports), then minify with crass
+    console.log('\nBuilding CSS...');
+    const cssModulesDir = path.join(APP, 'css', 'modules');
+    let appCssContent = '';
+    if (fs.existsSync(cssModulesDir)) {
+        const importRe = /@import\s+url\(['"]modules\/([\w.-]+\.css)['"]\)/g;
+        const indexContent = read(path.join(APP, 'css', 'app.css'));
+        const orderedFiles = [];
+        let m;
+        while ((m = importRe.exec(indexContent)) !== null) orderedFiles.push(m[1]);
+        for (const file of orderedFiles) {
+            appCssContent += read(path.join(cssModulesDir, file)) + '\n';
         }
-        
-        // Minify app.css
-        const appCssSrc = path.join(APP, 'css', 'app.css');
-        const appCssDst = path.join(RELEASE, 'githubio', 'css', 'app.min.css');
-        if (fs.existsSync(appCssSrc)) {
-            write(path.join(TEMP, '_app.css'), read(appCssSrc));
-            const minCSS = tryExec(`npx crass "${path.join(TEMP, '_app.css')}"`);
-            if (minCSS) {
-                write(appCssDst, minCSS);
-                console.log(`  -> app.min.css (${(minCSS.length / 1024).toFixed(0)} KB)`);
-            }
+        if (!orderedFiles.length) throw new Error('No @import entries found in app/css/app.css');
+        console.log(`  Concatenated ${orderedFiles.length} CSS modules (${(appCssContent.length / 1024).toFixed(0)} KB)`);
+    } else {
+        appCssContent = read(path.join(APP, 'css', 'app.css'));
+    }
+
+    // Icons CSS (source lives in githubio/css/icons.css)
+    const iconsSrc = path.join(RELEASE, 'githubio', 'css', 'icons.css');
+    const iconsDst = path.join(RELEASE, 'githubio', 'css', 'icons.min.css');
+    if (fs.existsSync(iconsSrc)) {
+        fs.mkdirSync(TEMP, { recursive: true });
+        write(path.join(TEMP, '_icons.css'), read(iconsSrc));
+        const minIcons = tryExec(`npx crass "${path.join(TEMP, '_icons.css')}"`);
+        if (minIcons) {
+            write(iconsDst, minIcons);
+            console.log(`  -> icons.min.css (${(minIcons.length / 1024).toFixed(0)} KB) [crass]`);
+        } else {
+            write(iconsDst, simpleMin(read(iconsSrc)));
+            console.log(`  -> icons.min.css [simple min - crass FAILED]`);
         }
+    }
+
+    // App CSS
+    const appCssDst = path.join(RELEASE, 'githubio', 'css', 'app.min.css');
+    write(path.join(TEMP, '_app.css'), appCssContent);
+    const minApp = tryExec(`npx crass "${path.join(TEMP, '_app.css')}"`);
+    if (minApp) {
+        write(appCssDst, minApp);
+        console.log(`  -> app.min.css (${(minApp.length / 1024).toFixed(0)} KB) [crass]`);
+    } else {
+        write(appCssDst, simpleMin(appCssContent));
+        console.log(`  -> app.min.css (${(simpleMin(appCssContent).length / 1024).toFixed(0)} KB) [simple min - crass FAILED]`);
     }
 
     console.log('\n=== Build complete ===\n');

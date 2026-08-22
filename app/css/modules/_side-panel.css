@@ -1,0 +1,206 @@
+
+.sidepanel_heart {
+                text-shadow:
+                    0.05em -0.05em 0 #ffffff,
+                    0.05em 0 0 #ffffff,
+                    -0.05em 0 0 #ffffff,
+                    0 -0.05em 0 #ffffff,
+                    0 0.075em 0 #ffffff;
+            }
+.strokicon_title,
+            .strokicon {
+                text-shadow:
+                    0 0.025em 0 #000000,
+                    -0.025em 0 0 #000000,
+                    0 0.0375em 0 #777777,
+                    0 0.055em 0 #666666,
+                    0 0.07em 0 #555455,
+                    -0.03em -0.03em 0 #000000,
+                    0.03em -0.03em 0 #000000,
+                    -0.03em 0.08em 0 #000000,
+                    0.03em 0.08em 0 #000000,
+                    -0.04em 0.03em 0 #000000,
+                    0.04em 0.03em 0 #000000,
+                    0 0.1em 0 #000000,
+                    0 -0.04em 0 #000000;
+            }
+.strokicon_title {
+                font-size: 90%;
+                color: #ffffff;
+                text-shadow:
+                    -0.1em 0 0 #000000,
+                    0.05em -0.05em 0 #000000,
+                    0.05em 0.05em 0 #000000,
+                    0 0.05em 0 #000000,
+                    -0.05em 0 0 #000000,
+                    -0.05em 0.05em 0 #000000,
+                    0 -0.05em 0 #000000,
+                    0 0.0375em 0 #777777,
+                    0 0.075em 0 #666666,
+                    0 0.1125em 0 #555555,
+                    0 0.2em 0 #000000,
+                    0 0.2em 0 #000000,
+                    0.1em 0.1em 0 #000000,
+                    0.1em 0.1em 0 #000000,
+                    -0.1em 0.1em 0 #000000,
+                    -0.1em 0.1em 0 #000000,
+                    -0.05em 0.15em 0 #000000,
+                    0.05em 0.15em 0 #000000;
+            }
+.seek_previews_holder {
+                transform: translate(0%, 0%);
+                position: absolute;
+                display: inline-block;
+                width: 100%;
+                height: 100%;
+            }
+.seek_previews {
+                transform: translateX(-53%);
+                left: 0;
+                bottom: 0;
+                position: absolute;
+                border-radius: 0.5vh;
+                box-shadow:
+                    inset 0 0 0 0.025vh #ffffff,
+                    0 0 0 0.3vh #ffffff,
+                    0 0 0 0.6vh #000000;
+            }
+.stream_channel_follow_icon {
+                color: #ffffff;
+                font-size: 100%;
+            }
+.scenefeed_background_no_ani,
+            .scenefeed_background {
+                background: #0e0c16;
+                transform: translateY(0);
+                z-index: 11;
+            }
+.scenefeed_background {
+                transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s, background 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+                background: #0e0c16;
+                transform: translateY(0);
+            }
+.user_feed {
+                z-index: 100;
+                position: absolute;
+                bottom: -0.1%;
+                height: 43.75%;
+                width: 100%;
+                overflow: hidden;
+                background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
+                transform: translateY(0);
+                transition: transform 200ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+                will-change: transform;
+            }
+.user_feed_hide {
+                transform: translateY(101%);
+            }
+.user_feed_scroll_game,
+            .user_feed_scroll {
+                position: absolute;
+                width: 100%;
+                left: 0.55vh;
+                white-space: nowrap;
+                /* height calculated manual to be 100% of content*/
+                height: 78%;
+                bottom: 17.7%;
+                transform: translateX(0);
+                transition: transform 200ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+                will-change: transform;
+            }
+.user_feed_scroll_game {
+                left: 0.9vh;
+                /* height calculated manual to be 100% of content*/
+                height: 85%;
+                bottom: 11.7%;
+            }
+.user_feed_thumb_game,
+            .user_feed_thumb {
+                width: 19.95%;
+                display: inline-block;
+                transform: translate(0px, -103%);
+                transition: transform 200ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+                will-change: transform;
+                position: absolute;
+            }
+.user_feed_thumb_game {
+                width: 12.465%;
+            }
+.chat_input_text_box {
+                width: 95%;
+                text-align: center;
+                margin-left: 2.5%;
+            }
+.chat_result,
+            .chat_result_holder,
+            .chat_result_text {
+                width: 100%;
+                text-align: center;
+                font-size: 2.4vh;
+                font-family: 'Roboto-Bold';
+                background-color: #131318;
+                color: #ffffff;
+            }
+.chat_result_holder_inner {
+                padding: 0.5%;
+            }
+.chat_result_text {
+                width: 100%;
+                height: 100%;
+                transform: rotate(180deg);
+                text-align: left;
+            }
+.chat_result_holder {
+                max-height: 24.5vh;
+                margin-bottom: 1%;
+                border: 0.4vh solid #ffffff;
+                transform: rotate(180deg);
+                overflow: hidden;
+            }
+.chat_result {
+                background-color: rgba(0, 0, 0, 0);
+            }
+.chat_input_class {
+                width: 100%;
+                margin-bottom: 0.5%;
+                height: 1.25em;
+                color: #000000;
+                font-family: 'Roboto-Bold';
+                font-size: 2vh;
+                text-align: center;
+                background-color: #dcdcdc;
+                border: 0.125em solid #ffffff;
+                box-shadow: inset 0 0 0 0.1em #000000;
+                padding: 0.08em;
+                outline: none;
+            }
+.chat_input_class_focus {
+                border: 0.2em solid red;
+                caret-color: red;
+                box-shadow: inset 0 0 0 0.1em #ffffff;
+                background-color: #ffffff;
+            }
+.chat_input_class_block {
+                border: 0.2em solid red;
+                caret-color: red;
+                color: red;
+                box-shadow: inset 0 0 0 0.1em #ffffff;
+                background-color: #ffffff;
+            }
+.chat_emotes_img_container,
+            .chat_emotes_img {
+                width: 10vh;
+                height: 10vh;
+                object-fit: contain;
+            }
+.chat_emotes_div {
+                overflow: hidden;
+            }
+.chat_emotes {
+                width: 100%;
+                margin-left: 2%;
+                text-align: left;
+                transform: translateY(0);
+                transition: transform 200ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+                will-change: transform;
+            }

@@ -1,0 +1,190 @@
+
+.stream_info_user_title,
+            .stream_info_user_name {
+                font-size: 67%;
+                width: 100%;
+                display: block;
+            }
+.stream_info_user_name {
+                padding-top: 0.25em;
+            }
+.stream_info_live {
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                font-family: 'Roboto';
+                font-size: 74%;
+            }
+.stream_info_live_title {
+                word-wrap: break-word;
+                max-height: 2.35em;
+                font-size: 72%;
+                overflow: hidden;
+                white-space: normal;
+            }
+.stream_info_live_title_single_line {
+                word-wrap: break-word;
+                max-height: 1.175em;
+                font-size: 72%;
+                overflow: hidden;
+                white-space: normal;
+            }
+.add_user_text {
+                width: 99% !important;
+                height: auto !important;
+                left: 0;
+                color: #ffffff;
+                font-size: 200%;
+                text-align: center;
+            }
+.dialog_multi_help,
+            .dialog_multi {
+                z-index: 2;
+                border-radius: 1em;
+                left: 15%;
+                width: 70% !important;
+                height: auto !important;
+                top: 50%;
+                text-align: center;
+                transform: translateY(-50%);
+                font-size: 110%;
+                background-color: rgba(0, 0, 0, 0.85) !important;
+                border: 0.1em solid #ffffff;
+            }
+.dialog_multi_help {
+                width: 99% !important;
+                height: auto !important;
+                left: 0;
+                color: #ffffff;
+                font-size: 89%;
+            }
+.dialog_multi_help_holder {
+                width: 48% !important;
+                height: 48% !important;
+                top: 51%;
+                left: 51%;
+                z-index: -1;
+            }
+.stream_info_multi_diag_div,
+            .stream_info_pp_div,
+            .stream_info_multi_div {
+                width: 35%;
+                display: inline-block;
+            }
+.stream_info_pp_div {
+                width: 70%;
+            }
+.stream_info_multi_diag_div {
+                width: 45%;
+                padding: 2%;
+                padding-right: 2.5%;
+            }
+.stream_thumbnail_channel {
+                padding-bottom: 112%;
+                background-color: #1a1a1f;
+                color: #ffffff;
+            }
+.stream_thumbnail_user {
+                padding-bottom: 122%;
+                background-color: #1a1a1f;
+                color: #ffffff;
+            }
+.stream_user_icon {
+                width: 100%;
+                color: #ffffff;
+                text-align: center;
+                font-size: 100%;
+            }
+img.stream_img_channel {
+                /* height: 84%; */
+                max-height: 47%;
+                max-width: 92%;
+                margin-left: 2%;
+                position: absolute;
+                left: 50%;
+                transform: translate(-50%, -1%);
+            }
+img.stream_img_channel_logo {
+                height: 150%;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+img.stream_img_side,
+            img.stream_img_channels,
+            img.stream_img {
+                width: 100%;
+                position: absolute;
+                max-width: 100%;
+                max-height: 100%;
+                overflow: hidden;
+            }
+img.stream_img_follow {
+                height: 100%;
+                position: absolute;
+                right: 0;
+            }
+.next_channel,
+            .next_info {
+                width: 100%;
+                text-align: left;
+                word-wrap: break-word;
+                color: #ffffff;
+                font-family: 'Roboto-Bold';
+                font-size: 85%;
+            }
+.next_info {
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                font-family: 'Roboto';
+                font-size: 75%;
+                padding-right: 0.5em;
+            }
+.next_info_dialog {
+                overflow: hidden;
+                font-family: 'Roboto';
+                font-size: 75%;
+                max-height: 9.2vh;
+                height: auto;
+                text-align: left;
+            }
+.end_text {
+                overflow: hidden;
+                height: 1.15em;
+            }
+.icon_end {
+                font-size: 6vh !important;
+            }
+.stream_channel_follow_game {
+                text-align: center;
+                font-size: 71%;
+                line-height: 0.5em;
+                width: 100%;
+                word-wrap: break-word;
+                color: #ffffff;
+                font-family: 'Roboto-Bold';
+                transform: translateY(1ch);
+            }
+.stream_channel_follow_game,
+            .pause_button3d {
+                text-shadow:
+                    -0.1em 0 0 #000000,
+                    0.05em -0.05em 0 #000000,
+                    0.05em 0.05em 0 #000000,
+                    0 0.05em 0 #000000,
+                    -0.05em 0 0 #000000,
+                    -0.05em 0.05em 0 #000000,
+                    0 -0.05em 0 #000000,
+                    0 0.0375em 0 #777777,
+                    0 0.075em 0 #666666,
+                    0 0.1125em 0 #555555,
+                    0 0.2em 0 #000000,
+                    0 0.2em 0 #000000,
+                    0.1em 0.1em 0 #000000,
+                    0.1em 0.1em 0 #000000,
+                    -0.1em 0.1em 0 #000000,
+                    -0.1em 0.1em 0 #000000,
+                    -0.05em 0.15em 0 #000000,
+                    0.05em 0.15em 0 #000000;
+            }

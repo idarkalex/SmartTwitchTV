@@ -1,0 +1,168 @@
+
+.side_panel_fix_top_2 {
+                height: 42%;
+                transform: translateY(-65%);
+            }
+.side_panel_fix_bottom {
+                height: 32%;
+                transform: translateY(-172%);
+            }
+.side_panel_fix_center {
+                height: 42%;
+                transform: translateY(-118%);
+            }
+.side_panel_movel_bottom_holder {
+                height: 35%;
+                padding-top: 9vh;
+                padding-left: 0.5vw;
+                color: #ffffff;
+                font-size: 75%;
+                text-shadow:
+                    -0.03em -0.03em 0 #000,
+                    0.03em -0.03em 0 #000,
+                    -0.03em 0.03em 0 #000,
+                    0.03em 0.03em 0 #000;
+            }
+.side_panel_movel_bottom_text {
+                height: 25%;
+                width: auto;
+            }
+.side_panel_new_icons_text_holder,
+            .side_panel_new_icons {
+                width: 80%;
+                height: 9.25%;
+                margin-top: 0.7vh;
+                position: relative;
+                color: #ffffff;
+                font-size: 0.82em;
+                text-align: center;
+                text-shadow:
+                    -0.02em -0.02em 0 #000,
+                    0.02em -0.02em 0 #000,
+                    -0.02em 0.02em 0 #000,
+                    0.02em 0.02em 0 #000;
+            }
+.side_panel_new_text_options,
+            .side_panel_new_icons_text_holder,
+            .side_panel_new_icons {
+                border-top: none;
+                border-bottom: none;
+                border-image: none;
+                box-sizing: border-box;
+            }
+.side_panel_new_icons {
+                margin-left: 20%;
+            }
+.side_panel_new_icons_text_holder {
+                padding-left: 8vh;
+                width: auto;
+                text-align: left;
+                font-size: 1.1em;
+            }
+.side_panel_new_icons_text {
+                color: #ffffff;
+                background: rgba(168, 85, 247, 0.15);
+                border-image: none;
+                border: none;
+                border-radius: 0.3em;
+            }
+.side_panel_new_icons_text_botton {
+                color: #ffffff;
+                background: rgba(168, 85, 247, 0.15);
+                border-image: none;
+                border: none;
+                border-radius: 0.3em;
+            }
+.side_panel_new_icons_pad {
+                vertical-align: sub;
+            }
+.side_panel_new_icons_start {
+                background: rgba(168, 85, 247, 0.2);
+                border-image: none;
+                border: none;
+                border-radius: 0.3em;
+            }
+.side_panel_movel_user_text,
+            .side_panel_movel_top_text {
+                color: #ffffff;
+                font-size: 75%;
+                position: absolute;
+                padding-top: 1vh;
+                left: 25%;
+                width: 75%;
+            }
+.side_panel_movel_user_text {
+                transform: translateY(-115%);
+                text-decoration: underline;
+            }
+img.side_panel_new_img {
+                width: 70%;
+            }
+.side_panel {
+                position: absolute;
+                bottom: 0;
+                left: -1.9%;
+                height: 100%;
+                width: 25.5%;
+                overflow: hidden;
+                transform: translateX(0);
+                transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+                will-change: transform;
+                background: #000000;
+            }
+.side_panel_hide {
+                transform: translateX(-76.52%);
+            }
+.side_panel_hide_full {
+                transform: translateX(-100%);
+            }
+.side_panel_inner {
+                transform: translateX(0);
+                transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+                will-change: transform;
+                width: 100%;
+                position: absolute;
+            }
+.side_panel_inner_hide {
+                /* 0.5% more then side_panel_hide */
+                transform: translateX(77.02%);
+                width: 100%;
+                position: absolute;
+            }
+.side_panel_icons {
+                vertical-align: middle;
+                display: inline-block;
+                margin-left: 1.5%;
+            }
+.dialog_end_stream_text {
+                margin-top: 12.25%;
+                font-size: 4.25vh;
+                padding-bottom: 0.75%;
+                width: 50%;
+                margin-left: 25%;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+.about_dialogs {
+                position: absolute;
+                z-index: 99;
+                background-color: #101010;
+                top: 50%;
+                transform: translateY(-50%);
+                border-radius: 0.2em;
+                border-color: #ffffff !important;
+            }
+.dialogs {
+                position: absolute;
+                text-align: center;
+                width: 100%;
+                font-family: 'Roboto-Bold';
+                color: #ffffff;
+            }
+.dialogs_feed {
+                text-align: center;
+                width: 100%;
+                font-family: 'Roboto-Bold';
+                color: #ffffff;
+            }

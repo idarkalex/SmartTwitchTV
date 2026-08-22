@@ -1,0 +1,167 @@
+
+.thumb_avatar {
+                width: 1.8em;
+                height: 1.8em;
+                border-radius: 50%;
+                margin-right: 0.5em;
+                flex-shrink: 0;
+                object-fit: cover;
+            }
+.thumb_text_info {
+                flex: 1;
+                min-width: 0;
+                overflow: hidden;
+            }
+.thumb_game_name {
+                font-size: 72%;
+                color: #ffffff;
+                font-family: 'Roboto-Bold';
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+.thumb_streamer_name {
+                font-size: 62%;
+                color: #B0B0B8;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+.section_header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0.5em 0.5em 0.8em 0.5em;
+            }
+.section_title {
+                font-size: 1.1em;
+                font-family: 'Roboto-Bold';
+                color: #ffffff;
+                letter-spacing: 0.05em;
+            }
+.section_tabs {
+                display: flex;
+                gap: 1.5em;
+            }
+.section_tab {
+                font-size: 0.8em;
+                color: #B0B0B8;
+                cursor: pointer;
+                padding-bottom: 0.2em;
+                border-bottom: 0.12em solid transparent;
+                transition: color 200ms, border-color 200ms;
+            }
+.section_tab_active {
+                color: #9146FF;
+                border-bottom-color: #9146FF;
+            }
+.stream_thumbnail_user_icon_holder,
+            .stream_thumbnail_blocked_channel_holder,
+            .stream_thumbnail_channel_holder {
+                width: 15%;
+                display: inline-block;
+                padding: 0.5%;
+                padding-bottom: 1.25%;
+            }
+.stream_thumbnail_blocked_channel_holder {
+                width: 14.5%;
+            }
+.stream_thumbnail_user_icon_holder {
+                width: 14.5%;
+                transform: translateY(-11%);
+                padding: 1%;
+                padding-top: 0.8%;
+                padding-bottom: 0;
+            }
+.channel_about {
+                text-overflow: ellipsis;
+                overflow: hidden;
+                height: 98% !important;
+                font-size: 80%;
+                width: 96%;
+                margin-left: 2%;
+            }
+.stream_thumbnail_user_text_holder,
+            .stream_thumbnail_channel_text_holder,
+            .stream_thumbnail_game_text_holder,
+            .stream_thumbnail_game_feed_text_holder,
+            .stream_thumbnail_feed_text_holder,
+            .banner_text_holder,
+            .stream_thumbnail_live_text_holder {
+                position: absolute;
+                right: 0;
+                left: 0;
+                padding: 0.5%;
+                font-size: 94%;
+                margin-top: 0.1em;
+            }
+.stream_thumbnail_feed_text_holder {
+                height: 35%;
+            }
+.stream_thumbnail_live_text_holder {
+                height: 0;
+                overflow: hidden;
+            }
+.stream_text_holder {
+                display: inline-block;
+                width: 100%;
+                top: 50%;
+                position: relative;
+                transform: translateY(-50%);
+            }
+.stream_thumbnail_game_text_holder {
+                height: 14%;
+                bottom: 0;
+            }
+.stream_thumbnail_game_feed_text_holder {
+                height: 17%;
+            }
+.stream_thumbnail_channel_text_holder {
+                bottom: 0;
+                height: 1em;
+            }
+.stream_thumbnail_user_text_holder {
+                bottom: 0;
+                height: 2em;
+            }
+.stream_info_live,
+            .stream_info_live_title,
+            .stream_info_live_title_single_line,
+            .stream_info_channel_name,
+            .stream_info_user_name,
+            .stream_info_user_title,
+            .stream_info_live_name {
+                width: 100%;
+                text-align: left;
+                word-wrap: break-word;
+                font-size: 85%;
+                font-family: 'Roboto-Bold';
+            }
+.stream_info_game_name {
+                width: 100%;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                font-size: 75%;
+                font-family: 'Roboto-Bold';
+            }
+.channel_live_icon {
+                vertical-align: middle;
+                margin-right: 0.2ch;
+            }
+.stream_info_channel_partner_icon {
+                display: inline-block;
+                font-size: 75%;
+                width: 2ch;
+            }
+.stream_info_user_name,
+            .stream_info_user_title,
+            .stream_info_channel_name {
+                font-size: 72%;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                width: calc(100% - 3ch);
+                display: inline-block;
+                margin-left: 0.3ch;
+            }

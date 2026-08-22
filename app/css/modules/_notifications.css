@@ -1,0 +1,95 @@
+
+.dialog_multi_title {
+                width: 100%;
+                text-align: center;
+                color: #ffffff;
+                font-family: 'Roboto-Bold';
+                font-size: 100%;
+            }
+.side_panel_new_title,
+            .side_panel_new_game {
+                width: 100%;
+                text-align: left;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                font-family: 'Roboto-Bold';
+                font-size: 84%;
+                padding-left: 1%;
+            }
+.side_panel_new_game {
+                font-family: 'Roboto';
+                font-size: 68%;
+            }
+.side_panel_feed_img_focus {
+                box-shadow:
+                    0 0 0 0.1em #000000,
+                    0 0 0 0.2em #ffffff;
+            }
+.loading {
+                display: inline-block;
+                position: relative;
+                width: 3em;
+                height: 3em;
+                color: #ffffff;
+                background-color: rgba(0, 0, 0, 0.15);
+                border-radius: 2em;
+            }
+.loading div {
+                box-sizing: border-box;
+                display: block;
+                position: absolute;
+                width: 2.390625em;
+                height: 2.390625em;
+                margin: 0.28125em;
+                border: 0.28125em solid #ffffff;
+                border-radius: 50%;
+                animation: loading 600ms cubic-bezier(0.5, 0, 0.5, 1) infinite;
+                border-color: #ffffff transparent transparent transparent;
+            }
+.loading div:nth-child(1) {
+                animation-delay: -0.225s;
+            }
+.loading div:nth-child(2) {
+                animation-delay: -0.15s;
+            }
+.loading div:nth-child(3) {
+                animation-delay: -0.075s;
+            }
+@keyframes loading {
+                0% {
+                    transform: rotate(0deg);
+                }
+
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+.exit_player {
+                color: #ffffff;
+                position: absolute;
+                left: 1%;
+                font-family: 'Roboto-Bold';
+                z-index: 100;
+                top: 0;
+                font-size: 85%;
+            }
+.embedbutton:hover > .embedbuttoninner {
+                opacity: 1 !important;
+            }
+#button_full_screen {
+                background: rgba(0, 0, 0, 0);
+                border: 0;
+                top: 3vh;
+                right: 1vh;
+                position: absolute;
+                font-size: 68%;
+                cursor: pointer;
+            }
+#button_full_screen:hover > #button_full_screen_text {
+                opacity: 1 !important;
+            }
+.scene2_click_button_holder {
+                position: absolute;
+                margin-top: 0.5%;
+            }

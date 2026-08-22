@@ -292,9 +292,14 @@
     }
 
     .stream_thumbnail_live_img {
-        height: 100% !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        height: auto !important;
         padding-bottom: 0 !important;
-        border-radius: 0.35em 0.35em 0 0 !important;
+        border-radius: 0 !important;
         overflow: hidden !important;
     }
 
@@ -682,30 +687,22 @@
         display: none !important;
     }
 
-    /* Enlarge the feed preview area - take more screen */
+    /* Feed preview area */
     .user_feed {
-        height: 65% !important;
-        bottom: 0 !important;
-        background: linear-gradient(to top, rgba(14, 12, 22, 0.98) 0%, rgba(14, 12, 22, 0.85) 40%, rgba(14, 12, 22, 0.3) 80%, transparent 100%) !important;
+        background: linear-gradient(to top, rgba(14, 12, 22, 0.98) 0%, rgba(14, 12, 22, 0.85) 40%, rgba(14, 12, 22, 0) 100%) !important;
     }
 
-    /* Enlarge stream thumbnails - much bigger */
-    .user_feed_thumb {
-        width: 32% !important;
-        margin-right: 0.5% !important;
-    }
-
-    .user_feed_thumb_game {
-        width: 20% !important;
-    }
-
-    /* Stream thumbnail card: modern card design */
+    /* Stream thumbnail card: modern card design, 16:9 to match the native
+       preview slot (WidthDefault/5 x HeightDefault/5) so the preview video
+       overlays exactly the focused card */
     .stream_thumbnail_player_feed {
         background: #1a1525 !important;
         border-radius: 0.6em !important;
         overflow: hidden !important;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6) !important;
         border: 1px solid rgba(168, 85, 247, 0.15) !important;
+        width: 99% !important;
+        padding-bottom: 56.25% !important;
     }
 
     /* Game thumbnail card */
@@ -733,6 +730,9 @@
 
     /* Feed text overlay: modern gradient */
     .stream_thumbnail_feed_text_holder {
+        bottom: 0 !important;
+        top: auto !important;
+        z-index: 2 !important;
         background: linear-gradient(to top, rgba(14, 12, 22, 0.95) 0%, rgba(14, 12, 22, 0.7) 50%, transparent 100%) !important;
         border-radius: 0 0 0.6em 0.6em !important;
         padding: 0.6% !important;
@@ -1055,7 +1055,7 @@
     .chat_container1,
     .chat_container_name,
     .chat_container1_name {
-        background-color: #0e0c16 !important;
+        background-color: #0e0c16;
     }
     .chat_input_class,
     .input_class {
@@ -1154,10 +1154,10 @@
     .side_panel_div {
         border-top: none !important;
         border-bottom: none !important;
-        background-color: transparent !important;
     }
     .side_panel_div_focused {
-        background: rgba(168, 85, 247, 0.15) !important;
+        background-color: rgba(168, 85, 247, 0.15) !important;
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 20%, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0) 80%) !important;
         border-image: none !important;
     }
 
@@ -1178,7 +1178,59 @@
     .stream_info_multi_div,
     .stream_info_pp_div,
     .stream_info_multi_diag_div {
-        background-color: transparent !important;
+        background-color: #1a1a22 !important;
+    }
+
+    /* Screen switch buttons ("Switch...", "Play all") live INSIDE the top bar,
+       left of the centered title */
+    .switch_buttons_row {
+        position: absolute !important;
+        left: 1ch !important;
+        top: 0.15em !important;
+        bottom: 0.15em !important;
+        right: auto !important;
+        transform: none !important;
+        z-index: 7 !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 0.9em;
+        padding: 0 0.7em !important;
+        background: rgba(20, 16, 32, 0.85) !important;
+        border: 1px solid rgba(168, 85, 247, 0.25) !important;
+        border-radius: 0.45em !important;
+    }
+    .switch_buttons_row .stream_cell_period {
+        width: auto !important;
+        padding-left: 0 !important;
+        transform: none !important;
+        display: flex !important;
+        align-items: center !important;
+    }
+    .switch_buttons_row .stream_thumbnail_channel_vod {
+        margin: 0 !important;
+        width: auto !important;
+        height: auto !important;
+        padding-bottom: 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        border: 0.09em solid rgba(0, 0, 0, 0) !important;
+        border-radius: 0.35em !important;
+    }
+    /* undo the grid-specific text offsets so buttons align inside the pill */
+    .switch_buttons_row .stream_channel_follow_game {
+        width: auto !important;
+        line-height: normal !important;
+        transform: none !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 0.35em;
+        white-space: nowrap !important;
+    }
+    /* clean focus highlight that fits the pill */
+    .switch_buttons_row .stream_switch_focused {
+        background-color: rgba(168, 85, 247, 0.28) !important;
+        border-color: #a855f7 !important;
+        border-radius: 0.35em !important;
     }
 
 </style>

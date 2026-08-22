@@ -1,0 +1,160 @@
+
+body,
+            html {
+                background-color: rgba(0, 0, 0, 0);
+                font-family: 'Roboto', 'Roboto-Bold';
+                margin: auto;
+                overflow: hidden;
+                -webkit-text-stroke: 0.005em;
+            }
+.class_bold {
+                font-family: 'Roboto-Bold';
+            }
+.feed_end_up_down {
+                display: inline-block;
+                font-size: 65%;
+                transform: translate(0, 33%);
+                padding-right: 0.3em;
+            }
+.feed_end_name {
+                transform: translate(0, 29%);
+                display: inline-block;
+                max-width: 27%;
+                width: auto;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                margin-left: 1vh;
+                margin-right: 1vh;
+                padding-left: 0.3em;
+                padding-right: 0.3em;
+                will-change: border-color, background-color;
+                border-radius: 0.2em;
+                border: 0.09em solid rgba(0, 0, 0, 0);
+                background-color: rgba(0, 0, 0, 0);
+            }
+.feed_end_name_focus {
+                transform: translate(0, 29%) scale(1.25);
+                background-color: rgba(168, 85, 247, 0.2);
+                border-color: #a855f7;
+                z-index: 999;
+                position: relative;
+            }
+.screen_size,
+            .scene_keys,
+            .burn_in_protection,
+            .screens {
+                position: absolute;
+                background-color: rgba(0, 0, 0, 0);
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                letter-spacing: 0.075ch;
+                font-kerning: none;
+            }
+.feed_screen_new {
+                background-color: rgba(0, 0, 0, 0);
+                overflow: hidden;
+                width: 100%;
+                height: 100%;
+                transform: translateY(-100%);
+                position: absolute;
+                z-index: 3;
+                will-change: opacity;
+                transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+            }
+.scene_keys {
+                z-index: 200;
+            }
+.burn_in_protection {
+                z-index: 400;
+                background-color: rgba(0, 0, 0, 1);
+            }
+.avoidclicks {
+                pointer-events: none !important;
+            }
+.feed_screen_input {
+                pointer-events: none;
+            }
+.screens {
+                position: absolute;
+            }
+.animate_height_transition_blocked_channel,
+            .animate_height_transition_channel,
+            .animate_height_transition_games,
+            .animate_height_transition_blocked_games,
+            .animate_height_transition {
+                height: 49%;
+                width: 95%;
+                transform: translateY(0);
+                transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+                will-change: transform;
+                position: absolute;
+            }
+.animate_height_transition_games {
+                height: 32.9%;
+            }
+.animate_height_transition_blocked_games {
+                height: 48.7%;
+            }
+.animate_height_transition_channel {
+                height: 32.075%;
+            }
+.animate_height_transition_blocked_channel {
+                height: 31.575%;
+            }
+.side_panel_holder_ani {
+                transform: translateY(0);
+                transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+                will-change: transform;
+            }
+.screen_holder,
+            .screen_holder_channel,
+            .screen_holder_switch,
+            .screen_holder_user,
+            .screen_holder_games {
+                width: calc(100% - 11em);
+                margin-left: 11em;
+                position: absolute;
+                top: 6.9%;
+                height: 93.1%;
+                transform: translateY(0);
+                transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+                will-change: transform;
+            }
+.screen_holder_switch {
+                top: 2.6%;
+                height: 97.4%;
+            }
+.screen_holder_games {
+                top: 4.5%;
+                height: 95.5%;
+            }
+.screen_holder_channel {
+                top: 4.25%;
+                height: 95.75%;
+            }
+.screen_holder_user {
+                top: 7%;
+                height: 93%;
+            }
+.settings_holder {
+                position: absolute;
+                top: 4.5%;
+                width: calc(100% - 11em);
+                margin-left: 11em;
+                height: 95.5%;
+                overflow: hidden;
+            }
+.screen_holder_settings {
+                position: absolute;
+                overflow: hidden;
+                margin-left: 3%;
+                width: 97.5%;
+                height: 100%;
+                font-size: 2.67vh;
+            }
+.live_icon {
+                vertical-align: middle;
+                font-size: 65%;
+            }

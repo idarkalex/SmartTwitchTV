@@ -1,0 +1,151 @@
+
+.dialog_end_icons_start {
+                height: 23%;
+            }
+.dialog_end_icons_focus {
+                border-color: #ffffff !important;
+                background-color: rgba(150, 150, 150, 0.55);
+            }
+.right,
+            .left {
+                border-top: 0.26em solid transparent;
+                border-bottom: 0.26em solid transparent;
+                opacity: 0;
+            }
+.right {
+                border-left: 0.45em solid white;
+            }
+.left {
+                border-right: 0.45em solid white;
+            }
+.settings_main {
+                font-family: 'Roboto-Bold';
+                color: #ffffff;
+                width: 98%;
+                margin-left: 1%;
+                margin-bottom: 0.5%;
+            }
+.hist_div,
+            .settings_div,
+            .settings_title,
+            .settings_summary,
+            .settings_section {
+                width: 100%;
+                display: inline-block;
+                vertical-align: middle;
+                font-size: 135%;
+            }
+.hist_div,
+            .settings_div {
+                line-height: 0.9em;
+                box-sizing: border-box;
+                border-top: 0.05em solid;
+                border-bottom: 0.05em solid;
+                border-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)) 1;
+            }
+.hist_div {
+                width: 92%;
+            }
+.settings_div_focus {
+                background-color: rgba(255, 255, 255, 0.15);
+                border-image: linear-gradient(to right, #000000 20%, #d0d3d4, #000000 80%) 1 !important;
+            }
+.hist_value,
+            .settings_value {
+                line-height: 1em;
+                width: 18%;
+                display: inline-block;
+                text-align: center;
+                font-size: 55%;
+                margin-left: 0.5em;
+                margin-right: 0.5em;
+                vertical-align: middle;
+                border-top: 0.1em solid;
+                border-bottom: 0.1em solid;
+                border-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)) 1;
+            }
+.hist_value {
+                width: 27%;
+            }
+.settings_value_focus {
+                background-color: rgba(255, 255, 255, 0.15);
+                border-image: linear-gradient(to right, #000000 20%, #d0d3d4, #000000 80%) 1 !important;
+            }
+.settings_section {
+                font-size: 130%;
+                text-align: center;
+            }
+.settings_title {
+                width: 80%;
+                font-size: 95%;
+                text-align: center;
+            }
+.settings_summary {
+                line-height: 1.4em;
+                width: 100%;
+                margin-left: 1%;
+                font-size: 75%;
+                text-align: left;
+                font-family: 'Roboto';
+            }
+.hist_name,
+            .settings_name {
+                margin-left: 1.5%;
+                width: 74.5%;
+                display: inline-block;
+                text-align: left;
+                font-size: 72%;
+                vertical-align: middle;
+                word-wrap: break-word;
+            }
+.hist_name {
+                width: 54%;
+            }
+.settings_arraw_div {
+                width: 2%;
+                display: inline-block;
+                vertical-align: middle;
+                /* When the html code is compressed loaded from js this div and the next have no space in between, adding a margin makes it look ok, but too big when the code is not compresed*/
+            }
+.settings_codec_container {
+                height: 51vh;
+                overflow: hidden;
+            }
+.settings_scroll_container {
+                height: 87vh;
+                overflow: hidden;
+            }
+.controls_holder {
+                z-index: -100;
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                height: auto;
+                text-align: center;
+                padding-top: 3%;
+                background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
+            }
+.colorCanvas {
+                margin: 0;
+                padding: 0;
+                height: 100%;
+                width: 100%;
+                vertical-align: middle;
+                overflow: hidden;
+                display: block;
+            }
+.color_name {
+                width: 15% !important;
+            }
+.cavas_holder {
+                z-index: 99;
+                border-radius: 0.2em;
+                border: 0.4vh solid #000000;
+                width: 96%;
+                margin-left: 2%;
+                height: 5vh;
+                position: relative;
+            }
+.cavas_holder_focused {
+                border-color: #ffffff !important;
+            }

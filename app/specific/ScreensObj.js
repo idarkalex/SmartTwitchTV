@@ -2836,6 +2836,8 @@ function ScreensObj_Blocked() {
 function ScreensObj_addSwitches(StringsArray, key, padding) {
     ScreenObj[key].TopRowCreated = true;
     ScreenObj[key].row = document.createElement('div');
+    ScreenObj[key].row.className = 'switch_buttons_row';
+    ScreenObj[key].row.setAttribute('data-screen', key);
 
     if (padding) {
         ScreenObj[key].row.style.paddingBottom = padding;
@@ -2865,7 +2867,11 @@ function ScreensObj_addSwitches(StringsArray, key, padding) {
             '</div></div>';
         ScreenObj[key].row.appendChild(div);
     }
-    ScreenObj[key].tableDoc.appendChild(ScreenObj[key].row);
+    // Switch buttons live in the top bar, not in the grid
+    ScreenObj[key].switchRow = ScreenObj[key].row;
+    Main_HideElementWithEle(ScreenObj[key].switchRow);
+    Main_getElementById('topbar').appendChild(ScreenObj[key].row);
+    if (Main_values.Main_Go === key) Main_ShowElementWithEle(ScreenObj[key].switchRow);
 }
 
 function ScreensObj_addBanner(obj, key, forceAdd) {

@@ -1,0 +1,178 @@
+
+.strokedeline {
+                text-shadow:
+                    -0.05em -0.05em 0 #000,
+                    0.05em -0.05em 0 #000,
+                    -0.05em 0.05em 0 #000,
+                    0.05em 0.05em 0 #000;
+            }
+.strokedelinebig {
+                text-shadow:
+                    -0.0175em -0.0175em 0 #000,
+                    0.0175em -0.0175em 0 #000,
+                    -0.0175em 0.0175em 0 #000,
+                    0.0175em 0.0175em 0 #000;
+            }
+.dialog_text {
+                width: fit-content;
+                text-align: center;
+                display: inline-block;
+                filter: drop-shadow(0 0.05em 0.15em #000000) drop-shadow(0 0.05em 0.15em #000000);
+                white-space: normal;
+            }
+.shadow_text {
+                filter: drop-shadow(0 0.05em 0.15em rgba(0, 0, 0, 0.8)) drop-shadow(0 0.05em 0.15em rgba(0, 0, 0, 0.5));
+            }
+.red_text {
+                color: #ff2121;
+            }
+.streams_div {
+                margin-left: 4.6%;
+                width: 94.5%;
+                height: 100%;
+            }
+.streams_game_div {
+                margin-left: 6.75%;
+                width: 94.5%;
+                height: 100%;
+            }
+.exit_player_embed {
+                background: rgba(0, 0, 0, 0.6);
+                border-radius: 0.5em;
+                padding: 0.3em;
+            }
+.counter_class {
+                width: 100%;
+                text-align: left;
+                word-wrap: break-word;
+                color: #ffffff;
+                font-size: 70%;
+                font-family: 'Roboto-Bold';
+                text-shadow:
+                    #000000 0 0 0.15em,
+                    #000000 0 0 0.15em,
+                    #000000 0 0 0.1em;
+            }
+.dialog_period,
+            .dialog_exit {
+                position: absolute;
+                z-index: 99;
+                width: 60%;
+                margin-top: 14%;
+                margin-left: 20%;
+                background-color: #101010;
+                border-top: 0.1em solid;
+                border-bottom: 0.1em solid;
+                border-image: linear-gradient(to right, #101010 20%, #d0d3d4, #101010 80%) 1;
+            }
+.dialog_period {
+                margin-top: 10%;
+                width: 80%;
+                margin-left: 12.1%;
+            }
+.chat_container1,
+            .chat_container {
+                z-index: 2;
+                border-radius: 0.1em;
+                left: 75.1%;
+                top: 51.5%;
+                position: absolute;
+                width: 24.7%;
+                height: 48%;
+                background-color: rgba(0, 0, 0, 0.5);
+            }
+.chat_container1 {
+                left: 0.2%;
+                top: 0.2%;
+                height: 96.1%;
+                background-color: rgba(0, 0, 0, 1);
+            }
+.chat_container_name,
+            .chat_container1_name {
+                z-index: 2;
+                border-radius: 0.2em;
+                left: 0.15%;
+                bottom: 0.2%;
+                position: absolute;
+                width: 24.5%;
+                height: 3%;
+                background-color: #000;
+                border: 0.09em solid #ffffff;
+                color: #ffffff;
+                text-align: center;
+                font-size: 90%;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+.chat_container_name {
+                top: 0.2%;
+                left: 75.1%;
+            }
+.chat_container_name_text {
+                display: inline-block;
+                padding-top: 0.5%;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                max-width: 77%;
+            }
+.top_lable {
+                text-align: center;
+                width: 100%;
+                color: #ffffff;
+                font-size: 130%;
+                font-family: 'Roboto-Bold';
+                position: absolute;
+                /* 1vh offset to hide content that may show benhide it*/
+                top: 1vh;
+            }
+.topbar {
+                position: absolute;
+                margin-left: 11em;
+                width: calc(100% - 11em);
+                background: transparent;
+                /* 1vh offset to hide content that may show benhide it*/
+                height: 5.35%;
+                transform: translateY(-1vh);
+            }
+.controls_div {
+                float: left;
+                padding-left: 0.5%;
+                /* 1vh offset to hide content that may show benhide it*/
+                padding-top: calc(1vh + 0.2%);
+            }
+.top_clock {
+                position: absolute;
+                right: 2vh;
+                /* 1vh offset to hide content that may show benhide it*/
+                top: 0.2vh;
+                z-index: 4;
+            }
+.opacity_zero {
+                opacity: 0;
+            }
+.transform_base {
+                transform: scale(1);
+                will-change: transform;
+            }
+.transform_hide {
+                transform: scale(0);
+            }
+.hide {
+                display: none;
+            }
+.hideimp {
+                display: none !important;
+            }
+.dialog_end_icons_start,
+            .dialog_end_icons {
+                font-size: 2.75vh;
+                vertical-align: top;
+                display: inline-block;
+                padding: 0.25em;
+                width: 15.1%;
+                max-height: 22.75%;
+                height: auto;
+                border-radius: 0.2em;
+            }

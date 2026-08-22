@@ -295,12 +295,22 @@ function Screens_first_init() {
     }
 }
 
+function Screens_SyncSwitchRows(activeKey) {
+    for (var k in ScreenObj) {
+        if (ScreenObj[k] && ScreenObj[k].switchRow) {
+            if (k === activeKey) Main_ShowElementWithEle(ScreenObj[k].switchRow);
+            else Main_HideElementWithEle(ScreenObj[k].switchRow);
+        }
+    }
+}
+
 function Screens_init(key, preventRefresh) {
     //Main_Log('Screens_init ' + ScreenObj[key].screen);
     if (!ScreenObj[key]) return;
     Main_addFocusVideoOffset = -1;
     Main_values.Main_Go = key; //Sidepannel, playclip, Main_updateClock Screens_Isfocused Main_CheckStop use this var
     ScreenObj[key].label_init();
+    Screens_SyncSwitchRows(key);
 
     if (Main_isScene1DocVisible() && !Sidepannel_isShowingUserLive() && !Sidepannel_isShowingMenus()) {
         Main_addEventListener('keydown', ScreenObj[key].key_fun);

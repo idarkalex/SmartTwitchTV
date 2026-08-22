@@ -3310,11 +3310,20 @@ function calculateFontSizeTizen() {
 //Spacing for release maker not trow errors from jshint
 var version = {
     VersionBase: '3.0',
-    publishVersionCode: 383, //Always update (+1 to current value) Main_version_java after update publishVersionCode or a major update of the apk is released
-    ApkUrl: 'https://github.com/idarkalex/SmartTwitchTV/releases/download/v383/SmartTV_twitch__383.apk',
-    WebVersion: 'July 28 2026',
-    WebTag: 731, //Always update (+1 to current value) Main_version_web after update Main_minversion or a major update of the web part of the app
+    publishVersionCode: 386, //Always update (+1 to current value) Main_version_java after update publishVersionCode or a major update of the apk is released
+    ApkUrl: 'https://github.com/idarkalex/SmartTwitchTV/releases/download/v386/SmartTV_twitch_3_0__386.apk',
+    WebVersion: 'August 22 2026',
+    WebTag: 732, //Always update (+1 to current value) Main_version_web after update Main_minversion or a major update of the web part of the app
     changelog: [
+        {
+            title: 'August 22 2026',
+            changes: [
+                'Multi-view: stream preview now aligns with the focused card (16:9 cards)',
+                'Feed thumbnails: fixed collapsed image area, thumbnails fill the card',
+                'Screen switch buttons (Switch/Play All) moved into the top bar, no longer break screen height',
+                'General performance improvements and bug fixes'
+            ]
+        },
         {
             title: 'July 28 2026',
             changes: ['Fixed APK update getting stuck in a loop when downloading', 'Fixed update check stuck on "Checking for Updates..." when fetch fails', 'General performance improvements and bug fixes']
@@ -29193,12 +29202,22 @@ function Screens_first_init() {
     }
 }
 
+function Screens_SyncSwitchRows(activeKey) {
+    for (var k in ScreenObj) {
+        if (ScreenObj[k] && ScreenObj[k].switchRow) {
+            if (k === activeKey) Main_ShowElementWithEle(ScreenObj[k].switchRow);
+            else Main_HideElementWithEle(ScreenObj[k].switchRow);
+        }
+    }
+}
+
 function Screens_init(key, preventRefresh) {
     //Main_Log('Screens_init ' + ScreenObj[key].screen);
     if (!ScreenObj[key]) return;
     Main_addFocusVideoOffset = -1;
     Main_values.Main_Go = key; //Sidepannel, playclip, Main_updateClock Screens_Isfocused Main_CheckStop use this var
     ScreenObj[key].label_init();
+    Screens_SyncSwitchRows(key);
 
     if (Main_isScene1DocVisible() && !Sidepannel_isShowingUserLive() && !Sidepannel_isShowingMenus()) {
         Main_addEventListener('keydown', ScreenObj[key].key_fun);
@@ -36016,6 +36035,8 @@ function ScreensObj_Blocked() {
 function ScreensObj_addSwitches(StringsArray, key, padding) {
     ScreenObj[key].TopRowCreated = true;
     ScreenObj[key].row = document.createElement('div');
+    ScreenObj[key].row.className = 'switch_buttons_row';
+    ScreenObj[key].row.setAttribute('data-screen', key);
 
     if (padding) {
         ScreenObj[key].row.style.paddingBottom = padding;
@@ -36045,7 +36066,11 @@ function ScreensObj_addSwitches(StringsArray, key, padding) {
             '</div></div>';
         ScreenObj[key].row.appendChild(div);
     }
-    ScreenObj[key].tableDoc.appendChild(ScreenObj[key].row);
+    // Switch buttons live in the top bar, not in the grid
+    ScreenObj[key].switchRow = ScreenObj[key].row;
+    Main_HideElementWithEle(ScreenObj[key].switchRow);
+    Main_getElementById('topbar').appendChild(ScreenObj[key].row);
+    if (Main_values.Main_Go === key) Main_ShowElementWithEle(ScreenObj[key].switchRow);
 }
 
 function ScreensObj_addBanner(obj, key, forceAdd) {

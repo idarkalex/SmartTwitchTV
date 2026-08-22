@@ -1,0 +1,135 @@
+
+.chat_size {
+                width: 100%;
+                height: 100%;
+            }
+.multi_dialog_div,
+            .div_panel_pp,
+            .side_panel_div {
+                width: 100%;
+                height: 0;
+                position: relative;
+                padding-bottom: 15.4%;
+                background-color: #131318;
+                background-repeat: no-repeat;
+                color: #ffffff;
+                text-shadow:
+                    -0.04em -0.04em 0 #000,
+                    0.04em -0.04em 0 #000,
+                    -0.04em 0.04em 0 #000,
+                    0.04em 0.04em 0 #000;
+                border-top: 0.075em solid;
+                border-bottom: 0.075em solid;
+                border-image: linear-gradient(#000000, #000000) 1;
+            }
+.div_panel_pp {
+                border: 0;
+                padding-bottom: 9%;
+            }
+.multi_dialog_div {
+                border-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)) 1;
+            }
+.side_panel_div_focused {
+                background-image: linear-gradient(to right, rgba(0, 0, 0, 0.9) 20%, rgba(255, 255, 255, 0.15), rgba(0, 0, 0, 0.9) 80%);
+                border-image: linear-gradient(to right, #000000 20%, #d0d3d4, #000000 80%) 1 !important;
+            }
+.side_panel_iner_div1_pp,
+            .side_panel_iner_div1,
+            .side_panel_iner_div2_multi,
+            .side_panel_iner_div2_multi_dialog,
+            .side_panel_iner_div2_pp,
+            .side_panel_iner_div2,
+            .side_panel_iner_div3 {
+                width: 15.4%;
+                display: inline-block;
+                overflow: hidden;
+            }
+.side_panel_iner_div1 {
+                padding-left: 1%;
+            }
+.side_panel_iner_div1_pp {
+                width: 8%;
+            }
+.side_panel_iner_div2_multi_dialog,
+            .side_panel_iner_div2 {
+                width: 59.5%;
+                padding-left: 0.4em;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+.side_panel_iner_div2_pp,
+            .side_panel_iner_div2_multi {
+                padding-left: 0.2em;
+                padding-top: 0;
+                width: 75%;
+            }
+.side_panel_iner_div2_multi {
+                padding-left: 6%;
+            }
+.side_panel_iner_div2_pp {
+                width: 90%;
+                line-height: 80%;
+                padding-top: 0.25%;
+            }
+.side_panel_iner_div3 {
+                width: 20%;
+                position: absolute;
+                right: 2%;
+                top: 50%;
+                transform: translateY(-60%);
+            }
+img.notify_img {
+                height: 92%;
+                position: absolute;
+                top: 4%;
+            }
+img.side_panel_channel_img,
+            img.panel_pp_img {
+                position: relative;
+            }
+img.multi_info_img,
+            img.multi_info_img_big {
+                position: absolute;
+                top: 0;
+            }
+img.side_panel_channel_img {
+                width: 100%;
+            }
+img.panel_pp_img {
+                width: 9.25%;
+            }
+img.multi_info_img_big,
+            img.multi_info_img {
+                width: 22%;
+            }
+img.multi_info_img_big {
+                margin-top: 0.5%;
+            }
+img.panel_pp_img {
+                position: absolute;
+                top: 0;
+                width: 8.75%;
+            }
+img.thumb_info_icon {
+                width: 100%;
+            }
+img.stream_info_icon {
+                margin-left: 1%;
+                margin-top: 2%;
+                margin-bottom: 2%;
+                display: inline-block;
+                width: 9.5%;
+            }
+.stream_info_timers {
+                display: inline-block;
+                width: auto !important;
+            }
+.multi_info_line {
+                line-height: 1.1em;
+            }
+.notification_holder {
+                display: inline-block;
+                width: 78%;
+                padding-left: 3%;
+            }

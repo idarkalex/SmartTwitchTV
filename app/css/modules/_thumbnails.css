@@ -1,0 +1,180 @@
+
+.icon_top_label {
+                width: auto;
+                height: 1.75%;
+                text-align: left;
+                color: #ffffff;
+                font-size: 55%;
+                font-family: 'Roboto-Bold';
+                vertical-align: middle;
+            }
+.stream_cell_period {
+                padding-left: 3ch;
+                position: relative;
+                width: 30%;
+                display: inline-block;
+                transform: translateY(25%);
+            }
+.icon_feed_refresh {
+                width: 100%;
+                font-family: 'Roboto-Bold';
+                color: #ffffff;
+                text-align: left;
+                margin-left: 0.5%;
+                filter: drop-shadow(0 0.05em 0.15em #000000) drop-shadow(0 0.05em 0.15em #000000);
+            }
+.stream_thumbnail_game_feed,
+            .stream_thumbnail_game,
+            .stream_thumbnail_side,
+            .stream_thumbnail_live,
+            .stream_thumbnail_player_feed,
+            .stream_thumbnail_user,
+            .stream_thumbnail_channel {
+                width: 100%;
+                height: 0;
+                position: relative;
+            }
+.banner_holder {
+                width: 98.75%;
+                display: inline-block;
+                padding: 0.5%;
+            }
+.inner_banner_holder {
+                width: 100%;
+                display: inline-block;
+                padding-bottom: 2.75%;
+                background-color: #131318;
+                color: #ffffff;
+                position: relative;
+            }
+.banner_text_holder {
+                height: 2.5vh;
+                font-family: 'Roboto-Bold';
+            }
+.banner_img_holder {
+                padding-bottom: 24%;
+                background-color: #131318 !important;
+            }
+img.banner_img {
+                height: 89.5%;
+                max-width: 96%;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+img.banner_16by9_img {
+                height: 118.3%;
+                position: absolute;
+                max-width: 100%;
+                max-height: 118.3%;
+                overflow: hidden;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+.stream_thumbnail_side {
+                width: 99.75%;
+                /*16 by 9 in relation to the width % size*/
+                padding-bottom: 56.109375%;
+                background-repeat: no-repeat;
+                background: #000000;
+            }
+.stream_thumbnail_player_feed {
+                padding-bottom: 93%;
+                width: 97%;
+                background-repeat: no-repeat;
+                background: #0e0c16;
+                color: #ffffff;
+            }
+.stream_switch_focused {
+                background-color: rgba(255, 255, 255, 0.15);
+                border-color: #ebebeb !important;
+            }
+.stream_thumbnail_channel_vod {
+                margin-left: 5%;
+                width: 90%;
+                height: 0;
+                padding-bottom: 6%;
+            }
+.stream_thumbnail_live {
+                padding-bottom: 79.5%;
+                background-color: #1a1a1f;
+                color: #ffffff;
+                border-radius: 0.3em;
+                overflow: hidden;
+            }
+.stream_thumbnail_feed_game,
+            .stream_thumbnail_live_game {
+                width: 100%;
+                background-color: #1a1a1f;
+                padding-bottom: 139.7%;
+                position: relative;
+            }
+.stream_thumbnail_live_img {
+                width: 100%;
+                background-color: #1a1a1f;
+                padding-bottom: 56.25%;
+                position: relative;
+                border-radius: 0.3em 0.3em 0 0;
+                overflow: hidden;
+            }
+.stream_thumbnail_channel_img {
+                width: 100%;
+                background-color: #1a1a1f;
+                padding-bottom: 100%;
+                position: relative;
+            }
+.stream_thumbnail_blocked_game_holder,
+            .stream_thumbnail_game_holder {
+                width: 13.8%;
+                display: inline-block;
+                padding: 1%;
+                padding-top: 0;
+                padding-bottom: 0.2%;
+            }
+.stream_thumbnail_blocked_game_holder {
+                width: 16.5%;
+            }
+.stream_thumbnail_game_feed,
+            .stream_thumbnail_game {
+                padding-bottom: 164%;
+                font-size: 80%;
+                background-color: #1a1a1f;
+                color: #ffffff;
+            }
+.stream_thumbnail_game_feed {
+                padding-bottom: 158%;
+                font-size: 80%;
+                width: 93%;
+            }
+.stream_thumbnail_live_holder {
+                width: 23.5%;
+                display: inline-block;
+                padding: 0.5%;
+                padding-bottom: 1.5%;
+            }
+.viewer_badge {
+                position: absolute;
+                bottom: 0.4em;
+                right: 0.4em;
+                background: rgba(0, 0, 0, 0.75);
+                color: #ffffff;
+                font-size: 65%;
+                padding: 0.15em 0.45em;
+                border-radius: 0.15em;
+                display: flex;
+                align-items: center;
+                z-index: 2;
+            }
+.viewer_dot {
+                width: 0.45em;
+                height: 0.45em;
+                background: #FF3B3B;
+                border-radius: 50%;
+                margin-right: 0.3em;
+                flex-shrink: 0;
+            }
+.thumb_info_row {
+                display: flex;
+                align-items: center;
+                padding: 0.4em 0.2em 0.1em 0.2em;
+            }

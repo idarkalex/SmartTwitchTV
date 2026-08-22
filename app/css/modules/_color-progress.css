@@ -1,0 +1,179 @@
+
+.colorCanvas_pos {
+                transform: translateY(-100%);
+                left: 50%;
+                position: absolute;
+                width: 0.4em;
+                height: 100%;
+                border-radius: 1em;
+                box-shadow:
+                    0 0 0 0.25vh #ffffff,
+                    0 0 0 0.5vh #000000;
+            }
+.color_options {
+                font-size: 2.7vh !important;
+                position: absolute !important;
+                width: 96% !important;
+                margin-left: 2% !important;
+                position: relative !important;
+                transform: translateY(-75%) !important;
+            }
+.cavas_text_shadows,
+            .cavas_text,
+            .color_result {
+                height: 5%;
+                width: 96%;
+                margin-left: 2%;
+            }
+.cavas_text_shadows,
+            .cavas_text {
+                color: #ffffff;
+                text-align: center;
+                height: 1.2em;
+                margin-top: 0.5%;
+            }
+.cavas_text_shadows {
+                width: 23%;
+                margin: 0;
+                display: inline-block;
+                text-align: left;
+            }
+.progress_pause_holder {
+                bottom: 7ch;
+                position: absolute;
+                width: 100%;
+                justify-content: center;
+            }
+.next_button,
+            .pause_button {
+                display: inline-block;
+                width: auto;
+                padding-top: 0.25em;
+                padding-bottom: 0.25em;
+                text-align: center;
+                border-radius: 0.2em;
+                background-color: rgba(0, 0, 0, 0);
+                will-change: border-color, background-color;
+            }
+.next_button {
+                padding-left: 0.35em;
+                padding-right: 0.35em;
+                max-width: 96%;
+            }
+.pause_button {
+                height: auto;
+            }
+.controls_button_holder {
+                display: inline-block;
+                width: 4.9%;
+            }
+.controls_button {
+                display: inline-block;
+                width: 3ch;
+                padding: 0.25em;
+                height: 1.25em;
+                text-align: center;
+                background-color: rgba(0, 0, 0, 0);
+                will-change: border-color, background-color;
+                position: relative;
+                border-radius: 0.2em;
+            }
+.controls_button_title {
+                width: 100vw;
+                height: 1.5ch;
+                position: relative;
+                left: 50%;
+                /* translateX(-50%) but as scale(0.8) it because 0.5/0.8 = 0.625 */
+                transform: scale(0.8) translateX(-62.5%);
+            }
+.controls_text_title_holder {
+                font-size: 100%;
+                color: #ffffff;
+                white-space: nowrap;
+            }
+.arrows_text {
+                display: inline-block;
+                vertical-align: middle;
+                color: #ffffff;
+            }
+.pause_button3d {
+                color: #ffffff;
+                font-size: 120%;
+                vertical-align: middle;
+            }
+.next_text {
+                display: inline-block;
+                width: auto;
+                max-width: 90%;
+                font-size: 100%;
+                vertical-align: middle;
+            }
+.pause_next_div {
+                text-align: center;
+                width: 95%;
+                margin-left: 2.5%;
+            }
+.next_img_holder {
+                position: absolute;
+                transform: translateY(-101%);
+                width: 55vh;
+            }
+.next_img {
+                width: 100%;
+                max-width: 100%;
+                max-height: 100%;
+                overflow: hidden;
+                border-radius: 0.5vh;
+                box-shadow:
+                    inset 0 0 0 0.025vh #ffffff,
+                    0 0 0 0.3vh #ffffff,
+                    0 0 0 0.6vh #000000;
+            }
+.end_img_holder {
+                position: absolute;
+                transform: translate(-24.5%, -104%);
+                width: 53vh;
+            }
+.end_img {
+                width: 100%;
+                max-width: 100%;
+                max-height: 100%;
+                overflow: hidden;
+                border-radius: 0.5vh;
+                box-shadow:
+                    inset 0 0 0 0.025vh #ffffff,
+                    0 0 0 0.3vh #ffffff,
+                    0 0 0 0.6vh #000000;
+            }
+.progress_bar_div {
+                width: 95%;
+                margin-left: 2.5%;
+                height: 4.25em;
+                border-radius: 0.2em;
+                background-color: rgba(0, 0, 0, 0);
+                will-change: border-color, background-color;
+                text-align: center;
+                transform: translateY(35%);
+            }
+.progress_bar_div_focus {
+                background-color: rgba(0, 0, 0, 0.7);
+                border-color: #ffffff !important;
+            }
+.progress_bar_jump,
+            .progress_bar_timer {
+                width: 7%;
+                font-size: 75%;
+                font-family: 'Roboto-Bold';
+                color: #ffffff;
+                display: inline-block;
+                text-align: center;
+            }
+.seek_previews_text {
+                transform: translateY(-77%);
+                position: absolute;
+                text-align: center;
+                width: 100%;
+            }
+.progress_bar_jump {
+                width: 40%;
+            }
