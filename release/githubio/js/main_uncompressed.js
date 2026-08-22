@@ -3313,7 +3313,7 @@ var version = {
     publishVersionCode: 387, //Always update (+1 to current value) Main_version_java after update publishVersionCode or a major update of the apk is released
     ApkUrl: 'https://github.com/idarkalex/SmartTwitchTV/releases/download/v387/SmartTV_twitch__387.apk',
     WebVersion: 'August 22 2026',
-    WebTag: 733, //Always update (+1 to current value) Main_version_web after update Main_minversion or a major update of the web part of the app
+    WebTag: 734, //Always update (+1 to current value) Main_version_web after update Main_minversion or a major update of the web part of the app
     changelog: [
         {
             title: 'August 22 2026',
