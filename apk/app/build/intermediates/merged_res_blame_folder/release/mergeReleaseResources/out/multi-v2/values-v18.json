@@ -1,0 +1,38 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.fgl27.twitch.app-mergeReleaseResources-16:/values-v18/values-v18.xml",
+            "map": [
+                {
+                    "source": "/home/runner/.gradle/caches/8.13/transforms/d2063456d73475ac385971383a688ba1/transformed/leanback-1.2.0/res/values-v18/values-v18.xml",
+                    "from": {
+                        "startLines": "2,12",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,765",
+                        "endLines": "11,20",
+                        "endColumns": "12,12",
+                        "endOffsets": "760,1352"
+                    },
+                    "to": {
+                        "startLines": "3,13",
+                        "startColumns": "4,4",
+                        "startOffsets": "104,814",
+                        "endLines": "12,21",
+                        "endColumns": "12,12",
+                        "endOffsets": "809,1401"
+                    }
+                },
+                {
+                    "source": "/home/runner/.gradle/caches/8.13/transforms/db50c7a7ff29de7320aa93ec07676eb3/transformed/appcompat-1.0.0/res/values-v18/values-v18.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "48",
+                        "endOffsets": "99"
+                    }
+                }
+            ]
+        }
+    ]
+}

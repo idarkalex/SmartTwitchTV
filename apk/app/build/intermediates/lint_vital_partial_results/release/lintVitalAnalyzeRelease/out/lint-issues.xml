@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<incidents format="6" by="lint 8.13.2" type="configured_issues">
+    <config id="IconLauncherShape" severity="ignore"/>
+    <config id="IconMissingDensityFolder" severity="ignore"/>
+    <config id="RtlHardcoded" severity="ignore"/>
+    <config id="SetJavaScriptEnabled" severity="ignore"/>
+
+</incidents>

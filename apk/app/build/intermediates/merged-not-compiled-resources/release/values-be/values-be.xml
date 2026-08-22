@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <string-array name="exo_controls_playback_speeds">
+    <item>0,25x</item>
+    <item>0,5x</item>
+    <item>0,75x</item>
+    <item>Звычайная</item>
+    <item>1,25x</item>
+    <item>1,5x</item>
+    <item>2х</item>
+  </string-array>
+    <plurals name="exo_controls_fastforward_by_amount_description">
+    <item quantity="one">Пераматаць уперад на %d секунду</item>
+    <item quantity="few">Пераматаць уперад на %d секунды</item>
+    <item quantity="many">Пераматаць уперад на %d секунд</item>
+    <item quantity="other">Пераматаць уперад на %d секунды</item>
+  </plurals>
+    <plurals name="exo_controls_rewind_by_amount_description">
+    <item quantity="one">Пераматаць назад на %d секунду</item>
+    <item quantity="few">Пераматаць назад на %d секунды</item>
+    <item quantity="many">Пераматаць назад на %d секунд</item>
+    <item quantity="other">Пераматаць назад на %d секунды</item>
+  </plurals>
+    <string msgid="4600421777120114993" name="abc_action_bar_home_description">"Перайсці на галоўную старонку"</string>
+    <string msgid="1594238315039666878" name="abc_action_bar_up_description">"Перайсці ўверх"</string>
+    <string msgid="3588849162933574182" name="abc_action_menu_overflow_description">"Дадатковыя параметры"</string>
+    <string msgid="4076576682505996667" name="abc_action_mode_done">"Гатова"</string>
+    <string msgid="7468859129482906941" name="abc_activity_chooser_view_see_all">"Прагледзець усё"</string>
+    <string msgid="2031811694353399454" name="abc_activitychooserview_choose_application">"Выбраць праграму"</string>
+    <string msgid="121134116657445385" name="abc_capital_off">"ВЫКЛ."</string>
+    <string msgid="3405795526292276155" name="abc_capital_on">"УКЛ."</string>
+    <string msgid="1302280443949172191" name="abc_menu_alt_shortcut_label">"Alt +"</string>
+    <string msgid="1324831542140195728" name="abc_menu_ctrl_shortcut_label">"Ctrl +"</string>
+    <string msgid="8362206064229013510" name="abc_menu_delete_shortcut_label">"Delete"</string>
+    <string msgid="8341180395196749340" name="abc_menu_enter_shortcut_label">"Enter"</string>
+    <string msgid="4792426091847145555" name="abc_menu_function_shortcut_label">"Fn +"</string>
+    <string msgid="7643535737296831317" name="abc_menu_meta_shortcut_label">"Meta +"</string>
+    <string msgid="8126296154200614004" name="abc_menu_shift_shortcut_label">"Shift +"</string>
+    <string msgid="2378550843553983978" name="abc_menu_space_shortcut_label">"Прабел"</string>
+    <string msgid="9002602288060866689" name="abc_menu_sym_shortcut_label">"Sym +"</string>
+    <string msgid="1351762916121158029" name="abc_prepend_shortcut_label">"Меню +"</string>
+    <string msgid="7723749260725869598" name="abc_search_hint">"Пошук..."</string>
+    <string msgid="3691816814315814921" name="abc_searchview_description_clear">"Выдалiць запыт"</string>
+    <string msgid="2550479030709304392" name="abc_searchview_description_query">"Запыт на пошук"</string>
+    <string msgid="8264924765203268293" name="abc_searchview_description_search">"Пошук"</string>
+    <string msgid="8928215447528550784" name="abc_searchview_description_submit">"Адправіць запыт"</string>
+    <string msgid="893419373245838918" name="abc_searchview_description_voice">"Галасавы пошук"</string>
+    <string msgid="3421042268587513524" name="abc_shareactionprovider_share_with">"Абагуліць з"</string>
+    <string msgid="3300176832234831527" name="abc_shareactionprovider_share_with_application">"Абагуліць праз праграму <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="1603543279005712093" name="abc_toolbar_collapse_description">"Згарнуць"</string>
+    <string name="exo_controls_cc_disabled_description">Уключыць субцітры</string>
+    <string name="exo_controls_cc_enabled_description">Выключыць субцітры</string>
+    <string name="exo_controls_fastforward_description">Пераматаць уперад</string>
+    <string name="exo_controls_fullscreen_enter_description">Уключыць поўнаэкранны рэжым</string>
+    <string name="exo_controls_fullscreen_exit_description">Выключыць поўнаэкранны рэжым</string>
+    <string name="exo_controls_hide">Схаваць элементы кіравання прайгравальніка</string>
+    <string name="exo_controls_next_description">Далей</string>
+    <string name="exo_controls_overflow_hide_description">Схаваць дадатковыя налады</string>
+    <string name="exo_controls_overflow_show_description">Паказаць дадатковыя налады</string>
+    <string name="exo_controls_pause_description">Паўза</string>
+    <string name="exo_controls_play_description">Гуляць</string>
+    <string name="exo_controls_playback_speed">Хуткасць</string>
+    <string name="exo_controls_previous_description">Назад</string>
+    <string name="exo_controls_repeat_all_description">Цяпер: паўтараць усё. Змяніць.</string>
+    <string name="exo_controls_repeat_off_description">Цяпер: без паўтораў. Змяніць.</string>
+    <string name="exo_controls_repeat_one_description">Цяпер: паўтараць фрагмент. Змяніць.</string>
+    <string name="exo_controls_rewind_description">Пераматаць назад</string>
+    <string name="exo_controls_seek_bar_description">Ход прайгравання</string>
+    <string name="exo_controls_settings_description">Налады</string>
+    <string name="exo_controls_show">Паказаць элементы кіравання прайгравальніка</string>
+    <string name="exo_controls_shuffle_off_description">Уключыць рэжым перамешвання</string>
+    <string name="exo_controls_shuffle_on_description">Выключыць рэжым перамешвання</string>
+    <string name="exo_controls_stop_description">Спыніць</string>
+    <string name="exo_controls_vr_description">VR-рэжым</string>
+    <string name="exo_download_completed">Спампоўка завершана</string>
+    <string name="exo_download_description">Спампаваць</string>
+    <string name="exo_download_downloading">Спампоўваецца</string>
+    <string name="exo_download_failed">Збой спампоўкі</string>
+    <string name="exo_download_notification_channel_name">Спампоўкі</string>
+    <string name="exo_download_paused">Спампоўкі прыпынены</string>
+    <string name="exo_download_paused_for_network">Спампоўкі чакаюць падключэння да сеткі</string>
+    <string name="exo_download_paused_for_wifi">Спампоўкі чакаюць падключэння да Wi-Fi</string>
+    <string name="exo_download_removing">Выдаленне спамповак</string>
+    <string name="exo_item_list">%1$s, %2$s</string>
+    <string name="exo_track_bitrate">%1$.2f Мбіт/с</string>
+    <string name="exo_track_mono">Мона</string>
+    <string name="exo_track_resolution">%1$d × %2$d</string>
+    <string name="exo_track_role_alternate">Альтэрнатыўны запіс</string>
+    <string name="exo_track_role_closed_captions">Субцітры</string>
+    <string name="exo_track_role_commentary">Каментарыі</string>
+    <string name="exo_track_role_supplementary">Дадатковы запіс</string>
+    <string name="exo_track_selection_auto">Аўтаматычна</string>
+    <string name="exo_track_selection_none">Няма</string>
+    <string name="exo_track_selection_title_audio">Аўдыя</string>
+    <string name="exo_track_stereo">Стэрэа</string>
+    <string name="exo_track_surround">Аб’ёмны гук</string>
+    <string name="exo_track_surround_5_point_1">Аб’ёмны гук 5.1</string>
+    <string name="exo_track_surround_7_point_1">Аб’ёмны гук 7.1</string>
+    <string name="exo_track_unknown">Невядома</string>
+    <string name="exo_track_unknown_name">Невядома (%1$s)</string>
+    <string msgid="4657191930956702614" name="lb_control_display_fast_forward_multiplier">"%1$dX"</string>
+    <string msgid="4597148235912710942" name="lb_control_display_rewind_multiplier">"%1$dX"</string>
+    <string msgid="893619591225519922" name="lb_guidedaction_continue_title">"Працягнуць"</string>
+    <string msgid="3330958750346333890" name="lb_guidedaction_finish_title">"Завяршыць"</string>
+    <string msgid="3228326776757666747" name="lb_media_player_error">"Код памылкі MediaPlayer: %1$d (дадатковы: %2$d)"</string>
+    <string msgid="8084428500709675515" name="lb_navigation_menu_contentDescription">"Меню навігацыі"</string>
+    <string msgid="2394451791544864917" name="lb_onboarding_accessibility_next">"Далей"</string>
+    <string msgid="5549711907371161292" name="lb_onboarding_get_started">"ПАЧАЦЬ"</string>
+    <string msgid="8691966842977635128" name="lb_playback_controls_closed_captioning_disable">"Адключыць субцітры"</string>
+    <string msgid="2346334170216706076" name="lb_playback_controls_closed_captioning_enable">"Уключыць субцітры"</string>
+    <string msgid="740570111678243493" name="lb_playback_controls_fast_forward">"Перамотка ўперад"</string>
+    <string msgid="5734614175721471329" name="lb_playback_controls_fast_forward_multiplier">"Перамотка ўперад %1$dX"</string>
+    <string msgid="5859666950961624736" name="lb_playback_controls_hidden">"Элементы кіравання мультымедыя схаваны. Каб паказаць іх, націсніце d-pad"</string>
+    <string msgid="1209119371486219736" name="lb_playback_controls_high_quality_disable">"Адключыць высокую якасць"</string>
+    <string msgid="3057698527166674705" name="lb_playback_controls_high_quality_enable">"Уключыць высокую якасць"</string>
+    <string msgid="8730341244454469032" name="lb_playback_controls_more_actions">"Іншыя дзеянні"</string>
+    <string msgid="917331776961802657" name="lb_playback_controls_pause">"Паўза"</string>
+    <string msgid="5770668162543767702" name="lb_playback_controls_picture_in_picture">"Перайсці ў рэжым \"Відарыс у відарысе\""</string>
+    <string msgid="7088090604803481121" name="lb_playback_controls_play">"Прайграць"</string>
+    <string msgid="8429099206716245199" name="lb_playback_controls_repeat_all">"Паўтарыць усе"</string>
+    <string msgid="1614290959784265209" name="lb_playback_controls_repeat_none">"Не паўтараць нічога"</string>
+    <string msgid="676658705837320560" name="lb_playback_controls_repeat_one">"Паўтарыць адзін элемент"</string>
+    <string msgid="2866333981131020771" name="lb_playback_controls_rewind">"Пераматаць"</string>
+    <string msgid="6038956370475252734" name="lb_playback_controls_rewind_multiplier">"Перамотка назад %1$dX"</string>
+    <string msgid="8690223891515602822" name="lb_playback_controls_shown">"Элементы кіравання мультымедыя паказаны"</string>
+    <string msgid="6793109999253893369" name="lb_playback_controls_shuffle_disable">"Адключыць перамешванне"</string>
+    <string msgid="5151681938752704485" name="lb_playback_controls_shuffle_enable">"Уключыць перамешванне"</string>
+    <string msgid="8117512422682146745" name="lb_playback_controls_skip_next">"Перайсці да наступнага элемента"</string>
+    <string msgid="3481218248309447059" name="lb_playback_controls_skip_previous">"Перайсці да папярэдняга элемента"</string>
+    <string msgid="3544533410444618518" name="lb_playback_controls_thumb_down">"Зняць адзнаку \"Не падабаецца\""</string>
+    <string msgid="8475278766138652105" name="lb_playback_controls_thumb_down_outline">"Паставіць адзнаку \"Не падабаецца\""</string>
+    <string msgid="3458671378107738666" name="lb_playback_controls_thumb_up">"Зняць адзнаку \"Падабаецца\""</string>
+    <string msgid="1385865732502550659" name="lb_playback_controls_thumb_up_outline">"Паставіць адзнаку \"Падабаецца\""</string>
+    <string msgid="1471121602610716654" name="lb_playback_time_separator">"/"</string>
+    <string msgid="5700349211583074131" name="lb_search_bar_hint">"Пошук"</string>
+    <string msgid="5926531297066387462" name="lb_search_bar_hint_speech">"Прамоўце пошукавы запыт"</string>
+    <string msgid="4826526877249029043" name="lb_search_bar_hint_with_title">"Шукаць тут: <ns1:g id="SEARCH_CONTEXT">%1$s</ns1:g>"</string>
+    <string msgid="6032250334706920550" name="lb_search_bar_hint_with_title_speech">"Прамоўце запыт для пошуку тут: <ns1:g id="SEARCH_CONTEXT">%1$s</ns1:g>"</string>
+    <string msgid="1301877238242752863" name="orb_search_action">"Пошук"</string>
+    <string msgid="146198913615257606" name="search_menu_title">"Пошук"</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+</resources>

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <string-array name="exo_controls_playback_speeds">
+    <item>0,25x</item>
+    <item>0,5x</item>
+    <item>0,75x</item>
+    <item>Normal</item>
+    <item>1,25x</item>
+    <item>1,5x</item>
+    <item>2x</item>
+  </string-array>
+    <plurals name="exo_controls_fastforward_by_amount_description">
+    <item quantity="one">%d saniye ileri sar</item>
+    <item quantity="other">%d saniye ileri sar</item>
+  </plurals>
+    <plurals name="exo_controls_rewind_by_amount_description">
+    <item quantity="one">%d saniye geri sar</item>
+    <item quantity="other">%d saniye geri sar</item>
+  </plurals>
+    <string msgid="4600421777120114993" name="abc_action_bar_home_description">"Ana ekrana git"</string>
+    <string msgid="1594238315039666878" name="abc_action_bar_up_description">"Yukarı git"</string>
+    <string msgid="3588849162933574182" name="abc_action_menu_overflow_description">"Diğer seçenekler"</string>
+    <string msgid="4076576682505996667" name="abc_action_mode_done">"Bitti"</string>
+    <string msgid="7468859129482906941" name="abc_activity_chooser_view_see_all">"Tümünü göster"</string>
+    <string msgid="2031811694353399454" name="abc_activitychooserview_choose_application">"Bir uygulama seçin"</string>
+    <string msgid="121134116657445385" name="abc_capital_off">"KAPAT"</string>
+    <string msgid="3405795526292276155" name="abc_capital_on">"AÇ"</string>
+    <string msgid="1302280443949172191" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="1324831542140195728" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="8362206064229013510" name="abc_menu_delete_shortcut_label">"sil"</string>
+    <string msgid="8341180395196749340" name="abc_menu_enter_shortcut_label">"enter"</string>
+    <string msgid="4792426091847145555" name="abc_menu_function_shortcut_label">"İşlev+"</string>
+    <string msgid="7643535737296831317" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="8126296154200614004" name="abc_menu_shift_shortcut_label">"Üst Karakter+"</string>
+    <string msgid="2378550843553983978" name="abc_menu_space_shortcut_label">"boşluk"</string>
+    <string msgid="9002602288060866689" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="1351762916121158029" name="abc_prepend_shortcut_label">"Menü+"</string>
+    <string msgid="7723749260725869598" name="abc_search_hint">"Ara…"</string>
+    <string msgid="3691816814315814921" name="abc_searchview_description_clear">"Sorguyu temizle"</string>
+    <string msgid="2550479030709304392" name="abc_searchview_description_query">"Arama sorgusu"</string>
+    <string msgid="8264924765203268293" name="abc_searchview_description_search">"Ara"</string>
+    <string msgid="8928215447528550784" name="abc_searchview_description_submit">"Sorguyu gönder"</string>
+    <string msgid="893419373245838918" name="abc_searchview_description_voice">"Sesli arama"</string>
+    <string msgid="3421042268587513524" name="abc_shareactionprovider_share_with">"Şununla paylaş"</string>
+    <string msgid="3300176832234831527" name="abc_shareactionprovider_share_with_application">"<ns1:g id="APPLICATION_NAME">%s</ns1:g> ile paylaş"</string>
+    <string msgid="1603543279005712093" name="abc_toolbar_collapse_description">"Daralt"</string>
+    <string name="app_name">SmartTwitchTV Mod</string>
+    <string name="channel_disable">Bu devre dışı bırakıldı veya içerik yüklenemedi. Şimdi yenilemek için enter\'a basın (yenileme sadece uygulama görünürken gerçekleşir)</string>
+    <string name="channel_empty">Liste boş</string>
+    <string name="channel_game_title">%s Kanal\n%s izleyici için</string>
+    <string name="channel_last_refresh">Son yenileme - %s %s %02d:%02d</string>
+    <string name="channel_live_title">%s %s beri %s için %s izleyici\n%s</string>
+    <string name="channel_no_user">Bu içeriği yüklemek için önce bir kullanıcı eklenmesi gerekir</string>
+    <string name="channel_refresh">Yenilemek için enter\'a basın (bu arka planda her 30 dakikada bir otomatik olarak yenilenir), manuel yenileme sadece uygulama görünürken gerçekleşir</string>
+    <string name="channel_refreshed">%s ana ekran kanalı yenilendi</string>
+    <string name="exo_controls_cc_disabled_description">Altyazıları etkinleştir</string>
+    <string name="exo_controls_cc_enabled_description">Altyazıları devre dışı bırak</string>
+    <string name="exo_controls_fastforward_description">İleri sar</string>
+    <string name="exo_controls_fullscreen_enter_description">Tam ekrana geç</string>
+    <string name="exo_controls_fullscreen_exit_description">Tam ekrandan çık</string>
+    <string name="exo_controls_hide">Oynatıcı kontrollerini gizle</string>
+    <string name="exo_controls_next_description">Sonraki</string>
+    <string name="exo_controls_overflow_hide_description">Ek ayarları gizle</string>
+    <string name="exo_controls_overflow_show_description">Ek ayarları göster</string>
+    <string name="exo_controls_pause_description">Duraklat</string>
+    <string name="exo_controls_play_description">Çal</string>
+    <string name="exo_controls_playback_speed">Hız</string>
+    <string name="exo_controls_previous_description">Önceki</string>
+    <string name="exo_controls_repeat_all_description">Geçerli mod: Tümünü tekrarla. Tekrarlamayı aç/kapat.</string>
+    <string name="exo_controls_repeat_off_description">Geçerli mod: Tekrarlama. Tekrarlamayı aç/kapat.</string>
+    <string name="exo_controls_repeat_one_description">Geçerli mod: Birini tekrarla. Tekrarlamayı aç/kapat.</string>
+    <string name="exo_controls_rewind_description">Geri sar</string>
+    <string name="exo_controls_seek_bar_description">Çalma ilerleme durumu</string>
+    <string name="exo_controls_settings_description">Ayarlar</string>
+    <string name="exo_controls_show">Oynatıcı kontrollerini göster</string>
+    <string name="exo_controls_shuffle_off_description">Karıştırma modunu etkinleştir</string>
+    <string name="exo_controls_shuffle_on_description">Karıştırma modunu devre dışı bırak</string>
+    <string name="exo_controls_stop_description">Durdur</string>
+    <string name="exo_controls_vr_description">VR modu</string>
+    <string name="exo_download_completed">İndirme işlemi tamamlandı</string>
+    <string name="exo_download_description">İndir</string>
+    <string name="exo_download_downloading">İndiriliyor</string>
+    <string name="exo_download_failed">İndirilemedi</string>
+    <string name="exo_download_notification_channel_name">İndirilenler</string>
+    <string name="exo_download_paused">İndirmeler duraklatıldı</string>
+    <string name="exo_download_paused_for_network">İndirmeler için ağ bekleniyor</string>
+    <string name="exo_download_paused_for_wifi">İndirmeler için kablosuz ağ bekleniyor</string>
+    <string name="exo_download_removing">İndirilenler kaldırılıyor</string>
+    <string name="exo_item_list">%1$s, %2$s</string>
+    <string name="exo_track_bitrate">%1$.2f Mbps</string>
+    <string name="exo_track_mono">Mono</string>
+    <string name="exo_track_resolution">%1$d × %2$d</string>
+    <string name="exo_track_role_alternate">Alternatif</string>
+    <string name="exo_track_role_closed_captions">Altyazı</string>
+    <string name="exo_track_role_commentary">Anlatım</string>
+    <string name="exo_track_role_supplementary">Ek kanal</string>
+    <string name="exo_track_selection_auto">Otomatik</string>
+    <string name="exo_track_selection_none">Yok</string>
+    <string name="exo_track_selection_title_audio">Ses</string>
+    <string name="exo_track_stereo">Stereo</string>
+    <string name="exo_track_surround">Surround ses</string>
+    <string name="exo_track_surround_5_point_1">5.1 surround ses</string>
+    <string name="exo_track_surround_7_point_1">7.1 surround ses</string>
+    <string name="exo_track_unknown">Bilinmiyor</string>
+    <string name="exo_track_unknown_name">Bilinmiyor (%1$s)</string>
+    <string name="external_player_fail">Harici video oynatıcı uygulaması yok</string>
+    <string msgid="4657191930956702614" name="lb_control_display_fast_forward_multiplier">"%1$dX"</string>
+    <string msgid="4597148235912710942" name="lb_control_display_rewind_multiplier">"%1$dX"</string>
+    <string msgid="893619591225519922" name="lb_guidedaction_continue_title">"Devam"</string>
+    <string msgid="3330958750346333890" name="lb_guidedaction_finish_title">"Son"</string>
+    <string msgid="3228326776757666747" name="lb_media_player_error">"MediaPlayer hata kodu %1$d ekstra %2$d"</string>
+    <string msgid="8084428500709675515" name="lb_navigation_menu_contentDescription">"Gezinme menüsü"</string>
+    <string msgid="2394451791544864917" name="lb_onboarding_accessibility_next">"Sonraki"</string>
+    <string msgid="5549711907371161292" name="lb_onboarding_get_started">"BAŞLA"</string>
+    <string msgid="8691966842977635128" name="lb_playback_controls_closed_captioning_disable">"Altyazıları Devre Dışı Bırak"</string>
+    <string msgid="2346334170216706076" name="lb_playback_controls_closed_captioning_enable">"Altyazıları Etkinleştir"</string>
+    <string msgid="740570111678243493" name="lb_playback_controls_fast_forward">"İleri Sar"</string>
+    <string msgid="5734614175721471329" name="lb_playback_controls_fast_forward_multiplier">"%1$dX İleri Sar"</string>
+    <string msgid="5859666950961624736" name="lb_playback_controls_hidden">"Medya denetimleri gizli durumda. Görüntülemek için d-pad\'e basın."</string>
+    <string msgid="1209119371486219736" name="lb_playback_controls_high_quality_disable">"Yüksek Kalitede Oynatmayı Devre Dışı Bırak"</string>
+    <string msgid="3057698527166674705" name="lb_playback_controls_high_quality_enable">"Yüksek Kalitede Oynatmayı Etkinleştir"</string>
+    <string msgid="8730341244454469032" name="lb_playback_controls_more_actions">"Diğer İşlemler"</string>
+    <string msgid="917331776961802657" name="lb_playback_controls_pause">"Duraklat"</string>
+    <string msgid="5770668162543767702" name="lb_playback_controls_picture_in_picture">"Pencere İçinde Pencere Moduna Geç"</string>
+    <string msgid="7088090604803481121" name="lb_playback_controls_play">"Oynat"</string>
+    <string msgid="8429099206716245199" name="lb_playback_controls_repeat_all">"Tümünü Tekrarla"</string>
+    <string msgid="1614290959784265209" name="lb_playback_controls_repeat_none">"Hiçbirini Tekrarlama"</string>
+    <string msgid="676658705837320560" name="lb_playback_controls_repeat_one">"Birini Tekrarla"</string>
+    <string msgid="2866333981131020771" name="lb_playback_controls_rewind">"Geri Sar"</string>
+    <string msgid="6038956370475252734" name="lb_playback_controls_rewind_multiplier">"%1$dX Geri Sar"</string>
+    <string msgid="8690223891515602822" name="lb_playback_controls_shown">"Medya denetimleri gösteriliyor"</string>
+    <string msgid="6793109999253893369" name="lb_playback_controls_shuffle_disable">"Karıştırmayı Devre Dışı Bırak"</string>
+    <string msgid="5151681938752704485" name="lb_playback_controls_shuffle_enable">"Karıştırmayı Etkinleştir"</string>
+    <string msgid="8117512422682146745" name="lb_playback_controls_skip_next">"Sonrakine Atla"</string>
+    <string msgid="3481218248309447059" name="lb_playback_controls_skip_previous">"Öncekine Atla"</string>
+    <string msgid="3544533410444618518" name="lb_playback_controls_thumb_down">"Beğenmeme Seçimini Kaldır"</string>
+    <string msgid="8475278766138652105" name="lb_playback_controls_thumb_down_outline">"Beğenmemeyi Seç"</string>
+    <string msgid="3458671378107738666" name="lb_playback_controls_thumb_up">"Beğenme Seçimini Kaldır"</string>
+    <string msgid="1385865732502550659" name="lb_playback_controls_thumb_up_outline">"Beğenmeyi Seç"</string>
+    <string msgid="1471121602610716654" name="lb_playback_time_separator">"/"</string>
+    <string msgid="5700349211583074131" name="lb_search_bar_hint">"Arama yapın"</string>
+    <string msgid="5926531297066387462" name="lb_search_bar_hint_speech">"Arama yapmak için konuşun"</string>
+    <string msgid="4826526877249029043" name="lb_search_bar_hint_with_title">"<ns1:g id="SEARCH_CONTEXT">%1$s</ns1:g> araması yapın"</string>
+    <string msgid="6032250334706920550" name="lb_search_bar_hint_with_title_speech">"<ns1:g id="SEARCH_CONTEXT">%1$s</ns1:g> araması yapmak için konuşun"</string>
+    <string name="no_internet">Son 30 saniyede Twitch\'e ping başarısız!\n\nUygulama düzgün çalışmıyorsa yerel internet bağlantınızı kontrol edin\n\nUygulama donarsa veya çalışmazsa geri tuşunu basılı tutarak kapatın.\n\nBağlantı geri gelirse bu uyarı otomatik olarak gizlenecek, aksi halde 30 saniye sonra gizlenecek\n\nBu uyarı ayarlardan devre dışı bırakılabilir</string>
+    <string name="no_network">İnternet bağlantısı yok!\n\nUygulamanın yüklenmesi için bir ağa bağlanın\n\nveya\n\nUygulamayı kapatmak için geri tuşunu basılı tutun.</string>
+    <string name="notification_game">Yayıncı oyunu değiştirdi</string>
+    <string name="notification_live">Yayıncı Canlı</string>
+    <string name="notification_live_game">Oyun Canlı</string>
+    <string name="notification_service">Bildirim servisi çalışıyor</string>
+    <string name="notification_text">Arka planda bildirimlerin gösterilmesi için gereklidir</string>
+    <string name="notification_title">Yayıncı başlığı değiştirdi</string>
+    <string name="notification_title_game">Yayıncı oyun ve başlığı değiştirdi</string>
+    <string msgid="1301877238242752863" name="orb_search_action">"Arama İşlemi"</string>
+    <string name="playing">Oynuyor</string>
+    <string msgid="146198913615257606" name="search_menu_title">"Ara"</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string name="streaming">Yayında</string>
+    <string name="webview_exception">Uygulama yüklenemedi çünkü sistem Webview mevcut değil (olası değil) YA DA güncelleniyor, birkaç saniye sonra tekrar deneyin</string>
+</resources>
