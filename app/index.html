@@ -692,9 +692,8 @@
         background: linear-gradient(to top, rgba(14, 12, 22, 0.98) 0%, rgba(14, 12, 22, 0.85) 40%, rgba(14, 12, 22, 0) 100%) !important;
     }
 
-    /* Stream thumbnail card: modern card design, 16:9 to match the native
-       preview slot (WidthDefault/5 x HeightDefault/5) so the preview video
-       overlays exactly the focused card */
+    /* Stream thumbnail card: sized to EXACTLY the native preview slot
+       (ScreenW/5 x ScreenH/5 = 20vw x 20vh), regardless of panel aspect ratio */
     .stream_thumbnail_player_feed {
         background: #1a1525 !important;
         border-radius: 0.6em !important;
@@ -702,7 +701,8 @@
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6) !important;
         border: 1px solid rgba(168, 85, 247, 0.15) !important;
         width: 100% !important;
-        padding-bottom: 56.25% !important;
+        height: 20vh !important;
+        padding-bottom: 0 !important;
     }
 
     /* Feed cells: exactly 1/5 of the width so each card sits under its native
@@ -777,18 +777,18 @@
         box-shadow: 0 0 25px rgba(168, 85, 247, 0.5) !important;
     }
 
-    /* Feed scroll: flush to the bottom edge, no left inset, so cards hug the
-       lower zone (card height ≈ 45.7% of the feed area on a 16:9 screen) */
+    /* Feed scroll: strip exactly as tall as one card (20vh), flush to the
+       bottom edge, so cards start at its top and end at the screen bottom */
     .user_feed_scroll {
         bottom: 0 !important;
-        height: 45.7% !important;
+        height: 20vh !important;
         left: 0 !important;
         padding-left: 0 !important;
     }
 
     .user_feed_scroll_game {
         bottom: 0 !important;
-        height: 45.7% !important;
+        height: 20vh !important;
         left: 0 !important;
         padding-left: 0 !important;
     }
