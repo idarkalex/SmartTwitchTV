@@ -3310,11 +3310,19 @@ function calculateFontSizeTizen() {
 //Spacing for release maker not trow errors from jshint
 var version = {
     VersionBase: '3.0',
-    publishVersionCode: 386, //Always update (+1 to current value) Main_version_java after update publishVersionCode or a major update of the apk is released
-    ApkUrl: 'https://github.com/idarkalex/SmartTwitchTV/releases/download/v386/SmartTV_twitch_3_0__386.apk',
+    publishVersionCode: 387, //Always update (+1 to current value) Main_version_java after update publishVersionCode or a major update of the apk is released
+    ApkUrl: 'https://github.com/idarkalex/SmartTwitchTV/releases/download/v387/SmartTV_twitch__387.apk',
     WebVersion: 'August 22 2026',
-    WebTag: 732, //Always update (+1 to current value) Main_version_web after update Main_minversion or a major update of the web part of the app
+    WebTag: 733, //Always update (+1 to current value) Main_version_web after update Main_minversion or a major update of the web part of the app
     changelog: [
+        {
+            title: 'August 22 2026',
+            changes: [
+                'Feed cards match the native preview slot size and sit flush with the bottom edge',
+                'Player control bar: buttons resized so all icons fit on one row',
+                'General performance improvements and bug fixes'
+            ]
+        },
         {
             title: 'August 22 2026',
             changes: [
