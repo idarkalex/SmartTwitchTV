@@ -21,14 +21,15 @@
 //Spacing for release maker not trow errors from jshint
 var version = {
     VersionBase: '3.0',
-    publishVersionCode: 392, //Always update (+1 to current value) Main_version_java after update publishVersionCode or a major update of the apk is released
-    ApkUrl: 'https://github.com/idarkalex/SmartTwitchTV/releases/download/v392/SmartTV_twitch__392.apk',
-    WebVersion: 'September 20 2026',
-    WebTag: 739, //Always update (+1 to current value) Main_version_web after update Main_minversion or a major update of the web part of the app
+    publishVersionCode: 393, //Always update (+1 to current value) Main_version_java after update publishVersionCode or a major update of the apk is released
+    ApkUrl: 'https://github.com/idarkalex/SmartTwitchTV/releases/download/v393/SmartTV_twitch__393.apk',
+    WebVersion: 'September 21 2026',
+    WebTag: 740, //Always update (+1 to current value) Main_version_web after update Main_minversion or a major update of the web part of the app
     changelog: [
         {
-            title: 'September 20 2026',
+            title: 'September 21 2026',
             changes: [
+                'Crash fix: token request now uses OAuth (was using anonymous headers causing 401)',
                 'Ad filtering: Docker sidecar proxies HLS manifests and strips SSAI ad segments',
                 'Anonymous token mode: proxy requests now skip OAuth to reduce ad targeting',
                 'Fixed TV playlist rewrite to use the Docker ad-filtering proxy'
