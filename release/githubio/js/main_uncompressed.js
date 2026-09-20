@@ -3310,11 +3310,19 @@ function calculateFontSizeTizen() {
 //Spacing for release maker not trow errors from jshint
 var version = {
     VersionBase: '3.0',
-    publishVersionCode: 389, //Always update (+1 to current value) Main_version_java after update publishVersionCode or a major update of the apk is released
-    ApkUrl: 'https://github.com/idarkalex/SmartTwitchTV/releases/download/v389/SmartTV_twitch__389.apk',
-    WebVersion: 'August 22 2026',
-    WebTag: 736, //Always update (+1 to current value) Main_version_web after update Main_minversion or a major update of the web part of the app
+    publishVersionCode: 390, //Always update (+1 to current value) Main_version_java after update publishVersionCode or a major update of the apk is released
+    ApkUrl: 'https://github.com/idarkalex/SmartTwitchTV/releases/download/v390/SmartTV_twitch__390.apk',
+    WebVersion: 'September 20 2026',
+    WebTag: 737, //Always update (+1 to current value) Main_version_web after update Main_minversion or a major update of the web part of the app
     changelog: [
+        {
+            title: 'September 20 2026',
+            changes: [
+                'Forward proxy now active from app startup (all API requests routed through proxy, not just stream playback)',
+                'Fixed ad targeting leak: initial auth requests no longer bypass proxy',
+                'General performance improvements and bug fixes'
+            ]
+        },
         {
             title: 'August 22 2026',
             changes: [
@@ -15934,14 +15942,13 @@ function OSInterface_BaseXmlHttpGet(
     callBackSuccess,
     calBackError
 ) {
-    try {
-        if (Main_LogBuffer) {
-            var proxyStatus = Main_ProxyUrl ? 'PROXY=' + Main_ProxyUrl : 'DIRECT';
-            var domain = '';
-            try { domain = urlString.split('/')[2]; } catch (e) {}
-            Main_Log('HTTP: BasexmlHttpGet ' + (Method || 'GET') + ' ' + domain + ' [' + proxyStatus + '] cb=' + callback);
-        }
-        Android.BasexmlHttpGet(
+    if (Main_LogBuffer) {
+        var proxyStatus = Main_ProxyUrl ? 'PROXY=' + Main_ProxyUrl : 'DIRECT';
+        var domain = '';
+        try { domain = urlString.split('/')[2]; } catch (e) {}
+        Main_Log('HTTP: BasexmlHttpGet ' + (Method || 'GET') + ' ' + domain + ' [' + proxyStatus + '] cb=' + callback);
+    }
+    Android.BasexmlHttpGet(
         urlString,
         timeout,
         postMessage,
@@ -38542,6 +38549,9 @@ function Settings_proxy_set_start() {
         }
     }
     Settings_proxy_set_Type();
+    if (use_proxy && proxy_is_forward_proxy) {
+        OSInterface_SetProxyUrl(proxy_url);
+    }
     Main_Log('Proxy: use_proxy=' + use_proxy + ' proxyType=' + proxyType);
 }
 

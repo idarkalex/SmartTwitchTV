@@ -1564,6 +1564,9 @@ function Settings_proxy_set_start() {
         }
     }
     Settings_proxy_set_Type();
+    if (use_proxy && proxy_is_forward_proxy) {
+        OSInterface_SetProxyUrl(proxy_url);
+    }
     Main_Log('Proxy: use_proxy=' + use_proxy + ' proxyType=' + proxyType);
 }
 
