@@ -208,14 +208,13 @@ function OSInterface_BaseXmlHttpGet(
     callBackSuccess,
     calBackError
 ) {
-    try {
-        if (Main_LogBuffer) {
-            var proxyStatus = Main_ProxyUrl ? 'PROXY=' + Main_ProxyUrl : 'DIRECT';
-            var domain = '';
-            try { domain = urlString.split('/')[2]; } catch (e) {}
-            Main_Log('HTTP: BasexmlHttpGet ' + (Method || 'GET') + ' ' + domain + ' [' + proxyStatus + '] cb=' + callback);
-        }
-        Android.BasexmlHttpGet(
+    if (Main_LogBuffer) {
+        var proxyStatus = Main_ProxyUrl ? 'PROXY=' + Main_ProxyUrl : 'DIRECT';
+        var domain = '';
+        try { domain = urlString.split('/')[2]; } catch (e) {}
+        Main_Log('HTTP: BasexmlHttpGet ' + (Method || 'GET') + ' ' + domain + ' [' + proxyStatus + '] cb=' + callback);
+    }
+    Android.BasexmlHttpGet(
         urlString,
         timeout,
         postMessage,
