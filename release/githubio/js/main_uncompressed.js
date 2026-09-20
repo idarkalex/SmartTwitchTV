@@ -13309,7 +13309,7 @@ function Main_UpdateDialogKeyEnter() {
 function Main_RefreshPage() {
     //delay to make sure all was saved OK
     Main_setTimeout(function () {
-        OSInterface_CleanAndLoadUrl(OSInterface_mPageUrl());
+        OSInterface_CleanAndLoadUrl(OSInterface_mPageUrl() + '?v=' + version.WebTag);
     }, 250);
 }
 
