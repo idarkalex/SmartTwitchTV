@@ -1566,6 +1566,12 @@ function Settings_proxy_set_start() {
     Settings_proxy_set_Type();
     if (use_proxy && proxy_is_forward_proxy) {
         OSInterface_SetProxyUrl(proxy_url);
+
+        // Set ad-filtering proxy base URL from page origin
+        if (Play_AdFilterEnabled && !Play_AdFilterBase) {
+            Play_AdFilterBase = window.location.origin;
+            Main_Log('AdFilter: base URL set to ' + Play_AdFilterBase);
+        }
     }
     Main_Log('Proxy: use_proxy=' + use_proxy + ' proxyType=' + proxyType);
 }

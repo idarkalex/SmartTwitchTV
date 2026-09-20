@@ -3310,16 +3310,16 @@ function calculateFontSizeTizen() {
 //Spacing for release maker not trow errors from jshint
 var version = {
     VersionBase: '3.0',
-    publishVersionCode: 390, //Always update (+1 to current value) Main_version_java after update publishVersionCode or a major update of the apk is released
-    ApkUrl: 'https://github.com/idarkalex/SmartTwitchTV/releases/download/v390/SmartTV_twitch__390.apk',
+    publishVersionCode: 391, //Always update (+1 to current value) Main_version_java after update publishVersionCode or a major update of the apk is released
+    ApkUrl: 'https://github.com/idarkalex/SmartTwitchTV/releases/download/v391/SmartTV_twitch__391.apk',
     WebVersion: 'September 20 2026',
-    WebTag: 737, //Always update (+1 to current value) Main_version_web after update Main_minversion or a major update of the web part of the app
+    WebTag: 738, //Always update (+1 to current value) Main_version_web after update Main_minversion or a major update of the web part of the app
     changelog: [
         {
             title: 'September 20 2026',
             changes: [
-                'Forward proxy now active from app startup (all API requests routed through proxy, not just stream playback)',
-                'Fixed ad targeting leak: initial auth requests no longer bypass proxy',
+                'Ad filtering: proxy intercepts HLS manifests and strips ad segments (SSAI)',
+                'Anonymous token mode: proxy requests now skip OAuth to reduce ad targeting',
                 'General performance improvements and bug fixes'
             ]
         },
@@ -14184,6 +14184,7 @@ function HttpGetSetUserHeader() {
     }
 
     Play_Headers = JSON.stringify(header);
+    Play_Headers_Anonymous = JSON.stringify([[clientIdHeader, AddCode_backup_client_id]]); // no OAuth = anonymous token = fewer ads
 }
 
 function FullxmlHttpGet(theUrl, Headers, callbackSuccess, calbackError, key, checkResult, Method, postMessage) {
@@ -15691,6 +15692,7 @@ function Main_Set() {
         Chat_token = atob(Chat_token);
 
         Play_Headers = JSON.stringify([['Client-ID', Chat_token]]);
+        Play_Headers_Anonymous = Play_Headers; // same at startup, no user logged in yet
     }
 
     GDriveClientKey = atob(GDriveClientKey);
@@ -16105,6 +16107,12 @@ function OSInterface_StartAuto(uri, mainPlaylistString, who_called, ResumePositi
         mainPlaylistString = Play_FixQualities(mainPlaylistString);
     }
 
+    // Rewrite video weaver URLs to route through ad-filtering proxy when proxy is active
+    if (use_proxy && Play_AdFilterBase) {
+        mainPlaylistString = Play_RewritePlaylistForAdFilter(mainPlaylistString);
+        Main_Log('AdFilter: Playlist rewritten to route through ' + Play_AdFilterBase);
+    }
+
     Android.StartAuto(uri, mainPlaylistString, who_called, ResumePosition, player);
 }
 
@@ -16119,6 +16127,11 @@ function OSInterface_StartAuto(uri, mainPlaylistString, who_called, ResumePositi
 function OSInterface_ReuseFeedPlayer(uri, mainPlaylistString, who_called, ResumePosition, player) {
     if (who_called === 1 || who_called === 2) {
         mainPlaylistString = Play_FixQualities(mainPlaylistString);
+    }
+
+    // Rewrite video weaver URLs to route through ad-filtering proxy when proxy is active
+    if (use_proxy && Play_AdFilterBase) {
+        mainPlaylistString = Play_RewritePlaylistForAdFilter(mainPlaylistString);
     }
 
     Android.ReuseFeedPlayer(uri, mainPlaylistString, who_called, ResumePosition, player);
@@ -16476,6 +16489,10 @@ function OSInterface_DisableMultiStream() {
 function OSInterface_StartMultiStream(position, uri, mainPlaylistString, Restart) {
     mainPlaylistString = Play_FixQualities(mainPlaylistString);
 
+    if (use_proxy && Play_AdFilterBase) {
+        mainPlaylistString = Play_RewritePlaylistForAdFilter(mainPlaylistString);
+    }
+
     Android.StartMultiStream(position, uri, mainPlaylistString, Boolean(Restart));
 }
 
@@ -16541,6 +16558,10 @@ function OSInterface_SetPreviewOthersAudio(volume) {
 function OSInterface_StartFeedPlayer(uri, mainPlaylistString, position, resumePosition, isVod) {
     mainPlaylistString = Play_FixQualities(mainPlaylistString);
 
+    if (use_proxy && Play_AdFilterBase) {
+        mainPlaylistString = Play_RewritePlaylistForAdFilter(mainPlaylistString);
+    }
+
     Android.StartFeedPlayer(uri, mainPlaylistString, position, resumePosition, Boolean(isVod));
 }
 
@@ -16551,6 +16572,10 @@ function OSInterface_StartFeedPlayer(uri, mainPlaylistString, position, resumePo
 //Start MultiStream at position
 function OSInterface_StartSidePanelPlayer(uri, mainPlaylistString) {
     mainPlaylistString = Play_FixQualities(mainPlaylistString);
+
+    if (use_proxy && Play_AdFilterBase) {
+        mainPlaylistString = Play_RewritePlaylistForAdFilter(mainPlaylistString);
+    }
 
     Android.StartSidePanelPlayer(uri, mainPlaylistString);
 }
@@ -16585,6 +16610,10 @@ function OSInterface_SetPlayerViewSidePanel(bottom, right, left, web_height) {
 function OSInterface_StartScreensPlayer(uri, mainPlaylistString, ResumePosition, bottom, right, left, web_height, who_called) {
     if (who_called === 1 || who_called === 2) {
         mainPlaylistString = Play_FixQualities(mainPlaylistString);
+    }
+
+    if (use_proxy && Play_AdFilterBase) {
+        mainPlaylistString = Play_RewritePlaylistForAdFilter(mainPlaylistString);
     }
 
     Android.StartScreensPlayer(
@@ -25655,6 +25684,7 @@ function PlayExtra_updateStreamInfo() {
 
 //To pass to Java
 var Play_Headers;
+var Play_Headers_Anonymous; // headers without OAuth — used with proxy to get anonymous tokens (fewer ads, like TTV LOL PRO)
 //Live
 var play_ExtraCodecsValues;
 
@@ -25685,6 +25715,9 @@ var proxy_headers = null;
 var proxy_has_parameter = false;
 var proxy_has_token = false;
 var proxy_is_forward_proxy = false;
+
+var Play_AdFilterBase = ''; // base URL for ad-filtering proxy (e.g. http://192.168.1.100:8080)
+var Play_AdFilterEnabled = true; // enable ad filtering via local proxy when proxy is active
 
 //var proxy_ping_url = 'https://api.ttv.lol/ping';
 
@@ -25724,7 +25757,7 @@ function PlayHLS_GetToken(isLive, Channel_or_VOD_Id, CheckId_y, CheckId_x, callB
         DefaultHttpGetTimeout, //int timeout
         (isLive ? Play_live_token : Play_vod_token).replace('%x', Channel_or_VOD_Id), // String postMessage
         'POST', //String Method
-        Play_Headers, //String JsonHeadersArray
+        useProxy ? Play_Headers_Anonymous : Play_Headers, //String JsonHeadersArray (anonymous when proxy = no OAuth = fewer ads)
         'PlayHLS_GetTokenResult', //String callback
         CheckId_y, //long checkResult
         isLive ? '1' : '0', //String check_1
@@ -26021,6 +26054,20 @@ function PlayHLS_GetPlayListSyncUrl(isLive, Channel_or_VOD_Id, useProxy, Token, 
     }
 
     return null;
+}
+
+// Rewrite video weaver URLs in master playlist to route through local ad-filtering proxy
+function Play_RewritePlaylistForAdFilter(playlist) {
+    if (!Play_AdFilterEnabled || !Play_AdFilterBase || !playlist) return playlist;
+
+    // Rewrite video weaver URLs (https://xxx.playlist.ttvnw.net/v1/playlist/...m3u8)
+    // to go through the local ad-filtering proxy
+    return playlist.replace(
+        /(https:\/\/[a-z0-9-]+\.playlist\.ttvnw\.net\/v1\/playlist\/[^\s"']+\.m3u8)/g,
+        function(match) {
+            return Play_AdFilterBase + '/proxy/playlist?url=' + encodeURIComponent(match);
+        }
+    );
 }
 
 /*
@@ -38551,6 +38598,12 @@ function Settings_proxy_set_start() {
     Settings_proxy_set_Type();
     if (use_proxy && proxy_is_forward_proxy) {
         OSInterface_SetProxyUrl(proxy_url);
+
+        // Set ad-filtering proxy base URL from page origin
+        if (Play_AdFilterEnabled && !Play_AdFilterBase) {
+            Play_AdFilterBase = window.location.origin;
+            Main_Log('AdFilter: base URL set to ' + Play_AdFilterBase);
+        }
     }
     Main_Log('Proxy: use_proxy=' + use_proxy + ' proxyType=' + proxyType);
 }

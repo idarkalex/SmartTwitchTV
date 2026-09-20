@@ -2237,6 +2237,7 @@ function HttpGetSetUserHeader() {
     }
 
     Play_Headers = JSON.stringify(header);
+    Play_Headers_Anonymous = JSON.stringify([[clientIdHeader, AddCode_backup_client_id]]); // no OAuth = anonymous token = fewer ads
 }
 
 function FullxmlHttpGet(theUrl, Headers, callbackSuccess, calbackError, key, checkResult, Method, postMessage) {
@@ -3744,6 +3745,7 @@ function Main_Set() {
         Chat_token = atob(Chat_token);
 
         Play_Headers = JSON.stringify([['Client-ID', Chat_token]]);
+        Play_Headers_Anonymous = Play_Headers; // same at startup, no user logged in yet
     }
 
     GDriveClientKey = atob(GDriveClientKey);

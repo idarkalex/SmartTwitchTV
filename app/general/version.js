@@ -21,16 +21,16 @@
 //Spacing for release maker not trow errors from jshint
 var version = {
     VersionBase: '3.0',
-    publishVersionCode: 390, //Always update (+1 to current value) Main_version_java after update publishVersionCode or a major update of the apk is released
-    ApkUrl: 'https://github.com/idarkalex/SmartTwitchTV/releases/download/v390/SmartTV_twitch__390.apk',
+    publishVersionCode: 391, //Always update (+1 to current value) Main_version_java after update publishVersionCode or a major update of the apk is released
+    ApkUrl: 'https://github.com/idarkalex/SmartTwitchTV/releases/download/v391/SmartTV_twitch__391.apk',
     WebVersion: 'September 20 2026',
-    WebTag: 737, //Always update (+1 to current value) Main_version_web after update Main_minversion or a major update of the web part of the app
+    WebTag: 738, //Always update (+1 to current value) Main_version_web after update Main_minversion or a major update of the web part of the app
     changelog: [
         {
             title: 'September 20 2026',
             changes: [
-                'Forward proxy now active from app startup (all API requests routed through proxy, not just stream playback)',
-                'Fixed ad targeting leak: initial auth requests no longer bypass proxy',
+                'Ad filtering: proxy intercepts HLS manifests and strips ad segments (SSAI)',
+                'Anonymous token mode: proxy requests now skip OAuth to reduce ad targeting',
                 'General performance improvements and bug fixes'
             ]
         },

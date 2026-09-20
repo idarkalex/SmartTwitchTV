@@ -20,6 +20,7 @@
 
 //To pass to Java
 var Play_Headers;
+var Play_Headers_Anonymous; // headers without OAuth — used with proxy to get anonymous tokens (fewer ads, like TTV LOL PRO)
 //Live
 var play_ExtraCodecsValues;
 
@@ -50,6 +51,9 @@ var proxy_headers = null;
 var proxy_has_parameter = false;
 var proxy_has_token = false;
 var proxy_is_forward_proxy = false;
+
+var Play_AdFilterBase = ''; // base URL for ad-filtering proxy (e.g. http://192.168.1.100:8080)
+var Play_AdFilterEnabled = true; // enable ad filtering via local proxy when proxy is active
 
 //var proxy_ping_url = 'https://api.ttv.lol/ping';
 
@@ -89,7 +93,7 @@ function PlayHLS_GetToken(isLive, Channel_or_VOD_Id, CheckId_y, CheckId_x, callB
         DefaultHttpGetTimeout, //int timeout
         (isLive ? Play_live_token : Play_vod_token).replace('%x', Channel_or_VOD_Id), // String postMessage
         'POST', //String Method
-        Play_Headers, //String JsonHeadersArray
+        useProxy ? Play_Headers_Anonymous : Play_Headers, //String JsonHeadersArray (anonymous when proxy = no OAuth = fewer ads)
         'PlayHLS_GetTokenResult', //String callback
         CheckId_y, //long checkResult
         isLive ? '1' : '0', //String check_1
@@ -386,4 +390,18 @@ function PlayHLS_GetPlayListSyncUrl(isLive, Channel_or_VOD_Id, useProxy, Token, 
     }
 
     return null;
+}
+
+// Rewrite video weaver URLs in master playlist to route through local ad-filtering proxy
+function Play_RewritePlaylistForAdFilter(playlist) {
+    if (!Play_AdFilterEnabled || !Play_AdFilterBase || !playlist) return playlist;
+
+    // Rewrite video weaver URLs (https://xxx.playlist.ttvnw.net/v1/playlist/...m3u8)
+    // to go through the local ad-filtering proxy
+    return playlist.replace(
+        /(https:\/\/[a-z0-9-]+\.playlist\.ttvnw\.net\/v1\/playlist\/[^\s"']+\.m3u8)/g,
+        function(match) {
+            return Play_AdFilterBase + '/proxy/playlist?url=' + encodeURIComponent(match);
+        }
+    );
 }
