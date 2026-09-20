@@ -371,12 +371,6 @@ function OSInterface_StartAuto(uri, mainPlaylistString, who_called, ResumePositi
         mainPlaylistString = Play_FixQualities(mainPlaylistString);
     }
 
-    // Rewrite video weaver URLs to route through ad-filtering proxy when proxy is active
-    if (use_proxy && Play_AdFilterBase) {
-        mainPlaylistString = Play_RewritePlaylistForAdFilter(mainPlaylistString);
-        Main_Log('AdFilter: Playlist rewritten to route through ' + Play_AdFilterBase);
-    }
-
     Android.StartAuto(uri, mainPlaylistString, who_called, ResumePosition, player);
 }
 
@@ -391,11 +385,6 @@ function OSInterface_StartAuto(uri, mainPlaylistString, who_called, ResumePositi
 function OSInterface_ReuseFeedPlayer(uri, mainPlaylistString, who_called, ResumePosition, player) {
     if (who_called === 1 || who_called === 2) {
         mainPlaylistString = Play_FixQualities(mainPlaylistString);
-    }
-
-    // Rewrite video weaver URLs to route through ad-filtering proxy when proxy is active
-    if (use_proxy && Play_AdFilterBase) {
-        mainPlaylistString = Play_RewritePlaylistForAdFilter(mainPlaylistString);
     }
 
     Android.ReuseFeedPlayer(uri, mainPlaylistString, who_called, ResumePosition, player);
@@ -753,10 +742,6 @@ function OSInterface_DisableMultiStream() {
 function OSInterface_StartMultiStream(position, uri, mainPlaylistString, Restart) {
     mainPlaylistString = Play_FixQualities(mainPlaylistString);
 
-    if (use_proxy && Play_AdFilterBase) {
-        mainPlaylistString = Play_RewritePlaylistForAdFilter(mainPlaylistString);
-    }
-
     Android.StartMultiStream(position, uri, mainPlaylistString, Boolean(Restart));
 }
 
@@ -822,10 +807,6 @@ function OSInterface_SetPreviewOthersAudio(volume) {
 function OSInterface_StartFeedPlayer(uri, mainPlaylistString, position, resumePosition, isVod) {
     mainPlaylistString = Play_FixQualities(mainPlaylistString);
 
-    if (use_proxy && Play_AdFilterBase) {
-        mainPlaylistString = Play_RewritePlaylistForAdFilter(mainPlaylistString);
-    }
-
     Android.StartFeedPlayer(uri, mainPlaylistString, position, resumePosition, Boolean(isVod));
 }
 
@@ -836,10 +817,6 @@ function OSInterface_StartFeedPlayer(uri, mainPlaylistString, position, resumePo
 //Start MultiStream at position
 function OSInterface_StartSidePanelPlayer(uri, mainPlaylistString) {
     mainPlaylistString = Play_FixQualities(mainPlaylistString);
-
-    if (use_proxy && Play_AdFilterBase) {
-        mainPlaylistString = Play_RewritePlaylistForAdFilter(mainPlaylistString);
-    }
 
     Android.StartSidePanelPlayer(uri, mainPlaylistString);
 }
@@ -874,10 +851,6 @@ function OSInterface_SetPlayerViewSidePanel(bottom, right, left, web_height) {
 function OSInterface_StartScreensPlayer(uri, mainPlaylistString, ResumePosition, bottom, right, left, web_height, who_called) {
     if (who_called === 1 || who_called === 2) {
         mainPlaylistString = Play_FixQualities(mainPlaylistString);
-    }
-
-    if (use_proxy && Play_AdFilterBase) {
-        mainPlaylistString = Play_RewritePlaylistForAdFilter(mainPlaylistString);
     }
 
     Android.StartScreensPlayer(
