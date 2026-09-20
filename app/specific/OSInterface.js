@@ -153,6 +153,12 @@ function OSInterface_XmlHttpGetFull(
     callBackError
 ) {
     try {
+        if (Main_LogBuffer) {
+            var proxyStatus = Main_ProxyUrl ? 'PROXY=' + Main_ProxyUrl : 'DIRECT';
+            var domain = '';
+            try { domain = urlString.split('/')[2]; } catch (e) {}
+            Main_Log('HTTP: XmlHttpGetFull ' + (Method || 'GET') + ' ' + domain + ' [' + proxyStatus + '] cb=' + callback);
+        }
         Android.XmlHttpGetFull(
             urlString,
             timeout,
@@ -177,9 +183,13 @@ function OSInterface_XmlHttpGetFull(
     }
 }
 
+var Main_ProxyUrl = '';
+
 function OSInterface_SetProxyUrl(url) {
     try {
-        Android.SetProxyUrl(url || '');
+        Main_ProxyUrl = url || '';
+        Android.SetProxyUrl(Main_ProxyUrl);
+        Main_Log('Proxy: SetProxyUrl -> ' + (Main_ProxyUrl || 'DIRECT (no proxy)'));
     } catch (e) {}
 }
 
@@ -198,7 +208,14 @@ function OSInterface_BaseXmlHttpGet(
     callBackSuccess,
     calBackError
 ) {
-    Android.BasexmlHttpGet(
+    try {
+        if (Main_LogBuffer) {
+            var proxyStatus = Main_ProxyUrl ? 'PROXY=' + Main_ProxyUrl : 'DIRECT';
+            var domain = '';
+            try { domain = urlString.split('/')[2]; } catch (e) {}
+            Main_Log('HTTP: BasexmlHttpGet ' + (Method || 'GET') + ' ' + domain + ' [' + proxyStatus + '] cb=' + callback);
+        }
+        Android.BasexmlHttpGet(
         urlString,
         timeout,
         postMessage,
@@ -223,6 +240,12 @@ function OSInterface_BaseXmlHttpGet(
 //Android specific: false
 //Allows to make a http request in a sync function on a url that if called from JS will fail do to CORS error
 function OSInterface_mMethodUrlHeaders(urlString, timeout, postMessage, Method, checkResult, JsonHeadersArray) {
+    if (Main_LogBuffer) {
+        var proxyStatus = Main_ProxyUrl ? 'PROXY=' + Main_ProxyUrl : 'DIRECT';
+        var domain = '';
+        try { domain = urlString.split('/')[2]; } catch (e) {}
+        Main_Log('HTTP: mMethodUrlHeaders ' + (Method || 'GET') + ' ' + domain + ' [' + proxyStatus + '] SYNC');
+    }
     return Android.mMethodUrlHeaders(urlString, timeout, postMessage, Method, checkResult, JsonHeadersArray);
 }
 

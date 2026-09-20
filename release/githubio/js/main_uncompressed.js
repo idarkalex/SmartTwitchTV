@@ -3419,6 +3419,7 @@ var checkiko;
 function AddCode_AppTokenCheck() {
     var header = [[Main_Authorization, Bearer + AddCode_main_token]];
     if (Main_IsOn_OSInterface) {
+        Main_Log('OAuth: AppTokenCheck via mMethodUrlHeaders SYNC — proxy=' + (Main_ProxyUrl || 'NONE') + ' (this request likely bypasses proxy!)');
         var result = OSInterface_mMethodUrlHeaders(AddCode_ValidateUrl, DefaultHttpGetTimeout, null, null, 0, JSON.stringify(header));
 
         if (result) {
@@ -3460,6 +3461,7 @@ function AddCode_AppToken(position, callbackFunc, callbackFuncNOK, key, sync) {
 
     //Run in synchronous mode to prevent anything happening until user token is restored
     if (Main_IsOn_OSInterface && sync) {
+        Main_Log('OAuth: AppToken via mMethodUrlHeaders SYNC — proxy=' + (Main_ProxyUrl || 'NONE') + ' (this request likely bypasses proxy!)');
         var result = OSInterface_mMethodUrlHeaders(url, DefaultHttpGetTimeout, 'POST', null, 0, null);
         var obj = result ? JSON.parse(result) : null;
 
@@ -8840,7 +8842,7 @@ function ChatLive_loadChat(chat_number, id, SkipStartLine) {
 
 function ChatLive_loadChatRequest(chat_number, id, SkipStartLine) {
     if (id !== Chat_Id[chat_number]) return;
-    //Main_Log('ChatLive_loadChatRequest');
+    Main_Log('Chat: WebSocket connecting to irc-ws.chat.twitch.tv — DIRECT (bypasses proxy!) proxy=' + (Main_ProxyUrl || 'NONE'));
 
     ChatLive_socket[chat_number] = new WebSocket('wss://irc-ws.chat.twitch.tv:443', 'irc');
 
@@ -9187,8 +9189,7 @@ var ChatLive_socketSendJoin = false;
 var ChatLive_socketSendCheckID;
 
 function ChatLive_SendPrepared(chat_number, id) {
-    //Main_Log('ChatLive_SendPrepared');
-
+    Main_Log('Chat: WebSocket (send) connecting to irc-ws.chat.twitch.tv — DIRECT (bypasses proxy!)');
     ChatLive_socketSend = new WebSocket('wss://irc-ws.chat.twitch.tv:443', 'irc');
 
     ChatLive_socketSend.onopen = function () {
@@ -15878,6 +15879,12 @@ function OSInterface_XmlHttpGetFull(
     callBackError
 ) {
     try {
+        if (Main_LogBuffer) {
+            var proxyStatus = Main_ProxyUrl ? 'PROXY=' + Main_ProxyUrl : 'DIRECT';
+            var domain = '';
+            try { domain = urlString.split('/')[2]; } catch (e) {}
+            Main_Log('HTTP: XmlHttpGetFull ' + (Method || 'GET') + ' ' + domain + ' [' + proxyStatus + '] cb=' + callback);
+        }
         Android.XmlHttpGetFull(
             urlString,
             timeout,
@@ -15902,9 +15909,13 @@ function OSInterface_XmlHttpGetFull(
     }
 }
 
+var Main_ProxyUrl = '';
+
 function OSInterface_SetProxyUrl(url) {
     try {
-        Android.SetProxyUrl(url || '');
+        Main_ProxyUrl = url || '';
+        Android.SetProxyUrl(Main_ProxyUrl);
+        Main_Log('Proxy: SetProxyUrl -> ' + (Main_ProxyUrl || 'DIRECT (no proxy)'));
     } catch (e) {}
 }
 
@@ -15923,7 +15934,14 @@ function OSInterface_BaseXmlHttpGet(
     callBackSuccess,
     calBackError
 ) {
-    Android.BasexmlHttpGet(
+    try {
+        if (Main_LogBuffer) {
+            var proxyStatus = Main_ProxyUrl ? 'PROXY=' + Main_ProxyUrl : 'DIRECT';
+            var domain = '';
+            try { domain = urlString.split('/')[2]; } catch (e) {}
+            Main_Log('HTTP: BasexmlHttpGet ' + (Method || 'GET') + ' ' + domain + ' [' + proxyStatus + '] cb=' + callback);
+        }
+        Android.BasexmlHttpGet(
         urlString,
         timeout,
         postMessage,
@@ -15948,6 +15966,12 @@ function OSInterface_BaseXmlHttpGet(
 //Android specific: false
 //Allows to make a http request in a sync function on a url that if called from JS will fail do to CORS error
 function OSInterface_mMethodUrlHeaders(urlString, timeout, postMessage, Method, checkResult, JsonHeadersArray) {
+    if (Main_LogBuffer) {
+        var proxyStatus = Main_ProxyUrl ? 'PROXY=' + Main_ProxyUrl : 'DIRECT';
+        var domain = '';
+        try { domain = urlString.split('/')[2]; } catch (e) {}
+        Main_Log('HTTP: mMethodUrlHeaders ' + (Method || 'GET') + ' ' + domain + ' [' + proxyStatus + '] SYNC');
+    }
     return Android.mMethodUrlHeaders(urlString, timeout, postMessage, Method, checkResult, JsonHeadersArray);
 }
 
@@ -25714,7 +25738,7 @@ function PlayHLS_GetTokenResult(result, checkResult, check_1, check_2, check_3, 
 
     var response = JSON.parse(result);
 
-    Main_Log('Proxy: GetTokenResult status=' + response.status + ' channel=' + Channel_or_VOD_Id + ' useProxy=' + useProxy);
+    Main_Log('Proxy: GetTokenResult status=' + response.status + ' channel=' + Channel_or_VOD_Id + ' useProxy=' + useProxy + ' proxyUrl=' + Main_ProxyUrl);
 
     if (response.status === 200) {
         var obj = JSON.parse(response.responseText);
@@ -25724,7 +25748,7 @@ function PlayHLS_GetTokenResult(result, checkResult, check_1, check_2, check_3, 
             var Token = tokenObj.value;
             var Sig = tokenObj.signature;
 
-            Main_Log('Proxy: GetTokenResult -> token OK, proceeding to playlist');
+            Main_Log('Proxy: GetTokenResult -> token OK via ' + (Main_ProxyUrl ? 'PROXY' : 'DIRECT') + ' — if DIRECT, Twitch saw REAL IP for ad targeting');
             PlayHLS_PlayListUrl(isLive, Channel_or_VOD_Id, checkResult, CheckId_x, callBackSuccess, Token, Sig, useProxy);
             return;
         }
@@ -25846,7 +25870,7 @@ function PlayHLS_PlayListUrlResult(result, checkResult, check_1, check_2, check_
         Main_Log('Proxy: PlayListUrlResult FAIL status=' + response.status + ' response=' + response.responseText);
         //in case we fail using proxy restart the process without using proxy
         if (isLive && useProxy && PlayHLS_CheckProxyResultFail(response.responseText)) {
-            Main_Log('Proxy: PlayListUrlResult -> FALLBACK to direct (no proxy)');
+            Main_Log('*** WARNING: PlayListUrlResult -> FALLBACK to DIRECT (no proxy) for channel=' + Channel_or_VOD_Id + ' — Twitch will see REAL IP! ***');
             OSInterface_SetProxyUrl('');
             PlayHLS_GetToken(isLive, Channel_or_VOD_Id, CheckId_y, CheckId_x, callBackSuccess, false);
             return;
@@ -25975,7 +25999,7 @@ function PlayHLS_GetPlayListSyncUrl(isLive, Channel_or_VOD_Id, useProxy, Token, 
                 Main_Log('Proxy: GetPlayListSyncUrl FAIL status=' + response.status + ' response=' + response.responseText);
                 //in case we fail using proxy restart the process without using proxy
                 if (isLive && useProxy && PlayHLS_CheckProxyResultFail(response.responseText)) {
-                    Main_Log('Proxy: GetPlayListSyncUrl -> FALLBACK to direct (no proxy)');
+                    Main_Log('*** WARNING: GetPlayListSyncUrl -> FALLBACK to DIRECT (no proxy) for channel=' + Channel_or_VOD_Id + ' — Twitch will see REAL IP! ***');
                     OSInterface_SetProxyUrl('');
                     return PlayHLS_GetPlayListSyncToken(isLive, Channel_or_VOD_Id, false);
                 } else {

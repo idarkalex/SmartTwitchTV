@@ -1075,7 +1075,7 @@ function ChatLive_loadChat(chat_number, id, SkipStartLine) {
 
 function ChatLive_loadChatRequest(chat_number, id, SkipStartLine) {
     if (id !== Chat_Id[chat_number]) return;
-    //Main_Log('ChatLive_loadChatRequest');
+    Main_Log('Chat: WebSocket connecting to irc-ws.chat.twitch.tv — DIRECT (bypasses proxy!) proxy=' + (Main_ProxyUrl || 'NONE'));
 
     ChatLive_socket[chat_number] = new WebSocket('wss://irc-ws.chat.twitch.tv:443', 'irc');
 
@@ -1422,8 +1422,7 @@ var ChatLive_socketSendJoin = false;
 var ChatLive_socketSendCheckID;
 
 function ChatLive_SendPrepared(chat_number, id) {
-    //Main_Log('ChatLive_SendPrepared');
-
+    Main_Log('Chat: WebSocket (send) connecting to irc-ws.chat.twitch.tv — DIRECT (bypasses proxy!)');
     ChatLive_socketSend = new WebSocket('wss://irc-ws.chat.twitch.tv:443', 'irc');
 
     ChatLive_socketSend.onopen = function () {

@@ -110,7 +110,7 @@ function PlayHLS_GetTokenResult(result, checkResult, check_1, check_2, check_3, 
 
     var response = JSON.parse(result);
 
-    Main_Log('Proxy: GetTokenResult status=' + response.status + ' channel=' + Channel_or_VOD_Id + ' useProxy=' + useProxy);
+    Main_Log('Proxy: GetTokenResult status=' + response.status + ' channel=' + Channel_or_VOD_Id + ' useProxy=' + useProxy + ' proxyUrl=' + Main_ProxyUrl);
 
     if (response.status === 200) {
         var obj = JSON.parse(response.responseText);
@@ -120,7 +120,7 @@ function PlayHLS_GetTokenResult(result, checkResult, check_1, check_2, check_3, 
             var Token = tokenObj.value;
             var Sig = tokenObj.signature;
 
-            Main_Log('Proxy: GetTokenResult -> token OK, proceeding to playlist');
+            Main_Log('Proxy: GetTokenResult -> token OK via ' + (Main_ProxyUrl ? 'PROXY' : 'DIRECT') + ' — if DIRECT, Twitch saw REAL IP for ad targeting');
             PlayHLS_PlayListUrl(isLive, Channel_or_VOD_Id, checkResult, CheckId_x, callBackSuccess, Token, Sig, useProxy);
             return;
         }
@@ -242,7 +242,7 @@ function PlayHLS_PlayListUrlResult(result, checkResult, check_1, check_2, check_
         Main_Log('Proxy: PlayListUrlResult FAIL status=' + response.status + ' response=' + response.responseText);
         //in case we fail using proxy restart the process without using proxy
         if (isLive && useProxy && PlayHLS_CheckProxyResultFail(response.responseText)) {
-            Main_Log('Proxy: PlayListUrlResult -> FALLBACK to direct (no proxy)');
+            Main_Log('*** WARNING: PlayListUrlResult -> FALLBACK to DIRECT (no proxy) for channel=' + Channel_or_VOD_Id + ' — Twitch will see REAL IP! ***');
             OSInterface_SetProxyUrl('');
             PlayHLS_GetToken(isLive, Channel_or_VOD_Id, CheckId_y, CheckId_x, callBackSuccess, false);
             return;
@@ -371,7 +371,7 @@ function PlayHLS_GetPlayListSyncUrl(isLive, Channel_or_VOD_Id, useProxy, Token, 
                 Main_Log('Proxy: GetPlayListSyncUrl FAIL status=' + response.status + ' response=' + response.responseText);
                 //in case we fail using proxy restart the process without using proxy
                 if (isLive && useProxy && PlayHLS_CheckProxyResultFail(response.responseText)) {
-                    Main_Log('Proxy: GetPlayListSyncUrl -> FALLBACK to direct (no proxy)');
+                    Main_Log('*** WARNING: GetPlayListSyncUrl -> FALLBACK to DIRECT (no proxy) for channel=' + Channel_or_VOD_Id + ' — Twitch will see REAL IP! ***');
                     OSInterface_SetProxyUrl('');
                     return PlayHLS_GetPlayListSyncToken(isLive, Channel_or_VOD_Id, false);
                 } else {

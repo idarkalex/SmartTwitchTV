@@ -33,6 +33,7 @@ var checkiko;
 function AddCode_AppTokenCheck() {
     var header = [[Main_Authorization, Bearer + AddCode_main_token]];
     if (Main_IsOn_OSInterface) {
+        Main_Log('OAuth: AppTokenCheck via mMethodUrlHeaders SYNC — proxy=' + (Main_ProxyUrl || 'NONE') + ' (this request likely bypasses proxy!)');
         var result = OSInterface_mMethodUrlHeaders(AddCode_ValidateUrl, DefaultHttpGetTimeout, null, null, 0, JSON.stringify(header));
 
         if (result) {
@@ -74,6 +75,7 @@ function AddCode_AppToken(position, callbackFunc, callbackFuncNOK, key, sync) {
 
     //Run in synchronous mode to prevent anything happening until user token is restored
     if (Main_IsOn_OSInterface && sync) {
+        Main_Log('OAuth: AppToken via mMethodUrlHeaders SYNC — proxy=' + (Main_ProxyUrl || 'NONE') + ' (this request likely bypasses proxy!)');
         var result = OSInterface_mMethodUrlHeaders(url, DefaultHttpGetTimeout, 'POST', null, 0, null);
         var obj = result ? JSON.parse(result) : null;
 
