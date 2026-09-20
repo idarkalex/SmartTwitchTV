@@ -1531,42 +1531,94 @@ var proxyArrayFull = ['k_twitch', 'ttv_lolProxy', 'T1080', 'custom_proxy', 'disa
 var proxyType = 'disabled';
 
 function Settings_set_all_proxy(current) {
-    var currentEnable = Settings_Obj_default(current) === 1;
-
-    use_proxy = currentEnable;
-    Main_Log('Proxy: set_all_proxy current=' + current + ' enabled=' + currentEnable);
+    var currentEnable = Settings_Obj_default(current) === 1,
+        enabledProxy = '',
+        i = 0,
+        len = proxyArray.length;
 
     if (currentEnable) {
         Settings_proxy_set_current(current);
-        Main_Log('Proxy: set_all_proxy url=' + proxy_url + ' has_token=' + proxy_has_token + ' has_parameter=' + proxy_has_parameter);
+        Main_Log('Proxy: set_all_proxy current=' + current + ' url=' + proxy_url + ' has_token=' + proxy_has_token + ' has_parameter=' + proxy_has_parameter);
 
-        var i = 0,
-            len = proxyArray.length;
         for (i; i < len; i++) {
             if (proxyArray[i] !== current && Settings_Obj_default(proxyArray[i]) === 1) {
                 Settings_DialogRightLeftAfter(proxyArray[i], -1, true);
             }
         }
     }
+
+    for (i = 0; i < len; i++) {
+        if (Settings_Obj_default(proxyArray[i]) === 1) {
+            enabledProxy = proxyArray[i];
+            break;
+        }
+    }
+
+    use_proxy = enabledProxy !== '';
+    if (use_proxy) {
+        Settings_proxy_set_current(enabledProxy);
+    } else {
+        Play_AdFilterBase = '';
+        proxy_url = '';
+        proxy_headers = null;
+        proxy_has_parameter = false;
+        proxy_has_token = false;
+        proxy_is_forward_proxy = false;
+    }
+
+    Main_Log('Proxy: set_all_proxy enabled=' + use_proxy + ' proxy=' + enabledProxy);
     Settings_proxy_set_Type();
+    if (use_proxy && proxy_is_forward_proxy) {
+        OSInterface_SetProxyUrl(proxy_url);
+    } else {
+        OSInterface_SetProxyUrl('');
+    }
+    Settings_proxy_set_ad_filter_base();
+}
+
+function Settings_proxy_set_ad_filter_base() {
+    Play_AdFilterBase = '';
+    if (!use_proxy || !proxy_is_forward_proxy || !Play_AdFilterEnabled || !proxy_url) return;
+
+    var proxyMatch = proxy_url.match(/^(https?):\/\/([^\/:?#]+)/);
+    if (!proxyMatch) {
+        Main_Log('AdFilter: failed to parse proxy_url: ' + proxy_url);
+        return;
+    }
+
+    Play_AdFilterBase = proxyMatch[1] + '//' + proxyMatch[2] + ':8120';
+    Main_Log('AdFilter: base URL set to ' + Play_AdFilterBase);
 }
 
 function Settings_proxy_set_start() {
     var i = 0,
-        len = proxyArray.length;
+        len = proxyArray.length,
+        enabledProxy = '';
     use_proxy = false;
+    Play_AdFilterBase = '';
+    proxy_url = '';
+    proxy_headers = null;
+    proxy_has_parameter = false;
+    proxy_has_token = false;
+    proxy_is_forward_proxy = false;
     for (i; i < len; i++) {
         if (Settings_Obj_default(proxyArray[i]) === 1) {
-            use_proxy = true;
-            Settings_proxy_set_current(proxyArray[i]);
-            Main_Log('Proxy: init proxy=' + proxyArray[i] + ' url=' + proxy_url + ' has_token=' + proxy_has_token + ' has_parameter=' + proxy_has_parameter + ' timeout=' + proxy_timeout);
+            enabledProxy = proxyArray[i];
             break;
         }
+    }
+    if (enabledProxy) {
+        use_proxy = true;
+        Settings_proxy_set_current(enabledProxy);
+        Main_Log('Proxy: init proxy=' + enabledProxy + ' url=' + proxy_url + ' has_token=' + proxy_has_token + ' has_parameter=' + proxy_has_parameter + ' timeout=' + proxy_timeout);
     }
     Settings_proxy_set_Type();
     if (use_proxy && proxy_is_forward_proxy) {
         OSInterface_SetProxyUrl(proxy_url);
+    } else {
+        OSInterface_SetProxyUrl('');
     }
+    Settings_proxy_set_ad_filter_base();
     Main_Log('Proxy: use_proxy=' + use_proxy + ' proxyType=' + proxyType);
 }
 

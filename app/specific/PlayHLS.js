@@ -325,7 +325,7 @@ function PlayHLS_GetPlayListSyncToken(isLive, Channel_or_VOD_Id, useProxy) {
             (isLive ? Play_live_token : Play_vod_token).replace('%x', Channel_or_VOD_Id), //postMessage
             'POST', //Method
             0, //checkResult
-            Play_Headers //JsonHeadersArray
+            useProxy ? Play_Headers_Anonymous : Play_Headers //JsonHeadersArray
         );
 
         if (obj) {
@@ -399,7 +399,7 @@ function Play_RewritePlaylistForAdFilter(playlist) {
     // Rewrite video weaver URLs (https://xxx.playlist.ttvnw.net/v1/playlist/...m3u8)
     // to go through the local ad-filtering proxy
     return playlist.replace(
-        /(https:\/\/[a-z0-9-]+\.playlist\.ttvnw\.net\/v1\/playlist\/[^\s"']+\.m3u8)/g,
+        /(https?:\/\/(?:[a-z0-9-]+\.)+(?:ttvnw\.net|twitch\.tv)\/[^\s"']+?\.m3u8(?:[?#][^\s"']*)?)/gi,
         function(match) {
             return Play_AdFilterBase + '/proxy/playlist?url=' + encodeURIComponent(match);
         }

@@ -3310,17 +3310,17 @@ function calculateFontSizeTizen() {
 //Spacing for release maker not trow errors from jshint
 var version = {
     VersionBase: '3.0',
-    publishVersionCode: 391, //Always update (+1 to current value) Main_version_java after update publishVersionCode or a major update of the apk is released
-    ApkUrl: 'https://github.com/idarkalex/SmartTwitchTV/releases/download/v391/SmartTV_twitch__391.apk',
+    publishVersionCode: 392, //Always update (+1 to current value) Main_version_java after update publishVersionCode or a major update of the apk is released
+    ApkUrl: 'https://github.com/idarkalex/SmartTwitchTV/releases/download/v392/SmartTV_twitch__392.apk',
     WebVersion: 'September 20 2026',
-    WebTag: 738, //Always update (+1 to current value) Main_version_web after update Main_minversion or a major update of the web part of the app
+    WebTag: 739, //Always update (+1 to current value) Main_version_web after update Main_minversion or a major update of the web part of the app
     changelog: [
         {
             title: 'September 20 2026',
             changes: [
-                'Ad filtering: proxy intercepts HLS manifests and strips ad segments (SSAI)',
+                'Ad filtering: Docker sidecar proxies HLS manifests and strips SSAI ad segments',
                 'Anonymous token mode: proxy requests now skip OAuth to reduce ad targeting',
-                'General performance improvements and bug fixes'
+                'Fixed TV playlist rewrite to use the Docker ad-filtering proxy'
             ]
         },
         {
@@ -16107,6 +16107,10 @@ function OSInterface_StartAuto(uri, mainPlaylistString, who_called, ResumePositi
         mainPlaylistString = Play_FixQualities(mainPlaylistString);
     }
 
+    if (use_proxy && Play_AdFilterBase) {
+        mainPlaylistString = Play_RewritePlaylistForAdFilter(mainPlaylistString);
+    }
+
     Android.StartAuto(uri, mainPlaylistString, who_called, ResumePosition, player);
 }
 
@@ -16121,6 +16125,10 @@ function OSInterface_StartAuto(uri, mainPlaylistString, who_called, ResumePositi
 function OSInterface_ReuseFeedPlayer(uri, mainPlaylistString, who_called, ResumePosition, player) {
     if (who_called === 1 || who_called === 2) {
         mainPlaylistString = Play_FixQualities(mainPlaylistString);
+    }
+
+    if (use_proxy && Play_AdFilterBase) {
+        mainPlaylistString = Play_RewritePlaylistForAdFilter(mainPlaylistString);
     }
 
     Android.ReuseFeedPlayer(uri, mainPlaylistString, who_called, ResumePosition, player);
@@ -16478,6 +16486,10 @@ function OSInterface_DisableMultiStream() {
 function OSInterface_StartMultiStream(position, uri, mainPlaylistString, Restart) {
     mainPlaylistString = Play_FixQualities(mainPlaylistString);
 
+    if (use_proxy && Play_AdFilterBase) {
+        mainPlaylistString = Play_RewritePlaylistForAdFilter(mainPlaylistString);
+    }
+
     Android.StartMultiStream(position, uri, mainPlaylistString, Boolean(Restart));
 }
 
@@ -16543,6 +16555,10 @@ function OSInterface_SetPreviewOthersAudio(volume) {
 function OSInterface_StartFeedPlayer(uri, mainPlaylistString, position, resumePosition, isVod) {
     mainPlaylistString = Play_FixQualities(mainPlaylistString);
 
+    if (use_proxy && Play_AdFilterBase) {
+        mainPlaylistString = Play_RewritePlaylistForAdFilter(mainPlaylistString);
+    }
+
     Android.StartFeedPlayer(uri, mainPlaylistString, position, resumePosition, Boolean(isVod));
 }
 
@@ -16553,6 +16569,10 @@ function OSInterface_StartFeedPlayer(uri, mainPlaylistString, position, resumePo
 //Start MultiStream at position
 function OSInterface_StartSidePanelPlayer(uri, mainPlaylistString) {
     mainPlaylistString = Play_FixQualities(mainPlaylistString);
+
+    if (use_proxy && Play_AdFilterBase) {
+        mainPlaylistString = Play_RewritePlaylistForAdFilter(mainPlaylistString);
+    }
 
     Android.StartSidePanelPlayer(uri, mainPlaylistString);
 }
@@ -16587,6 +16607,10 @@ function OSInterface_SetPlayerViewSidePanel(bottom, right, left, web_height) {
 function OSInterface_StartScreensPlayer(uri, mainPlaylistString, ResumePosition, bottom, right, left, web_height, who_called) {
     if (who_called === 1 || who_called === 2) {
         mainPlaylistString = Play_FixQualities(mainPlaylistString);
+    }
+
+    if (use_proxy && Play_AdFilterBase) {
+        mainPlaylistString = Play_RewritePlaylistForAdFilter(mainPlaylistString);
     }
 
     Android.StartScreensPlayer(
@@ -23516,7 +23540,7 @@ function Play_MakeControlsDefinitions() {
                     Settings_value[key].defaultValue = 0;
                     Main_setItem(key, 1);
                 }
-                use_proxy = false;
+                Settings_set_all_proxy(proxyArray[0]);
             }
 
             if (Main_IsOn_OSInterface && currentProxyEnabled !== Settings_get_enabled_Proxy()) {
@@ -25962,7 +25986,7 @@ function PlayHLS_GetPlayListSyncToken(isLive, Channel_or_VOD_Id, useProxy) {
             (isLive ? Play_live_token : Play_vod_token).replace('%x', Channel_or_VOD_Id), //postMessage
             'POST', //Method
             0, //checkResult
-            Play_Headers //JsonHeadersArray
+            useProxy ? Play_Headers_Anonymous : Play_Headers //JsonHeadersArray
         );
 
         if (obj) {
@@ -26036,7 +26060,7 @@ function Play_RewritePlaylistForAdFilter(playlist) {
     // Rewrite video weaver URLs (https://xxx.playlist.ttvnw.net/v1/playlist/...m3u8)
     // to go through the local ad-filtering proxy
     return playlist.replace(
-        /(https:\/\/[a-z0-9-]+\.playlist\.ttvnw\.net\/v1\/playlist\/[^\s"']+\.m3u8)/g,
+        /(https?:\/\/(?:[a-z0-9-]+\.)+(?:ttvnw\.net|twitch\.tv)\/[^\s"']+?\.m3u8(?:[?#][^\s"']*)?)/gi,
         function(match) {
             return Play_AdFilterBase + '/proxy/playlist?url=' + encodeURIComponent(match);
         }
@@ -38536,42 +38560,94 @@ var proxyArrayFull = ['k_twitch', 'ttv_lolProxy', 'T1080', 'custom_proxy', 'disa
 var proxyType = 'disabled';
 
 function Settings_set_all_proxy(current) {
-    var currentEnable = Settings_Obj_default(current) === 1;
-
-    use_proxy = currentEnable;
-    Main_Log('Proxy: set_all_proxy current=' + current + ' enabled=' + currentEnable);
+    var currentEnable = Settings_Obj_default(current) === 1,
+        enabledProxy = '',
+        i = 0,
+        len = proxyArray.length;
 
     if (currentEnable) {
         Settings_proxy_set_current(current);
-        Main_Log('Proxy: set_all_proxy url=' + proxy_url + ' has_token=' + proxy_has_token + ' has_parameter=' + proxy_has_parameter);
+        Main_Log('Proxy: set_all_proxy current=' + current + ' url=' + proxy_url + ' has_token=' + proxy_has_token + ' has_parameter=' + proxy_has_parameter);
 
-        var i = 0,
-            len = proxyArray.length;
         for (i; i < len; i++) {
             if (proxyArray[i] !== current && Settings_Obj_default(proxyArray[i]) === 1) {
                 Settings_DialogRightLeftAfter(proxyArray[i], -1, true);
             }
         }
     }
+
+    for (i = 0; i < len; i++) {
+        if (Settings_Obj_default(proxyArray[i]) === 1) {
+            enabledProxy = proxyArray[i];
+            break;
+        }
+    }
+
+    use_proxy = enabledProxy !== '';
+    if (use_proxy) {
+        Settings_proxy_set_current(enabledProxy);
+    } else {
+        Play_AdFilterBase = '';
+        proxy_url = '';
+        proxy_headers = null;
+        proxy_has_parameter = false;
+        proxy_has_token = false;
+        proxy_is_forward_proxy = false;
+    }
+
+    Main_Log('Proxy: set_all_proxy enabled=' + use_proxy + ' proxy=' + enabledProxy);
     Settings_proxy_set_Type();
+    if (use_proxy && proxy_is_forward_proxy) {
+        OSInterface_SetProxyUrl(proxy_url);
+    } else {
+        OSInterface_SetProxyUrl('');
+    }
+    Settings_proxy_set_ad_filter_base();
+}
+
+function Settings_proxy_set_ad_filter_base() {
+    Play_AdFilterBase = '';
+    if (!use_proxy || !proxy_is_forward_proxy || !Play_AdFilterEnabled || !proxy_url) return;
+
+    var proxyMatch = proxy_url.match(/^(https?):\/\/([^\/:?#]+)/);
+    if (!proxyMatch) {
+        Main_Log('AdFilter: failed to parse proxy_url: ' + proxy_url);
+        return;
+    }
+
+    Play_AdFilterBase = proxyMatch[1] + '//' + proxyMatch[2] + ':8120';
+    Main_Log('AdFilter: base URL set to ' + Play_AdFilterBase);
 }
 
 function Settings_proxy_set_start() {
     var i = 0,
-        len = proxyArray.length;
+        len = proxyArray.length,
+        enabledProxy = '';
     use_proxy = false;
+    Play_AdFilterBase = '';
+    proxy_url = '';
+    proxy_headers = null;
+    proxy_has_parameter = false;
+    proxy_has_token = false;
+    proxy_is_forward_proxy = false;
     for (i; i < len; i++) {
         if (Settings_Obj_default(proxyArray[i]) === 1) {
-            use_proxy = true;
-            Settings_proxy_set_current(proxyArray[i]);
-            Main_Log('Proxy: init proxy=' + proxyArray[i] + ' url=' + proxy_url + ' has_token=' + proxy_has_token + ' has_parameter=' + proxy_has_parameter + ' timeout=' + proxy_timeout);
+            enabledProxy = proxyArray[i];
             break;
         }
+    }
+    if (enabledProxy) {
+        use_proxy = true;
+        Settings_proxy_set_current(enabledProxy);
+        Main_Log('Proxy: init proxy=' + enabledProxy + ' url=' + proxy_url + ' has_token=' + proxy_has_token + ' has_parameter=' + proxy_has_parameter + ' timeout=' + proxy_timeout);
     }
     Settings_proxy_set_Type();
     if (use_proxy && proxy_is_forward_proxy) {
         OSInterface_SetProxyUrl(proxy_url);
+    } else {
+        OSInterface_SetProxyUrl('');
     }
+    Settings_proxy_set_ad_filter_base();
     Main_Log('Proxy: use_proxy=' + use_proxy + ' proxyType=' + proxyType);
 }
 

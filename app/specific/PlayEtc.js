@@ -3032,7 +3032,7 @@ function Play_MakeControlsDefinitions() {
                     Settings_value[key].defaultValue = 0;
                     Main_setItem(key, 1);
                 }
-                use_proxy = false;
+                Settings_set_all_proxy(proxyArray[0]);
             }
 
             if (Main_IsOn_OSInterface && currentProxyEnabled !== Settings_get_enabled_Proxy()) {
