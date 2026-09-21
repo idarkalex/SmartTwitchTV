@@ -500,6 +500,7 @@ function Play_getStreamData(channel_name) {
 var streamTitle;
 var streamGame;
 var streamViewers;
+var Play_twemojiCache = {};
 
 function Play_UpdateMainStreamDiv() {
     if (!Play_data.data.length) {
@@ -507,7 +508,11 @@ function Play_UpdateMainStreamDiv() {
     }
 
     if (streamTitle !== Play_data.data[2]) {
-        Main_innerHTML('stream_info_title', twemoji.parse(Play_data.data[2], false, true));
+        var title = Play_data.data[2];
+        if (!Play_twemojiCache[title]) {
+            Play_twemojiCache[title] = twemoji.parse(title, false, true);
+        }
+        Main_innerHTML('stream_info_title', Play_twemojiCache[title]);
     }
     streamTitle = Play_data.data[2];
 
@@ -1571,11 +1576,9 @@ function Play_qualityReset() {
 }
 
 function Play_showPanel() {
-    Play_updateStreamInfo();
-
-    if (Play_getQualitiesFail) {
-        Play_getQualities(1, true);
-    }
+    Play_CleanHideExit();
+    Play_ForceShowPannel();
+    Play_ResetPanel(1);
 
     if (!Play_StayDialogVisible()) {
         PlayVod_RefreshProgressBarrStart(true, 0);
@@ -1586,9 +1589,13 @@ function Play_showPanel() {
         PlayVod_RefreshProgressBarrID = Main_setInterval(Play_RefreshWatchingTime, 1000, PlayVod_RefreshProgressBarrID);
     }
 
-    Play_CleanHideExit();
-    Play_ForceShowPannel();
-    Play_ResetPanel(1);
+    Main_setTimeout(function () {
+        Play_updateStreamInfo();
+    }, 0);
+
+    if (Play_getQualitiesFail) {
+        Play_getQualities(1, true);
+    }
 }
 
 function Play_RefreshWatchingTime() {

@@ -4084,8 +4084,12 @@ function Play_SetControlsArrows(key) {
 
 function Play_SetControlsVisibility(prop) {
     for (var key in Play_controls) {
-        if (Play_controls[key][prop]) Play_BottomShow(key);
-        else Play_BottomHide(key);
+        var ctrl = Play_controls[key];
+        var shouldBeVisible = !!ctrl[prop];
+        if (ctrl.visible !== shouldBeVisible) {
+            ctrl.doc.style.display = shouldBeVisible ? '' : 'none';
+            ctrl.visible = shouldBeVisible;
+        }
     }
 
     if (!Play_controls[Play_PanelCounter].visible) {
@@ -4443,10 +4447,12 @@ function Play_BottonIconsHide(hideType) {
 }
 
 function Play_BottonIconsShow(skipInfo) {
-    Main_RemoveClassWithEle(Play_pause_next_div, 'opacity_zero');
-    Main_RemoveClassWithEle(Play_info_div, 'opacity_zero');
-    Main_RemoveClassWithEle(Play_Controls_Holder, 'opacity_zero');
-    Main_RemoveClassWithEle(Play_BottonIcons_Progress, 'opacity_zero');
+    requestAnimationFrame(function () {
+        Main_RemoveClassWithEle(Play_pause_next_div, 'opacity_zero');
+        Main_RemoveClassWithEle(Play_info_div, 'opacity_zero');
+        Main_RemoveClassWithEle(Play_Controls_Holder, 'opacity_zero');
+        Main_RemoveClassWithEle(Play_BottonIcons_Progress, 'opacity_zero');
+    });
 
     if (!skipInfo) {
         if (!Play_Status_Visible) Main_ShowElementWithEle(Play_side_info_div);

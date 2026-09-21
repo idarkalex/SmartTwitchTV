@@ -17716,6 +17716,7 @@ function Play_getStreamData(channel_name) {
 var streamTitle;
 var streamGame;
 var streamViewers;
+var Play_twemojiCache = {};
 
 function Play_UpdateMainStreamDiv() {
     if (!Play_data.data.length) {
@@ -17723,7 +17724,11 @@ function Play_UpdateMainStreamDiv() {
     }
 
     if (streamTitle !== Play_data.data[2]) {
-        Main_innerHTML('stream_info_title', twemoji.parse(Play_data.data[2], false, true));
+        var title = Play_data.data[2];
+        if (!Play_twemojiCache[title]) {
+            Play_twemojiCache[title] = twemoji.parse(title, false, true);
+        }
+        Main_innerHTML('stream_info_title', Play_twemojiCache[title]);
     }
     streamTitle = Play_data.data[2];
 
@@ -18787,11 +18792,9 @@ function Play_qualityReset() {
 }
 
 function Play_showPanel() {
-    Play_updateStreamInfo();
-
-    if (Play_getQualitiesFail) {
-        Play_getQualities(1, true);
-    }
+    Play_CleanHideExit();
+    Play_ForceShowPannel();
+    Play_ResetPanel(1);
 
     if (!Play_StayDialogVisible()) {
         PlayVod_RefreshProgressBarrStart(true, 0);
@@ -18802,9 +18805,13 @@ function Play_showPanel() {
         PlayVod_RefreshProgressBarrID = Main_setInterval(Play_RefreshWatchingTime, 1000, PlayVod_RefreshProgressBarrID);
     }
 
-    Play_CleanHideExit();
-    Play_ForceShowPannel();
-    Play_ResetPanel(1);
+    Main_setTimeout(function () {
+        Play_updateStreamInfo();
+    }, 0);
+
+    if (Play_getQualitiesFail) {
+        Play_getQualities(1, true);
+    }
 }
 
 function Play_RefreshWatchingTime() {
@@ -24593,8 +24600,12 @@ function Play_SetControlsArrows(key) {
 
 function Play_SetControlsVisibility(prop) {
     for (var key in Play_controls) {
-        if (Play_controls[key][prop]) Play_BottomShow(key);
-        else Play_BottomHide(key);
+        var ctrl = Play_controls[key];
+        var shouldBeVisible = !!ctrl[prop];
+        if (ctrl.visible !== shouldBeVisible) {
+            ctrl.doc.style.display = shouldBeVisible ? '' : 'none';
+            ctrl.visible = shouldBeVisible;
+        }
     }
 
     if (!Play_controls[Play_PanelCounter].visible) {
@@ -24952,10 +24963,12 @@ function Play_BottonIconsHide(hideType) {
 }
 
 function Play_BottonIconsShow(skipInfo) {
-    Main_RemoveClassWithEle(Play_pause_next_div, 'opacity_zero');
-    Main_RemoveClassWithEle(Play_info_div, 'opacity_zero');
-    Main_RemoveClassWithEle(Play_Controls_Holder, 'opacity_zero');
-    Main_RemoveClassWithEle(Play_BottonIcons_Progress, 'opacity_zero');
+    requestAnimationFrame(function () {
+        Main_RemoveClassWithEle(Play_pause_next_div, 'opacity_zero');
+        Main_RemoveClassWithEle(Play_info_div, 'opacity_zero');
+        Main_RemoveClassWithEle(Play_Controls_Holder, 'opacity_zero');
+        Main_RemoveClassWithEle(Play_BottonIcons_Progress, 'opacity_zero');
+    });
 
     if (!skipInfo) {
         if (!Play_Status_Visible) Main_ShowElementWithEle(Play_side_info_div);
@@ -27664,7 +27677,7 @@ function PlayVod_ClearVod() {
 }
 
 function PlayVod_ClearProgressJumptime(jumpCount) {
-    Play_ProgresBarrElm.style.transition = '';
+    Play_ProgresBarrElm.classList.remove('no-transition');
     PlayVod_jumpCount = jumpCount;
     PlayVod_IsJumping = false;
 
@@ -27720,6 +27733,7 @@ function PlayVod_showPanel(autoHide) {
 
 function PlayVod_RefreshProgressBarrStart(showVideoQuality, who_called) {
     PlayVod_getVideoQualityRate = 0;
+    PlayVod_watchingTimeCounter = 0;
 
     if (Play_isOn) Play_RefreshWatchingTime();
 
@@ -27736,6 +27750,12 @@ function PlayVod_RefreshProgressBarrStart(showVideoQuality, who_called) {
         function () {
             PlayVod_RefreshProgressBarr(showVideoQuality, who_called);
             OSInterface_getDuration('Play_UpdateDurationDiv');
+
+            PlayVod_watchingTimeCounter++;
+            if (PlayVod_watchingTimeCounter >= 2) {
+                PlayVod_watchingTimeCounter = 0;
+                Play_RefreshWatchingTime();
+            }
         },
         PlayVod_RefreshProgressBarrTimeout,
         PlayVod_RefreshProgressBarrID
@@ -27743,6 +27763,7 @@ function PlayVod_RefreshProgressBarrStart(showVideoQuality, who_called) {
 }
 
 var PlayVod_getVideoQualityRate = 0;
+var PlayVod_watchingTimeCounter = 0;
 function PlayVod_RefreshProgressBarr(showVideoQuality, who_called) {
     var Update_status = Play_Status_Visible;
 
@@ -27765,21 +27786,19 @@ function PlayVod_RefreshProgressBarr(showVideoQuality, who_called) {
         if (Main_IsOn_OSInterface) OSInterface_getVideoStatus(Play_isOn, who_called);
         else Play_VideoStatusTest();
     }
-
-    if (Play_isOn) Play_RefreshWatchingTime();
 }
 
 function PlayVod_ProgressBarrUpdateNoAnimation(current_time_seconds, duration_seconds, update_bar, callVideoQuality, showVideoQuality, who_called) {
-    Play_ProgresBarrElm.style.transition = 'none';
-    Play_ProgresBarrBufferElm.style.transition = 'none';
+    Play_ProgresBarrElm.classList.add('no-transition');
+    Play_ProgresBarrBufferElm.classList.add('no-transition');
 
     if (Settings_Obj_default('app_animations')) {
         //Sends a minus one to set the progress bar before show
         PlayVod_ProgressBarrUpdate(current_time_seconds > 1.5 ? current_time_seconds - 1.5 : 0, duration_seconds, update_bar);
 
         Main_setTimeout(function () {
-            Play_ProgresBarrElm.style.transition = '';
-            Play_ProgresBarrBufferElm.style.transition = '';
+            Play_ProgresBarrElm.classList.remove('no-transition');
+            Play_ProgresBarrBufferElm.classList.remove('no-transition');
 
             //This will update PlayVod_ProgressBarrUpdate with animation to the correct value
             if (callVideoQuality) {

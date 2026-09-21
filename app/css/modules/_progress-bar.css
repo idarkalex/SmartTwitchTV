@@ -49,6 +49,9 @@
                 /* Keep this same as PlayVod_RefreshProgressBarrTimeout */
                 transition: transform 1s linear;
             }
+.no-transition {
+                transition: none !important;
+            }
 .inner_progress_bar_muted {
                 width: 80%;
                 left: 10%;

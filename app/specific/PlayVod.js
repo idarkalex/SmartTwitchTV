@@ -567,7 +567,7 @@ function PlayVod_ClearVod() {
 }
 
 function PlayVod_ClearProgressJumptime(jumpCount) {
-    Play_ProgresBarrElm.style.transition = '';
+    Play_ProgresBarrElm.classList.remove('no-transition');
     PlayVod_jumpCount = jumpCount;
     PlayVod_IsJumping = false;
 
@@ -623,6 +623,7 @@ function PlayVod_showPanel(autoHide) {
 
 function PlayVod_RefreshProgressBarrStart(showVideoQuality, who_called) {
     PlayVod_getVideoQualityRate = 0;
+    PlayVod_watchingTimeCounter = 0;
 
     if (Play_isOn) Play_RefreshWatchingTime();
 
@@ -639,6 +640,12 @@ function PlayVod_RefreshProgressBarrStart(showVideoQuality, who_called) {
         function () {
             PlayVod_RefreshProgressBarr(showVideoQuality, who_called);
             OSInterface_getDuration('Play_UpdateDurationDiv');
+
+            PlayVod_watchingTimeCounter++;
+            if (PlayVod_watchingTimeCounter >= 2) {
+                PlayVod_watchingTimeCounter = 0;
+                Play_RefreshWatchingTime();
+            }
         },
         PlayVod_RefreshProgressBarrTimeout,
         PlayVod_RefreshProgressBarrID
@@ -646,6 +653,7 @@ function PlayVod_RefreshProgressBarrStart(showVideoQuality, who_called) {
 }
 
 var PlayVod_getVideoQualityRate = 0;
+var PlayVod_watchingTimeCounter = 0;
 function PlayVod_RefreshProgressBarr(showVideoQuality, who_called) {
     var Update_status = Play_Status_Visible;
 
@@ -668,21 +676,19 @@ function PlayVod_RefreshProgressBarr(showVideoQuality, who_called) {
         if (Main_IsOn_OSInterface) OSInterface_getVideoStatus(Play_isOn, who_called);
         else Play_VideoStatusTest();
     }
-
-    if (Play_isOn) Play_RefreshWatchingTime();
 }
 
 function PlayVod_ProgressBarrUpdateNoAnimation(current_time_seconds, duration_seconds, update_bar, callVideoQuality, showVideoQuality, who_called) {
-    Play_ProgresBarrElm.style.transition = 'none';
-    Play_ProgresBarrBufferElm.style.transition = 'none';
+    Play_ProgresBarrElm.classList.add('no-transition');
+    Play_ProgresBarrBufferElm.classList.add('no-transition');
 
     if (Settings_Obj_default('app_animations')) {
         //Sends a minus one to set the progress bar before show
         PlayVod_ProgressBarrUpdate(current_time_seconds > 1.5 ? current_time_seconds - 1.5 : 0, duration_seconds, update_bar);
 
         Main_setTimeout(function () {
-            Play_ProgresBarrElm.style.transition = '';
-            Play_ProgresBarrBufferElm.style.transition = '';
+            Play_ProgresBarrElm.classList.remove('no-transition');
+            Play_ProgresBarrBufferElm.classList.remove('no-transition');
 
             //This will update PlayVod_ProgressBarrUpdate with animation to the correct value
             if (callVideoQuality) {
