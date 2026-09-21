@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <string msgid="4600421777120114993" name="abc_action_bar_home_description">"Navegar para a página inicial"</string>
+    <string msgid="1594238315039666878" name="abc_action_bar_up_description">"Navegar para cima"</string>
+    <string msgid="3588849162933574182" name="abc_action_menu_overflow_description">"Mais opções"</string>
+    <string msgid="4076576682505996667" name="abc_action_mode_done">"Concluído"</string>
+    <string msgid="7468859129482906941" name="abc_activity_chooser_view_see_all">"Ver tudo"</string>
+    <string msgid="2031811694353399454" name="abc_activitychooserview_choose_application">"Selecione um app"</string>
+    <string msgid="121134116657445385" name="abc_capital_off">"DESATIVAR"</string>
+    <string msgid="3405795526292276155" name="abc_capital_on">"ATIVAR"</string>
+    <string msgid="1302280443949172191" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="1324831542140195728" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="8362206064229013510" name="abc_menu_delete_shortcut_label">"delete"</string>
+    <string msgid="8341180395196749340" name="abc_menu_enter_shortcut_label">"enter"</string>
+    <string msgid="4792426091847145555" name="abc_menu_function_shortcut_label">"Function+"</string>
+    <string msgid="7643535737296831317" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="8126296154200614004" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="2378550843553983978" name="abc_menu_space_shortcut_label">"espaço"</string>
+    <string msgid="9002602288060866689" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="1351762916121158029" name="abc_prepend_shortcut_label">"Menu+"</string>
+    <string msgid="7723749260725869598" name="abc_search_hint">"Pesquisar..."</string>
+    <string msgid="3691816814315814921" name="abc_searchview_description_clear">"Limpar consulta"</string>
+    <string msgid="2550479030709304392" name="abc_searchview_description_query">"Consulta de pesquisa"</string>
+    <string msgid="8264924765203268293" name="abc_searchview_description_search">"Pesquisar"</string>
+    <string msgid="8928215447528550784" name="abc_searchview_description_submit">"Enviar consulta"</string>
+    <string msgid="893419373245838918" name="abc_searchview_description_voice">"Pesquisa por voz"</string>
+    <string msgid="3421042268587513524" name="abc_shareactionprovider_share_with">"Compartilhar com"</string>
+    <string msgid="3300176832234831527" name="abc_shareactionprovider_share_with_application">"Compartilhar com <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="1603543279005712093" name="abc_toolbar_collapse_description">"Recolher"</string>
+    <string name="app_name">SmartTwitchTV Mod</string>
+    <string name="channel_disable">Este foi desativado ou falhou ao carregar o conteúdo na última atualização. Pressione enter para atualizar agora (a atualização só acontece quando o aplicativo está visível, clicar irá abrir o aplicativo)</string>
+    <string name="channel_empty">Lista vazia</string>
+    <string name="channel_game_title">%s Canais\nPara %s pessoas</string>
+    <string name="channel_last_refresh">Atualizado em - %s %s %02d:%02d</string>
+    <string name="channel_live_title">%s %s desde %s para %s pessoas\n%s</string>
+    <string name="channel_no_user">É necessário adicionar um usuário primeiro para carregar este conteúdo</string>
+    <string name="channel_refresh">Pressione Enter para atualizar agora (este é atualizado automaticamente a cada 30 minutos em segundo plano), a atualização manual só acontece quando o aplicativo está visível, clicar irá abrir o aplicativo</string>
+    <string name="channel_refreshed">Canal %s da tela inicial atualizado</string>
+    <string name="external_player_fail">Nenhum aplicativo de player de vídeo externo disponível</string>
+    <string msgid="4657191930956702614" name="lb_control_display_fast_forward_multiplier">"%1$dX"</string>
+    <string msgid="4597148235912710942" name="lb_control_display_rewind_multiplier">"%1$dX"</string>
+    <string msgid="893619591225519922" name="lb_guidedaction_continue_title">"Continuar"</string>
+    <string msgid="3330958750346333890" name="lb_guidedaction_finish_title">"Concluir"</string>
+    <string msgid="3228326776757666747" name="lb_media_player_error">"Código de erro do MediaPlayer %1$d extra %2$d"</string>
+    <string msgid="8084428500709675515" name="lb_navigation_menu_contentDescription">"Menu de navegação"</string>
+    <string msgid="2394451791544864917" name="lb_onboarding_accessibility_next">"Próxima"</string>
+    <string msgid="5549711907371161292" name="lb_onboarding_get_started">"VAMOS COMEÇAR"</string>
+    <string msgid="8691966842977635128" name="lb_playback_controls_closed_captioning_disable">"Desativar closed captioning"</string>
+    <string msgid="2346334170216706076" name="lb_playback_controls_closed_captioning_enable">"Ativar closed captioning"</string>
+    <string msgid="740570111678243493" name="lb_playback_controls_fast_forward">"Avançar"</string>
+    <string msgid="5734614175721471329" name="lb_playback_controls_fast_forward_multiplier">"Avançar %1$dX"</string>
+    <string msgid="5859666950961624736" name="lb_playback_controls_hidden">"Os controles de mídia estão ocultos. Pressione o botão direcional para exibi-los"</string>
+    <string msgid="1209119371486219736" name="lb_playback_controls_high_quality_disable">"Desativar alta qualidade"</string>
+    <string msgid="3057698527166674705" name="lb_playback_controls_high_quality_enable">"Ativar alta qualidade"</string>
+    <string msgid="8730341244454469032" name="lb_playback_controls_more_actions">"Mais ações"</string>
+    <string msgid="917331776961802657" name="lb_playback_controls_pause">"Pausar"</string>
+    <string msgid="5770668162543767702" name="lb_playback_controls_picture_in_picture">"Entrar no modo Picture in Picture"</string>
+    <string msgid="7088090604803481121" name="lb_playback_controls_play">"Reproduzir"</string>
+    <string msgid="8429099206716245199" name="lb_playback_controls_repeat_all">"Repetir tudo"</string>
+    <string msgid="1614290959784265209" name="lb_playback_controls_repeat_none">"Não repetir"</string>
+    <string msgid="676658705837320560" name="lb_playback_controls_repeat_one">"Repetir um item"</string>
+    <string msgid="2866333981131020771" name="lb_playback_controls_rewind">"Voltar"</string>
+    <string msgid="6038956370475252734" name="lb_playback_controls_rewind_multiplier">"Voltar %1$dX"</string>
+    <string msgid="8690223891515602822" name="lb_playback_controls_shown">"Os controles de mídia estão sendo exibidos"</string>
+    <string msgid="6793109999253893369" name="lb_playback_controls_shuffle_disable">"Desativar ordem aleatória"</string>
+    <string msgid="5151681938752704485" name="lb_playback_controls_shuffle_enable">"Ativar ordem aleatória"</string>
+    <string msgid="8117512422682146745" name="lb_playback_controls_skip_next">"Pular próxima"</string>
+    <string msgid="3481218248309447059" name="lb_playback_controls_skip_previous">"Pular anterior"</string>
+    <string msgid="3544533410444618518" name="lb_playback_controls_thumb_down">"Desmarcar não gostei"</string>
+    <string msgid="8475278766138652105" name="lb_playback_controls_thumb_down_outline">"Marcar não gostei"</string>
+    <string msgid="3458671378107738666" name="lb_playback_controls_thumb_up">"Desmarcar gostei"</string>
+    <string msgid="1385865732502550659" name="lb_playback_controls_thumb_up_outline">"Marcar gostei"</string>
+    <string msgid="1471121602610716654" name="lb_playback_time_separator">"/"</string>
+    <string msgid="5700349211583074131" name="lb_search_bar_hint">"Pesquisar"</string>
+    <string msgid="5926531297066387462" name="lb_search_bar_hint_speech">"Fale para pesquisar"</string>
+    <string msgid="4826526877249029043" name="lb_search_bar_hint_with_title">"Pesquisar <ns1:g id="SEARCH_CONTEXT">%1$s</ns1:g>"</string>
+    <string msgid="6032250334706920550" name="lb_search_bar_hint_with_title_speech">"Fale para pesquisar <ns1:g id="SEARCH_CONTEXT">%1$s</ns1:g>"</string>
+    <string name="no_internet">Ping ao Twitch falhou nos últimos 30 segundos! \n \nSe o aplicativo não estiver funcionando corretamente, revise sua conexão de internet \n \nSegure a tecla Retornar para fechar o aplicativo caso ele congele ou pare de funcionar.\n\nEsta mensagem será ocultada automaticamente em 30 segundos ou se a conexão retornar \n \nEste aviso pode ser desativado nas configurações</string>
+    <string name="no_network">Sem conexão com a Internet!\n\nConecte-se a uma rede para que o aplicativo possa carregar \n\n ou \n \nSegure a tecla Retornar para fechar o aplicativo.</string>
+    <string name="notification_game">Streamer mudou o jogo</string>
+    <string name="notification_live">Streamer ao vivo</string>
+    <string name="notification_live_game">O jogo está ao vivo</string>
+    <string name="notification_service">Serviço de notificação em execução</string>
+    <string name="notification_text">Sem esta, as notificações não serão exibidas quando o app estiver em segundo plano</string>
+    <string name="notification_title">Streamer mudou o título</string>
+    <string name="notification_title_game">Streamer mudou jogo e título</string>
+    <string msgid="1301877238242752863" name="orb_search_action">"Ação de pesquisa"</string>
+    <string name="playing">Jogando</string>
+    <string msgid="146198913615257606" name="search_menu_title">"Pesquisar"</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string name="streaming">Transmitindo</string>
+    <string name="webview_exception">O aplicativo falhou ao carregar porque o Webview não está presente (improvável) OU em processo de atualização, tente novamente em alguns segundos</string>
+</resources>
