@@ -3310,18 +3310,20 @@ function calculateFontSizeTizen() {
 //Spacing for release maker not trow errors from jshint
 var version = {
     VersionBase: '3.0',
-    publishVersionCode: 394, //Always update (+1 to current value) Main_version_java after update publishVersionCode or a major update of the apk is released
-    ApkUrl: 'https://github.com/idarkalex/SmartTwitchTV/releases/download/v394/SmartTV_twitch__394.apk',
+    publishVersionCode: 395, //Always update (+1 to current value) Main_version_java after update publishVersionCode or a major update of the apk is released
+    ApkUrl: 'https://github.com/idarkalex/SmartTwitchTV/releases/download/v395/SmartTV_twitch__395.apk',
     WebVersion: 'September 21 2026',
-    WebTag: 741, //Always update (+1 to current value) Main_version_web after update Main_minversion or a major update of the web part of the app
+    WebTag: 742, //Always update (+1 to current value) Main_version_web after update Main_minversion or a major update of the web part of the app
     changelog: [
         {
             title: 'September 21 2026',
             changes: [
-                'Player menu performance: 6 optimizations for low-end devices (no more 5fps lag)',
+                'Player menu performance: GPU/rendering fixes for low-end devices (Xiaomi TV 4S)',
+                'Replaced filter:drop-shadow with text-shadow (was forcing expensive rasterization)',
+                'Replaced player gradient with solid color (was causing GPU compositing stalls)',
+                'Removed 35+ unnecessary compositor layers from control buttons',
                 'Fixed ad-filter URL malformed (http// -> http://)',
-                'Fixed async token request crash (was using anonymous headers causing 401)',
-                'Ad filtering: Docker sidecar proxies HLS manifests and strips SSAI ad segments'
+                'Fixed async token request crash (was using anonymous headers causing 401)'
             ]
         },
         {
