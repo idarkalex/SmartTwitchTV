@@ -16380,6 +16380,10 @@ function OSInterface_SetSmallPlayerBitrate(Bitrate, Resolution) {
     if (Main_IsOn_OSInterface) Android.SetSmallPlayerBitrate(Bitrate, Resolution);
 }
 
+function OSInterface_setPPAnimate(enabled) {
+    if (Main_IsOn_OSInterface && Android.setPPAnimate) Android.setPPAnimate(enabled);
+}
+
 //public void SetSmallPlayerBandwidth(int Bitrate, int Resolution)
 //Resolution/Bitrate = set maximum allowed value, if 0 the value will be set to Integer.MAX_VALUE
 //Android specific: true
@@ -39458,6 +39462,7 @@ function Settings_CodecsSet() {
     }
 
     Settings_SetMaxInstances();
+    Settings_AutoTunePP();
 }
 
 function Settings_SetMaxInstances() {
@@ -39482,6 +39487,37 @@ function Settings_SetMaxInstances() {
 
     if (!Play_MaxInstances && len) {
         Play_MaxInstances = Settings_CodecsValue[0].instances > -1 ? Settings_CodecsValue[0].instances : 10;
+    }
+}
+
+function Settings_AutoTunePP() {
+    if (!Main_IsOn_OSInterface) return;
+
+    // Don't override manual user settings
+    if (Settings_Obj_default('bitrate_min') > 0 || Settings_Obj_default('res_min') > 0) return;
+
+    var device = (Android.getDevice() || '').toLowerCase();
+    var isWeakDevice = Play_MaxInstances <= 2;
+
+    if (!isWeakDevice) {
+        isWeakDevice = device.indexOf('mibox') !== -1 ||
+                       device.indexOf('tv 4s') !== -1 ||
+                       device.indexOf('amlogic') !== -1 ||
+                       device.indexOf('s905') !== -1;
+    }
+
+    if (isWeakDevice) {
+        OSInterface_SetSmallPlayerBitrate(4000000, 720);
+
+        if (Play_PicturePictureSize < 2) {
+            Play_PicturePictureSize = 2;
+            Main_setItem('Play_PicturePictureSize', Play_PicturePictureSize);
+            OSInterface_mSetPlayerSize(Play_PicturePictureSize);
+        }
+
+        if (Android.setPPAnimate) Android.setPPAnimate(false);
+
+        Main_Log('AutoTunePP: weak device (' + device + ', instances=' + Play_MaxInstances + ') -> 4Mbps/720p/small PP');
     }
 }
 

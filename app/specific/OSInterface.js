@@ -641,6 +641,10 @@ function OSInterface_SetSmallPlayerBitrate(Bitrate, Resolution) {
     if (Main_IsOn_OSInterface) Android.SetSmallPlayerBitrate(Bitrate, Resolution);
 }
 
+function OSInterface_setPPAnimate(enabled) {
+    if (Main_IsOn_OSInterface && Android.setPPAnimate) Android.setPPAnimate(enabled);
+}
+
 //public void SetSmallPlayerBandwidth(int Bitrate, int Resolution)
 //Resolution/Bitrate = set maximum allowed value, if 0 the value will be set to Integer.MAX_VALUE
 //Android specific: true

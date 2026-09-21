@@ -239,6 +239,7 @@ public class PlayerActivity extends Activity {
     private ThreadPoolExecutor DataThreadPool;
 
     private Transition PreviewTransition;
+    private boolean PPAnimateEnabled = true;
 
     private final int PlayerAccount = 4;
     private final int PlayerAccountPlus = PlayerAccount + 1;
@@ -1141,7 +1142,7 @@ public class PlayerActivity extends Activity {
 
     public void AnimateSetLayoutParams(ViewGroup view, FrameLayout.LayoutParams layout, boolean animate) {
         //Animate the size changes looks odd, the video it self is slow to resize and there is a ghost effect, not noticeable when changing only the position
-        if (animate) TransitionManager.beginDelayedTransition(view, PreviewTransition);
+        if (animate && PPAnimateEnabled) TransitionManager.beginDelayedTransition(view, PreviewTransition);
         view.setLayoutParams(layout);
     }
 
@@ -3377,6 +3378,11 @@ public class PlayerActivity extends Activity {
         @JavascriptInterface
         public int getSDK() {
             return Build.VERSION.SDK_INT;
+        }
+
+        @JavascriptInterface
+        public void setPPAnimate(boolean enabled) {
+            PPAnimateEnabled = enabled;
         }
 
         @JavascriptInterface
