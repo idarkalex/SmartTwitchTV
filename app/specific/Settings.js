@@ -1586,7 +1586,7 @@ function Settings_proxy_set_ad_filter_base() {
         return;
     }
 
-    Play_AdFilterBase = proxyMatch[1] + '//' + proxyMatch[2] + ':8120';
+    Play_AdFilterBase = proxyMatch[1] + '://' + proxyMatch[2] + ':8120';
     Main_Log('AdFilter: base URL set to ' + Play_AdFilterBase);
 }
 

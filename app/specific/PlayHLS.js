@@ -93,7 +93,7 @@ function PlayHLS_GetToken(isLive, Channel_or_VOD_Id, CheckId_y, CheckId_x, callB
         DefaultHttpGetTimeout, //int timeout
         (isLive ? Play_live_token : Play_vod_token).replace('%x', Channel_or_VOD_Id), // String postMessage
         'POST', //String Method
-        useProxy ? Play_Headers_Anonymous : Play_Headers, //String JsonHeadersArray (anonymous when proxy = no OAuth = fewer ads)
+        Play_Headers, //String JsonHeadersArray  // Token request MUST use OAuth (anonymous causes 401 crash)
         'PlayHLS_GetTokenResult', //String callback
         CheckId_y, //long checkResult
         isLive ? '1' : '0', //String check_1
