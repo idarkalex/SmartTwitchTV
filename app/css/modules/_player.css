@@ -48,7 +48,7 @@
             }
 .playerinfo {
                 width: 100%;
-                background: linear-gradient(to bottom, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0));
+                background-color: rgba(0, 0, 0, 0.88);
             }
 .partnericon_div {
                 display: inline-block;

@@ -21,7 +21,11 @@
                 white-space: normal;
             }
 .shadow_text {
-                filter: drop-shadow(0 0.05em 0.15em rgba(0, 0, 0, 0.8)) drop-shadow(0 0.05em 0.15em rgba(0, 0, 0, 0.5));
+                text-shadow:
+                    -0.05em -0.05em 0 #000,
+                    0.05em -0.05em 0 #000,
+                    -0.05em 0.05em 0 #000,
+                    0.05em 0.05em 0 #000;
             }
 .red_text {
                 color: #ff2121;
